@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head data-automata-theme="default">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DSC 40B</title>
+    <link href="/static/style.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+
+    <!-- Mobile menu button -->
+<div class="mobile-navbar lg:hidden fixed top-0 left-0 right-0 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-50 flex items-center">
+    <button id="mobile-menu-button" class="py-5 pl-4 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <i data-lucide="menu" class="w-6 h-5"></i>
+    </button>
+    <span class="ml-2 font-semibold">DSC 40B</span>
+</div>
+
+    <div class="flex min-h-screen">
+        <!-- Left Navigation Column -->
+        <nav id="sidebar" class="
+    w-64 flex-none
+    fixed lg:sticky
+    top-0 left-0 h-screen
+    transform -translate-x-full lg:translate-x-0 transition-transform duration-200 ease-in-out
+    bg-gray-50 dark:bg-gray-900
+    z-40
+    sidebar-mobile-spacing lg:pt-6
+    flex flex-col items-end
+    border-r lg:border-r-0 border-gray-200 dark:border-gray-700
+    ">
+
+    <div class="pt-6 pr-6 flex">
+        <ul class="space-y-2">
+            
+            <li>
+                <a href="/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="calendar-days" class="mr-2 text-slate-400"></i>
+Schedule
+                </a>
+            </li>
+            
+            <li>
+                <a href="/syllabus.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="scale" class="mr-2 text-slate-400"></i>
+Syllabus
+                </a>
+            </li>
+            
+            <li>
+                <a href="/office_hours.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="briefcase-business" class="mr-2 text-slate-400"></i>
+Office Hours
+                </a>
+            </li>
+            
+            <li>
+                <a href="/materials/default/notes/book.pdf" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="book-open" class="mr-2 text-slate-400"></i>
+Course Notes
+                </a>
+            </li>
+            
+            <li>
+                <a href="/practice/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="dumbbell" class="mr-2 text-slate-400"></i>
+Practice
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://campuswire.com/p/G43FA47CB" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-more" class="mr-2 text-slate-400"></i>
+Campuswire
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://www.gradescope.com/courses/1409241" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="spell-check" class="mr-2 text-slate-400"></i>
+Gradescope
+                </a>
+            </li>
+            
+            <li>
+                <a href="/staff.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="users" class="mr-2 text-slate-400"></i>
+Course Staff
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="flex mr-9 pt-3 pb-6">
+        <button id="theme-toggle" class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-full transition-colors">
+            <span id="theme-icon" class="mr-1.5">☾</span>
+            <span id="theme-text">Dark</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Overlay for mobile -->
+<div id="overlay" class="fixed inset-0 bg-gray-200/40 dark:bg-black/50 backdrop-blur-[2px] z-30 hidden"></div>
+
+        <!-- Main Content Column -->
+        
+<!-- Main Content Column -->
+<div class="
+    w-full
+    bg-white dark:bg-gray-800
+    md:border-l
+    border-gray-200 dark:border-gray-700
+    md:min-w-180
+    px-4 md:px-12
+    pt-20 lg:pt-12
+    pb-24
+    ">
+
+    <div class="
+    text-xl font-semibold
+    left-12 right-12
+    py-4 lg:pt-0 lg:pb-0 lg:mb-10
+    lg:static
+    truncate
+    flex
+    ">
+    <div class="
+        shrink
+        lg:border-b border-gray-200 dark:border-gray-700
+        ">
+        <span class="hidden lg:inline">
+            DSC 40B
+            &ndash;
+            Theoretical Foundations of Data Science II
+        </span>
+    </div>
+</div>
+
+    <div class="prose dark:prose-invert">
+    <!DOCTYPE html> <html> <head> <meta
+                          charset="utf-8"> <title>Problems tagged with mergesort</title>
+
+           <!-- MathJax -->
+           <script type="text/x-mathjax-config">
+             MathJax.Hub.Config({
+               tex: {
+                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+                 displayMath: [             // start/end delimiter pairs for display math
+                     ['\\[', '\\]']
+                 ],
+                 processEscapes: true
+               }
+           });
+           </script>
+
+           <!-- highlightjs -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+           <!-- and it's easy to individually load additional languages -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+           <script>hljs.highlightAll();</script>
+
+           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+           <script type="text/javascript" id="MathJax-script" async
+             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+           </script>
+
+       </head>
+       <body>
+           
+<h1>Problems tagged with "mergesort"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #018</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/mergesort.html'>mergesort</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>True or False: the <b>best case</b> time complexity of mergesort is <span class="math">\(\Theta(n)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #019</h2>
+        <p>Tags: <a href='../tags/mergesort.html'>mergesort</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>mergesort</code></span> is called on an array of size <span class="math">\(n\)</span>. In total, how many calls to <span class="inline-code"><code>merge</code></span> are made over all calls to <span class="inline-code"><code>mergesort</code></span>?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #068</h2>
+        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a>, <a href='../tags/mergesort.html'>mergesort</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the modification of <span class="inline-code"><code>mergesort</code></span> shown below, where one of the recursive calls has been replaced by an in-place version of <span class="inline-code"><code>selection_sort</code></span>. Recall that <span class="inline-code"><code>selection_sort</code></span> takes <span class="math">\(\Theta(n^2)\)</span> time.</p>
+<pre class="code"><code>
+def kinda_mergesort(arr):
+    """Sort array in-place."""
+    if len(arr) > 1:
+        middle = math.floor(len(arr) / 2)
+        left = arr[:middle]
+        right = arr[middle:]
+        mergesort(left)
+        selection_sort(right)
+        merge(left, right, arr)
+
+</code></pre>
+
+<p>What is the time complexity of <span class="inline-code"><code>kinda_mergesort</code></span>?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #081</h2>
+        <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/mergesort.html'>mergesort</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the code for <span class="inline-code"><code>mergesort</code></span> and <span class="inline-code"><code>merge</code></span> where a new <span class="inline-code"><code>print</code></span>-statement has been added to <span class="inline-code"><code>merge</code></span>:</p>
+<pre class="code"><code>
+
+def mergesort(arr):
+    """Sort array in-place."""
+    if len(arr) > 1:
+        middle = math.floor(len(arr) / 2)
+        left = arr[:middle]
+        right = arr[middle:]
+        mergesort(left)
+        mergesort(right)
+        merge(left, right, arr)
+
+def merge(left, right, out):
+    """Merge sorted arrays, store in out."""
+    left.append(float('inf'))
+    right.append(float('inf'))
+    left_ix = 0
+    right_ix = 0
+
+    for ix in range(len(out)):
+        print("Here!") # <---- the newly-added line
+        if left[left_ix] < right[right_ix]:
+            out[ix] = left[left_ix]
+            left_ix += 1
+        else:
+            out[ix] = right[right_ix]
+            right_ix += 1
+
+</code></pre>
+
+<p>Suppose <span class="inline-code"><code>mergesort</code></span> is called on an array of size <span class="math">\(n\)</span>. In total, how many times will <span class="inline-code"><code>"Here!"</code></span> be printed?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n \log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #193</h2>
+        <p>Tags: <a href='../tags/mergesort.html'>mergesort</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Below is the <span class="inline-code"><code>merge</code></span> function from the <span class="inline-code"><code>mergesort</code></span> algorithm, with an added <span class="inline-code"><code>print</code></span> statement:</p>
+<pre class="code"><code>
+
+def merge(left, right, out):
+    """Merge sorted arrays, store in out."""
+    print(len(left))
+    print(len(right))
+    left.append(float('inf'))
+    right.append(float('inf'))
+    left_ix = 0
+    right_ix = 0
+
+    for ix in range(len(out)):
+        if left[left_ix] < right[right_ix]:
+            out[ix] = left[left_ix]
+            left_ix += 1
+        else:
+            out[ix] = right[right_ix]
+            right_ix += 1
+
+</code></pre>
+
+<p>Suppose this version of <span class="inline-code"><code>merge</code></span> is used in <span class="inline-code"><code>mergesort</code></span>, and <span class="inline-code"><code>mergesort</code></span> is called on the following list:</p>
+<p><span class="inline-code"><code>[6, 2, 7, 1, 9, 3, 8, 5]</code></span>.</p>
+<p>If all of the numbers that are printed are added up, what will the sum be?</p>
+<p>
+<span class="inline-response-box">
+    <span id="answer-ce0801d4-dbe2-465b-afad-2b1d24631011" style="display: none">24</span>
+    <span id="button-ce0801d4-dbe2-465b-afad-2b1d24631011">
+        <button
+            type="button"
+            onclick="
+                document.getElementById('answer-ce0801d4-dbe2-465b-afad-2b1d24631011').style.display = 'inline-block';
+                document.getElementById('button-ce0801d4-dbe2-465b-afad-2b1d24631011').style.display = 'none'
+            "
+        >
+            Show Answer
+        </button>
+    </span>
+</span>
+</p>
+    </div>
+</div>
+
+        </div>
+
+
+
+       </body>
+   </html>
+    </div>
+</div>
+
+    </div>
+
+    <script>
+        // Restore saved theme on page load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else if (savedTheme === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Dark mode toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        // Update button to reflect current theme
+        function updateThemeButton() {
+            const isDark = document.documentElement.classList.contains('dark');
+            themeIcon.textContent = isDark ? '☀' : '☾';
+            themeText.textContent = isDark ? 'Light' : 'Dark';
+        }
+
+        // Initialize button state
+        updateThemeButton();
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.contains('dark');
+
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+
+            updateThemeButton();
+        });
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        menuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        });
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head data-automata-theme="default">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DSC 40B</title>
+    <link href="/static/style.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+
+    <!-- Mobile menu button -->
+<div class="mobile-navbar lg:hidden fixed top-0 left-0 right-0 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-50 flex items-center">
+    <button id="mobile-menu-button" class="py-5 pl-4 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <i data-lucide="menu" class="w-6 h-5"></i>
+    </button>
+    <span class="ml-2 font-semibold">DSC 40B</span>
+</div>
+
+    <div class="flex min-h-screen">
+        <!-- Left Navigation Column -->
+        <nav id="sidebar" class="
+    w-64 flex-none
+    fixed lg:sticky
+    top-0 left-0 h-screen
+    transform -translate-x-full lg:translate-x-0 transition-transform duration-200 ease-in-out
+    bg-gray-50 dark:bg-gray-900
+    z-40
+    sidebar-mobile-spacing lg:pt-6
+    flex flex-col items-end
+    border-r lg:border-r-0 border-gray-200 dark:border-gray-700
+    ">
+
+    <div class="pt-6 pr-6 flex">
+        <ul class="space-y-2">
+            
+            <li>
+                <a href="/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="calendar-days" class="mr-2 text-slate-400"></i>
+Schedule
+                </a>
+            </li>
+            
+            <li>
+                <a href="/syllabus.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="scale" class="mr-2 text-slate-400"></i>
+Syllabus
+                </a>
+            </li>
+            
+            <li>
+                <a href="/office_hours.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="briefcase-business" class="mr-2 text-slate-400"></i>
+Office Hours
+                </a>
+            </li>
+            
+            <li>
+                <a href="/materials/default/notes/book.pdf" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="book-open" class="mr-2 text-slate-400"></i>
+Course Notes
+                </a>
+            </li>
+            
+            <li>
+                <a href="/practice/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="dumbbell" class="mr-2 text-slate-400"></i>
+Practice
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://campuswire.com/p/G43FA47CB" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-more" class="mr-2 text-slate-400"></i>
+Campuswire
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://www.gradescope.com/courses/1409241" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="spell-check" class="mr-2 text-slate-400"></i>
+Gradescope
+                </a>
+            </li>
+            
+            <li>
+                <a href="/staff.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="users" class="mr-2 text-slate-400"></i>
+Course Staff
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="flex mr-9 pt-3 pb-6">
+        <button id="theme-toggle" class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-full transition-colors">
+            <span id="theme-icon" class="mr-1.5">☾</span>
+            <span id="theme-text">Dark</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Overlay for mobile -->
+<div id="overlay" class="fixed inset-0 bg-gray-200/40 dark:bg-black/50 backdrop-blur-[2px] z-30 hidden"></div>
+
+        <!-- Main Content Column -->
+        
+<!-- Main Content Column -->
+<div class="
+    w-full
+    bg-white dark:bg-gray-800
+    md:border-l
+    border-gray-200 dark:border-gray-700
+    md:min-w-180
+    px-4 md:px-12
+    pt-20 lg:pt-12
+    pb-24
+    ">
+
+    <div class="
+    text-xl font-semibold
+    left-12 right-12
+    py-4 lg:pt-0 lg:pb-0 lg:mb-10
+    lg:static
+    truncate
+    flex
+    ">
+    <div class="
+        shrink
+        lg:border-b border-gray-200 dark:border-gray-700
+        ">
+        <span class="hidden lg:inline">
+            DSC 40B
+            &ndash;
+            Theoretical Foundations of Data Science II
+        </span>
+    </div>
+</div>
+
+    <div class="prose dark:prose-invert">
+    <!DOCTYPE html> <html> <head> <meta
+                          charset="utf-8"> <title>Problems tagged with loop invariants</title>
+
+           <!-- MathJax -->
+           <script type="text/x-mathjax-config">
+             MathJax.Hub.Config({
+               tex: {
+                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+                 displayMath: [             // start/end delimiter pairs for display math
+                     ['\\[', '\\]']
+                 ],
+                 processEscapes: true
+               }
+           });
+           </script>
+
+           <!-- highlightjs -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+           <!-- and it's easy to individually load additional languages -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+           <script>hljs.highlightAll();</script>
+
+           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+           <script type="text/javascript" id="MathJax-script" async
+             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+           </script>
+
+       </head>
+       <body>
+           
+<h1>Problems tagged with "loop invariants"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #062</h2>
+        <p>Tags: <a href='../tags/loop invariants.html'>loop invariants</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the iterative implementation of binary search shown below:</p>
+<pre class="code"><code>
+import math
+
+def iterative_binary_search(arr, target):
+
+    start = 0
+    stop = len(arr)
+
+    while (stop - start) > 0:
+        print(arr[start])
+        middle = math.floor((start + stop) / 2)
+        if arr[middle] == target:
+            return middle
+        elif arr[middle] > target:
+            stop = middle
+        else:
+            start = middle + 1
+
+    return None
+
+</code></pre>
+
+<p>Which of the following loop invariants is true, assuming that <span class="inline-code"><code>arr</code></span> is sorted and non-empty, and <span class="inline-code"><code>target</code></span> is <b>not</b> in the array? Select all that apply.</p>
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, <span class="inline-code"><code>stop - start >= 0</code></span>.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, <span class="inline-code"><code>stop - start >= 1</code></span>.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, <span class="inline-code"><code>arr[start] <= target</code></span>.</p></label></div></div>
+<details>
+    <summary>Solution</summary>
+<p>The first option is correct.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #074</h2>
+        <p>Tags: <a href='../tags/loop invariants.html'>loop invariants</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider <span class="inline-code"><code>iterative_binary_search</code></span> below and note the <span class="inline-code"><code>print</code></span> statement in the <span class="inline-code"><code>while</code></span>-loop:</p>
+<pre class="code"><code>
+
+import math
+
+def iterative_binary_search(arr, target):
+
+    start = 0
+    stop = len(arr)
+
+    while (stop - start) > 0:
+        print(arr[start])
+        middle = math.floor((start + stop) / 2)
+        if arr[middle] == target:
+            return middle
+        elif arr[middle] > target:
+            stop = middle
+        else:
+            start = middle + 1
+
+    return None
+
+</code></pre>
+
+<p>Suppose <span class="inline-code"><code>iterative_binary_search</code></span> is run on the array:</p>
+<pre class="code"><code>
+[-202, -201, -200, -50, -20, -10, -4, -3, 0, 1, 3, 5, 6, 7, 9, 10, 12, 15, 22]
+</code></pre>
+
+<p>with target <span class="inline-code"><code>11</code></span>.</p>
+<p>What will be the last value of <span class="inline-code"><code>arr[start]</code></span> printed?</p>
+<details>
+    <summary>Solution</summary>
+<p>10</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #075</h2>
+        <p>Tags: <a href='../tags/loop invariants.html'>loop invariants</a>, <a href='../tags/quickselect.html'>quickselect</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Recall the partition operation from <span class="inline-code"><code>quickselect</code></span>. Which of the following arrays could have been partitioned at least once? Select all that apply.</p>
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[50, 10, 20, 30, 60, 40]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[20, 10, 30, 60, 40, 50]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[20, 50, 10, 40, 30, 60]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[60, 50, 40, 30, 20, 10]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[10, 20, 30, 40, 50, 60]</code></span></p></label></div></div>
+<details>
+    <summary>Solution</summary>
+<p>The second, third, and last all should be selected.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #196</h2>
+        <p>Tags: <a href='../tags/loop invariants.html'>loop invariants</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider this code which partitions a list in a special way:</p>
+<pre class="code"><code>
+def is_even(i):
+    """Returns True if i is even, False otherwise."""
+    return i % 2 == 0
+
+def mystery_partition(numbers):
+    def swap(i, j):
+        numbers[i], numbers[j] = numbers[j], numbers[i]
+
+    barrier_ix = 0
+    for i in range(len(numbers)):
+        if is_even(numbers[i]):
+            swap(i, barrier_ix)
+            if numbers[barrier_ix] > numbers[0]:
+                swap(0, barrier_ix)
+            barrier_ix += 1
+
+
+lst = [1, 5, 3, 7, 2, 4, 8, 5, 9, 6, 100]
+mystery_partition(lst)
+print(lst)
+
+</code></pre>
+
+<p>Which of the following loop invariants are true for this code? Select all that apply.</p>
+<p>Note: any statement about an empty set or list is considered to be automatically true.</p>
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration of the <span class="inline-code"><code>for</code></span> loop, all numbers in <span class="inline-code"><code>numbers[:barrier_ix]</code></span> are even.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration of the <span class="inline-code"><code>for</code></span> loop, all numbers in <span class="inline-code"><code>numbers[barrier_ix:]</code></span> are odd.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration of the <span class="inline-code"><code>for</code></span> loop, <span class="inline-code"><code>numbers[0]</code></span> is greater than or equal to all numbers in <span class="inline-code"><code>numbers[:barrier_ix]</code></span>.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration of the <span class="inline-code"><code>for</code></span> loop, <span class="inline-code"><code>numbers[0]</code></span> is the maximum of <span class="inline-code"><code>numbers[:i+1]</code></span>.</p></label></div></div>
+<details>
+    <summary>Solution</summary>
+<p>1st option: After each iteration of the <span class="inline-code"><code>for</code></span> loop, all numbers in <span class="inline-code"><code>numbers[:barrier_ix]</code></span> are even.</p>
+<p>3rd option: After each iteration of the <span class="inline-code"><code>for</code></span> loop, <span class="inline-code"><code>numbers[0]</code></span> is greater than or equal to all numbers in <span class="inline-code"><code>numbers[:barrier_ix]</code></span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+       </body>
+   </html>
+    </div>
+</div>
+
+    </div>
+
+    <script>
+        // Restore saved theme on page load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else if (savedTheme === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Dark mode toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        // Update button to reflect current theme
+        function updateThemeButton() {
+            const isDark = document.documentElement.classList.contains('dark');
+            themeIcon.textContent = isDark ? '☀' : '☾';
+            themeText.textContent = isDark ? 'Light' : 'Dark';
+        }
+
+        // Initialize button state
+        updateThemeButton();
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.contains('dark');
+
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+
+            updateThemeButton();
+        });
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        menuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        });
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>

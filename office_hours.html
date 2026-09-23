@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head data-automata-theme="default">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DSC 40B</title>
+    <link href="/static/style.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+
+    <!-- Mobile menu button -->
+<div class="mobile-navbar lg:hidden fixed top-0 left-0 right-0 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-50 flex items-center">
+    <button id="mobile-menu-button" class="py-5 pl-4 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <i data-lucide="menu" class="w-6 h-5"></i>
+    </button>
+    <span class="ml-2 font-semibold">DSC 40B</span>
+</div>
+
+    <div class="flex min-h-screen">
+        <!-- Left Navigation Column -->
+        <nav id="sidebar" class="
+    w-64 flex-none
+    fixed lg:sticky
+    top-0 left-0 h-screen
+    transform -translate-x-full lg:translate-x-0 transition-transform duration-200 ease-in-out
+    bg-gray-50 dark:bg-gray-900
+    z-40
+    sidebar-mobile-spacing lg:pt-6
+    flex flex-col items-end
+    border-r lg:border-r-0 border-gray-200 dark:border-gray-700
+    ">
+
+    <div class="pt-6 pr-6 flex">
+        <ul class="space-y-2">
+            
+            <li>
+                <a href="/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="calendar-days" class="mr-2 text-slate-400"></i>
+Schedule
+                </a>
+            </li>
+            
+            <li>
+                <a href="/syllabus.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="scale" class="mr-2 text-slate-400"></i>
+Syllabus
+                </a>
+            </li>
+            
+            <li>
+                <a href="/office_hours.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="briefcase-business" class="mr-2 text-slate-400"></i>
+Office Hours
+                </a>
+            </li>
+            
+            <li>
+                <a href="/materials/default/notes/book.pdf" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="book-open" class="mr-2 text-slate-400"></i>
+Course Notes
+                </a>
+            </li>
+            
+            <li>
+                <a href="/practice/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="dumbbell" class="mr-2 text-slate-400"></i>
+Practice
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://campuswire.com/p/G43FA47CB" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-more" class="mr-2 text-slate-400"></i>
+Campuswire
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://www.gradescope.com/courses/1409241" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="spell-check" class="mr-2 text-slate-400"></i>
+Gradescope
+                </a>
+            </li>
+            
+            <li>
+                <a href="/staff.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="users" class="mr-2 text-slate-400"></i>
+Course Staff
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="flex mr-9 pt-3 pb-6">
+        <button id="theme-toggle" class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-full transition-colors">
+            <span id="theme-icon" class="mr-1.5">☾</span>
+            <span id="theme-text">Dark</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Overlay for mobile -->
+<div id="overlay" class="fixed inset-0 bg-gray-200/40 dark:bg-black/50 backdrop-blur-[2px] z-30 hidden"></div>
+
+        <!-- Main Content Column -->
+        
+<!-- Main Content Column -->
+<div class="
+    w-full
+    bg-white dark:bg-gray-800
+    md:border-l
+    border-gray-200 dark:border-gray-700
+    md:min-w-180
+    px-4 md:px-12
+    pt-20 lg:pt-12
+    pb-24
+    ">
+
+    <div class="
+    text-xl font-semibold
+    left-12 right-12
+    py-4 lg:pt-0 lg:pb-0 lg:mb-10
+    lg:static
+    truncate
+    flex
+    ">
+    <div class="
+        shrink
+        lg:border-b border-gray-200 dark:border-gray-700
+        ">
+        <span class="hidden lg:inline">
+            DSC 40B
+            &ndash;
+            Theoretical Foundations of Data Science II
+        </span>
+    </div>
+</div>
+
+    <div class="prose dark:prose-invert">
+    <h1>👨‍🏫️ Office Hours</h1>
+<p>We will be offering a variety of ways to connect with course staff this quarter.
+Check the title of the calendar event to see whether the office hour is
+in-person-only, remote-only, or hybrid.</p>
+<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FLos_Angeles&amp;src=dWNzZC5lZHVfdHNzam5iMTRrZHZkNzRtM3JsbzRwdmt0N2NAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23F6BF26&amp;showNav=0&amp;showDate=1&amp;showTabs=0&amp;showCalendars=0&amp;mode=WEEK" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+
+    </div>
+</div>
+
+    </div>
+
+    <script>
+        // Restore saved theme on page load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else if (savedTheme === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Dark mode toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        // Update button to reflect current theme
+        function updateThemeButton() {
+            const isDark = document.documentElement.classList.contains('dark');
+            themeIcon.textContent = isDark ? '☀' : '☾';
+            themeText.textContent = isDark ? 'Light' : 'Dark';
+        }
+
+        // Initialize button state
+        updateThemeButton();
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.contains('dark');
+
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+
+            updateThemeButton();
+        });
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        menuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        });
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>

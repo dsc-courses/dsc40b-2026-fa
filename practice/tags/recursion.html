@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head data-automata-theme="default">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DSC 40B</title>
+    <link href="/static/style.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+
+    <!-- Mobile menu button -->
+<div class="mobile-navbar lg:hidden fixed top-0 left-0 right-0 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-50 flex items-center">
+    <button id="mobile-menu-button" class="py-5 pl-4 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <i data-lucide="menu" class="w-6 h-5"></i>
+    </button>
+    <span class="ml-2 font-semibold">DSC 40B</span>
+</div>
+
+    <div class="flex min-h-screen">
+        <!-- Left Navigation Column -->
+        <nav id="sidebar" class="
+    w-64 flex-none
+    fixed lg:sticky
+    top-0 left-0 h-screen
+    transform -translate-x-full lg:translate-x-0 transition-transform duration-200 ease-in-out
+    bg-gray-50 dark:bg-gray-900
+    z-40
+    sidebar-mobile-spacing lg:pt-6
+    flex flex-col items-end
+    border-r lg:border-r-0 border-gray-200 dark:border-gray-700
+    ">
+
+    <div class="pt-6 pr-6 flex">
+        <ul class="space-y-2">
+            
+            <li>
+                <a href="/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="calendar-days" class="mr-2 text-slate-400"></i>
+Schedule
+                </a>
+            </li>
+            
+            <li>
+                <a href="/syllabus.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="scale" class="mr-2 text-slate-400"></i>
+Syllabus
+                </a>
+            </li>
+            
+            <li>
+                <a href="/office_hours.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="briefcase-business" class="mr-2 text-slate-400"></i>
+Office Hours
+                </a>
+            </li>
+            
+            <li>
+                <a href="/materials/default/notes/book.pdf" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="book-open" class="mr-2 text-slate-400"></i>
+Course Notes
+                </a>
+            </li>
+            
+            <li>
+                <a href="/practice/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="dumbbell" class="mr-2 text-slate-400"></i>
+Practice
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://campuswire.com/p/G43FA47CB" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-more" class="mr-2 text-slate-400"></i>
+Campuswire
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://www.gradescope.com/courses/1409241" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="spell-check" class="mr-2 text-slate-400"></i>
+Gradescope
+                </a>
+            </li>
+            
+            <li>
+                <a href="/staff.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="users" class="mr-2 text-slate-400"></i>
+Course Staff
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="flex mr-9 pt-3 pb-6">
+        <button id="theme-toggle" class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-full transition-colors">
+            <span id="theme-icon" class="mr-1.5">☾</span>
+            <span id="theme-text">Dark</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Overlay for mobile -->
+<div id="overlay" class="fixed inset-0 bg-gray-200/40 dark:bg-black/50 backdrop-blur-[2px] z-30 hidden"></div>
+
+        <!-- Main Content Column -->
+        
+<!-- Main Content Column -->
+<div class="
+    w-full
+    bg-white dark:bg-gray-800
+    md:border-l
+    border-gray-200 dark:border-gray-700
+    md:min-w-180
+    px-4 md:px-12
+    pt-20 lg:pt-12
+    pb-24
+    ">
+
+    <div class="
+    text-xl font-semibold
+    left-12 right-12
+    py-4 lg:pt-0 lg:pb-0 lg:mb-10
+    lg:static
+    truncate
+    flex
+    ">
+    <div class="
+        shrink
+        lg:border-b border-gray-200 dark:border-gray-700
+        ">
+        <span class="hidden lg:inline">
+            DSC 40B
+            &ndash;
+            Theoretical Foundations of Data Science II
+        </span>
+    </div>
+</div>
+
+    <div class="prose dark:prose-invert">
+    <!DOCTYPE html> <html> <head> <meta
+                          charset="utf-8"> <title>Problems tagged with recursion</title>
+
+           <!-- MathJax -->
+           <script type="text/x-mathjax-config">
+             MathJax.Hub.Config({
+               tex: {
+                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+                 displayMath: [             // start/end delimiter pairs for display math
+                     ['\\[', '\\]']
+                 ],
+                 processEscapes: true
+               }
+           });
+           </script>
+
+           <!-- highlightjs -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+           <!-- and it's easy to individually load additional languages -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+           <script>hljs.highlightAll();</script>
+
+           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+           <script type="text/javascript" id="MathJax-script" async
+             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+           </script>
+
+       </head>
+       <body>
+           
+<h1>Problems tagged with "recursion"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #035</h2>
+        <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>binary_search</code></span> has been called on a sorted array <span class="inline-code"><code>arr</code></span> with a target <span class="inline-code"><code>t</code></span> that is not necessarily in the array, and with start and stop indices <span class="inline-code"><code>start</code></span> and <span class="inline-code"><code>stop</code></span>, respectively (remember, our convention is that the start index is included, while the stop index is excluded from the search). Which of the following must be true? <b>Mark all which apply</b>. You may assume that <span class="inline-code"><code>stop - start</code></span><span class="math">\(\geq 1\)</span>.</p>
+<p>Note: remember that any statement about an empty array is considered to be automatically true. Also, you cannot assume that this call to <span class="inline-code"><code>binary_search</code></span> is the <i>root</i> call (it could be a recursive call).</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[start] < t < arr[stop]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[start] < t < arr[stop - 1]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[:start] < t</code></span>. That is, everything up to but excluding <span class="inline-code"><code>arr[start]</code></span> is less than the target.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[stop:] > t</code></span>. That is, everything after <span class="inline-code"><code>stop</code></span>, including the element at <span class="inline-code"><code>stop</code></span>, is greater than the target.</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>The last two answers are both correct.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #041</h2>
+        <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>binary_search</code></span> is called on a sorted array of size <span class="math">\(n\)</span>. In total, how many recursive calls to <span class="inline-code"><code>binary_search</code></span> are made in the worst case?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #069</h2>
+        <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the code below which claims to compute the most common element in the array, returning a pair: the element along with the number of times it appears.</p>
+<pre class="code"><code>
+import math
+
+def most_common(arr, start, stop):
+    """Attempts to compute the most common element in arr[start:stop]."""
+    if stop - start == 1:
+        return (arr[start], 1)
+
+    middle = math.floor((start + stop) / 2)
+
+    left_value, left_count = most_common(arr, start, middle)
+    right_value, right_count = most_common(arr, middle, stop)
+
+    if left_count > right_count:
+        return (left_value, left_count)
+    else:
+        return (right_value, right_count)
+
+</code></pre>
+
+<p>You may assume that the function is always called on a non-empty array, and with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>. Will this code always return the correct answer (the most common element)?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Yes: it will always return the correct answer.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may recurse infinitely.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may try to access the array at an invalid index.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it will run without error, but the element returned may not be the most common element in the array.</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>No: it will run without error, but the element returned may not be the most common element in the array.</p>
+<p>It is not true in general that the most common element in the array is the most common in the left or the right. As a simple example, take: <span class="inline-code"><code>[1,1,1,0,0,2,2,2,0,0]</code></span>. 1 is the most common in the left half, and 2 is the most common in the right half, but 0 is the most common overall.</p>
+<p>So even if we assume that <span class="inline-code"><code>most_common(arr, start, middle)</code></span> finds the most common element in left half of the array, and <span class="inline-code"><code>most_common(arr, middle, stop)</code></span> finds the most common element in the right of the array, it is not necessarily the case that the most common between them is the overall most common in the array.</p>
+<p>You can also quickly see that the code cannot be correct because nowhere is a count greater than one ever returned.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #081</h2>
+        <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/mergesort.html'>mergesort</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the code for <span class="inline-code"><code>mergesort</code></span> and <span class="inline-code"><code>merge</code></span> where a new <span class="inline-code"><code>print</code></span>-statement has been added to <span class="inline-code"><code>merge</code></span>:</p>
+<pre class="code"><code>
+
+def mergesort(arr):
+    """Sort array in-place."""
+    if len(arr) > 1:
+        middle = math.floor(len(arr) / 2)
+        left = arr[:middle]
+        right = arr[middle:]
+        mergesort(left)
+        mergesort(right)
+        merge(left, right, arr)
+
+def merge(left, right, out):
+    """Merge sorted arrays, store in out."""
+    left.append(float('inf'))
+    right.append(float('inf'))
+    left_ix = 0
+    right_ix = 0
+
+    for ix in range(len(out)):
+        print("Here!") # <---- the newly-added line
+        if left[left_ix] < right[right_ix]:
+            out[ix] = left[left_ix]
+            left_ix += 1
+        else:
+            out[ix] = right[right_ix]
+            right_ix += 1
+
+</code></pre>
+
+<p>Suppose <span class="inline-code"><code>mergesort</code></span> is called on an array of size <span class="math">\(n\)</span>. In total, how many times will <span class="inline-code"><code>"Here!"</code></span> be printed?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n \log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #083</h2>
+        <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/binary search.html'>binary search</a>, <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math">\(\geq x\)</span>). The full code is shown below for convenience:</p>
+<pre class="code"><code>
+import math
+
+def new_binary_search(arr, start, stop, target):
+    if stop <= start:
+        return None
+
+    middle = math.ceil((start + stop) / 2)
+
+    if arr[middle] == target:
+        return middle
+    elif arr[middle] < target:
+        return new_binary_search(arr, middle + 1, stop, target)
+    else:
+        return new_binary_search(arr, start, middle, target)
+
+</code></pre>
+
+<p>You may assume that <span class="inline-code"><code>arr</code></span> will be a sorted list containing at least one number, and that the initial call to <span class="inline-code"><code>new_binary_search</code></span> will be with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>.</p>
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 1)</h3>
+<p>True or False: there are input arrays on which <span class="inline-code"><code>new_binary_search</code></span> will recurse infinitely.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 2)</h3>
+<p>True or False: there are input arrays on which <span class="inline-code"><code>new_binary_search</code></span> will raise an <span class="inline-code"><code>IndexError</code></span> because it attempts to access an element of the array which does not exist.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+</div>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #169</h2>
+        <p>Tags: <a href='../tags/recursion.html'>recursion</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Professor Billy claims to have invented a new sorting algorithm: <span class="inline-code"><code>mediansort</code></span>. The algorithm supposedly works by finding a median number, swapping it into the middle of the list, and recursing on the left half and the right half. Professor Billy's code is written below:</p>
+<pre class="code"><code>
+import math
+
+def mediansort(arr, start, stop):
+    """Claims to sort the array, in-place."""
+    if stop - start <= 1:
+        return
+
+    # finds the index of the median of arr[start:stop]
+    median_ix = find_median(arr, start, stop)
+
+    middle_ix = math.floor((start + stop) / 2)
+
+    # move the median to the middle by swapping
+    arr[median_ix], arr[middle_ix] = arr[middle_ix], arr[median_ix]
+
+    # recurse on the left and right halves
+    mediansort(arr, start, middle_ix)
+    mediansort(arr, middle_ix + 1, stop)
+
+
+def find_median(arr, start, stop):
+    """Finds the index of a median of the elements in arr[start:stop]."""
+    numbers = arr[start:stop]
+    median = sorted(numbers)[len(numbers) // 2]
+    for i in range(start, stop):
+        if arr[i] == median:
+            return i
+
+
+import random
+s = random.randint(10, 100)
+arr = [random.randint(0, 1000) for _ in range(s)]
+mediansort(arr, 0, len(arr))
+print(arr)
+
+</code></pre>
+
+<p>The code is supposed to sort ``in place'' by modifying the input array. You may assume that <span class="inline-code"><code>find_median</code></span> correctly returns the index of the median element in <span class="inline-code"><code>arr[start:stop]</code></span>.</p>
+<p>Does Professor Billy's <span class="inline-code"><code>mediansort</code></span> algorithm work? You may assume that it is called with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Yes: <span class="inline-code"><code>arr</code></span> will be in sorted order after the function exits.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may recurse infinitely.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may try to access the array at an invalid index and then raise an exception.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it will run without error, but <span class="inline-code"><code>arr</code></span> may not be sorted when the function exits.</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><b>No: it will run without error, but \mintinline{python}{arr} may not be sorted when the function exits</b>.</p>
+<p>Remember the three things to check when evaluating recursive code: 1) does it have a base case? 2) do the recursive subproblems get smaller and smaller? and 3) assuming that the recursive subcalls do what they say they will, does the algorithm work overall?</p>
+<p>In this situation, the third thing does not check out. That is: even if <span class="inline-code"><code>mediansort(arr, start, middle_ix)</code></span> correctly sorts the numbers in <span class="inline-code"><code>arr[start:middle_ix]</code></span>(and the other call does the same for the right half of the list), this does not mean that <span class="inline-code"><code>arr</code></span> will be in sorted order over all. We would still need to merge the two sorted halves together into one sorted list.</p>
+<p>It might help to look at this another way. On the root call to <span class="inline-code"><code>mediansort</code></span>, the median is put into its correct position in the sorted order. But on the recursive calls, this is not true. Consider the recursive call on the left half -- during this call, the median of the first <span class="math">\(n/2\)</span> numbers in the list is placed into position <span class="math">\(n/4\)</span>(roughly). This isn't quite what we want -- we want to put the median of the <i>smallest</i><span class="math">\(n/2\)</span> numbers here. But the first <span class="math">\(n/2\)</span> numbers in the list aren't necessarily the <i>smallest</i><span class="math">\(n/2\)</span> numbers in the list overall.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+       </body>
+   </html>
+    </div>
+</div>
+
+    </div>
+
+    <script>
+        // Restore saved theme on page load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else if (savedTheme === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Dark mode toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        // Update button to reflect current theme
+        function updateThemeButton() {
+            const isDark = document.documentElement.classList.contains('dark');
+            themeIcon.textContent = isDark ? '☀' : '☾';
+            themeText.textContent = isDark ? 'Light' : 'Dark';
+        }
+
+        // Initialize button state
+        updateThemeButton();
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.contains('dark');
+
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+
+            updateThemeButton();
+        });
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        menuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        });
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>

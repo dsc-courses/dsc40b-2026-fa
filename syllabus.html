@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head data-automata-theme="default">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DSC 40B</title>
+    <link href="/static/style.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+
+    <!-- Mobile menu button -->
+<div class="mobile-navbar lg:hidden fixed top-0 left-0 right-0 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-50 flex items-center">
+    <button id="mobile-menu-button" class="py-5 pl-4 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <i data-lucide="menu" class="w-6 h-5"></i>
+    </button>
+    <span class="ml-2 font-semibold">DSC 40B</span>
+</div>
+
+    <div class="flex min-h-screen">
+        <!-- Left Navigation Column -->
+        <nav id="sidebar" class="
+    w-64 flex-none
+    fixed lg:sticky
+    top-0 left-0 h-screen
+    transform -translate-x-full lg:translate-x-0 transition-transform duration-200 ease-in-out
+    bg-gray-50 dark:bg-gray-900
+    z-40
+    sidebar-mobile-spacing lg:pt-6
+    flex flex-col items-end
+    border-r lg:border-r-0 border-gray-200 dark:border-gray-700
+    ">
+
+    <div class="pt-6 pr-6 flex">
+        <ul class="space-y-2">
+            
+            <li>
+                <a href="/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="calendar-days" class="mr-2 text-slate-400"></i>
+Schedule
+                </a>
+            </li>
+            
+            <li>
+                <a href="/syllabus.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="scale" class="mr-2 text-slate-400"></i>
+Syllabus
+                </a>
+            </li>
+            
+            <li>
+                <a href="/office_hours.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="briefcase-business" class="mr-2 text-slate-400"></i>
+Office Hours
+                </a>
+            </li>
+            
+            <li>
+                <a href="/materials/default/notes/book.pdf" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="book-open" class="mr-2 text-slate-400"></i>
+Course Notes
+                </a>
+            </li>
+            
+            <li>
+                <a href="/practice/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="dumbbell" class="mr-2 text-slate-400"></i>
+Practice
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://campuswire.com/p/G43FA47CB" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-more" class="mr-2 text-slate-400"></i>
+Campuswire
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://www.gradescope.com/courses/1409241" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="spell-check" class="mr-2 text-slate-400"></i>
+Gradescope
+                </a>
+            </li>
+            
+            <li>
+                <a href="/staff.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="users" class="mr-2 text-slate-400"></i>
+Course Staff
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="flex mr-9 pt-3 pb-6">
+        <button id="theme-toggle" class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-full transition-colors">
+            <span id="theme-icon" class="mr-1.5">☾</span>
+            <span id="theme-text">Dark</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Overlay for mobile -->
+<div id="overlay" class="fixed inset-0 bg-gray-200/40 dark:bg-black/50 backdrop-blur-[2px] z-30 hidden"></div>
+
+        <!-- Main Content Column -->
+        
+<!-- Main Content Column -->
+<div class="
+    w-full
+    bg-white dark:bg-gray-800
+    md:border-l
+    border-gray-200 dark:border-gray-700
+    md:min-w-180
+    px-4 md:px-12
+    pt-20 lg:pt-12
+    pb-24
+    ">
+
+    <div class="
+    text-xl font-semibold
+    left-12 right-12
+    py-4 lg:pt-0 lg:pb-0 lg:mb-10
+    lg:static
+    truncate
+    flex
+    ">
+    <div class="
+        shrink
+        lg:border-b border-gray-200 dark:border-gray-700
+        ">
+        <span class="hidden lg:inline">
+            DSC 40B
+            &ndash;
+            Theoretical Foundations of Data Science II
+        </span>
+    </div>
+</div>
+
+    <div class="prose dark:prose-invert">
+    <h1 id="toc_1">Syllabus</h1>
+<p>Welcome to DSC 40B in Fall 2026!
+This page should answer most of the questions you might have about how the
+course is run; check out the <a href="#faq">frequently asked questions</a> for answers to
+some common ones. If you don't find what you're looking for here, feel free to
+make a post on <a href="https://campuswire.com/p/G43FA47CB">Campuswire</a>.</p>
+<details class="toc" open>
+<summary>Table of Contents</summary>
+<ul>
+<li><a href="#toc_1">Syllabus</a>
+<ul>
+<li><a href="#toc_2">Instructor</a></li>
+<li><a href="#toc_3">Getting Started</a>
+<ul>
+<li><a href="#toc_4">Campuswire</a></li>
+<li><a href="#toc_5">Gradescope</a></li>
+<li><a href="#toc_6">Canvas</a></li>
+<li><a href="#toc_7">Required Materials</a></li>
+</ul>
+</li>
+<li><a href="#toc_8">Lectures</a></li>
+<li><a href="#toc_9">Discussions</a></li>
+<li><a href="#toc_10">Office Hours</a></li>
+<li><a href="#toc_11">Grading</a>
+<ul>
+<li><a href="#toc_12">&quot;Credits&quot;</a></li>
+<li><a href="#toc_13">Choose Your Own Adventure</a></li>
+<li><a href="#toc_18">Letter Grades</a></li>
+</ul>
+</li>
+<li><a href="#toc_19">Exams</a>
+<ul>
+<li><a href="#toc_20">Midterms</a></li>
+<li><a href="#toc_21">Redemption Exams</a></li>
+<li><a href="#toc_22">Exam Pass Criterion</a></li>
+</ul>
+</li>
+<li><a href="#toc_23">The Final Project</a></li>
+<li><a href="#toc_24">Homeworks (Optional)</a>
+<ul>
+<li><a href="#toc_25">Homeworks are graded on effort, not correctness</a></li>
+<li><a href="#toc_26">Homeworks must be handwritten</a></li>
+<li><a href="#toc_27">Collaboration and AI</a></li>
+</ul>
+</li>
+<li><a href="#toc_28">Quizzes (Optional)</a></li>
+<li><a href="#toc_29">Lecture Attendance (Optional)</a></li>
+<li><a href="#toc_30">Exceptions</a>
+<ul>
+<li><a href="#toc_31">Slip Days and Late Policy</a></li>
+<li><a href="#toc_32">Make-up Exams</a></li>
+</ul>
+</li>
+<li><a href="#toc_33">Support and Resources</a></li>
+<li><a href="#toc_34">OSD Exam Accommodations</a></li>
+<li><a href="#toc_35">FAQ</a>
+<ul>
+<li><a href="#toc_36">Is this class curved?</a></li>
+<li><a href="#toc_37">I'm close to the next higher grade. Can you round my grade up?</a></li>
+<li><a href="#toc_38">What should I do if I am sick (or have another emergency) and can't complete an assignment/exam?</a></li>
+<li><a href="#toc_39">What if I forgot to submit a homework?</a></li>
+<li><a href="#toc_40">Will I be able to make it in off of the waitlist?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</details>
+<h2 id="toc_2">Instructor</h2>
+<p>This quarter DSC 40B is being taught by:</p>
+<ul>
+<li><strong>Dr. Justin Eldridge</strong> (Justin)<br>
+<tt>jeldridge@ucsd.edu</tt><br>
+<a href="https://eldridgejm.github.io/">webpage</a><br></li>
+</ul>
+<p>Feel free to send me an email, though for class-related questions you'll usually get
+a faster response if you ask on <a href="https://campuswire.com/p/G43FA47CB">Campuswire</a> (as then the TAs
+are also able to help out).</p>
+<!-- the renderer numbers headings (toc_1, toc_2, ...), so sections that are linked
+to have explicit anchors -->
+
+<p><a id="getting-started"></a></p>
+<h2 id="toc_3">Getting Started</h2>
+<p>To get started in DSC 40B, you'll need to set up accounts on a
+couple of websites.</p>
+<h3 id="toc_4">Campuswire</h3>
+<p>We'll be using <a href="https://campuswire.com/p/G43FA47CB">Campuswire</a> as our course message
+board. You should have received an invitation via email, but if not you should
+be able to join by clicking the link above and using the access code <code>6152</code>. Be sure to join Campuswire as soon as possible,
+since all course communication will be done through it.</p>
+<p>If you have a question about anything to do with the course — if you're
+stuck on a homework problem, want clarification on the logistics, or just have a
+general question about data science — you can make a post on Campuswire.
+We only ask that if your question includes some or all of an answer, please make
+your post <strong>private</strong> so that others cannot see it. You can also post
+anonymously if you would prefer.</p>
+<p>Course staff will regularly check Campuswire and try to answer any questions
+that you have. You're also encouraged to answer a question asked by another
+student if you feel that you know the answer.</p>
+<h3 id="toc_5">Gradescope</h3>
+<p>We'll be using <a href="https://www.gradescope.com/courses/1409241">Gradescope</a> for homework submission
+and grading. Most of the assignments will be a mixture of math and coding, and
+the coding parts are usually autograded via Gradescope. You should have
+received an email invitation for Gradescope, but if not you can join with code
+<code>EBEJGW</code>.</p>
+<h3 id="toc_6">Canvas</h3>
+<p>We will not be using Canvas. All course materials will be available at
+<a href="http://dsc40b.com">dsc40b.com</a> or <a href="https://www.gradescope.com/courses/1409241">Gradescope</a>.</p>
+<h3 id="toc_7">Required Materials</h3>
+<p>You will not need to purchase any materials for this course; we'll use lecture
+slides as the main resource, as well as our own <a href="/materials/default/notes/book.pdf">course
+notes</a>. If you'd like
+additional textbooks to study from, we can recommend these:</p>
+<ul>
+<li>Dasgupta, Papadimitriou, Vazirani; <em>Algorithms</em></li>
+<li>Cormen, Leiserson, Rivest, Stein; <em>Introduction to Algorithms</em></li>
+</ul>
+<p>These books are also excellent resources for preparing for coding interviews.</p>
+<h2 id="toc_8">Lectures</h2>
+<p>Lectures will be held in-person at the regularly-scheduled time and place:
+3:30 PM
+on
+T/Th
+in
+MANDE B-202.</p>
+<p>Lecture attendance is optional, but attending lectures can earn you credit.
+See the <a href="#lecture-attendance-optional">Lecture Attendance</a> section below for
+more information.</p>
+<p>Lectures will be podcasted and posted online for remote viewing.
+You will be able to find the lecture recordings at <a href="https://podcast.ucsd.edu/">podcast.ucsd.edu</a>.</p>
+<h2 id="toc_9">Discussions</h2>
+<p>Discussions will be used for the optional quizzes (see
+<a href="#quizzes-optional">below</a>). They will be held in-person at the
+regularly-scheduled time and place:
+4:00 PM
+on
+Monday
+in
+MANDE B-202.</p>
+<p>The first half of each discussion section will be used for the quiz, and the
+second half will be used to go over the answers to the quiz and any questions
+you might have about the material. Since quizzes are optional, so is attending
+discussion sections.</p>
+<h2 id="toc_10">Office Hours</h2>
+<p>Course staff, including tutors, TAs, and instructors, will hold office hours
+regularly throughout the week. Please see the <a href="./office_hours.html">office
+hours</a> page for the schedule and for instructions.</p>
+<h2 id="toc_11">Grading</h2>
+<h3 id="toc_12">&quot;Credits&quot;</h3>
+<p>Your grade is made up of several things in this course:</p>
+<ul>
+<li>Homeworks</li>
+<li>Quizzes</li>
+<li>Lecture Attendance</li>
+<li>The Final Project</li>
+<li>Exams</li>
+</ul>
+<p>All but the last two components are <em>optional</em>. You can choose to complete as
+many or as few of the optional assignments as you like, in whatever combination
+you like.</p>
+<p>Here's how it works: by default, your course grade is based entirely on exams
+(90% of your grade) and the <a href="#the-final-project">Final Project</a> (10% of your
+grade). By completing optional assignments, however, you can earn &quot;credits&quot;
+that reduce the weight of the exams. Each credit earned is worth 1% towards
+your overall grade <em>and</em> reduces the weight of the exams by 1%. The Final
+Project remains worth 10%, no matter how many credits you have. There will be
+a total of 40 credits available throughout the quarter.</p>
+<p>In other words, your grade will be calculated as follows:</p>
+<p>$$
+\begin{align}
+\text{Overall Grade} &amp; = (\text{Exam Average} * (90\% - \# \text{ of Credits Earned})) \\
+&amp; + (\text{Final Project} * 10\%) \\
+&amp; + (\# \text{ of Credits Earned} * 1\%)
+\end{align}
+$$</p>
+<section class="admonition tip">
+<p class="admonition-title">Quizzes, homeworks, and attendance can only <em>help</em> your grade</p>
+<p>Because of how your grade is calculated, failing a quiz, not doing a
+homework problem, or skipping a lecture will not hurt your grade in any
+way. Instead, the credit that you would have earned will be replaced by the
+exam (your exam grade will count for more of your overall grade). In other
+words, if you don't earn a credit, you'll get a second chance to earn those
+points on the midterm (and a third chance on the redemption exam).</p>
+</section>
+<p>Here, your &quot;Exam Average&quot; is the average of your two midterm scores, after
+<a href="#redemption-exams">redemption</a> is taken into account.</p>
+<p>Here is how you earn credits:</p>
+<ul>
+<li><p><strong>Homeworks</strong>: each homework problem completed is worth a different number of credits (the exact
+value will be noted on the problem itself). The total value of all homework problems
+will add up to 24 credits, distributed across 8 homeworks. Homework problems
+are graded on effort, not on correctness, so you can earn full credit even if
+you get the problem wrong. On the other hand, you can also get zero credit
+for a problem even if you got it right, if your solution does not show
+sufficient effort.</p>
+</li>
+<li><p><strong>Quizzes</strong>: each quiz you <em>pass</em> earns you 1.5 credits. There will be 8
+quizzes throughout the quarter, for a total of 12 possible credits. Note that
+quizzes are pass/fail, with a score of 70% or higher being a passing score.
+If you pass, you earn 1.5 credits; but if you do not pass, you earn zero
+credits.</p>
+</li>
+<li><p><strong>Attendance</strong>: each lecture you attend (except for the first lecture and the
+midterms) earns you 0.25 credits, to a maximum of 4 credits total. Note that
+there are 17 credit-earning lectures throughout the quarter, but attending 16
+will get you the full 4 credits. Attending the additional lecture will not
+earn you any more credit above the maximum.</p>
+</li>
+</ul>
+<p>For more about these assignments, see the sections below.</p>
+<p>Note that in order to pass the class, you must also meet the <a href="#exam-pass-criterion">exam pass
+criterion</a>, no matter how many credits you earn.</p>
+<h3 id="toc_13">Choose Your Own Adventure</h3>
+<p>This grading system allows you to &quot;choose your own adventure&quot; in terms of how
+you want to be graded. Here are a few examples that illustrate how the system
+works.</p>
+<h4 id="toc_14">Example 1: Exam-only</h4>
+<p>You feel confident in your exam-taking abilities, so you decide to skip all of
+the optional assignments and focus entirely on studying for the exams and
+doing well on the Final Project. By choosing to not do any optional assignments,
+you earn zero credits, and your exams are worth 90% of your overall grade.
+For instance, if you score an 85% on Midterm 01, a 75% on Midterm 02, and a 100%
+on the Final Project, your exam average is 80%, and your
+overall grade will be \((80\% \times 0.9) + (100\% \times 0.1) = 82\%\) (a B-).</p>
+<h4 id="toc_15">Example 2: All-in</h4>
+<p>Now let's say you decide to go all-in on the optional assignments, doing all of
+the homeworks, taking all of the quizzes, and attending all of the lectures.
+This will earn you the full 40 credits available throughout the quarter. You
+scored an average of 80% on the two midterms and got 100% on the Final Project.
+Since you earned all 40 credits, your exams are only worth 50% of your overall
+grade (\(90\% - 40\%\)). Your overall grade is then \((80\% \times 0.5) + (100\% \times 0.1) + (40 \times 1\%) = 90\%\) (an A-).</p>
+<h4 id="toc_16">Example 3: Only did a few homework problems</h4>
+<p>Let's say you get bored easily while doing the homeworks, and you only do the
+first problem on each of the 8 homeworks, each worth 0.75 credits. That will
+earn you 6 credits in total throughout the quarter (\(8 \times 0.75 = 6\)). If
+you receive a 70% on Midterm 01, a 90% on Midterm 02 (exam average 80%), and a
+100% on the Final Project, your exams are worth 84% of your overall grade
+(\(90\% - 6\%\)). Your overall grade is then \((80\% \times 0.84) + (100\% \times 0.1) + (6 \times 1\%) = 83.2\%\) (a B).</p>
+<h4 id="toc_17">Example 4: Didn't do so well on the quizzes</h4>
+<p>You took all of the quizzes, but unfortunately you didn't do so well and didn't
+pass any of them. However, you studied hard for the exams and scored 100% on
+both, as well as 100% on the Final Project. Your exam average is 100%,
+and since you earned 0 credits from quizzes, exams are worth 90% of your
+overall grade. This means that your overall grade is \((100\% \times 0.9) + (100\% \times
+0.1) = 100\%\). Note that failing the quizzes didn't hurt your grade at all; it
+just meant that you had to rely on your exam scores and Final Project for your
+overall grade.</p>
+<h3 id="toc_18">Letter Grades</h3>
+<p>In a typical quarter, the midterm redemption policy has the same effect as a
+traditional &quot;curve&quot;, therefore replacing the need for one. The standard grading
+scale (where an A is 93+, A- is 90+, B+ is 87+, etc.) will be used as a starting
+point, but once all scores are in, we will run a clustering algorithm to
+automatically find the best cutoffs for each letter grade. These cutoffs can
+only be lowered. For instance, the threshold for an &quot;A&quot; will never be higher
+than 93%.</p>
+<p>A+ grades are not awarded according to a threshold. Instead, A+'s are awarded
+to the top 5% of students by overall grade.</p>
+<h2 id="toc_19">Exams</h2>
+<h3 id="toc_20">Midterms</h3>
+<p>There will be two midterm exams:</p>
+<ul>
+<li><strong>Midterm 01</strong>: Tuesday, October 27 (focuses on Lectures 01 — 08)</li>
+<li><strong>Midterm 02</strong>: Tuesday, November 24 (focuses on Lectures 09 — 15)</li>
+</ul>
+<p>The exams will be held in-person during the regularly-scheduled lecture times.</p>
+<p>For each midterm, you'll be allowed <em>one</em> sheet of notes on standard 8.5 by 11 inch paper, front and back. The notes can be handwritten, typed up, painted, etched with a laser, whatever, but it must be on paper (i.e., you can't use an iPad to display your notes during the exam).</p>
+<p>The midterm questions themselves will be most similar to the practice problems at <a href="http://dsc40b.com/practice">dsc40b.com/practice</a>; in fact, all of the practice problems are former exam problems. More details about the midterm will be sent out about one week beforehand.</p>
+<p><a id="redemption-exams"></a></p>
+<h3 id="toc_21">Redemption Exams</h3>
+<p>The final exam for DSC 40B is a &quot;no fault&quot; final split into two sections:</p>
+<ol>
+<li>An optional Midterm 01 &quot;Redemption&quot; section focusing on Lectures 01 — 08</li>
+<li>An optional Midterm 02 &quot;Redemption&quot; section focusing on Lectures 09 — 15</li>
+</ol>
+<p>If your score on the midterm redemption section is higher than your score on the
+original midterm, it will replace that grade. Getting a lower score on a
+redemption section cannot hurt you (but it will make us sad). As a consequence,
+the redemption sections are effectively optional.</p>
+<p>Under this policy, a bad performance on an earlier exam can be erased by good
+performance on the same material in a later exam.</p>
+<p><strong>Example</strong>: You got an &quot;F&quot; on Midterm 1 and a &quot;B&quot; on Midterm 2. You decide to take only the
+first redemption section on the final (though you could have taken both), and you
+receive an &quot;A&quot;. Your midterm scores are now &quot;A&quot; and &quot;B&quot;.</p>
+<p>The redemption exams will be held on the date scheduled by the registrar: Monday, December 7.</p>
+<p>For the redemption exams, you're allowed one sheet of notes per exam that you're taking.</p>
+<p>Note that the topics from Lectures 16, 17, and 18 are not on any exam. These will
+instead be tested in the <a href="#the-final-project">Final Project</a>, which covers the
+entire quarter.</p>
+<p><a id="exam-pass-criterion"></a></p>
+<h3 id="toc_22">Exam Pass Criterion</h3>
+<p>In order to pass the class, the mean of your two midterm scores (after
+redemption is taken into account) must be 60% or greater.</p>
+<p>The reason for this policy is that the exams are the only assessment in this
+class which you are sure to complete by yourself, and so they are (in theory)
+the purest measure of your individual understanding. This policy is not meant to
+be punitive: If your exam scores are not above passing after several attempts,
+it indicates that you might be better served by retaking the class with a fresh
+start before moving on to later courses which will draw upon the material from
+DSC 40B.</p>
+<p><strong>Example</strong>: You score 10/20 (which is 50%) on Midterm 01 and 15/25 (i.e., 60%)
+on Midterm 02. The average of your two midterm scores is (50% + 60%) / 2 = 55%,
+which is below the passing criterion of 60%. You then take Redemption Midterm
+01 and score 18/20 (90%); you don't take Redemption Midterm 02. Your overall
+midterm score with redemption included is (90% + 60%) / 2 = 75%, which is above
+the passing criterion of 60%.</p>
+<p><a id="the-final-project"></a></p>
+<h2 id="toc_23">The Final Project</h2>
+<p>Instead of a comprehensive final exam, we'll have a comprehensive Final
+Project. The Final Project will cover content from the entire quarter,
+including Lectures 16, 17, and 18 (which are not on the midterms).</p>
+<p>Unlike the homeworks, the Final Project is <em>required</em>: it is worth 10% of your
+overall grade, regardless of how many optional assignments you complete.</p>
+<p>Unlike the homeworks, the Final Project is graded on correctness. As with the
+homeworks, you may collaborate on the Final Project as long as you write up
+solutions in your own words.</p>
+<p>The Final Project will be due during finals week, on Wednesday, December 9 at 11:59 PM.
+It cannot be dropped, but it can be turned in late using <a href="#slip-days-and-late-policy">slip
+days</a>.</p>
+<h2 id="toc_24">Homeworks <em>(Optional)</em></h2>
+<p>As mentioned above, homeworks are optional. Each homework problem you complete
+earns a different number of credits since some problems are more involved than
+others (the precise value is noted on the problem itself). The total value of
+all homework problems will be 24 credits. These problems will be distributed
+across 8 homeworks throughout the quarter. This means that, on average, each
+homework will be worth 3 credits (but some will be worth more than others).</p>
+<p>Each homework will be due via Gradescope at 11:59 PM on the Tuesday after it is
+assigned except otherwise noted, and you'll have roughly a week to complete
+each assignment from the time it is posted.</p>
+<h3 id="toc_25">Homeworks are graded on effort, not correctness</h3>
+<p>Homework problems are graded pass/fail based on effort, not on correctness. This
+means that you can earn a credit for a problem even if your answer is wrong, as long
+as your solution shows sufficient effort. On the other hand, you can also get zero
+credit for a problem even if you got it right, if your solution does not show
+sufficient effort.</p>
+<h3 id="toc_26">Homeworks <em>must</em> be handwritten</h3>
+<p>If you do a homework, you <em>must</em> write your solutions by hand unless the question
+explicitly says otherwise (a tablet is fine, and you can screenshot the problem
+statement into your solutions if you'd like). Typed or computer-generated
+solutions (e.g., via LaTeX) will not be accepted unless you have an approved
+accommodation from OSD.</p>
+<p>Why this return to the stone ages? AI is extremely good at generating typed
+solutions to homework problems, so if we allowed typed solutions, it would be
+all too easy to copy-and-paste AI answers. You can still use AI to help you
+with the problems (we don't necessarily recommend it, but we can't stop you).
+At the very least, you might learn something by writing out the solutions
+yourself!</p>
+<p>Some problems will be coding problems that require you to write code in Python.
+In these cases, the problem will clearly state that typed code is acceptable (we won't
+make you handwrite Python code!)</p>
+<h3 id="toc_27">Collaboration and AI</h3>
+<p>While you are encouraged to discuss homework problems with your classmates, all work
+that you turn in must be in your own words and in your own writing. The same goes
+for ChatGPT: using AI to help you understand a problem is fine, but you'll need to write
+the answer in your own words to earn credit.</p>
+<p>Keep in mind that homework problems are graded on effort, not correctness. We made this change
+in order to remove 99% of the incentive to use AI to do your homework for you. If you put in
+sincere effort to solve the problems yourself, you'll earn full credit even if your answers
+are wrong. If you copy answers from AI, however, you run the risk of getting zero credit if
+the solutions don't show sufficient effort.</p>
+<p>If you have any questions or worries about whether your collaboration
+constitutes a violation of academic integrity, feel free to ask us on
+Campuswire.</p>
+<p><a id="quizzes-optional"></a></p>
+<h2 id="toc_28">Quizzes <em>(Optional)</em></h2>
+<p>Quizzes are short, multiple-choice assessments that cover the material from
+recent lectures. There will be a total of 8 quizzes throughout the quarter.
+Each quiz you pass earns you 1.5 credits towards your overall grade. A passing
+score is 70% or higher. If you pass the quiz (even with a score of 70%), you
+earn the full 1.5 credits. If you do not pass a quiz, you earn zero credits for
+it, but it does not count against you in any way.</p>
+<p>Quizzes are held on-paper and in-person during the first 30 minutes of each
+Monday discussion section (in the
+second part of the discussion, you'll go over the answers to the quizzes). Each
+quiz covers the same lectures as the homework that is due the next day: usually,
+the previous week's Tuesday lecture and the Thursday lecture before it.</p>
+<p>Why subject yourself to quizzes? First, they can only <em>help</em> your grade, so
+there's no downside to taking them. Second, they provide a good opportunity to
+review the material from recent lectures and help you maintain a steady study
+pace throughout the quarter.</p>
+<p><a id="lecture-attendance-optional"></a></p>
+<h2 id="toc_29">Lecture Attendance <em>(Optional)</em></h2>
+<p>Lecture attendance is optional, but attending lectures can earn you up to 4
+credits towards your overall grade. Each lecture you attend (except for the
+first lecture and the midterms) earns you 0.25 credits, to a maximum of 4 credits
+total. Note that there are 17 credit-earning lectures throughout the quarter,
+but attending 16 will get you the full 4 credits. Attending the additional
+lecture will not earn you any more credit above the maximum.</p>
+<p>Lecture attendance will be tracked via participation in the in-class discussion
+questions. Getting the questions right is not necessary to earn attendance
+credit; you just need to submit an answer.</p>
+<h2 id="toc_30">Exceptions</h2>
+<p><a id="slip-days-and-late-policy"></a></p>
+<h3 id="toc_31">Slip Days and Late Policy</h3>
+<p>You have <strong><em>four</em></strong> <strong>slip days</strong> to use throughout the quarter on any
+homework <em>or</em> the Final Project. A slip day extends the deadline by 24 hours.
+Slip days cannot be &quot;stacked&quot; or &quot;combined&quot; to extend the deadline further
+— the latest any assignment can be submitted is 24 hours after the
+deadline. Slip days are applied automatically at the end of the quarter, but
+it's your responsibility to keep track of how many you have left.</p>
+<p>Once your slip days run out, late homeworks will not be accepted for credit.
+This means that if you submit a homework even one minute after the deadline and
+you have no slip days left, you won't be able to receive credits for it.</p>
+<p>And remember: homeworks are <em>optional</em>! If you're having a busy week and can't
+get a homework done on time, it's perfectly fine to skip it. You won't earn
+credits for that homework, but you also won't be penalized in any way.
+Essentially, the exams take the place of that homework in your overall grade.</p>
+<p>Lastly, a technical note: some homeworks are broken up into multiple parts that
+are submitted separately (in particular, homeworks with programming problems
+will have one separate Gradescope submission for each programming problem in
+addition to the Gradescope submission for the written problems). Slip days are
+applied to the entire homework, not to individual parts of the homework,
+meaning that you only need to use one slip day per homework, no matter how many
+parts there are.</p>
+<p><a id="make-up-exams"></a></p>
+<h3 id="toc_32">Make-up Exams</h3>
+<p>While we'd like to be able to offer make-up exams for any reason, the
+logistical difficulties involved prevent us from doing so. For that reason, we
+have to limit make-up exams to cases where you have a doctor's note or other
+official documentation of an emergency. However, if you have another
+non-emergent reason for missing a midterm, such as a job interview, a family
+wedding, etc., you can skip the midterm and take the redemption exam instead.
+In that case, the redemption exam will replace the grade of the missed midterm.
+If you anticipate being out of town for the final exam (say, due to an
+internship that starts early), you can skip the redemption exams and use the
+original midterm grades.</p>
+<p>Make-up exams due to an illness/emergency must be taken in-person at the Triton
+Testing Center.</p>
+<h2 id="toc_33">Support and Resources</h2>
+<p>As instructors, our job is to foster an environment where everyone, regardless
+of identity, feels welcome and is able to focus on learning. If there is
+something we can do in this mission, or if there is something preventing you
+from succeeding in the class, please let us know. If you feel uncomfortable
+speaking with us or are searching for help on a specific
+concern, there are several campus resources
+available to you, including:</p>
+<ul>
+<li><a href="https://caps.ucsd.edu/">UCSD Counseling and Psychological Services (CAPS)</a></li>
+<li><a href="https://thehub.ucsd.edu/">Hub Basic Needs Center</a></li>
+<li><a href="https://osd.ucsd.edu/">Office for Students with Disability (OSD)</a></li>
+<li><a href="https://blink.ucsd.edu/HR/policies/sexual/OPHD.html">Office for Prevention of Sexual Harrassment and Discrimination</a></li>
+</ul>
+<p>More generally, if you have <em>any</em> concerns about your ability to focus or
+succeed in this course, or just need someone to talk to, <em>please</em> contact
+us ASAP and we'll figure something out.</p>
+<h2 id="toc_34">OSD Exam Accommodations</h2>
+<p>If you have exam accommodations from the OSD, you should receive an email from
+the data science program that will ask you to provide your availability for
+your accommodated exam. The program will then schedule the exam and notify the
+instructor of its time and location. If you do not receive such an email by the
+end of the second week of classes, please let us know!</p>
+<p>Please be sure to respond to the email from the data science program; if the
+program does not hear back from you, they will be unable to schedule your
+accommodated exam.</p>
+<p><a id="faq"></a></p>
+<h2 id="toc_35">FAQ</h2>
+<h3 id="toc_36">Is this class curved?</h3>
+<p>In a typical quarter, the midterm redemption policy has the same effect as a
+traditional &quot;curve&quot;, therefore replacing the need for one. The standard grading
+scale (where an A is 93+, A- is 90+, B+ is 87+, etc.) will be used as a starting
+point, but once all scores are in, we will run a clustering algorithm to
+automatically find the best cutoffs for each letter grade. These cutoffs can
+only be lowered, making it easier to get the next higher letter grade. For
+instance, the threshold for an &quot;A&quot; will never be higher than 93%.</p>
+<h3 id="toc_37">I'm close to the next higher grade. Can you round my grade up?</h3>
+<p>In the interest of fairness, we don't manually adjust the grades of individual
+people. However, we do run a clustering algorithm to find the best cutoffs for
+each letter grade, and this has the effect of &quot;bumping&quot; up people objectively.
+When you receive your grade report at the end of the quarter, it will
+already take this into account.</p>
+<p>We also build in things like redemption exams and optional assignments because
+we think they're a much fairer way to give everyone a chance to bump up their
+own grade. Your final grade already reflects those chances — so in a way, it's
+already been &quot;bumped.&quot;</p>
+<h3 id="toc_38">What should I do if I am sick (or have another emergency) and can't complete an assignment/exam?</h3>
+<p>If you are too sick to participate in the class, focus on getting better first!
+Since the homeworks, quizzes, and lecture attendance are optional, missing some
+of them won't hurt your grade; the exams will simply count for a bit more. If
+you miss a midterm or the Final Project, send us a doctor's note as soon as
+you're able and we'll work something out (see also <a href="#make-up-exams">make-up
+exams</a>).</p>
+<p>This assumes that you're sick for less than a week. If the severity of your
+illness is such that you'll be out for longer, please let us know and we'll
+work with your college advisors to explore your options.</p>
+<h3 id="toc_39">What if I forgot to submit a homework?</h3>
+<p>If you forget to submit a homework, you can use a slip day to submit it late.
+If it is past the slip day deadline, however, we unfortunately can't accept it
+(since the homework solutions will be posted already). But since homeworks are
+optional, this won't hurt your grade: you just won't earn the credits for that
+homework.</p>
+<h3 id="toc_40">Will I be able to make it in off of the waitlist?</h3>
+<p>Often, people will ask about their chances of making it off the waitlist.
+Unfortunately, that can be hard to answer! In some quarters, the waitlist moves
+a lot; in others, not at all.</p>
+<p>If you are waitlisted, you can still join all of the course websites and
+complete all assignments by following the instructions in the <a href="#getting-started">&quot;Getting
+Started&quot;</a> section above. If you do get off the waitlist
+later in the quarter, any work you did while waitlisted will count towards your
+grade. If you didn't complete any work while waitlisted, that's okay too; all
+of the assignments due before the drop deadline are optional!</p>
+
+    </div>
+</div>
+
+    </div>
+
+    <script>
+        // Restore saved theme on page load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else if (savedTheme === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Dark mode toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        // Update button to reflect current theme
+        function updateThemeButton() {
+            const isDark = document.documentElement.classList.contains('dark');
+            themeIcon.textContent = isDark ? '☀' : '☾';
+            themeText.textContent = isDark ? 'Light' : 'Dark';
+        }
+
+        // Initialize button state
+        updateThemeButton();
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.contains('dark');
+
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+
+            updateThemeButton();
+        });
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        menuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        });
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>

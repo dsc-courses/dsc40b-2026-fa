@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head data-automata-theme="default">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DSC 40B</title>
+    <link href="/static/style.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+
+    <!-- Mobile menu button -->
+<div class="mobile-navbar lg:hidden fixed top-0 left-0 right-0 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-50 flex items-center">
+    <button id="mobile-menu-button" class="py-5 pl-4 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <i data-lucide="menu" class="w-6 h-5"></i>
+    </button>
+    <span class="ml-2 font-semibold">DSC 40B</span>
+</div>
+
+    <div class="flex min-h-screen">
+        <!-- Left Navigation Column -->
+        <nav id="sidebar" class="
+    w-64 flex-none
+    fixed lg:sticky
+    top-0 left-0 h-screen
+    transform -translate-x-full lg:translate-x-0 transition-transform duration-200 ease-in-out
+    bg-gray-50 dark:bg-gray-900
+    z-40
+    sidebar-mobile-spacing lg:pt-6
+    flex flex-col items-end
+    border-r lg:border-r-0 border-gray-200 dark:border-gray-700
+    ">
+
+    <div class="pt-6 pr-6 flex">
+        <ul class="space-y-2">
+            
+            <li>
+                <a href="/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="calendar-days" class="mr-2 text-slate-400"></i>
+Schedule
+                </a>
+            </li>
+            
+            <li>
+                <a href="/syllabus.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="scale" class="mr-2 text-slate-400"></i>
+Syllabus
+                </a>
+            </li>
+            
+            <li>
+                <a href="/office_hours.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="briefcase-business" class="mr-2 text-slate-400"></i>
+Office Hours
+                </a>
+            </li>
+            
+            <li>
+                <a href="/materials/default/notes/book.pdf" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="book-open" class="mr-2 text-slate-400"></i>
+Course Notes
+                </a>
+            </li>
+            
+            <li>
+                <a href="/practice/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="dumbbell" class="mr-2 text-slate-400"></i>
+Practice
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://campuswire.com/p/G43FA47CB" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-more" class="mr-2 text-slate-400"></i>
+Campuswire
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://www.gradescope.com/courses/1409241" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="spell-check" class="mr-2 text-slate-400"></i>
+Gradescope
+                </a>
+            </li>
+            
+            <li>
+                <a href="/staff.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="users" class="mr-2 text-slate-400"></i>
+Course Staff
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="flex mr-9 pt-3 pb-6">
+        <button id="theme-toggle" class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-full transition-colors">
+            <span id="theme-icon" class="mr-1.5">☾</span>
+            <span id="theme-text">Dark</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Overlay for mobile -->
+<div id="overlay" class="fixed inset-0 bg-gray-200/40 dark:bg-black/50 backdrop-blur-[2px] z-30 hidden"></div>
+
+        <!-- Main Content Column -->
+        
+<!-- Main Content Column -->
+<div class="
+    w-full
+    bg-white dark:bg-gray-800
+    md:border-l
+    border-gray-200 dark:border-gray-700
+    md:min-w-180
+    px-4 md:px-12
+    pt-20 lg:pt-12
+    pb-24
+    ">
+
+    <div class="
+    text-xl font-semibold
+    left-12 right-12
+    py-4 lg:pt-0 lg:pb-0 lg:mb-10
+    lg:static
+    truncate
+    flex
+    ">
+    <div class="
+        shrink
+        lg:border-b border-gray-200 dark:border-gray-700
+        ">
+        <span class="hidden lg:inline">
+            DSC 40B
+            &ndash;
+            Theoretical Foundations of Data Science II
+        </span>
+    </div>
+</div>
+
+    <div class="prose dark:prose-invert">
+    <!DOCTYPE html> <html> <head> <meta
+                          charset="utf-8"> <title>Problems tagged with asymptotic notation</title>
+
+           <!-- MathJax -->
+           <script type="text/x-mathjax-config">
+             MathJax.Hub.Config({
+               tex: {
+                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+                 displayMath: [             // start/end delimiter pairs for display math
+                     ['\\[', '\\]']
+                 ],
+                 processEscapes: true
+               }
+           });
+           </script>
+
+           <!-- highlightjs -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+           <!-- and it's easy to individually load additional languages -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+           <script>hljs.highlightAll();</script>
+
+           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+           <script type="text/javascript" id="MathJax-script" async
+             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+           </script>
+
+       </head>
+       <body>
+           
+<h1>Problems tagged with "asymptotic notation"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #013</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(f(n) = \displaystyle\frac{n^3 - 2n^2 + 100}{n + 10}\)</span> True or False: <span class="math">\(f(n) = O(n^4)\)</span></p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #014</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(f(n) = \Omega(n^3)\)</span> and <span class="math">\(g(n) = \Omega(n)\)</span>.</p>
+<p>True or False: it is necessarily the case that <span class="math">\(f/g = \Omega(n^2)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False. Take <span class="math">\(f(n) = n^3\)</span> and <span class="math">\(g(n) = n^3\)</span>. We can see from definition that <span class="math">\(f(n) = \Omega(n^3)\)</span> and <span class="math">\(g(n) = \Omega(n)\)</span>. However,</p>
+<div class="math">\[\frac{f}{g}(n) = 1 \neq\Omega(n^2). \]</div>
+<p>The key takeaway for this question is, since <span class="math">\(g\)</span> is on the denominator, we can make it grow arbitrarily fast, so that <span class="math">\(f/g\)</span> do not meet the requirements that we want.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #015</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(f(n) = n \cdot(\sin{n} + 1 )\)</span>. A plot of this function is shown below.</p>
+<center><div class="image"><img src="../images/015/plot.png" /></div></center>
+<p>True or False: <span class="math">\(f(n) = \Theta(n)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+<p>Remember that for <span class="math">\(f(n)\)</span> to be <span class="math">\(\Theta(n)\)</span>, it has to be both upper- and lower-bounded by some <i>positive</i> constant times <span class="math">\(n\)</span>. This function is upper bounded by <span class="math">\(O(n)\)</span>, but it doesn't have a lower bound of <span class="math">\(\Omega(n)\)</span>. Therefore, it can't be <span class="math">\(\Theta(n)\)</span>.</p>
+<p>In other words, there is no positive constant <span class="math">\(c\)</span> and no positive number <span class="math">\(N\)</span> such that <span class="math">\(f(n) > c n\)</span> for all <span class="math">\(n > N\)</span>.</p>
+<p>If you had to describe this function in asymptotic notation, you could say that <span class="math">\(f(n) = O(n)\)</span>(and that would be a tight upper bound), but there is no lower bound, since the function keeps coming back down to zero.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #025</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(f\)</span> be the piecewise function defined as:</p>
+<div class="math">\[
+        f(n) = \begin{cases}
+            1, & \text{if $n$ is a multiple of 1 million},\\
+            n^2, &\text{otherwise}.
+        \end{cases}\]</div>
+<p>If you were to plot <span class="math">\(f\)</span>, the function would look like <span class="math">\(n^2\)</span>, but would have point discontinuities where it ``jumps'' back to 1 whenever <span class="math">\(n\)</span> is a multiple of 1 million.</p>
+<p>True or False: <span class="math">\(f(n) = \Theta(n^2)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+<p><span class="math">\(f(n)\)</span><i>is</i> upper bounded by <span class="math">\(O(n^2)\)</span>, but it doesn't have a lower bound of <span class="math">\(\Omega(n^2)\)</span>, which is necessary for it to be <span class="math">\(\Theta(n^2)\)</span>.</p>
+<p>To see why, remember that for <span class="math">\(f(n)\)</span> to be <span class="math">\(\Omega(n^2)\)</span>, there must be a positive constant <span class="math">\(c\)</span> so that <span class="math">\(f(n)\)</span> stays above <span class="math">\(c\cdot n^2\)</span> for all <span class="math">\(n\)</span> greater than some <span class="math">\(n_0\)</span>, meaning that it goes above <span class="math">\(c n^2\)</span><i>and it stays above $c n^2$</i> forever, after some point.</p>
+<p>Pick whatever positive <span class="math">\(c\)</span> you'd like -- the function <span class="math">\(c\cdot n^2\)</span> grows larger and larger as <span class="math">\(n\)</span> increases, and eventually becomes larger than 1. But the function <span class="math">\(f(n)\)</span> keeps dipping down to 1, meaning that it doesn't stay above <span class="math">\(c\cdot n^2\)</span> for all <span class="math">\(n\)</span> when <span class="math">\(n\)</span> is large. Therefore, <span class="math">\(f(n)\)</span> is not <span class="math">\(\Omega(n^2)\)</span>, and therefore also not <span class="math">\(\Theta(n^2)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #026</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(f(n)\)</span> is both <span class="math">\(O(n^2)\)</span> and <span class="math">\(\Omega(n)\)</span>, and suppose <span class="math">\(g(n) = \Theta(n^3)\)</span>. What are the tightest possible asymptotic bounds that can be placed on <span class="math">\(f + g\)</span>?</p>
+<p>If the upper and lower bounds are the same, you may use <span class="math">\(\Theta\)</span>. If the upper and lower bounds are different, you should state them separately using <span class="math">\(O\)</span> and <span class="math">\(\Omega\)</span>.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^3)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #029</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the function <span class="math">\(f(n) = \frac{n^8 + 2^{3 + \log n} - \sqrt n}{20 n^5 - n^2}\)</span>.</p>
+<p>True or False: <span class="math">\(f(n) = O(n^{4})\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #031</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(f_1(n) = O(g_1(n))\)</span> and <span class="math">\(f_2(n) = \Omega(g_2(n))\)</span>. True or False: it is necessarily the case that <span class="math">\(f_1 + f_2 = O(g_1(n))\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #033</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(f\)</span> and <span class="math">\(g\)</span> be as in the previous question. What are the tightest possible asymptotic bounds that can be placed on the product, <span class="math">\(f \times g\)</span>?</p>
+<p>As before, if the upper and lower bounds are the same, you may use <span class="math">\(\Theta\)</span>; otherwise you should use <span class="math">\(O\)</span> and <span class="math">\(\Omega\)</span>.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(O(n^5)\)</span> and <span class="math">\(\Omega(n^4)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #043</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the function <span class="math">\(f(n) = \frac{n^8 + 2^{3 + \log n} - \sqrt n}{20 n^5 - n^2}\)</span>.</p>
+<p>True or False: <span class="math">\(f(n) = \Omega(n^2)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #045</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose Algorithm A takes <span class="math">\(\Theta(n^2)\)</span> time, while Algorithm B takes <span class="math">\(\Theta(2^n)\)</span> time. True or False: there <b>could</b> exist an input on which Algorithm <span class="math">\(B\)</span> takes less time than Algorithm A.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #046</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let</p>
+<div class="math">\[
+        f(n) = 
+        \frac{n^3 - 2n + 100}{\sqrt n}\cdot\frac{n}{n^3 + n^2 + \sin n}\cdot n^2
+    \]</div>
+<p>True or False: <span class="math">\(f(n) = \Theta(n^2)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #054</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the function <span class="math">\(f(n) = n \times(\sin(n) + 1)\)</span>. A plot of this function is shown below:</p>
+<center><div class="image"><img src="../images/054/plot.png" /></div></center>
+<p>True or False: this function is <span class="math">\(O(1 + \sin n)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+<p><span class="math">\(f(n)\)</span> grows arbitrarily large, while <span class="math">\(\sin n + 1\)</span> is bounded above by 2.</p>
+<p>More formally, there is no constant <span class="math">\(c\)</span> such that <span class="math">\(c (1 + \sin n)\)</span> upper bounds <span class="math">\(f(n)\)</span> for all large <span class="math">\(n\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #057</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^2)\)</span> and <span class="math">\(\Omega(n)\)</span>. Also suppose that <span class="math">\(f_2(n) = \Theta(n^2)\)</span>.</p>
+<p>Consider the function <span class="math">\(g(n) = f_2(n) / f_1(n)\)</span>. True or false: it must be the case that <span class="math">\(g(n) = \Omega(n)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #058</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(f_1(n) = \Omega(g_1(n))\)</span> and <span class="math">\(f_2 = \Omega(g_2(n))\)</span>. Define <span class="math">\(f(n) = \min\{ f_1(n), f_2(n) \}\)</span> and <span class="math">\(g(n) = \min\{ g_1(n), g_2(n)\}\)</span>.</p>
+<p>True or false: it is necessarily the case that <span class="math">\(f(n) = \Omega(g(n))\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #060</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider again the function <span class="math">\(f(n) = n \times( \sin(n) + 1)\)</span> from the previous problem.</p>
+<p>True or False: <span class="math">\(f(n) = O(n^3)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #070</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^2)\)</span> and <span class="math">\(\Omega(n)\)</span>. Also suppose that <span class="math">\(f_2(n) = \Theta(n^2)\)</span>.</p>
+<p>Consider the function <span class="math">\(f(n) = f_1(n) + f_2(n)\)</span>. True or false: it must be the case that <span class="math">\(f(n) = \Theta(n^2)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #073</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let</p>
+<div class="math">\[
+        f(n) = 5 n \log n +
+        \frac{n^3 + 5}{n + 2 + |\sin \pi n|}
+        +
+        n \sqrt n
+    \]</div>
+<p>Write <span class="math">\(f\)</span> in asymptotic notation in as simplest terms possible.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(f(n) = \Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #091</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(f_1(n) = O(g_1(n))\)</span> and <span class="math">\(f_2 = O(g_2(n))\)</span>. Define <span class="math">\(f(n) = \min\{ f_1(n), f_2(n) \}\)</span> and <span class="math">\(g(n) = \min\{ g_1(n), g_2(n) \}\)</span>. True or false, it is necessarily the case that <span class="math">\(f(n) = O(g(n))\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #093</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(f(n) = \Omega(n^3)\)</span> and <span class="math">\(g(n) = \Omega(n)\)</span>.</p>
+<p>True or False: it is necessarily the case that <span class="math">\(f/g = \Omega(n^2)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #171</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^3)\)</span> and <span class="math">\(\Omega(n)\)</span>. Also suppose that <span class="math">\(f_2(n) = O(n^2)\)</span> and <span class="math">\(\Omega(\sqrt n)\)</span>.</p>
+<p>Consider the function <span class="math">\(f(n) = f_1(n) + f_2(n)\)</span>. True or false: it must be the case that <span class="math">\(f(n) = \Omega(n)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #172</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the function <span class="math">\(f(n) = \sin(12 n) \cdot\cos(n) + 2\)</span>. A plot of this function is shown below:</p>
+<center><div class="image"><img src="../images/172/plot.png" /></div></center>
+<p>True or False: this function is <span class="math">\(\Theta(1)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True. This function is upper bounded by 3 and lower bounded by 1 for all <span class="math">\(n\)</span>, and is therefore <span class="math">\(\Theta(1)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #173</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider again the function <span class="math">\(f(n) = \sin(12n) \cdot\cos(n) + 2\)</span> from the previous problem.</p>
+<p>True or False: <span class="math">\(f(n) = O(n^3)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True. We saw that this function is <span class="math">\(\Theta(1)\)</span>, but it is also correct to say that it is <span class="math">\(O(n^3)\)</span>, though this is not a tight upper bound.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #184</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(f_1(n) = \Omega(g_1(n))\)</span> and <span class="math">\(f_2 = \Omega(g_2(n))\)</span>. Define <span class="math">\(f(n) = \max\{ f_1(n), f_2(n) \}\)</span> and <span class="math">\(g(n) = \max\{ g_1(n), g_2(n)\}\)</span>.</p>
+<p>True or false: it is necessarily the case that <span class="math">\(f(n) = \Omega(g(n))\)</span>. In other words, it must be the case that <span class="math">\(\max\{ f_1(n), f_2(n) \} = \Omega( \max\{ g_1(n), g_2(n) \})
+    \)</span></p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #185</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose again that <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^3)\)</span> and <span class="math">\(\Omega(n)\)</span>. Also suppose that <span class="math">\(f_2(n) = O(n^2)\)</span> and <span class="math">\(\Omega(\sqrt n)\)</span>.</p>
+<p>Consider the function <span class="math">\(g(n) = f_2(n) / f_1(n)\)</span>. Give the tightest possible upper bound on <span class="math">\(g(n)\)</span>:</p>
+<p><span class="math">\(O(\)</span>
+<span class="inline-response-box">
+    <span id="answer-73e7092f-f01c-419f-b51e-91da63125890" style="display: none"><span class="math">\(n\)</span></span>
+    <span id="button-73e7092f-f01c-419f-b51e-91da63125890">
+        <button
+            type="button"
+            onclick="
+                document.getElementById('answer-73e7092f-f01c-419f-b51e-91da63125890').style.display = 'inline-block';
+                document.getElementById('button-73e7092f-f01c-419f-b51e-91da63125890').style.display = 'none'
+            "
+        >
+            Show Answer
+        </button>
+    </span>
+</span>
+<span class="math">\()\)</span></p>
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #187</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let</p>
+<div class="math">\[
+        f(n) =
+        \frac{n^3 + 10 n}{\sqrt{n} - 100}\times\frac{ \log(n^2 + 10)}{n(n+1)}\]</div>
+<p>Write <span class="math">\(f(n)\)</span> in asymptotic notation in the simplest terms possible.</p>
+<p><span class="math">\(f(n) = \Theta(\)</span>
+<span class="inline-response-box">
+    <span id="answer-52bdf2af-5203-4d6d-900a-5b63d25bac5f" style="display: none"><span class="math">\(\sqrt n \log n\)</span></span>
+    <span id="button-52bdf2af-5203-4d6d-900a-5b63d25bac5f">
+        <button
+            type="button"
+            onclick="
+                document.getElementById('answer-52bdf2af-5203-4d6d-900a-5b63d25bac5f').style.display = 'inline-block';
+                document.getElementById('button-52bdf2af-5203-4d6d-900a-5b63d25bac5f').style.display = 'none'
+            "
+        >
+            Show Answer
+        </button>
+    </span>
+</span>
+)</p>
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #195</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose again that <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^3)\)</span> and <span class="math">\(\Omega(n^2)\)</span>. Also suppose that <span class="math">\(f_2(n)\)</span> is <span class="math">\(O(n^4)\)</span> and <span class="math">\(\Omega(n)\)</span>.</p>
+<p>Consider the function <span class="math">\(g(n) = f_2(n) / f_1(n)\)</span>. Give the tightest possible upper bound on <span class="math">\(g(n)\)</span>:</p>
+<p><span class="math">\(O(\)</span>
+<span class="inline-response-box">
+    <span id="answer-96ae4a8f-2c4c-4252-bab9-f56ea30029e5" style="display: none"><span class="math">\(n^2\)</span></span>
+    <span id="button-96ae4a8f-2c4c-4252-bab9-f56ea30029e5">
+        <button
+            type="button"
+            onclick="
+                document.getElementById('answer-96ae4a8f-2c4c-4252-bab9-f56ea30029e5').style.display = 'inline-block';
+                document.getElementById('button-96ae4a8f-2c4c-4252-bab9-f56ea30029e5').style.display = 'none'
+            "
+        >
+            Show Answer
+        </button>
+    </span>
+</span>
+<span class="math">\()\)</span></p>
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #198</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^3)\)</span> and <span class="math">\(\Omega(n^2)\)</span>. Also suppose that <span class="math">\(f_2(n)\)</span> is <span class="math">\(O(n^4)\)</span> and <span class="math">\(\Omega(n)\)</span>.</p>
+<p>Consider the function <span class="math">\(f(n) = f_1(n) + f_2(n)\)</span>. True or false: it must be the case that <span class="math">\(f(n) = \Omega(n^2)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #205</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(f(n) = 3n^2 \log n\)</span>. True or False: <span class="math">\(f(n) = O(n^3)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #207</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let</p>
+<center><div class="image"><img src="../images/207/plot.png" /></div></center>
+<p>Define <span class="math">\(f(n)  = f_1(n) \times f_2(n) \times f_3(n)\)</span>. What is <span class="math">\(f(n)\)</span>, in asymptotic notation, in simplest terms possible?</p>
+<p>
+<span class="inline-response-box">
+    <span id="answer-13c82237-f7d2-4e01-9fcf-4bb78d3e0fcc" style="display: none"><span class="math">\(\Theta(n^3)\)</span></span>
+    <span id="button-13c82237-f7d2-4e01-9fcf-4bb78d3e0fcc">
+        <button
+            type="button"
+            onclick="
+                document.getElementById('answer-13c82237-f7d2-4e01-9fcf-4bb78d3e0fcc').style.display = 'inline-block';
+                document.getElementById('button-13c82237-f7d2-4e01-9fcf-4bb78d3e0fcc').style.display = 'none'
+            "
+        >
+            Show Answer
+        </button>
+    </span>
+</span>
+</p>
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #208</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the function defined below:</p>
+<div class="math">\[
+        f(n) =
+        \begin{cases}
+            3n, & \text{if $n$ is even;}\\
+            5n ,& \text{if $n$ is odd.}
+        \end{cases}\]</div>
+<p>True or False: <span class="math">\(f(n) = \Theta(n)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+       </body>
+   </html>
+    </div>
+</div>
+
+    </div>
+
+    <script>
+        // Restore saved theme on page load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else if (savedTheme === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Dark mode toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        // Update button to reflect current theme
+        function updateThemeButton() {
+            const isDark = document.documentElement.classList.contains('dark');
+            themeIcon.textContent = isDark ? '☀' : '☾';
+            themeText.textContent = isDark ? 'Light' : 'Dark';
+        }
+
+        // Initialize button state
+        updateThemeButton();
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.contains('dark');
+
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+
+            updateThemeButton();
+        });
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        menuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        });
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>

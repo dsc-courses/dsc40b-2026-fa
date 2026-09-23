@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head data-automata-theme="default">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DSC 40B</title>
+    <link href="/static/style.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+
+    <!-- Mobile menu button -->
+<div class="mobile-navbar lg:hidden fixed top-0 left-0 right-0 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-50 flex items-center">
+    <button id="mobile-menu-button" class="py-5 pl-4 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <i data-lucide="menu" class="w-6 h-5"></i>
+    </button>
+    <span class="ml-2 font-semibold">DSC 40B</span>
+</div>
+
+    <div class="flex min-h-screen">
+        <!-- Left Navigation Column -->
+        <nav id="sidebar" class="
+    w-64 flex-none
+    fixed lg:sticky
+    top-0 left-0 h-screen
+    transform -translate-x-full lg:translate-x-0 transition-transform duration-200 ease-in-out
+    bg-gray-50 dark:bg-gray-900
+    z-40
+    sidebar-mobile-spacing lg:pt-6
+    flex flex-col items-end
+    border-r lg:border-r-0 border-gray-200 dark:border-gray-700
+    ">
+
+    <div class="pt-6 pr-6 flex">
+        <ul class="space-y-2">
+            
+            <li>
+                <a href="/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="calendar-days" class="mr-2 text-slate-400"></i>
+Schedule
+                </a>
+            </li>
+            
+            <li>
+                <a href="/syllabus.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="scale" class="mr-2 text-slate-400"></i>
+Syllabus
+                </a>
+            </li>
+            
+            <li>
+                <a href="/office_hours.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="briefcase-business" class="mr-2 text-slate-400"></i>
+Office Hours
+                </a>
+            </li>
+            
+            <li>
+                <a href="/materials/default/notes/book.pdf" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="book-open" class="mr-2 text-slate-400"></i>
+Course Notes
+                </a>
+            </li>
+            
+            <li>
+                <a href="/practice/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="dumbbell" class="mr-2 text-slate-400"></i>
+Practice
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://campuswire.com/p/G43FA47CB" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-more" class="mr-2 text-slate-400"></i>
+Campuswire
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://www.gradescope.com/courses/1409241" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="spell-check" class="mr-2 text-slate-400"></i>
+Gradescope
+                </a>
+            </li>
+            
+            <li>
+                <a href="/staff.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="users" class="mr-2 text-slate-400"></i>
+Course Staff
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="flex mr-9 pt-3 pb-6">
+        <button id="theme-toggle" class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-full transition-colors">
+            <span id="theme-icon" class="mr-1.5">☾</span>
+            <span id="theme-text">Dark</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Overlay for mobile -->
+<div id="overlay" class="fixed inset-0 bg-gray-200/40 dark:bg-black/50 backdrop-blur-[2px] z-30 hidden"></div>
+
+        <!-- Main Content Column -->
+        
+<!-- Main Content Column -->
+<div class="
+    w-full
+    bg-white dark:bg-gray-800
+    md:border-l
+    border-gray-200 dark:border-gray-700
+    md:min-w-180
+    px-4 md:px-12
+    pt-20 lg:pt-12
+    pb-24
+    ">
+
+    <div class="
+    text-xl font-semibold
+    left-12 right-12
+    py-4 lg:pt-0 lg:pb-0 lg:mb-10
+    lg:static
+    truncate
+    flex
+    ">
+    <div class="
+        shrink
+        lg:border-b border-gray-200 dark:border-gray-700
+        ">
+        <span class="hidden lg:inline">
+            DSC 40B
+            &ndash;
+            Theoretical Foundations of Data Science II
+        </span>
+    </div>
+</div>
+
+    <div class="prose dark:prose-invert">
+    <!DOCTYPE html> <html> <head> <meta
+                          charset="utf-8"> <title>Problems tagged with graph theory</title>
+
+           <!-- MathJax -->
+           <script type="text/x-mathjax-config">
+             MathJax.Hub.Config({
+               tex: {
+                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+                 displayMath: [             // start/end delimiter pairs for display math
+                     ['\\[', '\\]']
+                 ],
+                 processEscapes: true
+               }
+           });
+           </script>
+
+           <!-- highlightjs -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+           <!-- and it's easy to individually load additional languages -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+           <script>hljs.highlightAll();</script>
+
+           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+           <script type="text/javascript" id="MathJax-script" async
+             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+           </script>
+
+       </head>
+       <body>
+           
+<h1>Problems tagged with "graph theory"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #098</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>An <i>undirected</i> graph has 5 nodes. What is the greatest number of edges it can have?</p>
+<details>
+    <summary>Solution</summary>
+<p>10</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #099</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>A <i>directed</i> graph has 10 <i>edges</i>. What is the <i>smallest</i> number of <i>nodes</i> it can have?</p>
+<details>
+    <summary>Solution</summary>
+<p>4</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #100</h2>
+        <p>Tags: <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>An undirected graph with 20 nodes and 30 edges has three connected components: <span class="math">\(A\)</span>, <span class="math">\(B\)</span>, and <span class="math">\(C\)</span>. Connected component <span class="math">\(A\)</span> has 7 nodes. What is the smallest number of edges it can have?</p>
+<details>
+    <summary>Solution</summary>
+<p>6</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #101</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(v = \{a, b, c, d, e, f, g\}\)</span> and <span class="math">\(E = \{(a,g), (b,d), (d, e), (f, d)\}\)</span>. How many connected components does the undirected graph <span class="math">\(G =(V, E)\)</span> have?</p>
+<details>
+    <summary>Solution</summary>
+<p>3</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #102</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(G = (V, E)\)</span> be a directed graph with <span class="math">\(|V| > 1\)</span>. Suppose that every node in <span class="math">\(G\)</span> is reachable from every other node. True or False: each node in the graph must have an out-degree of at least one and an in-degree of at least one.</p>
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #122</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>An undirected graph <span class="math">\(G = (V, E)\)</span> has 23 nodes and 2 connected components. What is the <i>smallest</i> number of edges it can have?</p>
+<details>
+    <summary>Solution</summary>
+<p>21</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #123</h2>
+        <p>Tags: <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(G = (V, E)\)</span> be an undirected graph, and suppose that <span class="math">\(u, v, \)</span> and <span class="math">\(w\)</span> are three nodes in <span class="math">\(V\)</span>. Suppose that <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the same connected component, but <span class="math">\(u\)</span> and <span class="math">\(w\)</span> are not in the same connected component. True or False: it is possible that <span class="math">\(v\)</span> and <span class="math">\(w\)</span> are in the same connected component.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #124</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(G\)</span> be an undirected graph. Suppose that the degree of every node in the graph is greater than or equal to one. True or False: <span class="math">\(G\)</span> must be connected.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #125</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>out-degree</b> of node <span class="math">\(u\)</span> in the graph shown below?</p>
+<center><div class="image"><img src="../images/125/g1.png" /></div></center>
+<details>
+    <summary>Solution</summary>
+<p>4</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #142</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(u\)</span> is a node in a complete, undirected graph <span class="math">\(G = (V,E)\)</span>. What is the degree of <span class="math">\(u\)</span>? Remember, an undirected graph is <i>complete</i> if it contains every possible edge.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(|V|\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(|E|\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(|V| - 1\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(|E| - 1\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(|V|^2\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(|V| - 1\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #143</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(V = \{a, b, c, d\}\)</span> and <span class="math">\(E = \{(a,b), (a,a), (a,c), (d,b), (c,a)\}\)</span> be the nodes and edges of a directed graph. How many predecessors does node <span class="math">\(b\)</span> have?</p>
+<details>
+    <summary>Solution</summary>
+<p>2</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #144</h2>
+        <p>Tags: <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(C\)</span> be a connected component in an undirected graph <span class="math">\(G\)</span>. Suppose <span class="math">\(u_1\)</span> is a node in <span class="math">\(C\)</span> and let <span class="math">\(u_2\)</span> be a node that is reachable from <span class="math">\(u_1\)</span>. True or False: <span class="math">\(u_2\)</span> must also be in the same connected component, <span class="math">\(C\)</span>.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #146</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(G = (V, E)\)</span> be a connected, undirected graph with 16 nodes and 35 edges. What is the greatest possible number of edges that can be in a simple path within <span class="math">\(G\)</span>?</p>
+<details>
+    <summary>Solution</summary>
+<p>15</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #147</h2>
+        <p>Tags: <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(G = (V, E)\)</span> is an undirected graph. Let <span class="math">\(k\)</span> be the number of connected components in <span class="math">\(G\)</span>. True or False: it is possible that <span class="math">\(k > |E|\)</span>.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #148</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(G = (V, E)\)</span> be a <i>directed</i> graph, and suppose <span class="math">\(u, v, w \in V\)</span> are all nodes. True or False: if <span class="math">\(w\)</span> is reachable from <span class="math">\(v\)</span>, and <span class="math">\(v\)</span> is reachable from <span class="math">\(u\)</span>, then <span class="math">\(w\)</span> is reachable from <span class="math">\(u\)</span>.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #149</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(G = (V,E)\)</span> be a connected, undirected graph with <span class="math">\(|E| = |V| - 1\)</span>. Suppose <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are both nodes in <span class="math">\(G\)</span>. True or False: there can be more than one simple path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span>.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #150</h2>
+        <p>Tags: <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose an undirected graph <span class="math">\(G = (V,E)\)</span> has two connected components, <span class="math">\(C_1\)</span> and <span class="math">\(C_2\)</span>. Suppose that <span class="math">\(|C_1| = 4\)</span> and <span class="math">\(|C_2| = 3\)</span>. What is the largest that <span class="math">\(|E|\)</span> can possibly be?</p>
+<details>
+    <summary>Solution</summary>
+<p>Answer: 9. To load a graph with the most edges, make each connected component "fully connected". The most edges we can put in a component with 4 nodes is <span class="math">\(4 * 3 / 2 = 6\)</span>, and the most we can put into a component with 3 nodes is <span class="math">\(3 * 2 / 2 = 3\)</span>. Therefore, we can put at most 9 edges in this graph.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #209</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose an <b>undirected</b> graph has 16 edges. What is the <i>smallest</i> number of nodes it can have?</p>
+<p>
+<span class="inline-response-box">
+    <span id="answer-ba813acf-5cd8-4d6e-b9a3-f35759f6b30c" style="display: none">7</span>
+    <span id="button-ba813acf-5cd8-4d6e-b9a3-f35759f6b30c">
+        <button
+            type="button"
+            onclick="
+                document.getElementById('answer-ba813acf-5cd8-4d6e-b9a3-f35759f6b30c').style.display = 'inline-block';
+                document.getElementById('button-ba813acf-5cd8-4d6e-b9a3-f35759f6b30c').style.display = 'none'
+            "
+        >
+            Show Answer
+        </button>
+    </span>
+</span>
+</p>
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #210</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a <b>directed</b> graph has 5 nodes and 3 edges. What is the greatest possible degree of any node in the graph?</p>
+<p>
+<span class="inline-response-box">
+    <span id="answer-faf14bb5-2c11-404d-9abf-4c234777489a" style="display: none">4</span>
+    <span id="button-faf14bb5-2c11-404d-9abf-4c234777489a">
+        <button
+            type="button"
+            onclick="
+                document.getElementById('answer-faf14bb5-2c11-404d-9abf-4c234777489a').style.display = 'inline-block';
+                document.getElementById('button-faf14bb5-2c11-404d-9abf-4c234777489a').style.display = 'none'
+            "
+        >
+            Show Answer
+        </button>
+    </span>
+</span>
+</p>
+<details>
+    <summary>Solution</summary>
+<p>Remember that nodes can have self loops, and that the degree of a node with only a self-loop is 2. So a node that has a self loop and two other edges leaving it has a degree of 4.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #223</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>The adjacency matrix of a directed graph with nodes <span class="math">\(u_1, \ldots, u_8\)</span> is shown below:</p>
+<div class="math">\[\begin{pmatrix}
+            0 & \textbf{1} & 0 & 0 & 0 & 0 & 0 & 0 \\
+            \textbf{1} & 0 & \textbf{1} & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & \textbf{1} & 0 & 0 & 0 & 0 \\
+            0 & \textbf{1} & 0 & 0 & \textbf{1} & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & \textbf{1} & 0 & 0 \\
+            0 & 0 & 0 & \textbf{1} & 0 & 0 & \textbf{1} & 0 \\
+            \textbf{1} & 0 & \textbf{1} & 0 & 0 & 0 & 0 & \textbf{1} \\
+            \textbf{1} & 0 & 0 & \textbf{1} & 0 & 0 & 0 & 0 \\
+        \end{pmatrix}\]</div>
+<p>True or False: there is a path from node <span class="math">\(u_1\)</span> to node <span class="math">\(u_8\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #225</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(G = (V, E)\)</span> be a directed graph with the property that there is a node <span class="math">\(u\)</span> in <span class="math">\(G\)</span> such that every other node in <span class="math">\(G\)</span> is reachable from <span class="math">\(u\)</span>.</p>
+<p>Let <span class="math">\(H \)</span> be the directed graph obtained from <span class="math">\(G\)</span> by reversing the direction of every edge. True or False: there must be a node <span class="math">\(v\)</span> in <span class="math">\(H\)</span> such that every other node in <span class="math">\(H\)</span> is reachable from <span class="math">\(v\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False. Consider the graph <span class="math">\(a \leftarrow b \rightarrow c\)</span>. Every node is reachable from <span class="math">\(b\)</span>. Now flip the edges to get the graph: <span class="math">\(a \rightarrow b \leftarrow c\)</span>. There's no node from which every other node is reachable.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #231</h2>
+        <p>Tags: <a href='../tags/shortest path.html'>shortest path</a>, <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose an undirected, connected graph has <span class="math">\(n\)</span> nodes, half of which are colored red and the other half are colored blue. Each red node is neighbors with <span class="math">\(n/4\)</span> blue nodes, and each blue node is neighbors with <span class="math">\(n/4\)</span> red nodes. There are no edges between nodes of the same color.</p>
+<p>What is the time complexity of computing a shortest path from a given red node to all other red nodes using BFS?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #234</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(G = (V, E)\)</span> be a connected, undirected graph with <span class="math">\(|E| = |V| - 1\)</span>. Suppose <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are two nodes in <span class="math">\(V\)</span>.</p>
+<p>True or False: there can be two different simple paths from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> in <span class="math">\(G\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #244</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(G=(V,E)\)</span> be an undirected graph with <span class="math">\(V=\{a,b,c,d,e\}\)</span> and <span class="math">\(E=\{(a,b),(c,d),(e,a),(b,c),(e,d),(d,a)\}\)</span>.</p>
+<p>True or False: it is possible to color nodes of <span class="math">\(G\)</span> with red and blue such that there are no edges between nodes of the same color.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #246</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>A ``hub node'' in a graph is a node that has an edge to all the other nodes in the graph.</p>
+<p>What is the worst case time complexity of an efficient algorithm that checks to see if a graph <span class="math">\(G = (V,E)\)</span> has a hub node? You should assume that the graph is represented as an adjacency list. State your answer in asymptotic notation and in terms of <span class="math">\(V\)</span> and <span class="math">\(E\)</span>.</p>
+<p>Note: in studying, you might have come across a problem in the practice bank about ``hub and spoke'' graphs. This question is related, but not the same!</p>
+<p>
+<span class="inline-response-box">
+    <span id="answer-07ccdb99-baf4-4b81-9d74-9a3b1352c4ed" style="display: none"><span class="math">\(\Theta(V)\)</span></span>
+    <span id="button-07ccdb99-baf4-4b81-9d74-9a3b1352c4ed">
+        <button
+            type="button"
+            onclick="
+                document.getElementById('answer-07ccdb99-baf4-4b81-9d74-9a3b1352c4ed').style.display = 'inline-block';
+                document.getElementById('button-07ccdb99-baf4-4b81-9d74-9a3b1352c4ed').style.display = 'none'
+            "
+        >
+            Show Answer
+        </button>
+    </span>
+</span>
+</p>
+    </div>
+</div>
+
+        </div>
+
+
+
+       </body>
+   </html>
+    </div>
+</div>
+
+    </div>
+
+    <script>
+        // Restore saved theme on page load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else if (savedTheme === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Dark mode toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        // Update button to reflect current theme
+        function updateThemeButton() {
+            const isDark = document.documentElement.classList.contains('dark');
+            themeIcon.textContent = isDark ? '☀' : '☾';
+            themeText.textContent = isDark ? 'Light' : 'Dark';
+        }
+
+        // Initialize button state
+        updateThemeButton();
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.contains('dark');
+
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+
+            updateThemeButton();
+        });
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        menuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        });
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>
