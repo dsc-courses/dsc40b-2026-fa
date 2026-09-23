@@ -60,9 +60,6 @@
                     "artifacts": {
                         "slides.pdf": {
                             "path": "materials/lectures/01-intro/slides.pdf"
-                        },
-                        "slides-marked.pdf": {
-                            "path": "materials/lectures/01-intro/slides-marked.pdf"
                         }
                     }
                 },
