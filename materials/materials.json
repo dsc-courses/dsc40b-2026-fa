@@ -1,95 +1,5 @@
 {
     "collections": {
-        "quizzes": {
-            "publication_schema": {
-                "required_artifacts": [
-                    "quiz.pdf",
-                    "solution.pdf"
-                ],
-                "optional_artifacts": [],
-                "metadata_schema": {
-                    "required_keys": {
-                        "date": {
-                            "type": "date"
-                        },
-                        "topic": {
-                            "type": "string"
-                        },
-                        "number": {
-                            "type": "integer"
-                        }
-                    }
-                },
-                "allow_unspecified_artifacts": false,
-                "is_ordered": true
-            },
-            "publications": {
-                "01": {
-                    "metadata": {
-                        "date": "2026-10-05",
-                        "topic": "Time Complexity (Lectures 01&ndash;02)",
-                        "number": 1
-                    },
-                    "artifacts": {}
-                },
-                "02": {
-                    "metadata": {
-                        "date": "2026-10-12",
-                        "topic": "Asymptotic Notation; Best, Worst, and Expected Time (Lectures 03&ndash;04)",
-                        "number": 2
-                    },
-                    "artifacts": {}
-                },
-                "03": {
-                    "metadata": {
-                        "date": "2026-10-19",
-                        "topic": "Recurrences, Binary Search, and Sorting (Lectures 05&ndash;06)",
-                        "number": 3
-                    },
-                    "artifacts": {}
-                },
-                "04": {
-                    "metadata": {
-                        "date": "2026-10-26",
-                        "topic": "Quickselect and BSTs (Lectures 07&ndash;08)",
-                        "number": 4
-                    },
-                    "artifacts": {}
-                },
-                "05": {
-                    "metadata": {
-                        "date": "2026-11-02",
-                        "topic": "Hashing (Lecture 09)",
-                        "number": 5
-                    },
-                    "artifacts": {}
-                },
-                "06": {
-                    "metadata": {
-                        "date": "2026-11-09",
-                        "topic": "Graph Theory and BFS (Lectures 10&ndash;11)",
-                        "number": 6
-                    },
-                    "artifacts": {}
-                },
-                "07": {
-                    "metadata": {
-                        "date": "2026-11-16",
-                        "topic": "BFS for Shortest Paths and DFS (Lectures 12&ndash;13)",
-                        "number": 7
-                    },
-                    "artifacts": {}
-                },
-                "08": {
-                    "metadata": {
-                        "date": "2026-11-23",
-                        "topic": "Bellman-Ford and Dijkstra's Algorithm (Lectures 14&ndash;15)",
-                        "number": 8
-                    },
-                    "artifacts": {}
-                }
-            }
-        },
         "lectures": {
             "publication_schema": {
                 "required_artifacts": [
@@ -417,6 +327,96 @@
                         "released": "2026-11-24 23:59:00",
                         "topic": "Final Project",
                         "number": 9
+                    },
+                    "artifacts": {}
+                }
+            }
+        },
+        "quizzes": {
+            "publication_schema": {
+                "required_artifacts": [
+                    "quiz.pdf",
+                    "solution.pdf"
+                ],
+                "optional_artifacts": [],
+                "metadata_schema": {
+                    "required_keys": {
+                        "date": {
+                            "type": "date"
+                        },
+                        "topic": {
+                            "type": "string"
+                        },
+                        "number": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "allow_unspecified_artifacts": false,
+                "is_ordered": true
+            },
+            "publications": {
+                "01": {
+                    "metadata": {
+                        "date": "2026-10-05",
+                        "topic": "Time Complexity (Lectures 01&ndash;02)",
+                        "number": 1
+                    },
+                    "artifacts": {}
+                },
+                "02": {
+                    "metadata": {
+                        "date": "2026-10-12",
+                        "topic": "Asymptotic Notation; Best, Worst, and Expected Time (Lectures 03&ndash;04)",
+                        "number": 2
+                    },
+                    "artifacts": {}
+                },
+                "03": {
+                    "metadata": {
+                        "date": "2026-10-19",
+                        "topic": "Recurrences, Binary Search, and Sorting (Lectures 05&ndash;06)",
+                        "number": 3
+                    },
+                    "artifacts": {}
+                },
+                "04": {
+                    "metadata": {
+                        "date": "2026-10-26",
+                        "topic": "Quickselect and BSTs (Lectures 07&ndash;08)",
+                        "number": 4
+                    },
+                    "artifacts": {}
+                },
+                "05": {
+                    "metadata": {
+                        "date": "2026-11-02",
+                        "topic": "Hashing (Lecture 09)",
+                        "number": 5
+                    },
+                    "artifacts": {}
+                },
+                "06": {
+                    "metadata": {
+                        "date": "2026-11-09",
+                        "topic": "Graph Theory and BFS (Lectures 10&ndash;11)",
+                        "number": 6
+                    },
+                    "artifacts": {}
+                },
+                "07": {
+                    "metadata": {
+                        "date": "2026-11-16",
+                        "topic": "BFS for Shortest Paths and DFS (Lectures 12&ndash;13)",
+                        "number": 7
+                    },
+                    "artifacts": {}
+                },
+                "08": {
+                    "metadata": {
+                        "date": "2026-11-23",
+                        "topic": "Bellman-Ford and Dijkstra's Algorithm (Lectures 14&ndash;15)",
+                        "number": 8
                     },
                     "artifacts": {}
                 }
