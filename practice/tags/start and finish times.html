@@ -8,6 +8,51 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+<style>
+  .multiple-choices .choice label {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin: 0.25em 0;
+    cursor: pointer;
+  }
+  .multiple-choices .choice p {
+    margin: 0;
+  }
+
+  /* practice problems: code blocks get a thin border instead of the theme's
+     thick dark frame around highlight.js's light box */
+  .problem pre.code {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 0.75em 1em;
+  }
+  .problem pre.code code,
+  .problem pre.code code.hljs {
+    background: transparent;
+    padding: 0;
+  }
+
+  /* the theme's typography styles wrap inline code in literal backticks */
+  .problem code::before,
+  .problem code::after {
+    content: none;
+  }
+</style>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".problem pre.code code").forEach(function (code) {
+      if (code.children.length === 0) {
+        code.textContent = code.textContent.replace(/^\s*\n/, "").replace(/\s+$/, "");
+      }
+    });
+  });
+</script>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -186,12 +231,117 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #111</h2>
+        <h2>Problem #272</h2>
+        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/start and finish times.html'>start and finish times</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a depth first search is run on the graph shown below using node <span class="math">\(u_4\)</span> as the source, and adopt the convention that <span class="inline-code"><code>graph.neighbors</code></span> produces nodes in ascending order of label. Which node will have the smallest finish time?</p>
+<center><div class="image"><img src="../images/272/f1.png" /></div></center>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_1\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_2\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_3\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_4\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_5\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_6\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_7\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_8\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_9\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(u_1\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #273</h2>
+        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/start and finish times.html'>start and finish times</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a depth first search is run on the graph shown below using node <span class="math">\(u_4\)</span> as the source, and adopt the convention that <span class="inline-code"><code>graph.neighbors</code></span> produces nodes in ascending order of label. What will be the start time of node <span class="math">\(u_7\)</span>?</p>
+<center><div class="image"><img src="../images/273/f1.png" /></div></center>
+<details>
+    <summary>Solution</summary>
+<p>12</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #275</h2>
+        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/start and finish times.html'>start and finish times</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a <i>depth</i> first search is run on the graph below in order to find start and finish times using node <span class="math">\(d\)</span> as the source.</p>
+<center><div class="image"><img src="../images/275/searchme.png" /></div></center>
+<p>Adopt the convention that the first start time is 1, and, as always, that neighbors are produced in ascending order by label. What will be the start and finish times of node <span class="math">\(r\)</span>?</p>
+<details>
+    <summary>Solution</summary>
+<p>Start time 4, finish time 7. DFS starts <span class="math">\(d\)</span> at 1, <span class="math">\(f\)</span> at 2, <span class="math">\(g\)</span> at 3, and <span class="math">\(r\)</span> at 4. From <span class="math">\(r\)</span> it starts <span class="math">\(v\)</span> at 5, which finishes at 6, and then <span class="math">\(r\)</span> finishes at 7.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #277</h2>
+        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/start and finish times.html'>start and finish times</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a DFS is run on the graph shown below using node 11 as the source. Use the convention that a node's neighbors are produced in ascending order by label.</p>
+<center><div class="image"><img src="../images/277/g2.png" /></div></center>
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 1)</h3>
+<p>What will be the start time of node 2? Use the convention that the start time of the source is 1.</p>
+<details>
+    <summary>Solution</summary>
+<p>4</p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 2)</h3>
+<p>What will be the finish time of node 10?</p>
+<details>
+    <summary>Solution</summary>
+<p>11</p>
+</details>
+
+</div>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #280</h2>
         <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/start and finish times.html'>start and finish times</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a depth-first search (DFS) is run on the graph shown below using node <span class="math">\(s\)</span> as the source and adopting the convention that a node's neighbors are produced in ascending order of their label.</p>
-<center><div class="image"><img src="../images/111/graph.png" /></div></center>
+<center><div class="image"><img src="../images/280/graph.png" /></div></center>
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
 <p>What will be the start time of node <span class="math">\(u_7\)</span>?</p>
@@ -231,7 +381,118 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #112</h2>
+        <h2>Problem #285</h2>
+        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/start and finish times.html'>start and finish times</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose you run DFS on a graph in which all nodes are reachable from the source node. True or false: the source node will be marked as visited last, <b>only</b> if the graph is undirected.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>False. The source is marked as visited last in both directed and undirected graphs. Every other node is reachable from the source, so each is discovered and finished during the recursive calls made by the call on the source, which finishes only after all of them have.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #289</h2>
+        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/start and finish times.html'>start and finish times</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a depth first search (DFS) is run on a connected undirected graph, and there is a node <span class="math">\(u\)</span> which has only one neighbor. True or False: the finish time of node <span class="math">\(u\)</span> will be equal to its start time plus 3.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>False. If <span class="math">\(u\)</span> is not the source, its only neighbor is the node it was discovered from, which is already pending. So DFS finds nothing new to visit from <span class="math">\(u\)</span>, and <span class="math">\(u\)</span>'s finish time is its start time plus 1. (If <span class="math">\(u\)</span> is the source, its finish time is its start time plus <span class="math">\(2(|V| - 1) + 1\)</span>, which equals its start time plus 3 only when the graph has exactly two nodes.)</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #290</h2>
+        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/start and finish times.html'>start and finish times</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>In a DFS on an undirected graph <span class="math">\(G\)</span>, the start time of node <span class="math">\(u\)</span> is 12, while the finish time of node <span class="math">\(u\)</span> is 37. How many nodes were marked pending between the moment that node <span class="math">\(u\)</span> was marked pending and the moment that it was marked visited? Node <span class="math">\(u\)</span> itself should be <i>excluded</i> from your count.</p>
+<details>
+    <summary>Solution</summary>
+<p>12</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #291</h2>
+        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/start and finish times.html'>start and finish times</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(T = (V, E)\)</span> is a connected, undirected graph with no cycles (that is, <span class="math">\(T\)</span> is a tree). Suppose a depth first search is run on <span class="math">\(T\)</span> using node s as the source. Assume that node s has two neighbors: <span class="math">\(u\)</span> and <span class="math">\(v\)</span>. If <span class="math">\(|V| = 15\)</span>, which one of the below represents possible start and finish times of <span class="math">\(u\)</span> and <span class="math">\(v\)</span>? You may assume that <span class="inline-code"><code>graph.neighbors</code></span> produces neighbors in ascending order of label.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>start[u] = 2</code></span>, <span class="inline-code"><code>finish[u] = 10</code></span>, <span class="inline-code"><code>start[v] = 8</code></span>, <span class="inline-code"><code>finish[v] = 29</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>start[u] = 2</code></span>, <span class="inline-code"><code>finish[u] = 21</code></span>, <span class="inline-code"><code>start[v] = 22</code></span>, <span class="inline-code"><code>finish[v] = 29</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>start[u] = 1</code></span>, <span class="inline-code"><code>finish[u] = 16</code></span>, <span class="inline-code"><code>start[v] = 17</code></span>, <span class="inline-code"><code>finish[v] = 30</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>start[u] = 16</code></span>, <span class="inline-code"><code>finish[u] = 29</code></span>, <span class="inline-code"><code>start[v] = 2</code></span>, <span class="inline-code"><code>finish[v] = 15</code></span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="inline-code"><code>start[u] = 2</code></span>, <span class="inline-code"><code>finish[u] = 21</code></span>, <span class="inline-code"><code>start[v] = 22</code></span>, <span class="inline-code"><code>finish[v] = 29</code></span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #292</h2>
+        <p>Tags: <a href='../tags/start and finish times.html'>start and finish times</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose an undirected graph has 50 nodes. A full DFS is run on the graph to compute start and finish times. Suppose that, for each node, the difference between the node's start and finish is printed, and the largest difference is found to be 15.</p>
+<p>True or False: it is possible that the graph is connected.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+<p>If the graph were connected, the first call to <span class="inline-code"><code>dfs</code></span> would reach all 50 nodes, so the other 49 nodes would all start and finish between the source's start and finish times. The source's finish minus start would then be at least <span class="math">\(2 \cdot 49 + 1 = 99\)</span>, which is much more than 15.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #293</h2>
         <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/start and finish times.html'>start and finish times</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -261,6 +522,7 @@ Course Staff
 <details>
     <summary>Solution</summary>
 <p>False.</p>
+<p>Take the triangle with edges <span class="math">\((s, u)\)</span>, <span class="math">\((s, v)\)</span>, <span class="math">\((u, v)\)</span>. If <span class="math">\(s\)</span>'s neighbors are produced with <span class="math">\(u\)</span> first, then <span class="math">\(v\)</span> is discovered from <span class="math">\(u\)</span> and its interval is nested inside <span class="math">\(u\)</span>'s. If <span class="math">\(v\)</span> comes first, <span class="math">\(u\)</span> is discovered from <span class="math">\(v\)</span> and the nesting is reversed.</p>
 </details>
 
     </div>
@@ -272,158 +534,7 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #131</h2>
-        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/start and finish times.html'>start and finish times</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Suppose again that a DFS is run on the graph shown in the above problem using node 11 as the source.</p>
-<div class="subproblem">
-    <h3 class="subproblem-id">Part 1)</h3>
-<p>What will be the start time of node 2? Use the convention that the start time of the source is 1.</p>
-<details>
-    <summary>Solution</summary>
-<p>4</p>
-</details>
-
-</div>
-
-<div class="subproblem">
-    <h3 class="subproblem-id">Part 2)</h3>
-<p>What will be the finish time of node 10?</p>
-<details>
-    <summary>Solution</summary>
-<p>11</p>
-</details>
-
-</div>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #132</h2>
-        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/start and finish times.html'>start and finish times</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>In a DFS on an undirected graph <span class="math">\(G\)</span>, the start time of node <span class="math">\(u\)</span> is 12, while the finish time of node <span class="math">\(u\)</span> is 37. How many nodes were marked pending between the moment that node <span class="math">\(u\)</span> was marked pending and the moment that it was marked visited? Node <span class="math">\(u\)</span> itself should be <i>excluded</i> from your count.</p>
-<details>
-    <summary>Solution</summary>
-<p>12</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #158</h2>
-        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/start and finish times.html'>start and finish times</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Suppose a depth first search is run on the graph shown below using node <span class="math">\(u_4\)</span> as the source, and adopt the convention that <span class="inline-code"><code>graph.neighbors</code></span> produces nodes in ascending order of label. Which node will have the smallest finish time?</p>
-<center><div class="image"><img src="../images/158/f1.png" /></div></center>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_1\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_2\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_3\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_4\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_5\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_6\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_7\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_8\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_9\)</span></p></label></div></form></div>
-<details>
-    <summary>Solution</summary>
-<p><span class="math">\(u_1\)</span></p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #159</h2>
-        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/start and finish times.html'>start and finish times</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Suppose a depth first search is run on the graph shown below using node <span class="math">\(u_4\)</span> as the source, and adopt the convention that <span class="inline-code"><code>graph.neighbors</code></span> produces nodes in ascending order of label. What will be the start time of node <span class="math">\(u_7\)</span>?</p>
-<center><div class="image"><img src="../images/159/f1.png" /></div></center>
-<details>
-    <summary>Solution</summary>
-<p>12</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #161</h2>
-        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/start and finish times.html'>start and finish times</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Suppose <span class="math">\(T = (V, E)\)</span> is a connected, undirected graph with no cycles (that is, <span class="math">\(T\)</span> is a tree). Suppose a depth first search is run on <span class="math">\(T\)</span> using node s as the source. Assume that node s has two neighbors: <span class="math">\(u\)</span> and <span class="math">\(v\)</span>. If <span class="math">\(|V| = 15\)</span>, which one of the below represents possible start and finish times of <span class="math">\(u\)</span> and <span class="math">\(v\)</span>? You may assume that <span class="inline-code"><code>graph.neighbors</code></span> produces neighbors in ascending order of label.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>start[u] = 2</code></span>, <span class="inline-code"><code>finish[u] = 10</code></span>, <span class="inline-code"><code>start[v] = 8</code></span>, <span class="inline-code"><code>finish[v] = 29</code></span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>start[u] = 2</code></span>, <span class="inline-code"><code>finish[u] = 21</code></span>, <span class="inline-code"><code>start[v] = 22</code></span>, <span class="inline-code"><code>finish[v] = 29</code></span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>start[u] = 1</code></span>, <span class="inline-code"><code>finish[u] = 16</code></span>, <span class="inline-code"><code>start[v] = 17</code></span>, <span class="inline-code"><code>finish[v] = 30</code></span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>start[u] = 16</code></span>, <span class="inline-code"><code>finish[u] = 29</code></span>, <span class="inline-code"><code>start[v] = 2</code></span>, <span class="inline-code"><code>finish[v] = 15</code></span></p></label></div></form></div>
-<details>
-    <summary>Solution</summary>
-<p><span class="inline-code"><code>start[u] = 2</code></span>, <span class="inline-code"><code>finish[u] = 21</code></span>, <span class="inline-code"><code>start[v] = 22</code></span>, <span class="inline-code"><code>finish[v] = 29</code></span></p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #219</h2>
-        <p>Tags: <a href='../tags/start and finish times.html'>start and finish times</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Suppose an undirected graph has 50 nodes. A full DFS is run on the graph to compute start and finish times. Suppose that, for each node, the difference between the node's start and finish is printed, and the largest difference is found to be 15.</p>
-<p>True or False: it is possible that the graph is connected.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
-<details>
-    <summary>Solution</summary>
-<p>False</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #252</h2>
+        <h2>Problem #294</h2>
         <p>Tags: <a href='../tags/start and finish times.html'>start and finish times</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -437,7 +548,29 @@ Course Staff
 
 <details>
     <summary>Solution</summary>
-<p>False</p>
+<p>False.</p>
+<p>The only path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> might go through a node that is already pending. For example, take edges <span class="math">\((s, u)\)</span> and <span class="math">\((s, v)\)</span> and start at <span class="math">\(s\)</span>. If <span class="inline-code"><code>dfs(u)</code></span> is called first, <span class="math">\(u\)</span> has no undiscovered neighbors and finishes right away, and <span class="math">\(v\)</span> is only started afterward from <span class="math">\(s\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #295</h2>
+        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/start and finish times.html'>start and finish times</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(v\)</span> is reachable from node <span class="math">\(u\)</span> in a directed graph. A DFS is run on the graph, and node <span class="math">\(u\)</span> is discovered before node <span class="math">\(v\)</span> (its start time is less than <span class="math">\(v\)</span>'s start time). True or false: the finish time of node <span class="math">\(v\)</span> must be less than the finish time of node <span class="math">\(u\)</span>.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>False. Consider the graph with nodes s, u, and v, and edges (s,u), (u,s), and (s,v), where a DFS is run with node <span class="math">\(s\)</span> as source, going to node u first. u will be finished before v is started (and thus before it is finished, too).</p>
 </details>
 
     </div>

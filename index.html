@@ -8,6 +8,51 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+<style>
+  .multiple-choices .choice label {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin: 0.25em 0;
+    cursor: pointer;
+  }
+  .multiple-choices .choice p {
+    margin: 0;
+  }
+
+  /* practice problems: code blocks get a thin border instead of the theme's
+     thick dark frame around highlight.js's light box */
+  .problem pre.code {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 0.75em 1em;
+  }
+  .problem pre.code code,
+  .problem pre.code code.hljs {
+    background: transparent;
+    padding: 0;
+  }
+
+  /* the theme's typography styles wrap inline code in literal backticks */
+  .problem code::before,
+  .problem code::after {
+    content: none;
+  }
+</style>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".problem pre.code code").forEach(function (code) {
+      if (code.children.length === 0) {
+        code.textContent = code.textContent.replace(/^\s*\n/, "").replace(/\s+$/, "");
+      }
+    });
+  });
+</script>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -151,13 +196,97 @@ p-8
 rounded-lg
 border border-gray-300 dark:border-gray-700
 "
-id="week-0"
+id="week-1"
 >
 
 <div>
 <h1 class="text-2xl">
 
 <p>This Week</p>
+</h1>
+
+<h2 class="text-4xl">Time Complexity</h2>
+
+<div class="flex flex-col items-start md:flex-row mt-2 gap-y-2 md:gap-x-2">
+
+</div>
+
+<!-- primary and secondary content div -->
+
+<div class="flex flex-col md:flex-row">
+
+<!-- primary content div -->
+
+<div class="
+md:w-9/10 md:min-w-50
+pr-10
+mt-8
+flex flex-col gap-y-8
+">
+
+<div class="">
+<div>
+<h3 class="text-2xl">
+Lecture 2 — Asymptotic Time Complexity, pt. I
+</h3>
+</div>
+
+<div class="mt-4 flex flex-col gap-y-2">
+
+<div class="flex flex-row items-center">
+
+<div class="font-semibold mr-2 flex flex-row items-center gap-1">
+
+<p><i data-lucide="book-open" class="w-5 h-5 text-slate-400"></i></p>
+<p><span>Reading</span></p>
+</div>
+
+<div>
+
+<div class="prose dark:prose-invert">
+Section 1.1 - 1.4 in the <a href="/materials/default/notes/book.pdf">course notes</a>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<!-- secondary content div -->
+
+</div>
+
+</div>
+</div>
+
+<div class="flex flex-row items-center">
+<div class="border-b h-0 grow mr-3 border-gray-300 dark:border-gray-700">
+</div>
+<span class="dark:text-gray-500 text-gray-400">
+<i>past weeks</i>
+</span>
+<div class="border-b h-0 grow ml-3 border-gray-300 dark:border-gray-700">
+</div>
+</div>
+
+<!-- schedule week div -->
+
+<div class="
+bg-white dark:bg-gray-800
+p-8
+rounded-lg
+border border-gray-300 dark:border-gray-700
+"
+id="week-0"
+>
+
+<div>
+<h1 class="text-2xl">
+
+<p>Last Week</p>
 </h1>
 
 <h2 class="text-4xl">Introduction</h2>
@@ -302,49 +431,13 @@ p-8
 rounded-lg
 border border-gray-300 dark:border-gray-700
 "
-id="week-1"
->
-
-<div>
-<h1 class="text-2xl">
-
-<p>Next Week</p>
-</h1>
-
-<h2 class="text-4xl">Time Complexity</h2>
-
-<div class="flex flex-col items-start md:flex-row mt-2 gap-y-2 md:gap-x-2">
-
-</div>
-
-<!-- primary and secondary content div -->
-
-<div class="flex flex-col md:flex-row">
-
-<!-- primary content div -->
-
-<!-- secondary content div -->
-
-</div>
-
-</div>
-</div>
-
-<!-- schedule week div -->
-
-<div class="
-bg-white dark:bg-gray-800
-p-8
-rounded-lg
-border border-gray-300 dark:border-gray-700
-"
 id="week-2"
 >
 
 <div>
 <h1 class="text-2xl">
 
-<p>Week 2</p>
+<p>Next Week</p>
 </h1>
 
 <h2 class="text-4xl">Expected Time and Recurrences</h2>

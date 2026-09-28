@@ -8,6 +8,51 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+<style>
+  .multiple-choices .choice label {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin: 0.25em 0;
+    cursor: pointer;
+  }
+  .multiple-choices .choice p {
+    margin: 0;
+  }
+
+  /* practice problems: code blocks get a thin border instead of the theme's
+     thick dark frame around highlight.js's light box */
+  .problem pre.code {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 0.75em 1em;
+  }
+  .problem pre.code code,
+  .problem pre.code code.hljs {
+    background: transparent;
+    padding: 0;
+  }
+
+  /* the theme's typography styles wrap inline code in literal backticks */
+  .problem code::before,
+  .problem code::after {
+    content: none;
+  }
+</style>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".problem pre.code code").forEach(function (code) {
+      if (code.children.length === 0) {
+        code.textContent = code.textContent.replace(/^\s*\n/, "").replace(/\s+$/, "");
+      }
+    });
+  });
+</script>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -186,51 +231,7 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #100</h2>
-        <p>Tags: <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/graph theory.html'>graph theory</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>An undirected graph with 20 nodes and 30 edges has three connected components: <span class="math">\(A\)</span>, <span class="math">\(B\)</span>, and <span class="math">\(C\)</span>. Connected component <span class="math">\(A\)</span> has 7 nodes. What is the smallest number of edges it can have?</p>
-<details>
-    <summary>Solution</summary>
-<p>6</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #123</h2>
-        <p>Tags: <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/graph theory.html'>graph theory</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Let <span class="math">\(G = (V, E)\)</span> be an undirected graph, and suppose that <span class="math">\(u, v, \)</span> and <span class="math">\(w\)</span> are three nodes in <span class="math">\(V\)</span>. Suppose that <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the same connected component, but <span class="math">\(u\)</span> and <span class="math">\(w\)</span> are not in the same connected component. True or False: it is possible that <span class="math">\(v\)</span> and <span class="math">\(w\)</span> are in the same connected component.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
-<details>
-    <summary>Solution</summary>
-<p>False.</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #144</h2>
+        <h2>Problem #195</h2>
         <p>Tags: <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/graph theory.html'>graph theory</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -240,6 +241,7 @@ Course Staff
 <details>
     <summary>Solution</summary>
 <p>True.</p>
+<p>A connected component contains every node that is reachable from any of its nodes; it is a maximal set of nodes that can all reach one another. Since <span class="math">\(u_2\)</span> is reachable from <span class="math">\(u_1\)</span>, it is in the same component as <span class="math">\(u_1\)</span>, which is <span class="math">\(C\)</span>.</p>
 </details>
 
     </div>
@@ -251,16 +253,21 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #147</h2>
-        <p>Tags: <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/graph theory.html'>graph theory</a></p>
+        <h2>Problem #197</h2>
+        <p>Tags: <a href='../tags/connected components.html'>connected components</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose <span class="math">\(G = (V, E)\)</span> is an undirected graph. Let <span class="math">\(k\)</span> be the number of connected components in <span class="math">\(G\)</span>. True or False: it is possible that <span class="math">\(k > |E|\)</span>.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<p>Consider the undirected graph <span class="math">\(G = (V, E)\)</span> with</p>
+<p><span class="math">\(V = \{0, 1, 2, 3, 4, 5, 6, 7\}\)</span><span class="math">\(E = \{(0, 1), (3, 6), (1, 5), (2, 4), (3, 4)\}\)</span></p>
+<p>What are the connected components of <span class="math">\(G\)</span>?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{\{0, 1, 5, 7\}, \{2, 3, 4, 6\}\}\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{\{0, 1, 5, 2, 4\}, \{3, 6, 7\}\}\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{\{0, 1, 5\}, \{2, 3, 4, 6, 7\}\}\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{\{0, 1, 5\}, \{2, 3, 4, 6\}, \{7\}\}\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{\{0, 1, 5\}, \{2, 3, 4, 6\}\}\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>True.</p>
+<p><span class="math">\(\{\{0, 1, 5\}, \{2, 3, 4, 6\}, \{7\}\}\)</span>. The edges <span class="math">\((0,1)\)</span> and <span class="math">\((1,5)\)</span> connect 0, 1, and 5. The edges <span class="math">\((2,4)\)</span>, <span class="math">\((3,4)\)</span>, and <span class="math">\((3,6)\)</span> connect 2, 3, 4, and 6. Node 7 has no edges, so it is a connected component by itself.</p>
 </details>
 
     </div>
@@ -272,31 +279,12 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #150</h2>
-        <p>Tags: <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/graph theory.html'>graph theory</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Suppose an undirected graph <span class="math">\(G = (V,E)\)</span> has two connected components, <span class="math">\(C_1\)</span> and <span class="math">\(C_2\)</span>. Suppose that <span class="math">\(|C_1| = 4\)</span> and <span class="math">\(|C_2| = 3\)</span>. What is the largest that <span class="math">\(|E|\)</span> can possibly be?</p>
-<details>
-    <summary>Solution</summary>
-<p>Answer: 9. To load a graph with the most edges, make each connected component "fully connected". The most edges we can put in a component with 4 nodes is <span class="math">\(4 * 3 / 2 = 6\)</span>, and the most we can put into a component with 3 nodes is <span class="math">\(3 * 2 / 2 = 3\)</span>. Therefore, we can put at most 9 edges in this graph.</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #211</h2>
+        <h2>Problem #198</h2>
         <p>Tags: <a href='../tags/connected components.html'>connected components</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V,E)\)</span> be an undirected graph with:</p>
-<center><div class="image"><img src="../images/211/plot.png" /></div></center>
+<center><div class="image"><img src="../images/198/plot.png" /></div></center>
 <p>True or False: <span class="math">\(\{b, d, g\}\)</span> is a connected component of this graph.</p>
 
 <div class="true-false">
@@ -319,7 +307,121 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #221</h2>
+        <h2>Problem #199</h2>
+        <p>Tags: <a href='../tags/connected components.html'>connected components</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(G = (V,E)\)</span> be an undirected graph with:</p>
+<center><div class="image"><img src="../images/199/graph.png" /></div></center>
+<p>True or False: <span class="math">\(\{a, d, e\}\)</span> is a connected component of this graph.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+<p>Node <span class="math">\(c\)</span> is also reachable from <span class="math">\(a\)</span> via the edge <span class="math">\((a, c)\)</span>, so <span class="math">\(\{a, d, e\}\)</span> isn't a maximal set of connected nodes. The connected component containing <span class="math">\(a\)</span> is <span class="math">\(\{a, c, d, e\}\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #200</h2>
+        <p>Tags: <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(G = (V, E)\)</span> be an undirected graph, and suppose that <span class="math">\(u, v, \)</span> and <span class="math">\(w\)</span> are three nodes in <span class="math">\(V\)</span>. Suppose that <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the same connected component, but <span class="math">\(u\)</span> and <span class="math">\(w\)</span> are not in the same connected component. True or False: it is possible that <span class="math">\(v\)</span> and <span class="math">\(w\)</span> are in the same connected component.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+<p>If <span class="math">\(v\)</span> and <span class="math">\(w\)</span> were in the same connected component, then there would be a path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> and a path from <span class="math">\(v\)</span> to <span class="math">\(w\)</span>, and putting them together gives a path from <span class="math">\(u\)</span> to <span class="math">\(w\)</span>. That would put <span class="math">\(u\)</span> and <span class="math">\(w\)</span> in the same component, which contradicts what we were told. (In other words, the connected components split the nodes into non-overlapping groups.)</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #204</h2>
+        <p>Tags: <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(G = (V, E)\)</span> is an undirected graph. Let <span class="math">\(k\)</span> be the number of connected components in <span class="math">\(G\)</span>. True or False: it is possible that <span class="math">\(k > |E|\)</span>.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+<p>For example, a graph with 3 nodes and no edges has <span class="math">\(k = 3\)</span> connected components (each node is its own component) but <span class="math">\(|E| = 0\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #207</h2>
+        <p>Tags: <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose an undirected graph <span class="math">\(G = (V,E)\)</span> has two connected components, <span class="math">\(C_1\)</span> and <span class="math">\(C_2\)</span>. Suppose that <span class="math">\(|C_1| = 4\)</span> and <span class="math">\(|C_2| = 3\)</span>. What is the largest that <span class="math">\(|E|\)</span> can possibly be?</p>
+<details>
+    <summary>Solution</summary>
+<p>Answer: 9. To load a graph with the most edges, make each connected component "fully connected". The most edges we can put in a component with 4 nodes is <span class="math">\(4 * 3 / 2 = 6\)</span>, and the most we can put into a component with 3 nodes is <span class="math">\(3 * 2 / 2 = 3\)</span>. Therefore, we can put at most 9 edges in this graph.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #208</h2>
+        <p>Tags: <a href='../tags/connected components.html'>connected components</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose an <b>undirected</b> graph has 3 connected components and 7 nodes. What is the <i>maximum</i> number of edges it can have?</p>
+<details>
+    <summary>Solution</summary>
+<p>10</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #214</h2>
         <p>Tags: <a href='../tags/connected components.html'>connected components</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -333,7 +435,8 @@ Course Staff
 
 <details>
     <summary>Solution</summary>
-<p>False</p>
+<p>False.</p>
+<p>If the edge <span class="math">\((u, v)\)</span> is the only path between them, deleting it disconnects them. For example, if <span class="math">\(G\)</span> has just the two nodes <span class="math">\(u\)</span> and <span class="math">\(v\)</span> and the single edge <span class="math">\((u, v)\)</span>, then after deleting it, <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are each in their own connected component. (They do stay connected if some other path between them exists, but that isn't guaranteed.)</p>
 </details>
 
     </div>
@@ -345,34 +448,7 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #233</h2>
-        <p>Tags: <a href='../tags/connected components.html'>connected components</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Let <span class="math">\(G = (V,E)\)</span> be an undirected graph with:</p>
-<center><div class="image"><img src="../images/233/graph.png" /></div></center>
-<p>True or False: <span class="math">\(\{a, d, e\}\)</span> is a connected component of this graph.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
-<details>
-    <summary>Solution</summary>
-<p>False</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #235</h2>
+        <h2>Problem #215</h2>
         <p>Tags: <a href='../tags/connected components.html'>connected components</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -386,7 +462,8 @@ Course Staff
 
 <details>
     <summary>Solution</summary>
-<p>False</p>
+<p>False.</p>
+<p>Consider a graph with 6 nodes made up of two separate triangles. Every node has degree 2, but the graph has two connected components.</p>
 </details>
 
     </div>
@@ -398,27 +475,55 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #236</h2>
-        <p>Tags: <a href='../tags/connected components.html'>connected components</a></p>
+        <h2>Problem #240</h2>
+        <p>Tags: <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose an <b>undirected</b> graph has 3 connected components and 7 nodes. What is the <i>maximum</i> number of edges it can have?</p>
-<p>
-<span class="inline-response-box">
-    <span id="answer-37ed0c08-cbe4-4dbe-98d5-e0ca08478c88" style="display: none">10</span>
-    <span id="button-37ed0c08-cbe4-4dbe-98d5-e0ca08478c88">
-        <button
-            type="button"
-            onclick="
-                document.getElementById('answer-37ed0c08-cbe4-4dbe-98d5-e0ca08478c88').style.display = 'inline-block';
-                document.getElementById('button-37ed0c08-cbe4-4dbe-98d5-e0ca08478c88').style.display = 'none'
-            "
-        >
-            Show Answer
-        </button>
-    </span>
-</span>
-</p>
+<p>Suppose you are running a full BFS on a graph. You are using the following code from lecture to run your full BFS, with some small modifications to include two new print statements:</p>
+<pre class="code"><code>
+from collections import deque
+
+def bfs(graph, source, status=None):
+    """Start a BFS at `source`."""
+    if status is None:
+        status = {node: 'undiscovered' for node in graph.nodes}
+
+    status[source] = 'pending'
+    pending = deque([source])
+
+    # while there are still pending nodes
+    while pending:
+        u = pending.popleft()
+        for v in graph.neighbors(u):
+            # explore edge (u, v)
+            print('foo') # <- this is new
+            if status[v] == 'undiscovered':
+                status[v] = 'pending'
+                # append to right
+                pending.append(v)
+        status[u] = 'visited'
+
+def full_bfs(graph):
+    status = {node: 'undiscovered' for node in graph.nodes}
+    for node in graph.nodes:
+        if status[node] == 'undiscovered':
+            print("bar") # <- this is also new
+            bfs(graph, node, status)
+
+</code></pre>
+
+<p>After running the full BFS, you find that the word “foo” has been printed 2 times, and the word “bar” has been printed 5 times. Assuming that the graph has 1 edge (but an unknown number of nodes), which of the following is true about the graph in question?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>There is 1 connected component, and it is undirected</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>There is 1 connected component, and it is directed</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>There are 2 connected components, and it is undirected</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>There are 2 connected components, and it is directed</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>There are 5 connected components, and it is undirected</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>There are 5 connected components, and it is directed</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>There are 5 connected components, and it is undirected. "bar" is printed once each time <span class="inline-code"><code>full_bfs</code></span> starts a new BFS, and in an undirected graph each new BFS starts in a new connected component, so there are 5 connected components. "foo" is printed once each time an edge is explored. In an undirected graph, each edge is explored twice (once from each endpoint), while in a directed graph it is explored only once. Since there is 1 edge and "foo" was printed 2 times, the graph is undirected.</p>
+</details>
+
     </div>
 </div>
 
@@ -428,20 +533,55 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #248</h2>
-        <p>Tags: <a href='../tags/connected components.html'>connected components</a></p>
+        <h2>Problem #250</h2>
+        <p>Tags: <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/graph theory.html'>graph theory</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(G = (V, E)\)</span> be an undirected graph, and suppose that <span class="math">\(u, v, \)</span> and <span class="math">\(w\)</span> are three nodes in <span class="math">\(V\)</span>. Suppose that <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the same connected component, but <span class="math">\(u\)</span> and <span class="math">\(w\)</span> are not in the same connected component. True or False: it is possible that <span class="math">\(v\)</span> and <span class="math">\(w\)</span> are in the same connected component.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
+<p>An undirected graph with 20 nodes and 30 edges has three connected components: <span class="math">\(A\)</span>, <span class="math">\(B\)</span>, and <span class="math">\(C\)</span>. Connected component <span class="math">\(A\)</span> has 7 nodes. What is the smallest number of edges it can have?</p>
 <details>
     <summary>Solution</summary>
-<p>False</p>
+<p>6</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #251</h2>
+        <p>Tags: <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose you are about to run a BFS on a graph whose exact edge structure you do not know. However, you do know that the graph is undirected, has 8 nodes, and has 2 connected components.</p>
+<p>You have picked a node to start on and are about to run a BFS to find shortest path distances. What is the <b>greatest shortest path</b> distance between the starting node and any other node that could possibly be found in such a graph? <b>Hint:</b> consider how large a connected component could possibly be.</p>
+<details>
+    <summary>Solution</summary>
+<p>Answer: 6. The largest a connected component can be is 7 nodes (the other component must have at least one node). If those 7 nodes form a path and we start at one end, the node at the other end is at distance 6.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #266</h2>
+        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>We saw in lecture that both full BFS and DFS produce trees when run on connected graphs, and <i>forests</i> when run on disconnected graphs. Suppose a full BFS and a full DFS are run on an undirected graph with three connected components. True or False: the number of trees in the BFS forest will equal to number of trees in the DFS forest.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>True. Both full BFS and full DFS start a new search once for each connected component (each search discovers exactly the nodes in the source's component), so each produces one tree per connected component: three trees in both forests.</p>
 </details>
 
     </div>

@@ -8,6 +8,51 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+<style>
+  .multiple-choices .choice label {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin: 0.25em 0;
+    cursor: pointer;
+  }
+  .multiple-choices .choice p {
+    margin: 0;
+  }
+
+  /* practice problems: code blocks get a thin border instead of the theme's
+     thick dark frame around highlight.js's light box */
+  .problem pre.code {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 0.75em 1em;
+  }
+  .problem pre.code code,
+  .problem pre.code code.hljs {
+    background: transparent;
+    padding: 0;
+  }
+
+  /* the theme's typography styles wrap inline code in literal backticks */
+  .problem code::before,
+  .problem code::after {
+    content: none;
+  }
+</style>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".problem pre.code code").forEach(function (code) {
+      if (code.children.length === 0) {
+        code.textContent = code.textContent.replace(/^\s*\n/, "").replace(/\s+$/, "");
+      }
+    });
+  });
+</script>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -186,7 +231,7 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #113</h2>
+        <h2>Problem #267</h2>
         <p>Tags: <a href='../tags/topological sorting.html'>topological sorting</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -206,7 +251,7 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #160</h2>
+        <h2>Problem #269</h2>
         <p>Tags: <a href='../tags/topological sorting.html'>topological sorting</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -225,28 +270,17 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #220</h2>
+        <h2>Problem #270</h2>
         <p>Tags: <a href='../tags/topological sorting.html'>topological sorting</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Find a topological sort of the graph shown below:</p>
-<center><div class="image"><img src="../images/220/graph.png" /></div></center>
-<p>
-<span class="inline-response-box">
-    <span id="answer-bf59065d-b5e9-4ccf-91a8-52d0d06f6fc9" style="display: none">d a b c e</span>
-    <span id="button-bf59065d-b5e9-4ccf-91a8-52d0d06f6fc9">
-        <button
-            type="button"
-            onclick="
-                document.getElementById('answer-bf59065d-b5e9-4ccf-91a8-52d0d06f6fc9').style.display = 'inline-block';
-                document.getElementById('button-bf59065d-b5e9-4ccf-91a8-52d0d06f6fc9').style.display = 'none'
-            "
-        >
-            Show Answer
-        </button>
-    </span>
-</span>
-</p>
+<center><div class="image"><img src="../images/270/graph.png" /></div></center>
+<details>
+    <summary>Solution</summary>
+<p>d a b c e</p>
+</details>
+
     </div>
 </div>
 
@@ -256,7 +290,7 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #241</h2>
+        <h2>Problem #297</h2>
         <p>Tags: <a href='../tags/topological sorting.html'>topological sorting</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -270,7 +304,8 @@ Course Staff
 
 <details>
     <summary>Solution</summary>
-<p>True</p>
+<p>True.</p>
+<p>Suppose there were no path from <span class="math">\(a\)</span> to <span class="math">\(b\)</span>. Then <span class="math">\(a\)</span> is not among the nodes that have a path to <span class="math">\(b\)</span>. We could list <span class="math">\(b\)</span> and all the nodes with a path to <span class="math">\(b\)</span> first (in topological order), followed by the rest. This is a valid topological sort with <span class="math">\(b\)</span> before <span class="math">\(a\)</span>.</p>
 </details>
 
     </div>

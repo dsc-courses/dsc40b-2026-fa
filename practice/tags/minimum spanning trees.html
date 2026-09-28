@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head data-automata-theme="default">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DSC 40B</title>
+    <link href="/static/style.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+<style>
+  .multiple-choices .choice label {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin: 0.25em 0;
+    cursor: pointer;
+  }
+  .multiple-choices .choice p {
+    margin: 0;
+  }
+
+  /* practice problems: code blocks get a thin border instead of the theme's
+     thick dark frame around highlight.js's light box */
+  .problem pre.code {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 0.75em 1em;
+  }
+  .problem pre.code code,
+  .problem pre.code code.hljs {
+    background: transparent;
+    padding: 0;
+  }
+
+  /* the theme's typography styles wrap inline code in literal backticks */
+  .problem code::before,
+  .problem code::after {
+    content: none;
+  }
+</style>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".problem pre.code code").forEach(function (code) {
+      if (code.children.length === 0) {
+        code.textContent = code.textContent.replace(/^\s*\n/, "").replace(/\s+$/, "");
+      }
+    });
+  });
+</script>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+
+    <!-- Mobile menu button -->
+<div class="mobile-navbar lg:hidden fixed top-0 left-0 right-0 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-50 flex items-center">
+    <button id="mobile-menu-button" class="py-5 pl-4 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <i data-lucide="menu" class="w-6 h-5"></i>
+    </button>
+    <span class="ml-2 font-semibold">DSC 40B</span>
+</div>
+
+    <div class="flex min-h-screen">
+        <!-- Left Navigation Column -->
+        <nav id="sidebar" class="
+    w-64 flex-none
+    fixed lg:sticky
+    top-0 left-0 h-screen
+    transform -translate-x-full lg:translate-x-0 transition-transform duration-200 ease-in-out
+    bg-gray-50 dark:bg-gray-900
+    z-40
+    sidebar-mobile-spacing lg:pt-6
+    flex flex-col items-end
+    border-r lg:border-r-0 border-gray-200 dark:border-gray-700
+    ">
+
+    <div class="pt-6 pr-6 flex">
+        <ul class="space-y-2">
+            
+            <li>
+                <a href="/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="calendar-days" class="mr-2 text-slate-400"></i>
+Schedule
+                </a>
+            </li>
+            
+            <li>
+                <a href="/syllabus.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="scale" class="mr-2 text-slate-400"></i>
+Syllabus
+                </a>
+            </li>
+            
+            <li>
+                <a href="/office_hours.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="briefcase-business" class="mr-2 text-slate-400"></i>
+Office Hours
+                </a>
+            </li>
+            
+            <li>
+                <a href="/materials/default/notes/book.pdf" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="book-open" class="mr-2 text-slate-400"></i>
+Course Notes
+                </a>
+            </li>
+            
+            <li>
+                <a href="/practice/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="dumbbell" class="mr-2 text-slate-400"></i>
+Practice
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://campuswire.com/p/G43FA47CB" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-more" class="mr-2 text-slate-400"></i>
+Campuswire
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://www.gradescope.com/courses/1409241" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="spell-check" class="mr-2 text-slate-400"></i>
+Gradescope
+                </a>
+            </li>
+            
+            <li>
+                <a href="http://sierra.ucsd.edu/qa/dsc40b" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-question-mark" class="mr-2 text-slate-400"></i>
+Live Q&A
+                </a>
+            </li>
+            
+            <li>
+                <a href="/staff.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="users" class="mr-2 text-slate-400"></i>
+Course Staff
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="flex mr-9 pt-3 pb-6">
+        <button id="theme-toggle" class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-full transition-colors">
+            <span id="theme-icon" class="mr-1.5">☾</span>
+            <span id="theme-text">Dark</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Overlay for mobile -->
+<div id="overlay" class="fixed inset-0 bg-gray-200/40 dark:bg-black/50 backdrop-blur-[2px] z-30 hidden"></div>
+
+        <!-- Main Content Column -->
+        
+<!-- Main Content Column -->
+<div class="
+    w-full
+    bg-white dark:bg-gray-800
+    md:border-l
+    border-gray-200 dark:border-gray-700
+    md:min-w-180
+    px-4 md:px-12
+    pt-20 lg:pt-12
+    pb-24
+    ">
+
+    <div class="
+    text-xl font-semibold
+    left-12 right-12
+    py-4 lg:pt-0 lg:pb-0 lg:mb-10
+    lg:static
+    truncate
+    flex
+    ">
+    <div class="
+        shrink
+        lg:border-b border-gray-200 dark:border-gray-700
+        ">
+        <span class="hidden lg:inline">
+            DSC 40B
+            &ndash;
+            Theoretical Foundations of Data Science II
+        </span>
+    </div>
+</div>
+
+    <div class="prose dark:prose-invert">
+    <!DOCTYPE html> <html> <head> <meta
+                          charset="utf-8"> <title>Problems tagged with minimum spanning trees</title>
+
+           <!-- MathJax -->
+           <script type="text/x-mathjax-config">
+             MathJax.Hub.Config({
+               tex: {
+                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+                 displayMath: [             // start/end delimiter pairs for display math
+                     ['\\[', '\\]']
+                 ],
+                 processEscapes: true
+               }
+           });
+           </script>
+
+           <!-- highlightjs -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+           <!-- and it's easy to individually load additional languages -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+           <script>hljs.highlightAll();</script>
+
+           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+           <script type="text/javascript" id="MathJax-script" async
+             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+           </script>
+
+       </head>
+       <body>
+           
+<h1>Problems tagged with "minimum spanning trees"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #317</h2>
+        <p>Tags: <a href='../tags/minimum spanning trees.html'>minimum spanning trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(G\)</span> be a connected graph with 9 nodes. As you know, there may be multiple minimum spanning trees of this graph. How many edges must be included in any given minimum spanning tree?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>8</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>9</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>10</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>The number of edges can vary between different minimum spanning trees.</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>Answer: 8. Every spanning tree of a graph with <span class="math">\(|V|\)</span> nodes is a tree on those <span class="math">\(|V|\)</span> nodes, so it has exactly <span class="math">\(|V| - 1 = 8\)</span> edges.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #319</h2>
+        <p>Tags: <a href='../tags/minimum spanning trees.html'>minimum spanning trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the following weighted graph:</p>
+<center><div class="image"><img src="../images/319/mst2.jpg" /></div></center>
+<p>True or false: the edge <span class="math">\((a, b)\)</span> is in every minimum spanning tree of the graph.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>True. Node <span class="math">\(b\)</span> has only two edges: <span class="math">\((a, b)\)</span> with weight 5 and <span class="math">\((b, d)\)</span> with weight 7. A spanning tree must include at least one of them. If a spanning tree used <span class="math">\((b, d)\)</span> but not <span class="math">\((a, b)\)</span>, adding <span class="math">\((a, b)\)</span> would create a cycle containing <span class="math">\((b, d)\)</span>; removing <span class="math">\((b, d)\)</span> gives another spanning tree with smaller total weight. So every minimum spanning tree contains <span class="math">\((a, b)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #320</h2>
+        <p>Tags: <a href='../tags/minimum spanning trees.html'>minimum spanning trees</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose there is a unique shortest path <span class="math">\(p\)</span> between nodes <span class="math">\(u\)</span> and <span class="math">\(v\)</span> in a graph <span class="math">\(G\)</span> and that there is a unique minimum spanning tree <span class="math">\(T\)</span> of <span class="math">\(G\)</span>. True or false: the path between <span class="math">\(u\)</span> and <span class="math">\(v\)</span> in the MST <span class="math">\(T\)</span> must be the same as the path <span class="math">\(p\)</span>.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>False. Consider a triangle on nodes <span class="math">\(u\)</span>, <span class="math">\(v\)</span>, and <span class="math">\(w\)</span> with edge weights <span class="math">\(w(u, v) = 3\)</span>, <span class="math">\(w(u, w) = 2\)</span>, and <span class="math">\(w(w, v) = 2\)</span>. The unique MST uses edges <span class="math">\((u, w)\)</span> and <span class="math">\((w, v)\)</span>, so the path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> in the MST has length 4. But the unique shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> is the single edge <span class="math">\((u, v)\)</span>, with length 3.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #321</h2>
+        <p>Tags: <a href='../tags/minimum spanning trees.html'>minimum spanning trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose you are running Kruskal's algorithm on the following undirected, weighted graph tofind a minimum spanning tree:</p>
+<center><div class="image"><img src="../images/321/mst3.jpg" /></div></center>
+<p>In what order are the edges of this graph added to the minimum spanning tree?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>(a, d), (d, b), (a, c), (c, e)</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>(a, e), (b, d), (c, e), (a, b)</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>(a, d), (a, c), (a, b), (c, e)</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>(a, d), (d, b), (a, c), (c, e), (b, d), (a, e)</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>(a, d), (a, c), (a, b), (c, e). Kruskal's algorithm considers edges in increasing order of weight: (a, d) with weight 2, (a, c) with weight 5, (a, b) with weight 7, and (c, e) with weight 9 are each added since none creates a cycle. The remaining edges, (b, d) with weight 20 and (a, e) with weight 21, would create cycles.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #322</h2>
+        <p>Tags: <a href='../tags/minimum spanning trees.html'>minimum spanning trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>True or false: given a graph <span class="math">\(G\)</span> with multiple minimum spanning trees (MSTs), Prim's and Kruskal's algorithms are guaranteed to return the same MST.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>False. When there are ties in the edge weights, the MST each algorithm returns depends on how the ties are broken, and the two algorithms consider edges in different orders. For example, in a triangle whose three edges all have the same weight, each algorithm could return any of the three MSTs, depending on the order in which it considers the edges.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #323</h2>
+        <p>Tags: <a href='../tags/minimum spanning trees.html'>minimum spanning trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>A <i>maximum spanning tree</i> of a graph is a spanning tree that has the greatest possible total edge weight. Suppose Kruskal's algorithm is modified so that instead of looping through edges in <i>ascending</i> order of weight, it processes them in <i>descending</i> order of weight. True or false: the output of this modified algorithm is guaranteed to be a maximum spanning tree.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>True. Processing edges in descending order of weight is the same as running ordinary Kruskal's algorithm on the graph with every weight negated. That finds a minimum spanning tree of the negated graph, which is a maximum spanning tree of the original graph.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #324</h2>
+        <p>Tags: <a href='../tags/minimum spanning trees.html'>minimum spanning trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider finding the minimum spanning tree of the graph below.</p>
+<center><div class="image"><img src="../images/324/mst1.jpg" /></div></center>
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 1)</h3>
+<p>Suppose you are running Prim's algorithm starting with node <span class="math">\(a\)</span>. What is the weight of the 2nd edge added to the minimum spanning tree?</p>
+<details>
+    <summary>Solution</summary>
+<p>7.</p>
+<p>Prim's algorithm starting at <span class="math">\(a\)</span> adds edges in the order <span class="math">\((a, c)\)</span>(6), <span class="math">\((a, b)\)</span>(7), <span class="math">\((b, e)\)</span>(3), <span class="math">\((e, f)\)</span>(4), <span class="math">\((b, g)\)</span>(8), <span class="math">\((c, d)\)</span>(10).</p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 2)</h3>
+<p>Again running Prim's algorithm starting with node <span class="math">\(a\)</span>, what is the weight of the 3rd edge added to the minimum spanning tree?</p>
+<details>
+    <summary>Solution</summary>
+<p>3.</p>
+<p>Prim's algorithm starting at <span class="math">\(a\)</span> adds edges in the order <span class="math">\((a, c)\)</span>(6), <span class="math">\((a, b)\)</span>(7), <span class="math">\((b, e)\)</span>(3), <span class="math">\((e, f)\)</span>(4), <span class="math">\((b, g)\)</span>(8), <span class="math">\((c, d)\)</span>(10).</p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 3)</h3>
+<p>Suppose you are running <b>Kruskal's algorithm</b>(not Prim's algorithm). What is the weight of the 4th edge added to the minimum spanning tree?</p>
+<details>
+    <summary>Solution</summary>
+<p>7.</p>
+<p>Kruskal's algorithm adds edges in the order <span class="math">\((b, e)\)</span>(3), <span class="math">\((e, f)\)</span>(4), <span class="math">\((a, c)\)</span>(6), <span class="math">\((a, b)\)</span>(7), <span class="math">\((b, g)\)</span>(8), <span class="math">\((c, d)\)</span>(10), skipping <span class="math">\((b, f)\)</span>(5) and <span class="math">\((c, g)\)</span>(9) because they would create cycles.</p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 4)</h3>
+<p>What is the total weight of the minimum spanning tree?</p>
+<details>
+    <summary>Solution</summary>
+<p>38.</p>
+<p>The minimum spanning tree's edges have weights 3, 4, 6, 7, 8, and 10, and <span class="math">\(3 + 4 + 6 + 7 + 8 + 10 = 38\)</span>.</p>
+</details>
+
+</div>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+       </body>
+   </html>
+    </div>
+</div>
+
+    </div>
+
+    <script>
+        // Restore saved theme on page load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else if (savedTheme === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Dark mode toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        // Update button to reflect current theme
+        function updateThemeButton() {
+            const isDark = document.documentElement.classList.contains('dark');
+            themeIcon.textContent = isDark ? '☀' : '☾';
+            themeText.textContent = isDark ? 'Light' : 'Dark';
+        }
+
+        // Initialize button state
+        updateThemeButton();
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.contains('dark');
+
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+
+            updateThemeButton();
+        });
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        menuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        });
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>

@@ -8,6 +8,51 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+<style>
+  .multiple-choices .choice label {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin: 0.25em 0;
+    cursor: pointer;
+  }
+  .multiple-choices .choice p {
+    margin: 0;
+  }
+
+  /* practice problems: code blocks get a thin border instead of the theme's
+     thick dark frame around highlight.js's light box */
+  .problem pre.code {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 0.75em 1em;
+  }
+  .problem pre.code code,
+  .problem pre.code code.hljs {
+    background: transparent;
+    padding: 0;
+  }
+
+  /* the theme's typography styles wrap inline code in literal backticks */
+  .problem code::before,
+  .problem code::after {
+    content: none;
+  }
+</style>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".problem pre.code code").forEach(function (code) {
+      if (code.children.length === 0) {
+        code.textContent = code.textContent.replace(/^\s*\n/, "").replace(/\s+$/, "");
+      }
+    });
+  });
+</script>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -186,7 +231,144 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #020</h2>
+        <h2>Problem #161</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>True or False: the below is a binary search tree.</p>
+<center><div class="image"><img src="../images/161/binary_tree_2.jpg" /></div></center>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>False. 24 is in the left subtree of 23, but 24 > 23. (It is also in the left subtree of 34, which is fine, but every node in 23's left subtree must be less than 23.)</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #162</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the following binary search tree:</p>
+<center><div class="image"><img src="../images/162/binary_tree_3.jpg" /></div></center>
+<p>How many comparisons does it take to query 3? That is, how many times is 3 compared to another number during a query?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>1</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>2</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>3</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>4</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>5</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>Answer: 4. The query compares 3 to 54, then 50, then 16, then 5. Since 5 has no left child, the query ends there and reports that 3 is not in the tree.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #163</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the following binary search tree:</p>
+<center><div class="image"><img src="../images/163/binary_tree_3.jpg" /></div></center>
+<p>Where should we insert 49 ?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>the left edge of 50</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>the right edge of 16</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>the left edge of 60</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>the right edge of 34</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>the left edge of 34</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>The right edge of 34. Starting at the root: 49 < 54, so go left to 50; 49 < 50, so go left to 16; 49 > 16, so go right to 34; 49 > 34, and 34 has no right child, so 49 becomes the right child of 34.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #164</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Draw the binary search tree that results from inserting the following nodes into an initially empty tree, in the order given: <span class="inline-code"><code>5, 3, 1, 8, 4, 2, 6</code></span>.</p>
+<details>
+    <summary>Solution</summary>
+<center><div class="image"><img src="../images/164/plot.png" /></div></center>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #165</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose the numbers <span class="inline-code"><code>41</code></span>, <span class="inline-code"><code>32</code></span>, and <span class="inline-code"><code>40</code></span> are inserted (in that order) into the below binary search tree. Draw where the new nodes will appear.</p>
+<center><div class="image"><img src="../images/165/bst.png" /></div></center>
+<details>
+    <summary>Solution</summary>
+<p>41 will be the right child of 33.</p>
+<p>32 will be the right child of 31.</p>
+<p>40 will be the left child of 41.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #166</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose the numbers <span class="inline-code"><code>41</code></span>, <span class="inline-code"><code>32</code></span>, and <span class="inline-code"><code>33</code></span> are inserted (in that order) into the below binary search tree. Draw where the new nodes will appear.</p>
+<center><div class="image"><img src="../images/166/bst.png" /></div></center>
+<details>
+    <summary>Solution</summary>
+<p>41 will become the left child of 46.</p>
+<p>32 will become the left child of 35.</p>
+<p>33 will become the right child of 32.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #167</h2>
         <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -206,71 +388,7 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #027</h2>
-        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Suppose the numbers <span class="inline-code"><code>41</code></span>, <span class="inline-code"><code>32</code></span>, and <span class="inline-code"><code>40</code></span> are inserted (in that order) into the below binary search tree. Draw where the new nodes will appear.</p>
-<center><div class="image"><img src="../images/027/bst.png" /></div></center>
-<details>
-    <summary>Solution</summary>
-<p>41 will be the right child of 33.</p>
-<p>32 will be the right child of 31.</p>
-<p>40 will be the left child of 41.</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #034</h2>
-        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Define the <b>smallest gap</b> in a collection of numbers to be the smallest difference between two distinct elements in the collection (in absolute value). For example, the smallest gap in <span class="math">\(\{4, 9, 1, 6\}\)</span> is 2 (between 4 and 6).</p>
-<p>Suppose a collection of <span class="math">\(n\)</span> numbers is stored in a <b>balanced</b> binary search tree. What is the time complexity required for an efficient algorithm to calculate the smallest gap of the numbers in the BST? State your answer as a function of <span class="math">\(n\)</span> in asymptotic notation.</p>
-<details>
-    <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. The smallest gap in the BST can occur between any two consecutive pairs of numbers in the BST, meaning that no matter what we need to search through the whole tree to obtain this number, taking <span class="math">\(\Theta(n)\)</span> time.</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #055</h2>
-        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Suppose the numbers <span class="inline-code"><code>41</code></span>, <span class="inline-code"><code>32</code></span>, and <span class="inline-code"><code>33</code></span> are inserted (in that order) into the below binary search tree. Draw where the new nodes will appear.</p>
-<center><div class="image"><img src="../images/055/bst.png" /></div></center>
-<details>
-    <summary>Solution</summary>
-<p>41 will become the left child of 46.</p>
-<p>32 will become the left child of 35.</p>
-<p>33 will become the right child of 32.</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #061</h2>
+        <h2>Problem #168</h2>
         <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -290,7 +408,7 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #080</h2>
+        <h2>Problem #169</h2>
         <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -309,14 +427,15 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #182</h2>
+        <h2>Problem #170</h2>
         <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Draw the binary search tree that results from inserting the following nodes into an initially empty tree, in the order given: <span class="inline-code"><code>5, 3, 1, 8, 4, 2, 6</code></span>.</p>
+<p>Define the <b>smallest gap</b> in a collection of numbers to be the smallest difference between two distinct elements in the collection (in absolute value). For example, the smallest gap in <span class="math">\(\{4, 9, 1, 6\}\)</span> is 2 (between 4 and 6).</p>
+<p>Suppose a collection of <span class="math">\(n\)</span> numbers is stored in a <b>balanced</b> binary search tree. What is the time complexity required for an efficient algorithm to calculate the smallest gap of the numbers in the BST? State your answer as a function of <span class="math">\(n\)</span> in asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<center><div class="image"><img src="../images/182/plot.png" /></div></center>
+<p><span class="math">\(\Theta(n)\)</span>. The smallest gap in the BST can occur between any two consecutive pairs of numbers in the BST, meaning that no matter what we need to search through the whole tree to obtain this number, taking <span class="math">\(\Theta(n)\)</span> time.</p>
 </details>
 
     </div>
@@ -328,7 +447,98 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #188</h2>
+        <h2>Problem #171</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the following <span class="inline-code"><code>.insert()</code></span> method for a binary search tree:</p>
+<pre class="code"><code>
+def insert(self, new_key):
+    # assume new_key is unique
+    current_node = self.root
+    parent = None
+
+    # find place to insert the new node
+    while current_node is not None:
+        parent = current_node
+        if current_node.key < new_key:
+            current_node = current_node.right
+        else: # current_node.key > new_key
+            current_node = current_node.left
+
+    # create the new node
+    new_node = Node(key=new_key, parent=parent)
+
+    # if parent is None, this is the root. Otherwise, update the
+    # parent's left or right child as appropriate
+    if parent is None:
+        self.root = new_node
+    elif parent.key < new_key:
+        parent.right = new_node
+    else:
+        parent.left = new_node
+
+</code></pre>
+
+<p>Let's say we want to insert a new number <span class="math">\(x\)</span> into a binary search tree.Define <span class="inline-code"><code>height_left</code></span> as the height of the left half of the binary tree (the root and everything to the left of it), and <span class="inline-code"><code>height_right</code></span> as the height of the right side. For this problem, measure height as the number of <i>nodes</i> on the longest path starting at the root (so a tree consisting of only a root has height 1). Let <span class="inline-code"><code>height_left</code></span> be greater than <span class="inline-code"><code>height_right</code></span>. In the worst case, how many iterations of the while loop of <span class="inline-code"><code>.insert()</code></span> will need to be completed?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>height_left</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>height_right</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>height_left</code></span> + <span class="inline-code"><code>height_right</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>None of the above</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="inline-code"><code>height_left</code></span>. Each iteration of the while loop moves one level down the tree, visiting one node. In the worst case, <span class="math">\(x\)</span> is inserted below the deepest node, which is on the left side since <span class="inline-code"><code>height_left</code></span> is greater than <span class="inline-code"><code>height_right</code></span>. The loop visits every node on the path from the root to that node, which is <span class="inline-code"><code>height_left</code></span> nodes.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #172</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>bst</code></span> is a binary search tree with <span class="math">\(n\)</span> nodes constructed in the following way:</p>
+<pre class="code"><code>
+bst = BinarySearchTree()
+for i in range(n):
+    if i % 2 == 0:
+        bst.insert(i)
+
+</code></pre>
+
+<p>What is the time complexity of the following code?</p>
+<pre class="code"><code>
+for i in range(n):
+    bst.query(i)
+
+</code></pre>
+
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta( \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span>. The keys <span class="math">\(0, 2, 4, \ldots\)</span> are inserted in increasing order, so each new node becomes the right child of the previous one and the tree is a "linked list" of height <span class="math">\(\Theta(n)\)</span>. Querying <span class="math">\(i\)</span> walks down this chain past about <span class="math">\(i/2\)</span> nodes, so the total time is <span class="math">\(\sum_{i=0}^{n-1} \Theta(i) = \Theta(n^2)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #173</h2>
         <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/binary search trees.html'>binary search trees</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -347,27 +557,45 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #194</h2>
-        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/binary search trees.html'>binary search trees</a></p>
+        <h2>Problem #187</h2>
+        <p>Tags: <a href='../tags/hashing.html'>hashing</a>, <a href='../tags/binary search trees.html'>binary search trees</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a collection of <span class="math">\(n\)</span> numbers is stored in a balanced binary search tree. What is the time complexity required of an efficient algorithm to calculate the mean of the collection? State your answer as a function of <span class="math">\(n\)</span> in asymptotic notation.</p>
-<p>
-<span class="inline-response-box">
-    <span id="answer-4330f3ca-8a1a-40f6-a0c0-998d20785078" style="display: none"><span class="math">\(\Theta(n)\)</span></span>
-    <span id="button-4330f3ca-8a1a-40f6-a0c0-998d20785078">
-        <button
-            type="button"
-            onclick="
-                document.getElementById('answer-4330f3ca-8a1a-40f6-a0c0-998d20785078').style.display = 'inline-block';
-                document.getElementById('button-4330f3ca-8a1a-40f6-a0c0-998d20785078').style.display = 'none'
-            "
-        >
-            Show Answer
-        </button>
-    </span>
-</span>
-</p>
+<p>Suppose you need to keep track of a large dynamic collection of numbers. You will be performing <span class="inline-code"><code>n</code></span> insertions, <span class="inline-code"><code>n</code></span> deletions, and a very small number of queries for the maximum element in the collection. You will also be performing membership queries.</p>
+<p>Which data structure should you use? You may assume that time complexity is the most important criterion.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Hash table</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Balanced binary search tree</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Unsorted array with linear search</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Sorted array with binary search</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>A hash table. In a hash table, insertions and deletions take constant time (on average), while a query for the maximum element takes <span class="math">\(\Theta(n)\)</span>. Since we are running only a constant number of max queries, they take <span class="math">\(\Theta(n)\)</span> time in total, and the <span class="math">\(n\)</span> insertions and <span class="math">\(n\)</span> deletions also take <span class="math">\(\Theta(n)\)</span> time in total. In a balanced BST, all of these operations take <span class="math">\(\Theta(\log n)\)</span>, which means running <span class="inline-code"><code>n</code></span> insertions and deletions will be <span class="math">\(\Theta(n \log n)\)</span> -- slower than a hash table.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #188</h2>
+        <p>Tags: <a href='../tags/hashing.html'>hashing</a>, <a href='../tags/binary search trees.html'>binary search trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose you need to keep track of a large dynamic collection of numbers. The three most common operations you will be performing are insertions, deletions, and queries for the maximum element in the collection. You may assume that the number of maximum queries you will be making is close to the number of insertions/deletions. You will also be performing membership queries.</p>
+<p>Which data structure should you use? You may assume that time complexity is the most important criterion.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Hash table</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Self-Balancing binary search tree</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Unsorted array with linear search</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Sorted array with binary search</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>A self-balancing binary search tree. The key is that we're allowing deletions and max queries. If we delete the maximum, we'll need to find the <i>next maximum</i> upon our next query. In a hash table and unsorted array, this will take linear time. In a sorted array, finding the next max takes constant time -- but insertion and deletion potentially take linear time. In a balanced BST, all of these operations take <span class="math">\(\Theta(\log n)\)</span> in the worst case -- this is because a BST essentially keeps nodes in sorted order.</p>
+</details>
+
     </div>
 </div>
 

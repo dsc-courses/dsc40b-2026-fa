@@ -8,6 +8,51 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+<style>
+  .multiple-choices .choice label {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin: 0.25em 0;
+    cursor: pointer;
+  }
+  .multiple-choices .choice p {
+    margin: 0;
+  }
+
+  /* practice problems: code blocks get a thin border instead of the theme's
+     thick dark frame around highlight.js's light box */
+  .problem pre.code {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 0.75em 1em;
+  }
+  .problem pre.code code,
+  .problem pre.code code.hljs {
+    background: transparent;
+    padding: 0;
+  }
+
+  /* the theme's typography styles wrap inline code in literal backticks */
+  .problem code::before,
+  .problem code::after {
+    content: none;
+  }
+</style>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".problem pre.code code").forEach(function (code) {
+      if (code.children.length === 0) {
+        code.textContent = code.textContent.replace(/^\s*\n/, "").replace(/\s+$/, "");
+      }
+    });
+  });
+</script>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -186,13 +231,86 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #117</h2>
+        <h2>Problem #299</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose the Bellman-Ford algorithm is run on a graph <span class="math">\(G\)</span> that does not contain negative cycles. Let <span class="math">\(u\)</span> be an arbitrary node in the graph, and assume that <span class="math">\(u\)</span> is reachable from the source.</p>
+<p>True or False: <span class="math">\(u\)</span>'s estimated distance can change multiple times during the algorithm's execution.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+<p>Suppose there are edges <span class="math">\((s, u)\)</span> with weight 10, <span class="math">\((s, a)\)</span> with weight 1, and <span class="math">\((a, u)\)</span> with weight 1. If <span class="math">\((s, u)\)</span> is updated first, <span class="math">\(u\)</span>'s estimate drops from <span class="math">\(\infty\)</span> to 10. It drops again to 2 once <span class="math">\((s, a)\)</span> and then <span class="math">\((a, u)\)</span> are updated.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #300</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Recall that Bellman-Ford with early stopping updates edges iteratively until no estimated distances change, at which point the algorithm terminates early. True or False: the number of iterations needed before early termination may depend on the order in which the edges are updated.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+<p>Consider the path graph <span class="math">\(s \to a \to b \to c\)</span>. If the edges are updated in order along the path, every distance is correct after one iteration, and the second iteration changes nothing. If they are updated in reverse order, each iteration only fixes one more node, so it takes three iterations (plus one with no changes).</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #301</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose you have a directed graph with 8 nodes and 7 edges. If you were to run the Bellman Ford Algorithm on this graph with early stopping implemented, what is the <b>minimum</b> number of times the outer for loop could possibly run? You should assume that all 8 nodes are reachable from the source node.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>1</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>2</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>4</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>7</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>8</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>Answer: 2. In the best situation, the edges would be updated in just the right order so that all of the correct shortest paths are found on the first iteration. On the second iteration, B-F will detect that nothing changed, and it will terminate.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #302</h2>
         <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Recall that the outer loop of the Bellman-Ford algorithm <i>without</i> early stopping loops for a fixed number of iterations, while the inner loop iterates over each edge of the graph.</p>
 <p>Suppose Bellman-Ford <i>with</i> early stopping is run on the graph below using node <span class="math">\(s\)</span> as the source:</p>
-<center><div class="image"><img src="../images/117/graph.png" /></div></center>
+<center><div class="image"><img src="../images/302/graph.png" /></div></center>
 <p>What is the fewest number of iterations of the outer loop that can possibly be performed?</p>
 <details>
     <summary>Solution</summary>
@@ -208,13 +326,105 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #118</h2>
+        <h2>Problem #303</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose Bellman-Ford with early stopping is run on the weighted graph below whose edge weights are unknown to us (but known to the algorithm). The algorithm uses node <span class="math">\(a\)</span> as the source node.</p>
+<center><div class="image"><img src="../images/303/graph.png" /></div></center>
+<p>How many iterations of the outer loop will be run in the worst case? Your answer should be a number.</p>
+<details>
+    <summary>Solution</summary>
+<p>4</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #304</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose the Bellman-Ford algorithm with early stopping is run on the weighted graph shown below using node <span class="math">\(s\)</span> as the source (the edge weights are intentionally not shown). In the worst case, how many iterations of Bellman-Ford will be performed? That is, how many iterations of the outer <span class="inline-code"><code>for</code></span>-loop will occur?</p>
+<center><div class="image"><img src="../images/304/g6.png" /></div></center>
+<details>
+    <summary>Solution</summary>
+<p>7</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #305</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider a ``2-chain'' graph: a graph with <span class="math">\(n\)</span> nodes that is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math">\(\ldots\)</span>, <span class="math">\(n\)</span>, and, for each node <span class="math">\(u\)</span>, making an edge to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span>(if they are in the graph).</p>
+<p>Suppose the Bellman-Ford algorithm without early stopping is run on a 2-chain graph with <span class="math">\(n\)</span> nodes, using node 1 as the source. What is the time taken as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #306</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose the Bellman-Ford algorithm is run on the following graph using node <span class="math">\(a\)</span> as the source node:</p>
+<center><div class="image"><img src="../images/306/graph.png" /></div></center>
+<p>Suppose when <span class="inline-code"><code>graph.edges</code></span> is called, the edges are returned in the order:</p>
+<p><span class="math">\((a, b),
+    (c, e),
+    (d, f),
+    (c, d),
+    (b, d),
+    (b, e),
+    (a, c),
+    (e, f)
+    \)</span>.</p>
+<p>After one iteration of the outer loop of Bellman-Ford, what is the estimated distance to node <span class="math">\(d\)</span>?</p>
+<details>
+    <summary>Solution</summary>
+<p>9</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #307</h2>
         <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Recall that the Bellman-Ford algorithm keeps track of the estimated shortest path distance from the source to each node in the graph. These estimates are updated, and eventually become correct, provided that the graph has no negative cycles.</p>
 <p>Suppose the Bellman-Ford algorithm is run on the graph below using node <span class="math">\(s\)</span> as the source.</p>
-<center><div class="image"><img src="../images/118/graph.png" /></div></center>
+<center><div class="image"><img src="../images/307/graph.png" /></div></center>
 <p>After 2 iterations of the outer loop, which of the nodes listed below are guaranteed to have correct estimated shortest path distances (no matter the order in which <span class="inline-code"><code>graph.nodes</code></span> produces the graph's nodes)? Select all that apply.</p>
 <div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(s\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(u_1\)</span></p></label></div>
@@ -237,173 +447,12 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #119</h2>
-        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Suppose the Bellman-Ford algorithm is run on a graph <span class="math">\(G\)</span> that does not contain negative cycles. Let <span class="math">\(u\)</span> be an arbitrary node in the graph, and assume that <span class="math">\(u\)</span> is reachable from the source.</p>
-<p>True or False: <span class="math">\(u\)</span>'s estimated distance can change multiple times during the algorithm's execution.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
-<details>
-    <summary>Solution</summary>
-<p>True.</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #134</h2>
-        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Suppose the Bellman-Ford algorithm with early stopping is run on the weighted graph shown below using node <span class="math">\(s\)</span> as the source (the edge weights are intentionally not shown). In the worst case, how many iterations of Bellman-Ford will be performed? That is, how many iterations of the outer <span class="inline-code"><code>for</code></span>-loop will occur?</p>
-<center><div class="image"><img src="../images/134/g6.png" /></div></center>
-<details>
-    <summary>Solution</summary>
-<p>7</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #135</h2>
-        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Again consider a ``2-chain'' graph, which was defined above to the a graph with <span class="math">\(n\)</span> nodes that is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math">\(\ldots\)</span>, <span class="math">\(n\)</span>, and, for each node <span class="math">\(u\)</span>, making an edge to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span>(if they are in the graph).</p>
-<p>Suppose the Bellman-Ford algorithm without early stopping is run on a 2-chain graph with <span class="math">\(n\)</span> nodes, using node 1 as the source. What is the time taken as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
-<details>
-    <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span></p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #163</h2>
-        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Recall that Bellman-Ford with early stopping updates edges iteratively until no estimated distances change, at which point the algorithm terminates early. True or False: the number of iterations needed before early termination may depend on the order in which the edges are updated.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
-<details>
-    <summary>Solution</summary>
-<p>True</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #227</h2>
-        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Suppose Bellman-Ford with early stopping is run on the weighted graph below whose edge weights are unknown to us (but known to the algorithm). The algorithm uses node <span class="math">\(a\)</span> as the source node.</p>
-<center><div class="image"><img src="../images/227/graph.png" /></div></center>
-<p>How many iterations of the outer loop will be run in the worst case? Your answer should be a number.</p>
-<p>
-<span class="inline-response-box">
-    <span id="answer-12653460-5270-4722-8b02-c6244f9b7ec2" style="display: none">4</span>
-    <span id="button-12653460-5270-4722-8b02-c6244f9b7ec2">
-        <button
-            type="button"
-            onclick="
-                document.getElementById('answer-12653460-5270-4722-8b02-c6244f9b7ec2').style.display = 'inline-block';
-                document.getElementById('button-12653460-5270-4722-8b02-c6244f9b7ec2').style.display = 'none'
-            "
-        >
-            Show Answer
-        </button>
-    </span>
-</span>
-</p>
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #232</h2>
-        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Suppose the Bellman-Ford algorithm is run on the following graph using node <span class="math">\(a\)</span> as the source node:</p>
-<center><div class="image"><img src="../images/232/graph.png" /></div></center>
-<p>Suppose when <span class="inline-code"><code>graph.edges</code></span> is called, the edges are returned in the order:</p>
-<p><span class="math">\((a, b),
-    (c, e),
-    (d, f),
-    (c, d),
-    (b, d),
-    (b, e),
-    (a, c),
-    (e, f)
-    \)</span>.</p>
-<p>After one iteration of the outer loop of Bellman-Ford, what is the estimated distance to node <span class="math">\(d\)</span>?</p>
-<p>
-<span class="inline-response-box">
-    <span id="answer-73106593-f988-4d2b-a0d1-e1c302bbbd68" style="display: none">9</span>
-    <span id="button-73106593-f988-4d2b-a0d1-e1c302bbbd68">
-        <button
-            type="button"
-            onclick="
-                document.getElementById('answer-73106593-f988-4d2b-a0d1-e1c302bbbd68').style.display = 'inline-block';
-                document.getElementById('button-73106593-f988-4d2b-a0d1-e1c302bbbd68').style.display = 'none'
-            "
-        >
-            Show Answer
-        </button>
-    </span>
-</span>
-</p>
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #243</h2>
+        <h2>Problem #308</h2>
         <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose Bellman-Ford with early stopping is run on the weighted graph below. The algorithm uses node <span class="math">\(a\)</span> as the source node.</p>
-<center><div class="image"><img src="../images/243/graph.png" /></div></center>
+<center><div class="image"><img src="../images/308/graph.png" /></div></center>
 <p>After the third iteration, name all nodes whose shortest path from <span class="math">\(a\)</span> are guaranteed to be estimated correctly.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{a,b,c,e,f\}\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{g,f\}\)</span></p></label></div>
@@ -413,6 +462,107 @@ Course Staff
 <details>
     <summary>Solution</summary>
 <p>1st option: <span class="math">\(\{a,b,c,e,f\}\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #310</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider running Bellman-Ford on the graph below using node <span class="math">\(u\)</span> as the source.</p>
+<center><div class="image"><img src="../images/310/dgraph-1.png" /></div></center>
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 1)</h3>
+<p>Suppose that <span class="inline-code"><code>graph.edges</code></span> produces edges in the following order:</p>
+<div class="math">\[(u,c), (a, b), (a, d), (u, a), (b, e), (c, d), (e, b), (d, e)
+            \]</div>
+<p>After two iterations of the outer for-loop, what is the estimated shortest path distance for node <span class="math">\(b\)</span>?</p>
+<details>
+    <summary>Solution</summary>
+<p>7.</p>
+<p>After iteration 1, the estimates are <span class="math">\(a = 2\)</span>, <span class="math">\(c = 7\)</span>, <span class="math">\(d = 9\)</span>, <span class="math">\(e = 13\)</span>(<span class="math">\(b\)</span> is still <span class="math">\(\infty\)</span>). In iteration 2, <span class="math">\(b\)</span> becomes <span class="math">\(16\)</span> via <span class="math">\((a, b)\)</span>, <span class="math">\(d\)</span> becomes <span class="math">\(5\)</span>, then <span class="math">\(b\)</span> becomes <span class="math">\(13 - 6 = 7\)</span> via <span class="math">\((e, b)\)</span>, and <span class="math">\(e\)</span> becomes <span class="math">\(9\)</span>. So after two iterations, the estimate for <span class="math">\(b\)</span> is 7.</p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 2)</h3>
+<p>With the same edge order as in the previous part, how many iterations does the outer for-loop take? The algorithm includes early stopping.</p>
+<details>
+    <summary>Solution</summary>
+<p>4.</p>
+<p>Continuing from the previous part: in iteration 3, <span class="math">\(b\)</span> becomes <span class="math">\(9 - 6 = 3\)</span>. Iteration 4 changes nothing, so the algorithm stops after 4 iterations.</p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 3)</h3>
+<p>Now suppose that <span class="inline-code"><code>graph.edges</code></span> produces edges in a different order:</p>
+<div class="math">\[(a, b), (a, d), (b, e), (c, d), (d, e), (e, b), (u, a), (u, c)
+            \]</div>
+<p>How many iterations does the outer for-loop take? The algorithm includes early stopping.</p>
+<details>
+    <summary>Solution</summary>
+<p>3.</p>
+<p>Iteration 1 only sets <span class="math">\(a = 2\)</span> and <span class="math">\(c = 7\)</span>, since the edges out of <span class="math">\(u\)</span> come last. In iteration 2, <span class="math">\(b = 16\)</span>, <span class="math">\(d = 5\)</span>, <span class="math">\(e = 24\)</span> then <span class="math">\(9\)</span>, and <span class="math">\(b = 3\)</span>. Iteration 3 changes nothing, so the algorithm stops after 3 iterations.</p>
+</details>
+
+</div>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #311</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a>, <a href='../tags/dijkstra.html'>dijkstra</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose you are planning a trip, and are intending to travel by air from San Diego to another city, with potentially multiple stops in between. You would like to schedule flights that take the least amount of time to get to your destination. In order to do this, you are thinking about these flights as a graph, where each airport is a node, and the weight of an edge connecting two airports corresponds to the amount of time it takes to travel between them.</p>
+<p>Which algorithm should you choose to compute the fastest route from San Diego to each of the other cities? If two algorithms both find the fastest routes, pick the one which has a better time complexity.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>BFS</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>DFS</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Bellman Ford</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Dijkstra's Algorithm</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>Dijkstra's Algorithm. The graph is weighted, so BFS and DFS won't find shortest paths. Travel times are never negative, so both Bellman-Ford and Dijkstra's algorithm work, but Dijkstra's algorithm has the better time complexity.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #312</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a>, <a href='../tags/dijkstra.html'>dijkstra</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose you are planning a trip by air from San Diego to another city, with potentially multiple stops in between. You are thinking about the flights as a graph, where each airport is a node and each flight is an edge. You don't care about the travel time, and instead care about the cost, so the weight of an edge is the cost of that flight. Also suppose that the airline has a special deal, where flights between certain cities will give you frequent flyer miles, or points towards free flights that you can use later in your trip. In other words, some flights have a negative cost. If you want to find the lowest cost route, which algorithm would be the best choice?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>BFS</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>DFS</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Bellman Ford</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Dijkstra's Algorithm</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>Bellman Ford. Some edge weights are negative, and Dijkstra's algorithm is not guaranteed to find shortest paths when there are negative edge weights. Bellman-Ford works with negative weights (as long as there are no negative cycles), and BFS and DFS don't find shortest paths in weighted graphs.</p>
 </details>
 
     </div>

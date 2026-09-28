@@ -8,6 +8,51 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+<style>
+  .multiple-choices .choice label {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin: 0.25em 0;
+    cursor: pointer;
+  }
+  .multiple-choices .choice p {
+    margin: 0;
+  }
+
+  /* practice problems: code blocks get a thin border instead of the theme's
+     thick dark frame around highlight.js's light box */
+  .problem pre.code {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 0.75em 1em;
+  }
+  .problem pre.code code,
+  .problem pre.code code.hljs {
+    background: transparent;
+    padding: 0;
+  }
+
+  /* the theme's typography styles wrap inline code in literal backticks */
+  .problem code::before,
+  .problem code::after {
+    content: none;
+  }
+</style>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".problem pre.code code").forEach(function (code) {
+      if (code.children.length === 0) {
+        code.textContent = code.textContent.replace(/^\s*\n/, "").replace(/\s+$/, "");
+      }
+    });
+  });
+</script>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -186,15 +231,19 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #104</h2>
+        <h2>Problem #218</h2>
         <p>Tags: <a href='../tags/graph representations.html'>graph representations</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>An <i>isolated</i> node in an undirected graph is a node that has no neighbors.</p>
-<p>Suppose a graph <span class="math">\(G = (V, E)\)</span> is represented using an adjacency matrix. What is the best possible worst-case time complexity of an efficient algorithm for computing the number of isolated nodes in the graph? State your answer as a function of <span class="math">\(|V|\)</span> and <span class="math">\(|E|\)</span> using asymptotic notation.</p>
+<p>Let <span class="math">\(A\)</span> be the adjacency matrix representing a directed graph with $n$ nodes. What is the greatest possible sum of any <i>row</i> of <span class="math">\(A\)</span>?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(1\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n - 1\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n^2 - 1\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n^2\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(V^2)\)</span></p>
+<p><span class="math">\(n\)</span></p>
 </details>
 
     </div>
@@ -206,7 +255,31 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #126</h2>
+        <h2>Problem #219</h2>
+        <p>Tags: <a href='../tags/graph representations.html'>graph representations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(A\)</span> be the adjacency matrix representing a undirected graph with <span class="math">\(n\)</span> nodes. What is the greatest possible sum of any <i>row</i> of <span class="math">\(A\)</span>?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(1\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n - 1\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n^2 - 1\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n^2\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(n - 1\)</span>. The sum of row <span class="math">\(i\)</span> is the degree of node <span class="math">\(i\)</span>. Since an undirected graph has no self-loops, a node can be adjacent to at most the other <span class="math">\(n - 1\)</span> nodes.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #220</h2>
         <p>Tags: <a href='../tags/aggregate analysis.html'>aggregate analysis</a>, <a href='../tags/graph representations.html'>graph representations</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -238,18 +311,15 @@ for lst in adj_list:
 
 
         <div class="problem-outer">
-        <h2>Problem #139</h2>
+        <h2>Problem #223</h2>
         <p>Tags: <a href='../tags/graph representations.html'>graph representations</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(A\)</span> be the adjacency matrix of the graph shown below:</p>
-<center><div class="image"><img src="../images/139/graph.png" /></div></center>
-<p>Let <span class="math">\(\vec{a}^{(1)}\)</span> be the first row of <span class="math">\(A\)</span> and <span class="math">\(\vec{a}^{(2)}\)</span> be the second row of <span class="math">\(A\)</span>. What is <span class="math">\(\vec{a}^{(1)}\cdot\vec{a}^{(2)}\)</span>? That is, what is the dot product between the first row of <span class="math">\(A\)</span> and the second row of <span class="math">\(A\)</span>? Your answer should be in the form of a number.</p>
-<p>It may help to recall that the dot product between vectors <span class="math">\(\vec x = (x_1,
-    \ldots, x_d)^T\)</span> and <span class="math">\(\vec y = (y_1, \ldots, y_d)^T\)</span> is equal to <span class="math">\(x_1 y_1 + x_2 y_2 + \ldots + x_d y_d\)</span>.</p>
+<p>An <i>isolated</i> node in an undirected graph is a node that has no neighbors.</p>
+<p>Suppose a graph <span class="math">\(G = (V, E)\)</span> is represented using an adjacency matrix. What is the best possible worst-case time complexity of an efficient algorithm for computing the number of isolated nodes in the graph? State your answer as a function of <span class="math">\(|V|\)</span> and <span class="math">\(|E|\)</span> using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<p>4</p>
+<p><span class="math">\(\Theta(V^2)\)</span></p>
 </details>
 
     </div>
@@ -261,31 +331,7 @@ for lst in adj_list:
 
 
         <div class="problem-outer">
-        <h2>Problem #145</h2>
-        <p>Tags: <a href='../tags/graph representations.html'>graph representations</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Let <span class="math">\(A\)</span> be the adjacency matrix representing a directed graph with $n$ nodes. What is the greatest possible sum of any <i>row</i> of <span class="math">\(A\)</span>?</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(1\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n - 1\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n^2 - 1\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n^2\)</span></p></label></div></form></div>
-<details>
-    <summary>Solution</summary>
-<p><span class="math">\(n\)</span></p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #222</h2>
+        <h2>Problem #224</h2>
         <p>Tags: <a href='../tags/graph representations.html'>graph representations</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -299,6 +345,29 @@ for lst in adj_list:
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(V)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #225</h2>
+        <p>Tags: <a href='../tags/graph representations.html'>graph representations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(A\)</span> be the adjacency matrix of the graph shown below:</p>
+<center><div class="image"><img src="../images/225/graph.png" /></div></center>
+<p>Let <span class="math">\(\vec{a}^{(1)}\)</span> be the first row of <span class="math">\(A\)</span> and <span class="math">\(\vec{a}^{(2)}\)</span> be the second row of <span class="math">\(A\)</span>. What is <span class="math">\(\vec{a}^{(1)}\cdot\vec{a}^{(2)}\)</span>? That is, what is the dot product between the first row of <span class="math">\(A\)</span> and the second row of <span class="math">\(A\)</span>? Your answer should be in the form of a number.</p>
+<p>It may help to recall that the dot product between vectors <span class="math">\(\vec x = (x_1,
+    \ldots, x_d)^T\)</span> and <span class="math">\(\vec y = (y_1, \ldots, y_d)^T\)</span> is equal to <span class="math">\(x_1 y_1 + x_2 y_2 + \ldots + x_d y_d\)</span>.</p>
+<details>
+    <summary>Solution</summary>
+<p>4</p>
 </details>
 
     </div>

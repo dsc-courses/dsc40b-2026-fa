@@ -8,6 +8,51 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+<style>
+  .multiple-choices .choice label {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin: 0.25em 0;
+    cursor: pointer;
+  }
+  .multiple-choices .choice p {
+    margin: 0;
+  }
+
+  /* practice problems: code blocks get a thin border instead of the theme's
+     thick dark frame around highlight.js's light box */
+  .problem pre.code {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 0.75em 1em;
+  }
+  .problem pre.code code,
+  .problem pre.code code.hljs {
+    background: transparent;
+    padding: 0;
+  }
+
+  /* the theme's typography styles wrap inline code in literal backticks */
+  .problem code::before,
+  .problem code::after {
+    content: none;
+  }
+</style>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".problem pre.code code").forEach(function (code) {
+      if (code.children.length === 0) {
+        code.textContent = code.textContent.replace(/^\s*\n/, "").replace(/\s+$/, "");
+      }
+    });
+  });
+</script>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -186,38 +231,27 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #017</h2>
-        <p>Tags: <a href='../tags/verifying recursion.html'>verifying recursion</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <h2>Problem #105</h2>
+        <p>Tags: <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math">\(\geq x\)</span>). The full code is shown below for convenience:</p>
+<p>Will the following code always do what it says? You may assume that <span class="inline-code"><code>numbers</code></span> is a (possibly empty) array of numbers. The product of zero numbers is defined to be 1. Select all that apply.</p>
 <pre class="code"><code>
-import math
-
-def new_binary_search(arr, start, stop, target):
-    if stop <= start:
-        return None
-
-    middle = math.ceil((start + stop) / 2)
-
-    if arr[middle] == target:
-        return middle
-    elif arr[middle] < target:
-        return new_binary_search(arr, middle + 1, stop, target)
+def product(numbers):
+    """Should return the product of all elements in numbers"""
+    if len(numbers) == 0:
+        return 1
     else:
-        return new_binary_search(arr, start, middle, target)
+        return numbers[0] * product(numbers[1:])
 
 </code></pre>
 
-<p>Which of the following statements about the correctness of <span class="inline-code"><code>new_binary_search</code></span> is true? You may assume that <span class="inline-code"><code>arr</code></span> will be a list containing at least one number, and that the initial call to <span class="inline-code"><code>new_binary_search</code></span> will be with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop
-    = len(arr) - 1</code></span>.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>new_binary_search</code></span> is guaranteed to work correctly (it will find the index of the target, if the target is in the array, and return <span class="inline-code"><code>None</code></span> otherwise).</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>new_binary_search</code></span> may recurse infinitely</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>new_binary_search</code></span> may raise an <span class="inline-code"><code>IndexError</code></span> because it may attempt to access an element of the array which does not exist</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>new_binary_search</code></span> is guaranteed to return without raising an exception, but it may sometimes return the wrong answer</p></label></div></form></div>
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>Yes</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>No - it may encounter infinite recursion because the problem size does not always reduce in size</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>No - it does not infinitely recurse, but the result may be incorrect</p></label></div></div>
 <details>
     <summary>Solution</summary>
-<p><span class="inline-code"><code>new_binary_search</code></span> may recurse infinitely</p>
+<p>Yes. The base case is correct, since the product of zero numbers is 1. The recursive call is on a list that is one element shorter, so the recursion always reaches the base case. And if <span class="inline-code"><code>product(numbers[1:])</code></span> correctly returns the product of all but the first number, then multiplying it by <span class="inline-code"><code>numbers[0]</code></span> gives the product of all of the numbers.</p>
 </details>
 
     </div>
@@ -229,7 +263,83 @@ def new_binary_search(arr, start, stop, target):
 
 
         <div class="problem-outer">
-        <h2>Problem #042</h2>
+        <h2>Problem #106</h2>
+        <p>Tags: <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Will the following code always do what it claims? You may assume that <span class="inline-code"><code>numbers</code></span> is a (possibly empty) array of numbers. Select all that apply.</p>
+<pre class="code"><code>
+def reverse(numbers):
+    """Should reverse a given list of numbers."""
+    if len(numbers) == 0:
+        return numbers
+    else:
+        # numbers[:-1] *slices* the list, creating a new list
+        # with the same elements as the original, except with
+        # the last element removed
+        return reverse(numbers[:-1])
+
+</code></pre>
+
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>Yes</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>No - it may encounter infinite recursion because the problem size does not always reduce in size</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>No - it does not infinitely recurse, but the result may be incorrect</p></label></div></div>
+<details>
+    <summary>Solution</summary>
+<p>No - it does not infinitely recurse, but the result may be incorrect. Each recursive call is on a list that is one element shorter, so the recursion always reaches the base case. But the base case returns an empty list, and each recursive call simply returns what the next call returns, so <span class="inline-code"><code>reverse</code></span> always returns <span class="inline-code"><code>[]</code></span>. This is wrong for any nonempty list.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #116</h2>
+        <p>Tags: <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the following function which attempts to compute the maximum of a list of numbers.</p>
+<pre class="code"><code>
+
+import math
+def maximum(numbers):
+    n = len(numbers)
+    if n == 0:
+        return 0
+    middle = math.floor(n / 2)
+    return (
+        maximum(numbers[:middle])
+        +
+        maximum(numbers[middle:])
+    )
+
+</code></pre>
+
+<p>Is this code guaranteed to work for all non-empty lists?</p>
+<p>You should adopt the convention that the maximum of an empty list is <span class="math">\(-\infty\)</span>.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Yes: it will return the maximum number in the list.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may recurse infinitely.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may raise an exception.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it will run without error, but it might return the wrong answer.</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>2nd option: No: it may recurse infinitely.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #117</h2>
         <p>Tags: <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -268,7 +378,7 @@ def maximum(arr, start=0, stop=None):
 
 
         <div class="problem-outer">
-        <h2>Problem #069</h2>
+        <h2>Problem #118</h2>
         <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -315,7 +425,50 @@ def most_common(arr, start, stop):
 
 
         <div class="problem-outer">
-        <h2>Problem #083</h2>
+        <h2>Problem #122</h2>
+        <p>Tags: <a href='../tags/verifying recursion.html'>verifying recursion</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math">\(\geq x\)</span>). The full code is shown below for convenience:</p>
+<pre class="code"><code>
+import math
+
+def new_binary_search(arr, start, stop, target):
+    if stop <= start:
+        return None
+
+    middle = math.ceil((start + stop) / 2)
+
+    if arr[middle] == target:
+        return middle
+    elif arr[middle] < target:
+        return new_binary_search(arr, middle + 1, stop, target)
+    else:
+        return new_binary_search(arr, start, middle, target)
+
+</code></pre>
+
+<p>Which of the following statements about the correctness of <span class="inline-code"><code>new_binary_search</code></span> is true? You may assume that <span class="inline-code"><code>arr</code></span> will be a list containing at least one number, and that the initial call to <span class="inline-code"><code>new_binary_search</code></span> will be with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop
+    = len(arr) - 1</code></span>.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>new_binary_search</code></span> is guaranteed to work correctly (it will find the index of the target, if the target is in the array, and return <span class="inline-code"><code>None</code></span> otherwise).</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>new_binary_search</code></span> may recurse infinitely</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>new_binary_search</code></span> may raise an <span class="inline-code"><code>IndexError</code></span> because it may attempt to access an element of the array which does not exist</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>new_binary_search</code></span> is guaranteed to return without raising an exception, but it may sometimes return the wrong answer</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="inline-code"><code>new_binary_search</code></span> may recurse infinitely</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #123</h2>
         <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/binary search.html'>binary search</a>, <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -351,6 +504,7 @@ def new_binary_search(arr, start, stop, target):
 <details>
     <summary>Solution</summary>
 <p>True.</p>
+<p>Consider <span class="inline-code"><code>arr = [1, 2]</code></span> with <span class="inline-code"><code>target = 0</code></span>. The first call computes <span class="inline-code"><code>middle = 1</code></span>, and since <span class="math">\(2 > 0\)</span> it recurses with <span class="inline-code"><code>start = 0, stop = 1</code></span>. There, <span class="inline-code"><code>middle</code></span> is <span class="math">\(\lceil 1/2 \rceil = 1\)</span> again, and since <span class="math">\(2 > 0\)</span> it makes the same call, <span class="inline-code"><code>start = 0, stop = 1</code></span>, forever. The problem is that when <span class="inline-code"><code>stop = start + 1</code></span>, the ceiling gives <span class="inline-code"><code>middle = stop</code></span>, so the left recursion doesn't shrink the range.</p>
 </details>
 
 </div>
@@ -367,50 +521,10 @@ def new_binary_search(arr, start, stop, target):
 <details>
     <summary>Solution</summary>
 <p>True.</p>
+<p>If <span class="inline-code"><code>arr</code></span> has one element, the first call has <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = 1</code></span>, so <span class="inline-code"><code>middle</code></span> is <span class="math">\(\lceil 1/2 \rceil = 1\)</span>, and <span class="inline-code"><code>arr[1]</code></span> doesn't exist. In general, whenever <span class="inline-code"><code>stop = start + 1</code></span>, the ceiling makes <span class="inline-code"><code>middle = stop</code></span>, which is outside the range being searched.</p>
 </details>
 
 </div>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #199</h2>
-        <p>Tags: <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Consider the following function which attempts to compute the maximum of a list of numbers.</p>
-<pre class="code"><code>
-
-import math
-def maximum(numbers):
-    n = len(numbers)
-    if n == 0:
-        return 0
-    middle = math.floor(n / 2)
-    return (
-        maximum(numbers[:middle])
-        +
-        maximum(numbers[middle:])
-    )
-
-</code></pre>
-
-<p>Is this code guaranteed to work for all non-empty lists?</p>
-<p>You should adopt the convention that the maximum of an empty list is <span class="math">\(-\infty\)</span>.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Yes: it will return the maximum number in the list.</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may recurse infinitely.</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may raise an exception.</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it will run without error, but it might return the wrong answer.</p></label></div></form></div>
-<details>
-    <summary>Solution</summary>
-<p>2nd option: No: it may recurse infinitely.</p>
-</details>
 
     </div>
 </div>

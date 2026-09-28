@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head data-automata-theme="default">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DSC 40B</title>
+    <link href="/static/style.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+<style>
+  .multiple-choices .choice label {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin: 0.25em 0;
+    cursor: pointer;
+  }
+  .multiple-choices .choice p {
+    margin: 0;
+  }
+
+  /* practice problems: code blocks get a thin border instead of the theme's
+     thick dark frame around highlight.js's light box */
+  .problem pre.code {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 0.75em 1em;
+  }
+  .problem pre.code code,
+  .problem pre.code code.hljs {
+    background: transparent;
+    padding: 0;
+  }
+
+  /* the theme's typography styles wrap inline code in literal backticks */
+  .problem code::before,
+  .problem code::after {
+    content: none;
+  }
+</style>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".problem pre.code code").forEach(function (code) {
+      if (code.children.length === 0) {
+        code.textContent = code.textContent.replace(/^\s*\n/, "").replace(/\s+$/, "");
+      }
+    });
+  });
+</script>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+
+    <!-- Mobile menu button -->
+<div class="mobile-navbar lg:hidden fixed top-0 left-0 right-0 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-50 flex items-center">
+    <button id="mobile-menu-button" class="py-5 pl-4 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <i data-lucide="menu" class="w-6 h-5"></i>
+    </button>
+    <span class="ml-2 font-semibold">DSC 40B</span>
+</div>
+
+    <div class="flex min-h-screen">
+        <!-- Left Navigation Column -->
+        <nav id="sidebar" class="
+    w-64 flex-none
+    fixed lg:sticky
+    top-0 left-0 h-screen
+    transform -translate-x-full lg:translate-x-0 transition-transform duration-200 ease-in-out
+    bg-gray-50 dark:bg-gray-900
+    z-40
+    sidebar-mobile-spacing lg:pt-6
+    flex flex-col items-end
+    border-r lg:border-r-0 border-gray-200 dark:border-gray-700
+    ">
+
+    <div class="pt-6 pr-6 flex">
+        <ul class="space-y-2">
+            
+            <li>
+                <a href="/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="calendar-days" class="mr-2 text-slate-400"></i>
+Schedule
+                </a>
+            </li>
+            
+            <li>
+                <a href="/syllabus.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="scale" class="mr-2 text-slate-400"></i>
+Syllabus
+                </a>
+            </li>
+            
+            <li>
+                <a href="/office_hours.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="briefcase-business" class="mr-2 text-slate-400"></i>
+Office Hours
+                </a>
+            </li>
+            
+            <li>
+                <a href="/materials/default/notes/book.pdf" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="book-open" class="mr-2 text-slate-400"></i>
+Course Notes
+                </a>
+            </li>
+            
+            <li>
+                <a href="/practice/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="dumbbell" class="mr-2 text-slate-400"></i>
+Practice
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://campuswire.com/p/G43FA47CB" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-more" class="mr-2 text-slate-400"></i>
+Campuswire
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://www.gradescope.com/courses/1409241" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="spell-check" class="mr-2 text-slate-400"></i>
+Gradescope
+                </a>
+            </li>
+            
+            <li>
+                <a href="http://sierra.ucsd.edu/qa/dsc40b" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-question-mark" class="mr-2 text-slate-400"></i>
+Live Q&A
+                </a>
+            </li>
+            
+            <li>
+                <a href="/staff.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="users" class="mr-2 text-slate-400"></i>
+Course Staff
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="flex mr-9 pt-3 pb-6">
+        <button id="theme-toggle" class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-full transition-colors">
+            <span id="theme-icon" class="mr-1.5">☾</span>
+            <span id="theme-text">Dark</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Overlay for mobile -->
+<div id="overlay" class="fixed inset-0 bg-gray-200/40 dark:bg-black/50 backdrop-blur-[2px] z-30 hidden"></div>
+
+        <!-- Main Content Column -->
+        
+<!-- Main Content Column -->
+<div class="
+    w-full
+    bg-white dark:bg-gray-800
+    md:border-l
+    border-gray-200 dark:border-gray-700
+    md:min-w-180
+    px-4 md:px-12
+    pt-20 lg:pt-12
+    pb-24
+    ">
+
+    <div class="
+    text-xl font-semibold
+    left-12 right-12
+    py-4 lg:pt-0 lg:pb-0 lg:mb-10
+    lg:static
+    truncate
+    flex
+    ">
+    <div class="
+        shrink
+        lg:border-b border-gray-200 dark:border-gray-700
+        ">
+        <span class="hidden lg:inline">
+            DSC 40B
+            &ndash;
+            Theoretical Foundations of Data Science II
+        </span>
+    </div>
+</div>
+
+    <div class="prose dark:prose-invert">
+    <!DOCTYPE html> <html> <head> <meta
+                          charset="utf-8"> <title>Problems tagged with lecture-02</title>
+
+           <!-- MathJax -->
+           <script type="text/x-mathjax-config">
+             MathJax.Hub.Config({
+               tex: {
+                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+                 displayMath: [             // start/end delimiter pairs for display math
+                     ['\\[', '\\]']
+                 ],
+                 processEscapes: true
+               }
+           });
+           </script>
+
+           <!-- highlightjs -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+           <!-- and it's easy to individually load additional languages -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+           <script>hljs.highlightAll();</script>
+
+           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+           <script type="text/javascript" id="MathJax-script" async
+             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+           </script>
+
+       </head>
+       <body>
+           
+<h1>Problems tagged with "lecture-02"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #008</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-02.html'>lecture-02</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
+<pre class="code"><code>
+
+def foo(n):
+    for i in range(n):
+        for j in range(n):
+            for k in range(n**2):
+                print(i + j + k)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^4)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #009</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-02.html'>lecture-02</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
+<pre class="code"><code>
+
+def foo(n):
+    for i in range(n):
+        for j in range(n**2):
+            for k in range(n):
+                print(i + j + k)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^4)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #010</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-02.html'>lecture-02</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function?</p>
+<pre class="code"><code>
+def foo(n):
+    for i in range(n**2 - 2*n + 100):
+        j = 0
+        while j < n:
+            j += 1
+
+</code></pre>
+
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(2^n)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^3)\)</span>. The outer loop runs <span class="math">\(n^2 - 2n + 100 = \Theta(n^2)\)</span> times, and on each of its iterations the inner <span class="inline-code"><code>while</code></span> loop runs <span class="math">\(n\)</span> times, for a total of <span class="math">\(\Theta(n^2) \cdot \Theta(n) = \Theta(n^3)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #011</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-02.html'>lecture-02</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function?</p>
+<pre class="code"><code>
+def foo(n):
+    total = 0
+    for i in range(n**2):
+        for j in range(n**2 + 5*n - 100):
+            for k in range(n // 1_000_000):
+                total += i**2 + n**2
+    return total
+
+</code></pre>
+
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^4)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^5)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^6)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^5)\)</span>. The three loops run <span class="math">\(n^2\)</span>, <span class="math">\(n^2 + 5n - 100 = \Theta(n^2)\)</span>, and <span class="math">\(\lfloor n / 1{,}000{,}000 \rfloor = \Theta(n)\)</span> times, and the loop body takes constant time, so the total is <span class="math">\(\Theta(n^2 \cdot n^2 \cdot n) = \Theta(n^5)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #012</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-02.html'>lecture-02</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function?</p>
+<pre class="code"><code>
+import math
+
+def foo(n):
+    for i in range(math.floor(math.sqrt(n))):
+        for j in range(math.floor(5*n**2 - math.sqrt(n)/1_000_000 + 100)):
+            print(n * n)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2 \sqrt n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #013</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-02.html'>lecture-02</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Express the time complexity of the following code using asymptotic notation in as simplest terms possible.</p>
+<pre class="code"><code>
+
+def foo(n):
+    for i in range(n**3):
+        for j in range(n):
+            print(i + j)
+        for j in range(n**2):
+            print(i + j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^5)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #014</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-02.html'>lecture-02</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
+<pre class="code"><code>
+def foo(n):
+    for i in range(n**3):
+        for j in range(n):
+            print(i + j)
+    for k in range(n):
+        for l in range(n**2):
+            print(k * l)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^4)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #015</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-02.html'>lecture-02</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>) in the simplest terms possible.</p>
+<pre class="code"><code>
+import math
+def foo(n):
+    for i in range(3 * n**3 + 5 * n * math.ceil(math.log(n))):
+        for j in range(math.floor(math.sqrt(n))):
+            print(i + j)
+        for k in range(n**2):
+            print(k * i)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^5)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #016</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-02.html'>lecture-02</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function?</p>
+<pre class="code"><code>
+def foo(n):
+    while n > 1:
+        n /= 10
+        print(n)
+
+</code></pre>
+
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^{10})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(10^n)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log n)\)</span>. After <span class="math">\(k\)</span> iterations, the value of <span class="inline-code"><code>n</code></span> is <span class="math">\(n / 10^k\)</span>. The loop stops once this is at most 1, which happens after about <span class="math">\(\log_{10} n = \Theta(\log n)\)</span> iterations.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #017</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-02.html'>lecture-02</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation in the simplest form possible. (e.g., <span class="math">\(\Theta(n)\)</span>)</p>
+<pre class="code"><code>
+import math
+
+def boo(n):
+    i = n
+    while i > 1:
+        i = i / 2
+        for j in range(1_000_000):
+            print(i + j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #018</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-02.html'>lecture-02</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Express the time complexity of the following code using asymptotic notation in as simplest terms possible.</p>
+<pre class="code"><code>
+import math
+
+def foo(arr):
+    """`arr` is an array with n elements."""
+    n = len(arr)
+    ix = 1
+    s = 0
+
+    while ix < n:
+        s = s + arr[ix]
+        ix = ix * 5 + 2
+
+    return s
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #019</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-02.html'>lecture-02</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function?</p>
+<pre class="code"><code>
+def foo(n):
+    i = 1
+    while i < n:
+        j = 0
+        while j < n:
+            j += 1
+        i *= 2
+
+</code></pre>
+
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(2^n)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n \log n)\)</span>. Since <span class="inline-code"><code>i</code></span> doubles on each iteration, the outer loop runs <span class="math">\(\Theta(\log n)\)</span> times. The inner loop runs <span class="math">\(n\)</span> times on each of these, for a total of <span class="math">\(\Theta(n \log n)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #020</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-02.html'>lecture-02</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>) in the simplest terms possible.</p>
+<pre class="code"><code>
+def foo(n):
+    i = 1
+    while i < n**3:
+        i = i * 2
+        for j in range(n):
+            print(i + j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n\log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #021</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-02.html'>lecture-02</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<pre class="code"><code>
+from math import sqrt, log, ceil
+
+def foo(n):
+    for i in range(ceil(n**3 - 10*n + sqrt(n))):
+        for j in range(ceil(log(n**2))):
+            print(i, j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^3 \log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #022</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-02.html'>lecture-02</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
+<pre class="code"><code>
+def foo(n):
+    i = 0
+    while i < n**2:
+        i = i + 2
+        j = 0
+        while j < n:
+            for k in range(n):
+                print(i + j + k)
+            j = j + 10
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^4)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #023</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-02.html'>lecture-02</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>) in the simplest terms possible.</p>
+<pre class="code"><code>
+def foo(n):
+    for i in range(n):
+        for j in range(2023):
+            for k in range(n - i):
+                print("DSC40B")
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #024</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-02.html'>lecture-02</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Express the time complexity of the following code using asymptotic notation in as simplest terms possible.</p>
+<pre class="code"><code>
+def foo(n):
+    for i in range(n):
+        for j in range(i):
+            for k in range(n):
+                print(i + j + k)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^3)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #025</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-02.html'>lecture-02</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function?</p>
+<pre class="code"><code>
+def foo(n):
+    for i in range(n):
+        for j in range(n):
+            for k in range(j): # ← notice the range!
+                print(j)
+
+</code></pre>
+
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^4)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^5)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^6)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^3)\)</span>. For a fixed <span class="inline-code"><code>i</code></span>, the two inner loops run <span class="math">\(0 + 1 + 2 + \ldots + (n-1) = n(n-1)/2 = \Theta(n^2)\)</span> times in total. The outer loop runs <span class="math">\(n\)</span> times, so the total is <span class="math">\(\Theta(n^3)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #026</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-02.html'>lecture-02</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function?</p>
+<pre class="code"><code>
+def foo(n):
+    i = 0
+    while i < n:
+        j = 0
+        while j < i:
+            print(i + j)
+            j += 1
+        i += 5
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #027</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-02.html'>lecture-02</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Express the time complexity of the following code using asymptotic notation in as simplest terms possible.</p>
+<pre class="code"><code>
+def foo(n):
+    for i in range(200, n):
+        for j in range(i, 2*i + n**2):
+            print(i + j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^3)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #028</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-02.html'>lecture-02</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation in the simplest form possible. (e.g., <span class="math">\(\Theta(n)\)</span>)</p>
+<pre class="code"><code>
+def boo(n):
+    for i in range(200, n):
+        for j in range(i, i * n):
+            print(i + j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p>If you count the number of times the inner loop body executes, you'll get something like <span class="math">\(n + 2n + 3n + \ldots + n\times n\)</span>. Factoring out the <span class="math">\(n\)</span> and using the formula for the sum of the first <span class="math">\(n\)</span> integers, we get <span class="math">\(n (1 + 2 + 3 + \ldots + n) = n \Theta(n^2) = \Theta(n^3)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #029</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-02.html'>lecture-02</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<pre class="code"><code>
+import math
+
+def foo(n):
+    for i in range(math.floor(math.sqrt(n))):
+        for j in range(i):
+            print(i + j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #030</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-02.html'>lecture-02</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<pre class="code"><code>
+def foo(n):
+    for i in range(n**2):
+
+        for j in range(i):
+            print(i+j)
+
+        for k in range(n):
+            print(i+k)
+
+        for x in range(n - i):
+            print(x)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^4)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+       </body>
+   </html>
+    </div>
+</div>
+
+    </div>
+
+    <script>
+        // Restore saved theme on page load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else if (savedTheme === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Dark mode toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        // Update button to reflect current theme
+        function updateThemeButton() {
+            const isDark = document.documentElement.classList.contains('dark');
+            themeIcon.textContent = isDark ? '☀' : '☾';
+            themeText.textContent = isDark ? 'Light' : 'Dark';
+        }
+
+        // Initialize button state
+        updateThemeButton();
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.contains('dark');
+
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+
+            updateThemeButton();
+        });
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        menuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        });
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>

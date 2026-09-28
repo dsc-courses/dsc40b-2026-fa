@@ -8,6 +8,51 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+<style>
+  .multiple-choices .choice label {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin: 0.25em 0;
+    cursor: pointer;
+  }
+  .multiple-choices .choice p {
+    margin: 0;
+  }
+
+  /* practice problems: code blocks get a thin border instead of the theme's
+     thick dark frame around highlight.js's light box */
+  .problem pre.code {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 0.75em 1em;
+  }
+  .problem pre.code code,
+  .problem pre.code code.hljs {
+    background: transparent;
+    padding: 0;
+  }
+
+  /* the theme's typography styles wrap inline code in literal backticks */
+  .problem code::before,
+  .problem code::after {
+    content: none;
+  }
+</style>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".problem pre.code code").forEach(function (code) {
+      if (code.children.length === 0) {
+        code.textContent = code.textContent.replace(/^\s*\n/, "").replace(/\s+$/, "");
+      }
+    });
+  });
+</script>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -186,7 +231,7 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #048</h2>
+        <h2>Problem #148</h2>
         <p>Tags: <a href='../tags/quickselect.html'>quickselect</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -200,6 +245,7 @@ Course Staff
 <details>
     <summary>Solution</summary>
 <p>False.</p>
+<p><span class="inline-code"><code>quickselect</code></span> works on unsorted arrays: it partitions the array around a pivot, which puts the pivot in its correct sorted position, and then recurses only on the side that contains the <span class="math">\(k\)</span>th smallest element. If the array were already sorted, we wouldn't need <span class="inline-code"><code>quickselect</code></span> at all; we could just look up the element at index <span class="math">\(k\)</span> in <span class="math">\(\Theta(1)\)</span> time.</p>
 </details>
 
     </div>
@@ -211,7 +257,33 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #075</h2>
+        <h2>Problem #149</h2>
+        <p>Tags: <a href='../tags/quickselect.html'>quickselect</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>True or False: in order to guarantee that its output is correct, <span class="inline-code"><code>quickselect</code></span> must be called on a sorted list.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+<p><span class="inline-code"><code>quickselect</code></span> works on unsorted arrays: it partitions the array around a pivot, which puts the pivot in its correct sorted position, and then recurses only on the side that contains the <span class="math">\(k\)</span>th smallest element. If the array were already sorted, we wouldn't need <span class="inline-code"><code>quickselect</code></span> at all; we could just look up the element at index <span class="math">\(k\)</span> in <span class="math">\(\Theta(1)\)</span> time.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #155</h2>
         <p>Tags: <a href='../tags/loop invariants.html'>loop invariants</a>, <a href='../tags/quickselect.html'>quickselect</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -235,20 +307,21 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #086</h2>
+        <h2>Problem #156</h2>
         <p>Tags: <a href='../tags/quickselect.html'>quickselect</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>True or False: in order to guarantee that its output is correct, <span class="inline-code"><code>quickselect</code></span> must be called on a sorted list.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
+<p>Which of the following arrays could have been partitioned at least once? (Select all that apply)</p>
+<p>Hint: there are three.</p>
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[15, 25, 35, 45, 55]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[55, 45, 35, 25, 15]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[6, 5, 1, 8, 3, 4]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[6, 5, 1, 8, 3, 15]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[2, 5, 3, 4, 1, 5, 1]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[0, 10, 15, 18, 20, 30, 29, 19]</code></span></p></label></div></div>
 <details>
     <summary>Solution</summary>
-<p>False.</p>
+<p><span class="inline-code"><code>[15, 25, 35, 45, 55]</code></span>, <span class="inline-code"><code>[6, 5, 1, 8, 3, 15]</code></span>, and <span class="inline-code"><code>[0, 10, 15, 18, 20, 30, 29, 19]</code></span>. After a partition, the pivot is in its final sorted position: everything to its left is smaller and everything to its right is at least as large. So an array could have been partitioned only if some element has this property. In <span class="inline-code"><code>[15, 25, 35, 45, 55]</code></span> every element does; in <span class="inline-code"><code>[6, 5, 1, 8, 3, 15]</code></span> the 15 does; and in <span class="inline-code"><code>[0, 10, 15, 18, 20, 30, 29, 19]</code></span> the 0 (and the 10, 15, and 18) does. None of the other arrays has such an element.</p>
 </details>
 
     </div>
@@ -260,7 +333,7 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #183</h2>
+        <h2>Problem #157</h2>
         <p>Tags: <a href='../tags/quickselect.html'>quickselect</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -287,44 +360,70 @@ def quickselect(arr, k, start, stop):
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
 <p>What is the <b>fewest</b> number of times that ``hello world!'' can possibly be printed? Your answer should be a number, and not in terms of <span class="math">\(n\)</span>.</p>
-<p>
-<span class="inline-response-box">
-    <span id="answer-ec213f29-a320-44d1-ba06-c13a8bb6bab1" style="display: none">1</span>
-    <span id="button-ec213f29-a320-44d1-ba06-c13a8bb6bab1">
-        <button
-            type="button"
-            onclick="
-                document.getElementById('answer-ec213f29-a320-44d1-ba06-c13a8bb6bab1').style.display = 'inline-block';
-                document.getElementById('button-ec213f29-a320-44d1-ba06-c13a8bb6bab1').style.display = 'none'
-            "
-        >
-            Show Answer
-        </button>
-    </span>
-</span>
-</p>
+<details>
+    <summary>Solution</summary>
+<p>1</p>
+</details>
+
 </div>
 
 <div class="subproblem">
     <h3 class="subproblem-id">Part 2)</h3>
 <p>What is the <b>greatest</b> number of times that ``hello world'' can possibly be printed? Your answer should be a number, and not in terms of <span class="math">\(n\)</span>.</p>
-<p>
-<span class="inline-response-box">
-    <span id="answer-de723bf0-d672-4718-b70e-6081e61bd11e" style="display: none">10</span>
-    <span id="button-de723bf0-d672-4718-b70e-6081e61bd11e">
-        <button
-            type="button"
-            onclick="
-                document.getElementById('answer-de723bf0-d672-4718-b70e-6081e61bd11e').style.display = 'inline-block';
-                document.getElementById('button-de723bf0-d672-4718-b70e-6081e61bd11e').style.display = 'none'
-            "
-        >
-            Show Answer
-        </button>
-    </span>
-</span>
-</p>
+<details>
+    <summary>Solution</summary>
+<p>10</p>
+</details>
+
 </div>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #158</h2>
+        <p>Tags: <a href='../tags/quickselect.html'>quickselect</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a quickselect is being performed on an array. In the middle of the quickselect, you are told that the array has been partitioned exactly twice thus far, and that the third order and sixth order statistics have been identified as a result. Which one of the following arrays is partitioned in this manner?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>[6, 2, 4, 10, 9, 15, 33, 34]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>[10, 5, 20, 45, 21, 52, 67, 54]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>[1, 3, 2, 4, 3, 5, 4, 6]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>[5, 2, 13, 45, 14, 14, 34, 33]</code></span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="inline-code"><code>[10, 5, 20, 45, 21, 52, 67, 54]</code></span>. The two pivots must be the 3rd and 6th smallest elements, so they must sit at indices 2 and 5 with everything to their left smaller and everything to their right larger. In this array, 20 (index 2) and 52 (index 5) both satisfy this. In the first array, 4 has 6 to its left; in the third, 2 has 3 to its left; and in the fourth, 14 at index 5 has 45 to its left.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #160</h2>
+        <p>Tags: <a href='../tags/quickselect.html'>quickselect</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose quickselect is used on an array of size 11 to find the median. The median is located as the second element of the array (at index 1), but the rest of the array is sorted in descending order. If we change the behavior of quickselect so that the pivot index is no longer random, instead always choosing <span class="inline-code"><code>start</code></span> as the pivot index (<span class="inline-code"><code>pivot_ix = start</code></span>), how many calls to quickselect will need to be made to find the median? Assume that quickselect is using the <span class="inline-code"><code>in_place_partition</code></span> algorithm from lecture. You may also assume that for the first call of quickselect <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>1</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>2</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>3</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>5</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>6</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>10</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>Answer: 3. For example, take <span class="inline-code"><code>arr = [10, 5, 9, 8, 7, 6, 4, 3, 2, 1, 0]</code></span>, whose median is 5. The first call uses 10 (the maximum) as the pivot; <span class="inline-code"><code>in_place_partition</code></span> moves it to the end, giving <span class="inline-code"><code>[0, 5, 9, 8, 7, 6, 4, 3, 2, 1, 10]</code></span>, so we recurse on indices 0 through 9. The second call uses 0 (the minimum) as the pivot, which stays at index 0, so we recurse on indices 1 through 9. The third call uses the median, 5, as the pivot, and after partitioning it lands at index 5, so it is returned.</p>
+</details>
 
     </div>
 </div>

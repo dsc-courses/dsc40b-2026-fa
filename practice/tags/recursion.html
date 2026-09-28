@@ -8,6 +8,51 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+<style>
+  .multiple-choices .choice label {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin: 0.25em 0;
+    cursor: pointer;
+  }
+  .multiple-choices .choice p {
+    margin: 0;
+  }
+
+  /* practice problems: code blocks get a thin border instead of the theme's
+     thick dark frame around highlight.js's light box */
+  .problem pre.code {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 0.75em 1em;
+  }
+  .problem pre.code code,
+  .problem pre.code code.hljs {
+    background: transparent;
+    padding: 0;
+  }
+
+  /* the theme's typography styles wrap inline code in literal backticks */
+  .problem code::before,
+  .problem code::after {
+    content: none;
+  }
+</style>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".problem pre.code code").forEach(function (code) {
+      if (code.children.length === 0) {
+        code.textContent = code.textContent.replace(/^\s*\n/, "").replace(/\s+$/, "");
+      }
+    });
+  });
+</script>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -186,31 +231,7 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #035</h2>
-        <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/binary search.html'>binary search</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Suppose <span class="inline-code"><code>binary_search</code></span> has been called on a sorted array <span class="inline-code"><code>arr</code></span> with a target <span class="inline-code"><code>t</code></span> that is not necessarily in the array, and with start and stop indices <span class="inline-code"><code>start</code></span> and <span class="inline-code"><code>stop</code></span>, respectively (remember, our convention is that the start index is included, while the stop index is excluded from the search). Which of the following must be true? <b>Mark all which apply</b>. You may assume that <span class="inline-code"><code>stop - start</code></span><span class="math">\(\geq 1\)</span>.</p>
-<p>Note: remember that any statement about an empty array is considered to be automatically true. Also, you cannot assume that this call to <span class="inline-code"><code>binary_search</code></span> is the <i>root</i> call (it could be a recursive call).</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[start] < t < arr[stop]</code></span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[start] < t < arr[stop - 1]</code></span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[:start] < t</code></span>. That is, everything up to but excluding <span class="inline-code"><code>arr[start]</code></span> is less than the target.</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[stop:] > t</code></span>. That is, everything after <span class="inline-code"><code>stop</code></span>, including the element at <span class="inline-code"><code>stop</code></span>, is greater than the target.</p></label></div></form></div>
-<details>
-    <summary>Solution</summary>
-<p>The last two answers are both correct.</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #041</h2>
+        <h2>Problem #103</h2>
         <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/binary search.html'>binary search</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -233,7 +254,31 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #069</h2>
+        <h2>Problem #115</h2>
+        <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>binary_search</code></span> has been called on a sorted array <span class="inline-code"><code>arr</code></span> with a target <span class="inline-code"><code>t</code></span> that is not necessarily in the array, and with start and stop indices <span class="inline-code"><code>start</code></span> and <span class="inline-code"><code>stop</code></span>, respectively (remember, our convention is that the start index is included, while the stop index is excluded from the search). Which of the following must be true? <b>Mark all which apply</b>. You may assume that <span class="inline-code"><code>stop - start</code></span><span class="math">\(\geq 1\)</span>.</p>
+<p>Note: remember that any statement about an empty array is considered to be automatically true. Also, you cannot assume that this call to <span class="inline-code"><code>binary_search</code></span> is the <i>root</i> call (it could be a recursive call).</p>
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>arr[start] < t < arr[stop]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>arr[start] < t < arr[stop - 1]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>arr[:start] < t</code></span>. That is, everything up to but excluding <span class="inline-code"><code>arr[start]</code></span> is less than the target.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>arr[stop:] > t</code></span>. That is, everything after <span class="inline-code"><code>stop</code></span>, including the element at <span class="inline-code"><code>stop</code></span>, is greater than the target.</p></label></div></div>
+<details>
+    <summary>Solution</summary>
+<p>The last two answers are both correct.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #118</h2>
         <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -280,7 +325,124 @@ def most_common(arr, start, stop):
 
 
         <div class="problem-outer">
-        <h2>Problem #081</h2>
+        <h2>Problem #119</h2>
+        <p>Tags: <a href='../tags/recursion.html'>recursion</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Professor Billy claims to have invented a new sorting algorithm: <span class="inline-code"><code>mediansort</code></span>. The algorithm supposedly works by finding a median number, swapping it into the middle of the list, and recursing on the left half and the right half. Professor Billy's code is written below:</p>
+<pre class="code"><code>
+import math
+
+def mediansort(arr, start, stop):
+    """Claims to sort the array, in-place."""
+    if stop - start <= 1:
+        return
+
+    # finds the index of the median of arr[start:stop]
+    median_ix = find_median(arr, start, stop)
+
+    middle_ix = math.floor((start + stop) / 2)
+
+    # move the median to the middle by swapping
+    arr[median_ix], arr[middle_ix] = arr[middle_ix], arr[median_ix]
+
+    # recurse on the left and right halves
+    mediansort(arr, start, middle_ix)
+    mediansort(arr, middle_ix + 1, stop)
+
+</code></pre>
+
+<p>The code is supposed to sort ``in place'' by modifying the input array. You may assume that <span class="inline-code"><code>find_median</code></span> correctly returns the index of the median element in <span class="inline-code"><code>arr[start:stop]</code></span>.</p>
+<p>Does Professor Billy's <span class="inline-code"><code>mediansort</code></span> algorithm work? You may assume that it is called with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Yes: <span class="inline-code"><code>arr</code></span> will be in sorted order after the function exits.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may recurse infinitely.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may try to access the array at an invalid index and then raise an exception.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it will run without error, but <span class="inline-code"><code>arr</code></span> may not be sorted when the function exits.</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><b>No: it will run without error, but \mintinline{python}{arr} may not be sorted when the function exits</b>.</p>
+<p>Remember the three things to check when evaluating recursive code: 1) does it have a base case? 2) do the recursive subproblems get smaller and smaller? and 3) assuming that the recursive subcalls do what they say they will, does the algorithm work overall?</p>
+<p>In this situation, the third thing does not check out. That is: even if <span class="inline-code"><code>mediansort(arr, start, middle_ix)</code></span> correctly sorts the numbers in <span class="inline-code"><code>arr[start:middle_ix]</code></span>(and the other call does the same for the right half of the list), this does not mean that <span class="inline-code"><code>arr</code></span> will be in sorted order over all. We would still need to merge the two sorted halves together into one sorted list.</p>
+<p>It might help to look at this another way. On the root call to <span class="inline-code"><code>mediansort</code></span>, the median is put into its correct position in the sorted order. But on the recursive calls, this is not true. Consider the recursive call on the left half -- during this call, the median of the first <span class="math">\(n/2\)</span> numbers in the list is placed into position <span class="math">\(n/4\)</span>(roughly). This isn't quite what we want -- we want to put the median of the <i>smallest</i><span class="math">\(n/2\)</span> numbers here. But the first <span class="math">\(n/2\)</span> numbers in the list aren't necessarily the <i>smallest</i><span class="math">\(n/2\)</span> numbers in the list overall.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #123</h2>
+        <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/binary search.html'>binary search</a>, <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math">\(\geq x\)</span>). The full code is shown below for convenience:</p>
+<pre class="code"><code>
+import math
+
+def new_binary_search(arr, start, stop, target):
+    if stop <= start:
+        return None
+
+    middle = math.ceil((start + stop) / 2)
+
+    if arr[middle] == target:
+        return middle
+    elif arr[middle] < target:
+        return new_binary_search(arr, middle + 1, stop, target)
+    else:
+        return new_binary_search(arr, start, middle, target)
+
+</code></pre>
+
+<p>You may assume that <span class="inline-code"><code>arr</code></span> will be a sorted list containing at least one number, and that the initial call to <span class="inline-code"><code>new_binary_search</code></span> will be with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>.</p>
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 1)</h3>
+<p>True or False: there are input arrays on which <span class="inline-code"><code>new_binary_search</code></span> will recurse infinitely.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+<p>Consider <span class="inline-code"><code>arr = [1, 2]</code></span> with <span class="inline-code"><code>target = 0</code></span>. The first call computes <span class="inline-code"><code>middle = 1</code></span>, and since <span class="math">\(2 > 0\)</span> it recurses with <span class="inline-code"><code>start = 0, stop = 1</code></span>. There, <span class="inline-code"><code>middle</code></span> is <span class="math">\(\lceil 1/2 \rceil = 1\)</span> again, and since <span class="math">\(2 > 0\)</span> it makes the same call, <span class="inline-code"><code>start = 0, stop = 1</code></span>, forever. The problem is that when <span class="inline-code"><code>stop = start + 1</code></span>, the ceiling gives <span class="inline-code"><code>middle = stop</code></span>, so the left recursion doesn't shrink the range.</p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 2)</h3>
+<p>True or False: there are input arrays on which <span class="inline-code"><code>new_binary_search</code></span> will raise an <span class="inline-code"><code>IndexError</code></span> because it attempts to access an element of the array which does not exist.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+<p>If <span class="inline-code"><code>arr</code></span> has one element, the first call has <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = 1</code></span>, so <span class="inline-code"><code>middle</code></span> is <span class="math">\(\lceil 1/2 \rceil = 1\)</span>, and <span class="inline-code"><code>arr[1]</code></span> doesn't exist. In general, whenever <span class="inline-code"><code>stop = start + 1</code></span>, the ceiling makes <span class="inline-code"><code>middle = stop</code></span>, which is outside the range being searched.</p>
+</details>
+
+</div>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #135</h2>
         <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/mergesort.html'>mergesort</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -323,137 +485,6 @@ def merge(left, right, out):
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n \log n)\)</span></p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #083</h2>
-        <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/binary search.html'>binary search</a>, <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math">\(\geq x\)</span>). The full code is shown below for convenience:</p>
-<pre class="code"><code>
-import math
-
-def new_binary_search(arr, start, stop, target):
-    if stop <= start:
-        return None
-
-    middle = math.ceil((start + stop) / 2)
-
-    if arr[middle] == target:
-        return middle
-    elif arr[middle] < target:
-        return new_binary_search(arr, middle + 1, stop, target)
-    else:
-        return new_binary_search(arr, start, middle, target)
-
-</code></pre>
-
-<p>You may assume that <span class="inline-code"><code>arr</code></span> will be a sorted list containing at least one number, and that the initial call to <span class="inline-code"><code>new_binary_search</code></span> will be with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>.</p>
-<div class="subproblem">
-    <h3 class="subproblem-id">Part 1)</h3>
-<p>True or False: there are input arrays on which <span class="inline-code"><code>new_binary_search</code></span> will recurse infinitely.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
-<details>
-    <summary>Solution</summary>
-<p>True.</p>
-</details>
-
-</div>
-
-<div class="subproblem">
-    <h3 class="subproblem-id">Part 2)</h3>
-<p>True or False: there are input arrays on which <span class="inline-code"><code>new_binary_search</code></span> will raise an <span class="inline-code"><code>IndexError</code></span> because it attempts to access an element of the array which does not exist.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
-<details>
-    <summary>Solution</summary>
-<p>True.</p>
-</details>
-
-</div>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #169</h2>
-        <p>Tags: <a href='../tags/recursion.html'>recursion</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Professor Billy claims to have invented a new sorting algorithm: <span class="inline-code"><code>mediansort</code></span>. The algorithm supposedly works by finding a median number, swapping it into the middle of the list, and recursing on the left half and the right half. Professor Billy's code is written below:</p>
-<pre class="code"><code>
-import math
-
-def mediansort(arr, start, stop):
-    """Claims to sort the array, in-place."""
-    if stop - start <= 1:
-        return
-
-    # finds the index of the median of arr[start:stop]
-    median_ix = find_median(arr, start, stop)
-
-    middle_ix = math.floor((start + stop) / 2)
-
-    # move the median to the middle by swapping
-    arr[median_ix], arr[middle_ix] = arr[middle_ix], arr[median_ix]
-
-    # recurse on the left and right halves
-    mediansort(arr, start, middle_ix)
-    mediansort(arr, middle_ix + 1, stop)
-
-
-def find_median(arr, start, stop):
-    """Finds the index of a median of the elements in arr[start:stop]."""
-    numbers = arr[start:stop]
-    median = sorted(numbers)[len(numbers) // 2]
-    for i in range(start, stop):
-        if arr[i] == median:
-            return i
-
-
-import random
-s = random.randint(10, 100)
-arr = [random.randint(0, 1000) for _ in range(s)]
-mediansort(arr, 0, len(arr))
-print(arr)
-
-</code></pre>
-
-<p>The code is supposed to sort ``in place'' by modifying the input array. You may assume that <span class="inline-code"><code>find_median</code></span> correctly returns the index of the median element in <span class="inline-code"><code>arr[start:stop]</code></span>.</p>
-<p>Does Professor Billy's <span class="inline-code"><code>mediansort</code></span> algorithm work? You may assume that it is called with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Yes: <span class="inline-code"><code>arr</code></span> will be in sorted order after the function exits.</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may recurse infinitely.</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may try to access the array at an invalid index and then raise an exception.</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it will run without error, but <span class="inline-code"><code>arr</code></span> may not be sorted when the function exits.</p></label></div></form></div>
-<details>
-    <summary>Solution</summary>
-<p><b>No: it will run without error, but \mintinline{python}{arr} may not be sorted when the function exits</b>.</p>
-<p>Remember the three things to check when evaluating recursive code: 1) does it have a base case? 2) do the recursive subproblems get smaller and smaller? and 3) assuming that the recursive subcalls do what they say they will, does the algorithm work overall?</p>
-<p>In this situation, the third thing does not check out. That is: even if <span class="inline-code"><code>mediansort(arr, start, middle_ix)</code></span> correctly sorts the numbers in <span class="inline-code"><code>arr[start:middle_ix]</code></span>(and the other call does the same for the right half of the list), this does not mean that <span class="inline-code"><code>arr</code></span> will be in sorted order over all. We would still need to merge the two sorted halves together into one sorted list.</p>
-<p>It might help to look at this another way. On the root call to <span class="inline-code"><code>mediansort</code></span>, the median is put into its correct position in the sorted order. But on the recursive calls, this is not true. Consider the recursive call on the left half -- during this call, the median of the first <span class="math">\(n/2\)</span> numbers in the list is placed into position <span class="math">\(n/4\)</span>(roughly). This isn't quite what we want -- we want to put the median of the <i>smallest</i><span class="math">\(n/2\)</span> numbers here. But the first <span class="math">\(n/2\)</span> numbers in the list aren't necessarily the <i>smallest</i><span class="math">\(n/2\)</span> numbers in the list overall.</p>
 </details>
 
     </div>

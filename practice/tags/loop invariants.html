@@ -8,6 +8,51 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+<style>
+  .multiple-choices .choice label {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin: 0.25em 0;
+    cursor: pointer;
+  }
+  .multiple-choices .choice p {
+    margin: 0;
+  }
+
+  /* practice problems: code blocks get a thin border instead of the theme's
+     thick dark frame around highlight.js's light box */
+  .problem pre.code {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 0.75em 1em;
+  }
+  .problem pre.code code,
+  .problem pre.code code.hljs {
+    background: transparent;
+    padding: 0;
+  }
+
+  /* the theme's typography styles wrap inline code in literal backticks */
+  .problem code::before,
+  .problem code::after {
+    content: none;
+  }
+</style>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".problem pre.code code").forEach(function (code) {
+      if (code.children.length === 0) {
+        code.textContent = code.textContent.replace(/^\s*\n/, "").replace(/\s+$/, "");
+      }
+    });
+  });
+</script>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -186,52 +231,7 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #062</h2>
-        <p>Tags: <a href='../tags/loop invariants.html'>loop invariants</a>, <a href='../tags/binary search.html'>binary search</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Consider the iterative implementation of binary search shown below:</p>
-<pre class="code"><code>
-import math
-
-def iterative_binary_search(arr, target):
-
-    start = 0
-    stop = len(arr)
-
-    while (stop - start) > 0:
-        print(arr[start])
-        middle = math.floor((start + stop) / 2)
-        if arr[middle] == target:
-            return middle
-        elif arr[middle] > target:
-            stop = middle
-        else:
-            start = middle + 1
-
-    return None
-
-</code></pre>
-
-<p>Which of the following loop invariants is true, assuming that <span class="inline-code"><code>arr</code></span> is sorted and non-empty, and <span class="inline-code"><code>target</code></span> is <b>not</b> in the array? Select all that apply.</p>
-<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, <span class="inline-code"><code>stop - start >= 0</code></span>.</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, <span class="inline-code"><code>stop - start >= 1</code></span>.</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, <span class="inline-code"><code>arr[start] <= target</code></span>.</p></label></div></div>
-<details>
-    <summary>Solution</summary>
-<p>The first option is correct.</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #074</h2>
+        <h2>Problem #114</h2>
         <p>Tags: <a href='../tags/loop invariants.html'>loop invariants</a>, <a href='../tags/binary search.html'>binary search</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -280,19 +280,40 @@ def iterative_binary_search(arr, target):
 
 
         <div class="problem-outer">
-        <h2>Problem #075</h2>
-        <p>Tags: <a href='../tags/loop invariants.html'>loop invariants</a>, <a href='../tags/quickselect.html'>quickselect</a></p>
+        <h2>Problem #140</h2>
+        <p>Tags: <a href='../tags/loop invariants.html'>loop invariants</a>, <a href='../tags/binary search.html'>binary search</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Recall the partition operation from <span class="inline-code"><code>quickselect</code></span>. Which of the following arrays could have been partitioned at least once? Select all that apply.</p>
-<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[50, 10, 20, 30, 60, 40]</code></span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[20, 10, 30, 60, 40, 50]</code></span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[20, 50, 10, 40, 30, 60]</code></span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[60, 50, 40, 30, 20, 10]</code></span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[10, 20, 30, 40, 50, 60]</code></span></p></label></div></div>
+<p>Consider the iterative implementation of binary search shown below:</p>
+<pre class="code"><code>
+import math
+
+def iterative_binary_search(arr, target):
+
+    start = 0
+    stop = len(arr)
+
+    while (stop - start) > 0:
+        print(arr[start])
+        middle = math.floor((start + stop) / 2)
+        if arr[middle] == target:
+            return middle
+        elif arr[middle] > target:
+            stop = middle
+        else:
+            start = middle + 1
+
+    return None
+
+</code></pre>
+
+<p>Which of the following loop invariants is true, assuming that <span class="inline-code"><code>arr</code></span> is sorted and non-empty, and <span class="inline-code"><code>target</code></span> is <b>not</b> in the array? Select all that apply.</p>
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, <span class="inline-code"><code>stop - start >= 0</code></span>.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, <span class="inline-code"><code>stop - start >= 1</code></span>.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, <span class="inline-code"><code>arr[start] <= target</code></span>.</p></label></div></div>
 <details>
     <summary>Solution</summary>
-<p>The second, third, and last all should be selected.</p>
+<p>The first option is correct.</p>
 </details>
 
     </div>
@@ -304,7 +325,39 @@ def iterative_binary_search(arr, target):
 
 
         <div class="problem-outer">
-        <h2>Problem #196</h2>
+        <h2>Problem #141</h2>
+        <p>Tags: <a href='../tags/loop invariants.html'>loop invariants</a>, <a href='../tags/selection sort.html'>selection sort</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose you are sorting an array using selection sort. At the current iteration of selection sort, the array being sorted looks like this:</p>
+<pre class="code"><code>
+[0, 1, 2, 2, 3, 4, 2, 10, 13, 4]
+</code></pre>
+
+<p>Which of the following are possible options for how many times the outer for loop has run? Select all that apply.</p>
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>1</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>2</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>3</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>4</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>5</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>6</p></label></div></div>
+<details>
+    <summary>Solution</summary>
+<p>1, 2, 3, and 4. Remember the selection sort loop invariants: after the <span class="math">\(\alpha\)</span>th iteration, the first <span class="math">\(\alpha\)</span> numbers are <span class="math">\(\leq\)</span> the remaining numbers, and the first <span class="math">\(\alpha\)</span> numbers are in sorted order.</p>
+<p>To answer this question, we can ask, for each <span class="math">\(\alpha\)</span>, are the loop invariants true? If yes, then it is <i>possible</i> that <span class="math">\(\alpha\)</span> iterations have been made; if not, then it is not possible.</p>
+<p>It is true for <span class="math">\(\alpha=1\)</span>, since the first number is <span class="math">\(\leq\)</span> the remaining numbers, and the first 1 numbers are in sorted order. Same for <span class="math">\(\alpha = 2, 3, \)</span> and <span class="math">\(4\)</span>. However, it is <i>not</i> true at <span class="math">\(\alpha = 5\)</span>. One of the loop invariants is true (the first five numbers are in sorted order), but the other is not: the first 5 numbers are not all <span class="math">\(\leq\)</span> the remaining numbers. In particular, the fifth number (3) is not <span class="math">\(\leq\)</span> the 7th number (2). Therefore, this could not possibly be the result after 5 iterations.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #144</h2>
         <p>Tags: <a href='../tags/loop invariants.html'>loop invariants</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -326,11 +379,6 @@ def mystery_partition(numbers):
                 swap(0, barrier_ix)
             barrier_ix += 1
 
-
-lst = [1, 5, 3, 7, 2, 4, 8, 5, 9, 6, 100]
-mystery_partition(lst)
-print(lst)
-
 </code></pre>
 
 <p>Which of the following loop invariants are true for this code? Select all that apply.</p>
@@ -343,6 +391,30 @@ print(lst)
     <summary>Solution</summary>
 <p>1st option: After each iteration of the <span class="inline-code"><code>for</code></span> loop, all numbers in <span class="inline-code"><code>numbers[:barrier_ix]</code></span> are even.</p>
 <p>3rd option: After each iteration of the <span class="inline-code"><code>for</code></span> loop, <span class="inline-code"><code>numbers[0]</code></span> is greater than or equal to all numbers in <span class="inline-code"><code>numbers[:barrier_ix]</code></span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #155</h2>
+        <p>Tags: <a href='../tags/loop invariants.html'>loop invariants</a>, <a href='../tags/quickselect.html'>quickselect</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Recall the partition operation from <span class="inline-code"><code>quickselect</code></span>. Which of the following arrays could have been partitioned at least once? Select all that apply.</p>
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[50, 10, 20, 30, 60, 40]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[20, 10, 30, 60, 40, 50]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[20, 50, 10, 40, 30, 60]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[60, 50, 40, 30, 20, 10]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[10, 20, 30, 40, 50, 60]</code></span></p></label></div></div>
+<details>
+    <summary>Solution</summary>
+<p>The second, third, and last all should be selected.</p>
 </details>
 
     </div>

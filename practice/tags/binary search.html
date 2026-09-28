@@ -8,6 +8,51 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+<style>
+  .multiple-choices .choice label {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin: 0.25em 0;
+    cursor: pointer;
+  }
+  .multiple-choices .choice p {
+    margin: 0;
+  }
+
+  /* practice problems: code blocks get a thin border instead of the theme's
+     thick dark frame around highlight.js's light box */
+  .problem pre.code {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 0.75em 1em;
+  }
+  .problem pre.code code,
+  .problem pre.code code.hljs {
+    background: transparent;
+    padding: 0;
+  }
+
+  /* the theme's typography styles wrap inline code in literal backticks */
+  .problem code::before,
+  .problem code::after {
+    content: none;
+  }
+</style>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".problem pre.code code").forEach(function (code) {
+      if (code.children.length === 0) {
+        code.textContent = code.textContent.replace(/^\s*\n/, "").replace(/\s+$/, "");
+      }
+    });
+  });
+</script>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -186,7 +231,78 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #016</h2>
+        <h2>Problem #103</h2>
+        <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>binary_search</code></span> is called on a sorted array of size <span class="math">\(n\)</span>. In total, how many recursive calls to <span class="inline-code"><code>binary_search</code></span> are made in the worst case?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #104</h2>
+        <p>Tags: <a href='../tags/binary search.html'>binary search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the version of binary search shown below:</p>
+<pre class="code"><code>
+
+import math
+def binary_search(arr, t, start, stop):
+    """
+    Searches arr[start:stop] for t.
+    Assumes arr is sorted.
+    """
+    if stop - start <= 0:
+        return None
+    middle = math.floor((start + stop)/2)
+    if arr[middle] == t:
+        return middle
+    elif arr[middle] > t:
+        return binary_search(arr, t, start, middle)
+    else:
+        return binary_search(arr, t, middle+1, stop)
+
+</code></pre>
+
+<p>True or false: if the target element <span class="inline-code"><code>t</code></span> occurs multiple times in the array, <span class="inline-code"><code>binary_search</code></span> is guaranteed to return the first occurrence.</p>
+<p>You may assume that <span class="inline-code"><code>arr</code></span> is sorted and that <span class="inline-code"><code>binary_search(arr, t, 0, len(arr))</code></span> is called.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+<p>Binary search returns as soon as <span class="inline-code"><code>arr[middle] == t</code></span>, which may be any of the copies. For example, with <span class="inline-code"><code>arr = [5, 5, 5]</code></span> and <span class="inline-code"><code>t = 5</code></span>, the first middle index is 1, so it returns 1 rather than 0.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #110</h2>
         <p>Tags: <a href='../tags/binary search.html'>binary search</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -225,7 +341,224 @@ def binary_search(arr, t, start, stop):
 
 
         <div class="problem-outer">
-        <h2>Problem #017</h2>
+        <h2>Problem #111</h2>
+        <p>Tags: <a href='../tags/binary search.html'>binary search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the version of binary search shown below. This is the same as the code given in lecture, except that a single <span class="inline-code"><code>print</code></span> statement has been added. This <span class="inline-code"><code>print</code></span> statement prints the value of <span class="inline-code"><code>stop</code></span> at the beginning of each call to <span class="inline-code"><code>binary_search</code></span>.</p>
+<pre class="code"><code>
+
+import math
+def binary_search(arr, t, start, stop):
+    """
+    Searches arr[start:stop] for t.
+    Assumes arr is sorted.
+    """
+    print(stop) # <-- added print statement
+    if stop - start <= 0:
+        return None
+    middle = math.floor((start + stop)/2)
+    if arr[middle] == t:
+        return middle
+    elif arr[middle] > t:
+        return binary_search(arr, t, start, middle)
+    else:
+        return binary_search(arr, t, middle+1, stop)
+
+</code></pre>
+
+<p>Suppose <span class="inline-code"><code>binary_search</code></span> is called on a <b>sorted</b> list with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(n)</code></span>. True or False: the numbers printed must be a non-increasing sequence. That is, if <span class="math">\(x\)</span> is printed before <span class="math">\(y\)</span>, then it must be the case that <span class="math">\(x \geq y\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+<p>Each recursive call either keeps the same <span class="inline-code"><code>stop</code></span>(searching the right half) or sets <span class="inline-code"><code>stop = middle</code></span>(searching the left half). Since <span class="inline-code"><code>middle < stop</code></span>, <span class="inline-code"><code>stop</code></span> never increases from one call to the next.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #112</h2>
+        <p>Tags: <a href='../tags/binary search.html'>binary search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the following array:</p>
+<pre class="code"><code>
+[1, 4, 7, 8, 8, 10, 15, 51, 60, 65, 71, 72, 101]
+</code></pre>
+
+<p>Assume a binary search is being used to determine if the number 2 is in the array, using the implementation of <span class="inline-code"><code>binary_search</code></span> below (from lecture) and starting with the call <span class="inline-code"><code>binary_search(arr, 2, 0, len(arr))</code></span>.</p>
+<pre class="code"><code>
+
+import math
+def binary_search(arr, t, start, stop):
+    """
+    Searches arr[start:stop] for t.
+    Assumes arr is sorted.
+    """
+    if stop - start <= 0:
+        return None
+    middle = math.floor((start + stop)/2)
+    if arr[middle] == t:
+        return middle
+    elif arr[middle] > t:
+        return binary_search(arr, t, start, middle)
+    else:
+        return binary_search(arr, t, middle+1, stop)
+
+</code></pre>
+
+<p>How many total calls to binary search are made (including the first call)?</p>
+<details>
+    <summary>Solution</summary>
+<p>Answer: 5. On the first call, we guess that index 6 contains the target. The value at index 6 is 15, which is too high, so we make a recursive call with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = 6</code></span>.</p>
+<p>On the second call, we guess that the item at index 3 is the target. The value at index 3 is 8. This is too large, so we make a recursive call with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = 3</code></span>.</p>
+<p>On the third call, we guess that the item at index 1 is the target. The value at index 1 is 4. This is too large, so we make a recurse call with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = 1</code></span>.</p>
+<p>On the fourth call, we are searching a subarray of size 1. We guess that the item at index 0 is equal to the target. This item has value 1, which is too low, therefore we make a recursive call with <span class="inline-code"><code>start = 1</code></span> and <span class="inline-code"><code>stop = 1</code></span>.</p>
+<p>On the fifth call overall, we are searching an empty subarray, since <span class="inline-code"><code>start == stop == 1</code></span>. The implementation of binary search above checks for this case, and returns <span class="inline-code"><code>None</code></span>; we have reached the base case. Therefore, recursion stops, and we make 5 calls in total.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #113</h2>
+        <p>Tags: <a href='../tags/binary search.html'>binary search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a binary search is performed on the following array using the implementation of <span class="inline-code"><code>binary_search</code></span> below (from lecture), starting with the call <span class="inline-code"><code>binary_search(arr, target, 0, len(arr))</code></span>.</p>
+<pre class="code"><code>
+
+import math
+def binary_search(arr, t, start, stop):
+    """
+    Searches arr[start:stop] for t.
+    Assumes arr is sorted.
+    """
+    if stop - start <= 0:
+        return None
+    middle = math.floor((start + stop)/2)
+    if arr[middle] == t:
+        return middle
+    elif arr[middle] > t:
+        return binary_search(arr, t, start, middle)
+    else:
+        return binary_search(arr, t, middle+1, stop)
+
+</code></pre>
+
+<p>The array is:</p>
+<pre class="code"><code>
+[1, 4, 7, 8, 8, 10, 15, 51, 60, 65, 71, 72, 101]
+</code></pre>
+
+<p>What is the greatest number of calls to binary search that can be made to find a target in this array, assuming the target is in the array?</p>
+<details>
+    <summary>Solution</summary>
+<p>Answer: 4. There are 13 numbers in the array. On the first call, we guess that the target is at index <span class="math">\(\lfloor 13 / 2 \rfloor = 6\)</span>. This splits the array exactly in half, so no side is larger than the other and either possible recursive call is just as bad. Let's say we recurse on <span class="inline-code"><code>arr[0:6]</code></span>. On this second call, we guess that the target is at index 3.</p>
+<p>In the worst case, this guess was wrong, so we make another recursive call, either on <span class="inline-code"><code>arr[0:3]</code></span>, or <span class="inline-code"><code>arr[4:6]</code></span>. The first of these possibilities is worse, since it is larger. On the third recursive call, then, we look through <span class="inline-code"><code>arr[0:3]</code></span>, guessing that the target is at index 1.</p>
+<p>In the worst case, it is not, so we make one more additional recursive call (for a total of 4), either on <span class="inline-code"><code>arr[0]</code></span> or <span class="inline-code"><code>arr[2]</code></span>. Since we were told to assume that the element is in the array, this recursive call will find that <span class="inline-code"><code>arr[middle] == target</code></span> and will return <span class="inline-code"><code>middle</code></span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #114</h2>
+        <p>Tags: <a href='../tags/loop invariants.html'>loop invariants</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider <span class="inline-code"><code>iterative_binary_search</code></span> below and note the <span class="inline-code"><code>print</code></span> statement in the <span class="inline-code"><code>while</code></span>-loop:</p>
+<pre class="code"><code>
+
+import math
+
+def iterative_binary_search(arr, target):
+
+    start = 0
+    stop = len(arr)
+
+    while (stop - start) > 0:
+        print(arr[start])
+        middle = math.floor((start + stop) / 2)
+        if arr[middle] == target:
+            return middle
+        elif arr[middle] > target:
+            stop = middle
+        else:
+            start = middle + 1
+
+    return None
+
+</code></pre>
+
+<p>Suppose <span class="inline-code"><code>iterative_binary_search</code></span> is run on the array:</p>
+<pre class="code"><code>
+[-202, -201, -200, -50, -20, -10, -4, -3, 0, 1, 3, 5, 6, 7, 9, 10, 12, 15, 22]
+</code></pre>
+
+<p>with target <span class="inline-code"><code>11</code></span>.</p>
+<p>What will be the last value of <span class="inline-code"><code>arr[start]</code></span> printed?</p>
+<details>
+    <summary>Solution</summary>
+<p>10</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #115</h2>
+        <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>binary_search</code></span> has been called on a sorted array <span class="inline-code"><code>arr</code></span> with a target <span class="inline-code"><code>t</code></span> that is not necessarily in the array, and with start and stop indices <span class="inline-code"><code>start</code></span> and <span class="inline-code"><code>stop</code></span>, respectively (remember, our convention is that the start index is included, while the stop index is excluded from the search). Which of the following must be true? <b>Mark all which apply</b>. You may assume that <span class="inline-code"><code>stop - start</code></span><span class="math">\(\geq 1\)</span>.</p>
+<p>Note: remember that any statement about an empty array is considered to be automatically true. Also, you cannot assume that this call to <span class="inline-code"><code>binary_search</code></span> is the <i>root</i> call (it could be a recursive call).</p>
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>arr[start] < t < arr[stop]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>arr[start] < t < arr[stop - 1]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>arr[:start] < t</code></span>. That is, everything up to but excluding <span class="inline-code"><code>arr[start]</code></span> is less than the target.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>arr[stop:] > t</code></span>. That is, everything after <span class="inline-code"><code>stop</code></span>, including the element at <span class="inline-code"><code>stop</code></span>, is greater than the target.</p></label></div></div>
+<details>
+    <summary>Solution</summary>
+<p>The last two answers are both correct.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #122</h2>
         <p>Tags: <a href='../tags/verifying recursion.html'>verifying recursion</a>, <a href='../tags/binary search.html'>binary search</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -268,20 +601,63 @@ def new_binary_search(arr, start, stop, target):
 
 
         <div class="problem-outer">
-        <h2>Problem #035</h2>
-        <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <h2>Problem #123</h2>
+        <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/binary search.html'>binary search</a>, <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose <span class="inline-code"><code>binary_search</code></span> has been called on a sorted array <span class="inline-code"><code>arr</code></span> with a target <span class="inline-code"><code>t</code></span> that is not necessarily in the array, and with start and stop indices <span class="inline-code"><code>start</code></span> and <span class="inline-code"><code>stop</code></span>, respectively (remember, our convention is that the start index is included, while the stop index is excluded from the search). Which of the following must be true? <b>Mark all which apply</b>. You may assume that <span class="inline-code"><code>stop - start</code></span><span class="math">\(\geq 1\)</span>.</p>
-<p>Note: remember that any statement about an empty array is considered to be automatically true. Also, you cannot assume that this call to <span class="inline-code"><code>binary_search</code></span> is the <i>root</i> call (it could be a recursive call).</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[start] < t < arr[stop]</code></span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[start] < t < arr[stop - 1]</code></span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[:start] < t</code></span>. That is, everything up to but excluding <span class="inline-code"><code>arr[start]</code></span> is less than the target.</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[stop:] > t</code></span>. That is, everything after <span class="inline-code"><code>stop</code></span>, including the element at <span class="inline-code"><code>stop</code></span>, is greater than the target.</p></label></div></form></div>
+<p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math">\(\geq x\)</span>). The full code is shown below for convenience:</p>
+<pre class="code"><code>
+import math
+
+def new_binary_search(arr, start, stop, target):
+    if stop <= start:
+        return None
+
+    middle = math.ceil((start + stop) / 2)
+
+    if arr[middle] == target:
+        return middle
+    elif arr[middle] < target:
+        return new_binary_search(arr, middle + 1, stop, target)
+    else:
+        return new_binary_search(arr, start, middle, target)
+
+</code></pre>
+
+<p>You may assume that <span class="inline-code"><code>arr</code></span> will be a sorted list containing at least one number, and that the initial call to <span class="inline-code"><code>new_binary_search</code></span> will be with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>.</p>
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 1)</h3>
+<p>True or False: there are input arrays on which <span class="inline-code"><code>new_binary_search</code></span> will recurse infinitely.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
 <details>
     <summary>Solution</summary>
-<p>The last two answers are both correct.</p>
+<p>True.</p>
+<p>Consider <span class="inline-code"><code>arr = [1, 2]</code></span> with <span class="inline-code"><code>target = 0</code></span>. The first call computes <span class="inline-code"><code>middle = 1</code></span>, and since <span class="math">\(2 > 0\)</span> it recurses with <span class="inline-code"><code>start = 0, stop = 1</code></span>. There, <span class="inline-code"><code>middle</code></span> is <span class="math">\(\lceil 1/2 \rceil = 1\)</span> again, and since <span class="math">\(2 > 0\)</span> it makes the same call, <span class="inline-code"><code>start = 0, stop = 1</code></span>, forever. The problem is that when <span class="inline-code"><code>stop = start + 1</code></span>, the ceiling gives <span class="inline-code"><code>middle = stop</code></span>, so the left recursion doesn't shrink the range.</p>
 </details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 2)</h3>
+<p>True or False: there are input arrays on which <span class="inline-code"><code>new_binary_search</code></span> will raise an <span class="inline-code"><code>IndexError</code></span> because it attempts to access an element of the array which does not exist.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+<p>If <span class="inline-code"><code>arr</code></span> has one element, the first call has <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = 1</code></span>, so <span class="inline-code"><code>middle</code></span> is <span class="math">\(\lceil 1/2 \rceil = 1\)</span>, and <span class="inline-code"><code>arr[1]</code></span> doesn't exist. In general, whenever <span class="inline-code"><code>stop = start + 1</code></span>, the ceiling makes <span class="inline-code"><code>middle = stop</code></span>, which is outside the range being searched.</p>
+</details>
+
+</div>
 
     </div>
 </div>
@@ -292,18 +668,21 @@ def new_binary_search(arr, start, stop, target):
 
 
         <div class="problem-outer">
-        <h2>Problem #041</h2>
-        <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <h2>Problem #124</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/binary search.html'>binary search</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose <span class="inline-code"><code>binary_search</code></span> is called on a sorted array of size <span class="math">\(n\)</span>. In total, how many recursive calls to <span class="inline-code"><code>binary_search</code></span> are made in the worst case?</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<p>What is the <b>worst case</b> time complexity of binary search on an array of size <span class="math">\(n\)</span> under the assumption that the target is guaranteed to appear in the array more than <span class="math">\(n/6\)</span> times? You may assume that the input array is sorted.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(\log n)\)</span></p>
+<p><span class="math">\(\Theta(1)\)</span>. When there are at least n/6 instances of the target, binary search will not recurse more than twice. On the first recursive call, the array is halved in size. On the second, the array is down to <span class="math">\(n/4\)</span>. Note that <i>all</i> of the <span class="math">\(n/6\)</span> instances of the target must be in this chunk of size <span class="math">\(n/4\)</span>, and so the middle number must be an instance of the target, and binary search will terminate.</p>
+<p>Since binary search cannot recurse more than twice, and since it does constant work on each recursion, the total time taken is bounded by a constant, no matter how large the input array is.</p>
+<p>If this seems odd, think about a simpler case: when the target appears <span class="math">\(n/2\)</span> times. In other words, a full <i>half</i> of the array is the target. In this case, we'll make only one call (or maybe two, depending on the value of the middle element). And so there, too, the number of calls is bounded by a constant, and the total time is <span class="math">\(\Theta(1)\)</span>.</p>
 </details>
 
     </div>
@@ -315,7 +694,7 @@ def new_binary_search(arr, start, stop, target):
 
 
         <div class="problem-outer">
-        <h2>Problem #047</h2>
+        <h2>Problem #125</h2>
         <p>Tags: <a href='../tags/binary search.html'>binary search</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -368,54 +747,7 @@ else:
 
 
         <div class="problem-outer">
-        <h2>Problem #053</h2>
-        <p>Tags: <a href='../tags/binary search.html'>binary search</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Consider the version of binary search shown below:</p>
-<pre class="code"><code>
-
-import math
-def binary_search(arr, t, start, stop):
-    """
-    Searches arr[start:stop] for t.
-    Assumes arr is sorted.
-    """
-    if stop - start <= 0:
-        return None
-    middle = math.floor((start + stop)/2)
-    if arr[middle] == t:
-        return middle
-    elif arr[middle] > t:
-        return binary_search(arr, t, start, middle)
-    else:
-        return binary_search(arr, t, middle+1, stop)
-
-</code></pre>
-
-<p>True or false: if the target element <span class="inline-code"><code>t</code></span> occurs multiple times in the array, <span class="inline-code"><code>binary_search</code></span> is guaranteed to return the first occurrence.</p>
-<p>You may assume that <span class="inline-code"><code>arr</code></span> is sorted and that <span class="inline-code"><code>binary_search(arr, t, 0, len(arr))</code></span> is called.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
-<details>
-    <summary>Solution</summary>
-<p>False.</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #062</h2>
+        <h2>Problem #140</h2>
         <p>Tags: <a href='../tags/loop invariants.html'>loop invariants</a>, <a href='../tags/binary search.html'>binary search</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -449,167 +781,6 @@ def iterative_binary_search(arr, target):
 <details>
     <summary>Solution</summary>
 <p>The first option is correct.</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #074</h2>
-        <p>Tags: <a href='../tags/loop invariants.html'>loop invariants</a>, <a href='../tags/binary search.html'>binary search</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Consider <span class="inline-code"><code>iterative_binary_search</code></span> below and note the <span class="inline-code"><code>print</code></span> statement in the <span class="inline-code"><code>while</code></span>-loop:</p>
-<pre class="code"><code>
-
-import math
-
-def iterative_binary_search(arr, target):
-
-    start = 0
-    stop = len(arr)
-
-    while (stop - start) > 0:
-        print(arr[start])
-        middle = math.floor((start + stop) / 2)
-        if arr[middle] == target:
-            return middle
-        elif arr[middle] > target:
-            stop = middle
-        else:
-            start = middle + 1
-
-    return None
-
-</code></pre>
-
-<p>Suppose <span class="inline-code"><code>iterative_binary_search</code></span> is run on the array:</p>
-<pre class="code"><code>
-[-202, -201, -200, -50, -20, -10, -4, -3, 0, 1, 3, 5, 6, 7, 9, 10, 12, 15, 22]
-</code></pre>
-
-<p>with target <span class="inline-code"><code>11</code></span>.</p>
-<p>What will be the last value of <span class="inline-code"><code>arr[start]</code></span> printed?</p>
-<details>
-    <summary>Solution</summary>
-<p>10</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #083</h2>
-        <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/binary search.html'>binary search</a>, <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math">\(\geq x\)</span>). The full code is shown below for convenience:</p>
-<pre class="code"><code>
-import math
-
-def new_binary_search(arr, start, stop, target):
-    if stop <= start:
-        return None
-
-    middle = math.ceil((start + stop) / 2)
-
-    if arr[middle] == target:
-        return middle
-    elif arr[middle] < target:
-        return new_binary_search(arr, middle + 1, stop, target)
-    else:
-        return new_binary_search(arr, start, middle, target)
-
-</code></pre>
-
-<p>You may assume that <span class="inline-code"><code>arr</code></span> will be a sorted list containing at least one number, and that the initial call to <span class="inline-code"><code>new_binary_search</code></span> will be with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>.</p>
-<div class="subproblem">
-    <h3 class="subproblem-id">Part 1)</h3>
-<p>True or False: there are input arrays on which <span class="inline-code"><code>new_binary_search</code></span> will recurse infinitely.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
-<details>
-    <summary>Solution</summary>
-<p>True.</p>
-</details>
-
-</div>
-
-<div class="subproblem">
-    <h3 class="subproblem-id">Part 2)</h3>
-<p>True or False: there are input arrays on which <span class="inline-code"><code>new_binary_search</code></span> will raise an <span class="inline-code"><code>IndexError</code></span> because it attempts to access an element of the array which does not exist.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
-<details>
-    <summary>Solution</summary>
-<p>True.</p>
-</details>
-
-</div>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #170</h2>
-        <p>Tags: <a href='../tags/binary search.html'>binary search</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Consider the version of binary search shown below. This is the same as the code given in lecture, except that a single <span class="inline-code"><code>print</code></span> statement has been added. This <span class="inline-code"><code>print</code></span> statement prints the value of <span class="inline-code"><code>stop</code></span> at the beginning of each call to <span class="inline-code"><code>binary_search</code></span>.</p>
-<pre class="code"><code>
-
-import math
-def binary_search(arr, t, start, stop):
-    """
-    Searches arr[start:stop] for t.
-    Assumes arr is sorted.
-    """
-    print(stop) # <-- added print statement
-    if stop - start <= 0:
-        return None
-    middle = math.floor((start + stop)/2)
-    if arr[middle] == t:
-        return middle
-    elif arr[middle] > t:
-        return binary_search(arr, t, start, middle)
-    else:
-        return binary_search(arr, t, middle+1, stop)
-
-</code></pre>
-
-<p>Suppose <span class="inline-code"><code>binary_search</code></span> is called on a <b>sorted</b> list with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(n)</code></span>. True or False: the numbers printed must be a non-increasing sequence. That is, if <span class="math">\(x\)</span> is printed before <span class="math">\(y\)</span>, then it must be the case that <span class="math">\(x \geq y\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
-<details>
-    <summary>Solution</summary>
-<p>True</p>
 </details>
 
     </div>

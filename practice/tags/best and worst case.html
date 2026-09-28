@@ -8,6 +8,51 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+<style>
+  .multiple-choices .choice label {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin: 0.25em 0;
+    cursor: pointer;
+  }
+  .multiple-choices .choice p {
+    margin: 0;
+  }
+
+  /* practice problems: code blocks get a thin border instead of the theme's
+     thick dark frame around highlight.js's light box */
+  .problem pre.code {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 0.75em 1em;
+  }
+  .problem pre.code code,
+  .problem pre.code code.hljs {
+    background: transparent;
+    padding: 0;
+  }
+
+  /* the theme's typography styles wrap inline code in literal backticks */
+  .problem code::before,
+  .problem code::after {
+    content: none;
+  }
+</style>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".problem pre.code code").forEach(function (code) {
+      if (code.children.length === 0) {
+        code.textContent = code.textContent.replace(/^\s*\n/, "").replace(/\s+$/, "");
+      }
+    });
+  });
+</script>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -186,7 +231,171 @@ Course Staff
 
 
         <div class="problem-outer">
-        <h2>Problem #005</h2>
+        <h2>Problem #076</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the best case time complexity of the following code?</p>
+<pre class="code"><code>
+def insertion_sort(arr):
+    """Sort `arr` in ascending order."""
+    n = len(arr)
+    for i in range(1, n):
+        x = arr[i]
+        j = i - 1
+        # find where to place x
+        while j >= 0 and x < arr[j]:
+            arr[j+1] = arr[j]
+            j -= 1
+        arr[j+1] = x
+
+</code></pre>
+
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(2^n)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>. The best case occurs when the array is already sorted. Notice that in this case, the <span class="inline-code"><code>while</code></span> loop will never actually execute.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #077</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <i>worst case</i> time complexity of the following code?</p>
+<pre class="code"><code>
+def insertion_sort(arr):
+    """Sort `arr` in ascending order."""
+    n = len(arr)
+    for i in range(1, n):
+        x = arr[i]
+        j = i - 1
+        # find where to place x
+        while j >= 0 and x < arr[j]:
+            arr[j+1] = arr[j]
+            j -= 1
+        arr[j+1] = x
+
+</code></pre>
+
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(2^n)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span>. The worst case occurs when the array is sorted in reverse order. In this case, the while-loop executes on every iteration of the for-loop, and must move <span class="inline-code"><code>x</code></span> from its current position all the way to the beginning of the array.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #078</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <i>best case</i> time complexity of the following function?</p>
+<pre class="code"><code>
+def foo(arr):
+    """arr is an array of size n"""
+    for x in arr:
+        for y in arr:
+            if sum([x,y]) == 5:
+                return sum(arr)
+    return False
+
+</code></pre>
+
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(2^n)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>. In the best case, we <span class="inline-code"><code>return sum(arr)</code></span> on the very first iteration.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #079</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <i>worst case</i> time complexity of the following function?</p>
+<pre class="code"><code>
+def foo(arr):
+    """arr is an array of size n"""
+    for x in arr:
+        for y in arr:
+            if sum([x,y]) == 5:
+                return sum(arr)
+    return False
+
+</code></pre>
+
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(2^n)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span>. In the worst case, we never find <span class="inline-code"><code>x + y == 5</code></span>, and go through all <span class="math">\(\Theta(n^2)\)</span> iterations just to return <span class="inline-code"><code>False</code></span> at the end.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #080</h2>
         <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -219,11 +428,58 @@ def foo(arr):
 
 
         <div class="problem-outer">
-        <h2>Problem #006</h2>
+        <h2>Problem #081</h2>
         <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>What is the <b>worst case</b> time complexity of the function in the previous problem?</p>
+<p>What is the <b>best case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<pre class="code"><code>
+def foo(arr):
+    """`arr` is a list containing n numbers."""
+    previous = None
+    n = len(arr)
+    for x in arr:
+        if x == previous:
+            for i in range(n**2):
+                print('Equal!')
+            return
+        previous = x
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #082</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>worst case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<pre class="code"><code>
+def foo(arr):
+    """`arr` is a list containing n numbers."""
+    previous = None
+    n = len(arr)
+    for x in arr:
+        if x == previous:
+            for i in range(n**2):
+                print('Equal!')
+            return
+        previous = x
+
+</code></pre>
+
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span></p>
@@ -238,32 +494,7 @@ def foo(arr):
 
 
         <div class="problem-outer">
-        <h2>Problem #018</h2>
-        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/mergesort.html'>mergesort</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>True or False: the <b>best case</b> time complexity of mergesort is <span class="math">\(\Theta(n)\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
-<details>
-    <summary>Solution</summary>
-<p>False.</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #023</h2>
+        <h2>Problem #084</h2>
         <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -291,7 +522,7 @@ def index_of_maximum(arr):
 
 
         <div class="problem-outer">
-        <h2>Problem #040</h2>
+        <h2>Problem #085</h2>
         <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -320,7 +551,7 @@ def foo(arr):
 
 
         <div class="problem-outer">
-        <h2>Problem #051</h2>
+        <h2>Problem #086</h2>
         <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -352,84 +583,7 @@ def exists_pair_summing_to_max(arr):
 
 
         <div class="problem-outer">
-        <h2>Problem #067</h2>
-        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>What is the <b>worst case</b> time complexity of the function in the last problem? State your answer using asymptotic notation.</p>
-<details>
-    <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span></p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #078</h2>
-        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>What is the <b>best case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
-<pre class="code"><code>
-def foo(arr):
-    """`arr` is a list containing n numbers."""
-    previous = None
-    n = len(arr)
-    for x in arr:
-        if x == previous:
-            for i in range(n**2):
-                print('Equal!')
-            return
-        previous = x
-
-</code></pre>
-
-<details>
-    <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span></p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #084</h2>
-        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>True or False: the <b>best case</b> time complexity of mergesort is <span class="math">\(\Theta(n)\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
-<details>
-    <summary>Solution</summary>
-<p>False.</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #167</h2>
+        <h2>Problem #091</h2>
         <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -447,51 +601,26 @@ def boo(first_list, second_list):
                 return True
     return False
 
-
-print(boo([1, 6, 6, 4, 6], [6, 7, 8, 9, 10]))
-
 </code></pre>
 
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
 <p>What is the <b>best case</b> time complexity of this code as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
-<p>
-<span class="inline-response-box">
-    <span id="answer-d0997b63-0b4d-4fb5-adeb-03afde6ecaae" style="display: none"><span class="math">\(\Theta(n)\)</span></span>
-    <span id="button-d0997b63-0b4d-4fb5-adeb-03afde6ecaae">
-        <button
-            type="button"
-            onclick="
-                document.getElementById('answer-d0997b63-0b4d-4fb5-adeb-03afde6ecaae').style.display = 'inline-block';
-                document.getElementById('button-d0997b63-0b4d-4fb5-adeb-03afde6ecaae').style.display = 'none'
-            "
-        >
-            Show Answer
-        </button>
-    </span>
-</span>
-</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
 </div>
 
 <div class="subproblem">
     <h3 class="subproblem-id">Part 2)</h3>
 <p>What is the <b>worst case</b> time complexity of this code as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
-<p>
-<span class="inline-response-box">
-    <span id="answer-acf61518-55d7-42b5-8139-3a673a1cd2b4" style="display: none"><span class="math">\(\Theta(n^2)\)</span></span>
-    <span id="button-acf61518-55d7-42b5-8139-3a673a1cd2b4">
-        <button
-            type="button"
-            onclick="
-                document.getElementById('answer-acf61518-55d7-42b5-8139-3a673a1cd2b4').style.display = 'inline-block';
-                document.getElementById('button-acf61518-55d7-42b5-8139-3a673a1cd2b4').style.display = 'none'
-            "
-        >
-            Show Answer
-        </button>
-    </span>
-</span>
-</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
 </div>
 
 <details>
@@ -509,54 +638,7 @@ print(boo([1, 6, 6, 4, 6], [6, 7, 8, 9, 10]))
 
 
         <div class="problem-outer">
-        <h2>Problem #181</h2>
-        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Consider the following problem: given two <b>sorted</b> lists, <span class="inline-code"><code>A</code></span> and <span class="inline-code"><code>B</code></span>, each containing <span class="math">\(n\)</span> numbers, determine if the two lists share an element in common. That is, determine if there is a number <span class="math">\(x\)</span> which appears in both lists.</p>
-<div class="subproblem">
-    <h3 class="subproblem-id">Part 1)</h3>
-<p>What is a <b>tight</b> theoretical lower bound for this problem? Again, you may assume that the lists are both sorted. State your answer in asymptotic notation as a function of <span class="math">\(n\)</span>.</p>
-<p>
-<span class="inline-response-box">
-    <span id="answer-3fa4d55c-f9f4-4e39-b06e-b01a84b24ead" style="display: none"><span class="math">\(\Theta(n)\)</span></span>
-    <span id="button-3fa4d55c-f9f4-4e39-b06e-b01a84b24ead">
-        <button
-            type="button"
-            onclick="
-                document.getElementById('answer-3fa4d55c-f9f4-4e39-b06e-b01a84b24ead').style.display = 'inline-block';
-                document.getElementById('button-3fa4d55c-f9f4-4e39-b06e-b01a84b24ead').style.display = 'none'
-            "
-        >
-            Show Answer
-        </button>
-    </span>
-</span>
-</p>
-</div>
-
-<div class="subproblem">
-    <h3 class="subproblem-id">Part 2)</h3>
-<p>(2 points) Briefly (in 50 words or less) describe an algorithm for solving this problem <b>and state its worst case time complexity</b>. To earn full credit, you should give the optimal algorithm, but partial credit will be awarded for sub-optimal solutions. You may write pseudocode if you like, but an explanation in words is also sufficient. Make sure that you only state one algorithm!</p>
-<details>
-    <summary>Solution</summary>
-<p>Here's an approach that takes <span class="math">\(\Theta(n)\)</span>; it's similar to what we did in lecture for the movie problem.</p>
-<p>Start with <span class="inline-code"><code>i = j = 0</code></span>. If <span class="inline-code"><code>A[i] == A[j]</code></span>, return <span class="inline-code"><code>True</code></span>, since you've found an element in common. If <span class="inline-code"><code>A[i] > A[j]</code></span>, increment <span class="inline-code"><code>j</code></span>, otherwise increment <span class="inline-code"><code>i</code></span>. Takes <span class="math">\(\Theta(n)\)</span> time.</p>
-<p>The brute force approach also earns credit: Loop over all pairs, checking if <span class="inline-code"><code>A[i] == B[j]</code></span> for each pair. This takes <span class="math">\(\Theta(n^2)\)</span> time.</p>
-</details>
-
-</div>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #191</h2>
+        <h2>Problem #092</h2>
         <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -584,26 +666,196 @@ def foo(list1, list2):
 </code></pre>
 
 <p>What is the best case time complexity of <span class="inline-code"><code>foo</code></span> as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
-<p>
-<span class="inline-response-box">
-    <span id="answer-d7465c03-0a36-4cc8-a7a2-4e3125110f28" style="display: none"><span class="math">\(\Theta(n)\)</span></span>
-    <span id="button-d7465c03-0a36-4cc8-a7a2-4e3125110f28">
-        <button
-            type="button"
-            onclick="
-                document.getElementById('answer-d7465c03-0a36-4cc8-a7a2-4e3125110f28').style.display = 'inline-block';
-                document.getElementById('button-d7465c03-0a36-4cc8-a7a2-4e3125110f28').style.display = 'none'
-            "
-        >
-            Show Answer
-        </button>
-    </span>
-</span>
-</p>
 <details>
     <summary>Solution</summary>
 <p>The best case is where the lists are equal. In this case the time complexity is <span class="math">\(\Theta(n)\)</span>. The worst case is when the lists are not equal in which case the time complexity is <span class="math">\(\Theta(n^3)\)</span>.</p>
 </details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #124</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>worst case</b> time complexity of binary search on an array of size <span class="math">\(n\)</span> under the assumption that the target is guaranteed to appear in the array more than <span class="math">\(n/6\)</span> times? You may assume that the input array is sorted.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(1)\)</span>. When there are at least n/6 instances of the target, binary search will not recurse more than twice. On the first recursive call, the array is halved in size. On the second, the array is down to <span class="math">\(n/4\)</span>. Note that <i>all</i> of the <span class="math">\(n/6\)</span> instances of the target must be in this chunk of size <span class="math">\(n/4\)</span>, and so the middle number must be an instance of the target, and binary search will terminate.</p>
+<p>Since binary search cannot recurse more than twice, and since it does constant work on each recursion, the total time taken is bounded by a constant, no matter how large the input array is.</p>
+<p>If this seems odd, think about a simpler case: when the target appears <span class="math">\(n/2\)</span> times. In other words, a full <i>half</i> of the array is the target. In this case, we'll make only one call (or maybe two, depending on the value of the middle element). And so there, too, the number of calls is bounded by a constant, and the total time is <span class="math">\(\Theta(1)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #127</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/mergesort.html'>mergesort</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>True or False: the <b>best case</b> time complexity of mergesort is <span class="math">\(\Theta(n)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+<p>Mergesort doesn't stop early: it always splits the array in half all the way down and merges everything back together, no matter what the input is (even if it is already sorted). Each of the <span class="math">\(\Theta(\log n)\)</span> levels of recursion does <span class="math">\(\Theta(n)\)</span> merging work, so the best case is <span class="math">\(\Theta(n \log n)\)</span>, the same as the worst case.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #128</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>True or False: the <b>best case</b> time complexity of mergesort is <span class="math">\(\Theta(n)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+<p>Mergesort doesn't stop early: it always splits the array in half all the way down and merges everything back together, no matter what the input is (even if it is already sorted). Each of the <span class="math">\(\Theta(\log n)\)</span> levels of recursion does <span class="math">\(\Theta(n)\)</span> merging work, so the best case is <span class="math">\(\Theta(n \log n)\)</span>, the same as the worst case.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #138</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/mergesort.html'>mergesort</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>arr</code></span> is a list-of-lists with <span class="math">\(n\)</span> inner lists, each containing <span class="math">\(n\)</span> numbers. What is the best case time complexity of the following function?</p>
+<pre class="code"><code>
+import math
+
+def average_median(arr):
+    """Compute the mean of the row medians."""
+    msum = 0
+    for i, row in enumerate(arr):
+        mergesort(row) # sort the row using the mergesort algorithm
+        msum += row[math.floor(i / 2)]
+    return msum / len(arr)
+
+</code></pre>
+
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2 \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3 \log n)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2 \log n)\)</span>. Mergesort takes <span class="math">\(\Theta(k \log k)\)</span> time on an array of size <span class="math">\(k\)</span> in every case, including the best case. The loop sorts <span class="math">\(n\)</span> rows of size <span class="math">\(n\)</span>, taking <span class="math">\(\Theta(n \log n)\)</span> time for each, and the rest of the loop body takes constant time. So the best case is <span class="math">\(\Theta(n^2 \log n)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #139</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/mergesort.html'>mergesort</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Your friend has written a modified version of mergesort that they claim has an improved best-case time complexity:</p>
+<pre class="code"><code>
+def better_mergesort(arr):
+    if is_already_sorted(arr):
+        return
+    else:
+        mergesort(arr)
+
+</code></pre>
+
+<p>Here, <span class="inline-code"><code>is_already_sorted</code></span> is a function that takes in an array and returns <span class="inline-code"><code>True</code></span> if and only if the array is in sorted order. Assume that <span class="inline-code"><code>is_already_sorted</code></span> is implemented efficiently (meaning, it has the best possible time complexity). What is the best case time complexity of <span class="inline-code"><code>better_mergesort</code></span>?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>. The best case is when <span class="inline-code"><code>arr</code></span> is already sorted, so that only <span class="inline-code"><code>is_already_sorted</code></span> runs. Checking whether an array is sorted requires looking at every element, and can be done in <span class="math">\(\Theta(n)\)</span> time by comparing each pair of adjacent elements. So the best case time complexity is <span class="math">\(\Theta(n)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #147</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the following problem: given two <b>sorted</b> lists, <span class="inline-code"><code>A</code></span> and <span class="inline-code"><code>B</code></span>, each containing <span class="math">\(n\)</span> numbers, determine if the two lists share an element in common. That is, determine if there is a number <span class="math">\(x\)</span> which appears in both lists.</p>
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 1)</h3>
+<p>What is a <b>tight</b> theoretical lower bound for this problem? Again, you may assume that the lists are both sorted. State your answer in asymptotic notation as a function of <span class="math">\(n\)</span>.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 2)</h3>
+<p>(2 points) Briefly (in 50 words or less) describe an algorithm for solving this problem <b>and state its worst case time complexity</b>. To earn full credit, you should give the optimal algorithm, but partial credit will be awarded for sub-optimal solutions. You may write pseudocode if you like, but an explanation in words is also sufficient. Make sure that you only state one algorithm!</p>
+<details>
+    <summary>Solution</summary>
+<p>Here's an approach that takes <span class="math">\(\Theta(n)\)</span>; it's similar to what we did in lecture for the movie problem.</p>
+<p>Start with <span class="inline-code"><code>i = j = 0</code></span>. If <span class="inline-code"><code>A[i] == A[j]</code></span>, return <span class="inline-code"><code>True</code></span>, since you've found an element in common. If <span class="inline-code"><code>A[i] > A[j]</code></span>, increment <span class="inline-code"><code>j</code></span>, otherwise increment <span class="inline-code"><code>i</code></span>. Takes <span class="math">\(\Theta(n)\)</span> time.</p>
+<p>The brute force approach also earns credit: Loop over all pairs, checking if <span class="inline-code"><code>A[i] == B[j]</code></span> for each pair. This takes <span class="math">\(\Theta(n^2)\)</span> time.</p>
+</details>
+
+</div>
 
     </div>
 </div>
