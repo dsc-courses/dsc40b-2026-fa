@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head data-automata-theme="default">
@@ -5,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>DSC 40B</title>
     <link href="/static/style.css" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="https://unpkg.com/lucide@1.48.0/dist/umd/lucide.min.js"></script>
     
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
 
@@ -6051,8 +6052,9 @@ def bar(graph, source, status):
             overlay.classList.toggle('hidden');
         });
 
-        // Initialize Lucide icons
-        lucide.createIcons();
+        // Initialize Lucide icons. The script is deferred, so wait for it to
+        // load; DOMContentLoaded fires after deferred scripts have run.
+        document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
     </script>
 
 </body>
