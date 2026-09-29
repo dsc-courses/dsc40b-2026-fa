@@ -259,7 +259,11 @@
                         "topic": "Time Complexity Analysis",
                         "number": 1
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "homework.pdf": {
+                            "path": "materials/homeworks/01-time_complexity/homework.pdf"
+                        }
+                    }
                 },
                 "02-asymptotic": {
                     "metadata": {
