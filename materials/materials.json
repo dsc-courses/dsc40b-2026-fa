@@ -76,6 +76,9 @@
                     "artifacts": {
                         "slides.pdf": {
                             "path": "materials/lectures/02-time_complexity-pt_I/slides.pdf"
+                        },
+                        "slides-marked.pdf": {
+                            "path": "materials/lectures/02-time_complexity-pt_I/slides-marked.pdf"
                         }
                     }
                 },
