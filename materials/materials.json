@@ -89,7 +89,11 @@
                         "topic": "Asymptotic Time Complexity, pt. II",
                         "number": 3
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "slides.pdf": {
+                            "path": "materials/lectures/03-time_complexity-pt_II/slides.pdf"
+                        }
+                    }
                 },
                 "04-expected_time": {
                     "metadata": {
