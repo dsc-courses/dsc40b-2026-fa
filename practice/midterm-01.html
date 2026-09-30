@@ -12,14 +12,16 @@
 
 
 <style>
-  .multiple-choices .choice label {
+  .multiple-choices .choice label,
+  .multiple-select .choice label {
     display: flex;
     align-items: center;
     gap: 0.6em;
     margin: 0.25em 0;
     cursor: pointer;
   }
-  .multiple-choices .choice p {
+  .multiple-choices .choice p,
+  .multiple-select .choice p {
     margin: 0;
   }
 
@@ -1226,7 +1228,7 @@ def foo(n):
 
         <div class="problem-outer">
         <h2>Problem #031</h2>
-        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation in the simplest form possible. (e.g., <span class="math">\(\Theta(n)\)</span>)</p>
@@ -1255,7 +1257,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #032</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(f(n) = 3n^2 \log n\)</span>. True or False: <span class="math">\(f(n) = O(n^3)\)</span>.</p>
@@ -1281,10 +1283,10 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #033</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Consider the function <span class="math">\(f(n) = 5n^2 - 100n + 100\)</span> Which of the following asymptotic bounds are true? Choose <b>all</b> that apply.</p>
+<p>Consider the function <span class="math">\(f(n) = 5n^2 - 100n + 100.\)</span> Which of the following asymptotic bounds are true? Choose <b>all</b> that apply.</p>
 <div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(O(n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(\Omega(n)\)</span></p></label></div>
@@ -1309,7 +1311,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #034</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(f(n) = \displaystyle\frac{n^3 - 2n^2 + 100}{n + 10}\)</span> True or False: <span class="math">\(f(n) = O(n^4)\)</span></p>
@@ -1335,7 +1337,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #035</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the function defined below:</p>
@@ -1368,7 +1370,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #036</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the function <span class="math">\(f(n) = \sin(12 n) \cdot\cos(n) + 2\)</span>. A plot of this function is shown below:</p>
@@ -1395,7 +1397,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #037</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the function <span class="math">\(f(n) = \sin(12n) \cdot\cos(n) + 2\)</span>. A plot of this function is shown below:</p>
@@ -1422,7 +1424,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #038</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose Algorithm A takes <span class="math">\(\Theta(n^2)\)</span> time, while Algorithm B takes <span class="math">\(\Theta(2^n)\)</span> time. True or False: there <b>could</b> exist an input on which Algorithm <span class="math">\(B\)</span> takes less time than Algorithm A.</p>
@@ -1448,7 +1450,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #039</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose algorithm A takes <span class="math">\(\Theta(n^2)\)</span> time, while algorithm B takes <span class="math">\(\Theta(n^3)\)</span> time.</p>
@@ -1470,7 +1472,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #040</h2>
-        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s time complexity is <span class="math">\(\Theta(n^3)\)</span>, while <span class="inline-code"><code>baz</code></span>'s time complexity is <span class="math">\(\Theta(n^2)\)</span>.</p>
@@ -1501,7 +1503,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #041</h2>
-        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s time complexity is <span class="math">\(\Theta(n^3)\)</span>, while <span class="inline-code"><code>baz</code></span>'s time complexity is <span class="math">\(\Theta(n^2)\)</span>.</p>
@@ -1532,7 +1534,7 @@ def foo(n):
 
         <div class="problem-outer">
         <h2>Problem #042</h2>
-        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s asymptotic time complexity is <span class="math">\(\Theta(n^4)\)</span>, while <span class="inline-code"><code>baz</code></span>'s is <span class="math">\(\Theta(n)\)</span>.</p>
@@ -1566,7 +1568,7 @@ def foo(n):
 
         <div class="problem-outer">
         <h2>Problem #043</h2>
-        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="inline-code"><code>bar_1</code></span>, <span class="inline-code"><code>bar_2</code></span> and <span class="inline-code"><code>bar_3</code></span> are three functions. Suppose <span class="inline-code"><code>bar_1</code></span>'s time complexity is <span class="math">\(\Theta(n)\)</span>, <span class="inline-code"><code>bar_2</code></span>'s time complexity is <span class="math">\(\Theta(n^2)\)</span>, and <span class="inline-code"><code>bar_3</code></span>'s time complexity is <span class="math">\(\Theta(n^3)\)</span>.</p>
@@ -1598,7 +1600,7 @@ def foo(n):
 
         <div class="problem-outer">
         <h2>Problem #044</h2>
-        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s time complexity is <span class="math">\(\Theta(n^2)\)</span>, while <span class="inline-code"><code>baz</code></span>'s time complexity is <span class="math">\(\Theta(n)\)</span>.</p>
@@ -1639,7 +1641,7 @@ def foo(n):
 
         <div class="problem-outer">
         <h2>Problem #045</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the function <span class="math">\(f(n) = \frac{n^8 + 2^{3 + \log n} - \sqrt n}{20 n^5 - n^2}\)</span>.</p>
@@ -1666,7 +1668,7 @@ def foo(n):
 
         <div class="problem-outer">
         <h2>Problem #046</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the function <span class="math">\(f(n) = \frac{n^8 + 2^{3 + \log n} - \sqrt n}{20 n^5 - n^2}\)</span>.</p>
@@ -1693,7 +1695,7 @@ def foo(n):
 
         <div class="problem-outer">
         <h2>Problem #047</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let</p>
@@ -1724,7 +1726,7 @@ def foo(n):
 
         <div class="problem-outer">
         <h2>Problem #048</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let</p>
@@ -1747,7 +1749,7 @@ def foo(n):
 
         <div class="problem-outer">
         <h2>Problem #049</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let</p>
@@ -1773,7 +1775,7 @@ def foo(n):
 
         <div class="problem-outer">
         <h2>Problem #050</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let</p>
@@ -1794,7 +1796,7 @@ def foo(n):
 
         <div class="problem-outer">
         <h2>Problem #051</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(f(n) = n \cdot(\sin{n} + 1 )\)</span>. A plot of this function is shown below.</p>
@@ -1824,7 +1826,7 @@ def foo(n):
 
         <div class="problem-outer">
         <h2>Problem #052</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the function <span class="math">\(f(n) = n \times(\sin(n) + 1)\)</span>. A plot of this function is shown below:</p>
@@ -1853,7 +1855,7 @@ def foo(n):
 
         <div class="problem-outer">
         <h2>Problem #053</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the function <span class="math">\(f(n) = n \times( \sin(n) + 1)\)</span>. A plot of this function is shown below:</p>
@@ -1881,7 +1883,7 @@ def foo(n):
 
         <div class="problem-outer">
         <h2>Problem #054</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(f\)</span> be the piecewise function defined as:</p>
@@ -1916,7 +1918,7 @@ def foo(n):
 
         <div class="problem-outer">
         <h2>Problem #055</h2>
-        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function?</p>
@@ -1952,7 +1954,7 @@ def foo(n):
 
         <div class="problem-outer">
         <h2>Problem #056</h2>
-        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation in the simplest form possible. (e.g., <span class="math">\(\Theta(n)\)</span>)</p>
@@ -1986,7 +1988,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #057</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(f(n) = n^{ \frac{1}{\log_2(n)} } \times n.\)</span> Which of the following asymptotic bounds on <span class="math">\(f\)</span> is true?</p>
@@ -2011,7 +2013,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #058</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(f(n) = 12 \log_2(3^{(n^2 - 2n)} + 2^{(\log n)} - 10n^2 - \log_3 n).\)</span> Which of the following asymptotic bounds on <span class="math">\(f\)</span> is true?</p>
@@ -2037,7 +2039,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #059</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^2)\)</span> and <span class="math">\(\Omega(n)\)</span>. Also suppose that <span class="math">\(f_2(n) = \Theta(n^2)\)</span>.</p>
@@ -2064,7 +2066,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #060</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(f(n)\)</span> is both <span class="math">\(O(n^2)\)</span> and <span class="math">\(\Omega(n)\)</span>, and suppose <span class="math">\(g(n) = \Theta(n^3)\)</span>. What are the tightest possible asymptotic bounds that can be placed on <span class="math">\(f + g\)</span>?</p>
@@ -2084,7 +2086,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #061</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(f(n)\)</span> is both <span class="math">\(O(n^2)\)</span> and <span class="math">\(\Omega(n)\)</span>, and suppose <span class="math">\(g(n) = \Theta(n^3)\)</span>. What are the tightest possible asymptotic bounds that can be placed on the product, <span class="math">\(f \times g\)</span>?</p>
@@ -2104,7 +2106,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #062</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^3)\)</span> and <span class="math">\(\Omega(n)\)</span>. Also suppose that <span class="math">\(f_2(n) = O(n^2)\)</span> and <span class="math">\(\Omega(\sqrt n)\)</span>.</p>
@@ -2131,7 +2133,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #063</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose that <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^3)\)</span> and <span class="math">\(\Omega(n)\)</span>. Also suppose that <span class="math">\(f_2(n) = O(n^2)\)</span> and <span class="math">\(\Omega(\sqrt n)\)</span>.</p>
@@ -2151,7 +2153,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #064</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^3)\)</span> and <span class="math">\(\Omega(n^2)\)</span>. Also suppose that <span class="math">\(f_2(n)\)</span> is <span class="math">\(O(n^4)\)</span> and <span class="math">\(\Omega(n)\)</span>.</p>
@@ -2178,7 +2180,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #065</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose that <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^3)\)</span> and <span class="math">\(\Omega(n^2)\)</span>. Also suppose that <span class="math">\(f_2(n)\)</span> is <span class="math">\(O(n^4)\)</span> and <span class="math">\(\Omega(n)\)</span>.</p>
@@ -2198,7 +2200,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #066</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>True or False. If <span class="math">\(f = \Omega(n^5)\)</span> and <span class="math">\(f = O(n^7)\)</span> then <span class="math">\(f\)</span> must be either <span class="math">\(\Theta(n^5)\)</span>, or <span class="math">\(\Theta(n^6)\)</span>, or <span class="math">\(\Theta(n^7)\)</span>.</p>
@@ -2219,7 +2221,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #067</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(f_1(n) = O(g_1(n))\)</span> and <span class="math">\(f_2(n) = \Omega(g_2(n))\)</span>. True or False: it is necessarily the case that <span class="math">\(f_1 + f_2 = O(g_1(n))\)</span>.</p>
@@ -2245,7 +2247,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #068</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(f(n) = \Omega(n^3)\)</span> and <span class="math">\(g(n) = \Omega(n)\)</span>.</p>
@@ -2273,7 +2275,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #069</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^2)\)</span> and <span class="math">\(\Omega(n)\)</span>. Also suppose that <span class="math">\(f_2(n) = \Theta(n^2)\)</span>.</p>
@@ -2300,7 +2302,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #070</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>True or False. If <span class="math">\(f_1 = \Theta(g_1(n))\)</span> and <span class="math">\(f_2 = O(g_2(n))\)</span> then <span class="math">\(\frac{f_1}{f_2} = \Theta(g_1 / g_2)\)</span>.</p>
@@ -2321,7 +2323,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #071</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(f_1(n) = O(g_1(n))\)</span> and <span class="math">\(f_2 = O(g_2(n))\)</span>. Define <span class="math">\(f(n) = \min\{ f_1(n), f_2(n) \}\)</span> and <span class="math">\(g(n) = \min\{ g_1(n), g_2(n) \}\)</span>. True or false, it is necessarily the case that <span class="math">\(f(n) = O(g(n))\)</span>.</p>
@@ -2347,7 +2349,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #072</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(f_1(n) = \Omega(g_1(n))\)</span> and <span class="math">\(f_2 = \Omega(g_2(n))\)</span>. Define <span class="math">\(f(n) = \min\{ f_1(n), f_2(n) \}\)</span> and <span class="math">\(g(n) = \min\{ g_1(n), g_2(n)\}\)</span>.</p>
@@ -2374,7 +2376,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #073</h2>
-        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(f_1(n) = \Omega(g_1(n))\)</span> and <span class="math">\(f_2 = \Omega(g_2(n))\)</span>. Define <span class="math">\(f(n) = \max\{ f_1(n), f_2(n) \}\)</span> and <span class="math">\(g(n) = \max\{ g_1(n), g_2(n)\}\)</span>.</p>
@@ -2447,7 +2449,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #076</h2>
-        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a></p>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>What is the best case time complexity of the following code?</p>
@@ -2490,7 +2492,7 @@ def insertion_sort(arr):
 
         <div class="problem-outer">
         <h2>Problem #077</h2>
-        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a></p>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>What is the <i>worst case</i> time complexity of the following code?</p>
@@ -2533,7 +2535,7 @@ def insertion_sort(arr):
 
         <div class="problem-outer">
         <h2>Problem #078</h2>
-        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a></p>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>What is the <i>best case</i> time complexity of the following function?</p>
@@ -2572,7 +2574,7 @@ def foo(arr):
 
         <div class="problem-outer">
         <h2>Problem #079</h2>
-        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a></p>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>What is the <i>worst case</i> time complexity of the following function?</p>
@@ -2611,7 +2613,7 @@ def foo(arr):
 
         <div class="problem-outer">
         <h2>Problem #080</h2>
-        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a></p>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>best case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
@@ -2644,7 +2646,7 @@ def foo(arr):
 
         <div class="problem-outer">
         <h2>Problem #081</h2>
-        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a></p>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>best case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
@@ -2677,7 +2679,7 @@ def foo(arr):
 
         <div class="problem-outer">
         <h2>Problem #082</h2>
-        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a></p>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>worst case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
@@ -2731,7 +2733,7 @@ def foo(arr):
 
         <div class="problem-outer">
         <h2>Problem #084</h2>
-        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a></p>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>The below code takes in an array of numbers and returns the index of the first maximum. What is this code's <b>best case</b> time complexity?</p>
@@ -2759,7 +2761,7 @@ def index_of_maximum(arr):
 
         <div class="problem-outer">
         <h2>Problem #085</h2>
-        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a></p>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>The below code takes in an array of numbers and returns the index of the first maximum.</p>
@@ -2788,7 +2790,7 @@ def foo(arr):
 
         <div class="problem-outer">
         <h2>Problem #086</h2>
-        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a></p>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>The code below takes in an array of <span class="math">\(n\)</span> numbers and checks whether there is a pair of numbers in the array which, when added together, equal the maximum element of the array.</p>
@@ -2947,7 +2949,7 @@ def foo(n):
 
         <div class="problem-outer">
         <h2>Problem #091</h2>
-        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a></p>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>The code below takes in two lists, each containing <span class="math">\(n\)</span> integers, and determines if the any number in the second list appears at least <span class="math">\(n/2\)</span> times in the first list.</p>
@@ -3002,7 +3004,7 @@ def boo(first_list, second_list):
 
         <div class="problem-outer">
         <h2>Problem #092</h2>
-        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a></p>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>The code below takes in two lists, each containing <span class="math">\(n\)</span> integers.</p>

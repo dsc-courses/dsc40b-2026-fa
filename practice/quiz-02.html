@@ -198,7 +198,7 @@ Course Staff
 
     <div class="prose dark:prose-invert">
     <!DOCTYPE html> <html> <head> <meta
-                          charset="utf-8"> <title>Problems tagged with asymptotic notation</title>
+                          charset="utf-8"> <title>Quiz 02</title>
 
            <!-- MathJax -->
            <script type="text/x-mathjax-config">
@@ -230,12 +230,49 @@ Course Staff
        </head>
        <body>
            
-<h1>Problems tagged with "asymptotic notation"</h1>
+<h1>Quiz 02</h1>
+<p>Practice problems for topics on Quiz 02.</p>
+<p>Tags in this problem set:</p>
+<ul>
+<ul>
+<li><a href='./tags/lecture-03.html'>lecture-03</a></li>
+</ul>
+</ul>
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #031</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation in the simplest form possible. (e.g., <span class="math">\(\Theta(n)\)</span>)</p>
+<pre class="code"><code>
+import math
+def boo(n):
+    for i in range(n):
+        for j in range(n**2 + 100, 500*n**3):
+            for k in range(1_000, math.floor(math.log(n))):
+                print(i + j + k)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^4 \log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
 
 
         <div class="problem-outer">
         <h2>Problem #032</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(f(n) = 3n^2 \log n\)</span>. True or False: <span class="math">\(f(n) = O(n^3)\)</span>.</p>
@@ -261,7 +298,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #033</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the function <span class="math">\(f(n) = 5n^2 - 100n + 100.\)</span> Which of the following asymptotic bounds are true? Choose <b>all</b> that apply.</p>
@@ -289,7 +326,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #034</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(f(n) = \displaystyle\frac{n^3 - 2n^2 + 100}{n + 10}\)</span> True or False: <span class="math">\(f(n) = O(n^4)\)</span></p>
@@ -315,7 +352,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #035</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the function defined below:</p>
@@ -348,11 +385,11 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #036</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the function <span class="math">\(f(n) = \sin(12 n) \cdot\cos(n) + 2\)</span>. A plot of this function is shown below:</p>
-<center><div class="image"><img src="../images/036/plot.png" /></div></center>
+<center><div class="image"><img src="images/036/plot.png" /></div></center>
 <p>True or False: this function is <span class="math">\(\Theta(1)\)</span>.</p>
 
 <div class="true-false">
@@ -375,11 +412,11 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #037</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the function <span class="math">\(f(n) = \sin(12n) \cdot\cos(n) + 2\)</span>. A plot of this function is shown below:</p>
-<center><div class="image"><img src="../images/037/plot.png" /></div></center>
+<center><div class="image"><img src="images/037/plot.png" /></div></center>
 <p>True or False: <span class="math">\(f(n) = O(n^3)\)</span>.</p>
 
 <div class="true-false">
@@ -402,7 +439,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #038</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose Algorithm A takes <span class="math">\(\Theta(n^2)\)</span> time, while Algorithm B takes <span class="math">\(\Theta(2^n)\)</span> time. True or False: there <b>could</b> exist an input on which Algorithm <span class="math">\(B\)</span> takes less time than Algorithm A.</p>
@@ -428,7 +465,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #039</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose algorithm A takes <span class="math">\(\Theta(n^2)\)</span> time, while algorithm B takes <span class="math">\(\Theta(n^3)\)</span> time.</p>
@@ -449,8 +486,177 @@ Course Staff
 
 
         <div class="problem-outer">
+        <h2>Problem #040</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s time complexity is <span class="math">\(\Theta(n^3)\)</span>, while <span class="inline-code"><code>baz</code></span>'s time complexity is <span class="math">\(\Theta(n^2)\)</span>.</p>
+<p>Suppose <span class="inline-code"><code>boo</code></span> is defined as below:</p>
+<pre class="code"><code>
+
+def boo(n):
+    if n < 1000:
+        bar(n)
+    else:
+        baz(n)
+
+</code></pre>
+
+<p>What is the asymptotic time complexity of <span class="inline-code"><code>boo</code></span>?</p>
+<details>
+    <summary>Solution</summary>
+<p>Asymptotic time complexity concerns the time taken when <span class="math">\(n\)</span> is large. Therefore, it doesn't matter what happens when <span class="math">\(n < 1000\)</span>. When <span class="math">\(n \geq 1000\)</span>, the time taken is <span class="math">\(\Theta(n^2)\)</span>, since that is the time taken by <span class="inline-code"><code>baz</code></span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #041</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s time complexity is <span class="math">\(\Theta(n^3)\)</span>, while <span class="inline-code"><code>baz</code></span>'s time complexity is <span class="math">\(\Theta(n^2)\)</span>.</p>
+<p>Suppose <span class="inline-code"><code>foo</code></span> is defined as below:</p>
+<pre class="code"><code>
+
+def foo(n):
+    if n < 1_000:
+        bar(n)
+    else:
+        baz(n)
+
+</code></pre>
+
+<p>What is the asymptotic time complexity of <span class="inline-code"><code>foo</code></span>?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #042</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s asymptotic time complexity is <span class="math">\(\Theta(n^4)\)</span>, while <span class="inline-code"><code>baz</code></span>'s is <span class="math">\(\Theta(n)\)</span>.</p>
+<p>Suppose <span class="inline-code"><code>foo</code></span> is defined as below:</p>
+<pre class="code"><code>
+
+def foo(n):
+    if n < 1_000_000:
+        bar(n)
+    else:
+        baz(n)
+
+</code></pre>
+
+<p>What is the asymptotic time complexity of <span class="inline-code"><code>foo</code></span>?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span> If you were to plot the function <span class="math">\(T(n)\)</span> that gives the time taken by <span class="inline-code"><code>foo</code></span> as a function of <span class="math">\(n\)</span>, you'd see something like the below:</p>
+<center><div class="image"><img src="images/042/plot.png" /></div></center>
+<p>This function starts off looking like <span class="math">\(n^4\)</span>, but at <span class="math">\(n = 1_000_000\)</span>, it "switches" to looking like <span class="math">\(n\)</span>.</p>
+<p>Since asymptotic time complexity is concerned with the behavior of the function as <span class="math">\(n\)</span> gets large, we can ignore the part where <span class="math">\(n\)</span> is "small" (in this case, less than <span class="math">\(1{,}000{,}000\)</span>). So, asymptotically, this function is <span class="math">\(\Theta(n)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #043</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>bar_1</code></span>, <span class="inline-code"><code>bar_2</code></span> and <span class="inline-code"><code>bar_3</code></span> are three functions. Suppose <span class="inline-code"><code>bar_1</code></span>'s time complexity is <span class="math">\(\Theta(n)\)</span>, <span class="inline-code"><code>bar_2</code></span>'s time complexity is <span class="math">\(\Theta(n^2)\)</span>, and <span class="inline-code"><code>bar_3</code></span>'s time complexity is <span class="math">\(\Theta(n^3)\)</span>.</p>
+<p>Suppose <span class="inline-code"><code>foo</code></span> is defined as below:</p>
+<pre class="code"><code>
+def foo(n):
+    if n < 2023:
+        bar_1(n**3)
+    elif n == 2023:
+        bar_3(n**2)
+    else:
+        bar_2(n)
+
+</code></pre>
+
+<p>What is the asymptotic time complexity of <span class="inline-code"><code>foo</code></span>?</p>
+<details>
+    <summary>Solution</summary>
+<p>Asymptotic time complexity concerns the time taken when <span class="math">\(n\)</span> is large. Therefore, it doesn't matter what happens when <span class="math">\(n < 1000\)</span>. When <span class="math">\(n \geq 1000\)</span>, the time taken is <span class="math">\(\Theta(n^2)\)</span>, since that is the time taken by <span class="inline-code"><code>bar_2</code></span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #044</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s time complexity is <span class="math">\(\Theta(n^2)\)</span>, while <span class="inline-code"><code>baz</code></span>'s time complexity is <span class="math">\(\Theta(n)\)</span>.</p>
+<p>Suppose <span class="inline-code"><code>foo</code></span> is defined as below:</p>
+<pre class="code"><code>
+
+def foo(n):
+    # will be True if n is even, False otherwise
+    is_even = (n % 2) == 0
+    if is_even:
+        bar(n)
+    else:
+        baz(n)
+
+</code></pre>
+
+<p>Let <span class="math">\(T(n)\)</span> be the time taken by <span class="inline-code"><code>foo</code></span> on an input of sized <span class="math">\(n\)</span>. True or False: <span class="math">\(T(n) = \Theta(n^2)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+<p>This function is not <span class="math">\(\Theta(n^2)\)</span>. For that matter, it is also not <span class="math">\(\Theta(n)\)</span>. It <i>is</i><span class="math">\(O(n^2)\)</span> and <span class="math">\(\Omega(n)\)</span>, though.</p>
+<p>This function cannot be <span class="math">\(\Theta(n^2)\)</span> because there are no positive constants <span class="math">\(c, n_0\)</span> such that <span class="math">\(T(n) > c n^2\)</span> for all <span class="math">\(n > n_0\)</span>. You can see this by imagining the plot of the time taken by <span class="inline-code"><code>foo</code></span> as a function of <span class="math">\(n\)</span>. It "oscillates" between something that grows like <span class="math">\(n\)</span> and something that grows like <span class="math">\(n^2\)</span>. If you tried to lower bound it with <span class="math">\(cn^2\)</span>, <span class="math">\(T(n)\)</span> would eventually dip below <span class="math">\(cn^2\)</span>, since <span class="math">\(cn^2\)</span> grows faster than <span class="math">\(n\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
         <h2>Problem #045</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the function <span class="math">\(f(n) = \frac{n^8 + 2^{3 + \log n} - \sqrt n}{20 n^5 - n^2}\)</span>.</p>
@@ -477,7 +683,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #046</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the function <span class="math">\(f(n) = \frac{n^8 + 2^{3 + \log n} - \sqrt n}{20 n^5 - n^2}\)</span>.</p>
@@ -504,7 +710,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #047</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let</p>
@@ -535,7 +741,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #048</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let</p>
@@ -558,7 +764,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #049</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let</p>
@@ -584,11 +790,11 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #050</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let</p>
-<center><div class="image"><img src="../images/050/plot.png" /></div></center>
+<center><div class="image"><img src="images/050/plot.png" /></div></center>
 <p>Define <span class="math">\(f(n)  = f_1(n) \times f_2(n) \times f_3(n)\)</span>. What is <span class="math">\(f(n)\)</span>, in asymptotic notation, in simplest terms possible?</p>
 <details>
     <summary>Solution</summary>
@@ -605,11 +811,11 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #051</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(f(n) = n \cdot(\sin{n} + 1 )\)</span>. A plot of this function is shown below.</p>
-<center><div class="image"><img src="../images/051/plot.png" /></div></center>
+<center><div class="image"><img src="images/051/plot.png" /></div></center>
 <p>True or False: <span class="math">\(f(n) = \Theta(n)\)</span>.</p>
 
 <div class="true-false">
@@ -635,11 +841,11 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #052</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the function <span class="math">\(f(n) = n \times(\sin(n) + 1)\)</span>. A plot of this function is shown below:</p>
-<center><div class="image"><img src="../images/052/plot.png" /></div></center>
+<center><div class="image"><img src="images/052/plot.png" /></div></center>
 <p>True or False: this function is <span class="math">\(O(1 + \sin n)\)</span>.</p>
 
 <div class="true-false">
@@ -664,11 +870,11 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #053</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the function <span class="math">\(f(n) = n \times( \sin(n) + 1)\)</span>. A plot of this function is shown below:</p>
-<center><div class="image"><img src="../images/053/plot.png" /></div></center>
+<center><div class="image"><img src="images/053/plot.png" /></div></center>
 <p>True or False: <span class="math">\(f(n) = O(n^3)\)</span>.</p>
 
 <div class="true-false">
@@ -692,7 +898,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #054</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(f\)</span> be the piecewise function defined as:</p>
@@ -726,8 +932,78 @@ Course Staff
 
 
         <div class="problem-outer">
+        <h2>Problem #055</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function?</p>
+<pre class="code"><code>
+def foo(n):
+    for i in range(n):
+        for j in range(i**2): # <-- notice the bound!
+            print(i + j)
+
+</code></pre>
+
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(2^n)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^3)\)</span>. The inner loop runs <span class="math">\(i^2\)</span> times, so the total number of iterations is <span class="math">\(0^2 + 1^2 + \ldots + (n-1)^2 = \frac{(n-1)n(2n-1)}{6} = \Theta(n^3)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #056</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation in the simplest form possible. (e.g., <span class="math">\(\Theta(n)\)</span>)</p>
+<pre class="code"><code>
+import math
+
+def boo(n):
+    for i in range(n):
+        for j in range(n):
+            print(i + j)
+
+    for i in range(math.floor(math.sqrt(n))):
+        for j in range(math.log2(i), i * math.floor(math.log2(i + 10))):
+            print(i + j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p>The second loop looks complicated to analyze, but we can effectively ignore it. This is because the most <span class="inline-code"><code>i</code></span> can ever be is <span class="math">\(\sqrt
+        n\)</span>, and so an upper bound for the number of iterations made by the second loop is <span class="math">\(O(\sqrt n \log n)\)</span>. Since the first loop takes <span class="math">\(\Theta(n^2)\)</span>, it will dominate the time complexity, and we do not need to worry about the time taken by the second loop.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
         <h2>Problem #057</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(f(n) = n^{ \frac{1}{\log_2(n)} } \times n.\)</span> Which of the following asymptotic bounds on <span class="math">\(f\)</span> is true?</p>
@@ -752,7 +1028,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #058</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(f(n) = 12 \log_2(3^{(n^2 - 2n)} + 2^{(\log n)} - 10n^2 - \log_3 n).\)</span> Which of the following asymptotic bounds on <span class="math">\(f\)</span> is true?</p>
@@ -778,7 +1054,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #059</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^2)\)</span> and <span class="math">\(\Omega(n)\)</span>. Also suppose that <span class="math">\(f_2(n) = \Theta(n^2)\)</span>.</p>
@@ -805,7 +1081,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #060</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(f(n)\)</span> is both <span class="math">\(O(n^2)\)</span> and <span class="math">\(\Omega(n)\)</span>, and suppose <span class="math">\(g(n) = \Theta(n^3)\)</span>. What are the tightest possible asymptotic bounds that can be placed on <span class="math">\(f + g\)</span>?</p>
@@ -825,7 +1101,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #061</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(f(n)\)</span> is both <span class="math">\(O(n^2)\)</span> and <span class="math">\(\Omega(n)\)</span>, and suppose <span class="math">\(g(n) = \Theta(n^3)\)</span>. What are the tightest possible asymptotic bounds that can be placed on the product, <span class="math">\(f \times g\)</span>?</p>
@@ -845,7 +1121,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #062</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^3)\)</span> and <span class="math">\(\Omega(n)\)</span>. Also suppose that <span class="math">\(f_2(n) = O(n^2)\)</span> and <span class="math">\(\Omega(\sqrt n)\)</span>.</p>
@@ -872,7 +1148,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #063</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose that <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^3)\)</span> and <span class="math">\(\Omega(n)\)</span>. Also suppose that <span class="math">\(f_2(n) = O(n^2)\)</span> and <span class="math">\(\Omega(\sqrt n)\)</span>.</p>
@@ -892,7 +1168,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #064</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^3)\)</span> and <span class="math">\(\Omega(n^2)\)</span>. Also suppose that <span class="math">\(f_2(n)\)</span> is <span class="math">\(O(n^4)\)</span> and <span class="math">\(\Omega(n)\)</span>.</p>
@@ -919,7 +1195,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #065</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose that <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^3)\)</span> and <span class="math">\(\Omega(n^2)\)</span>. Also suppose that <span class="math">\(f_2(n)\)</span> is <span class="math">\(O(n^4)\)</span> and <span class="math">\(\Omega(n)\)</span>.</p>
@@ -939,7 +1215,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #066</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>True or False. If <span class="math">\(f = \Omega(n^5)\)</span> and <span class="math">\(f = O(n^7)\)</span> then <span class="math">\(f\)</span> must be either <span class="math">\(\Theta(n^5)\)</span>, or <span class="math">\(\Theta(n^6)\)</span>, or <span class="math">\(\Theta(n^7)\)</span>.</p>
@@ -960,7 +1236,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #067</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(f_1(n) = O(g_1(n))\)</span> and <span class="math">\(f_2(n) = \Omega(g_2(n))\)</span>. True or False: it is necessarily the case that <span class="math">\(f_1 + f_2 = O(g_1(n))\)</span>.</p>
@@ -986,7 +1262,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #068</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(f(n) = \Omega(n^3)\)</span> and <span class="math">\(g(n) = \Omega(n)\)</span>.</p>
@@ -1014,7 +1290,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #069</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^2)\)</span> and <span class="math">\(\Omega(n)\)</span>. Also suppose that <span class="math">\(f_2(n) = \Theta(n^2)\)</span>.</p>
@@ -1041,7 +1317,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #070</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>True or False. If <span class="math">\(f_1 = \Theta(g_1(n))\)</span> and <span class="math">\(f_2 = O(g_2(n))\)</span> then <span class="math">\(\frac{f_1}{f_2} = \Theta(g_1 / g_2)\)</span>.</p>
@@ -1062,7 +1338,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #071</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(f_1(n) = O(g_1(n))\)</span> and <span class="math">\(f_2 = O(g_2(n))\)</span>. Define <span class="math">\(f(n) = \min\{ f_1(n), f_2(n) \}\)</span> and <span class="math">\(g(n) = \min\{ g_1(n), g_2(n) \}\)</span>. True or false, it is necessarily the case that <span class="math">\(f(n) = O(g(n))\)</span>.</p>
@@ -1088,7 +1364,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #072</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(f_1(n) = \Omega(g_1(n))\)</span> and <span class="math">\(f_2 = \Omega(g_2(n))\)</span>. Define <span class="math">\(f(n) = \min\{ f_1(n), f_2(n) \}\)</span> and <span class="math">\(g(n) = \min\{ g_1(n), g_2(n)\}\)</span>.</p>
@@ -1115,7 +1391,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #073</h2>
-        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(f_1(n) = \Omega(g_1(n))\)</span> and <span class="math">\(f_2 = \Omega(g_2(n))\)</span>. Define <span class="math">\(f(n) = \max\{ f_1(n), f_2(n) \}\)</span> and <span class="math">\(g(n) = \max\{ g_1(n), g_2(n)\}\)</span>.</p>
@@ -1131,6 +1407,455 @@ Course Staff
     <summary>Solution</summary>
 <p>True.</p>
 <p>For large <span class="math">\(n\)</span>, <span class="math">\(f_1(n) \geq c_1 g_1(n)\)</span> and <span class="math">\(f_2(n) \geq c_2 g_2(n)\)</span>. Letting <span class="math">\(c = \min\{c_1, c_2\}\)</span>, <span class="math">\(\max\{f_1(n), f_2(n)\}\)</span> is at least both <span class="math">\(c\, g_1(n)\)</span> and <span class="math">\(c\, g_2(n)\)</span>, so it is at least <span class="math">\(c \max\{g_1(n), g_2(n)\}\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #076</h2>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the best case time complexity of the following code?</p>
+<pre class="code"><code>
+def insertion_sort(arr):
+    """Sort `arr` in ascending order."""
+    n = len(arr)
+    for i in range(1, n):
+        x = arr[i]
+        j = i - 1
+        # find where to place x
+        while j >= 0 and x < arr[j]:
+            arr[j+1] = arr[j]
+            j -= 1
+        arr[j+1] = x
+
+</code></pre>
+
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(2^n)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>. The best case occurs when the array is already sorted. Notice that in this case, the <span class="inline-code"><code>while</code></span> loop will never actually execute.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #077</h2>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <i>worst case</i> time complexity of the following code?</p>
+<pre class="code"><code>
+def insertion_sort(arr):
+    """Sort `arr` in ascending order."""
+    n = len(arr)
+    for i in range(1, n):
+        x = arr[i]
+        j = i - 1
+        # find where to place x
+        while j >= 0 and x < arr[j]:
+            arr[j+1] = arr[j]
+            j -= 1
+        arr[j+1] = x
+
+</code></pre>
+
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(2^n)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span>. The worst case occurs when the array is sorted in reverse order. In this case, the while-loop executes on every iteration of the for-loop, and must move <span class="inline-code"><code>x</code></span> from its current position all the way to the beginning of the array.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #078</h2>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <i>best case</i> time complexity of the following function?</p>
+<pre class="code"><code>
+def foo(arr):
+    """arr is an array of size n"""
+    for x in arr:
+        for y in arr:
+            if sum([x,y]) == 5:
+                return sum(arr)
+    return False
+
+</code></pre>
+
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(2^n)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>. In the best case, we <span class="inline-code"><code>return sum(arr)</code></span> on the very first iteration.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #079</h2>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <i>worst case</i> time complexity of the following function?</p>
+<pre class="code"><code>
+def foo(arr):
+    """arr is an array of size n"""
+    for x in arr:
+        for y in arr:
+            if sum([x,y]) == 5:
+                return sum(arr)
+    return False
+
+</code></pre>
+
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(2^n)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span>. In the worst case, we never find <span class="inline-code"><code>x + y == 5</code></span>, and go through all <span class="math">\(\Theta(n^2)\)</span> iterations just to return <span class="inline-code"><code>False</code></span> at the end.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #080</h2>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>best case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<pre class="code"><code>
+def foo(arr):
+    """`arr` is a list containing n numbers."""
+    previous = None
+    n = len(arr)
+    for x in arr:
+        if x == previous:
+            for i in range(n**2):
+                print('Equal!')
+            return
+        previous = x
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #081</h2>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>best case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<pre class="code"><code>
+def foo(arr):
+    """`arr` is a list containing n numbers."""
+    previous = None
+    n = len(arr)
+    for x in arr:
+        if x == previous:
+            for i in range(n**2):
+                print('Equal!')
+            return
+        previous = x
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #082</h2>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>worst case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<pre class="code"><code>
+def foo(arr):
+    """`arr` is a list containing n numbers."""
+    previous = None
+    n = len(arr)
+    for x in arr:
+        if x == previous:
+            for i in range(n**2):
+                print('Equal!')
+            return
+        previous = x
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #084</h2>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>The below code takes in an array of numbers and returns the index of the first maximum. What is this code's <b>best case</b> time complexity?</p>
+<pre class="code"><code>
+def index_of_maximum(arr):
+    """`arr` is an array with n elements."""
+    for i, x in enumerate(arr):
+        if x == max(arr):
+            return i
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #085</h2>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>The below code takes in an array of numbers and returns the index of the first maximum.</p>
+<pre class="code"><code>
+def foo(arr):
+    """`arr` is an array with n elements."""
+    for i, x in enumerate(arr):
+        if x == max(arr):
+            return i
+
+</code></pre>
+
+<p>What is the <b>worst case</b> time complexity of the function?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #086</h2>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>The code below takes in an array of <span class="math">\(n\)</span> numbers and checks whether there is a pair of numbers in the array which, when added together, equal the maximum element of the array.</p>
+<p>What is the <b>best case</b> time complexity of this code as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
+<pre class="code"><code>
+def exists_pair_summing_to_max(arr):
+    n = len(arr)
+    maximum = max(arr)
+    for i in range(n):
+        for j in range(i + 1, n):
+            if arr[i] + arr[j] == maximum:
+                return True
+    return False
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #091</h2>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>The code below takes in two lists, each containing <span class="math">\(n\)</span> integers, and determines if the any number in the second list appears at least <span class="math">\(n/2\)</span> times in the first list.</p>
+<pre class="code"><code>
+def boo(first_list, second_list):
+    """first_list and second_list are both of size n"""
+    n = len(first_list)
+    for x in second_list:
+        count = 0
+        for y in first_list:
+            if x == y:
+                count += 1
+            if count >= n // 2:
+                return True
+    return False
+
+</code></pre>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 1)</h3>
+<p>What is the <b>best case</b> time complexity of this code as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 2)</h3>
+<p>What is the <b>worst case</b> time complexity of this code as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>The best case is when the first element of the second list appears at least <span class="math">\(n/2\)</span> times in the first list. In this case, the code will return <span class="inline-code"><code>True</code></span> after iterating <span class="math">\(n/2\)</span> times through the inner loop, taking <span class="math">\(\Theta(n)\)</span> time total.</p>
+<p>In the worst case, there is no element in the second list that appears <span class="math">\(n/2\)</span> times in the first. We make all <span class="math">\(n\)</span> iterations of the outer loop, and during each of the outer iterations, make <span class="math">\(n\)</span> iterations of the inner loop, for a total of <span class="math">\(\Theta(n^2)\)</span> time.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #092</h2>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/lecture-03.html'>lecture-03</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>The code below takes in two lists, each containing <span class="math">\(n\)</span> integers.</p>
+<pre class="code"><code>
+def are_lists_equal(list1, list2):
+    if len(list1) != len(list2):
+        return False
+    for i in range(len(list1)):
+        if list1[i] != list2[j]:
+            return False
+    return True
+
+
+def foo(list1, list2):
+    if are_lists_equal(list1, list2):
+        for i in list1:
+            print(i)
+    else:
+        for i in list1:
+            for j in list2:
+                for k in range(len(list1)):
+                    print(i, j, k)
+
+</code></pre>
+
+<p>What is the best case time complexity of <span class="inline-code"><code>foo</code></span> as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p>The best case is where the lists are equal. In this case the time complexity is <span class="math">\(\Theta(n)\)</span>. The worst case is when the lists are not equal in which case the time complexity is <span class="math">\(\Theta(n^3)\)</span>.</p>
 </details>
 
     </div>
