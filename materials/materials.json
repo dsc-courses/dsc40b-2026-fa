@@ -92,6 +92,9 @@
                     "artifacts": {
                         "slides.pdf": {
                             "path": "materials/lectures/03-time_complexity-pt_II/slides.pdf"
+                        },
+                        "slides-marked.pdf": {
+                            "path": "materials/lectures/03-time_complexity-pt_II/slides-marked.pdf"
                         }
                     }
                 },
