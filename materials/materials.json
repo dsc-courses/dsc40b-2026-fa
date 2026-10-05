@@ -105,7 +105,11 @@
                         "topic": "Best, Worst, and Expected Time",
                         "number": 4
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "slides.pdf": {
+                            "path": "materials/lectures/04-expected_time/slides.pdf"
+                        }
+                    }
                 },
                 "05-binary_search-recurrences": {
                     "metadata": {

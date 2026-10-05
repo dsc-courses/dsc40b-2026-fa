@@ -198,7 +198,7 @@ Course Staff
 
     <div class="prose dark:prose-invert">
     <!DOCTYPE html> <html> <head> <meta
-                          charset="utf-8"> <title>Problems tagged with best and worst case</title>
+                          charset="utf-8"> <title>Problems tagged with lecture-04</title>
 
            <!-- MathJax -->
            <script type="text/x-mathjax-config">
@@ -230,7 +230,100 @@ Course Staff
        </head>
        <body>
            
-<h1>Problems tagged with "best and worst case"</h1>
+<h1>Problems tagged with "lecture-04"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #038</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose Algorithm A takes <span class="math">\(\Theta(n^2)\)</span> time, while Algorithm B takes <span class="math">\(\Theta(2^n)\)</span> time. True or False: there <b>could</b> exist an input on which Algorithm <span class="math">\(B\)</span> takes less time than Algorithm A.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+<p>Asymptotic notation only describes how the time grows for large <span class="math">\(n\)</span> and hides constants. For example, if A takes <span class="math">\(1000n^2\)</span> steps and B takes <span class="math">\(2^n\)</span> steps, then B is faster on every input of size <span class="math">\(n = 10\)</span>(1024 steps vs. 100,000).</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #039</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose algorithm A takes <span class="math">\(\Theta(n^2)\)</span> time, while algorithm B takes <span class="math">\(\Theta(n^3)\)</span> time.</p>
+<p>True or False: there must exist an input of size 100 on which Algorithm A takes less time than Algorithm B.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>False. Algorithm A could have really large constants. For example, it could take 1,000,000 <span class="math">\(n^2\)</span> seconds to run, while algorithm B takes <span class="math">\(.0001 n^3\)</span> seconds to run. Algorithm B will still be better for <span class="math">\(n = 100\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #074</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Which of the below is a tight theoretical lower bound for the problem of finding a mode of a collection of <span class="math">\(n\)</span> numbers?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>. In the worst case, all numbers are distinct and we must loop through all of them to discover this, taking linear time.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #075</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose you are given a (possibly unsorted) array containing <span class="math">\(n\)</span> elements. Each element is either zero or one. You are tasked with determining if the majority (at least half) of the array's elements are one.</p>
+<p>What is the <b>tight</b> theoretical lower bound for the worst case time complexity of this problem?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
 
 
         <div class="problem-outer">
@@ -497,6 +590,27 @@ def foo(arr):
 
 
         <div class="problem-outer">
+        <h2>Problem #083</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose you are given a (possibly unsorted) array of <span class="math">\(n\)</span> floating point numbers and are tasked with counting the number of elements in the array which are within ten of the array's maximum (you are not told the maximum). That is, you must count the number of elements <span class="math">\(x\)</span> such that <span class="math">\(m - x \geq 10\)</span>, where <span class="math">\(m\)</span> is the array's maximum. You may assume that the array does not contain duplicate numbers.</p>
+<p>What is the <b>tight</b> theoretical lower bound for the worst case time complexity of this problem?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p>It takes <span class="math">\(\Theta(n)\)</span> time to find the maximum. After this, we loop through and keep track of how many elements are within ten of the maximum -- this also takes <span class="math">\(\Theta(n)\)</span> time.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
         <h2>Problem #084</h2>
         <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
         <div class="problem">
@@ -575,6 +689,133 @@ def exists_pair_summing_to_max(arr):
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #087</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <i>expected</i> time complexity of the following function?</p>
+<pre class="code"><code>
+import random
+
+def foo(n):
+    # randomly draw a number from 0, 1, 2, ..., n-1
+    x = random.randint(0, n-1)
+    if x == 1:
+        for i in range(n):
+            print(i)
+    else:
+        print("lucky!")
+
+    for i in range(n):
+        print(i)
+
+</code></pre>
+
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(2^n)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>. The last loop always runs <span class="math">\(n\)</span> times. With probability <span class="math">\(1/n\)</span> we have <span class="inline-code"><code>x == 1</code></span>, and the first loop also runs, taking <span class="math">\(\Theta(n)\)</span> time; otherwise we do constant work before the last loop. So the expected time is <span class="math">\(\frac{1}{n} \cdot \Theta(n) + \Theta(1) + \Theta(n) = \Theta(n)\)</span>. (In fact, every case takes <span class="math">\(\Theta(n)\)</span> time.)</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #088</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>expected</b> time complexity of the following function? State your answer using asymptotic notation.</p>
+<pre class="code"><code>
+import random
+
+def boo(n):
+    # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
+    x = random.randrange(n)
+
+    for i in range(x): # <-- note that the range is random!
+        print(i)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #089</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>expected</b> time complexity of the function below?</p>
+<pre class="code"><code>
+import random
+
+def foo(n):
+    # draw a random number uniformly from 0, 1, 2, ..., 99
+    # in constant time
+    x = random.randrange(100)
+    for i in range(x):
+        for j in range(n):
+            print("Here!")
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>. Note that in this question, the range of <span class="math">\(x\)</span> is between 0 and 99. Therefore the outer loop will run a constant number of times no matter what <span class="math">\(x\)</span> is. Then we can focus on the inner loop, which runs for <span class="math">\(n\)</span> times the print() operation, which is <span class="math">\(\Theta(n)\)</span> time. Therefore, the expected time complexity for this piece of code is <span class="math">\(\Theta(n)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #090</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a>, <a href='../tags/sorted structure.html'>sorted structure</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose you are given a <b>sorted</b> array containing <span class="math">\(n\)</span> elements. Each element is either zero or one. You are tasked with determining if the majority (at least half) of the array's elements are one. What is the <b>tight</b> theoretical lower bound for the worst case time complexity of any algorithm which solves this problem?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(1)\)</span></p>
 </details>
 
     </div>
@@ -683,145 +924,240 @@ def foo(list1, list2):
 
 
         <div class="problem-outer">
-        <h2>Problem #124</h2>
-        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <h2>Problem #093</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>What is the <b>worst case</b> time complexity of binary search on an array of size <span class="math">\(n\)</span> under the assumption that the target is guaranteed to appear in the array more than <span class="math">\(n/6\)</span> times? You may assume that the input array is sorted.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div></form></div>
-<details>
-    <summary>Solution</summary>
-<p><span class="math">\(\Theta(1)\)</span>. When there are at least n/6 instances of the target, binary search will not recurse more than twice. On the first recursive call, the array is halved in size. On the second, the array is down to <span class="math">\(n/4\)</span>. Note that <i>all</i> of the <span class="math">\(n/6\)</span> instances of the target must be in this chunk of size <span class="math">\(n/4\)</span>, and so the middle number must be an instance of the target, and binary search will terminate.</p>
-<p>Since binary search cannot recurse more than twice, and since it does constant work on each recursion, the total time taken is bounded by a constant, no matter how large the input array is.</p>
-<p>If this seems odd, think about a simpler case: when the target appears <span class="math">\(n/2\)</span> times. In other words, a full <i>half</i> of the array is the target. In this case, we'll make only one call (or maybe two, depending on the value of the middle element). And so there, too, the number of calls is bounded by a constant, and the total time is <span class="math">\(\Theta(1)\)</span>.</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #127</h2>
-        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/mergesort.html'>mergesort</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>True or False: the <b>best case</b> time complexity of mergesort is <span class="math">\(\Theta(n)\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
-<details>
-    <summary>Solution</summary>
-<p>False.</p>
-<p>Mergesort doesn't stop early: it always splits the array in half all the way down and merges everything back together, no matter what the input is (even if it is already sorted). Each of the <span class="math">\(\Theta(\log n)\)</span> levels of recursion does <span class="math">\(\Theta(n)\)</span> merging work, so the best case is <span class="math">\(\Theta(n \log n)\)</span>, the same as the worst case.</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #128</h2>
-        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>True or False: the <b>best case</b> time complexity of mergesort is <span class="math">\(\Theta(n)\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
-<details>
-    <summary>Solution</summary>
-<p>False.</p>
-<p>Mergesort doesn't stop early: it always splits the array in half all the way down and merges everything back together, no matter what the input is (even if it is already sorted). Each of the <span class="math">\(\Theta(\log n)\)</span> levels of recursion does <span class="math">\(\Theta(n)\)</span> merging work, so the best case is <span class="math">\(\Theta(n \log n)\)</span>, the same as the worst case.</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #138</h2>
-        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/mergesort.html'>mergesort</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Suppose <span class="inline-code"><code>arr</code></span> is a list-of-lists with <span class="math">\(n\)</span> inner lists, each containing <span class="math">\(n\)</span> numbers. What is the best case time complexity of the following function?</p>
+<p>What is the <b>expected</b> time complexity of the function below?</p>
 <pre class="code"><code>
+import random
+
+def foo(n):
+    # draw a random number uniformly from 0, 1, 2, ..., n-1
+    # in constant time
+    x = random.randrange(n)
+    for i in range(x):
+        for j in range(n):
+            print("Here!")
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span>. The inner loop is not random, and the time complexity of it is always <span class="math">\(\Theta(n)\)</span>. Therefore the expected time complexity of this function will be (using the arithmetic sequence sum formula)</p>
+<div class="math">\[\frac{1}{n}\sum_{i = 0}^{n - 1} i \times\Theta(n) = \Theta(n^2). \]</div>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #094</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>expected</b> time complexity of the following function?</p>
+<pre class="code"><code>
+import random
+
+def foo(n):
+    for i in range(n):
+        # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
+        x = random.randrange(n)
+        for j in range(x):
+            print(j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span>. For this function, the outer loop wil execute <span class="math">\(n\)</span> times no matter what, hence we only have to find what the expected time complexity for the inner loop is, then combine that together with the outer loop. For the inner loop, the expected time complexity is</p>
+<div class="math">\[\frac{1}{n}\sum_{i = 1}^{n - 1} i = \frac{1}{n}\cdot\Theta(n^2) = \Theta(n). \]</div>
+<p>Then, the expected complexity for the whole function will be</p>
+<div class="math">\[\Theta(n) \times\Theta(n) = \Theta(n^2). \]</div>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #095</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>expected</b> time complexity of the function below?</p>
+<pre class="code"><code>
+import random
+
+def foo(n):
+    # draw a number uniformly at random from 0, 1, 2, ..., n-1
+    # in constant time
+    x = random.randrange(n)
+    if x < 100:
+        for j in range(n**2):
+            print(j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>. The for loop is only executed if <span class="math">\(x\)</span> is less than 100, therefore we can write the expected time as (ignoring constants <span class="math">\(c\)</span>):</p>
+<div class="math">\[ f(n) = \frac{1}{n}\bigg(\sum_{i = 0}^{99} n^2 + \sum_{i = 100}^{n - 1} 1 \bigg)= \frac{1}{n}\cdot(\Theta(n^2) + \Theta(n)) = \Theta(n). \]</div>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #096</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>expected</b> time complexity of the following function? State your answer using asymptotic notation.</p>
+<pre class="code"><code>
+import random
+
+def foo(n):
+    x = random.randrange(n)
+
+    if x < 8:
+        for j in range(n**3):
+            print(j)
+    else:
+        for j in range(n):
+            print(j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span>. The expected time complexity for this function is</p>
+<div class="math">\[\frac{1}{n}\bigg(\sum_{i = 0}^{7} n^3 + \sum_{i = 8}^{n - 1} n \bigg)= \frac{1}{n}(\Theta(n^3) + \Theta(n^2)) = \Theta(n^2). \]</div>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #097</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>expected</b> time complexity of the function below? State your answer using asymptotic notation.</p>
+<pre class="code"><code>
+import random
+def foo(n):
+    # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1) time
+    x = random.randrange(n)
+    if x < 20:
+        for i in range(n**3):
+            print("Very unlucky!")
+    elif x < n / 2:
+        for i in range(n):
+            print("Unlucky!")
+    else:
+        print("Lucky!")
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #098</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>expected</b> time complexity of the function below?</p>
+<pre class="code"><code>
+import random
+
+def foo(n):
+    # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
+    x = random.randrange(n)
+    if x < math.sqrt(n):
+        for j in range(n):
+            print(j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\sqrt n)\)</span>. Since the for loop only executes when <span class="math">\(x\)</span> is less than <span class="math">\(\sqrt{n}\)</span>, the expected time complexity is</p>
+<div class="math">\[\frac{1}{n}\bigg(\sum_{i = 1}^{\lfloor \sqrt{n} \rfloor} n + \sum_{i = \lceil \sqrt{n} \rceil}^{n - 1} 1 \bigg)\approx\frac{1}{n}(n \sqrt{n} + (n - \sqrt{n})) = \Theta(\sqrt{n}). \]</div>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #099</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>expected</b> time complexity of the function below?</p>
+<p>You may assume that <span class="inline-code"><code>math.sqrt</code></span> takes <span class="math">\(\Theta(1)\)</span> time.</p>
+<pre class="code"><code>
+import random
 import math
 
-def average_median(arr):
-    """Compute the mean of the row medians."""
-    msum = 0
-    for i, row in enumerate(arr):
-        mergesort(row) # sort the row using the mergesort algorithm
-        msum += row[math.floor(i / 2)]
-    return msum / len(arr)
+def foo(n):
+    # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
+    x = random.randrange(n)
 
-</code></pre>
-
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2 \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3 \log n)\)</span></p></label></div></form></div>
-<details>
-    <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2 \log n)\)</span>. Mergesort takes <span class="math">\(\Theta(k \log k)\)</span> time on an array of size <span class="math">\(k\)</span> in every case, including the best case. The loop sorts <span class="math">\(n\)</span> rows of size <span class="math">\(n\)</span>, taking <span class="math">\(\Theta(n \log n)\)</span> time for each, and the rest of the loop body takes constant time. So the best case is <span class="math">\(\Theta(n^2 \log n)\)</span>.</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #139</h2>
-        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/mergesort.html'>mergesort</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Your friend has written a modified version of mergesort that they claim has an improved best-case time complexity:</p>
-<pre class="code"><code>
-def better_mergesort(arr):
-    if is_already_sorted(arr):
-        return
+    if x < math.sqrt(n):
+        for j in range(n):
+            print(j)
+    elif x < n//2:
+        print('Ok!')
     else:
-        mergesort(arr)
+        for i in range(n**2):
+            print(i)
 
 </code></pre>
 
-<p>Here, <span class="inline-code"><code>is_already_sorted</code></span> is a function that takes in an array and returns <span class="inline-code"><code>True</code></span> if and only if the array is in sorted order. Assume that <span class="inline-code"><code>is_already_sorted</code></span> is implemented efficiently (meaning, it has the best possible time complexity). What is the best case time complexity of <span class="inline-code"><code>better_mergesort</code></span>?</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. The best case is when <span class="inline-code"><code>arr</code></span> is already sorted, so that only <span class="inline-code"><code>is_already_sorted</code></span> runs. Checking whether an array is sorted requires looking at every element, and can be done in <span class="math">\(\Theta(n)\)</span> time by comparing each pair of adjacent elements. So the best case time complexity is <span class="math">\(\Theta(n)\)</span>.</p>
+<p><span class="math">\(\Theta(n^2)\)</span>. The expected time complexity for this function is</p>
+<div class="math">\[ f(n) = \frac{1}{n}\bigg(\sum_{i = 1}^{\lfloor \sqrt{n} \rfloor} n + \sum_{i = \lceil \sqrt{n} \rceil}^{\lfloor n/2 \rfloor} 1 
+        + \sum_{i = \lceil n/2 \rceil}^{n - 1} n^2 \bigg)        = \frac{1}{n}(\Theta(n \sqrt{n}) + \Theta(n) + \Theta(n^3))
+        = \Theta(n^2).
+        \]</div>
 </details>
 
     </div>
@@ -833,14 +1169,125 @@ def better_mergesort(arr):
 
 
         <div class="problem-outer">
-        <h2>Problem #147</h2>
-        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <h2>Problem #100</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Consider the following problem: given two <b>sorted</b> lists, <span class="inline-code"><code>A</code></span> and <span class="inline-code"><code>B</code></span>, each containing <span class="math">\(n\)</span> numbers, determine if the two lists share an element in common. That is, determine if there is a number <span class="math">\(x\)</span> which appears in both lists.</p>
+<p>What is the <b>expected</b> time complexity of the function below? State your answer using asymptotic notation.</p>
+<p>You may assume that <span class="inline-code"><code>math.sqrt</code></span> and <span class="inline-code"><code>math.log2</code></span> take <span class="math">\(\Theta(1)\)</span> time.</p>
+<pre class="code"><code>
+import random
+import math
+
+def boo(n):
+    # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
+    x = random.randrange(n)
+
+    if x < math.log2(n):
+        for i in range(n**2):
+            print("Very unlucky!")
+    elif x < math.sqrt(n):
+        for i in range(n):
+            print("Unlucky!")
+    else:
+        print("Lucky!")
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n \log n)\)</span> There are three cases: Case 1) <span class="math">\(x < \log_2 n\)</span>; Case 2) <span class="math">\(1 < x < \sqrt n\)</span>; and Case 3) <span class="math">\(x \geq\sqrt{n}\)</span>.</p>
+<p>The probability of Case 1 is <span class="math">\(\log n / n\)</span>. The time taken in case 1 is <span class="math">\(\Theta(n^2)\)</span>.</p>
+<p>The probability of Case 2 is</p>
+<div class="math">\[\frac{\sqrt n}{n} - \frac{\log_2 n}{n} = \Theta(\sqrt n / n) = \Theta(1/\sqrt n).
+        \]</div>
+<p>The time taken in this case is <span class="math">\(\Theta(n)\)</span>.</p>
+<p>The probability of Case 3 is 1 minus the probability of the sum of the other two cases, which will simply be <span class="math">\(\Theta(1)\)</span>:</p>
+<div class="math">\[
+            1 - \Theta(1 / n) - \Theta(1 / \sqrt{n}) = \Theta(1).
+        \]</div>
+<p>The time taken is <span class="math">\(\Theta(1)\)</span>.</p>
+<p>Therefore, the expected time is:</p>
+<center><div class="image"><img src="../images/100/plot.png" /></div></center>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #101</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>expected</b> time complexity of the function below? State your answer using asymptotic notation.</p>
+<p>You may assume that <span class="inline-code"><code>math.sqrt</code></span> and <span class="inline-code"><code>math.log</code></span> take <span class="math">\(\Theta(1)\)</span> time. <span class="inline-code"><code>math.log</code></span> computes the natural log.</p>
+<pre class="code"><code>
+import random
+import math
+
+def foo(n):
+    # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
+    x = random.randrange(n)
+
+    if x < math.log(n):
+        for j in range(n**2):
+            print(j)
+    elif x < math.sqrt(n):
+        print('Ok!')
+    else:
+        for i in range(n):
+            print(i)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n \log n)\)</span> There are three cases: Case 1) <span class="math">\(x < \log n\)</span>; Case 2) <span class="math">\(\log n \geq x <
+        \sqrt n\)</span>; and Case 3) <span class="math">\(x \geq\sqrt{n}\)</span>.</p>
+<p>The probability of Case 1 is <span class="math">\(\log n / n\)</span>. The time taken in case 1 is <span class="math">\(\Theta(n^2)\)</span>.</p>
+<p>The probability of Case 2 is</p>
+<div class="math">\[\frac{\sqrt n}{n} - \frac{\log n}{n} = \Theta(\sqrt n / n) = \Theta(1/\sqrt n).
+        \]</div>
+<p>The time taken in this case is <span class="math">\(\Theta(1)\)</span>.</p>
+<p>The probability of Case 3 is 1 minus the probability of the sum of the other two cases, which will simply be <span class="math">\(\Theta(1)\)</span>:</p>
+<div class="math">\[
+            1 - \Theta((\log n) / n) - \Theta(1 / \sqrt{n}) = \Theta(1)
+        \]</div>
+<p>Therefore, the expected time is:</p>
+<div class="math">\[\begin{aligned}
+            \frac{\log n}{n} \times \Theta(n^2)
+            + \Theta(1/\sqrt n) \times \Theta(1)
+            + \Theta(1) \times \Theta(n)
+            &=
+            \Theta(n \log n) + \Theta(1 / \sqrt n) + \Theta(n)
+            \\
+            &=
+            \Theta(n \log n)
+            \end{aligned}\]</div>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #102</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the following problem: given a (possibly unsorted) list of size <span class="math">\(n\)</span> containing only ones and zeros, determine if the number of ones is equal to the number of zeros.</p>
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
-<p>What is a <b>tight</b> theoretical lower bound for this problem? Again, you may assume that the lists are both sorted. State your answer in asymptotic notation as a function of <span class="math">\(n\)</span>.</p>
+<p>What is a <b>tight</b> theoretical lower bound for this problem? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
@@ -850,12 +1297,20 @@ def better_mergesort(arr):
 
 <div class="subproblem">
     <h3 class="subproblem-id">Part 2)</h3>
-<p>(2 points) Briefly (in 50 words or less) describe an algorithm for solving this problem <b>and state its worst case time complexity</b>. To earn full credit, you should give the optimal algorithm, but partial credit will be awarded for sub-optimal solutions. You may write pseudocode if you like, but an explanation in words is also sufficient. Make sure that you only state one algorithm!</p>
+<p>Now assume that the input array is guaranteed to have the following structure: there will be <span class="math">\(a\)</span> ones, followed by <span class="math">\(b\)</span> zeros, followed again by <span class="math">\(a\)</span> ones. An example of such an array is: <span class="inline-code"><code>[1, 1, 0, 0, 0, 1, 1]</code></span>. In this example, <span class="math">\(a = 2\)</span> and <span class="math">\(b = 3\)</span>.</p>
+<p>Consider the same problem as before: that is, given an array satisfying the above assumption, determine if the number of ones in the array is equal to the number of zeros. Of course, <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are not known ahead of time.</p>
+<p>What is a <b>tight</b> theoretical lower bound for this problem?</p>
 <details>
     <summary>Solution</summary>
-<p>Here's an approach that takes <span class="math">\(\Theta(n)\)</span>; it's similar to what we did in lecture for the movie problem.</p>
-<p>Start with <span class="inline-code"><code>i = j = 0</code></span>. If <span class="inline-code"><code>A[i] == A[j]</code></span>, return <span class="inline-code"><code>True</code></span>, since you've found an element in common. If <span class="inline-code"><code>A[i] > A[j]</code></span>, increment <span class="inline-code"><code>j</code></span>, otherwise increment <span class="inline-code"><code>i</code></span>. Takes <span class="math">\(\Theta(n)\)</span> time.</p>
-<p>The brute force approach also earns credit: Loop over all pairs, checking if <span class="inline-code"><code>A[i] == B[j]</code></span> for each pair. This takes <span class="math">\(\Theta(n^2)\)</span> time.</p>
+<p><span class="math">\(\Theta(1)\)</span> Let <span class="math">\(n\)</span> be the length of the array. Assume that <span class="math">\(n\)</span> is even (if it is odd, we can immediately say that there are not an equal number of ones and zeros). In fact, we can assume that <span class="math">\(n\)</span> is divisible by four, since <span class="math">\(n = a + b + a = 2a + b\)</span>, which must equal <span class="math">\(4a\)</span> if there are an equal number of ones and zeros.</p>
+<p>For there to be an equal number of ones as zeros, the middle <span class="math">\(n/2\)</span> elements must be zero, while the first <span class="math">\(n/4\)</span> and last <span class="math">\(n/4\)</span> must be ones. If that is the case, then the last one in the first group of ones will occur at index <span class="math">\(n / 4 - 1\)</span>, and the first zero will occur at <span class="math">\(n / 4 \)</span> A constant-time algorithm is to check the element at index <span class="math">\(n/4
+                - 1\)</span> and verify that it is a one. Then we check the element at index <span class="math">\(n/4 \)</span> and check that it is a zero.</p>
+<p>Consider, for example, this array with <span class="math">\(n = 10\)</span>:</p>
+<div class="math">\[\mintinline{python}{[1, 1, 1, 0, 0, 0, 0, 1, 1, 1]}\]</div>
+<p>Then <span class="math">\(n / 10 = 10 / 4 = 2.5 = 2\)</span>. Therefore, we check the elements at index 1 and 2 in constant time and find them to both be one, which tells us that this array does not have an equal number of zeros and ones.</p>
+<p>Now consider the array below:</p>
+<div class="math">\[\mintinline{python}{[1, 1, 0, 0, 0, 0, 1, 1]}\]</div>
+<p>Since <span class="math">\(n = 8\)</span>, we again check the elements at index 1 and 2. We find 1 and 0, which tells us that the array <i>does</i> have an equal number of zeros and ones, as expected.</p>
 </details>
 
 </div>
