@@ -42,6 +42,121 @@
             },
             "templates": null
         },
+        "homeworks": {
+            "publication_schema": {
+                "required_artifacts": [
+                    "homework.pdf",
+                    "solution.pdf"
+                ],
+                "optional_artifacts": [],
+                "metadata_schema": {
+                    "required_keys": {
+                        "number": {
+                            "type": "integer"
+                        },
+                        "topic": {
+                            "type": "string"
+                        },
+                        "released": {
+                            "type": "datetime"
+                        },
+                        "due": {
+                            "type": "datetime"
+                        }
+                    }
+                },
+                "allow_unspecified_artifacts": false,
+                "is_ordered": true
+            },
+            "publications": {
+                "01-time_complexity": {
+                    "metadata": {
+                        "number": 1,
+                        "topic": "Time Complexity Analysis",
+                        "released": "2026-09-29 00:00:00",
+                        "due": "2026-10-06 23:59:00"
+                    },
+                    "artifacts": {
+                        "homework.pdf": {
+                            "path": "materials/homeworks/01-time_complexity/homework.pdf"
+                        }
+                    }
+                },
+                "02-asymptotic": {
+                    "metadata": {
+                        "number": 2,
+                        "topic": "Time Complexity and Asymptotic Notation",
+                        "released": "2026-10-07 00:00:00",
+                        "due": "2026-10-13 23:59:00"
+                    },
+                    "artifacts": {}
+                },
+                "03-recurrences-sorting": {
+                    "metadata": {
+                        "number": 3,
+                        "topic": "Recurrences and Sorting",
+                        "released": "2026-10-14 00:00:00",
+                        "due": "2026-10-20 23:59:00"
+                    },
+                    "artifacts": {}
+                },
+                "04-quickselect-bst": {
+                    "metadata": {
+                        "number": 4,
+                        "topic": "Quickselect and BSTs",
+                        "released": "2026-10-21 00:00:00",
+                        "due": "2026-10-27 23:59:00"
+                    },
+                    "artifacts": {}
+                },
+                "05-hashing": {
+                    "metadata": {
+                        "number": 5,
+                        "topic": "Hashing",
+                        "released": "2026-10-28 23:59:00",
+                        "due": "2026-11-03 23:59:00"
+                    },
+                    "artifacts": {}
+                },
+                "06-graphs": {
+                    "metadata": {
+                        "number": 6,
+                        "topic": "Graph Theory and BFS",
+                        "released": "2026-11-04 23:59:00",
+                        "due": "2026-11-10 23:59:00"
+                    },
+                    "artifacts": {}
+                },
+                "07-bfs-dfs": {
+                    "metadata": {
+                        "number": 7,
+                        "topic": "BFS and DFS",
+                        "released": "2026-11-11 23:59:00",
+                        "due": "2026-11-17 23:59:00"
+                    },
+                    "artifacts": {}
+                },
+                "08-spd": {
+                    "metadata": {
+                        "number": 8,
+                        "topic": "Shortest Paths in Weighted Graphs",
+                        "released": "2026-11-18 23:59:00",
+                        "due": "2026-11-24 23:59:00"
+                    },
+                    "artifacts": {}
+                },
+                "09-super_homework": {
+                    "metadata": {
+                        "number": 9,
+                        "topic": "Final Project",
+                        "released": "2026-11-25 23:59:00",
+                        "due": "2026-12-09 23:59:00"
+                    },
+                    "artifacts": {}
+                }
+            },
+            "templates": null
+        },
         "lectures": {
             "publication_schema": {
                 "required_artifacts": [
@@ -276,121 +391,6 @@
                         "date": "2026-12-03",
                         "topic": "Complexity Theory (Optional)",
                         "reading": null
-                    },
-                    "artifacts": {}
-                }
-            },
-            "templates": null
-        },
-        "homeworks": {
-            "publication_schema": {
-                "required_artifacts": [
-                    "homework.pdf",
-                    "solution.pdf"
-                ],
-                "optional_artifacts": [],
-                "metadata_schema": {
-                    "required_keys": {
-                        "number": {
-                            "type": "integer"
-                        },
-                        "topic": {
-                            "type": "string"
-                        },
-                        "released": {
-                            "type": "datetime"
-                        },
-                        "due": {
-                            "type": "datetime"
-                        }
-                    }
-                },
-                "allow_unspecified_artifacts": false,
-                "is_ordered": true
-            },
-            "publications": {
-                "01-time_complexity": {
-                    "metadata": {
-                        "number": 1,
-                        "topic": "Time Complexity Analysis",
-                        "released": "2026-09-29 00:00:00",
-                        "due": "2026-10-06 23:59:00"
-                    },
-                    "artifacts": {
-                        "homework.pdf": {
-                            "path": "materials/homeworks/01-time_complexity/homework.pdf"
-                        }
-                    }
-                },
-                "02-asymptotic": {
-                    "metadata": {
-                        "number": 2,
-                        "topic": "Time Complexity and Asymptotic Notation",
-                        "released": "2026-10-07 00:00:00",
-                        "due": "2026-10-13 23:59:00"
-                    },
-                    "artifacts": {}
-                },
-                "03-recurrences-sorting": {
-                    "metadata": {
-                        "number": 3,
-                        "topic": "Recurrences and Sorting",
-                        "released": "2026-10-14 00:00:00",
-                        "due": "2026-10-20 23:59:00"
-                    },
-                    "artifacts": {}
-                },
-                "04-quickselect-bst": {
-                    "metadata": {
-                        "number": 4,
-                        "topic": "Quickselect and BSTs",
-                        "released": "2026-10-21 00:00:00",
-                        "due": "2026-10-27 23:59:00"
-                    },
-                    "artifacts": {}
-                },
-                "05-hashing": {
-                    "metadata": {
-                        "number": 5,
-                        "topic": "Hashing",
-                        "released": "2026-10-28 23:59:00",
-                        "due": "2026-11-03 23:59:00"
-                    },
-                    "artifacts": {}
-                },
-                "06-graphs": {
-                    "metadata": {
-                        "number": 6,
-                        "topic": "Graph Theory and BFS",
-                        "released": "2026-11-04 23:59:00",
-                        "due": "2026-11-10 23:59:00"
-                    },
-                    "artifacts": {}
-                },
-                "07-bfs-dfs": {
-                    "metadata": {
-                        "number": 7,
-                        "topic": "BFS and DFS",
-                        "released": "2026-11-11 23:59:00",
-                        "due": "2026-11-17 23:59:00"
-                    },
-                    "artifacts": {}
-                },
-                "08-spd": {
-                    "metadata": {
-                        "number": 8,
-                        "topic": "Shortest Paths in Weighted Graphs",
-                        "released": "2026-11-18 23:59:00",
-                        "due": "2026-11-24 23:59:00"
-                    },
-                    "artifacts": {}
-                },
-                "09-super_homework": {
-                    "metadata": {
-                        "number": 9,
-                        "topic": "Final Project",
-                        "released": "2026-11-25 23:59:00",
-                        "due": "2026-12-09 23:59:00"
                     },
                     "artifacts": {}
                 }
