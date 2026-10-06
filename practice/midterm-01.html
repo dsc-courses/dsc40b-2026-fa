@@ -8,99 +8,25 @@
     
     <script defer src="https://unpkg.com/lucide@1.48.0/dist/umd/lucide.min.js"></script>
     
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+            },
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    
+    
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    
+    
 
 
-<style>
-  .multiple-choices .choice label,
-  .multiple-select .choice label {
-    display: flex;
-    align-items: center;
-    gap: 0.6em;
-    margin: 0.25em 0;
-    cursor: pointer;
-  }
-  .multiple-choices .choice p,
-  .multiple-select .choice p {
-    margin: 0;
-  }
 
-  /* practice problems: code blocks get a thin border instead of the theme's
-     thick dark frame around highlight.js's light box */
-  .problem pre.code {
-    background: #f6f8fa;
-    border: 1px solid #d0d7de;
-    border-radius: 6px;
-    padding: 0.75em 1em;
-  }
-  .problem pre.code code,
-  .problem pre.code code.hljs {
-    background: transparent;
-    padding: 0;
-  }
-
-  /* in dark mode (the theme puts .dark on <html>), code blocks use the
-     theme's grays, and highlight.js's light "default" colors are replaced by
-     those of its "github-dark" style */
-  .dark .problem pre.code {
-    background: #111827;
-    border-color: #374151;
-  }
-  .dark .problem pre.code code.hljs { color: #c9d1d9; }
-  .dark .problem .hljs-doctag,
-  .dark .problem .hljs-keyword,
-  .dark .problem .hljs-meta .hljs-keyword,
-  .dark .problem .hljs-template-tag,
-  .dark .problem .hljs-template-variable,
-  .dark .problem .hljs-type,
-  .dark .problem .hljs-variable.language_ { color: #ff7b72; }
-  .dark .problem .hljs-title,
-  .dark .problem .hljs-title.class_,
-  .dark .problem .hljs-title.function_ { color: #d2a8ff; }
-  .dark .problem .hljs-attr,
-  .dark .problem .hljs-attribute,
-  .dark .problem .hljs-literal,
-  .dark .problem .hljs-meta,
-  .dark .problem .hljs-number,
-  .dark .problem .hljs-operator,
-  .dark .problem .hljs-variable,
-  .dark .problem .hljs-selector-attr,
-  .dark .problem .hljs-selector-class,
-  .dark .problem .hljs-selector-id { color: #79c0ff; }
-  .dark .problem .hljs-regexp,
-  .dark .problem .hljs-string,
-  .dark .problem .hljs-meta .hljs-string { color: #a5d6ff; }
-  .dark .problem .hljs-built_in,
-  .dark .problem .hljs-symbol { color: #ffa657; }
-  .dark .problem .hljs-comment,
-  .dark .problem .hljs-code,
-  .dark .problem .hljs-formula { color: #8b949e; }
-  .dark .problem .hljs-name,
-  .dark .problem .hljs-quote,
-  .dark .problem .hljs-selector-tag,
-  .dark .problem .hljs-selector-pseudo { color: #7ee787; }
-  .dark .problem .hljs-subst,
-  .dark .problem .hljs-params { color: #c9d1d9; }
-  .dark .problem .hljs-section { color: #1f6feb; }
-  .dark .problem .hljs-bullet { color: #f2cc60; }
-
-  /* the theme's typography styles wrap inline code in literal backticks */
-  .problem code::before,
-  .problem code::after {
-    content: none;
-  }
-</style>
-
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".problem pre.code code").forEach(function (code) {
-      if (code.children.length === 0) {
-        code.textContent = code.textContent.replace(/^\s*\n/, "").replace(/\s+$/, "");
-      }
-    });
-  });
-</script>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -242,39 +168,13 @@ Course Staff
 </div>
 
     <div class="prose dark:prose-invert">
-    <!DOCTYPE html> <html> <head> <meta
-                          charset="utf-8"> <title>Midterm 01</title>
-
-           <!-- MathJax -->
-           <script type="text/x-mathjax-config">
-             MathJax.Hub.Config({
-               tex: {
-                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
-                 displayMath: [             // start/end delimiter pairs for display math
-                     ['\\[', '\\]']
-                 ],
-                 processEscapes: true
-               }
-           });
-           </script>
-
-           <!-- highlightjs -->
-           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-
-           <!-- and it's easy to individually load additional languages -->
-           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
-
-           <script>hljs.highlightAll();</script>
-
-           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-           <script type="text/javascript" id="MathJax-script" async
-             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-           </script>
-
-       </head>
-       <body>
-           
+    
+        <style>
+.multiple-choices .choice label, .multiple-select .choice label {
+    display: flex; align-items: center; gap: 0.6em; margin: 0.25em 0; cursor: pointer;
+}
+.multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+</style>
         <h1>Midterm 01</h1>
         <p>Practice problems for topics on Midterm 01.
 See also the <a href="http://dsc40b.com/materials/default/supplementary/sample_midterm_01/sample_midterm_01.pdf">Sample Midterm 01</a>
@@ -307,17 +207,13 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function?</p>
-<pre class="code"><code>
-def foo(arr):
+<pre class="code"><code class="language-python">def foo(arr):
     """`arr` is an array with n elements."""
     x = max(arr) * min(arr)
-    if sum(arr) > 10:
+    if sum(arr) &gt; 10:
         return x
     else:
-        return 0
-
-</code></pre>
-
+        return 0</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
@@ -337,8 +233,7 @@ def foo(arr):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function?</p>
-<pre class="code"><code>
-def also_the_variance(data):
+<pre class="code"><code class="language-python">def also_the_variance(data):
     """
     computes the variance of `data`
     `data` is a list of size n
@@ -347,10 +242,7 @@ def also_the_variance(data):
     total = 0
     for x in data:
         total += (x - mu)**2
-    return total / len(data)
-
-</code></pre>
-
+    return total / len(data)</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -379,8 +271,7 @@ def also_the_variance(data):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function?</p>
-<pre class="code"><code>
-def variance(data):
+<pre class="code"><code class="language-python">def variance(data):
     """
     computes the variance of `data`
     `data` is a list of size n
@@ -390,10 +281,7 @@ def variance(data):
     for x in data:
         mu = sum(data) / len(data)
         total += (x - mu)**2
-    return total / len(data)
-
-</code></pre>
-
+    return total / len(data)</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -422,16 +310,12 @@ def variance(data):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function?</p>
-<pre class="code"><code>
-def foo(arr):
+<pre class="code"><code class="language-python">def foo(arr):
     """arr is an array of size n"""
     n = len(arr)
     for i in range(n):
         r = sum(arr) * sum(arr)
-        print(r)
-
-</code></pre>
-
+        print(r)</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -460,14 +344,10 @@ def foo(arr):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose numbers is a list of integers of length <span class="math">\(n\)</span>. What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>) in the simplest terms possible.</p>
-<pre class="code"><code>
-def foo(numbers):
+<pre class="code"><code class="language-python">def foo(numbers):
     for x in numbers:
         r = max(numbers) * min(numbers) * x
-        print(r)
-
-</code></pre>
-
+        print(r)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span></p>
@@ -487,19 +367,15 @@ def foo(numbers):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
-<pre class="code"><code>
-def foo(arr):
+<pre class="code"><code class="language-python">def foo(arr):
     """`arr` is a list containing n numbers."""
     for x in arr:
-        if x > max(arr) / 2:
+        if x &gt; max(arr) / 2:
             print('large!')
-        elif x < min(arr) * 2:
+        elif x &lt; min(arr) * 2:
             print('small!')
         else:
-            print('neither!')
-
-</code></pre>
-
+            print('neither!')</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span></p>
@@ -519,20 +395,16 @@ def foo(arr):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
-<pre class="code"><code>
-def foo(arr):
+<pre class="code"><code class="language-python">def foo(arr):
     """`arr` is a list containing n numbers."""
     for x in arr:
         n = len(arr)
-        if x > sum(arr) / n:
+        if x &gt; sum(arr) / n:
             print('large!')
-        elif x < sum(arr) / n:
+        elif x &lt; sum(arr) / n:
             print('small!')
         else:
-            print('neither!')
-
-</code></pre>
-
+            print('neither!')</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span></p>
@@ -552,16 +424,11 @@ def foo(arr):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
-<pre class="code"><code>
-
-def foo(n):
+<pre class="code"><code class="language-python">def foo(n):
     for i in range(n):
         for j in range(n):
             for k in range(n**2):
-                print(i + j + k)
-
-</code></pre>
-
+                print(i + j + k)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^4)\)</span></p>
@@ -581,16 +448,11 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
-<pre class="code"><code>
-
-def foo(n):
+<pre class="code"><code class="language-python">def foo(n):
     for i in range(n):
         for j in range(n**2):
             for k in range(n):
-                print(i + j + k)
-
-</code></pre>
-
+                print(i + j + k)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^4)\)</span></p>
@@ -610,15 +472,11 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function?</p>
-<pre class="code"><code>
-def foo(n):
+<pre class="code"><code class="language-python">def foo(n):
     for i in range(n**2 - 2*n + 100):
         j = 0
-        while j < n:
-            j += 1
-
-</code></pre>
-
+        while j &lt; n:
+            j += 1</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -647,17 +505,13 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function?</p>
-<pre class="code"><code>
-def foo(n):
+<pre class="code"><code>def foo(n):
     total = 0
     for i in range(n**2):
         for j in range(n**2 + 5*n - 100):
             for k in range(n // 1_000_000):
                 total += i**2 + n**2
-    return total
-
-</code></pre>
-
+    return total</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
@@ -686,16 +540,12 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function?</p>
-<pre class="code"><code>
-import math
+<pre class="code"><code class="language-python">import math
 
 def foo(n):
     for i in range(math.floor(math.sqrt(n))):
         for j in range(math.floor(5*n**2 - math.sqrt(n)/1_000_000 + 100)):
-            print(n * n)
-
-</code></pre>
-
+            print(n * n)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2 \sqrt n)\)</span></p>
@@ -715,17 +565,12 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>Express the time complexity of the following code using asymptotic notation in as simplest terms possible.</p>
-<pre class="code"><code>
-
-def foo(n):
+<pre class="code"><code class="language-python">def foo(n):
     for i in range(n**3):
         for j in range(n):
             print(i + j)
         for j in range(n**2):
-            print(i + j)
-
-</code></pre>
-
+            print(i + j)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^5)\)</span></p>
@@ -745,17 +590,13 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
-<pre class="code"><code>
-def foo(n):
+<pre class="code"><code class="language-python">def foo(n):
     for i in range(n**3):
         for j in range(n):
             print(i + j)
     for k in range(n):
         for l in range(n**2):
-            print(k * l)
-
-</code></pre>
-
+            print(k * l)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^4)\)</span></p>
@@ -775,17 +616,13 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>) in the simplest terms possible.</p>
-<pre class="code"><code>
-import math
+<pre class="code"><code class="language-python">import math
 def foo(n):
     for i in range(3 * n**3 + 5 * n * math.ceil(math.log(n))):
         for j in range(math.floor(math.sqrt(n))):
             print(i + j)
         for k in range(n**2):
-            print(k * i)
-
-</code></pre>
-
+            print(k * i)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^5)\)</span></p>
@@ -805,14 +642,10 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function?</p>
-<pre class="code"><code>
-def foo(n):
-    while n > 1:
+<pre class="code"><code>def foo(n):
+    while n &gt; 1:
         n /= 10
-        print(n)
-
-</code></pre>
-
+        print(n)</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
@@ -840,18 +673,14 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation in the simplest form possible. (e.g., <span class="math">\(\Theta(n)\)</span>)</p>
-<pre class="code"><code>
-import math
+<pre class="code"><code class="language-python">import math
 
 def boo(n):
     i = n
-    while i > 1:
+    while i &gt; 1:
         i = i / 2
         for j in range(1_000_000):
-            print(i + j)
-
-</code></pre>
-
+            print(i + j)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(\log n)\)</span></p>
@@ -871,8 +700,7 @@ def boo(n):
         <div class="problem">
     <div class="problem-body">
 <p>Express the time complexity of the following code using asymptotic notation in as simplest terms possible.</p>
-<pre class="code"><code>
-import math
+<pre class="code"><code class="language-python">import math
 
 def foo(arr):
     """`arr` is an array with n elements."""
@@ -880,14 +708,11 @@ def foo(arr):
     ix = 1
     s = 0
 
-    while ix < n:
+    while ix &lt; n:
         s = s + arr[ix]
         ix = ix * 5 + 2
 
-    return s
-
-</code></pre>
-
+    return s</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(\log n)\)</span></p>
@@ -907,17 +732,13 @@ def foo(arr):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function?</p>
-<pre class="code"><code>
-def foo(n):
+<pre class="code"><code class="language-python">def foo(n):
     i = 1
-    while i < n:
+    while i &lt; n:
         j = 0
-        while j < n:
+        while j &lt; n:
             j += 1
-        i *= 2
-
-</code></pre>
-
+        i *= 2</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -946,16 +767,12 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>) in the simplest terms possible.</p>
-<pre class="code"><code>
-def foo(n):
+<pre class="code"><code class="language-python">def foo(n):
     i = 1
-    while i < n**3:
+    while i &lt; n**3:
         i = i * 2
         for j in range(n):
-            print(i + j)
-
-</code></pre>
-
+            print(i + j)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n\log n)\)</span></p>
@@ -975,16 +792,12 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
-<pre class="code"><code>
-from math import sqrt, log, ceil
+<pre class="code"><code class="language-python">from math import sqrt, log, ceil
 
 def foo(n):
     for i in range(ceil(n**3 - 10*n + sqrt(n))):
         for j in range(ceil(log(n**2))):
-            print(i, j)
-
-</code></pre>
-
+            print(i, j)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^3 \log n)\)</span></p>
@@ -1004,19 +817,15 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
-<pre class="code"><code>
-def foo(n):
+<pre class="code"><code class="language-python">def foo(n):
     i = 0
-    while i < n**2:
+    while i &lt; n**2:
         i = i + 2
         j = 0
-        while j < n:
+        while j &lt; n:
             for k in range(n):
                 print(i + j + k)
-            j = j + 10
-
-</code></pre>
-
+            j = j + 10</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^4)\)</span></p>
@@ -1036,15 +845,11 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>) in the simplest terms possible.</p>
-<pre class="code"><code>
-def foo(n):
+<pre class="code"><code class="language-python">def foo(n):
     for i in range(n):
         for j in range(2023):
             for k in range(n - i):
-                print("DSC40B")
-
-</code></pre>
-
+                print("DSC40B")</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span></p>
@@ -1064,15 +869,11 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>Express the time complexity of the following code using asymptotic notation in as simplest terms possible.</p>
-<pre class="code"><code>
-def foo(n):
+<pre class="code"><code class="language-python">def foo(n):
     for i in range(n):
         for j in range(i):
             for k in range(n):
-                print(i + j + k)
-
-</code></pre>
-
+                print(i + j + k)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^3)\)</span></p>
@@ -1092,15 +893,11 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function?</p>
-<pre class="code"><code>
-def foo(n):
+<pre class="code"><code class="language-python">def foo(n):
     for i in range(n):
         for j in range(n):
             for k in range(j): # ← notice the range!
-                print(j)
-
-</code></pre>
-
+                print(j)</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
@@ -1129,18 +926,14 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function?</p>
-<pre class="code"><code>
-def foo(n):
+<pre class="code"><code class="language-python">def foo(n):
     i = 0
-    while i < n:
+    while i &lt; n:
         j = 0
-        while j < i:
+        while j &lt; i:
             print(i + j)
             j += 1
-        i += 5
-
-</code></pre>
-
+        i += 5</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span></p>
@@ -1160,14 +953,10 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>Express the time complexity of the following code using asymptotic notation in as simplest terms possible.</p>
-<pre class="code"><code>
-def foo(n):
+<pre class="code"><code class="language-python">def foo(n):
     for i in range(200, n):
         for j in range(i, 2*i + n**2):
-            print(i + j)
-
-</code></pre>
-
+            print(i + j)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^3)\)</span></p>
@@ -1187,14 +976,10 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation in the simplest form possible. (e.g., <span class="math">\(\Theta(n)\)</span>)</p>
-<pre class="code"><code>
-def boo(n):
+<pre class="code"><code class="language-python">def boo(n):
     for i in range(200, n):
         for j in range(i, i * n):
-            print(i + j)
-
-</code></pre>
-
+            print(i + j)</code></pre>
 <details>
     <summary>Solution</summary>
 <p>If you count the number of times the inner loop body executes, you'll get something like <span class="math">\(n + 2n + 3n + \ldots + n\times n\)</span>. Factoring out the <span class="math">\(n\)</span> and using the formula for the sum of the first <span class="math">\(n\)</span> integers, we get <span class="math">\(n (1 + 2 + 3 + \ldots + n) = n \Theta(n^2) = \Theta(n^3)\)</span>.</p>
@@ -1214,16 +999,12 @@ def boo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
-<pre class="code"><code>
-import math
+<pre class="code"><code class="language-python">import math
 
 def foo(n):
     for i in range(math.floor(math.sqrt(n))):
         for j in range(i):
-            print(i + j)
-
-</code></pre>
-
+            print(i + j)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
@@ -1243,8 +1024,7 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
-<pre class="code"><code>
-def foo(n):
+<pre class="code"><code class="language-python">def foo(n):
     for i in range(n**2):
 
         for j in range(i):
@@ -1254,10 +1034,7 @@ def foo(n):
             print(i+k)
 
         for x in range(n - i):
-            print(x)
-
-</code></pre>
-
+            print(x)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^4)\)</span></p>
@@ -1277,16 +1054,12 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation in the simplest form possible. (e.g., <span class="math">\(\Theta(n)\)</span>)</p>
-<pre class="code"><code>
-import math
+<pre class="code"><code class="language-python">import math
 def boo(n):
     for i in range(n):
         for j in range(n**2 + 100, 500*n**3):
             for k in range(1_000, math.floor(math.log(n))):
-                print(i + j + k)
-
-</code></pre>
-
+                print(i + j + k)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^4 \log n)\)</span></p>
@@ -1522,16 +1295,11 @@ def boo(n):
     <div class="problem-body">
 <p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s time complexity is <span class="math">\(\Theta(n^3)\)</span>, while <span class="inline-code"><code>baz</code></span>'s time complexity is <span class="math">\(\Theta(n^2)\)</span>.</p>
 <p>Suppose <span class="inline-code"><code>boo</code></span> is defined as below:</p>
-<pre class="code"><code>
-
-def boo(n):
-    if n < 1000:
+<pre class="code"><code class="language-python">def boo(n):
+    if n &lt; 1000:
         bar(n)
     else:
-        baz(n)
-
-</code></pre>
-
+        baz(n)</code></pre>
 <p>What is the asymptotic time complexity of <span class="inline-code"><code>boo</code></span>?</p>
 <details>
     <summary>Solution</summary>
@@ -1553,16 +1321,11 @@ def boo(n):
     <div class="problem-body">
 <p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s time complexity is <span class="math">\(\Theta(n^3)\)</span>, while <span class="inline-code"><code>baz</code></span>'s time complexity is <span class="math">\(\Theta(n^2)\)</span>.</p>
 <p>Suppose <span class="inline-code"><code>foo</code></span> is defined as below:</p>
-<pre class="code"><code>
-
-def foo(n):
-    if n < 1_000:
+<pre class="code"><code class="language-python">def foo(n):
+    if n &lt; 1_000:
         bar(n)
     else:
-        baz(n)
-
-</code></pre>
-
+        baz(n)</code></pre>
 <p>What is the asymptotic time complexity of <span class="inline-code"><code>foo</code></span>?</p>
 <details>
     <summary>Solution</summary>
@@ -1584,16 +1347,11 @@ def foo(n):
     <div class="problem-body">
 <p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s asymptotic time complexity is <span class="math">\(\Theta(n^4)\)</span>, while <span class="inline-code"><code>baz</code></span>'s is <span class="math">\(\Theta(n)\)</span>.</p>
 <p>Suppose <span class="inline-code"><code>foo</code></span> is defined as below:</p>
-<pre class="code"><code>
-
-def foo(n):
-    if n < 1_000_000:
+<pre class="code"><code class="language-python">def foo(n):
+    if n &lt; 1_000_000:
         bar(n)
     else:
-        baz(n)
-
-</code></pre>
-
+        baz(n)</code></pre>
 <p>What is the asymptotic time complexity of <span class="inline-code"><code>foo</code></span>?</p>
 <details>
     <summary>Solution</summary>
@@ -1618,17 +1376,13 @@ def foo(n):
     <div class="problem-body">
 <p>Suppose <span class="inline-code"><code>bar_1</code></span>, <span class="inline-code"><code>bar_2</code></span> and <span class="inline-code"><code>bar_3</code></span> are three functions. Suppose <span class="inline-code"><code>bar_1</code></span>'s time complexity is <span class="math">\(\Theta(n)\)</span>, <span class="inline-code"><code>bar_2</code></span>'s time complexity is <span class="math">\(\Theta(n^2)\)</span>, and <span class="inline-code"><code>bar_3</code></span>'s time complexity is <span class="math">\(\Theta(n^3)\)</span>.</p>
 <p>Suppose <span class="inline-code"><code>foo</code></span> is defined as below:</p>
-<pre class="code"><code>
-def foo(n):
-    if n < 2023:
+<pre class="code"><code class="language-python">def foo(n):
+    if n &lt; 2023:
         bar_1(n**3)
     elif n == 2023:
         bar_3(n**2)
     else:
-        bar_2(n)
-
-</code></pre>
-
+        bar_2(n)</code></pre>
 <p>What is the asymptotic time complexity of <span class="inline-code"><code>foo</code></span>?</p>
 <details>
     <summary>Solution</summary>
@@ -1650,18 +1404,13 @@ def foo(n):
     <div class="problem-body">
 <p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s time complexity is <span class="math">\(\Theta(n^2)\)</span>, while <span class="inline-code"><code>baz</code></span>'s time complexity is <span class="math">\(\Theta(n)\)</span>.</p>
 <p>Suppose <span class="inline-code"><code>foo</code></span> is defined as below:</p>
-<pre class="code"><code>
-
-def foo(n):
+<pre class="code"><code class="language-python">def foo(n):
     # will be True if n is even, False otherwise
     is_even = (n % 2) == 0
     if is_even:
         bar(n)
     else:
-        baz(n)
-
-</code></pre>
-
+        baz(n)</code></pre>
 <p>Let <span class="math">\(T(n)\)</span> be the time taken by <span class="inline-code"><code>foo</code></span> on an input of sized <span class="math">\(n\)</span>. True or False: <span class="math">\(T(n) = \Theta(n^2)\)</span>.</p>
 
 <div class="true-false">
@@ -1967,14 +1716,10 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function?</p>
-<pre class="code"><code>
-def foo(n):
+<pre class="code"><code class="language-python">def foo(n):
     for i in range(n):
-        for j in range(i**2): # <-- notice the bound!
-            print(i + j)
-
-</code></pre>
-
+        for j in range(i**2): # &lt;-- notice the bound!
+            print(i + j)</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -2003,8 +1748,7 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation in the simplest form possible. (e.g., <span class="math">\(\Theta(n)\)</span>)</p>
-<pre class="code"><code>
-import math
+<pre class="code"><code class="language-python">import math
 
 def boo(n):
     for i in range(n):
@@ -2013,10 +1757,7 @@ def boo(n):
 
     for i in range(math.floor(math.sqrt(n))):
         for j in range(math.log2(i), i * math.floor(math.log2(i + 10))):
-            print(i + j)
-
-</code></pre>
-
+            print(i + j)</code></pre>
 <details>
     <summary>Solution</summary>
 <p>The second loop looks complicated to analyze, but we can effectively ignore it. This is because the most <span class="inline-code"><code>i</code></span> can ever be is <span class="math">\(\sqrt
@@ -2498,21 +2239,17 @@ def boo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the best case time complexity of the following code?</p>
-<pre class="code"><code>
-def insertion_sort(arr):
+<pre class="code"><code class="language-python">def insertion_sort(arr):
     """Sort `arr` in ascending order."""
     n = len(arr)
     for i in range(1, n):
         x = arr[i]
         j = i - 1
         # find where to place x
-        while j >= 0 and x < arr[j]:
+        while j &gt;= 0 and x &lt; arr[j]:
             arr[j+1] = arr[j]
             j -= 1
-        arr[j+1] = x
-
-</code></pre>
-
+        arr[j+1] = x</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -2541,21 +2278,17 @@ def insertion_sort(arr):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <i>worst case</i> time complexity of the following code?</p>
-<pre class="code"><code>
-def insertion_sort(arr):
+<pre class="code"><code class="language-python">def insertion_sort(arr):
     """Sort `arr` in ascending order."""
     n = len(arr)
     for i in range(1, n):
         x = arr[i]
         j = i - 1
         # find where to place x
-        while j >= 0 and x < arr[j]:
+        while j &gt;= 0 and x &lt; arr[j]:
             arr[j+1] = arr[j]
             j -= 1
-        arr[j+1] = x
-
-</code></pre>
-
+        arr[j+1] = x</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -2584,17 +2317,13 @@ def insertion_sort(arr):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <i>best case</i> time complexity of the following function?</p>
-<pre class="code"><code>
-def foo(arr):
+<pre class="code"><code class="language-python">def foo(arr):
     """arr is an array of size n"""
     for x in arr:
         for y in arr:
             if sum([x,y]) == 5:
                 return sum(arr)
-    return False
-
-</code></pre>
-
+    return False</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -2623,17 +2352,13 @@ def foo(arr):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <i>worst case</i> time complexity of the following function?</p>
-<pre class="code"><code>
-def foo(arr):
+<pre class="code"><code class="language-python">def foo(arr):
     """arr is an array of size n"""
     for x in arr:
         for y in arr:
             if sum([x,y]) == 5:
                 return sum(arr)
-    return False
-
-</code></pre>
-
+    return False</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -2662,8 +2387,7 @@ def foo(arr):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>best case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
-<pre class="code"><code>
-def foo(arr):
+<pre class="code"><code class="language-python">def foo(arr):
     """`arr` is a list containing n numbers."""
     previous = None
     n = len(arr)
@@ -2672,10 +2396,7 @@ def foo(arr):
             for i in range(n**2):
                 print('Equal!')
             return
-        previous = x
-
-</code></pre>
-
+        previous = x</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
@@ -2695,8 +2416,7 @@ def foo(arr):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>best case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
-<pre class="code"><code>
-def foo(arr):
+<pre class="code"><code class="language-python">def foo(arr):
     """`arr` is a list containing n numbers."""
     previous = None
     n = len(arr)
@@ -2705,10 +2425,7 @@ def foo(arr):
             for i in range(n**2):
                 print('Equal!')
             return
-        previous = x
-
-</code></pre>
-
+        previous = x</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
@@ -2728,8 +2445,7 @@ def foo(arr):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>worst case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
-<pre class="code"><code>
-def foo(arr):
+<pre class="code"><code class="language-python">def foo(arr):
     """`arr` is a list containing n numbers."""
     previous = None
     n = len(arr)
@@ -2738,10 +2454,7 @@ def foo(arr):
             for i in range(n**2):
                 print('Equal!')
             return
-        previous = x
-
-</code></pre>
-
+        previous = x</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span></p>
@@ -2782,15 +2495,11 @@ def foo(arr):
         <div class="problem">
     <div class="problem-body">
 <p>The below code takes in an array of numbers and returns the index of the first maximum. What is this code's <b>best case</b> time complexity?</p>
-<pre class="code"><code>
-def index_of_maximum(arr):
+<pre class="code"><code class="language-python">def index_of_maximum(arr):
     """`arr` is an array with n elements."""
     for i, x in enumerate(arr):
         if x == max(arr):
-            return i
-
-</code></pre>
-
+            return i</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
@@ -2810,15 +2519,11 @@ def index_of_maximum(arr):
         <div class="problem">
     <div class="problem-body">
 <p>The below code takes in an array of numbers and returns the index of the first maximum.</p>
-<pre class="code"><code>
-def foo(arr):
+<pre class="code"><code class="language-python">def foo(arr):
     """`arr` is an array with n elements."""
     for i, x in enumerate(arr):
         if x == max(arr):
-            return i
-
-</code></pre>
-
+            return i</code></pre>
 <p>What is the <b>worst case</b> time complexity of the function?</p>
 <details>
     <summary>Solution</summary>
@@ -2840,18 +2545,14 @@ def foo(arr):
     <div class="problem-body">
 <p>The code below takes in an array of <span class="math">\(n\)</span> numbers and checks whether there is a pair of numbers in the array which, when added together, equal the maximum element of the array.</p>
 <p>What is the <b>best case</b> time complexity of this code as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
-<pre class="code"><code>
-def exists_pair_summing_to_max(arr):
+<pre class="code"><code class="language-python">def exists_pair_summing_to_max(arr):
     n = len(arr)
     maximum = max(arr)
     for i in range(n):
         for j in range(i + 1, n):
             if arr[i] + arr[j] == maximum:
                 return True
-    return False
-
-</code></pre>
-
+    return False</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
@@ -2871,8 +2572,7 @@ def exists_pair_summing_to_max(arr):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <i>expected</i> time complexity of the following function?</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 
 def foo(n):
     # randomly draw a number from 0, 1, 2, ..., n-1
@@ -2884,10 +2584,7 @@ def foo(n):
         print("lucky!")
 
     for i in range(n):
-        print(i)
-
-</code></pre>
-
+        print(i)</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -2916,18 +2613,14 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the following function? State your answer using asymptotic notation.</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 
 def boo(n):
     # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
     x = random.randrange(n)
 
-    for i in range(x): # <-- note that the range is random!
-        print(i)
-
-</code></pre>
-
+    for i in range(x): # &lt;-- note that the range is random!
+        print(i)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
@@ -2947,8 +2640,7 @@ def boo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below?</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 
 def foo(n):
     # draw a random number uniformly from 0, 1, 2, ..., 99
@@ -2956,10 +2648,7 @@ def foo(n):
     x = random.randrange(100)
     for i in range(x):
         for j in range(n):
-            print("Here!")
-
-</code></pre>
-
+            print("Here!")</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span>. Note that in this question, the range of <span class="math">\(x\)</span> is between 0 and 99. Therefore the outer loop will run a constant number of times no matter what <span class="math">\(x\)</span> is. Then we can focus on the inner loop, which runs for <span class="math">\(n\)</span> times the print() operation, which is <span class="math">\(\Theta(n)\)</span> time. Therefore, the expected time complexity for this piece of code is <span class="math">\(\Theta(n)\)</span>.</p>
@@ -2998,8 +2687,7 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>The code below takes in two lists, each containing <span class="math">\(n\)</span> integers, and determines if the any number in the second list appears at least <span class="math">\(n/2\)</span> times in the first list.</p>
-<pre class="code"><code>
-def boo(first_list, second_list):
+<pre class="code"><code class="language-python">def boo(first_list, second_list):
     """first_list and second_list are both of size n"""
     n = len(first_list)
     for x in second_list:
@@ -3007,12 +2695,9 @@ def boo(first_list, second_list):
         for y in first_list:
             if x == y:
                 count += 1
-            if count >= n // 2:
+            if count &gt;= n // 2:
                 return True
-    return False
-
-</code></pre>
-
+    return False</code></pre>
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
 <p>What is the <b>best case</b> time complexity of this code as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
@@ -3053,8 +2738,7 @@ def boo(first_list, second_list):
         <div class="problem">
     <div class="problem-body">
 <p>The code below takes in two lists, each containing <span class="math">\(n\)</span> integers.</p>
-<pre class="code"><code>
-def are_lists_equal(list1, list2):
+<pre class="code"><code class="language-python">def are_lists_equal(list1, list2):
     if len(list1) != len(list2):
         return False
     for i in range(len(list1)):
@@ -3071,10 +2755,7 @@ def foo(list1, list2):
         for i in list1:
             for j in list2:
                 for k in range(len(list1)):
-                    print(i, j, k)
-
-</code></pre>
-
+                    print(i, j, k)</code></pre>
 <p>What is the best case time complexity of <span class="inline-code"><code>foo</code></span> as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
@@ -3095,8 +2776,7 @@ def foo(list1, list2):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below?</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 
 def foo(n):
     # draw a random number uniformly from 0, 1, 2, ..., n-1
@@ -3104,10 +2784,7 @@ def foo(n):
     x = random.randrange(n)
     for i in range(x):
         for j in range(n):
-            print("Here!")
-
-</code></pre>
-
+            print("Here!")</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>. The inner loop is not random, and the time complexity of it is always <span class="math">\(\Theta(n)\)</span>. Therefore the expected time complexity of this function will be (using the arithmetic sequence sum formula)</p>
@@ -3128,18 +2805,14 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the following function?</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 
 def foo(n):
     for i in range(n):
         # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
         x = random.randrange(n)
         for j in range(x):
-            print(j)
-
-</code></pre>
-
+            print(j)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>. For this function, the outer loop wil execute <span class="math">\(n\)</span> times no matter what, hence we only have to find what the expected time complexity for the inner loop is, then combine that together with the outer loop. For the inner loop, the expected time complexity is</p>
@@ -3162,19 +2835,15 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below?</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 
 def foo(n):
     # draw a number uniformly at random from 0, 1, 2, ..., n-1
     # in constant time
     x = random.randrange(n)
-    if x < 100:
+    if x &lt; 100:
         for j in range(n**2):
-            print(j)
-
-</code></pre>
-
+            print(j)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span>. The for loop is only executed if <span class="math">\(x\)</span> is less than 100, therefore we can write the expected time as (ignoring constants <span class="math">\(c\)</span>):</p>
@@ -3195,21 +2864,17 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the following function? State your answer using asymptotic notation.</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 
 def foo(n):
     x = random.randrange(n)
 
-    if x < 8:
+    if x &lt; 8:
         for j in range(n**3):
             print(j)
     else:
         for j in range(n):
-            print(j)
-
-</code></pre>
-
+            print(j)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>. The expected time complexity for this function is</p>
@@ -3230,22 +2895,18 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below? State your answer using asymptotic notation.</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 def foo(n):
     # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1) time
     x = random.randrange(n)
-    if x < 20:
+    if x &lt; 20:
         for i in range(n**3):
             print("Very unlucky!")
-    elif x < n / 2:
+    elif x &lt; n / 2:
         for i in range(n):
             print("Unlucky!")
     else:
-        print("Lucky!")
-
-</code></pre>
-
+        print("Lucky!")</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>.</p>
@@ -3265,18 +2926,14 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below?</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 
 def foo(n):
     # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
     x = random.randrange(n)
-    if x < math.sqrt(n):
+    if x &lt; math.sqrt(n):
         for j in range(n):
-            print(j)
-
-</code></pre>
-
+            print(j)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(\sqrt n)\)</span>. Since the for loop only executes when <span class="math">\(x\)</span> is less than <span class="math">\(\sqrt{n}\)</span>, the expected time complexity is</p>
@@ -3298,25 +2955,21 @@ def foo(n):
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below?</p>
 <p>You may assume that <span class="inline-code"><code>math.sqrt</code></span> takes <span class="math">\(\Theta(1)\)</span> time.</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 import math
 
 def foo(n):
     # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
     x = random.randrange(n)
 
-    if x < math.sqrt(n):
+    if x &lt; math.sqrt(n):
         for j in range(n):
             print(j)
-    elif x < n//2:
+    elif x &lt; n//2:
         print('Ok!')
     else:
         for i in range(n**2):
-            print(i)
-
-</code></pre>
-
+            print(i)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>. The expected time complexity for this function is</p>
@@ -3341,25 +2994,21 @@ def foo(n):
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below? State your answer using asymptotic notation.</p>
 <p>You may assume that <span class="inline-code"><code>math.sqrt</code></span> and <span class="inline-code"><code>math.log2</code></span> take <span class="math">\(\Theta(1)\)</span> time.</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 import math
 
 def boo(n):
     # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
     x = random.randrange(n)
 
-    if x < math.log2(n):
+    if x &lt; math.log2(n):
         for i in range(n**2):
             print("Very unlucky!")
-    elif x < math.sqrt(n):
+    elif x &lt; math.sqrt(n):
         for i in range(n):
             print("Unlucky!")
     else:
-        print("Lucky!")
-
-</code></pre>
-
+        print("Lucky!")</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n \log n)\)</span> There are three cases: Case 1) <span class="math">\(x < \log_2 n\)</span>; Case 2) <span class="math">\(1 < x < \sqrt n\)</span>; and Case 3) <span class="math">\(x \geq\sqrt{n}\)</span>.</p>
@@ -3392,25 +3041,21 @@ def boo(n):
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below? State your answer using asymptotic notation.</p>
 <p>You may assume that <span class="inline-code"><code>math.sqrt</code></span> and <span class="inline-code"><code>math.log</code></span> take <span class="math">\(\Theta(1)\)</span> time. <span class="inline-code"><code>math.log</code></span> computes the natural log.</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 import math
 
 def foo(n):
     # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
     x = random.randrange(n)
 
-    if x < math.log(n):
+    if x &lt; math.log(n):
         for j in range(n**2):
             print(j)
-    elif x < math.sqrt(n):
+    elif x &lt; math.sqrt(n):
         print('Ok!')
     else:
         for i in range(n):
-            print(i)
-
-</code></pre>
-
+            print(i)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n \log n)\)</span> There are three cases: Case 1) <span class="math">\(x < \log n\)</span>; Case 2) <span class="math">\(\log n \geq x <
@@ -3518,26 +3163,21 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the version of binary search shown below:</p>
-<pre class="code"><code>
-
-import math
+<pre class="code"><code class="language-python">import math
 def binary_search(arr, t, start, stop):
     """
     Searches arr[start:stop] for t.
     Assumes arr is sorted.
     """
-    if stop - start <= 0:
+    if stop - start &lt;= 0:
         return None
     middle = math.floor((start + stop)/2)
     if arr[middle] == t:
         return middle
-    elif arr[middle] > t:
+    elif arr[middle] &gt; t:
         return binary_search(arr, t, start, middle)
     else:
-        return binary_search(arr, t, middle+1, stop)
-
-</code></pre>
-
+        return binary_search(arr, t, middle+1, stop)</code></pre>
 <p>True or false: if the target element <span class="inline-code"><code>t</code></span> occurs multiple times in the array, <span class="inline-code"><code>binary_search</code></span> is guaranteed to return the first occurrence.</p>
 <p>You may assume that <span class="inline-code"><code>arr</code></span> is sorted and that <span class="inline-code"><code>binary_search(arr, t, 0, len(arr))</code></span> is called.</p>
 
@@ -3566,16 +3206,12 @@ def binary_search(arr, t, start, stop):
         <div class="problem">
     <div class="problem-body">
 <p>Will the following code always do what it says? You may assume that <span class="inline-code"><code>numbers</code></span> is a (possibly empty) array of numbers. The product of zero numbers is defined to be 1. Select all that apply.</p>
-<pre class="code"><code>
-def product(numbers):
+<pre class="code"><code>def product(numbers):
     """Should return the product of all elements in numbers"""
     if len(numbers) == 0:
         return 1
     else:
-        return numbers[0] * product(numbers[1:])
-
-</code></pre>
-
+        return numbers[0] * product(numbers[1:])</code></pre>
 <div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>Yes</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>No - it may encounter infinite recursion because the problem size does not always reduce in size</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>No - it does not infinitely recurse, but the result may be incorrect</p></label></div></div>
@@ -3598,8 +3234,7 @@ def product(numbers):
         <div class="problem">
     <div class="problem-body">
 <p>Will the following code always do what it claims? You may assume that <span class="inline-code"><code>numbers</code></span> is a (possibly empty) array of numbers. Select all that apply.</p>
-<pre class="code"><code>
-def reverse(numbers):
+<pre class="code"><code>def reverse(numbers):
     """Should reverse a given list of numbers."""
     if len(numbers) == 0:
         return numbers
@@ -3607,10 +3242,7 @@ def reverse(numbers):
         # numbers[:-1] *slices* the list, creating a new list
         # with the same elements as the original, except with
         # the last element removed
-        return reverse(numbers[:-1])
-
-</code></pre>
-
+        return reverse(numbers[:-1])</code></pre>
 <div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>Yes</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>No - it may encounter infinite recursion because the problem size does not always reduce in size</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>No - it does not infinitely recurse, but the result may be incorrect</p></label></div></div>
@@ -3633,19 +3265,15 @@ def reverse(numbers):
         <div class="problem">
     <div class="problem-body">
 <p>State (but do not solve) the recurrence describing the run time of the following code, assuming that the input, <span class="inline-code"><code>arr</code></span>, is a list of size <span class="math">\(n\)</span>.</p>
-<pre class="code"><code>
-def foo(arr, stop=None):
+<pre class="code"><code class="language-python">def foo(arr, stop=None):
     if stop is None:
         stop = len(arr) - 1
 
-    if stop < 0:
+    if stop &lt; 0:
         return 1
 
     last = arr[stop]
-    return last * foo(arr, stop - 1)
-
-</code></pre>
-
+    return last * foo(arr, stop - 1)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(T(n) = T(n-1) + \Theta(1)\)</span></p>
@@ -3665,19 +3293,15 @@ def foo(arr, stop=None):
         <div class="problem">
     <div class="problem-body">
 <p>State (but do not solve) the recurrence describing the run time of the following code, assuming that the input, <span class="inline-code"><code>arr</code></span>, is a list of size <span class="math">\(n\)</span>.</p>
-<pre class="code"><code>
-def foo(arr, stop=None):
+<pre class="code"><code class="language-python">def foo(arr, stop=None):
     if stop is None:
         stop = len(arr) - 1
 
-    if stop < 0:
+    if stop &lt; 0:
         return 1
 
     last = arr[stop]
-    return last * foo(arr, stop - 1)
-
-</code></pre>
-
+    return last * foo(arr, stop - 1)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(T(n) = T(n-1) + \Theta(1)\)</span></p>
@@ -3697,18 +3321,14 @@ def foo(arr, stop=None):
         <div class="problem">
     <div class="problem-body">
 <p>State (but do not solve) the recurrence describing the runtime of the following function.</p>
-<pre class="code"><code>
-def foo(n):
-    if n < 1:
+<pre class="code"><code class="language-python">def foo(n):
+    if n &lt; 1:
         return 0
 
     for i in range(n**2):
         print("here")
 
-    foo(n/2)
-
-</code></pre>
-
+    foo(n/2)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(
@@ -3733,22 +3353,18 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the code below, which shows <span class="inline-code"><code>binary_search</code></span> as discussed in lecture, but with one additional line: a print statement.</p>
-<pre class="code"><code>
-import math
+<pre class="code"><code class="language-python">import math
 def binary_search(arr, t, start, stop):
-    if stop - start <= 0:
+    if stop - start &lt;= 0:
         return None
     middle = math.floor((start + stop)/2)
-    print(arr[middle]) # <---- this line is new
+    print(arr[middle]) # &lt;---- this line is new
     if arr[middle] == t:
         return middle
-    elif arr[middle] > t:
+    elif arr[middle] &gt; t:
         return binary_search(arr, t, start, middle)
     else:
-        return binary_search(arr, t, middle+1, stop)
-
-</code></pre>
-
+        return binary_search(arr, t, middle+1, stop)</code></pre>
 <p>Suppose this version of binary search is called on an array and with a target of <span class="inline-code"><code>t = 7</code></span>. Which of the following statements is true?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>All of the printed values must be less than or equal to 7.</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>All of the printed values must be greater than or equal to 7.</p></label></div>
@@ -3772,27 +3388,22 @@ def binary_search(arr, t, start, stop):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the version of binary search shown below. This is the same as the code given in lecture, except that a single <span class="inline-code"><code>print</code></span> statement has been added. This <span class="inline-code"><code>print</code></span> statement prints the value of <span class="inline-code"><code>stop</code></span> at the beginning of each call to <span class="inline-code"><code>binary_search</code></span>.</p>
-<pre class="code"><code>
-
-import math
+<pre class="code"><code class="language-python">import math
 def binary_search(arr, t, start, stop):
     """
     Searches arr[start:stop] for t.
     Assumes arr is sorted.
     """
-    print(stop) # <-- added print statement
-    if stop - start <= 0:
+    print(stop) # &lt;-- added print statement
+    if stop - start &lt;= 0:
         return None
     middle = math.floor((start + stop)/2)
     if arr[middle] == t:
         return middle
-    elif arr[middle] > t:
+    elif arr[middle] &gt; t:
         return binary_search(arr, t, start, middle)
     else:
-        return binary_search(arr, t, middle+1, stop)
-
-</code></pre>
-
+        return binary_search(arr, t, middle+1, stop)</code></pre>
 <p>Suppose <span class="inline-code"><code>binary_search</code></span> is called on a <b>sorted</b> list with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(n)</code></span>. True or False: the numbers printed must be a non-increasing sequence. That is, if <span class="math">\(x\)</span> is printed before <span class="math">\(y\)</span>, then it must be the case that <span class="math">\(x \geq y\)</span>.</p>
 
 <div class="true-false">
@@ -3820,31 +3431,23 @@ def binary_search(arr, t, start, stop):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the following array:</p>
-<pre class="code"><code>
-[1, 4, 7, 8, 8, 10, 15, 51, 60, 65, 71, 72, 101]
-</code></pre>
-
+<pre class="code"><code class="language-python">[1, 4, 7, 8, 8, 10, 15, 51, 60, 65, 71, 72, 101]</code></pre>
 <p>Assume a binary search is being used to determine if the number 2 is in the array, using the implementation of <span class="inline-code"><code>binary_search</code></span> below (from lecture) and starting with the call <span class="inline-code"><code>binary_search(arr, 2, 0, len(arr))</code></span>.</p>
-<pre class="code"><code>
-
-import math
+<pre class="code"><code class="language-python">import math
 def binary_search(arr, t, start, stop):
     """
     Searches arr[start:stop] for t.
     Assumes arr is sorted.
     """
-    if stop - start <= 0:
+    if stop - start &lt;= 0:
         return None
     middle = math.floor((start + stop)/2)
     if arr[middle] == t:
         return middle
-    elif arr[middle] > t:
+    elif arr[middle] &gt; t:
         return binary_search(arr, t, start, middle)
     else:
-        return binary_search(arr, t, middle+1, stop)
-
-</code></pre>
-
+        return binary_search(arr, t, middle+1, stop)</code></pre>
 <p>How many total calls to binary search are made (including the first call)?</p>
 <details>
     <summary>Solution</summary>
@@ -3869,31 +3472,23 @@ def binary_search(arr, t, start, stop):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a binary search is performed on the following array using the implementation of <span class="inline-code"><code>binary_search</code></span> below (from lecture), starting with the call <span class="inline-code"><code>binary_search(arr, target, 0, len(arr))</code></span>.</p>
-<pre class="code"><code>
-
-import math
+<pre class="code"><code class="language-python">import math
 def binary_search(arr, t, start, stop):
     """
     Searches arr[start:stop] for t.
     Assumes arr is sorted.
     """
-    if stop - start <= 0:
+    if stop - start &lt;= 0:
         return None
     middle = math.floor((start + stop)/2)
     if arr[middle] == t:
         return middle
-    elif arr[middle] > t:
+    elif arr[middle] &gt; t:
         return binary_search(arr, t, start, middle)
     else:
-        return binary_search(arr, t, middle+1, stop)
-
-</code></pre>
-
+        return binary_search(arr, t, middle+1, stop)</code></pre>
 <p>The array is:</p>
-<pre class="code"><code>
-[1, 4, 7, 8, 8, 10, 15, 51, 60, 65, 71, 72, 101]
-</code></pre>
-
+<pre class="code"><code class="language-python">[1, 4, 7, 8, 8, 10, 15, 51, 60, 65, 71, 72, 101]</code></pre>
 <p>What is the greatest number of calls to binary search that can be made to find a target in this array, assuming the target is in the array?</p>
 <details>
     <summary>Solution</summary>
@@ -3916,34 +3511,26 @@ def binary_search(arr, t, start, stop):
         <div class="problem">
     <div class="problem-body">
 <p>Consider <span class="inline-code"><code>iterative_binary_search</code></span> below and note the <span class="inline-code"><code>print</code></span> statement in the <span class="inline-code"><code>while</code></span>-loop:</p>
-<pre class="code"><code>
-
-import math
+<pre class="code"><code class="language-python">import math
 
 def iterative_binary_search(arr, target):
 
     start = 0
     stop = len(arr)
 
-    while (stop - start) > 0:
+    while (stop - start) &gt; 0:
         print(arr[start])
         middle = math.floor((start + stop) / 2)
         if arr[middle] == target:
             return middle
-        elif arr[middle] > target:
+        elif arr[middle] &gt; target:
             stop = middle
         else:
             start = middle + 1
 
-    return None
-
-</code></pre>
-
+    return None</code></pre>
 <p>Suppose <span class="inline-code"><code>iterative_binary_search</code></span> is run on the array:</p>
-<pre class="code"><code>
-[-202, -201, -200, -50, -20, -10, -4, -3, 0, 1, 3, 5, 6, 7, 9, 10, 12, 15, 22]
-</code></pre>
-
+<pre class="code"><code class="language-python">[-202, -201, -200, -50, -20, -10, -4, -3, 0, 1, 3, 5, 6, 7, 9, 10, 12, 15, 22]</code></pre>
 <p>with target <span class="inline-code"><code>11</code></span>.</p>
 <p>What will be the last value of <span class="inline-code"><code>arr[start]</code></span> printed?</p>
 <details>
@@ -3989,9 +3576,7 @@ def iterative_binary_search(arr, target):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the following function which attempts to compute the maximum of a list of numbers.</p>
-<pre class="code"><code>
-
-import math
+<pre class="code"><code class="language-python">import math
 def maximum(numbers):
     n = len(numbers)
     if n == 0:
@@ -4001,10 +3586,7 @@ def maximum(numbers):
         maximum(numbers[:middle])
         +
         maximum(numbers[middle:])
-    )
-
-</code></pre>
-
+    )</code></pre>
 <p>Is this code guaranteed to work for all non-empty lists?</p>
 <p>You should adopt the convention that the maximum of an empty list is <span class="math">\(-\infty\)</span>.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Yes: it will return the maximum number in the list.</p></label></div>
@@ -4030,8 +3612,7 @@ def maximum(numbers):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the code below which claims to compute the maximum of the input array. Adopt the convention that the maximum of an empty array is <span class="math">\(-\infty\)</span>.</p>
-<pre class="code"><code>
-import math
+<pre class="code"><code class="language-python">import math
 def maximum(arr, start=0, stop=None):
     """Find the maximum of arr[start:stop]."""
     if stop is None:
@@ -4042,13 +3623,10 @@ def maximum(arr, start=0, stop=None):
     middle = math.floor((start + stop) / 2)
     left = maximum(arr, start, middle)
     right = maximum(arr, middle, stop)
-    if left > right:
+    if left &gt; right:
         return left
     else:
-        return right
-
-</code></pre>
-
+        return right</code></pre>
 <p>Will this code always return the correct answer (the maximum)? If yes, simply say so. If no, describe what might happen (recurse infinitely, return the wrong answer, raise an index error, etc.).</p>
 <details>
     <summary>Solution</summary>
@@ -4069,8 +3647,7 @@ def maximum(arr, start=0, stop=None):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the code below which claims to compute the most common element in the array, returning a pair: the element along with the number of times it appears.</p>
-<pre class="code"><code>
-import math
+<pre class="code"><code class="language-python">import math
 
 def most_common(arr, start, stop):
     """Attempts to compute the most common element in arr[start:stop]."""
@@ -4082,13 +3659,10 @@ def most_common(arr, start, stop):
     left_value, left_count = most_common(arr, start, middle)
     right_value, right_count = most_common(arr, middle, stop)
 
-    if left_count > right_count:
+    if left_count &gt; right_count:
         return (left_value, left_count)
     else:
-        return (right_value, right_count)
-
-</code></pre>
-
+        return (right_value, right_count)</code></pre>
 <p>You may assume that the function is always called on a non-empty array, and with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>. Will this code always return the correct answer (the most common element)?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Yes: it will always return the correct answer.</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may recurse infinitely.</p></label></div>
@@ -4116,12 +3690,11 @@ def most_common(arr, start, stop):
         <div class="problem">
     <div class="problem-body">
 <p>Professor Billy claims to have invented a new sorting algorithm: <span class="inline-code"><code>mediansort</code></span>. The algorithm supposedly works by finding a median number, swapping it into the middle of the list, and recursing on the left half and the right half. Professor Billy's code is written below:</p>
-<pre class="code"><code>
-import math
+<pre class="code"><code class="language-python">import math
 
 def mediansort(arr, start, stop):
     """Claims to sort the array, in-place."""
-    if stop - start <= 1:
+    if stop - start &lt;= 1:
         return
 
     # finds the index of the median of arr[start:stop]
@@ -4134,10 +3707,7 @@ def mediansort(arr, start, stop):
 
     # recurse on the left and right halves
     mediansort(arr, start, middle_ix)
-    mediansort(arr, middle_ix + 1, stop)
-
-</code></pre>
-
+    mediansort(arr, middle_ix + 1, stop)</code></pre>
 <p>The code is supposed to sort ``in place'' by modifying the input array. You may assume that <span class="inline-code"><code>find_median</code></span> correctly returns the index of the median element in <span class="inline-code"><code>arr[start:stop]</code></span>.</p>
 <p>Does Professor Billy's <span class="inline-code"><code>mediansort</code></span> algorithm work? You may assume that it is called with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Yes: <span class="inline-code"><code>arr</code></span> will be in sorted order after the function exits.</p></label></div>
@@ -4233,24 +3803,20 @@ def mediansort(arr, start, stop):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math">\(\geq x\)</span>). The full code is shown below for convenience:</p>
-<pre class="code"><code>
-import math
+<pre class="code"><code class="language-python">import math
 
 def new_binary_search(arr, start, stop, target):
-    if stop <= start:
+    if stop &lt;= start:
         return None
 
     middle = math.ceil((start + stop) / 2)
 
     if arr[middle] == target:
         return middle
-    elif arr[middle] < target:
+    elif arr[middle] &lt; target:
         return new_binary_search(arr, middle + 1, stop, target)
     else:
-        return new_binary_search(arr, start, middle, target)
-
-</code></pre>
-
+        return new_binary_search(arr, start, middle, target)</code></pre>
 <p>Which of the following statements about the correctness of <span class="inline-code"><code>new_binary_search</code></span> is true? You may assume that <span class="inline-code"><code>arr</code></span> will be a list containing at least one number, and that the initial call to <span class="inline-code"><code>new_binary_search</code></span> will be with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop
     = len(arr) - 1</code></span>.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>new_binary_search</code></span> is guaranteed to work correctly (it will find the index of the target, if the target is in the array, and return <span class="inline-code"><code>None</code></span> otherwise).</p></label></div>
@@ -4276,24 +3842,20 @@ def new_binary_search(arr, start, stop, target):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math">\(\geq x\)</span>). The full code is shown below for convenience:</p>
-<pre class="code"><code>
-import math
+<pre class="code"><code class="language-python">import math
 
 def new_binary_search(arr, start, stop, target):
-    if stop <= start:
+    if stop &lt;= start:
         return None
 
     middle = math.ceil((start + stop) / 2)
 
     if arr[middle] == target:
         return middle
-    elif arr[middle] < target:
+    elif arr[middle] &lt; target:
         return new_binary_search(arr, middle + 1, stop, target)
     else:
-        return new_binary_search(arr, start, middle, target)
-
-</code></pre>
-
+        return new_binary_search(arr, start, middle, target)</code></pre>
 <p>You may assume that <span class="inline-code"><code>arr</code></span> will be a sorted list containing at least one number, and that the initial call to <span class="inline-code"><code>new_binary_search</code></span> will be with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>.</p>
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
@@ -4371,38 +3933,28 @@ def new_binary_search(arr, start, stop, target):
 <p>Consider the problem of searching for an element <span class="inline-code"><code>t</code></span> in a <i>sorted</i> array, with the added requirement that if <span class="inline-code"><code>t</code></span> is in the array multiple times, we return the index of the <i>first</i> occurrence. For example, if <span class="inline-code"><code>arr = [3, 4, 4, 4, 5, 8]</code></span>, and <span class="inline-code"><code>t = 4</code></span>, the code should return <span class="inline-code"><code>1</code></span>, since the first <span class="inline-code"><code>4</code></span> is at index one.</p>
 <p><span class="inline-code"><code>binary_search</code></span> as implemented in lecture may not necessarily return the index of the first occurrence of <span class="inline-code"><code>t</code></span>, but it can be modified so that it does.</p>
 <p>Fill in the blanks below so that the function returns the index of the first occurence of <span class="inline-code"><code>t</code></span>. Hint: <span class="inline-code"><code>last_seen</code></span> should keep track of the index of the last known occurrence of <span class="inline-code"><code>t</code></span>.</p>
-<pre class="code"><code>
-
-import math
+<pre class="code"><code class="language-python">import math
 def mbs(arr, t, start, stop, last_seen=None):
-    if start - stop <= 0:
+    if start - stop &lt;= 0:
         return last_seen
 
     middle = math.floor((stop - start) / 2)
 
     if arr[middle] == t:
-        # _________ <-- fill this in
-    elif arr[middle] < t:
-        # _________ <-- fill this in
+        # _________ &lt;-- fill this in
+    elif arr[middle] &lt; t:
+        # _________ &lt;-- fill this in
     else:
-        # _________ <-- fill this in
-
-</code></pre>
-
+        # _________ &lt;-- fill this in</code></pre>
 <details>
     <summary>Solution</summary>
 <p>Here is how the blanks should be filled in:</p>
-<pre class="code"><code>
-
-if arr[middle] == t:
+<pre class="code"><code class="language-python">if arr[middle] == t:
     return mbs(arr, t, start, middle, middle)
-elif arr[middle] < t:
+elif arr[middle] &lt; t:
     return mbs(arr, t, middle + 1, stop, last_seen)
 else:
-    return mbs(arr, t, start, middle, last_seen)
-
-</code></pre>
-
+    return mbs(arr, t, start, middle, last_seen)</code></pre>
 <p>If we see <span class="inline-code"><code>arr[middle] == t</code></span>, we know that this is either the first occurrence of <span class="inline-code"><code>t</code></span> in the array, or the first occurrence of <span class="inline-code"><code>t</code></span> in the left half of the array. Therefore, we make a recursive call to <span class="inline-code"><code>mbs</code></span> on the left half of the array, keeping track of <span class="inline-code"><code>middle</code></span> as the index of the leftmost occurrence of <span class="inline-code"><code>t</code></span> we have seen so far (this is done by passing it as the value to <span class="inline-code"><code>last_seen</code></span>).</p>
 <p>The other recursive calls are the same as in the original <span class="inline-code"><code>binary_search</code></span> function, except that we pass <span class="inline-code"><code>last_seen</code></span> as an argument to the recursive calls. This is because we want to keep track of the leftmost occurrence of <span class="inline-code"><code>t</code></span> we have seen so far.</p>
 <p>Eventually, we will reach a point where <span class="inline-code"><code>start - stop <= 0</code></span>. At this point, we return <span class="inline-code"><code>last_seen</code></span>, which is the index of the leftmost occurrence of <span class="inline-code"><code>t</code></span> we have seen so far. This will necessarily be the leftmost occurrence of <span class="inline-code"><code>t</code></span> in the array.</p>
@@ -4423,15 +3975,13 @@ else:
     <div class="problem-body">
 <p>A <i>rotated sorted array</i> is an array that is the result of taking a sorted array and moving a contiguous section from the front of the array to the back of the array. For example, the array <span class="inline-code"><code>[5, 6, 7, 1, 2, 3, 4]</code></span> is a rotated sorted array: it is the result of taking the sorted array <span class="inline-code"><code>[1, 2, 3, 4, 5, 6, 7]</code></span> and moving the first 4 elements, <span class="inline-code"><code>[1, 2, 3, 4]</code></span>, to the back of the array. Sorted arrays are also rotated sorted arrays, technically speaking, since you can think of a sorted array as the result of taking the sorted array and moving the first 0 elements to the back.</p>
 <p>The function below attempts to find the value of the minimum element in a rotated sorted array. It is given the array <span class="inline-code"><code>arr</code></span> and the indices <span class="inline-code"><code>start</code></span> and <span class="inline-code"><code>stop</code></span> which indicate the range of the array that should be searched. One line in the function has been left blank.</p>
-<pre class="code"><code>
-
-import math
+<pre class="code"><code class="language-python">import math
 def find_minimum_in_rotated_sorted(arr, start, stop):
     """
     Searches arr[start:stop] for the smallest element.
     Assumes arr is a rotated sorted array.
     """
-    if stop < start:
+    if stop &lt; start:
         return arr[0]
     if stop == start:
         return arr[start]
@@ -4439,13 +3989,10 @@ def find_minimum_in_rotated_sorted(arr, start, stop):
 
     if ________________:
         return arr[mid + 1]
-    if arr[start] < arr[mid]:
+    if arr[start] &lt; arr[mid]:
         return find_minimum_in_rotated_sorted(arr, mid, stop)
     else:
-        return find_minimum_in_rotated_sorted(arr, start, mid - 1)
-
-</code></pre>
-
+        return find_minimum_in_rotated_sorted(arr, start, mid - 1)</code></pre>
 <p>What should be filled in the blank line to make this function work correctly?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[middle] > arr[stop-1]</code></span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[middle] < arr[stop-1]</code></span></p></label></div>
@@ -4572,9 +4119,8 @@ def find_minimum_in_rotated_sorted(arr, start, stop):
         <div class="problem">
     <div class="problem-body">
 <p>State (but do not solve) the recurrence describing the runtime of the following function.</p>
-<pre class="code"><code>
-def foo(n):
-    if n <= 1:
+<pre class="code"><code class="language-python">def foo(n):
+    if n &lt;= 1:
         return
 
     foo(n // 2)
@@ -4582,10 +4128,7 @@ def foo(n):
     for j in range(n):
         print(j)
 
-    foo(n // 2)
-
-</code></pre>
-
+    foo(n // 2)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n \log n)\)</span></p>
@@ -4605,9 +4148,8 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>State (but do not solve) the recurrence describing the runtime of the following function.</p>
-<pre class="code"><code>
-def foo(n):
-    if n < 10:
+<pre class="code"><code class="language-python">def foo(n):
+    if n &lt; 10:
         print("Hello world.")
         return
 
@@ -4615,10 +4157,7 @@ def foo(n):
         print(i)
 
     for i in range(6):
-        foo(n//3)
-
-</code></pre>
-
+        foo(n//3)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(T(n) = 6 T(n/3) + \Theta(n)\)</span>.</p>
@@ -4638,19 +4177,15 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>State (but do not solve) the recurrence describing the runtime of the following function.</p>
-<pre class="code"><code>
-def boo(n):
-    if n <= 1:
+<pre class="code"><code class="language-python">def boo(n):
+    if n &lt;= 1:
         return
 
     for i in range(3):
         boo(n/4)
 
     for j in range(n):
-        print(j)
-
-</code></pre>
-
+        print(j)</code></pre>
 <p><span class="math">\(
         T(n) = \begin{cases}
             \Theta(1), & n = 1\\
@@ -4675,21 +4210,17 @@ def boo(n):
         <div class="problem">
     <div class="problem-body">
 <p>State (but do not solve) the recurrence relation describing this function's run time.</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code>import random
 
 def foo(n):
-    if n <= 2:
+    if n &lt;= 2:
         return
 
     for i in range(n):
         for j in range(i, n):
             print(i)
 
-    return foo(n//2) + foo(n//2)
-
-</code></pre>
-
+    return foo(n//2) + foo(n//2)</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(T(n) = 2 T(n/2) + T(n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(T(n) = 2 T(n/2) + T(n^2)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(T(n) = 2 T(n/2) + \Theta(n)\)</span></p></label></div>
@@ -4713,11 +4244,9 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the code for <span class="inline-code"><code>mergesort</code></span> and <span class="inline-code"><code>merge</code></span> where a new <span class="inline-code"><code>print</code></span>-statement has been added to <span class="inline-code"><code>merge</code></span>:</p>
-<pre class="code"><code>
-
-def mergesort(arr):
+<pre class="code"><code class="language-python">def mergesort(arr):
     """Sort array in-place."""
-    if len(arr) > 1:
+    if len(arr) &gt; 1:
         middle = math.floor(len(arr) / 2)
         left = arr[:middle]
         right = arr[middle:]
@@ -4733,16 +4262,13 @@ def merge(left, right, out):
     right_ix = 0
 
     for ix in range(len(out)):
-        print("Here!") # <---- the newly-added line
-        if left[left_ix] < right[right_ix]:
+        print("Here!") # &lt;---- the newly-added line
+        if left[left_ix] &lt; right[right_ix]:
             out[ix] = left[left_ix]
             left_ix += 1
         else:
             out[ix] = right[right_ix]
-            right_ix += 1
-
-</code></pre>
-
+            right_ix += 1</code></pre>
 <p>Suppose <span class="inline-code"><code>mergesort</code></span> is called on an array of size <span class="math">\(n\)</span>. In total, how many times will <span class="inline-code"><code>"Here!"</code></span> be printed?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
@@ -4766,12 +4292,11 @@ def merge(left, right, out):
         <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<pre class="code"><code>
-import math
+<pre class="code"><code class="language-python">import math
 
 def mediansort(arr, start, stop):
     """Claims to sort the array, in-place"""
-    if stop - start <= 1:
+    if stop - start &lt;= 1:
         return
 
     # finds the index of the median of arr[start:stop]
@@ -4784,10 +4309,7 @@ def mediansort(arr, start, stop):
 
     # recurse on the left and right halves
     mediansort(arr, start, middle_ix)
-    mediansort(arr, middle_ix + 1, stop)
-
-</code></pre>
-
+    mediansort(arr, middle_ix + 1, stop)</code></pre>
 <p>Consider the <span class="inline-code"><code>mediansort</code></span> function from above. Suppose that <span class="inline-code"><code>find_median</code></span> takes <span class="math">\(\Theta(n)\)</span> time. What is the time complexity of <span class="inline-code"><code>mediansort</code></span>?</p>
 <details>
     <summary>Solution</summary>
@@ -4808,19 +4330,15 @@ def mediansort(arr, start, stop):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the modification of <span class="inline-code"><code>mergesort</code></span> shown below, where one of the recursive calls has been replaced by an in-place version of <span class="inline-code"><code>selection_sort</code></span>. Recall that <span class="inline-code"><code>selection_sort</code></span> takes <span class="math">\(\Theta(n^2)\)</span> time.</p>
-<pre class="code"><code>
-def kinda_mergesort(arr):
+<pre class="code"><code class="language-python">def kinda_mergesort(arr):
     """Sort array in-place."""
-    if len(arr) > 1:
+    if len(arr) &gt; 1:
         middle = math.floor(len(arr) / 2)
         left = arr[:middle]
         right = arr[middle:]
         mergesort(left)
         selection_sort(right)
-        merge(left, right, arr)
-
-</code></pre>
-
+        merge(left, right, arr)</code></pre>
 <p>What is the time complexity of <span class="inline-code"><code>kinda_mergesort</code></span>?</p>
 <details>
     <summary>Solution</summary>
@@ -4841,8 +4359,7 @@ def kinda_mergesort(arr):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="inline-code"><code>arr</code></span> is a list-of-lists with <span class="math">\(n\)</span> inner lists, each containing <span class="math">\(n\)</span> numbers. What is the best case time complexity of the following function?</p>
-<pre class="code"><code>
-import math
+<pre class="code"><code>import math
 
 def average_median(arr):
     """Compute the mean of the row medians."""
@@ -4850,10 +4367,7 @@ def average_median(arr):
     for i, row in enumerate(arr):
         mergesort(row) # sort the row using the mergesort algorithm
         msum += row[math.floor(i / 2)]
-    return msum / len(arr)
-
-</code></pre>
-
+    return msum / len(arr)</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
@@ -4879,15 +4393,11 @@ def average_median(arr):
         <div class="problem">
     <div class="problem-body">
 <p>Your friend has written a modified version of mergesort that they claim has an improved best-case time complexity:</p>
-<pre class="code"><code>
-def better_mergesort(arr):
+<pre class="code"><code>def better_mergesort(arr):
     if is_already_sorted(arr):
         return
     else:
-        mergesort(arr)
-
-</code></pre>
-
+        mergesort(arr)</code></pre>
 <p>Here, <span class="inline-code"><code>is_already_sorted</code></span> is a function that takes in an array and returns <span class="inline-code"><code>True</code></span> if and only if the array is in sorted order. Assume that <span class="inline-code"><code>is_already_sorted</code></span> is implemented efficiently (meaning, it has the best possible time complexity). What is the best case time complexity of <span class="inline-code"><code>better_mergesort</code></span>?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
@@ -4913,28 +4423,24 @@ def better_mergesort(arr):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the iterative implementation of binary search shown below:</p>
-<pre class="code"><code>
-import math
+<pre class="code"><code class="language-python">import math
 
 def iterative_binary_search(arr, target):
 
     start = 0
     stop = len(arr)
 
-    while (stop - start) > 0:
+    while (stop - start) &gt; 0:
         print(arr[start])
         middle = math.floor((start + stop) / 2)
         if arr[middle] == target:
             return middle
-        elif arr[middle] > target:
+        elif arr[middle] &gt; target:
             stop = middle
         else:
             start = middle + 1
 
-    return None
-
-</code></pre>
-
+    return None</code></pre>
 <p>Which of the following loop invariants is true, assuming that <span class="inline-code"><code>arr</code></span> is sorted and non-empty, and <span class="inline-code"><code>target</code></span> is <b>not</b> in the array? Select all that apply.</p>
 <div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, <span class="inline-code"><code>stop - start >= 0</code></span>.</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, <span class="inline-code"><code>stop - start >= 1</code></span>.</p></label></div>
@@ -4958,10 +4464,7 @@ def iterative_binary_search(arr, target):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose you are sorting an array using selection sort. At the current iteration of selection sort, the array being sorted looks like this:</p>
-<pre class="code"><code>
-[0, 1, 2, 2, 3, 4, 2, 10, 13, 4]
-</code></pre>
-
+<pre class="code"><code class="language-python">[0, 1, 2, 2, 3, 4, 2, 10, 13, 4]</code></pre>
 <p>Which of the following are possible options for how many times the outer for loop has run? Select all that apply.</p>
 <div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>1</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>2</p></label></div>
@@ -4990,9 +4493,7 @@ def iterative_binary_search(arr, target):
         <div class="problem">
     <div class="problem-body">
 <p>Below is the <span class="inline-code"><code>merge</code></span> function from the <span class="inline-code"><code>mergesort</code></span> algorithm, with an added <span class="inline-code"><code>print</code></span> statement:</p>
-<pre class="code"><code>
-
-def merge(left, right, out):
+<pre class="code"><code class="language-python">def merge(left, right, out):
     """Merge sorted arrays, store in out."""
     print(len(left))
     print(len(right))
@@ -5002,15 +4503,12 @@ def merge(left, right, out):
     right_ix = 0
 
     for ix in range(len(out)):
-        if left[left_ix] < right[right_ix]:
+        if left[left_ix] &lt; right[right_ix]:
             out[ix] = left[left_ix]
             left_ix += 1
         else:
             out[ix] = right[right_ix]
-            right_ix += 1
-
-</code></pre>
-
+            right_ix += 1</code></pre>
 <p>Suppose this version of <span class="inline-code"><code>merge</code></span> is used in <span class="inline-code"><code>mergesort</code></span>, and <span class="inline-code"><code>mergesort</code></span> is called on the following list:</p>
 <p><span class="inline-code"><code>[6, 2, 7, 1, 9, 3, 8, 5]</code></span>.</p>
 <p>If all of the numbers that are printed are added up, what will the sum be?</p>
@@ -5033,8 +4531,7 @@ def merge(left, right, out):
         <div class="problem">
     <div class="problem-body">
 <p>Consider this code which partitions a list in a special way:</p>
-<pre class="code"><code>
-def is_even(i):
+<pre class="code"><code class="language-python">def is_even(i):
     """Returns True if i is even, False otherwise."""
     return i % 2 == 0
 
@@ -5046,12 +4543,9 @@ def mystery_partition(numbers):
     for i in range(len(numbers)):
         if is_even(numbers[i]):
             swap(i, barrier_ix)
-            if numbers[barrier_ix] > numbers[0]:
+            if numbers[barrier_ix] &gt; numbers[0]:
                 swap(0, barrier_ix)
-            barrier_ix += 1
-
-</code></pre>
-
+            barrier_ix += 1</code></pre>
 <p>Which of the following loop invariants are true for this code? Select all that apply.</p>
 <p>Note: any statement about an empty set or list is considered to be automatically true.</p>
 <div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration of the <span class="inline-code"><code>for</code></span> loop, all numbers in <span class="inline-code"><code>numbers[:barrier_ix]</code></span> are even.</p></label></div>
@@ -5444,24 +4938,19 @@ def mystery_partition(numbers):
         <div class="problem">
     <div class="problem-body">
 <p>The code for <span class="inline-code"><code>quickselect</code></span> is shown below. It is the same as the code provided in lecture, except that it contains an added <span class="inline-code"><code>print</code></span> statement.</p>
-<pre class="code"><code>
-
-import random 
+<pre class="code"><code class="language-python">import random 
 def quickselect(arr, k, start, stop):
     """Finds kth order statistic in numbers[start:stop])"""
-    print("hello world!") # <--- here is the print
+    print("hello world!") # &lt;--- here is the print
     pivot_ix = random.randrange(start, stop)
     pivot_ix = partition(arr, start, stop, pivot_ix)
     pivot_order = pivot_ix + 1
     if pivot_order == k:
         return arr[pivot_ix]
-    elif pivot_order < k:
+    elif pivot_order &lt; k:
         return quickselect(arr, k, pivot_ix + 1, stop)
     else:
-        return quickselect(arr, k, start, pivot_ix)
-
-</code></pre>
-
+        return quickselect(arr, k, start, pivot_ix)</code></pre>
 <p>Suppose <span class="inline-code"><code>quickselect(arr, 3, 0, 10)</code></span> is called with <span class="inline-code"><code>arr = [5, 2, 8, 3, 1, 6, 9, 7, 4, 0]</code></span>.</p>
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
@@ -5520,9 +5009,7 @@ def quickselect(arr, k, start, stop):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of this function? Here <span class="math">\(n\)</span> is the length of the input array.</p>
-<pre class="code"><code>
-
-import math
+<pre class="code"><code class="language-python">import math
 def foo(arr):
     if len(arr) == 0:
         return 0
@@ -5536,19 +5023,16 @@ def foo(arr):
     middle = arr[one_third: one_third * 2]
     right = arr[one_third * 2:]
     for i in range(len(arr)):
-        if i < one_third:
+        if i &lt; one_third:
             arr[i] = 2 * arr[i] - sum(left)/len(left)
-        if i >= one_third and i < one_third * 2:
+        if i &gt;= one_third and i &lt; one_third * 2:
             arr[i] = 2 * arr[i] - sum(middle)/len(middle)
-        if i >= one_third * 2:
+        if i &gt;= one_third * 2:
             arr[i] = 2 * arr[i] - sum(right)/len(right)
 
     total = sum(left) + sum(middle) + sum(right)
 
-    return foo(left) + foo(middle) + foo(right) + total
-
-</code></pre>
-
+    return foo(left) + foo(middle) + foo(right) + total</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
@@ -5816,8 +5300,7 @@ def foo(arr):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the following <span class="inline-code"><code>.insert()</code></span> method for a binary search tree:</p>
-<pre class="code"><code>
-def insert(self, new_key):
+<pre class="code"><code class="language-python">def insert(self, new_key):
     # assume new_key is unique
     current_node = self.root
     parent = None
@@ -5825,9 +5308,9 @@ def insert(self, new_key):
     # find place to insert the new node
     while current_node is not None:
         parent = current_node
-        if current_node.key < new_key:
+        if current_node.key &lt; new_key:
             current_node = current_node.right
-        else: # current_node.key > new_key
+        else: # current_node.key &gt; new_key
             current_node = current_node.left
 
     # create the new node
@@ -5837,13 +5320,10 @@ def insert(self, new_key):
     # parent's left or right child as appropriate
     if parent is None:
         self.root = new_node
-    elif parent.key < new_key:
+    elif parent.key &lt; new_key:
         parent.right = new_node
     else:
-        parent.left = new_node
-
-</code></pre>
-
+        parent.left = new_node</code></pre>
 <p>Let's say we want to insert a new number <span class="math">\(x\)</span> into a binary search tree.Define <span class="inline-code"><code>height_left</code></span> as the height of the left half of the binary tree (the root and everything to the left of it), and <span class="inline-code"><code>height_right</code></span> as the height of the right side. For this problem, measure height as the number of <i>nodes</i> on the longest path starting at the root (so a tree consisting of only a root has height 1). Let <span class="inline-code"><code>height_left</code></span> be greater than <span class="inline-code"><code>height_right</code></span>. In the worst case, how many iterations of the while loop of <span class="inline-code"><code>.insert()</code></span> will need to be completed?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>height_left</code></span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>height_right</code></span></p></label></div>
@@ -5868,21 +5348,13 @@ def insert(self, new_key):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="inline-code"><code>bst</code></span> is a binary search tree with <span class="math">\(n\)</span> nodes constructed in the following way:</p>
-<pre class="code"><code>
-bst = BinarySearchTree()
+<pre class="code"><code>bst = BinarySearchTree()
 for i in range(n):
     if i % 2 == 0:
-        bst.insert(i)
-
-</code></pre>
-
+        bst.insert(i)</code></pre>
 <p>What is the time complexity of the following code?</p>
-<pre class="code"><code>
-for i in range(n):
-    bst.query(i)
-
-</code></pre>
-
+<pre class="code"><code>for i in range(n):
+    bst.query(i)</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta( \log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
@@ -5999,8 +5471,7 @@ for i in range(n):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the following modification of BFS, where there are two new lines of code. What is the time complexity in terms of <span class="math">\(|V|\)</span> and <span class="math">\(|E|\)</span>?</p>
-<pre class="code"><code>
-from collections import deque
+<pre class="code"><code>from collections import deque
 
 def foo(graph):
     status = {node: 'undiscovered' for node in graph.nodes}
@@ -6022,10 +5493,7 @@ def bar(graph, source, status):
                 pending.append(v)
             for v in graph.nodes:
                 print(v)
-        status[u] = 'visited'
-
-</code></pre>
-
+        status[u] = 'visited'</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E^2)\)</span></p></label></div>
@@ -6042,9 +5510,6 @@ def bar(graph, source, status):
         </div>
 
 
-
-       </body>
-   </html>
     </div>
 </div>
 
@@ -6102,6 +5567,15 @@ def bar(graph, source, status):
         // Initialize Lucide icons. The script is deferred, so wait for it to
         // load; DOMContentLoaded fires after deferred scripts have run.
         document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+        
+        // highlight each <pre><code> block with a language-* class (e.g. from
+        // ```python), once the deferred highlight.js has run; a block without
+        // one is left plain, as guessing its language is often wrong
+        document.addEventListener('DOMContentLoaded', () => {
+            hljs.configure({ cssSelector: 'pre code[class*="language-"]' });
+            hljs.highlightAll();
+        });
+        
     </script>
 
 </body>

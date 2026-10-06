@@ -8,99 +8,25 @@
     
     <script defer src="https://unpkg.com/lucide@1.48.0/dist/umd/lucide.min.js"></script>
     
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+            },
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    
+    
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    
+    
 
 
-<style>
-  .multiple-choices .choice label,
-  .multiple-select .choice label {
-    display: flex;
-    align-items: center;
-    gap: 0.6em;
-    margin: 0.25em 0;
-    cursor: pointer;
-  }
-  .multiple-choices .choice p,
-  .multiple-select .choice p {
-    margin: 0;
-  }
 
-  /* practice problems: code blocks get a thin border instead of the theme's
-     thick dark frame around highlight.js's light box */
-  .problem pre.code {
-    background: #f6f8fa;
-    border: 1px solid #d0d7de;
-    border-radius: 6px;
-    padding: 0.75em 1em;
-  }
-  .problem pre.code code,
-  .problem pre.code code.hljs {
-    background: transparent;
-    padding: 0;
-  }
-
-  /* in dark mode (the theme puts .dark on <html>), code blocks use the
-     theme's grays, and highlight.js's light "default" colors are replaced by
-     those of its "github-dark" style */
-  .dark .problem pre.code {
-    background: #111827;
-    border-color: #374151;
-  }
-  .dark .problem pre.code code.hljs { color: #c9d1d9; }
-  .dark .problem .hljs-doctag,
-  .dark .problem .hljs-keyword,
-  .dark .problem .hljs-meta .hljs-keyword,
-  .dark .problem .hljs-template-tag,
-  .dark .problem .hljs-template-variable,
-  .dark .problem .hljs-type,
-  .dark .problem .hljs-variable.language_ { color: #ff7b72; }
-  .dark .problem .hljs-title,
-  .dark .problem .hljs-title.class_,
-  .dark .problem .hljs-title.function_ { color: #d2a8ff; }
-  .dark .problem .hljs-attr,
-  .dark .problem .hljs-attribute,
-  .dark .problem .hljs-literal,
-  .dark .problem .hljs-meta,
-  .dark .problem .hljs-number,
-  .dark .problem .hljs-operator,
-  .dark .problem .hljs-variable,
-  .dark .problem .hljs-selector-attr,
-  .dark .problem .hljs-selector-class,
-  .dark .problem .hljs-selector-id { color: #79c0ff; }
-  .dark .problem .hljs-regexp,
-  .dark .problem .hljs-string,
-  .dark .problem .hljs-meta .hljs-string { color: #a5d6ff; }
-  .dark .problem .hljs-built_in,
-  .dark .problem .hljs-symbol { color: #ffa657; }
-  .dark .problem .hljs-comment,
-  .dark .problem .hljs-code,
-  .dark .problem .hljs-formula { color: #8b949e; }
-  .dark .problem .hljs-name,
-  .dark .problem .hljs-quote,
-  .dark .problem .hljs-selector-tag,
-  .dark .problem .hljs-selector-pseudo { color: #7ee787; }
-  .dark .problem .hljs-subst,
-  .dark .problem .hljs-params { color: #c9d1d9; }
-  .dark .problem .hljs-section { color: #1f6feb; }
-  .dark .problem .hljs-bullet { color: #f2cc60; }
-
-  /* the theme's typography styles wrap inline code in literal backticks */
-  .problem code::before,
-  .problem code::after {
-    content: none;
-  }
-</style>
-
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".problem pre.code code").forEach(function (code) {
-      if (code.children.length === 0) {
-        code.textContent = code.textContent.replace(/^\s*\n/, "").replace(/\s+$/, "");
-      }
-    });
-  });
-</script>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -245,75 +171,79 @@ Course Staff
     <div>
 
 <h2>Instructors</h2>
-<div style="display: flex; gap: 1.5rem; align-items: flex-start; padding: 1rem 0;">
-<div style="flex: 0 0 8rem;">
+<div class="flex items-start gap-6 py-4">
 
-<img src="static/staff-pictures/justin.png" alt="Justin Eldridge" style="clip-path: circle(); width: 8rem; height: 8rem; object-fit: cover;">
+<div class="not-prose w-32 shrink-0">
 
+<p><img src="static/staff-pictures/justin.png" alt="Justin Eldridge"
+class="size-32 rounded-full object-cover"></p>
 </div>
-<div style="flex: 1;">
-<h4 style="padding-top: 0; margin-top: 0">
+<div class="min-w-0">
+<h4 class="mt-0">
 
 <p><a href="http://eldridgejm.github.io">Justin Eldridge</a></p>
 </h4>
 
-<p>I teach data science classes at UCSD.</p>
+<p class="my-1">I teach data science classes at UCSD.</p>
 
 </div>
 </div>
 
 <h2>Staff</h2>
-<div style="display: flex; gap: 1.5rem; align-items: flex-start; padding: 1rem 0;">
-<div style="flex: 0 0 8rem;">
+<div class="flex items-start gap-6 py-4">
 
-<img src="static/staff-pictures/xiaoyu.jpg" alt="Xiaoyu Gui" style="clip-path: circle(); width: 8rem; height: 8rem; object-fit: cover;">
+<div class="not-prose w-32 shrink-0">
 
+<p><img src="static/staff-pictures/xiaoyu.jpg" alt="Xiaoyu Gui"
+class="size-32 rounded-full object-cover"></p>
 </div>
-<div style="flex: 1;">
-<h4 style="padding-top: 0; margin-top: 0">
+<div class="min-w-0">
+<h4 class="mt-0">
 
 <p>Xiaoyu Gui</p>
 </h4>
 
-<p><b>TA</b></p>
+<p class="my-1"><b>TA</b></p>
 
-<p>Hi! I'm Xiaoyu (she/her/hers), a second-year PhD student in Data Science. I tutored DSC 40B as an undergrad here, and this is my first time as a TA. I do research with Dr. Tiffany Amariuta in statistical genomics and AI for genomics, and I'm happy to talk about either. In my free time, I enjoy pickleball and photography. Looking forward to working with you all this quarter!</p>
-
-</div>
-</div>
-<div style="display: flex; gap: 1.5rem; align-items: flex-start; padding: 1rem 0;">
-<div style="flex: 0 0 8rem;">
-
-<img src="static/staff-pictures/brian.jpg" alt="Brian Liu (he/him)" style="clip-path: circle(); width: 8rem; height: 8rem; object-fit: cover;">
+<p class="my-1">Hi! I'm Xiaoyu (she/her/hers), a second-year PhD student in Data Science. I tutored DSC 40B as an undergrad here, and this is my first time as a TA. I do research with Dr. Tiffany Amariuta in statistical genomics and AI for genomics, and I'm happy to talk about either. In my free time, I enjoy pickleball and photography. Looking forward to working with you all this quarter!</p>
 
 </div>
-<div style="flex: 1;">
-<h4 style="padding-top: 0; margin-top: 0">
+</div>
+<div class="flex items-start gap-6 py-4">
+
+<div class="not-prose w-32 shrink-0">
+
+<p><img src="static/staff-pictures/brian.jpg" alt="Brian Liu (he/him)"
+class="size-32 rounded-full object-cover"></p>
+</div>
+<div class="min-w-0">
+<h4 class="mt-0">
 
 <p><a href="https://www.brianzliu.com/">Brian Liu (he/him)</a></p>
 </h4>
 
-<p><b>Tutor</b></p>
+<p class="my-1"><b>Tutor</b></p>
 
-<p>Hey everyone! I'm Brian, a 3rd year data science student originally from Long Island, New York. In my free time I like exploring SD and reading fiction - right now I'm on <i>The Pirate Queen</i> by Ariel Lawhon. Can't wait to meet y'all!</p>
-
-</div>
-</div>
-<div style="display: flex; gap: 1.5rem; align-items: flex-start; padding: 1rem 0;">
-<div style="flex: 0 0 8rem;">
-
-<img src="static/staff-pictures/santi.jpg" alt="Justin Santiago" style="clip-path: circle(); width: 8rem; height: 8rem; object-fit: cover;">
+<p class="my-1">Hey everyone! I'm Brian, a 3rd year data science student originally from Long Island, New York. In my free time I like exploring SD and reading fiction - right now I'm on <i>The Pirate Queen</i> by Ariel Lawhon. Can't wait to meet y'all!</p>
 
 </div>
-<div style="flex: 1;">
-<h4 style="padding-top: 0; margin-top: 0">
+</div>
+<div class="flex items-start gap-6 py-4">
+
+<div class="not-prose w-32 shrink-0">
+
+<p><img src="static/staff-pictures/santi.jpg" alt="Justin Santiago"
+class="size-32 rounded-full object-cover"></p>
+</div>
+<div class="min-w-0">
+<h4 class="mt-0">
 
 <p>Justin Santiago</p>
 </h4>
 
-<p><b>Tutor</b></p>
+<p class="my-1"><b>Tutor</b></p>
 
-<p>Hi everyone! I'm Justin, but I usually go by Santi. I'm a 2nd-year Data Science major that loves playing card and board games like Catan, Root, and Slay the Spire. This is my first time tutoring DSC 40B and I'm super excited to meet you all!</p>
+<p class="my-1">Hi everyone! I'm Justin, but I usually go by Santi. I'm a 2nd-year Data Science major that loves playing card and board games like Catan, Root, and Slay the Spire. This is my first time tutoring DSC 40B and I'm super excited to meet you all!</p>
 
 </div>
 </div>
@@ -378,6 +308,15 @@ Course Staff
         // Initialize Lucide icons. The script is deferred, so wait for it to
         // load; DOMContentLoaded fires after deferred scripts have run.
         document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+        
+        // highlight each <pre><code> block with a language-* class (e.g. from
+        // ```python), once the deferred highlight.js has run; a block without
+        // one is left plain, as guessing its language is often wrong
+        document.addEventListener('DOMContentLoaded', () => {
+            hljs.configure({ cssSelector: 'pre code[class*="language-"]' });
+            hljs.highlightAll();
+        });
+        
     </script>
 
 </body>

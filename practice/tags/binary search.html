@@ -8,99 +8,25 @@
     
     <script defer src="https://unpkg.com/lucide@1.48.0/dist/umd/lucide.min.js"></script>
     
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+            },
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    
+    
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    
+    
 
 
-<style>
-  .multiple-choices .choice label,
-  .multiple-select .choice label {
-    display: flex;
-    align-items: center;
-    gap: 0.6em;
-    margin: 0.25em 0;
-    cursor: pointer;
-  }
-  .multiple-choices .choice p,
-  .multiple-select .choice p {
-    margin: 0;
-  }
 
-  /* practice problems: code blocks get a thin border instead of the theme's
-     thick dark frame around highlight.js's light box */
-  .problem pre.code {
-    background: #f6f8fa;
-    border: 1px solid #d0d7de;
-    border-radius: 6px;
-    padding: 0.75em 1em;
-  }
-  .problem pre.code code,
-  .problem pre.code code.hljs {
-    background: transparent;
-    padding: 0;
-  }
-
-  /* in dark mode (the theme puts .dark on <html>), code blocks use the
-     theme's grays, and highlight.js's light "default" colors are replaced by
-     those of its "github-dark" style */
-  .dark .problem pre.code {
-    background: #111827;
-    border-color: #374151;
-  }
-  .dark .problem pre.code code.hljs { color: #c9d1d9; }
-  .dark .problem .hljs-doctag,
-  .dark .problem .hljs-keyword,
-  .dark .problem .hljs-meta .hljs-keyword,
-  .dark .problem .hljs-template-tag,
-  .dark .problem .hljs-template-variable,
-  .dark .problem .hljs-type,
-  .dark .problem .hljs-variable.language_ { color: #ff7b72; }
-  .dark .problem .hljs-title,
-  .dark .problem .hljs-title.class_,
-  .dark .problem .hljs-title.function_ { color: #d2a8ff; }
-  .dark .problem .hljs-attr,
-  .dark .problem .hljs-attribute,
-  .dark .problem .hljs-literal,
-  .dark .problem .hljs-meta,
-  .dark .problem .hljs-number,
-  .dark .problem .hljs-operator,
-  .dark .problem .hljs-variable,
-  .dark .problem .hljs-selector-attr,
-  .dark .problem .hljs-selector-class,
-  .dark .problem .hljs-selector-id { color: #79c0ff; }
-  .dark .problem .hljs-regexp,
-  .dark .problem .hljs-string,
-  .dark .problem .hljs-meta .hljs-string { color: #a5d6ff; }
-  .dark .problem .hljs-built_in,
-  .dark .problem .hljs-symbol { color: #ffa657; }
-  .dark .problem .hljs-comment,
-  .dark .problem .hljs-code,
-  .dark .problem .hljs-formula { color: #8b949e; }
-  .dark .problem .hljs-name,
-  .dark .problem .hljs-quote,
-  .dark .problem .hljs-selector-tag,
-  .dark .problem .hljs-selector-pseudo { color: #7ee787; }
-  .dark .problem .hljs-subst,
-  .dark .problem .hljs-params { color: #c9d1d9; }
-  .dark .problem .hljs-section { color: #1f6feb; }
-  .dark .problem .hljs-bullet { color: #f2cc60; }
-
-  /* the theme's typography styles wrap inline code in literal backticks */
-  .problem code::before,
-  .problem code::after {
-    content: none;
-  }
-</style>
-
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".problem pre.code code").forEach(function (code) {
-      if (code.children.length === 0) {
-        code.textContent = code.textContent.replace(/^\s*\n/, "").replace(/\s+$/, "");
-      }
-    });
-  });
-</script>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -242,39 +168,13 @@ Course Staff
 </div>
 
     <div class="prose dark:prose-invert">
-    <!DOCTYPE html> <html> <head> <meta
-                          charset="utf-8"> <title>Problems tagged with binary search</title>
-
-           <!-- MathJax -->
-           <script type="text/x-mathjax-config">
-             MathJax.Hub.Config({
-               tex: {
-                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
-                 displayMath: [             // start/end delimiter pairs for display math
-                     ['\\[', '\\]']
-                 ],
-                 processEscapes: true
-               }
-           });
-           </script>
-
-           <!-- highlightjs -->
-           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-
-           <!-- and it's easy to individually load additional languages -->
-           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
-
-           <script>hljs.highlightAll();</script>
-
-           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-           <script type="text/javascript" id="MathJax-script" async
-             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-           </script>
-
-       </head>
-       <body>
-           
+    
+<style>
+.multiple-choices .choice label, .multiple-select .choice label {
+    display: flex; align-items: center; gap: 0.6em; margin: 0.25em 0; cursor: pointer;
+}
+.multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+</style>
 <h1>Problems tagged with "binary search"</h1>
 
 
@@ -307,26 +207,21 @@ Course Staff
         <div class="problem">
     <div class="problem-body">
 <p>Consider the version of binary search shown below:</p>
-<pre class="code"><code>
-
-import math
+<pre class="code"><code class="language-python">import math
 def binary_search(arr, t, start, stop):
     """
     Searches arr[start:stop] for t.
     Assumes arr is sorted.
     """
-    if stop - start <= 0:
+    if stop - start &lt;= 0:
         return None
     middle = math.floor((start + stop)/2)
     if arr[middle] == t:
         return middle
-    elif arr[middle] > t:
+    elif arr[middle] &gt; t:
         return binary_search(arr, t, start, middle)
     else:
-        return binary_search(arr, t, middle+1, stop)
-
-</code></pre>
-
+        return binary_search(arr, t, middle+1, stop)</code></pre>
 <p>True or false: if the target element <span class="inline-code"><code>t</code></span> occurs multiple times in the array, <span class="inline-code"><code>binary_search</code></span> is guaranteed to return the first occurrence.</p>
 <p>You may assume that <span class="inline-code"><code>arr</code></span> is sorted and that <span class="inline-code"><code>binary_search(arr, t, 0, len(arr))</code></span> is called.</p>
 
@@ -355,22 +250,18 @@ def binary_search(arr, t, start, stop):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the code below, which shows <span class="inline-code"><code>binary_search</code></span> as discussed in lecture, but with one additional line: a print statement.</p>
-<pre class="code"><code>
-import math
+<pre class="code"><code class="language-python">import math
 def binary_search(arr, t, start, stop):
-    if stop - start <= 0:
+    if stop - start &lt;= 0:
         return None
     middle = math.floor((start + stop)/2)
-    print(arr[middle]) # <---- this line is new
+    print(arr[middle]) # &lt;---- this line is new
     if arr[middle] == t:
         return middle
-    elif arr[middle] > t:
+    elif arr[middle] &gt; t:
         return binary_search(arr, t, start, middle)
     else:
-        return binary_search(arr, t, middle+1, stop)
-
-</code></pre>
-
+        return binary_search(arr, t, middle+1, stop)</code></pre>
 <p>Suppose this version of binary search is called on an array and with a target of <span class="inline-code"><code>t = 7</code></span>. Which of the following statements is true?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>All of the printed values must be less than or equal to 7.</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>All of the printed values must be greater than or equal to 7.</p></label></div>
@@ -394,27 +285,22 @@ def binary_search(arr, t, start, stop):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the version of binary search shown below. This is the same as the code given in lecture, except that a single <span class="inline-code"><code>print</code></span> statement has been added. This <span class="inline-code"><code>print</code></span> statement prints the value of <span class="inline-code"><code>stop</code></span> at the beginning of each call to <span class="inline-code"><code>binary_search</code></span>.</p>
-<pre class="code"><code>
-
-import math
+<pre class="code"><code class="language-python">import math
 def binary_search(arr, t, start, stop):
     """
     Searches arr[start:stop] for t.
     Assumes arr is sorted.
     """
-    print(stop) # <-- added print statement
-    if stop - start <= 0:
+    print(stop) # &lt;-- added print statement
+    if stop - start &lt;= 0:
         return None
     middle = math.floor((start + stop)/2)
     if arr[middle] == t:
         return middle
-    elif arr[middle] > t:
+    elif arr[middle] &gt; t:
         return binary_search(arr, t, start, middle)
     else:
-        return binary_search(arr, t, middle+1, stop)
-
-</code></pre>
-
+        return binary_search(arr, t, middle+1, stop)</code></pre>
 <p>Suppose <span class="inline-code"><code>binary_search</code></span> is called on a <b>sorted</b> list with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(n)</code></span>. True or False: the numbers printed must be a non-increasing sequence. That is, if <span class="math">\(x\)</span> is printed before <span class="math">\(y\)</span>, then it must be the case that <span class="math">\(x \geq y\)</span>.</p>
 
 <div class="true-false">
@@ -442,31 +328,23 @@ def binary_search(arr, t, start, stop):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the following array:</p>
-<pre class="code"><code>
-[1, 4, 7, 8, 8, 10, 15, 51, 60, 65, 71, 72, 101]
-</code></pre>
-
+<pre class="code"><code class="language-python">[1, 4, 7, 8, 8, 10, 15, 51, 60, 65, 71, 72, 101]</code></pre>
 <p>Assume a binary search is being used to determine if the number 2 is in the array, using the implementation of <span class="inline-code"><code>binary_search</code></span> below (from lecture) and starting with the call <span class="inline-code"><code>binary_search(arr, 2, 0, len(arr))</code></span>.</p>
-<pre class="code"><code>
-
-import math
+<pre class="code"><code class="language-python">import math
 def binary_search(arr, t, start, stop):
     """
     Searches arr[start:stop] for t.
     Assumes arr is sorted.
     """
-    if stop - start <= 0:
+    if stop - start &lt;= 0:
         return None
     middle = math.floor((start + stop)/2)
     if arr[middle] == t:
         return middle
-    elif arr[middle] > t:
+    elif arr[middle] &gt; t:
         return binary_search(arr, t, start, middle)
     else:
-        return binary_search(arr, t, middle+1, stop)
-
-</code></pre>
-
+        return binary_search(arr, t, middle+1, stop)</code></pre>
 <p>How many total calls to binary search are made (including the first call)?</p>
 <details>
     <summary>Solution</summary>
@@ -491,31 +369,23 @@ def binary_search(arr, t, start, stop):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a binary search is performed on the following array using the implementation of <span class="inline-code"><code>binary_search</code></span> below (from lecture), starting with the call <span class="inline-code"><code>binary_search(arr, target, 0, len(arr))</code></span>.</p>
-<pre class="code"><code>
-
-import math
+<pre class="code"><code class="language-python">import math
 def binary_search(arr, t, start, stop):
     """
     Searches arr[start:stop] for t.
     Assumes arr is sorted.
     """
-    if stop - start <= 0:
+    if stop - start &lt;= 0:
         return None
     middle = math.floor((start + stop)/2)
     if arr[middle] == t:
         return middle
-    elif arr[middle] > t:
+    elif arr[middle] &gt; t:
         return binary_search(arr, t, start, middle)
     else:
-        return binary_search(arr, t, middle+1, stop)
-
-</code></pre>
-
+        return binary_search(arr, t, middle+1, stop)</code></pre>
 <p>The array is:</p>
-<pre class="code"><code>
-[1, 4, 7, 8, 8, 10, 15, 51, 60, 65, 71, 72, 101]
-</code></pre>
-
+<pre class="code"><code class="language-python">[1, 4, 7, 8, 8, 10, 15, 51, 60, 65, 71, 72, 101]</code></pre>
 <p>What is the greatest number of calls to binary search that can be made to find a target in this array, assuming the target is in the array?</p>
 <details>
     <summary>Solution</summary>
@@ -538,34 +408,26 @@ def binary_search(arr, t, start, stop):
         <div class="problem">
     <div class="problem-body">
 <p>Consider <span class="inline-code"><code>iterative_binary_search</code></span> below and note the <span class="inline-code"><code>print</code></span> statement in the <span class="inline-code"><code>while</code></span>-loop:</p>
-<pre class="code"><code>
-
-import math
+<pre class="code"><code class="language-python">import math
 
 def iterative_binary_search(arr, target):
 
     start = 0
     stop = len(arr)
 
-    while (stop - start) > 0:
+    while (stop - start) &gt; 0:
         print(arr[start])
         middle = math.floor((start + stop) / 2)
         if arr[middle] == target:
             return middle
-        elif arr[middle] > target:
+        elif arr[middle] &gt; target:
             stop = middle
         else:
             start = middle + 1
 
-    return None
-
-</code></pre>
-
+    return None</code></pre>
 <p>Suppose <span class="inline-code"><code>iterative_binary_search</code></span> is run on the array:</p>
-<pre class="code"><code>
-[-202, -201, -200, -50, -20, -10, -4, -3, 0, 1, 3, 5, 6, 7, 9, 10, 12, 15, 22]
-</code></pre>
-
+<pre class="code"><code class="language-python">[-202, -201, -200, -50, -20, -10, -4, -3, 0, 1, 3, 5, 6, 7, 9, 10, 12, 15, 22]</code></pre>
 <p>with target <span class="inline-code"><code>11</code></span>.</p>
 <p>What will be the last value of <span class="inline-code"><code>arr[start]</code></span> printed?</p>
 <details>
@@ -611,24 +473,20 @@ def iterative_binary_search(arr, target):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math">\(\geq x\)</span>). The full code is shown below for convenience:</p>
-<pre class="code"><code>
-import math
+<pre class="code"><code class="language-python">import math
 
 def new_binary_search(arr, start, stop, target):
-    if stop <= start:
+    if stop &lt;= start:
         return None
 
     middle = math.ceil((start + stop) / 2)
 
     if arr[middle] == target:
         return middle
-    elif arr[middle] < target:
+    elif arr[middle] &lt; target:
         return new_binary_search(arr, middle + 1, stop, target)
     else:
-        return new_binary_search(arr, start, middle, target)
-
-</code></pre>
-
+        return new_binary_search(arr, start, middle, target)</code></pre>
 <p>Which of the following statements about the correctness of <span class="inline-code"><code>new_binary_search</code></span> is true? You may assume that <span class="inline-code"><code>arr</code></span> will be a list containing at least one number, and that the initial call to <span class="inline-code"><code>new_binary_search</code></span> will be with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop
     = len(arr) - 1</code></span>.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>new_binary_search</code></span> is guaranteed to work correctly (it will find the index of the target, if the target is in the array, and return <span class="inline-code"><code>None</code></span> otherwise).</p></label></div>
@@ -654,24 +512,20 @@ def new_binary_search(arr, start, stop, target):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math">\(\geq x\)</span>). The full code is shown below for convenience:</p>
-<pre class="code"><code>
-import math
+<pre class="code"><code class="language-python">import math
 
 def new_binary_search(arr, start, stop, target):
-    if stop <= start:
+    if stop &lt;= start:
         return None
 
     middle = math.ceil((start + stop) / 2)
 
     if arr[middle] == target:
         return middle
-    elif arr[middle] < target:
+    elif arr[middle] &lt; target:
         return new_binary_search(arr, middle + 1, stop, target)
     else:
-        return new_binary_search(arr, start, middle, target)
-
-</code></pre>
-
+        return new_binary_search(arr, start, middle, target)</code></pre>
 <p>You may assume that <span class="inline-code"><code>arr</code></span> will be a sorted list containing at least one number, and that the initial call to <span class="inline-code"><code>new_binary_search</code></span> will be with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>.</p>
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
@@ -749,38 +603,28 @@ def new_binary_search(arr, start, stop, target):
 <p>Consider the problem of searching for an element <span class="inline-code"><code>t</code></span> in a <i>sorted</i> array, with the added requirement that if <span class="inline-code"><code>t</code></span> is in the array multiple times, we return the index of the <i>first</i> occurrence. For example, if <span class="inline-code"><code>arr = [3, 4, 4, 4, 5, 8]</code></span>, and <span class="inline-code"><code>t = 4</code></span>, the code should return <span class="inline-code"><code>1</code></span>, since the first <span class="inline-code"><code>4</code></span> is at index one.</p>
 <p><span class="inline-code"><code>binary_search</code></span> as implemented in lecture may not necessarily return the index of the first occurrence of <span class="inline-code"><code>t</code></span>, but it can be modified so that it does.</p>
 <p>Fill in the blanks below so that the function returns the index of the first occurence of <span class="inline-code"><code>t</code></span>. Hint: <span class="inline-code"><code>last_seen</code></span> should keep track of the index of the last known occurrence of <span class="inline-code"><code>t</code></span>.</p>
-<pre class="code"><code>
-
-import math
+<pre class="code"><code class="language-python">import math
 def mbs(arr, t, start, stop, last_seen=None):
-    if start - stop <= 0:
+    if start - stop &lt;= 0:
         return last_seen
 
     middle = math.floor((stop - start) / 2)
 
     if arr[middle] == t:
-        # _________ <-- fill this in
-    elif arr[middle] < t:
-        # _________ <-- fill this in
+        # _________ &lt;-- fill this in
+    elif arr[middle] &lt; t:
+        # _________ &lt;-- fill this in
     else:
-        # _________ <-- fill this in
-
-</code></pre>
-
+        # _________ &lt;-- fill this in</code></pre>
 <details>
     <summary>Solution</summary>
 <p>Here is how the blanks should be filled in:</p>
-<pre class="code"><code>
-
-if arr[middle] == t:
+<pre class="code"><code class="language-python">if arr[middle] == t:
     return mbs(arr, t, start, middle, middle)
-elif arr[middle] < t:
+elif arr[middle] &lt; t:
     return mbs(arr, t, middle + 1, stop, last_seen)
 else:
-    return mbs(arr, t, start, middle, last_seen)
-
-</code></pre>
-
+    return mbs(arr, t, start, middle, last_seen)</code></pre>
 <p>If we see <span class="inline-code"><code>arr[middle] == t</code></span>, we know that this is either the first occurrence of <span class="inline-code"><code>t</code></span> in the array, or the first occurrence of <span class="inline-code"><code>t</code></span> in the left half of the array. Therefore, we make a recursive call to <span class="inline-code"><code>mbs</code></span> on the left half of the array, keeping track of <span class="inline-code"><code>middle</code></span> as the index of the leftmost occurrence of <span class="inline-code"><code>t</code></span> we have seen so far (this is done by passing it as the value to <span class="inline-code"><code>last_seen</code></span>).</p>
 <p>The other recursive calls are the same as in the original <span class="inline-code"><code>binary_search</code></span> function, except that we pass <span class="inline-code"><code>last_seen</code></span> as an argument to the recursive calls. This is because we want to keep track of the leftmost occurrence of <span class="inline-code"><code>t</code></span> we have seen so far.</p>
 <p>Eventually, we will reach a point where <span class="inline-code"><code>start - stop <= 0</code></span>. At this point, we return <span class="inline-code"><code>last_seen</code></span>, which is the index of the leftmost occurrence of <span class="inline-code"><code>t</code></span> we have seen so far. This will necessarily be the leftmost occurrence of <span class="inline-code"><code>t</code></span> in the array.</p>
@@ -800,28 +644,24 @@ else:
         <div class="problem">
     <div class="problem-body">
 <p>Consider the iterative implementation of binary search shown below:</p>
-<pre class="code"><code>
-import math
+<pre class="code"><code class="language-python">import math
 
 def iterative_binary_search(arr, target):
 
     start = 0
     stop = len(arr)
 
-    while (stop - start) > 0:
+    while (stop - start) &gt; 0:
         print(arr[start])
         middle = math.floor((start + stop) / 2)
         if arr[middle] == target:
             return middle
-        elif arr[middle] > target:
+        elif arr[middle] &gt; target:
             stop = middle
         else:
             start = middle + 1
 
-    return None
-
-</code></pre>
-
+    return None</code></pre>
 <p>Which of the following loop invariants is true, assuming that <span class="inline-code"><code>arr</code></span> is sorted and non-empty, and <span class="inline-code"><code>target</code></span> is <b>not</b> in the array? Select all that apply.</p>
 <div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, <span class="inline-code"><code>stop - start >= 0</code></span>.</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, <span class="inline-code"><code>stop - start >= 1</code></span>.</p></label></div>
@@ -837,9 +677,6 @@ def iterative_binary_search(arr, target):
         </div>
 
 
-
-       </body>
-   </html>
     </div>
 </div>
 
@@ -897,6 +734,15 @@ def iterative_binary_search(arr, target):
         // Initialize Lucide icons. The script is deferred, so wait for it to
         // load; DOMContentLoaded fires after deferred scripts have run.
         document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+        
+        // highlight each <pre><code> block with a language-* class (e.g. from
+        // ```python), once the deferred highlight.js has run; a block without
+        // one is left plain, as guessing its language is often wrong
+        document.addEventListener('DOMContentLoaded', () => {
+            hljs.configure({ cssSelector: 'pre code[class*="language-"]' });
+            hljs.highlightAll();
+        });
+        
     </script>
 
 </body>

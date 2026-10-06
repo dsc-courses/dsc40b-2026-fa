@@ -8,99 +8,25 @@
     
     <script defer src="https://unpkg.com/lucide@1.48.0/dist/umd/lucide.min.js"></script>
     
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+            },
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    
+    
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    
+    
 
 
-<style>
-  .multiple-choices .choice label,
-  .multiple-select .choice label {
-    display: flex;
-    align-items: center;
-    gap: 0.6em;
-    margin: 0.25em 0;
-    cursor: pointer;
-  }
-  .multiple-choices .choice p,
-  .multiple-select .choice p {
-    margin: 0;
-  }
 
-  /* practice problems: code blocks get a thin border instead of the theme's
-     thick dark frame around highlight.js's light box */
-  .problem pre.code {
-    background: #f6f8fa;
-    border: 1px solid #d0d7de;
-    border-radius: 6px;
-    padding: 0.75em 1em;
-  }
-  .problem pre.code code,
-  .problem pre.code code.hljs {
-    background: transparent;
-    padding: 0;
-  }
-
-  /* in dark mode (the theme puts .dark on <html>), code blocks use the
-     theme's grays, and highlight.js's light "default" colors are replaced by
-     those of its "github-dark" style */
-  .dark .problem pre.code {
-    background: #111827;
-    border-color: #374151;
-  }
-  .dark .problem pre.code code.hljs { color: #c9d1d9; }
-  .dark .problem .hljs-doctag,
-  .dark .problem .hljs-keyword,
-  .dark .problem .hljs-meta .hljs-keyword,
-  .dark .problem .hljs-template-tag,
-  .dark .problem .hljs-template-variable,
-  .dark .problem .hljs-type,
-  .dark .problem .hljs-variable.language_ { color: #ff7b72; }
-  .dark .problem .hljs-title,
-  .dark .problem .hljs-title.class_,
-  .dark .problem .hljs-title.function_ { color: #d2a8ff; }
-  .dark .problem .hljs-attr,
-  .dark .problem .hljs-attribute,
-  .dark .problem .hljs-literal,
-  .dark .problem .hljs-meta,
-  .dark .problem .hljs-number,
-  .dark .problem .hljs-operator,
-  .dark .problem .hljs-variable,
-  .dark .problem .hljs-selector-attr,
-  .dark .problem .hljs-selector-class,
-  .dark .problem .hljs-selector-id { color: #79c0ff; }
-  .dark .problem .hljs-regexp,
-  .dark .problem .hljs-string,
-  .dark .problem .hljs-meta .hljs-string { color: #a5d6ff; }
-  .dark .problem .hljs-built_in,
-  .dark .problem .hljs-symbol { color: #ffa657; }
-  .dark .problem .hljs-comment,
-  .dark .problem .hljs-code,
-  .dark .problem .hljs-formula { color: #8b949e; }
-  .dark .problem .hljs-name,
-  .dark .problem .hljs-quote,
-  .dark .problem .hljs-selector-tag,
-  .dark .problem .hljs-selector-pseudo { color: #7ee787; }
-  .dark .problem .hljs-subst,
-  .dark .problem .hljs-params { color: #c9d1d9; }
-  .dark .problem .hljs-section { color: #1f6feb; }
-  .dark .problem .hljs-bullet { color: #f2cc60; }
-
-  /* the theme's typography styles wrap inline code in literal backticks */
-  .problem code::before,
-  .problem code::after {
-    content: none;
-  }
-</style>
-
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".problem pre.code code").forEach(function (code) {
-      if (code.children.length === 0) {
-        code.textContent = code.textContent.replace(/^\s*\n/, "").replace(/\s+$/, "");
-      }
-    });
-  });
-</script>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -242,39 +168,13 @@ Course Staff
 </div>
 
     <div class="prose dark:prose-invert">
-    <!DOCTYPE html> <html> <head> <meta
-                          charset="utf-8"> <title>Problems tagged with lecture-04</title>
-
-           <!-- MathJax -->
-           <script type="text/x-mathjax-config">
-             MathJax.Hub.Config({
-               tex: {
-                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
-                 displayMath: [             // start/end delimiter pairs for display math
-                     ['\\[', '\\]']
-                 ],
-                 processEscapes: true
-               }
-           });
-           </script>
-
-           <!-- highlightjs -->
-           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-
-           <!-- and it's easy to individually load additional languages -->
-           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
-
-           <script>hljs.highlightAll();</script>
-
-           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-           <script type="text/javascript" id="MathJax-script" async
-             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-           </script>
-
-       </head>
-       <body>
-           
+    
+<style>
+.multiple-choices .choice label, .multiple-select .choice label {
+    display: flex; align-items: center; gap: 0.6em; margin: 0.25em 0; cursor: pointer;
+}
+.multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+</style>
 <h1>Problems tagged with "lecture-04"</h1>
 
 
@@ -377,21 +277,17 @@ Course Staff
         <div class="problem">
     <div class="problem-body">
 <p>What is the best case time complexity of the following code?</p>
-<pre class="code"><code>
-def insertion_sort(arr):
+<pre class="code"><code class="language-python">def insertion_sort(arr):
     """Sort `arr` in ascending order."""
     n = len(arr)
     for i in range(1, n):
         x = arr[i]
         j = i - 1
         # find where to place x
-        while j >= 0 and x < arr[j]:
+        while j &gt;= 0 and x &lt; arr[j]:
             arr[j+1] = arr[j]
             j -= 1
-        arr[j+1] = x
-
-</code></pre>
-
+        arr[j+1] = x</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -420,21 +316,17 @@ def insertion_sort(arr):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <i>worst case</i> time complexity of the following code?</p>
-<pre class="code"><code>
-def insertion_sort(arr):
+<pre class="code"><code class="language-python">def insertion_sort(arr):
     """Sort `arr` in ascending order."""
     n = len(arr)
     for i in range(1, n):
         x = arr[i]
         j = i - 1
         # find where to place x
-        while j >= 0 and x < arr[j]:
+        while j &gt;= 0 and x &lt; arr[j]:
             arr[j+1] = arr[j]
             j -= 1
-        arr[j+1] = x
-
-</code></pre>
-
+        arr[j+1] = x</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -463,17 +355,13 @@ def insertion_sort(arr):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <i>best case</i> time complexity of the following function?</p>
-<pre class="code"><code>
-def foo(arr):
+<pre class="code"><code class="language-python">def foo(arr):
     """arr is an array of size n"""
     for x in arr:
         for y in arr:
             if sum([x,y]) == 5:
                 return sum(arr)
-    return False
-
-</code></pre>
-
+    return False</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -502,17 +390,13 @@ def foo(arr):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <i>worst case</i> time complexity of the following function?</p>
-<pre class="code"><code>
-def foo(arr):
+<pre class="code"><code class="language-python">def foo(arr):
     """arr is an array of size n"""
     for x in arr:
         for y in arr:
             if sum([x,y]) == 5:
                 return sum(arr)
-    return False
-
-</code></pre>
-
+    return False</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -541,8 +425,7 @@ def foo(arr):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>best case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
-<pre class="code"><code>
-def foo(arr):
+<pre class="code"><code class="language-python">def foo(arr):
     """`arr` is a list containing n numbers."""
     previous = None
     n = len(arr)
@@ -551,10 +434,7 @@ def foo(arr):
             for i in range(n**2):
                 print('Equal!')
             return
-        previous = x
-
-</code></pre>
-
+        previous = x</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
@@ -574,8 +454,7 @@ def foo(arr):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>best case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
-<pre class="code"><code>
-def foo(arr):
+<pre class="code"><code class="language-python">def foo(arr):
     """`arr` is a list containing n numbers."""
     previous = None
     n = len(arr)
@@ -584,10 +463,7 @@ def foo(arr):
             for i in range(n**2):
                 print('Equal!')
             return
-        previous = x
-
-</code></pre>
-
+        previous = x</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
@@ -607,8 +483,7 @@ def foo(arr):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>worst case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
-<pre class="code"><code>
-def foo(arr):
+<pre class="code"><code class="language-python">def foo(arr):
     """`arr` is a list containing n numbers."""
     previous = None
     n = len(arr)
@@ -617,10 +492,7 @@ def foo(arr):
             for i in range(n**2):
                 print('Equal!')
             return
-        previous = x
-
-</code></pre>
-
+        previous = x</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span></p>
@@ -661,15 +533,11 @@ def foo(arr):
         <div class="problem">
     <div class="problem-body">
 <p>The below code takes in an array of numbers and returns the index of the first maximum. What is this code's <b>best case</b> time complexity?</p>
-<pre class="code"><code>
-def index_of_maximum(arr):
+<pre class="code"><code class="language-python">def index_of_maximum(arr):
     """`arr` is an array with n elements."""
     for i, x in enumerate(arr):
         if x == max(arr):
-            return i
-
-</code></pre>
-
+            return i</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
@@ -689,15 +557,11 @@ def index_of_maximum(arr):
         <div class="problem">
     <div class="problem-body">
 <p>The below code takes in an array of numbers and returns the index of the first maximum.</p>
-<pre class="code"><code>
-def foo(arr):
+<pre class="code"><code class="language-python">def foo(arr):
     """`arr` is an array with n elements."""
     for i, x in enumerate(arr):
         if x == max(arr):
-            return i
-
-</code></pre>
-
+            return i</code></pre>
 <p>What is the <b>worst case</b> time complexity of the function?</p>
 <details>
     <summary>Solution</summary>
@@ -719,18 +583,14 @@ def foo(arr):
     <div class="problem-body">
 <p>The code below takes in an array of <span class="math">\(n\)</span> numbers and checks whether there is a pair of numbers in the array which, when added together, equal the maximum element of the array.</p>
 <p>What is the <b>best case</b> time complexity of this code as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
-<pre class="code"><code>
-def exists_pair_summing_to_max(arr):
+<pre class="code"><code class="language-python">def exists_pair_summing_to_max(arr):
     n = len(arr)
     maximum = max(arr)
     for i in range(n):
         for j in range(i + 1, n):
             if arr[i] + arr[j] == maximum:
                 return True
-    return False
-
-</code></pre>
-
+    return False</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
@@ -750,8 +610,7 @@ def exists_pair_summing_to_max(arr):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <i>expected</i> time complexity of the following function?</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 
 def foo(n):
     # randomly draw a number from 0, 1, 2, ..., n-1
@@ -763,10 +622,7 @@ def foo(n):
         print("lucky!")
 
     for i in range(n):
-        print(i)
-
-</code></pre>
-
+        print(i)</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -795,18 +651,14 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the following function? State your answer using asymptotic notation.</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 
 def boo(n):
     # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
     x = random.randrange(n)
 
-    for i in range(x): # <-- note that the range is random!
-        print(i)
-
-</code></pre>
-
+    for i in range(x): # &lt;-- note that the range is random!
+        print(i)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
@@ -826,8 +678,7 @@ def boo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below?</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 
 def foo(n):
     # draw a random number uniformly from 0, 1, 2, ..., 99
@@ -835,10 +686,7 @@ def foo(n):
     x = random.randrange(100)
     for i in range(x):
         for j in range(n):
-            print("Here!")
-
-</code></pre>
-
+            print("Here!")</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span>. Note that in this question, the range of <span class="math">\(x\)</span> is between 0 and 99. Therefore the outer loop will run a constant number of times no matter what <span class="math">\(x\)</span> is. Then we can focus on the inner loop, which runs for <span class="math">\(n\)</span> times the print() operation, which is <span class="math">\(\Theta(n)\)</span> time. Therefore, the expected time complexity for this piece of code is <span class="math">\(\Theta(n)\)</span>.</p>
@@ -877,8 +725,7 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>The code below takes in two lists, each containing <span class="math">\(n\)</span> integers, and determines if the any number in the second list appears at least <span class="math">\(n/2\)</span> times in the first list.</p>
-<pre class="code"><code>
-def boo(first_list, second_list):
+<pre class="code"><code class="language-python">def boo(first_list, second_list):
     """first_list and second_list are both of size n"""
     n = len(first_list)
     for x in second_list:
@@ -886,12 +733,9 @@ def boo(first_list, second_list):
         for y in first_list:
             if x == y:
                 count += 1
-            if count >= n // 2:
+            if count &gt;= n // 2:
                 return True
-    return False
-
-</code></pre>
-
+    return False</code></pre>
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
 <p>What is the <b>best case</b> time complexity of this code as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
@@ -932,8 +776,7 @@ def boo(first_list, second_list):
         <div class="problem">
     <div class="problem-body">
 <p>The code below takes in two lists, each containing <span class="math">\(n\)</span> integers.</p>
-<pre class="code"><code>
-def are_lists_equal(list1, list2):
+<pre class="code"><code class="language-python">def are_lists_equal(list1, list2):
     if len(list1) != len(list2):
         return False
     for i in range(len(list1)):
@@ -950,10 +793,7 @@ def foo(list1, list2):
         for i in list1:
             for j in list2:
                 for k in range(len(list1)):
-                    print(i, j, k)
-
-</code></pre>
-
+                    print(i, j, k)</code></pre>
 <p>What is the best case time complexity of <span class="inline-code"><code>foo</code></span> as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
@@ -974,8 +814,7 @@ def foo(list1, list2):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below?</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 
 def foo(n):
     # draw a random number uniformly from 0, 1, 2, ..., n-1
@@ -983,10 +822,7 @@ def foo(n):
     x = random.randrange(n)
     for i in range(x):
         for j in range(n):
-            print("Here!")
-
-</code></pre>
-
+            print("Here!")</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>. The inner loop is not random, and the time complexity of it is always <span class="math">\(\Theta(n)\)</span>. Therefore the expected time complexity of this function will be (using the arithmetic sequence sum formula)</p>
@@ -1007,18 +843,14 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the following function?</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 
 def foo(n):
     for i in range(n):
         # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
         x = random.randrange(n)
         for j in range(x):
-            print(j)
-
-</code></pre>
-
+            print(j)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>. For this function, the outer loop wil execute <span class="math">\(n\)</span> times no matter what, hence we only have to find what the expected time complexity for the inner loop is, then combine that together with the outer loop. For the inner loop, the expected time complexity is</p>
@@ -1041,19 +873,15 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below?</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 
 def foo(n):
     # draw a number uniformly at random from 0, 1, 2, ..., n-1
     # in constant time
     x = random.randrange(n)
-    if x < 100:
+    if x &lt; 100:
         for j in range(n**2):
-            print(j)
-
-</code></pre>
-
+            print(j)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span>. The for loop is only executed if <span class="math">\(x\)</span> is less than 100, therefore we can write the expected time as (ignoring constants <span class="math">\(c\)</span>):</p>
@@ -1074,21 +902,17 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the following function? State your answer using asymptotic notation.</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 
 def foo(n):
     x = random.randrange(n)
 
-    if x < 8:
+    if x &lt; 8:
         for j in range(n**3):
             print(j)
     else:
         for j in range(n):
-            print(j)
-
-</code></pre>
-
+            print(j)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>. The expected time complexity for this function is</p>
@@ -1109,22 +933,18 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below? State your answer using asymptotic notation.</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 def foo(n):
     # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1) time
     x = random.randrange(n)
-    if x < 20:
+    if x &lt; 20:
         for i in range(n**3):
             print("Very unlucky!")
-    elif x < n / 2:
+    elif x &lt; n / 2:
         for i in range(n):
             print("Unlucky!")
     else:
-        print("Lucky!")
-
-</code></pre>
-
+        print("Lucky!")</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>.</p>
@@ -1144,18 +964,14 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below?</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 
 def foo(n):
     # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
     x = random.randrange(n)
-    if x < math.sqrt(n):
+    if x &lt; math.sqrt(n):
         for j in range(n):
-            print(j)
-
-</code></pre>
-
+            print(j)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(\sqrt n)\)</span>. Since the for loop only executes when <span class="math">\(x\)</span> is less than <span class="math">\(\sqrt{n}\)</span>, the expected time complexity is</p>
@@ -1177,25 +993,21 @@ def foo(n):
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below?</p>
 <p>You may assume that <span class="inline-code"><code>math.sqrt</code></span> takes <span class="math">\(\Theta(1)\)</span> time.</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 import math
 
 def foo(n):
     # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
     x = random.randrange(n)
 
-    if x < math.sqrt(n):
+    if x &lt; math.sqrt(n):
         for j in range(n):
             print(j)
-    elif x < n//2:
+    elif x &lt; n//2:
         print('Ok!')
     else:
         for i in range(n**2):
-            print(i)
-
-</code></pre>
-
+            print(i)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>. The expected time complexity for this function is</p>
@@ -1220,25 +1032,21 @@ def foo(n):
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below? State your answer using asymptotic notation.</p>
 <p>You may assume that <span class="inline-code"><code>math.sqrt</code></span> and <span class="inline-code"><code>math.log2</code></span> take <span class="math">\(\Theta(1)\)</span> time.</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 import math
 
 def boo(n):
     # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
     x = random.randrange(n)
 
-    if x < math.log2(n):
+    if x &lt; math.log2(n):
         for i in range(n**2):
             print("Very unlucky!")
-    elif x < math.sqrt(n):
+    elif x &lt; math.sqrt(n):
         for i in range(n):
             print("Unlucky!")
     else:
-        print("Lucky!")
-
-</code></pre>
-
+        print("Lucky!")</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n \log n)\)</span> There are three cases: Case 1) <span class="math">\(x < \log_2 n\)</span>; Case 2) <span class="math">\(1 < x < \sqrt n\)</span>; and Case 3) <span class="math">\(x \geq\sqrt{n}\)</span>.</p>
@@ -1271,25 +1079,21 @@ def boo(n):
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below? State your answer using asymptotic notation.</p>
 <p>You may assume that <span class="inline-code"><code>math.sqrt</code></span> and <span class="inline-code"><code>math.log</code></span> take <span class="math">\(\Theta(1)\)</span> time. <span class="inline-code"><code>math.log</code></span> computes the natural log.</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code class="language-python">import random
 import math
 
 def foo(n):
     # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
     x = random.randrange(n)
 
-    if x < math.log(n):
+    if x &lt; math.log(n):
         for j in range(n**2):
             print(j)
-    elif x < math.sqrt(n):
+    elif x &lt; math.sqrt(n):
         print('Ok!')
     else:
         for i in range(n):
-            print(i)
-
-</code></pre>
-
+            print(i)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n \log n)\)</span> There are three cases: Case 1) <span class="math">\(x < \log n\)</span>; Case 2) <span class="math">\(\log n \geq x <
@@ -1366,9 +1170,6 @@ def foo(n):
         </div>
 
 
-
-       </body>
-   </html>
     </div>
 </div>
 
@@ -1426,6 +1227,15 @@ def foo(n):
         // Initialize Lucide icons. The script is deferred, so wait for it to
         // load; DOMContentLoaded fires after deferred scripts have run.
         document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+        
+        // highlight each <pre><code> block with a language-* class (e.g. from
+        // ```python), once the deferred highlight.js has run; a block without
+        // one is left plain, as guessing its language is often wrong
+        document.addEventListener('DOMContentLoaded', () => {
+            hljs.configure({ cssSelector: 'pre code[class*="language-"]' });
+            hljs.highlightAll();
+        });
+        
     </script>
 
 </body>

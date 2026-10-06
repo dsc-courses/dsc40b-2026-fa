@@ -8,99 +8,25 @@
     
     <script defer src="https://unpkg.com/lucide@1.48.0/dist/umd/lucide.min.js"></script>
     
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+            },
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    
+    
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    
+    
 
 
-<style>
-  .multiple-choices .choice label,
-  .multiple-select .choice label {
-    display: flex;
-    align-items: center;
-    gap: 0.6em;
-    margin: 0.25em 0;
-    cursor: pointer;
-  }
-  .multiple-choices .choice p,
-  .multiple-select .choice p {
-    margin: 0;
-  }
 
-  /* practice problems: code blocks get a thin border instead of the theme's
-     thick dark frame around highlight.js's light box */
-  .problem pre.code {
-    background: #f6f8fa;
-    border: 1px solid #d0d7de;
-    border-radius: 6px;
-    padding: 0.75em 1em;
-  }
-  .problem pre.code code,
-  .problem pre.code code.hljs {
-    background: transparent;
-    padding: 0;
-  }
-
-  /* in dark mode (the theme puts .dark on <html>), code blocks use the
-     theme's grays, and highlight.js's light "default" colors are replaced by
-     those of its "github-dark" style */
-  .dark .problem pre.code {
-    background: #111827;
-    border-color: #374151;
-  }
-  .dark .problem pre.code code.hljs { color: #c9d1d9; }
-  .dark .problem .hljs-doctag,
-  .dark .problem .hljs-keyword,
-  .dark .problem .hljs-meta .hljs-keyword,
-  .dark .problem .hljs-template-tag,
-  .dark .problem .hljs-template-variable,
-  .dark .problem .hljs-type,
-  .dark .problem .hljs-variable.language_ { color: #ff7b72; }
-  .dark .problem .hljs-title,
-  .dark .problem .hljs-title.class_,
-  .dark .problem .hljs-title.function_ { color: #d2a8ff; }
-  .dark .problem .hljs-attr,
-  .dark .problem .hljs-attribute,
-  .dark .problem .hljs-literal,
-  .dark .problem .hljs-meta,
-  .dark .problem .hljs-number,
-  .dark .problem .hljs-operator,
-  .dark .problem .hljs-variable,
-  .dark .problem .hljs-selector-attr,
-  .dark .problem .hljs-selector-class,
-  .dark .problem .hljs-selector-id { color: #79c0ff; }
-  .dark .problem .hljs-regexp,
-  .dark .problem .hljs-string,
-  .dark .problem .hljs-meta .hljs-string { color: #a5d6ff; }
-  .dark .problem .hljs-built_in,
-  .dark .problem .hljs-symbol { color: #ffa657; }
-  .dark .problem .hljs-comment,
-  .dark .problem .hljs-code,
-  .dark .problem .hljs-formula { color: #8b949e; }
-  .dark .problem .hljs-name,
-  .dark .problem .hljs-quote,
-  .dark .problem .hljs-selector-tag,
-  .dark .problem .hljs-selector-pseudo { color: #7ee787; }
-  .dark .problem .hljs-subst,
-  .dark .problem .hljs-params { color: #c9d1d9; }
-  .dark .problem .hljs-section { color: #1f6feb; }
-  .dark .problem .hljs-bullet { color: #f2cc60; }
-
-  /* the theme's typography styles wrap inline code in literal backticks */
-  .problem code::before,
-  .problem code::after {
-    content: none;
-  }
-</style>
-
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".problem pre.code code").forEach(function (code) {
-      if (code.children.length === 0) {
-        code.textContent = code.textContent.replace(/^\s*\n/, "").replace(/\s+$/, "");
-      }
-    });
-  });
-</script>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -242,39 +168,13 @@ Course Staff
 </div>
 
     <div class="prose dark:prose-invert">
-    <!DOCTYPE html> <html> <head> <meta
-                          charset="utf-8"> <title>Midterm 02</title>
-
-           <!-- MathJax -->
-           <script type="text/x-mathjax-config">
-             MathJax.Hub.Config({
-               tex: {
-                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
-                 displayMath: [             // start/end delimiter pairs for display math
-                     ['\\[', '\\]']
-                 ],
-                 processEscapes: true
-               }
-           });
-           </script>
-
-           <!-- highlightjs -->
-           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-
-           <!-- and it's easy to individually load additional languages -->
-           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
-
-           <script>hljs.highlightAll();</script>
-
-           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-           <script type="text/javascript" id="MathJax-script" async
-             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-           </script>
-
-       </head>
-       <body>
-           
+    
+        <style>
+.multiple-choices .choice label, .multiple-select .choice label {
+    display: flex; align-items: center; gap: 0.6em; margin: 0.25em 0; cursor: pointer;
+}
+.multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+</style>
         <h1>Midterm 02</h1>
         <p>Practice problems for topics on Midterm 02.
 See also the <a href="http://dsc40b.com/materials/default/supplementary/sample_midterm_02/sample_midterm_02.pdf">Sample Midterm 02</a>
@@ -468,16 +368,12 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
         <div class="problem">
     <div class="problem-body">
 <p>Consider the code below:</p>
-<pre class="code"><code>
-def intersection(A, B):
+<pre class="code"><code class="language-python">def intersection(A, B):
     common = set()
     for x in A:
         if x in B:
             common.add(x)
-    return common
-
-</code></pre>
-
+    return common</code></pre>
 <p>What is the expected time complexity of this code if <span class="inline-code"><code>A</code></span> and <span class="inline-code"><code>B</code></span> are Python <span class="inline-code"><code>set</code></span>s (hash tables) with <span class="math">\(n\)</span> elements each? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation. You may assume that the hash function used is ``good'' in that it hashes evenly (that is, it satisfies the simple universal hashing assumption).</p>
 <details>
     <summary>Solution</summary>
@@ -499,9 +395,7 @@ def intersection(A, B):
     <div class="problem-body">
 <p>In the problem below, suppose <span class="inline-code"><code>arr</code></span> is an array of <span class="math">\(n\)</span> integers. What is the expected time complexity of the code below? Write your answer using asymptotic notation as a function of <span class="math">\(n\)</span>.</p>
 <p>Remember: <span class="inline-code"><code>set</code></span> is implemented using a hash table. You may assume that the hash table is large enough to store all of th numbers without needing to resize.</p>
-<pre class="code"><code>
-
-def find_duplicates(arr):
+<pre class="code"><code class="language-python">def find_duplicates(arr):
     seen = set()
     duplicates = set()
     for num in arr:
@@ -509,10 +403,7 @@ def find_duplicates(arr):
             duplicates.add(num)
         else:
             seen.add(num)
-    return duplicates
-
-</code></pre>
-
+    return duplicates</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
@@ -532,8 +423,7 @@ def find_duplicates(arr):
         <div class="problem">
     <div class="problem-body">
 <p>What is the expected time complexity of the code shown below, assuming that <span class="inline-code"><code>numbers</code></span> is a Python <span class="inline-code"><code>list</code></span>? Express your answer as a function of <span class="math">\(n\)</span> using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
-<pre class="code"><code>
-def foo(numbers):
+<pre class="code"><code class="language-python">def foo(numbers):
     """Assume that `numbers` is a list containing n numbers."""
     # counts is a Python dictionary, which is implemented using hash table
     counts = {}
@@ -544,10 +434,7 @@ def foo(numbers):
                 counts[diff] = 1
             else:
                 counts[diff] = counts[diff] + 1
-    return counts
-
-</code></pre>
-
+    return counts</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span></p>
@@ -1381,14 +1268,9 @@ def foo(numbers):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a graph <span class="math">\(G = (V, E)\)</span> is stored using an adjacency list representation in the variable <span class="inline-code"><code>adj_list</code></span>. What is the time complexity of the below code?</p>
-<pre class="code"><code>
-
-for lst in adj_list:
+<pre class="code"><code class="language-python">for lst in adj_list:
     for u in lst:
-        print(u)
-
-</code></pre>
-
+        print(u)</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2)\)</span></p></label></div>
@@ -1413,14 +1295,9 @@ for lst in adj_list:
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a graph <span class="math">\(G = (V, E)\)</span> is stored using an adjacency list representation in the variable <span class="inline-code"><code>adj_list</code></span>. What is the time complexity of the below code?</p>
-<pre class="code"><code>
-
-for u, lst in enumerate(adj_list):
+<pre class="code"><code class="language-python">for u, lst in enumerate(adj_list):
     for v in lst:
-        print(u, v, "is an edge")
-
-</code></pre>
-
+        print(u, v, "is an edge")</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2)\)</span></p></label></div>
@@ -1445,13 +1322,9 @@ for u, lst in enumerate(adj_list):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose the code below is run on a graph <span class="math">\(G = (V, E)\)</span>. What is its time complexity? You may assume that <span class="math">\(|E| \geq 1\)</span>.</p>
-<pre class="code"><code>
-for u in graph.nodes:
+<pre class="code"><code>for u in graph.nodes:
     for v in graph.neighbors(u):
-        print(u, v)
-
-</code></pre>
-
+        print(u, v)</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
@@ -1720,9 +1593,7 @@ for u in graph.nodes:
         <div class="problem">
     <div class="problem-body">
 <p>The code below is a modified version of BFS shown in class. This modification has a single addition: a <span class="inline-code"><code>print</code></span> statement. A comment in the code indicates where the <span class="inline-code"><code>print</code></span> statement is located.</p>
-<pre class="code"><code>
-
-def bfs(graph, source):
+<pre class="code"><code class="language-python">def bfs(graph, source):
     """Start a BFS at `source`."""
     status = {node: 'undiscovered' for node in graph.nodes}
     status[source] = 'pending'
@@ -1731,14 +1602,11 @@ def bfs(graph, source):
     while pending: 
         u = pending.popleft()
         for v in graph.neighbors(u):
-            print("here!") # <--- this is the print statement
+            print("here!") # &lt;--- this is the print statement
             if status[v] == 'undiscovered':
                 status[v] = 'pending'
                 pending.append(v)
-        status[u] = 'visited'
-
-</code></pre>
-
+        status[u] = 'visited'</code></pre>
 <p>Suppose this modified BFS is run on the following graph, starting at node <span class="math">\(a\)</span>.</p>
 <center><div class="image"><img src="images/233/graph.png" /></div></center>
 <p>How many times will <span class="inline-code"><code>"here!"</code></span> be printed? Your answer should be an exact number.</p>
@@ -1761,9 +1629,7 @@ def bfs(graph, source):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the following modification of BFS, with an added print statement:</p>
-<pre class="code"><code>
-
-from collections import deque
+<pre class="code"><code class="language-python">from collections import deque
 
 def modified_bfs(graph, source):
     """Start a BFS at `source`."""
@@ -1775,16 +1641,12 @@ def modified_bfs(graph, source):
         u = pending.popleft()
         for v in graph.neighbors(u):
             if v == 9:
-                print("Here!") # <-- this is the added print statement
+                print("Here!") # &lt;-- this is the added print statement
             if status[v] == 'undiscovered':
                 status[v] = 'pending'
                 pending.append(v)
 
-        status[u] = 'visited'
-
-
-</code></pre>
-
+        status[u] = 'visited'</code></pre>
 <p>Consider running this algorithm on the following graph, starting at node <span class="math">\(1\)</span>:</p>
 <center><div class="image"><img src="images/234/graph.png" /></div></center>
 <p>How many times will <span class="inline-code"><code>"Here!"</code></span> be printed?</p>
@@ -1921,8 +1783,7 @@ def modified_bfs(graph, source):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose you are running a full BFS on a graph. You are using the following code from lecture to run your full BFS, with some small modifications to include two new print statements:</p>
-<pre class="code"><code>
-from collections import deque
+<pre class="code"><code class="language-python">from collections import deque
 
 def bfs(graph, source, status=None):
     """Start a BFS at `source`."""
@@ -1937,7 +1798,7 @@ def bfs(graph, source, status=None):
         u = pending.popleft()
         for v in graph.neighbors(u):
             # explore edge (u, v)
-            print('foo') # <- this is new
+            print('foo') # &lt;- this is new
             if status[v] == 'undiscovered':
                 status[v] = 'pending'
                 # append to right
@@ -1948,11 +1809,8 @@ def full_bfs(graph):
     status = {node: 'undiscovered' for node in graph.nodes}
     for node in graph.nodes:
         if status[node] == 'undiscovered':
-            print("bar") # <- this is also new
-            bfs(graph, node, status)
-
-</code></pre>
-
+            print("bar") # &lt;- this is also new
+            bfs(graph, node, status)</code></pre>
 <p>After running the full BFS, you find that the word “foo” has been printed 2 times, and the word “bar” has been printed 5 times. Assuming that the graph has 1 edge (but an unknown number of nodes), which of the following is true about the graph in question?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>There is 1 connected component, and it is undirected</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>There is 1 connected component, and it is directed</p></label></div>
@@ -1979,9 +1837,7 @@ def full_bfs(graph):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the code below, which is a modification of the BFS algorithm presented in lecture: there are two new lines, marked with comments.</p>
-<pre class="code"><code>
-
-from collections import deque
+<pre class="code"><code class="language-python">from collections import deque
 
 def modified_bfs(graph, source):
     """Start a BFS at `source`."""
@@ -1993,17 +1849,14 @@ def modified_bfs(graph, source):
         u = pending.popleft()
         for v in graph.neighbors(u):
 
-            for node in graph.nodes:  # < -- this is the modification
-                print(status[node])   # < -- this is the modification
+            for node in graph.nodes:  # &lt; -- this is the modification
+                print(status[node])   # &lt; -- this is the modification
 
             if status[v] == 'undiscovered':
                 status[v] = 'pending'
                 pending.append(v)
 
-        status[u] = 'visited'
-
-</code></pre>
-
+        status[u] = 'visited'</code></pre>
 <p>What is the time complexity of this algorithm, in terms of <span class="math">\(|V|\)</span> and <span class="math">\(|E|\)</span>? You may assume the graph is undirected and connected, so that all nodes are reachable from the source.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
@@ -2029,8 +1882,7 @@ def modified_bfs(graph, source):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the following modification of BFS, where there are two new lines of code. What is the time complexity in terms of <span class="math">\(|V|\)</span> and <span class="math">\(|E|\)</span>?</p>
-<pre class="code"><code>
-from collections import deque
+<pre class="code"><code>from collections import deque
 
 def foo(graph):
     status = {node: 'undiscovered' for node in graph.nodes}
@@ -2052,10 +1904,7 @@ def bar(graph, source, status):
                 pending.append(v)
             for v in graph.nodes:
                 print(v)
-        status[u] = 'visited'
-
-</code></pre>
-
+        status[u] = 'visited'</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E^2)\)</span></p></label></div>
@@ -2080,8 +1929,7 @@ def bar(graph, source, status):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the code below, which is a modification of the code for <span class="inline-code"><code>bfs</code></span> given in lecture:</p>
-<pre class="code"><code>
-from collections import deque
+<pre class="code"><code class="language-python">from collections import deque
 
 def modified_full_bfs(graph):
     status = {node: 'undiscovered' for node in graph.nodes}
@@ -2106,13 +1954,10 @@ def modified_bfs(graph, source, status=None):
                 status[v] = 'pending'
                 # append to right
                 pending.append(v)
-                for z in graph.nodes:   # <----- new line!
-                    print(z, status[z]) # <----- new line!
+                for z in graph.nodes:   # &lt;----- new line!
+                    print(z, status[z]) # &lt;----- new line!
 
-        status[u] = 'visited'
-
-</code></pre>
-
+        status[u] = 'visited'</code></pre>
 <p>Notice the two new lines; these lines print all node statuses any time that an undiscovered node has been found.</p>
 <p>What is the time complexity of this modified <span class="inline-code"><code>modified_full_bfs</code></span>? State your answer in asymptotic notation in terms of the number of nodes, <span class="math">\(|V|\)</span>, and the number of edges, <span class="math">\(|E|\)</span>. You may assume that the graph is represented using an adjacency list, and that it is connected.</p>
 <details>
@@ -3000,9 +2845,7 @@ def modified_bfs(graph, source, status=None):
         <div class="problem">
     <div class="problem-body">
 <p>A modification of the <span class="inline-code"><code>dfs</code></span> function from lecture is shown below. It is the same as the original <span class="inline-code"><code>dfs</code></span> function, except that it has an added <span class="inline-code"><code>print</code></span> statement.</p>
-<pre class="code"><code>
-
-def dfs(graph, u, status=None):
+<pre class="code"><code class="language-python">def dfs(graph, u, status=None):
     """Start a DFS at `u`."""
     # initialize status if it was not passed
     if status is None:
@@ -3012,10 +2855,7 @@ def dfs(graph, u, status=None):
         if status[v] == 'undiscovered':
             print("Hello!")
             dfs(graph, v, status)
-    status[u] = 'visited'
-
-</code></pre>
-
+    status[u] = 'visited'</code></pre>
 <p>Consider running this algorithm on the following graph, starting at node <span class="math">\(a\)</span>:</p>
 <center><div class="image"><img src="images/281/graph.png" /></div></center>
 <p>How many times will <span class="inline-code"><code>"Hello!"</code></span> be printed? Note that this is not a full DFS, and that not all nodes are reachable from <span class="math">\(a\)</span>.</p>
@@ -3038,9 +2878,7 @@ def dfs(graph, u, status=None):
         <div class="problem">
     <div class="problem-body">
 <p>A modification of the <span class="inline-code"><code>dfs</code></span> function from lecture is shown below. It is the same as the original <span class="inline-code"><code>dfs</code></span> function, except that it has an added <span class="inline-code"><code>print</code></span> statement.</p>
-<pre class="code"><code>
-
-def dfs(graph, u, status=None):
+<pre class="code"><code class="language-python">def dfs(graph, u, status=None):
     """Start a DFS at `u`."""
     # initialize status if it was not passed
     if status is None:
@@ -3050,10 +2888,7 @@ def dfs(graph, u, status=None):
         print("Hello!")
         if status[v] == 'undiscovered':
             dfs(graph, v, status)
-    status[u] = 'visited'
-
-</code></pre>
-
+    status[u] = 'visited'</code></pre>
 <p>Consider running this algorithm on the following graph, starting at node <span class="math">\(a\)</span>:</p>
 <center><div class="image"><img src="images/282/graph.png" /></div></center>
 <p>How many times will <span class="inline-code"><code>"Hello!"</code></span> be printed? Note that this is not a full DFS, and that not all nodes are reachable from <span class="math">\(a\)</span>.</p>
@@ -3076,9 +2911,7 @@ def dfs(graph, u, status=None):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the code shown below. It shows DFS as seen in lecture, with one modification: a <span class="inline-code"><code>print</code></span> statement in the for-loop.</p>
-<pre class="code"><code>
-
-def dfs(graph, u, status=None):
+<pre class="code"><code class="language-python">def dfs(graph, u, status=None):
     """Start a DFS at `u`."""
     # initialize status if it was not passed
     if status is None:
@@ -3088,10 +2921,7 @@ def dfs(graph, u, status=None):
         print("Hello!")
         if status[v] == 'undiscovered':
             dfs(graph, v, status)
-    status[u] = 'visited'
-
-</code></pre>
-
+    status[u] = 'visited'</code></pre>
 <p>How many times will <span class="inline-code"><code>"Hello!"</code></span> be printed if <span class="inline-code"><code>dfs</code></span> is run on the graph below using node <span class="math">\(u\)</span> as the source? Note that <span class="inline-code"><code>dfs</code></span> will not be restarted if the first call does not explore the whole graph.</p>
 <center><div class="image"><img src="images/283/g4.png" /></div></center>
 <details>
@@ -3974,9 +3804,6 @@ def dfs(graph, u, status=None):
         </div>
 
 
-
-       </body>
-   </html>
     </div>
 </div>
 
@@ -4034,6 +3861,15 @@ def dfs(graph, u, status=None):
         // Initialize Lucide icons. The script is deferred, so wait for it to
         // load; DOMContentLoaded fires after deferred scripts have run.
         document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+        
+        // highlight each <pre><code> block with a language-* class (e.g. from
+        // ```python), once the deferred highlight.js has run; a block without
+        // one is left plain, as guessing its language is often wrong
+        document.addEventListener('DOMContentLoaded', () => {
+            hljs.configure({ cssSelector: 'pre code[class*="language-"]' });
+            hljs.highlightAll();
+        });
+        
     </script>
 
 </body>

@@ -8,99 +8,25 @@
     
     <script defer src="https://unpkg.com/lucide@1.48.0/dist/umd/lucide.min.js"></script>
     
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+            },
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    
+    
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    
+    
 
 
-<style>
-  .multiple-choices .choice label,
-  .multiple-select .choice label {
-    display: flex;
-    align-items: center;
-    gap: 0.6em;
-    margin: 0.25em 0;
-    cursor: pointer;
-  }
-  .multiple-choices .choice p,
-  .multiple-select .choice p {
-    margin: 0;
-  }
 
-  /* practice problems: code blocks get a thin border instead of the theme's
-     thick dark frame around highlight.js's light box */
-  .problem pre.code {
-    background: #f6f8fa;
-    border: 1px solid #d0d7de;
-    border-radius: 6px;
-    padding: 0.75em 1em;
-  }
-  .problem pre.code code,
-  .problem pre.code code.hljs {
-    background: transparent;
-    padding: 0;
-  }
-
-  /* in dark mode (the theme puts .dark on <html>), code blocks use the
-     theme's grays, and highlight.js's light "default" colors are replaced by
-     those of its "github-dark" style */
-  .dark .problem pre.code {
-    background: #111827;
-    border-color: #374151;
-  }
-  .dark .problem pre.code code.hljs { color: #c9d1d9; }
-  .dark .problem .hljs-doctag,
-  .dark .problem .hljs-keyword,
-  .dark .problem .hljs-meta .hljs-keyword,
-  .dark .problem .hljs-template-tag,
-  .dark .problem .hljs-template-variable,
-  .dark .problem .hljs-type,
-  .dark .problem .hljs-variable.language_ { color: #ff7b72; }
-  .dark .problem .hljs-title,
-  .dark .problem .hljs-title.class_,
-  .dark .problem .hljs-title.function_ { color: #d2a8ff; }
-  .dark .problem .hljs-attr,
-  .dark .problem .hljs-attribute,
-  .dark .problem .hljs-literal,
-  .dark .problem .hljs-meta,
-  .dark .problem .hljs-number,
-  .dark .problem .hljs-operator,
-  .dark .problem .hljs-variable,
-  .dark .problem .hljs-selector-attr,
-  .dark .problem .hljs-selector-class,
-  .dark .problem .hljs-selector-id { color: #79c0ff; }
-  .dark .problem .hljs-regexp,
-  .dark .problem .hljs-string,
-  .dark .problem .hljs-meta .hljs-string { color: #a5d6ff; }
-  .dark .problem .hljs-built_in,
-  .dark .problem .hljs-symbol { color: #ffa657; }
-  .dark .problem .hljs-comment,
-  .dark .problem .hljs-code,
-  .dark .problem .hljs-formula { color: #8b949e; }
-  .dark .problem .hljs-name,
-  .dark .problem .hljs-quote,
-  .dark .problem .hljs-selector-tag,
-  .dark .problem .hljs-selector-pseudo { color: #7ee787; }
-  .dark .problem .hljs-subst,
-  .dark .problem .hljs-params { color: #c9d1d9; }
-  .dark .problem .hljs-section { color: #1f6feb; }
-  .dark .problem .hljs-bullet { color: #f2cc60; }
-
-  /* the theme's typography styles wrap inline code in literal backticks */
-  .problem code::before,
-  .problem code::after {
-    content: none;
-  }
-</style>
-
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".problem pre.code code").forEach(function (code) {
-      if (code.children.length === 0) {
-        code.textContent = code.textContent.replace(/^\s*\n/, "").replace(/\s+$/, "");
-      }
-    });
-  });
-</script>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -242,39 +168,13 @@ Course Staff
 </div>
 
     <div class="prose dark:prose-invert">
-    <!DOCTYPE html> <html> <head> <meta
-                          charset="utf-8"> <title>Problems tagged with mergesort</title>
-
-           <!-- MathJax -->
-           <script type="text/x-mathjax-config">
-             MathJax.Hub.Config({
-               tex: {
-                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
-                 displayMath: [             // start/end delimiter pairs for display math
-                     ['\\[', '\\]']
-                 ],
-                 processEscapes: true
-               }
-           });
-           </script>
-
-           <!-- highlightjs -->
-           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-
-           <!-- and it's easy to individually load additional languages -->
-           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
-
-           <script>hljs.highlightAll();</script>
-
-           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-           <script type="text/javascript" id="MathJax-script" async
-             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-           </script>
-
-       </head>
-       <body>
-           
+    
+<style>
+.multiple-choices .choice label, .multiple-select .choice label {
+    display: flex; align-items: center; gap: 0.6em; margin: 0.25em 0; cursor: pointer;
+}
+.multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+</style>
 <h1>Problems tagged with "mergesort"</h1>
 
 
@@ -333,11 +233,9 @@ Course Staff
         <div class="problem">
     <div class="problem-body">
 <p>Consider the code for <span class="inline-code"><code>mergesort</code></span> and <span class="inline-code"><code>merge</code></span> where a new <span class="inline-code"><code>print</code></span>-statement has been added to <span class="inline-code"><code>merge</code></span>:</p>
-<pre class="code"><code>
-
-def mergesort(arr):
+<pre class="code"><code class="language-python">def mergesort(arr):
     """Sort array in-place."""
-    if len(arr) > 1:
+    if len(arr) &gt; 1:
         middle = math.floor(len(arr) / 2)
         left = arr[:middle]
         right = arr[middle:]
@@ -353,16 +251,13 @@ def merge(left, right, out):
     right_ix = 0
 
     for ix in range(len(out)):
-        print("Here!") # <---- the newly-added line
-        if left[left_ix] < right[right_ix]:
+        print("Here!") # &lt;---- the newly-added line
+        if left[left_ix] &lt; right[right_ix]:
             out[ix] = left[left_ix]
             left_ix += 1
         else:
             out[ix] = right[right_ix]
-            right_ix += 1
-
-</code></pre>
-
+            right_ix += 1</code></pre>
 <p>Suppose <span class="inline-code"><code>mergesort</code></span> is called on an array of size <span class="math">\(n\)</span>. In total, how many times will <span class="inline-code"><code>"Here!"</code></span> be printed?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
@@ -387,19 +282,15 @@ def merge(left, right, out):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the modification of <span class="inline-code"><code>mergesort</code></span> shown below, where one of the recursive calls has been replaced by an in-place version of <span class="inline-code"><code>selection_sort</code></span>. Recall that <span class="inline-code"><code>selection_sort</code></span> takes <span class="math">\(\Theta(n^2)\)</span> time.</p>
-<pre class="code"><code>
-def kinda_mergesort(arr):
+<pre class="code"><code class="language-python">def kinda_mergesort(arr):
     """Sort array in-place."""
-    if len(arr) > 1:
+    if len(arr) &gt; 1:
         middle = math.floor(len(arr) / 2)
         left = arr[:middle]
         right = arr[middle:]
         mergesort(left)
         selection_sort(right)
-        merge(left, right, arr)
-
-</code></pre>
-
+        merge(left, right, arr)</code></pre>
 <p>What is the time complexity of <span class="inline-code"><code>kinda_mergesort</code></span>?</p>
 <details>
     <summary>Solution</summary>
@@ -420,8 +311,7 @@ def kinda_mergesort(arr):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="inline-code"><code>arr</code></span> is a list-of-lists with <span class="math">\(n\)</span> inner lists, each containing <span class="math">\(n\)</span> numbers. What is the best case time complexity of the following function?</p>
-<pre class="code"><code>
-import math
+<pre class="code"><code>import math
 
 def average_median(arr):
     """Compute the mean of the row medians."""
@@ -429,10 +319,7 @@ def average_median(arr):
     for i, row in enumerate(arr):
         mergesort(row) # sort the row using the mergesort algorithm
         msum += row[math.floor(i / 2)]
-    return msum / len(arr)
-
-</code></pre>
-
+    return msum / len(arr)</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
@@ -458,15 +345,11 @@ def average_median(arr):
         <div class="problem">
     <div class="problem-body">
 <p>Your friend has written a modified version of mergesort that they claim has an improved best-case time complexity:</p>
-<pre class="code"><code>
-def better_mergesort(arr):
+<pre class="code"><code>def better_mergesort(arr):
     if is_already_sorted(arr):
         return
     else:
-        mergesort(arr)
-
-</code></pre>
-
+        mergesort(arr)</code></pre>
 <p>Here, <span class="inline-code"><code>is_already_sorted</code></span> is a function that takes in an array and returns <span class="inline-code"><code>True</code></span> if and only if the array is in sorted order. Assume that <span class="inline-code"><code>is_already_sorted</code></span> is implemented efficiently (meaning, it has the best possible time complexity). What is the best case time complexity of <span class="inline-code"><code>better_mergesort</code></span>?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
@@ -492,9 +375,7 @@ def better_mergesort(arr):
         <div class="problem">
     <div class="problem-body">
 <p>Below is the <span class="inline-code"><code>merge</code></span> function from the <span class="inline-code"><code>mergesort</code></span> algorithm, with an added <span class="inline-code"><code>print</code></span> statement:</p>
-<pre class="code"><code>
-
-def merge(left, right, out):
+<pre class="code"><code class="language-python">def merge(left, right, out):
     """Merge sorted arrays, store in out."""
     print(len(left))
     print(len(right))
@@ -504,15 +385,12 @@ def merge(left, right, out):
     right_ix = 0
 
     for ix in range(len(out)):
-        if left[left_ix] < right[right_ix]:
+        if left[left_ix] &lt; right[right_ix]:
             out[ix] = left[left_ix]
             left_ix += 1
         else:
             out[ix] = right[right_ix]
-            right_ix += 1
-
-</code></pre>
-
+            right_ix += 1</code></pre>
 <p>Suppose this version of <span class="inline-code"><code>merge</code></span> is used in <span class="inline-code"><code>mergesort</code></span>, and <span class="inline-code"><code>mergesort</code></span> is called on the following list:</p>
 <p><span class="inline-code"><code>[6, 2, 7, 1, 9, 3, 8, 5]</code></span>.</p>
 <p>If all of the numbers that are printed are added up, what will the sum be?</p>
@@ -527,9 +405,6 @@ def merge(left, right, out):
         </div>
 
 
-
-       </body>
-   </html>
     </div>
 </div>
 
@@ -587,6 +462,15 @@ def merge(left, right, out):
         // Initialize Lucide icons. The script is deferred, so wait for it to
         // load; DOMContentLoaded fires after deferred scripts have run.
         document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+        
+        // highlight each <pre><code> block with a language-* class (e.g. from
+        // ```python), once the deferred highlight.js has run; a block without
+        // one is left plain, as guessing its language is often wrong
+        document.addEventListener('DOMContentLoaded', () => {
+            hljs.configure({ cssSelector: 'pre code[class*="language-"]' });
+            hljs.highlightAll();
+        });
+        
     </script>
 
 </body>

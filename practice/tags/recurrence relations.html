@@ -8,99 +8,25 @@
     
     <script defer src="https://unpkg.com/lucide@1.48.0/dist/umd/lucide.min.js"></script>
     
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+            },
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    
+    
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    
+    
 
 
-<style>
-  .multiple-choices .choice label,
-  .multiple-select .choice label {
-    display: flex;
-    align-items: center;
-    gap: 0.6em;
-    margin: 0.25em 0;
-    cursor: pointer;
-  }
-  .multiple-choices .choice p,
-  .multiple-select .choice p {
-    margin: 0;
-  }
 
-  /* practice problems: code blocks get a thin border instead of the theme's
-     thick dark frame around highlight.js's light box */
-  .problem pre.code {
-    background: #f6f8fa;
-    border: 1px solid #d0d7de;
-    border-radius: 6px;
-    padding: 0.75em 1em;
-  }
-  .problem pre.code code,
-  .problem pre.code code.hljs {
-    background: transparent;
-    padding: 0;
-  }
-
-  /* in dark mode (the theme puts .dark on <html>), code blocks use the
-     theme's grays, and highlight.js's light "default" colors are replaced by
-     those of its "github-dark" style */
-  .dark .problem pre.code {
-    background: #111827;
-    border-color: #374151;
-  }
-  .dark .problem pre.code code.hljs { color: #c9d1d9; }
-  .dark .problem .hljs-doctag,
-  .dark .problem .hljs-keyword,
-  .dark .problem .hljs-meta .hljs-keyword,
-  .dark .problem .hljs-template-tag,
-  .dark .problem .hljs-template-variable,
-  .dark .problem .hljs-type,
-  .dark .problem .hljs-variable.language_ { color: #ff7b72; }
-  .dark .problem .hljs-title,
-  .dark .problem .hljs-title.class_,
-  .dark .problem .hljs-title.function_ { color: #d2a8ff; }
-  .dark .problem .hljs-attr,
-  .dark .problem .hljs-attribute,
-  .dark .problem .hljs-literal,
-  .dark .problem .hljs-meta,
-  .dark .problem .hljs-number,
-  .dark .problem .hljs-operator,
-  .dark .problem .hljs-variable,
-  .dark .problem .hljs-selector-attr,
-  .dark .problem .hljs-selector-class,
-  .dark .problem .hljs-selector-id { color: #79c0ff; }
-  .dark .problem .hljs-regexp,
-  .dark .problem .hljs-string,
-  .dark .problem .hljs-meta .hljs-string { color: #a5d6ff; }
-  .dark .problem .hljs-built_in,
-  .dark .problem .hljs-symbol { color: #ffa657; }
-  .dark .problem .hljs-comment,
-  .dark .problem .hljs-code,
-  .dark .problem .hljs-formula { color: #8b949e; }
-  .dark .problem .hljs-name,
-  .dark .problem .hljs-quote,
-  .dark .problem .hljs-selector-tag,
-  .dark .problem .hljs-selector-pseudo { color: #7ee787; }
-  .dark .problem .hljs-subst,
-  .dark .problem .hljs-params { color: #c9d1d9; }
-  .dark .problem .hljs-section { color: #1f6feb; }
-  .dark .problem .hljs-bullet { color: #f2cc60; }
-
-  /* the theme's typography styles wrap inline code in literal backticks */
-  .problem code::before,
-  .problem code::after {
-    content: none;
-  }
-</style>
-
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".problem pre.code code").forEach(function (code) {
-      if (code.children.length === 0) {
-        code.textContent = code.textContent.replace(/^\s*\n/, "").replace(/\s+$/, "");
-      }
-    });
-  });
-</script>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -242,39 +168,13 @@ Course Staff
 </div>
 
     <div class="prose dark:prose-invert">
-    <!DOCTYPE html> <html> <head> <meta
-                          charset="utf-8"> <title>Problems tagged with recurrence relations</title>
-
-           <!-- MathJax -->
-           <script type="text/x-mathjax-config">
-             MathJax.Hub.Config({
-               tex: {
-                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
-                 displayMath: [             // start/end delimiter pairs for display math
-                     ['\\[', '\\]']
-                 ],
-                 processEscapes: true
-               }
-           });
-           </script>
-
-           <!-- highlightjs -->
-           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-
-           <!-- and it's easy to individually load additional languages -->
-           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
-
-           <script>hljs.highlightAll();</script>
-
-           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-           <script type="text/javascript" id="MathJax-script" async
-             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-           </script>
-
-       </head>
-       <body>
-           
+    
+<style>
+.multiple-choices .choice label, .multiple-select .choice label {
+    display: flex; align-items: center; gap: 0.6em; margin: 0.25em 0; cursor: pointer;
+}
+.multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+</style>
 <h1>Problems tagged with "recurrence relations"</h1>
 
 
@@ -284,19 +184,15 @@ Course Staff
         <div class="problem">
     <div class="problem-body">
 <p>State (but do not solve) the recurrence describing the run time of the following code, assuming that the input, <span class="inline-code"><code>arr</code></span>, is a list of size <span class="math">\(n\)</span>.</p>
-<pre class="code"><code>
-def foo(arr, stop=None):
+<pre class="code"><code class="language-python">def foo(arr, stop=None):
     if stop is None:
         stop = len(arr) - 1
 
-    if stop < 0:
+    if stop &lt; 0:
         return 1
 
     last = arr[stop]
-    return last * foo(arr, stop - 1)
-
-</code></pre>
-
+    return last * foo(arr, stop - 1)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(T(n) = T(n-1) + \Theta(1)\)</span></p>
@@ -316,19 +212,15 @@ def foo(arr, stop=None):
         <div class="problem">
     <div class="problem-body">
 <p>State (but do not solve) the recurrence describing the run time of the following code, assuming that the input, <span class="inline-code"><code>arr</code></span>, is a list of size <span class="math">\(n\)</span>.</p>
-<pre class="code"><code>
-def foo(arr, stop=None):
+<pre class="code"><code class="language-python">def foo(arr, stop=None):
     if stop is None:
         stop = len(arr) - 1
 
-    if stop < 0:
+    if stop &lt; 0:
         return 1
 
     last = arr[stop]
-    return last * foo(arr, stop - 1)
-
-</code></pre>
-
+    return last * foo(arr, stop - 1)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(T(n) = T(n-1) + \Theta(1)\)</span></p>
@@ -348,18 +240,14 @@ def foo(arr, stop=None):
         <div class="problem">
     <div class="problem-body">
 <p>State (but do not solve) the recurrence describing the runtime of the following function.</p>
-<pre class="code"><code>
-def foo(n):
-    if n < 1:
+<pre class="code"><code class="language-python">def foo(n):
+    if n &lt; 1:
         return 0
 
     for i in range(n**2):
         print("here")
 
-    foo(n/2)
-
-</code></pre>
-
+    foo(n/2)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(
@@ -409,9 +297,8 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>State (but do not solve) the recurrence describing the runtime of the following function.</p>
-<pre class="code"><code>
-def foo(n):
-    if n <= 1:
+<pre class="code"><code class="language-python">def foo(n):
+    if n &lt;= 1:
         return
 
     foo(n // 2)
@@ -419,10 +306,7 @@ def foo(n):
     for j in range(n):
         print(j)
 
-    foo(n // 2)
-
-</code></pre>
-
+    foo(n // 2)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n \log n)\)</span></p>
@@ -442,9 +326,8 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>State (but do not solve) the recurrence describing the runtime of the following function.</p>
-<pre class="code"><code>
-def foo(n):
-    if n < 10:
+<pre class="code"><code class="language-python">def foo(n):
+    if n &lt; 10:
         print("Hello world.")
         return
 
@@ -452,10 +335,7 @@ def foo(n):
         print(i)
 
     for i in range(6):
-        foo(n//3)
-
-</code></pre>
-
+        foo(n//3)</code></pre>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(T(n) = 6 T(n/3) + \Theta(n)\)</span>.</p>
@@ -475,19 +355,15 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>State (but do not solve) the recurrence describing the runtime of the following function.</p>
-<pre class="code"><code>
-def boo(n):
-    if n <= 1:
+<pre class="code"><code class="language-python">def boo(n):
+    if n &lt;= 1:
         return
 
     for i in range(3):
         boo(n/4)
 
     for j in range(n):
-        print(j)
-
-</code></pre>
-
+        print(j)</code></pre>
 <p><span class="math">\(
         T(n) = \begin{cases}
             \Theta(1), & n = 1\\
@@ -512,21 +388,17 @@ def boo(n):
         <div class="problem">
     <div class="problem-body">
 <p>State (but do not solve) the recurrence relation describing this function's run time.</p>
-<pre class="code"><code>
-import random
+<pre class="code"><code>import random
 
 def foo(n):
-    if n <= 2:
+    if n &lt;= 2:
         return
 
     for i in range(n):
         for j in range(i, n):
             print(i)
 
-    return foo(n//2) + foo(n//2)
-
-</code></pre>
-
+    return foo(n//2) + foo(n//2)</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(T(n) = 2 T(n/2) + T(n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(T(n) = 2 T(n/2) + T(n^2)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(T(n) = 2 T(n/2) + \Theta(n)\)</span></p></label></div>
@@ -550,19 +422,15 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the modification of <span class="inline-code"><code>mergesort</code></span> shown below, where one of the recursive calls has been replaced by an in-place version of <span class="inline-code"><code>selection_sort</code></span>. Recall that <span class="inline-code"><code>selection_sort</code></span> takes <span class="math">\(\Theta(n^2)\)</span> time.</p>
-<pre class="code"><code>
-def kinda_mergesort(arr):
+<pre class="code"><code class="language-python">def kinda_mergesort(arr):
     """Sort array in-place."""
-    if len(arr) > 1:
+    if len(arr) &gt; 1:
         middle = math.floor(len(arr) / 2)
         left = arr[:middle]
         right = arr[middle:]
         mergesort(left)
         selection_sort(right)
-        merge(left, right, arr)
-
-</code></pre>
-
+        merge(left, right, arr)</code></pre>
 <p>What is the time complexity of <span class="inline-code"><code>kinda_mergesort</code></span>?</p>
 <details>
     <summary>Solution</summary>
@@ -749,9 +617,7 @@ def kinda_mergesort(arr):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of this function? Here <span class="math">\(n\)</span> is the length of the input array.</p>
-<pre class="code"><code>
-
-import math
+<pre class="code"><code class="language-python">import math
 def foo(arr):
     if len(arr) == 0:
         return 0
@@ -765,19 +631,16 @@ def foo(arr):
     middle = arr[one_third: one_third * 2]
     right = arr[one_third * 2:]
     for i in range(len(arr)):
-        if i < one_third:
+        if i &lt; one_third:
             arr[i] = 2 * arr[i] - sum(left)/len(left)
-        if i >= one_third and i < one_third * 2:
+        if i &gt;= one_third and i &lt; one_third * 2:
             arr[i] = 2 * arr[i] - sum(middle)/len(middle)
-        if i >= one_third * 2:
+        if i &gt;= one_third * 2:
             arr[i] = 2 * arr[i] - sum(right)/len(right)
 
     total = sum(left) + sum(middle) + sum(right)
 
-    return foo(left) + foo(middle) + foo(right) + total
-
-</code></pre>
-
+    return foo(left) + foo(middle) + foo(right) + total</code></pre>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
@@ -796,9 +659,6 @@ def foo(arr):
         </div>
 
 
-
-       </body>
-   </html>
     </div>
 </div>
 
@@ -856,6 +716,15 @@ def foo(arr):
         // Initialize Lucide icons. The script is deferred, so wait for it to
         // load; DOMContentLoaded fires after deferred scripts have run.
         document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+        
+        // highlight each <pre><code> block with a language-* class (e.g. from
+        // ```python), once the deferred highlight.js has run; a block without
+        // one is left plain, as guessing its language is often wrong
+        document.addEventListener('DOMContentLoaded', () => {
+            hljs.configure({ cssSelector: 'pre code[class*="language-"]' });
+            hljs.highlightAll();
+        });
+        
     </script>
 
 </body>
