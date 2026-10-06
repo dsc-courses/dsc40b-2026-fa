@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head data-automata-theme="default">
@@ -6,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>DSC 40B</title>
     <link href="/static/style.css" rel="stylesheet">
+    
     <script defer src="https://unpkg.com/lucide@1.48.0/dist/umd/lucide.min.js"></script>
     
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
@@ -198,64 +198,61 @@ Course Staff
 
     <div class="prose dark:prose-invert">
     <!DOCTYPE html> <html> <head> <meta
-                          charset="utf-8"> <title>Problems tagged with expected time</title>
 
-           <!-- MathJax -->
-           <script type="text/x-mathjax-config">
-             MathJax.Hub.Config({
-               tex: {
-                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
-                 displayMath: [             // start/end delimiter pairs for display math
-                     ['\\[', '\\]']
-                 ],
-                 processEscapes: true
-               }
-           });
-           </script>
+<pre><code>                      charset=&quot;utf-8&quot;&gt; &lt;title&gt;Problems tagged with expected time&lt;/title&gt;
 
-           <!-- highlightjs -->
-           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+       &lt;!-- MathJax --&gt;
+       &lt;script type=&quot;text/x-mathjax-config&quot;&gt;
+         MathJax.Hub.Config({
+           tex: {
+             inlineMath: [ ['$$','$$'], [&quot;\\(&quot;,&quot;\\)&quot;] ],
+             displayMath: [             // start/end delimiter pairs for display math
+                 ['\\[', '\\]']
+             ],
+             processEscapes: true
+           }
+       });
+       &lt;/script&gt;
 
-           <!-- and it's easy to individually load additional languages -->
-           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+       &lt;!-- highlightjs --&gt;
+       &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css&quot;&gt;
+       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;&gt;&lt;/script&gt;
 
-           <script>hljs.highlightAll();</script>
+       &lt;!-- and it's easy to individually load additional languages --&gt;
+       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js&quot;&gt;&lt;/script&gt;
 
-           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-           <script type="text/javascript" id="MathJax-script" async
-             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-           </script>
+       &lt;script&gt;hljs.highlightAll();&lt;/script&gt;
 
-       </head>
-       <body>
-           
+       &lt;script src=&quot;https://polyfill.io/v3/polyfill.min.js?features=es6&quot;&gt;&lt;/script&gt;
+       &lt;script type=&quot;text/javascript&quot; id=&quot;MathJax-script&quot; async
+         src=&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js&quot;&gt;
+       &lt;/script&gt;
+
+   &lt;/head&gt;
+   &lt;body&gt;
+       </code></pre>
 <h1>Problems tagged with "expected time"</h1>
 
-
-        <div class="problem-outer">
-        <h2>Problem #087</h2>
-        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
-        <div class="problem">
-    <div class="problem-body">
+<pre><code>    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #087&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/expected time.html'&gt;expected time&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>What is the <i>expected</i> time complexity of the following function?</p>
 <pre class="code"><code>
 import random
 
-def foo(n):
-    # randomly draw a number from 0, 1, 2, ..., n-1
-    x = random.randint(0, n-1)
-    if x == 1:
-        for i in range(n):
-            print(i)
-    else:
-        print("lucky!")
-
-    for i in range(n):
-        print(i)
-
-</code></pre>
-
+<p>def foo(n):
+# randomly draw a number from 0, 1, 2, ..., n-1
+x = random.randint(0, n-1)
+if x == 1:
+for i in range(n):
+print(i)
+else:
+print(&quot;lucky!&quot;)</p>
+<pre><code>for i in range(n):
+    print(i)</code></pre>
+<p></code></pre></p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -270,97 +267,91 @@ def foo(n):
 <p><span class="math">\(\Theta(n)\)</span>. The last loop always runs <span class="math">\(n\)</span> times. With probability <span class="math">\(1/n\)</span> we have <span class="inline-code"><code>x == 1</code></span>, and the first loop also runs, taking <span class="math">\(\Theta(n)\)</span> time; otherwise we do constant work before the last loop. So the expected time is <span class="math">\(\frac{1}{n} \cdot \Theta(n) + \Theta(1) + \Theta(n) = \Theta(n)\)</span>. (In fact, every case takes <span class="math">\(\Theta(n)\)</span> time.)</p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #089</h2>
-        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #089&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/expected time.html'&gt;expected time&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>What is the <b>expected</b> time complexity of the function below?</p>
 <pre class="code"><code>
 import random
 
-def foo(n):
-    # draw a random number uniformly from 0, 1, 2, ..., 99
-    # in constant time
-    x = random.randrange(100)
-    for i in range(x):
-        for j in range(n):
-            print("Here!")
-
-</code></pre>
-
+<p>def foo(n):
+# draw a random number uniformly from 0, 1, 2, ..., 99
+# in constant time
+x = random.randrange(100)
+for i in range(x):
+for j in range(n):
+print(&quot;Here!&quot;)</p>
+<p></code></pre></p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span>. Note that in this question, the range of <span class="math">\(x\)</span> is between 0 and 99. Therefore the outer loop will run a constant number of times no matter what <span class="math">\(x\)</span> is. Then we can focus on the inner loop, which runs for <span class="math">\(n\)</span> times the print() operation, which is <span class="math">\(\Theta(n)\)</span> time. Therefore, the expected time complexity for this piece of code is <span class="math">\(\Theta(n)\)</span>.</p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #093</h2>
-        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #093&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/expected time.html'&gt;expected time&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>What is the <b>expected</b> time complexity of the function below?</p>
 <pre class="code"><code>
 import random
 
-def foo(n):
-    # draw a random number uniformly from 0, 1, 2, ..., n-1
-    # in constant time
-    x = random.randrange(n)
-    for i in range(x):
-        for j in range(n):
-            print("Here!")
-
-</code></pre>
-
+<p>def foo(n):
+# draw a random number uniformly from 0, 1, 2, ..., n-1
+# in constant time
+x = random.randrange(n)
+for i in range(x):
+for j in range(n):
+print(&quot;Here!&quot;)</p>
+<p></code></pre></p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>. The inner loop is not random, and the time complexity of it is always <span class="math">\(\Theta(n)\)</span>. Therefore the expected time complexity of this function will be (using the arithmetic sequence sum formula)</p>
 <div class="math">\[\frac{1}{n}\sum_{i = 0}^{n - 1} i \times\Theta(n) = \Theta(n^2). \]</div>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #094</h2>
-        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #094&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/expected time.html'&gt;expected time&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>What is the <b>expected</b> time complexity of the following function?</p>
 <pre class="code"><code>
 import random
 
-def foo(n):
-    for i in range(n):
-        # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
-        x = random.randrange(n)
-        for j in range(x):
-            print(j)
-
-</code></pre>
-
+<p>def foo(n):
+for i in range(n):
+# draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
+x = random.randrange(n)
+for j in range(x):
+print(j)</p>
+<p></code></pre></p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>. For this function, the outer loop wil execute <span class="math">\(n\)</span> times no matter what, hence we only have to find what the expected time complexity for the inner loop is, then combine that together with the outer loop. For the inner loop, the expected time complexity is</p>
@@ -369,140 +360,130 @@ def foo(n):
 <div class="math">\[\Theta(n) \times\Theta(n) = \Theta(n^2). \]</div>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #095</h2>
-        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #095&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/expected time.html'&gt;expected time&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>What is the <b>expected</b> time complexity of the function below?</p>
 <pre class="code"><code>
 import random
 
-def foo(n):
-    # draw a number uniformly at random from 0, 1, 2, ..., n-1
-    # in constant time
-    x = random.randrange(n)
-    if x < 100:
-        for j in range(n**2):
-            print(j)
-
-</code></pre>
-
+<p>def foo(n):
+# draw a number uniformly at random from 0, 1, 2, ..., n-1
+# in constant time
+x = random.randrange(n)
+if x &lt; 100:
+for j in range(n**2):
+print(j)</p>
+<p></code></pre></p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span>. The for loop is only executed if <span class="math">\(x\)</span> is less than 100, therefore we can write the expected time as (ignoring constants <span class="math">\(c\)</span>):</p>
 <div class="math">\[ f(n) = \frac{1}{n}\bigg(\sum_{i = 0}^{99} n^2 + \sum_{i = 100}^{n - 1} 1 \bigg)= \frac{1}{n}\cdot(\Theta(n^2) + \Theta(n)) = \Theta(n). \]</div>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #096</h2>
-        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #096&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/expected time.html'&gt;expected time&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>What is the <b>expected</b> time complexity of the following function? State your answer using asymptotic notation.</p>
 <pre class="code"><code>
 import random
 
-def foo(n):
-    x = random.randrange(n)
-
-    if x < 8:
-        for j in range(n**3):
-            print(j)
-    else:
-        for j in range(n):
-            print(j)
-
-</code></pre>
-
+<p>def foo(n):
+x = random.randrange(n)</p>
+<pre><code>if x &lt; 8:
+    for j in range(n**3):
+        print(j)
+else:
+    for j in range(n):
+        print(j)</code></pre>
+<p></code></pre></p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>. The expected time complexity for this function is</p>
 <div class="math">\[\frac{1}{n}\bigg(\sum_{i = 0}^{7} n^3 + \sum_{i = 8}^{n - 1} n \bigg)= \frac{1}{n}(\Theta(n^3) + \Theta(n^2)) = \Theta(n^2). \]</div>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #098</h2>
-        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #098&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/expected time.html'&gt;expected time&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>What is the <b>expected</b> time complexity of the function below?</p>
 <pre class="code"><code>
 import random
 
-def foo(n):
-    # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
-    x = random.randrange(n)
-    if x < math.sqrt(n):
-        for j in range(n):
-            print(j)
-
-</code></pre>
-
+<p>def foo(n):
+# draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
+x = random.randrange(n)
+if x &lt; math.sqrt(n):
+for j in range(n):
+print(j)</p>
+<p></code></pre></p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(\sqrt n)\)</span>. Since the for loop only executes when <span class="math">\(x\)</span> is less than <span class="math">\(\sqrt{n}\)</span>, the expected time complexity is</p>
 <div class="math">\[\frac{1}{n}\bigg(\sum_{i = 1}^{\lfloor \sqrt{n} \rfloor} n + \sum_{i = \lceil \sqrt{n} \rceil}^{n - 1} 1 \bigg)\approx\frac{1}{n}(n \sqrt{n} + (n - \sqrt{n})) = \Theta(\sqrt{n}). \]</div>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #099</h2>
-        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #099&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/expected time.html'&gt;expected time&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>What is the <b>expected</b> time complexity of the function below?</p>
 <p>You may assume that <span class="inline-code"><code>math.sqrt</code></span> takes <span class="math">\(\Theta(1)\)</span> time.</p>
 <pre class="code"><code>
 import random
 import math
 
-def foo(n):
-    # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
-    x = random.randrange(n)
-
-    if x < math.sqrt(n):
-        for j in range(n):
-            print(j)
-    elif x < n//2:
-        print('Ok!')
-    else:
-        for i in range(n**2):
-            print(i)
-
-</code></pre>
-
+<p>def foo(n):
+# draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
+x = random.randrange(n)</p>
+<pre><code>if x &lt; math.sqrt(n):
+    for j in range(n):
+        print(j)
+elif x &lt; n//2:
+    print('Ok!')
+else:
+    for i in range(n**2):
+        print(i)</code></pre>
+<p></code></pre></p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>. The expected time complexity for this function is</p>
@@ -512,40 +493,37 @@ def foo(n):
         \]</div>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #100</h2>
-        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #100&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/expected time.html'&gt;expected time&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>What is the <b>expected</b> time complexity of the function below? State your answer using asymptotic notation.</p>
 <p>You may assume that <span class="inline-code"><code>math.sqrt</code></span> and <span class="inline-code"><code>math.log2</code></span> take <span class="math">\(\Theta(1)\)</span> time.</p>
 <pre class="code"><code>
 import random
 import math
 
-def boo(n):
-    # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
-    x = random.randrange(n)
-
-    if x < math.log2(n):
-        for i in range(n**2):
-            print("Very unlucky!")
-    elif x < math.sqrt(n):
-        for i in range(n):
-            print("Unlucky!")
-    else:
-        print("Lucky!")
-
-</code></pre>
-
+<p>def boo(n):
+# draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
+x = random.randrange(n)</p>
+<pre><code>if x &lt; math.log2(n):
+    for i in range(n**2):
+        print(&quot;Very unlucky!&quot;)
+elif x &lt; math.sqrt(n):
+    for i in range(n):
+        print(&quot;Unlucky!&quot;)
+else:
+    print(&quot;Lucky!&quot;)</code></pre>
+<p></code></pre></p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n \log n)\)</span> There are three cases: Case 1) <span class="math">\(x < \log_2 n\)</span>; Case 2) <span class="math">\(1 < x < \sqrt n\)</span>; and Case 3) <span class="math">\(x \geq\sqrt{n}\)</span>.</p>
@@ -563,40 +541,37 @@ def boo(n):
 <center><div class="image"><img src="../images/100/plot.png" /></div></center>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #101</h2>
-        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #101&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/expected time.html'&gt;expected time&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>What is the <b>expected</b> time complexity of the function below? State your answer using asymptotic notation.</p>
 <p>You may assume that <span class="inline-code"><code>math.sqrt</code></span> and <span class="inline-code"><code>math.log</code></span> take <span class="math">\(\Theta(1)\)</span> time. <span class="inline-code"><code>math.log</code></span> computes the natural log.</p>
 <pre class="code"><code>
 import random
 import math
 
-def foo(n):
-    # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
-    x = random.randrange(n)
-
-    if x < math.log(n):
-        for j in range(n**2):
-            print(j)
-    elif x < math.sqrt(n):
-        print('Ok!')
-    else:
-        for i in range(n):
-            print(i)
-
-</code></pre>
-
+<p>def foo(n):
+# draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
+x = random.randrange(n)</p>
+<pre><code>if x &lt; math.log(n):
+    for j in range(n**2):
+        print(j)
+elif x &lt; math.sqrt(n):
+    print('Ok!')
+else:
+    for i in range(n):
+        print(i)</code></pre>
+<p></code></pre></p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n \log n)\)</span> There are three cases: Case 1) <span class="math">\(x < \log n\)</span>; Case 2) <span class="math">\(\log n \geq x <
@@ -623,15 +598,17 @@ def foo(n):
             \end{aligned}\]</div>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
-       </body>
+   &lt;/body&gt;</code></pre>
    </html>
+
+
     </div>
 </div>
 

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head data-automata-theme="default">
@@ -6,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>DSC 40B</title>
     <link href="/static/style.css" rel="stylesheet">
+    
     <script defer src="https://unpkg.com/lucide@1.48.0/dist/umd/lucide.min.js"></script>
     
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
@@ -198,65 +198,65 @@ Course Staff
 
     <div class="prose dark:prose-invert">
     <!DOCTYPE html> <html> <head> <meta
-                          charset="utf-8"> <title>Problems tagged with hashing</title>
 
-           <!-- MathJax -->
-           <script type="text/x-mathjax-config">
-             MathJax.Hub.Config({
-               tex: {
-                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
-                 displayMath: [             // start/end delimiter pairs for display math
-                     ['\\[', '\\]']
-                 ],
-                 processEscapes: true
-               }
-           });
-           </script>
+<pre><code>                      charset=&quot;utf-8&quot;&gt; &lt;title&gt;Problems tagged with hashing&lt;/title&gt;
 
-           <!-- highlightjs -->
-           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+       &lt;!-- MathJax --&gt;
+       &lt;script type=&quot;text/x-mathjax-config&quot;&gt;
+         MathJax.Hub.Config({
+           tex: {
+             inlineMath: [ ['$$','$$'], [&quot;\\(&quot;,&quot;\\)&quot;] ],
+             displayMath: [             // start/end delimiter pairs for display math
+                 ['\\[', '\\]']
+             ],
+             processEscapes: true
+           }
+       });
+       &lt;/script&gt;
 
-           <!-- and it's easy to individually load additional languages -->
-           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+       &lt;!-- highlightjs --&gt;
+       &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css&quot;&gt;
+       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;&gt;&lt;/script&gt;
 
-           <script>hljs.highlightAll();</script>
+       &lt;!-- and it's easy to individually load additional languages --&gt;
+       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js&quot;&gt;&lt;/script&gt;
 
-           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-           <script type="text/javascript" id="MathJax-script" async
-             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-           </script>
+       &lt;script&gt;hljs.highlightAll();&lt;/script&gt;
 
-       </head>
-       <body>
-           
+       &lt;script src=&quot;https://polyfill.io/v3/polyfill.min.js?features=es6&quot;&gt;&lt;/script&gt;
+       &lt;script type=&quot;text/javascript&quot; id=&quot;MathJax-script&quot; async
+         src=&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js&quot;&gt;
+       &lt;/script&gt;
+
+   &lt;/head&gt;
+   &lt;body&gt;
+       </code></pre>
 <h1>Problems tagged with "hashing"</h1>
 
-
-        <div class="problem-outer">
-        <h2>Problem #174</h2>
-        <p>Tags: <a href='../tags/hashing.html'>hashing</a></p>
-        <div class="problem">
-    <div class="problem-body">
+<pre><code>    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #174&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/hashing.html'&gt;hashing&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>Suppose <span class="math">\(T\)</span> is a hash table of size 100 (that is, it has 100 bins). 300 elements are inserted into the hash table using a hash function that satisfies the uniform hashing assumption (that is, any element is equally-likely to hash into any bin). What is the expected number of elements in the first bin?</p>
 <details>
     <summary>Solution</summary>
 <p>3</p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #175</h2>
-        <p>Tags: <a href='../tags/hashing.html'>hashing</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #175&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/hashing.html'&gt;hashing&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>Suppose a hash table is constructed so that collisions are resolved through chaining. The hash table has <span class="math">\(10\)</span> bins, and 100 items are inserted into the hash table.</p>
 <p>True or False: it is possible for one of the bins to contain all 100 items.</p>
 
@@ -271,19 +271,19 @@ Course Staff
 <p>Chaining places no limit on how many items a bin can hold, so if the hash function sends every item to the same bin (for instance, a bad hash function like <span class="math">\(h(x) = 0\)</span>, or just unlucky keys that all collide), that bin will contain all 100 items. This is the worst case for a hash table, and it makes membership queries take <span class="math">\(\Theta(n)\)</span> time.</p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #176</h2>
-        <p>Tags: <a href='../tags/hashing.html'>hashing</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #176&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/hashing.html'&gt;hashing&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>Assume that a hash table is implemented using chaining to resolve collisions. The hash table stores <span class="math">\(n\)</span> numbers.</p>
 <p>Suppose a membership query is made for 42. True or False: more than one bin in the hash table may be checked with a linear search during the query.</p>
 
@@ -298,19 +298,19 @@ Course Staff
 <p>The query computes the hash of 42, which determines exactly one bin, and only that bin's chain is searched. If 42 is in the table at all, it must be in that bin, so there is no reason to look anywhere else.</p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #177</h2>
-        <p>Tags: <a href='../tags/hashing.html'>hashing</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #177&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/hashing.html'&gt;hashing&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>Suppose a hash table is constructed using linked lists to store the data within each bin, and that collisions are resolved by chaining. What is the <i>worst case</i> time complexity of inserting a new element into the hash table? You may assume that the hash table will not need to be resized, and that evaluating the hash function takes <span class="math">\(\Theta(1)\)</span> time.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
@@ -322,19 +322,19 @@ Course Staff
 <p><span class="math">\(\Theta(1)\)</span>. Inserting an item into a hash table takes two steps: first, we hash the item to find its bin -- this takes <span class="math">\(\Theta(1)\)</span> time. Next, we actually insert the item into that bin. When we use chaining, we do this by appending the item to the linked list containing that bins elements. Appending to a linked list takes <span class="math">\(\Theta(1)\)</span> time, and so overall this takes <span class="math">\(\Theta(1)\)</span>.</p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #178</h2>
-        <p>Tags: <a href='../tags/hashing.html'>hashing</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #178&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/hashing.html'&gt;hashing&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>Suppose a hash table is constructed using linked lists to store the data within each bin, and that collisions are resolved by chaining. Suppose <span class="math">\(n\)</span> elements have been inserted into the hash table. What is the worst case time complexity of querying whether an object exists within the hash table? You may assume that the hash table will not need to be resized, and that evaluating the hash function takes <span class="math">\(\Theta(1)\)</span> time.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
@@ -346,19 +346,19 @@ Course Staff
 <p><span class="math">\(\Theta(n)\)</span>. Remember: in the worst case, all of the elements hashed to the same bin, and our query leads us to perform a linear search in that bin, taking linear time.</p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #179</h2>
-        <p>Tags: <a href='../tags/hashing.html'>hashing</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #179&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/hashing.html'&gt;hashing&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>Suppose we are building a hash table to store numbers. Our hash table will have 1000 bins. True or false: <span class="math">\(f(x) = x \% 2\)</span> is a good hash function. Here, <span class="math">\(x \% 2\)</span> returns the remainder after dividing <span class="math">\(x\)</span> by 2.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
@@ -367,19 +367,19 @@ Course Staff
 <p>False. <span class="math">\(x \% 2\)</span> is not a good hash function because the outcome is either 0 or 1. All the elements will be hashed into bin 0 or bin 1. This hash function doesn't utilize all bins evenly.</p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #180</h2>
-        <p>Tags: <a href='../tags/hashing.html'>hashing</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #180&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/hashing.html'&gt;hashing&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>Suppose you insert 11 elements into a hash table with 20 bins. True or False: there must exist <b>exactly</b> 9 empty bins, no more, no less, since the number of elements being hashed is less than the number of bins in the hash table by nine.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
@@ -388,19 +388,19 @@ Course Staff
 <p>False. The key word here is <b>exactly</b>. It is tempting to think that the all 11 elements were distributed evenly, with one per bin, leaving the other 9 bins all empty. But this isn't necessary -- all of the elements might have hashed to the same bin, for example.</p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #181</h2>
-        <p>Tags: <a href='../tags/hashing.html'>hashing</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #181&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/hashing.html'&gt;hashing&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>Consider the code below:</p>
 <pre class="code"><code>
 def intersection(A, B):
@@ -410,61 +410,58 @@ def intersection(A, B):
             common.add(x)
     return common
 
-</code></pre>
-
+<p></code></pre></p>
 <p>What is the expected time complexity of this code if <span class="inline-code"><code>A</code></span> and <span class="inline-code"><code>B</code></span> are Python <span class="inline-code"><code>set</code></span>s (hash tables) with <span class="math">\(n\)</span> elements each? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation. You may assume that the hash function used is ``good'' in that it hashes evenly (that is, it satisfies the simple universal hashing assumption).</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #182</h2>
-        <p>Tags: <a href='../tags/hashing.html'>hashing</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #182&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/hashing.html'&gt;hashing&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>In the problem below, suppose <span class="inline-code"><code>arr</code></span> is an array of <span class="math">\(n\)</span> integers. What is the expected time complexity of the code below? Write your answer using asymptotic notation as a function of <span class="math">\(n\)</span>.</p>
 <p>Remember: <span class="inline-code"><code>set</code></span> is implemented using a hash table. You may assume that the hash table is large enough to store all of th numbers without needing to resize.</p>
 <pre class="code"><code>
 
-def find_duplicates(arr):
-    seen = set()
-    duplicates = set()
-    for num in arr:
-        if num in seen:
-            duplicates.add(num)
-        else:
-            seen.add(num)
-    return duplicates
-
-</code></pre>
-
+<p>def find_duplicates(arr):
+seen = set()
+duplicates = set()
+for num in arr:
+if num in seen:
+duplicates.add(num)
+else:
+seen.add(num)
+return duplicates</p>
+<p></code></pre></p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #183</h2>
-        <p>Tags: <a href='../tags/hashing.html'>hashing</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #183&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/hashing.html'&gt;hashing&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>What is the expected time complexity of the code shown below, assuming that <span class="inline-code"><code>numbers</code></span> is a Python <span class="inline-code"><code>list</code></span>? Express your answer as a function of <span class="math">\(n\)</span> using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
 <pre class="code"><code>
 def foo(numbers):
@@ -480,26 +477,25 @@ def foo(numbers):
                 counts[diff] = counts[diff] + 1
     return counts
 
-</code></pre>
-
+<p></code></pre></p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span></p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #184</h2>
-        <p>Tags: <a href='../tags/hashing.html'>hashing</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #184&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/hashing.html'&gt;hashing&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>Suppose a hash table with <span class="math">\(n/2\)</span> bins stores <span class="math">\(n\)</span> elements, and suppose that when the next element is inserted into the hash table, a ``grow'' will be triggered. That is, the insertion will cause the hash table to resize to <span class="math">\(n\)</span> bins containing the same <span class="math">\(n + 1\)</span> elements, plus the newly-added element.</p>
 <p>What will be the time complexity of this single insertion operation that causes the table to grow?</p>
 <details>
@@ -507,19 +503,19 @@ def foo(numbers):
 <p><span class="math">\(\Theta(n)\)</span></p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #185</h2>
-        <p>Tags: <a href='../tags/hashing.html'>hashing</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #185&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/hashing.html'&gt;hashing&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>Suppose a hash table in constructed so that collisions are resolved through chaining. The hash table has a number of bins <span class="math">\(k\)</span> that is <span class="math">\(\Theta(n)\)</span>, where <span class="math">\(n\)</span> is the number of elements being stored in the hash table; that is, the hash table grows as more elements are inserted.</p>
 <p>Suppose the hash function uses only the first <span class="math">\(k / 2\)</span> bins of the hash table, but appears to hash items into these bins evenly.</p>
 <p>What is the expected time complexity of a membership query on this hash table? State your answer in asymptotic notation in terms of the number of elements in the hash table, <span class="math">\(n\)</span>.</p>
@@ -528,19 +524,19 @@ def foo(numbers):
 <p><span class="math">\(\Theta(1)\)</span> Since only <span class="math">\(k/2\)</span> bins are being used, the expected number of elements within each bin is <span class="math">\(n / (k/2) = 2n / k\)</span>. But since <span class="math">\(k = \Theta(n)\)</span>, this is just <span class="math">\(\Theta(1)\)</span>.</p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #186</h2>
-        <p>Tags: <a href='../tags/hashing.html'>hashing</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #186&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/hashing.html'&gt;hashing&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>Suppose you will be receiving a <i>stream</i> of numbers, one by one, and you wish to keep track of the largest number seen so far. You will not need to perform membership queries. What should you do?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Store the numbers in a hash table</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Store the numbers in a BST</p></label></div>
@@ -552,19 +548,19 @@ def foo(numbers):
 <p>Don't store the numbers at all. To keep track of the maximum, we only need to remember the largest number seen so far; when a new number arrives, we compare it to the current maximum and update if it is larger. This takes <span class="math">\(\Theta(1)\)</span> time per number and <span class="math">\(\Theta(1)\)</span> memory, whereas every data structure would use <span class="math">\(\Theta(n)\)</span> memory and at least as much time.</p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #187</h2>
-        <p>Tags: <a href='../tags/hashing.html'>hashing</a>, <a href='../tags/binary search trees.html'>binary search trees</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #187&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/hashing.html'&gt;hashing&lt;/a&gt;, &lt;a href='../tags/binary search trees.html'&gt;binary search trees&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>Suppose you need to keep track of a large dynamic collection of numbers. You will be performing <span class="inline-code"><code>n</code></span> insertions, <span class="inline-code"><code>n</code></span> deletions, and a very small number of queries for the maximum element in the collection. You will also be performing membership queries.</p>
 <p>Which data structure should you use? You may assume that time complexity is the most important criterion.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Hash table</p></label></div>
@@ -576,19 +572,19 @@ def foo(numbers):
 <p>A hash table. In a hash table, insertions and deletions take constant time (on average), while a query for the maximum element takes <span class="math">\(\Theta(n)\)</span>. Since we are running only a constant number of max queries, they take <span class="math">\(\Theta(n)\)</span> time in total, and the <span class="math">\(n\)</span> insertions and <span class="math">\(n\)</span> deletions also take <span class="math">\(\Theta(n)\)</span> time in total. In a balanced BST, all of these operations take <span class="math">\(\Theta(\log n)\)</span>, which means running <span class="inline-code"><code>n</code></span> insertions and deletions will be <span class="math">\(\Theta(n \log n)\)</span> -- slower than a hash table.</p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #188</h2>
-        <p>Tags: <a href='../tags/hashing.html'>hashing</a>, <a href='../tags/binary search trees.html'>binary search trees</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #188&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/hashing.html'&gt;hashing&lt;/a&gt;, &lt;a href='../tags/binary search trees.html'&gt;binary search trees&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>Suppose you need to keep track of a large dynamic collection of numbers. The three most common operations you will be performing are insertions, deletions, and queries for the maximum element in the collection. You may assume that the number of maximum queries you will be making is close to the number of insertions/deletions. You will also be performing membership queries.</p>
 <p>Which data structure should you use? You may assume that time complexity is the most important criterion.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Hash table</p></label></div>
@@ -600,15 +596,17 @@ def foo(numbers):
 <p>A self-balancing binary search tree. The key is that we're allowing deletions and max queries. If we delete the maximum, we'll need to find the <i>next maximum</i> upon our next query. In a hash table and unsorted array, this will take linear time. In a sorted array, finding the next max takes constant time -- but insertion and deletion potentially take linear time. In a balanced BST, all of these operations take <span class="math">\(\Theta(\log n)\)</span> in the worst case -- this is because a BST essentially keeps nodes in sorted order.</p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
-       </body>
+   &lt;/body&gt;</code></pre>
    </html>
+
+
     </div>
 </div>
 

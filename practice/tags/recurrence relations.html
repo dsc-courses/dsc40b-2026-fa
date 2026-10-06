@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head data-automata-theme="default">
@@ -6,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>DSC 40B</title>
     <link href="/static/style.css" rel="stylesheet">
+    
     <script defer src="https://unpkg.com/lucide@1.48.0/dist/umd/lucide.min.js"></script>
     
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
@@ -198,123 +198,117 @@ Course Staff
 
     <div class="prose dark:prose-invert">
     <!DOCTYPE html> <html> <head> <meta
-                          charset="utf-8"> <title>Problems tagged with recurrence relations</title>
 
-           <!-- MathJax -->
-           <script type="text/x-mathjax-config">
-             MathJax.Hub.Config({
-               tex: {
-                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
-                 displayMath: [             // start/end delimiter pairs for display math
-                     ['\\[', '\\]']
-                 ],
-                 processEscapes: true
-               }
-           });
-           </script>
+<pre><code>                      charset=&quot;utf-8&quot;&gt; &lt;title&gt;Problems tagged with recurrence relations&lt;/title&gt;
 
-           <!-- highlightjs -->
-           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+       &lt;!-- MathJax --&gt;
+       &lt;script type=&quot;text/x-mathjax-config&quot;&gt;
+         MathJax.Hub.Config({
+           tex: {
+             inlineMath: [ ['$$','$$'], [&quot;\\(&quot;,&quot;\\)&quot;] ],
+             displayMath: [             // start/end delimiter pairs for display math
+                 ['\\[', '\\]']
+             ],
+             processEscapes: true
+           }
+       });
+       &lt;/script&gt;
 
-           <!-- and it's easy to individually load additional languages -->
-           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+       &lt;!-- highlightjs --&gt;
+       &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css&quot;&gt;
+       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;&gt;&lt;/script&gt;
 
-           <script>hljs.highlightAll();</script>
+       &lt;!-- and it's easy to individually load additional languages --&gt;
+       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js&quot;&gt;&lt;/script&gt;
 
-           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-           <script type="text/javascript" id="MathJax-script" async
-             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-           </script>
+       &lt;script&gt;hljs.highlightAll();&lt;/script&gt;
 
-       </head>
-       <body>
-           
+       &lt;script src=&quot;https://polyfill.io/v3/polyfill.min.js?features=es6&quot;&gt;&lt;/script&gt;
+       &lt;script type=&quot;text/javascript&quot; id=&quot;MathJax-script&quot; async
+         src=&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js&quot;&gt;
+       &lt;/script&gt;
+
+   &lt;/head&gt;
+   &lt;body&gt;
+       </code></pre>
 <h1>Problems tagged with "recurrence relations"</h1>
 
-
-        <div class="problem-outer">
-        <h2>Problem #107</h2>
-        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
-        <div class="problem">
-    <div class="problem-body">
+<pre><code>    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #107&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/recurrence relations.html'&gt;recurrence relations&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>State (but do not solve) the recurrence describing the run time of the following code, assuming that the input, <span class="inline-code"><code>arr</code></span>, is a list of size <span class="math">\(n\)</span>.</p>
 <pre class="code"><code>
 def foo(arr, stop=None):
     if stop is None:
         stop = len(arr) - 1
 
-    if stop < 0:
-        return 1
+<pre><code>if stop &lt; 0:
+    return 1
 
-    last = arr[stop]
-    return last * foo(arr, stop - 1)
-
-</code></pre>
-
+last = arr[stop]
+return last * foo(arr, stop - 1)</code></pre>
+<p></code></pre></p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(T(n) = T(n-1) + \Theta(1)\)</span></p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #108</h2>
-        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #108&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/recurrence relations.html'&gt;recurrence relations&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>State (but do not solve) the recurrence describing the run time of the following code, assuming that the input, <span class="inline-code"><code>arr</code></span>, is a list of size <span class="math">\(n\)</span>.</p>
 <pre class="code"><code>
 def foo(arr, stop=None):
     if stop is None:
         stop = len(arr) - 1
 
-    if stop < 0:
-        return 1
+<pre><code>if stop &lt; 0:
+    return 1
 
-    last = arr[stop]
-    return last * foo(arr, stop - 1)
-
-</code></pre>
-
+last = arr[stop]
+return last * foo(arr, stop - 1)</code></pre>
+<p></code></pre></p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(T(n) = T(n-1) + \Theta(1)\)</span></p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #109</h2>
-        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #109&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/recurrence relations.html'&gt;recurrence relations&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>State (but do not solve) the recurrence describing the runtime of the following function.</p>
 <pre class="code"><code>
 def foo(n):
     if n < 1:
         return 0
 
-    for i in range(n**2):
-        print("here")
+<pre><code>for i in range(n**2):
+    print(&quot;here&quot;)
 
-    foo(n/2)
-
-</code></pre>
-
+foo(n/2)</code></pre>
+<p></code></pre></p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(
@@ -325,19 +319,19 @@ def foo(n):
         \end{cases}\)</span></p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #130</h2>
-        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #130&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/recurrence relations.html'&gt;recurrence relations&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>What is the solution of the below recurrence? State your answer using asymptotic notation as a function of <span class="math">\(n\)</span>.</p>
 <div class="math">\[
         T(n) = 
@@ -350,52 +344,50 @@ def foo(n):
 <p><span class="math">\(\Theta(n \log n)\)</span></p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #131</h2>
-        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #131&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/recurrence relations.html'&gt;recurrence relations&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>State (but do not solve) the recurrence describing the runtime of the following function.</p>
 <pre class="code"><code>
 def foo(n):
     if n <= 1:
         return
 
-    foo(n // 2)
+<pre><code>foo(n // 2)
 
-    for j in range(n):
-        print(j)
+for j in range(n):
+    print(j)
 
-    foo(n // 2)
-
-</code></pre>
-
+foo(n // 2)</code></pre>
+<p></code></pre></p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n \log n)\)</span></p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #132</h2>
-        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #132&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/recurrence relations.html'&gt;recurrence relations&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>State (but do not solve) the recurrence describing the runtime of the following function.</p>
 <pre class="code"><code>
 def foo(n):
@@ -403,46 +395,42 @@ def foo(n):
         print("Hello world.")
         return
 
-    for i in range(n):
-        print(i)
+<pre><code>for i in range(n):
+    print(i)
 
-    for i in range(6):
-        foo(n//3)
-
-</code></pre>
-
+for i in range(6):
+    foo(n//3)</code></pre>
+<p></code></pre></p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(T(n) = 6 T(n/3) + \Theta(n)\)</span>.</p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #133</h2>
-        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #133&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/recurrence relations.html'&gt;recurrence relations&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>State (but do not solve) the recurrence describing the runtime of the following function.</p>
 <pre class="code"><code>
 def boo(n):
     if n <= 1:
         return
 
-    for i in range(3):
-        boo(n/4)
+<pre><code>for i in range(3):
+    boo(n/4)
 
-    for j in range(n):
-        print(j)
-
-</code></pre>
-
+for j in range(n):
+    print(j)</code></pre>
+<p></code></pre></p>
 <p><span class="math">\(
         T(n) = \begin{cases}
             \Theta(1), & n = 1\\
@@ -453,35 +441,32 @@ def boo(n):
 <p>Even though the recursive calls are made in a <span class="inline-code"><code>for</code></span>-loop, the basic idea is the same: there will be three recursive calls, each on arrays of size <span class="math">\(n/4\)</span>, and thus the recurrence will involve <span class="math">\(3 T(n/4)\)</span>. There is <span class="math">\(\Theta(n)\)</span> work done outside the recursive calls, for a full recurrence of <span class="math">\(T(n) = 3 T(n/4) + \Theta(n)\)</span>.</p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #134</h2>
-        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #134&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/recurrence relations.html'&gt;recurrence relations&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>State (but do not solve) the recurrence relation describing this function's run time.</p>
 <pre class="code"><code>
 import random
 
-def foo(n):
-    if n <= 2:
-        return
+<p>def foo(n):
+if n &lt;= 2:
+return</p>
+<pre><code>for i in range(n):
+    for j in range(i, n):
+        print(i)
 
-    for i in range(n):
-        for j in range(i, n):
-            print(i)
-
-    return foo(n//2) + foo(n//2)
-
-</code></pre>
-
+return foo(n//2) + foo(n//2)</code></pre>
+<p></code></pre></p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(T(n) = 2 T(n/2) + T(n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(T(n) = 2 T(n/2) + T(n^2)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(T(n) = 2 T(n/2) + \Theta(n)\)</span></p></label></div>
@@ -491,19 +476,19 @@ def foo(n):
 <p><span class="math">\(T(n) = 2 T(n/2) + \Theta(n^2)\)</span>. The nested loops are dependent: the inner loop runs <span class="math">\(n - i\)</span> times, for a total of <span class="math">\(n + (n-1) + \ldots + 1 = \Theta(n^2)\)</span>. Then there are two recursive calls, each on a problem of size <span class="math">\(n/2\)</span>.</p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #137</h2>
-        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a>, <a href='../tags/mergesort.html'>mergesort</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #137&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/recurrence relations.html'&gt;recurrence relations&lt;/a&gt;, &lt;a href='../tags/mergesort.html'&gt;mergesort&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>Consider the modification of <span class="inline-code"><code>mergesort</code></span> shown below, where one of the recursive calls has been replaced by an in-place version of <span class="inline-code"><code>selection_sort</code></span>. Recall that <span class="inline-code"><code>selection_sort</code></span> takes <span class="math">\(\Theta(n^2)\)</span> time.</p>
 <pre class="code"><code>
 def kinda_mergesort(arr):
@@ -516,27 +501,26 @@ def kinda_mergesort(arr):
         selection_sort(right)
         merge(left, right, arr)
 
-</code></pre>
-
+<p></code></pre></p>
 <p>What is the time complexity of <span class="inline-code"><code>kinda_mergesort</code></span>?</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span></p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #151</h2>
-        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #151&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/recurrence relations.html'&gt;recurrence relations&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>Solve the below recurrence, stating the solution in asymptotic notation. Show your work.</p>
 <div class="math">\[
         T(n) =
@@ -576,19 +560,19 @@ def kinda_mergesort(arr):
 <p>The sum in brackets is a geometric series, which is at most <span class="math">\(1 + \frac{1}{2} + \frac{1}{4} + \ldots = 2\)</span>, so it is a constant <span class="math">\(c\)</span>.</p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #152</h2>
-        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #152&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/recurrence relations.html'&gt;recurrence relations&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>Solve the below recurrence, stating the solution in asymptotic notation. You do not need to show your work (and your work won't be graded for partial credit, so be careful!).</p>
 <div class="math">\[
         T(n) =
@@ -608,19 +592,19 @@ def kinda_mergesort(arr):
 <center><div class="image"><img src="../images/152/plot2.png" /></div></center>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #153</h2>
-        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #153&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/recurrence relations.html'&gt;recurrence relations&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>Solve the below recurrence, stating the solution in asymptotic notation. Show your work.</p>
 <div class="math">\[
         T(n) =
@@ -665,19 +649,19 @@ def kinda_mergesort(arr):
         n}\right)^{1/2} = n^{1/2} = \sqrt n\)</span>. This shows that the first term in the recurrence is <span class="math">\(\Theta(\sqrt n)\)</span>. The second term is still <span class="math">\(\Theta(n)\)</span>, so the solution is <span class="math">\(\Theta(n)\)</span>.</p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #154</h2>
-        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #154&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/recurrence relations.html'&gt;recurrence relations&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>Solve the recurrence below, stating the solution in asymptotic notation. Show your work.</p>
 <div class="math">\[
         T(n) =
@@ -690,49 +674,46 @@ def kinda_mergesort(arr):
 <p><span class="math">\(\Theta(n)\)</span></p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #159</h2>
-        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
-        <div class="problem">
-    <div class="problem-body">
+    &lt;div class=&quot;problem-outer&quot;&gt;
+    &lt;h2&gt;Problem #159&lt;/h2&gt;
+    &lt;p&gt;Tags: &lt;a href='../tags/recurrence relations.html'&gt;recurrence relations&lt;/a&gt;&lt;/p&gt;
+    &lt;div class=&quot;problem&quot;&gt;
+&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
 <p>What is the time complexity of this function? Here <span class="math">\(n\)</span> is the length of the input array.</p>
 <pre class="code"><code>
 
-import math
+<p>import math
 def foo(arr):
-    if len(arr) == 0:
-        return 0
+if len(arr) == 0:
+return 0</p>
+<pre><code>if len(arr) == 1:
+    return arr[0]
+if len(arr) == 2:
+    return arr[0] + arr[1]
+one_third = math.floor(len(arr) / 3)
+left = arr[:one_third]
+middle = arr[one_third: one_third * 2]
+right = arr[one_third * 2:]
+for i in range(len(arr)):
+    if i &lt; one_third:
+        arr[i] = 2 * arr[i] - sum(left)/len(left)
+    if i &gt;= one_third and i &lt; one_third * 2:
+        arr[i] = 2 * arr[i] - sum(middle)/len(middle)
+    if i &gt;= one_third * 2:
+        arr[i] = 2 * arr[i] - sum(right)/len(right)
 
-    if len(arr) == 1:
-        return arr[0]
-    if len(arr) == 2:
-        return arr[0] + arr[1]
-    one_third = math.floor(len(arr) / 3)
-    left = arr[:one_third]
-    middle = arr[one_third: one_third * 2]
-    right = arr[one_third * 2:]
-    for i in range(len(arr)):
-        if i < one_third:
-            arr[i] = 2 * arr[i] - sum(left)/len(left)
-        if i >= one_third and i < one_third * 2:
-            arr[i] = 2 * arr[i] - sum(middle)/len(middle)
-        if i >= one_third * 2:
-            arr[i] = 2 * arr[i] - sum(right)/len(right)
+total = sum(left) + sum(middle) + sum(right)
 
-    total = sum(left) + sum(middle) + sum(right)
-
-    return foo(left) + foo(middle) + foo(right) + total
-
-</code></pre>
-
+return foo(left) + foo(middle) + foo(right) + total</code></pre>
+<p></code></pre></p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
@@ -745,15 +726,17 @@ def foo(arr):
 <p>Solving this recurrence involves a little bit more than usual, because you have to recognize a <i>geometric sum</i>. When unrolling, you should find that on step <span class="math">\(k\)</span> you get a term of the form <span class="math">\(n^2 + n^2/3 + n^2/3^2 + n^2/3^3 + ... + n^2/3^{k-1}\)</span>. This is a geometric sum, which we saw in an earlier homework. If you factor out the <span class="math">\(n^2\)</span>, you get something of the form <span class="math">\(1 + 1/3 + 1/3^2 + ...\)</span>. There is an exact formula for this, but for our purposes all that matters is that the sum converges to some number (a constant), and so the recurrence is <span class="math">\(\Theta(n^2)\)</span>.</p>
 </details>
 
-    </div>
+<pre><code>&lt;/div&gt;</code></pre>
 </div>
 
-        </div>
+<pre><code>    &lt;/div&gt;
 
 
 
-       </body>
+   &lt;/body&gt;</code></pre>
    </html>
+
+
     </div>
 </div>
 
