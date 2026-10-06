@@ -198,46 +198,46 @@ Course Staff
 
     <div class="prose dark:prose-invert">
     <!DOCTYPE html> <html> <head> <meta
+                          charset="utf-8"> <title>Problems tagged with mergesort</title>
 
-<pre><code>                      charset=&quot;utf-8&quot;&gt; &lt;title&gt;Problems tagged with mergesort&lt;/title&gt;
+           <!-- MathJax -->
+           <script type="text/x-mathjax-config">
+             MathJax.Hub.Config({
+               tex: {
+                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+                 displayMath: [             // start/end delimiter pairs for display math
+                     ['\\[', '\\]']
+                 ],
+                 processEscapes: true
+               }
+           });
+           </script>
 
-       &lt;!-- MathJax --&gt;
-       &lt;script type=&quot;text/x-mathjax-config&quot;&gt;
-         MathJax.Hub.Config({
-           tex: {
-             inlineMath: [ ['$$','$$'], [&quot;\\(&quot;,&quot;\\)&quot;] ],
-             displayMath: [             // start/end delimiter pairs for display math
-                 ['\\[', '\\]']
-             ],
-             processEscapes: true
-           }
-       });
-       &lt;/script&gt;
+           <!-- highlightjs -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
-       &lt;!-- highlightjs --&gt;
-       &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css&quot;&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;&gt;&lt;/script&gt;
+           <!-- and it's easy to individually load additional languages -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
 
-       &lt;!-- and it's easy to individually load additional languages --&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js&quot;&gt;&lt;/script&gt;
+           <script>hljs.highlightAll();</script>
 
-       &lt;script&gt;hljs.highlightAll();&lt;/script&gt;
+           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+           <script type="text/javascript" id="MathJax-script" async
+             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+           </script>
 
-       &lt;script src=&quot;https://polyfill.io/v3/polyfill.min.js?features=es6&quot;&gt;&lt;/script&gt;
-       &lt;script type=&quot;text/javascript&quot; id=&quot;MathJax-script&quot; async
-         src=&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js&quot;&gt;
-       &lt;/script&gt;
-
-   &lt;/head&gt;
-   &lt;body&gt;
-       </code></pre>
+       </head>
+       <body>
+           
 <h1>Problems tagged with "mergesort"</h1>
 
-<pre><code>    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #127&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/best and worst case.html'&gt;best and worst case&lt;/a&gt;, &lt;a href='../tags/mergesort.html'&gt;mergesort&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+
+        <div class="problem-outer">
+        <h2>Problem #127</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/mergesort.html'>mergesort</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>True or False: the <b>best case</b> time complexity of mergesort is <span class="math">\(\Theta(n)\)</span>.</p>
 
 <div class="true-false">
@@ -251,19 +251,19 @@ Course Staff
 <p>Mergesort doesn't stop early: it always splits the array in half all the way down and merges everything back together, no matter what the input is (even if it is already sorted). Each of the <span class="math">\(\Theta(\log n)\)</span> levels of recursion does <span class="math">\(\Theta(n)\)</span> merging work, so the best case is <span class="math">\(\Theta(n \log n)\)</span>, the same as the worst case.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #129&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/mergesort.html'&gt;mergesort&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #129</h2>
+        <p>Tags: <a href='../tags/mergesort.html'>mergesort</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose <span class="inline-code"><code>mergesort</code></span> is called on an array of size <span class="math">\(n\)</span>. In total, how many calls to <span class="inline-code"><code>merge</code></span> are made over all calls to <span class="inline-code"><code>mergesort</code></span>?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
@@ -274,46 +274,50 @@ Course Staff
 <p><span class="math">\(\Theta(n)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #135&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/recursion.html'&gt;recursion&lt;/a&gt;, &lt;a href='../tags/mergesort.html'&gt;mergesort&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #135</h2>
+        <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/mergesort.html'>mergesort</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Consider the code for <span class="inline-code"><code>mergesort</code></span> and <span class="inline-code"><code>merge</code></span> where a new <span class="inline-code"><code>print</code></span>-statement has been added to <span class="inline-code"><code>merge</code></span>:</p>
 <pre class="code"><code>
 
-<p>def mergesort(arr):
-&quot;&quot;&quot;Sort array in-place.&quot;&quot;&quot;
-if len(arr) &gt; 1:
-middle = math.floor(len(arr) / 2)
-left = arr[:middle]
-right = arr[middle:]
-mergesort(left)
-mergesort(right)
-merge(left, right, arr)</p>
-<p>def merge(left, right, out):
-&quot;&quot;&quot;Merge sorted arrays, store in out.&quot;&quot;&quot;
-left.append(float('inf'))
-right.append(float('inf'))
-left_ix = 0
-right_ix = 0</p>
-<pre><code>for ix in range(len(out)):
-    print(&quot;Here!&quot;) # &lt;---- the newly-added line
-    if left[left_ix] &lt; right[right_ix]:
-        out[ix] = left[left_ix]
-        left_ix += 1
-    else:
-        out[ix] = right[right_ix]
-        right_ix += 1</code></pre>
-<p></code></pre></p>
+def mergesort(arr):
+    """Sort array in-place."""
+    if len(arr) > 1:
+        middle = math.floor(len(arr) / 2)
+        left = arr[:middle]
+        right = arr[middle:]
+        mergesort(left)
+        mergesort(right)
+        merge(left, right, arr)
+
+def merge(left, right, out):
+    """Merge sorted arrays, store in out."""
+    left.append(float('inf'))
+    right.append(float('inf'))
+    left_ix = 0
+    right_ix = 0
+
+    for ix in range(len(out)):
+        print("Here!") # <---- the newly-added line
+        if left[left_ix] < right[right_ix]:
+            out[ix] = left[left_ix]
+            left_ix += 1
+        else:
+            out[ix] = right[right_ix]
+            right_ix += 1
+
+</code></pre>
+
 <p>Suppose <span class="inline-code"><code>mergesort</code></span> is called on an array of size <span class="math">\(n\)</span>. In total, how many times will <span class="inline-code"><code>"Here!"</code></span> be printed?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
@@ -324,19 +328,19 @@ right_ix = 0</p>
 <p><span class="math">\(\Theta(n \log n)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #137&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/recurrence relations.html'&gt;recurrence relations&lt;/a&gt;, &lt;a href='../tags/mergesort.html'&gt;mergesort&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #137</h2>
+        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a>, <a href='../tags/mergesort.html'>mergesort</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Consider the modification of <span class="inline-code"><code>mergesort</code></span> shown below, where one of the recursive calls has been replaced by an in-place version of <span class="inline-code"><code>selection_sort</code></span>. Recall that <span class="inline-code"><code>selection_sort</code></span> takes <span class="math">\(\Theta(n^2)\)</span> time.</p>
 <pre class="code"><code>
 def kinda_mergesort(arr):
@@ -349,38 +353,41 @@ def kinda_mergesort(arr):
         selection_sort(right)
         merge(left, right, arr)
 
-<p></code></pre></p>
+</code></pre>
+
 <p>What is the time complexity of <span class="inline-code"><code>kinda_mergesort</code></span>?</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #138&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/best and worst case.html'&gt;best and worst case&lt;/a&gt;, &lt;a href='../tags/mergesort.html'&gt;mergesort&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #138</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/mergesort.html'>mergesort</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose <span class="inline-code"><code>arr</code></span> is a list-of-lists with <span class="math">\(n\)</span> inner lists, each containing <span class="math">\(n\)</span> numbers. What is the best case time complexity of the following function?</p>
 <pre class="code"><code>
 import math
 
-<p>def average_median(arr):
-&quot;&quot;&quot;Compute the mean of the row medians.&quot;&quot;&quot;
-msum = 0
-for i, row in enumerate(arr):
-mergesort(row) # sort the row using the mergesort algorithm
-msum += row[math.floor(i / 2)]
-return msum / len(arr)</p>
-<p></code></pre></p>
+def average_median(arr):
+    """Compute the mean of the row medians."""
+    msum = 0
+    for i, row in enumerate(arr):
+        mergesort(row) # sort the row using the mergesort algorithm
+        msum += row[math.floor(i / 2)]
+    return msum / len(arr)
+
+</code></pre>
+
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
@@ -392,19 +399,19 @@ return msum / len(arr)</p>
 <p><span class="math">\(\Theta(n^2 \log n)\)</span>. Mergesort takes <span class="math">\(\Theta(k \log k)\)</span> time on an array of size <span class="math">\(k\)</span> in every case, including the best case. The loop sorts <span class="math">\(n\)</span> rows of size <span class="math">\(n\)</span>, taking <span class="math">\(\Theta(n \log n)\)</span> time for each, and the rest of the loop body takes constant time. So the best case is <span class="math">\(\Theta(n^2 \log n)\)</span>.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #139&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/best and worst case.html'&gt;best and worst case&lt;/a&gt;, &lt;a href='../tags/mergesort.html'&gt;mergesort&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #139</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/mergesort.html'>mergesort</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Your friend has written a modified version of mergesort that they claim has an improved best-case time complexity:</p>
 <pre class="code"><code>
 def better_mergesort(arr):
@@ -413,7 +420,8 @@ def better_mergesort(arr):
     else:
         mergesort(arr)
 
-<p></code></pre></p>
+</code></pre>
+
 <p>Here, <span class="inline-code"><code>is_already_sorted</code></span> is a function that takes in an array and returns <span class="inline-code"><code>True</code></span> if and only if the array is in sorted order. Assume that <span class="inline-code"><code>is_already_sorted</code></span> is implemented efficiently (meaning, it has the best possible time complexity). What is the best case time complexity of <span class="inline-code"><code>better_mergesort</code></span>?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
@@ -425,38 +433,41 @@ def better_mergesort(arr):
 <p><span class="math">\(\Theta(n)\)</span>. The best case is when <span class="inline-code"><code>arr</code></span> is already sorted, so that only <span class="inline-code"><code>is_already_sorted</code></span> runs. Checking whether an array is sorted requires looking at every element, and can be done in <span class="math">\(\Theta(n)\)</span> time by comparing each pair of adjacent elements. So the best case time complexity is <span class="math">\(\Theta(n)\)</span>.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #142&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/mergesort.html'&gt;mergesort&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #142</h2>
+        <p>Tags: <a href='../tags/mergesort.html'>mergesort</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Below is the <span class="inline-code"><code>merge</code></span> function from the <span class="inline-code"><code>mergesort</code></span> algorithm, with an added <span class="inline-code"><code>print</code></span> statement:</p>
 <pre class="code"><code>
 
-<p>def merge(left, right, out):
-&quot;&quot;&quot;Merge sorted arrays, store in out.&quot;&quot;&quot;
-print(len(left))
-print(len(right))
-left.append(float('inf'))
-right.append(float('inf'))
-left_ix = 0
-right_ix = 0</p>
-<pre><code>for ix in range(len(out)):
-    if left[left_ix] &lt; right[right_ix]:
-        out[ix] = left[left_ix]
-        left_ix += 1
-    else:
-        out[ix] = right[right_ix]
-        right_ix += 1</code></pre>
-<p></code></pre></p>
+def merge(left, right, out):
+    """Merge sorted arrays, store in out."""
+    print(len(left))
+    print(len(right))
+    left.append(float('inf'))
+    right.append(float('inf'))
+    left_ix = 0
+    right_ix = 0
+
+    for ix in range(len(out)):
+        if left[left_ix] < right[right_ix]:
+            out[ix] = left[left_ix]
+            left_ix += 1
+        else:
+            out[ix] = right[right_ix]
+            right_ix += 1
+
+</code></pre>
+
 <p>Suppose this version of <span class="inline-code"><code>merge</code></span> is used in <span class="inline-code"><code>mergesort</code></span>, and <span class="inline-code"><code>mergesort</code></span> is called on the following list:</p>
 <p><span class="inline-code"><code>[6, 2, 7, 1, 9, 3, 8, 5]</code></span>.</p>
 <p>If all of the numbers that are printed are added up, what will the sum be?</p>
@@ -465,17 +476,15 @@ right_ix = 0</p>
 <p>24</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
-   &lt;/body&gt;</code></pre>
+       </body>
    </html>
-
-
     </div>
 </div>
 

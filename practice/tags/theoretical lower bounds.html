@@ -198,46 +198,46 @@ Course Staff
 
     <div class="prose dark:prose-invert">
     <!DOCTYPE html> <html> <head> <meta
+                          charset="utf-8"> <title>Problems tagged with theoretical lower bounds</title>
 
-<pre><code>                      charset=&quot;utf-8&quot;&gt; &lt;title&gt;Problems tagged with theoretical lower bounds&lt;/title&gt;
+           <!-- MathJax -->
+           <script type="text/x-mathjax-config">
+             MathJax.Hub.Config({
+               tex: {
+                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+                 displayMath: [             // start/end delimiter pairs for display math
+                     ['\\[', '\\]']
+                 ],
+                 processEscapes: true
+               }
+           });
+           </script>
 
-       &lt;!-- MathJax --&gt;
-       &lt;script type=&quot;text/x-mathjax-config&quot;&gt;
-         MathJax.Hub.Config({
-           tex: {
-             inlineMath: [ ['$$','$$'], [&quot;\\(&quot;,&quot;\\)&quot;] ],
-             displayMath: [             // start/end delimiter pairs for display math
-                 ['\\[', '\\]']
-             ],
-             processEscapes: true
-           }
-       });
-       &lt;/script&gt;
+           <!-- highlightjs -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
-       &lt;!-- highlightjs --&gt;
-       &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css&quot;&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;&gt;&lt;/script&gt;
+           <!-- and it's easy to individually load additional languages -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
 
-       &lt;!-- and it's easy to individually load additional languages --&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js&quot;&gt;&lt;/script&gt;
+           <script>hljs.highlightAll();</script>
 
-       &lt;script&gt;hljs.highlightAll();&lt;/script&gt;
+           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+           <script type="text/javascript" id="MathJax-script" async
+             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+           </script>
 
-       &lt;script src=&quot;https://polyfill.io/v3/polyfill.min.js?features=es6&quot;&gt;&lt;/script&gt;
-       &lt;script type=&quot;text/javascript&quot; id=&quot;MathJax-script&quot; async
-         src=&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js&quot;&gt;
-       &lt;/script&gt;
-
-   &lt;/head&gt;
-   &lt;body&gt;
-       </code></pre>
+       </head>
+       <body>
+           
 <h1>Problems tagged with "theoretical lower bounds"</h1>
 
-<pre><code>    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #074&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/theoretical lower bounds.html'&gt;theoretical lower bounds&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+
+        <div class="problem-outer">
+        <h2>Problem #074</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Which of the below is a tight theoretical lower bound for the problem of finding a mode of a collection of <span class="math">\(n\)</span> numbers?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
@@ -250,19 +250,19 @@ Course Staff
 <p><span class="math">\(\Theta(n)\)</span>. In the worst case, all numbers are distinct and we must loop through all of them to discover this, taking linear time.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #075&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/theoretical lower bounds.html'&gt;theoretical lower bounds&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #075</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose you are given a (possibly unsorted) array containing <span class="math">\(n\)</span> elements. Each element is either zero or one. You are tasked with determining if the majority (at least half) of the array's elements are one.</p>
 <p>What is the <b>tight</b> theoretical lower bound for the worst case time complexity of this problem?</p>
 <details>
@@ -270,19 +270,19 @@ Course Staff
 <p><span class="math">\(\Theta(n)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #083&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/theoretical lower bounds.html'&gt;theoretical lower bounds&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #083</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose you are given a (possibly unsorted) array of <span class="math">\(n\)</span> floating point numbers and are tasked with counting the number of elements in the array which are within ten of the array's maximum (you are not told the maximum). That is, you must count the number of elements <span class="math">\(x\)</span> such that <span class="math">\(m - x \geq 10\)</span>, where <span class="math">\(m\)</span> is the array's maximum. You may assume that the array does not contain duplicate numbers.</p>
 <p>What is the <b>tight</b> theoretical lower bound for the worst case time complexity of this problem?</p>
 <details>
@@ -291,38 +291,38 @@ Course Staff
 <p>It takes <span class="math">\(\Theta(n)\)</span> time to find the maximum. After this, we loop through and keep track of how many elements are within ten of the maximum -- this also takes <span class="math">\(\Theta(n)\)</span> time.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #090&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/theoretical lower bounds.html'&gt;theoretical lower bounds&lt;/a&gt;, &lt;a href='../tags/sorted structure.html'&gt;sorted structure&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #090</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a>, <a href='../tags/sorted structure.html'>sorted structure</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose you are given a <b>sorted</b> array containing <span class="math">\(n\)</span> elements. Each element is either zero or one. You are tasked with determining if the majority (at least half) of the array's elements are one. What is the <b>tight</b> theoretical lower bound for the worst case time complexity of any algorithm which solves this problem?</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(1)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #102&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/theoretical lower bounds.html'&gt;theoretical lower bounds&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #102</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Consider the following problem: given a (possibly unsorted) list of size <span class="math">\(n\)</span> containing only ones and zeros, determine if the number of ones is equal to the number of zeros.</p>
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
@@ -354,19 +354,19 @@ Course Staff
 
 </div>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #120&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/theoretical lower bounds.html'&gt;theoretical lower bounds&lt;/a&gt;, &lt;a href='../tags/sorted structure.html'&gt;sorted structure&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #120</h2>
+        <p>Tags: <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a>, <a href='../tags/sorted structure.html'>sorted structure</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are two numbers, with <span class="math">\(a \leq b\)</span>. Consider the problem of counting the number of elements in an array which are between <span class="math">\(a\)</span> and <span class="math">\(b\)</span>; that is, the number of elements <span class="math">\(x\)</span> such that <span class="math">\(a
     \leq x \leq b\)</span>. You may assume for simplicity that both <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are in the array, and there are no duplicates.</p>
 <div class="subproblem">
@@ -392,19 +392,19 @@ Course Staff
 
 </div>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #121&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/theoretical lower bounds.html'&gt;theoretical lower bounds&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #121</h2>
+        <p>Tags: <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose you are given a (possibly unsorted) array of <span class="math">\(n\)</span> floating point numbers and are tasked with counting the number of elements in the array which are within ten of the array's maximum (you are not told the maximum). That is, you must count the number of elements <span class="math">\(x\)</span> such that <span class="math">\(m - x \geq 10\)</span>, where <span class="math">\(m\)</span> is the array's maximum. You may assume that the array does not contain duplicate numbers.</p>
 <p>Now you may assume that the array is <b>sorted</b>.</p>
 <p>This question has two parts:</p>
@@ -421,19 +421,19 @@ Course Staff
         10\)</span> is not found (everything to the right of that index is at least <span class="math">\(m - 10\)</span>). Subtract this index from <span class="math">\(n\)</span> to find the number of elements within 10 of the maximum.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #145&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/theoretical lower bounds.html'&gt;theoretical lower bounds&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #145</h2>
+        <p>Tags: <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Consider the problem of determining whether there exists a pair of numbers in an array which, when added together, equal the maximum number in the array. Additionally, <b>assume that the array is sorted</b>.</p>
 <p>True or False: <span class="math">\(\Theta(n)\)</span> is a <b>tight</b> theoretical lower bound for this problem.</p>
 
@@ -449,19 +449,19 @@ Course Staff
 <p>This is tight because there is an algorithm that will compute the answer in worst-case <span class="math">\(\Theta(n)\)</span> time. Namely, this is an instance of the ``movie problem'' from lecture, where instead of finding two numbers which add to an arbitrary target, we're looking for a specific target: the maximum. We saw an algorithm that solved the movie problem in <span class="math">\(\Theta(n)\)</span> time, where <span class="math">\(n\)</span> was the number of movies. Since the maximum is computed in <span class="math">\(\Theta(1)\)</span> time for a sorted array, we can use the same algorithm to solve this in <span class="math">\(\Theta(n)\)</span> time as well.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #146&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/theoretical lower bounds.html'&gt;theoretical lower bounds&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #146</h2>
+        <p>Tags: <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>In this problem, assume that <span class="math">\(A\)</span> and <span class="math">\(B\)</span> are <b>sorted</b> lists, each containing <span class="math">\(n\)</span> numbers.</p>
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
@@ -483,19 +483,19 @@ Course Staff
 
 </div>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #147&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/best and worst case.html'&gt;best and worst case&lt;/a&gt;, &lt;a href='../tags/theoretical lower bounds.html'&gt;theoretical lower bounds&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #147</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Consider the following problem: given two <b>sorted</b> lists, <span class="inline-code"><code>A</code></span> and <span class="inline-code"><code>B</code></span>, each containing <span class="math">\(n\)</span> numbers, determine if the two lists share an element in common. That is, determine if there is a number <span class="math">\(x\)</span> which appears in both lists.</p>
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
@@ -519,17 +519,15 @@ Course Staff
 
 </div>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
-   &lt;/body&gt;</code></pre>
+       </body>
    </html>
-
-
     </div>
 </div>
 

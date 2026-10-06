@@ -198,51 +198,51 @@ Course Staff
 
     <div class="prose dark:prose-invert">
     <!DOCTYPE html> <html> <head> <meta
+                          charset="utf-8"> <title>Practice Problems</title>
 
-<pre><code>                      charset=&quot;utf-8&quot;&gt; &lt;title&gt;Practice Problems&lt;/title&gt;
+           <!-- MathJax -->
+           <script type="text/x-mathjax-config">
+             MathJax.Hub.Config({
+               tex: {
+                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+                 displayMath: [             // start/end delimiter pairs for display math
+                     ['\\[', '\\]']
+                 ],
+                 processEscapes: true
+               }
+           });
+           </script>
 
-       &lt;!-- MathJax --&gt;
-       &lt;script type=&quot;text/x-mathjax-config&quot;&gt;
-         MathJax.Hub.Config({
-           tex: {
-             inlineMath: [ ['$$','$$'], [&quot;\\(&quot;,&quot;\\)&quot;] ],
-             displayMath: [             // start/end delimiter pairs for display math
-                 ['\\[', '\\]']
-             ],
-             processEscapes: true
-           }
-       });
-       &lt;/script&gt;
+           <!-- highlightjs -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
-       &lt;!-- highlightjs --&gt;
-       &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css&quot;&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;&gt;&lt;/script&gt;
+           <!-- and it's easy to individually load additional languages -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
 
-       &lt;!-- and it's easy to individually load additional languages --&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js&quot;&gt;&lt;/script&gt;
+           <script>hljs.highlightAll();</script>
 
-       &lt;script&gt;hljs.highlightAll();&lt;/script&gt;
+           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+           <script type="text/javascript" id="MathJax-script" async
+             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+           </script>
 
-       &lt;script src=&quot;https://polyfill.io/v3/polyfill.min.js?features=es6&quot;&gt;&lt;/script&gt;
-       &lt;script type=&quot;text/javascript&quot; id=&quot;MathJax-script&quot; async
-         src=&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js&quot;&gt;
-       &lt;/script&gt;
-
-   &lt;/head&gt;
-   &lt;body&gt;
-       &lt;div&gt;</code></pre>
+       </head>
+       <body>
+           <div>
 <h1>Practice Problems</h1>
 
-<pre><code>        &lt;div class=&quot;tagset&quot;&gt;
-            &lt;h2&gt;Midterm 01&lt;/h2&gt;
-            &lt;p&gt;Practice problems for topics on Midterm 01.</code></pre>
-<p>See also the <a href="http://dsc40b.com/materials/default/supplementary/sample_midterm_01/sample_midterm_01.pdf">Sample Midterm 01</a>
+
+            <div class="tagset">
+                <h2>Midterm 01</h2>
+                <p>Practice problems for topics on Midterm 01.
+See also the <a href="http://dsc40b.com/materials/default/supplementary/sample_midterm_01/sample_midterm_01.pdf">Sample Midterm 01</a>
 and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midterm_01/sample_midterm_01-solution.pdf">solutions</a>.</p>
-<p>
-<a href="./midterm-01.html">See all problems in this set</a>, or
-choose a tag below to view only those problems.
-</p>
-<ul></p>
+                <p>
+                    <a href="./midterm-01.html">See all problems in this set</a>, or
+                    choose a tag below to view only those problems.
+                </p>
+            <ul>
 <li><a href='./tags/asymptotic notation.html'>asymptotic notation</a></li>
 <li><a href='./tags/best and worst case.html'>best and worst case</a></li>
 <li><a href='./tags/binary search.html'>binary search</a></li>
@@ -260,16 +260,17 @@ choose a tag below to view only those problems.
 </ul>
             </div>
 
-<pre><code>        &lt;div class=&quot;tagset&quot;&gt;
-            &lt;h2&gt;Midterm 02&lt;/h2&gt;
-            &lt;p&gt;Practice problems for topics on Midterm 02.</code></pre>
-<p>See also the <a href="http://dsc40b.com/materials/default/supplementary/sample_midterm_02/sample_midterm_02.pdf">Sample Midterm 02</a>
+
+            <div class="tagset">
+                <h2>Midterm 02</h2>
+                <p>Practice problems for topics on Midterm 02.
+See also the <a href="http://dsc40b.com/materials/default/supplementary/sample_midterm_02/sample_midterm_02.pdf">Sample Midterm 02</a>
 and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midterm_02/sample_midterm_02-solution.pdf">solutions</a>.</p>
-<p>
-<a href="./midterm-02.html">See all problems in this set</a>, or
-choose a tag below to view only those problems.
-</p>
-<ul></p>
+                <p>
+                    <a href="./midterm-02.html">See all problems in this set</a>, or
+                    choose a tag below to view only those problems.
+                </p>
+            <ul>
 <li><a href='./tags/aggregate analysis.html'>aggregate analysis</a></li>
 <li><a href='./tags/bellman-ford.html'>bellman-ford</a></li>
 <li><a href='./tags/breadth first search.html'>breadth first search</a></li>
@@ -285,6 +286,7 @@ choose a tag below to view only those problems.
 </ul>
             </div>
 
+
 <div class="tagset">
     <h2>Quiz 01</h2>
     <p>Practice problems for topics on Quiz 01.</p>
@@ -297,6 +299,7 @@ choose a tag below to view only those problems.
 <li><a href='./tags/lecture-02.html'>lecture-02</a></li>
 </ul>
 </div>
+
 
 <div class="tagset">
     <h2>Quiz 02</h2>
@@ -314,8 +317,6 @@ choose a tag below to view only those problems.
 </div>
        </body>
    </html>
-
-
     </div>
 </div>
 

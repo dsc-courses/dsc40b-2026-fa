@@ -198,46 +198,46 @@ Course Staff
 
     <div class="prose dark:prose-invert">
     <!DOCTYPE html> <html> <head> <meta
+                          charset="utf-8"> <title>Problems tagged with trees</title>
 
-<pre><code>                      charset=&quot;utf-8&quot;&gt; &lt;title&gt;Problems tagged with trees&lt;/title&gt;
+           <!-- MathJax -->
+           <script type="text/x-mathjax-config">
+             MathJax.Hub.Config({
+               tex: {
+                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+                 displayMath: [             // start/end delimiter pairs for display math
+                     ['\\[', '\\]']
+                 ],
+                 processEscapes: true
+               }
+           });
+           </script>
 
-       &lt;!-- MathJax --&gt;
-       &lt;script type=&quot;text/x-mathjax-config&quot;&gt;
-         MathJax.Hub.Config({
-           tex: {
-             inlineMath: [ ['$$','$$'], [&quot;\\(&quot;,&quot;\\)&quot;] ],
-             displayMath: [             // start/end delimiter pairs for display math
-                 ['\\[', '\\]']
-             ],
-             processEscapes: true
-           }
-       });
-       &lt;/script&gt;
+           <!-- highlightjs -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
-       &lt;!-- highlightjs --&gt;
-       &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css&quot;&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;&gt;&lt;/script&gt;
+           <!-- and it's easy to individually load additional languages -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
 
-       &lt;!-- and it's easy to individually load additional languages --&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js&quot;&gt;&lt;/script&gt;
+           <script>hljs.highlightAll();</script>
 
-       &lt;script&gt;hljs.highlightAll();&lt;/script&gt;
+           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+           <script type="text/javascript" id="MathJax-script" async
+             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+           </script>
 
-       &lt;script src=&quot;https://polyfill.io/v3/polyfill.min.js?features=es6&quot;&gt;&lt;/script&gt;
-       &lt;script type=&quot;text/javascript&quot; id=&quot;MathJax-script&quot; async
-         src=&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js&quot;&gt;
-       &lt;/script&gt;
-
-   &lt;/head&gt;
-   &lt;body&gt;
-       </code></pre>
+       </head>
+       <body>
+           
 <h1>Problems tagged with "trees"</h1>
 
-<pre><code>    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #262&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/depth first search.html'&gt;depth first search&lt;/a&gt;, &lt;a href='../tags/trees.html'&gt;trees&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+
+        <div class="problem-outer">
+        <h2>Problem #262</h2>
+        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/trees.html'>trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the time complexity of depth first search (DFS) when run on a tree with <span class="math">\(n\)</span> nodes?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
@@ -250,17 +250,15 @@ Course Staff
 <p><span class="math">\(\Theta(n)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
-   &lt;/body&gt;</code></pre>
+       </body>
    </html>
-
-
     </div>
 </div>
 

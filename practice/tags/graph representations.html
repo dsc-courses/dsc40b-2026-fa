@@ -198,46 +198,46 @@ Course Staff
 
     <div class="prose dark:prose-invert">
     <!DOCTYPE html> <html> <head> <meta
+                          charset="utf-8"> <title>Problems tagged with graph representations</title>
 
-<pre><code>                      charset=&quot;utf-8&quot;&gt; &lt;title&gt;Problems tagged with graph representations&lt;/title&gt;
+           <!-- MathJax -->
+           <script type="text/x-mathjax-config">
+             MathJax.Hub.Config({
+               tex: {
+                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+                 displayMath: [             // start/end delimiter pairs for display math
+                     ['\\[', '\\]']
+                 ],
+                 processEscapes: true
+               }
+           });
+           </script>
 
-       &lt;!-- MathJax --&gt;
-       &lt;script type=&quot;text/x-mathjax-config&quot;&gt;
-         MathJax.Hub.Config({
-           tex: {
-             inlineMath: [ ['$$','$$'], [&quot;\\(&quot;,&quot;\\)&quot;] ],
-             displayMath: [             // start/end delimiter pairs for display math
-                 ['\\[', '\\]']
-             ],
-             processEscapes: true
-           }
-       });
-       &lt;/script&gt;
+           <!-- highlightjs -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
-       &lt;!-- highlightjs --&gt;
-       &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css&quot;&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;&gt;&lt;/script&gt;
+           <!-- and it's easy to individually load additional languages -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
 
-       &lt;!-- and it's easy to individually load additional languages --&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js&quot;&gt;&lt;/script&gt;
+           <script>hljs.highlightAll();</script>
 
-       &lt;script&gt;hljs.highlightAll();&lt;/script&gt;
+           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+           <script type="text/javascript" id="MathJax-script" async
+             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+           </script>
 
-       &lt;script src=&quot;https://polyfill.io/v3/polyfill.min.js?features=es6&quot;&gt;&lt;/script&gt;
-       &lt;script type=&quot;text/javascript&quot; id=&quot;MathJax-script&quot; async
-         src=&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js&quot;&gt;
-       &lt;/script&gt;
-
-   &lt;/head&gt;
-   &lt;body&gt;
-       </code></pre>
+       </head>
+       <body>
+           
 <h1>Problems tagged with "graph representations"</h1>
 
-<pre><code>    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #218&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/graph representations.html'&gt;graph representations&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+
+        <div class="problem-outer">
+        <h2>Problem #218</h2>
+        <p>Tags: <a href='../tags/graph representations.html'>graph representations</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Let <span class="math">\(A\)</span> be the adjacency matrix representing a directed graph with $n$ nodes. What is the greatest possible sum of any <i>row</i> of <span class="math">\(A\)</span>?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(1\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n - 1\)</span></p></label></div>
@@ -249,19 +249,19 @@ Course Staff
 <p><span class="math">\(n\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #219&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/graph representations.html'&gt;graph representations&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #219</h2>
+        <p>Tags: <a href='../tags/graph representations.html'>graph representations</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Let <span class="math">\(A\)</span> be the adjacency matrix representing a undirected graph with <span class="math">\(n\)</span> nodes. What is the greatest possible sum of any <i>row</i> of <span class="math">\(A\)</span>?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(1\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n - 1\)</span></p></label></div>
@@ -273,26 +273,28 @@ Course Staff
 <p><span class="math">\(n - 1\)</span>. The sum of row <span class="math">\(i\)</span> is the degree of node <span class="math">\(i\)</span>. Since an undirected graph has no self-loops, a node can be adjacent to at most the other <span class="math">\(n - 1\)</span> nodes.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #220&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/aggregate analysis.html'&gt;aggregate analysis&lt;/a&gt;, &lt;a href='../tags/graph representations.html'&gt;graph representations&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #220</h2>
+        <p>Tags: <a href='../tags/aggregate analysis.html'>aggregate analysis</a>, <a href='../tags/graph representations.html'>graph representations</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose a graph <span class="math">\(G = (V, E)\)</span> is stored using an adjacency list representation in the variable <span class="inline-code"><code>adj_list</code></span>. What is the time complexity of the below code?</p>
 <pre class="code"><code>
 
-<p>for lst in adj_list:
-for u in lst:
-print(u)</p>
-<p></code></pre></p>
+for lst in adj_list:
+    for u in lst:
+        print(u)
+
+</code></pre>
+
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2)\)</span></p></label></div>
@@ -303,19 +305,19 @@ print(u)</p>
 <p><span class="math">\(\Theta(V + E)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #223&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/graph representations.html'&gt;graph representations&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #223</h2>
+        <p>Tags: <a href='../tags/graph representations.html'>graph representations</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>An <i>isolated</i> node in an undirected graph is a node that has no neighbors.</p>
 <p>Suppose a graph <span class="math">\(G = (V, E)\)</span> is represented using an adjacency matrix. What is the best possible worst-case time complexity of an efficient algorithm for computing the number of isolated nodes in the graph? State your answer as a function of <span class="math">\(|V|\)</span> and <span class="math">\(|E|\)</span> using asymptotic notation.</p>
 <details>
@@ -323,19 +325,19 @@ print(u)</p>
 <p><span class="math">\(\Theta(V^2)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #224&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/graph representations.html'&gt;graph representations&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #224</h2>
+        <p>Tags: <a href='../tags/graph representations.html'>graph representations</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>An ``isolated node'' in a graph is a node that has no edges attached to it.</p>
 <p>What is the worst case time complexity of an efficient algorithm that checks to see if a graph <span class="math">\(G = (V, E)\)</span> has an isolated node? You should assume that the graph is represented as an adjacency list.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
@@ -348,19 +350,19 @@ print(u)</p>
 <p><span class="math">\(\Theta(V)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #225&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/graph representations.html'&gt;graph representations&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #225</h2>
+        <p>Tags: <a href='../tags/graph representations.html'>graph representations</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Let <span class="math">\(A\)</span> be the adjacency matrix of the graph shown below:</p>
 <center><div class="image"><img src="../images/225/graph.png" /></div></center>
 <p>Let <span class="math">\(\vec{a}^{(1)}\)</span> be the first row of <span class="math">\(A\)</span> and <span class="math">\(\vec{a}^{(2)}\)</span> be the second row of <span class="math">\(A\)</span>. What is <span class="math">\(\vec{a}^{(1)}\cdot\vec{a}^{(2)}\)</span>? That is, what is the dot product between the first row of <span class="math">\(A\)</span> and the second row of <span class="math">\(A\)</span>? Your answer should be in the form of a number.</p>
@@ -371,17 +373,15 @@ print(u)</p>
 <p>4</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
-   &lt;/body&gt;</code></pre>
+       </body>
    </html>
-
-
     </div>
 </div>
 

@@ -198,46 +198,46 @@ Course Staff
 
     <div class="prose dark:prose-invert">
     <!DOCTYPE html> <html> <head> <meta
+                          charset="utf-8"> <title>Problems tagged with lecture-01</title>
 
-<pre><code>                      charset=&quot;utf-8&quot;&gt; &lt;title&gt;Problems tagged with lecture-01&lt;/title&gt;
+           <!-- MathJax -->
+           <script type="text/x-mathjax-config">
+             MathJax.Hub.Config({
+               tex: {
+                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+                 displayMath: [             // start/end delimiter pairs for display math
+                     ['\\[', '\\]']
+                 ],
+                 processEscapes: true
+               }
+           });
+           </script>
 
-       &lt;!-- MathJax --&gt;
-       &lt;script type=&quot;text/x-mathjax-config&quot;&gt;
-         MathJax.Hub.Config({
-           tex: {
-             inlineMath: [ ['$$','$$'], [&quot;\\(&quot;,&quot;\\)&quot;] ],
-             displayMath: [             // start/end delimiter pairs for display math
-                 ['\\[', '\\]']
-             ],
-             processEscapes: true
-           }
-       });
-       &lt;/script&gt;
+           <!-- highlightjs -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
-       &lt;!-- highlightjs --&gt;
-       &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css&quot;&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;&gt;&lt;/script&gt;
+           <!-- and it's easy to individually load additional languages -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
 
-       &lt;!-- and it's easy to individually load additional languages --&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js&quot;&gt;&lt;/script&gt;
+           <script>hljs.highlightAll();</script>
 
-       &lt;script&gt;hljs.highlightAll();&lt;/script&gt;
+           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+           <script type="text/javascript" id="MathJax-script" async
+             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+           </script>
 
-       &lt;script src=&quot;https://polyfill.io/v3/polyfill.min.js?features=es6&quot;&gt;&lt;/script&gt;
-       &lt;script type=&quot;text/javascript&quot; id=&quot;MathJax-script&quot; async
-         src=&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js&quot;&gt;
-       &lt;/script&gt;
-
-   &lt;/head&gt;
-   &lt;body&gt;
-       </code></pre>
+       </head>
+       <body>
+           
 <h1>Problems tagged with "lecture-01"</h1>
 
-<pre><code>    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #001&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/time complexity.html'&gt;time complexity&lt;/a&gt;, &lt;a href='../tags/lecture-01.html'&gt;lecture-01&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+
+        <div class="problem-outer">
+        <h2>Problem #001</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-01.html'>lecture-01</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the time complexity of the following function?</p>
 <pre class="code"><code>
 def foo(arr):
@@ -248,25 +248,26 @@ def foo(arr):
     else:
         return 0
 
-<p></code></pre></p>
+</code></pre>
+
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #002&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/time complexity.html'&gt;time complexity&lt;/a&gt;, &lt;a href='../tags/lecture-01.html'&gt;lecture-01&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #002</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-01.html'>lecture-01</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the time complexity of the following function?</p>
 <pre class="code"><code>
 def also_the_variance(data):
@@ -280,7 +281,8 @@ def also_the_variance(data):
         total += (x - mu)**2
     return total / len(data)
 
-<p></code></pre></p>
+</code></pre>
+
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -295,19 +297,19 @@ def also_the_variance(data):
 <p><span class="math">\(\Theta(n)\)</span>. <span class="inline-code"><code>sum(data)</code></span> takes <span class="math">\(\Theta(n)\)</span> time but is computed only once, before the loop. The loop runs <span class="math">\(n\)</span> times and does constant work on each iteration.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #003&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/time complexity.html'&gt;time complexity&lt;/a&gt;, &lt;a href='../tags/lecture-01.html'&gt;lecture-01&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #003</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-01.html'>lecture-01</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the time complexity of the following function?</p>
 <pre class="code"><code>
 def variance(data):
@@ -322,7 +324,8 @@ def variance(data):
         total += (x - mu)**2
     return total / len(data)
 
-<p></code></pre></p>
+</code></pre>
+
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -337,19 +340,19 @@ def variance(data):
 <p><span class="math">\(\Theta(n^2)\)</span>. <span class="inline-code"><code>sum(data)</code></span> takes <span class="math">\(\Theta(n)\)</span> time and is recomputed on each of the <span class="math">\(n\)</span> iterations of the loop.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #004&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/time complexity.html'&gt;time complexity&lt;/a&gt;, &lt;a href='../tags/lecture-01.html'&gt;lecture-01&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #004</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-01.html'>lecture-01</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the time complexity of the following function?</p>
 <pre class="code"><code>
 def foo(arr):
@@ -359,7 +362,8 @@ def foo(arr):
         r = sum(arr) * sum(arr)
         print(r)
 
-<p></code></pre></p>
+</code></pre>
+
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -374,19 +378,19 @@ def foo(arr):
 <p><span class="math">\(\Theta(n^2)\)</span>. Each iteration of the loop calls <span class="inline-code"><code>sum(arr)</code></span> twice, and each call takes <span class="math">\(\Theta(n)\)</span> time. The loop runs <span class="math">\(n\)</span> times, so the total is <span class="math">\(\Theta(n^2)\)</span>.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #005&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/time complexity.html'&gt;time complexity&lt;/a&gt;, &lt;a href='../tags/lecture-01.html'&gt;lecture-01&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #005</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-01.html'>lecture-01</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose numbers is a list of integers of length <span class="math">\(n\)</span>. What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>) in the simplest terms possible.</p>
 <pre class="code"><code>
 def foo(numbers):
@@ -394,25 +398,26 @@ def foo(numbers):
         r = max(numbers) * min(numbers) * x
         print(r)
 
-<p></code></pre></p>
+</code></pre>
+
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #006&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/time complexity.html'&gt;time complexity&lt;/a&gt;, &lt;a href='../tags/lecture-01.html'&gt;lecture-01&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #006</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-01.html'>lecture-01</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
 <pre class="code"><code>
 def foo(arr):
@@ -425,25 +430,26 @@ def foo(arr):
         else:
             print('neither!')
 
-<p></code></pre></p>
+</code></pre>
+
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #007&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/time complexity.html'&gt;time complexity&lt;/a&gt;, &lt;a href='../tags/lecture-01.html'&gt;lecture-01&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #007</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-01.html'>lecture-01</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
 <pre class="code"><code>
 def foo(arr):
@@ -457,23 +463,22 @@ def foo(arr):
         else:
             print('neither!')
 
-<p></code></pre></p>
+</code></pre>
+
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
-   &lt;/body&gt;</code></pre>
+       </body>
    </html>
-
-
     </div>
 </div>
 

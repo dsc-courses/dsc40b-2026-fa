@@ -198,46 +198,46 @@ Course Staff
 
     <div class="prose dark:prose-invert">
     <!DOCTYPE html> <html> <head> <meta
+                          charset="utf-8"> <title>Problems tagged with breadth first search</title>
 
-<pre><code>                      charset=&quot;utf-8&quot;&gt; &lt;title&gt;Problems tagged with breadth first search&lt;/title&gt;
+           <!-- MathJax -->
+           <script type="text/x-mathjax-config">
+             MathJax.Hub.Config({
+               tex: {
+                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+                 displayMath: [             // start/end delimiter pairs for display math
+                     ['\\[', '\\]']
+                 ],
+                 processEscapes: true
+               }
+           });
+           </script>
 
-       &lt;!-- MathJax --&gt;
-       &lt;script type=&quot;text/x-mathjax-config&quot;&gt;
-         MathJax.Hub.Config({
-           tex: {
-             inlineMath: [ ['$$','$$'], [&quot;\\(&quot;,&quot;\\)&quot;] ],
-             displayMath: [             // start/end delimiter pairs for display math
-                 ['\\[', '\\]']
-             ],
-             processEscapes: true
-           }
-       });
-       &lt;/script&gt;
+           <!-- highlightjs -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
-       &lt;!-- highlightjs --&gt;
-       &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css&quot;&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;&gt;&lt;/script&gt;
+           <!-- and it's easy to individually load additional languages -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
 
-       &lt;!-- and it's easy to individually load additional languages --&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js&quot;&gt;&lt;/script&gt;
+           <script>hljs.highlightAll();</script>
 
-       &lt;script&gt;hljs.highlightAll();&lt;/script&gt;
+           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+           <script type="text/javascript" id="MathJax-script" async
+             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+           </script>
 
-       &lt;script src=&quot;https://polyfill.io/v3/polyfill.min.js?features=es6&quot;&gt;&lt;/script&gt;
-       &lt;script type=&quot;text/javascript&quot; id=&quot;MathJax-script&quot; async
-         src=&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js&quot;&gt;
-       &lt;/script&gt;
-
-   &lt;/head&gt;
-   &lt;body&gt;
-       </code></pre>
+       </head>
+       <body>
+           
 <h1>Problems tagged with "breadth first search"</h1>
 
-<pre><code>    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #227&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+
+        <div class="problem-outer">
+        <h2>Problem #227</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose you run a BFS on the graph below, however, the BFS is modified so that any time a node is popped from the queue, the message <span class="inline-code"><code>Node popped!!!</code></span> is printed to the screen.</p>
 <center><div class="image"><img src="../images/227/bfs_1.png" /></div></center>
 <p>How many times is the message printed?</p>
@@ -246,19 +246,19 @@ Course Staff
 <p>Answer: 6. Every node reachable from the source is added to the queue exactly once and popped exactly once. This graph is connected, so all 6 nodes are popped, no matter which node the BFS starts at.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #228&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #228</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose you are performing a BFS on the following graph, starting on node 0: In which of the following orders are the nodes visited, assuming that the BFS algorithm produces neighbors in numerical order?</p>
 <center><div class="image"><img src="../images/228/bfs_1.png" /></div></center>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>0, 1, 2, 3, 4, 5</p></label></div>
@@ -270,19 +270,19 @@ Course Staff
 <p>0, 1, 3, 5, 4, 2. Visiting 0 adds 1 and 3 to the queue. Visiting 1 adds 5. Visiting 3 adds 4. Visiting 5 adds nothing new (4 is already pending). Visiting 4 adds 2. Finally 2 is visited.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #229&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #229</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose a <i>breadth</i> first search is run on the graph below using node <span class="math">\(d\)</span> as the source. Adopt the convention that a node's neighbors are produced in alphabetical order.</p>
 <center><div class="image"><img src="../images/229/searchme.png" /></div></center>
 <p>What is the node popped from the queue after node <span class="math">\(g\)</span>?</p>
@@ -298,19 +298,19 @@ Course Staff
 <p><span class="math">\(e\)</span>. The nodes are popped in the order <span class="math">\(d, f, q, r, g, e, v\)</span>. Popping <span class="math">\(d\)</span> adds <span class="math">\(f, q, r\)</span>; popping <span class="math">\(f\)</span> adds <span class="math">\(g\)</span>; popping <span class="math">\(q\)</span> adds <span class="math">\(e\)</span>; popping <span class="math">\(r\)</span> adds <span class="math">\(v\)</span>. So the queue is then <span class="math">\(g, e, v\)</span>, and <span class="math">\(e\)</span> comes right after <span class="math">\(g\)</span>.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #230&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #230</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Consider running a breadth-first search (BFS) on the graph shown below, using node <span class="math">\(s\)</span> as the source and adopting the convention that neighbors are produced in ascending order by label.</p>
 <center><div class="image"><img src="../images/230/graph.png" /></div></center>
 <p>How many nodes will be popped from the queue before node <span class="math">\(u_8\)</span> is popped?</p>
@@ -319,19 +319,19 @@ Course Staff
 <p>9</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #231&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #231</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Define a <i>circle graph</i> with <span class="math">\(n\)</span> nodes to be an undirected graph <span class="math">\(G =
     (V, E)\)</span> with nodes <span class="math">\(u_1, u_2, \ldots, u_n\)</span> and edges <span class="math">\((u_1, u_2), (u_2,
     u_3), \ldots, (u_{n-1}, u_n)\)</span>, along with one additional edge <span class="math">\((u_n, u_1)\)</span> completing the cycle. An example of a circle graph with 6 nodes is shown below:</p>
@@ -342,19 +342,19 @@ Course Staff
 <p><span class="math">\(\Theta(n)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #232&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #232</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose a ``2-chain'' graph with <span class="math">\(n\)</span> nodes is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math">\(\ldots\)</span>, <span class="math">\(n\)</span>, and, for each node <span class="math">\(u\)</span>, making an edge to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span>(if they are in the graph).</p>
 <p>For example, such a graph with <span class="math">\(n = 7\)</span> looks like:</p>
 <center><div class="image"><img src="../images/232/g3.png" /></div></center>
@@ -364,36 +364,39 @@ Course Staff
 <p><span class="math">\(\Theta(n)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #233&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #233</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>The code below is a modified version of BFS shown in class. This modification has a single addition: a <span class="inline-code"><code>print</code></span> statement. A comment in the code indicates where the <span class="inline-code"><code>print</code></span> statement is located.</p>
 <pre class="code"><code>
 
-<p>def bfs(graph, source):
-&quot;&quot;&quot;Start a BFS at <code>source</code>.&quot;&quot;&quot;
-status = {node: 'undiscovered' for node in graph.nodes}
-status[source] = 'pending'
-pending = deque([source])</p>
-<pre><code>while pending: 
-    u = pending.popleft()
-    for v in graph.neighbors(u):
-        print(&quot;here!&quot;) # &lt;--- this is the print statement
-        if status[v] == 'undiscovered':
-            status[v] = 'pending'
-            pending.append(v)
-    status[u] = 'visited'</code></pre>
-<p></code></pre></p>
+def bfs(graph, source):
+    """Start a BFS at `source`."""
+    status = {node: 'undiscovered' for node in graph.nodes}
+    status[source] = 'pending'
+    pending = deque([source])
+
+    while pending: 
+        u = pending.popleft()
+        for v in graph.neighbors(u):
+            print("here!") # <--- this is the print statement
+            if status[v] == 'undiscovered':
+                status[v] = 'pending'
+                pending.append(v)
+        status[u] = 'visited'
+
+</code></pre>
+
 <p>Suppose this modified BFS is run on the following graph, starting at node <span class="math">\(a\)</span>.</p>
 <center><div class="image"><img src="../images/233/graph.png" /></div></center>
 <p>How many times will <span class="inline-code"><code>"here!"</code></span> be printed? Your answer should be an exact number.</p>
@@ -402,39 +405,44 @@ pending = deque([source])</p>
 <p>10</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #234&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #234</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Consider the following modification of BFS, with an added print statement:</p>
 <pre class="code"><code>
 
-<p>from collections import deque</p>
-<p>def modified_bfs(graph, source):
-&quot;&quot;&quot;Start a BFS at <code>source</code>.&quot;&quot;&quot;
-status = {node: 'undiscovered' for node in graph.nodes}
-status[source] = 'pending'
-pending = deque([source])</p>
-<pre><code>while pending:
-    u = pending.popleft()
-    for v in graph.neighbors(u):
-        if v == 9:
-            print(&quot;Here!&quot;) # &lt;-- this is the added print statement
-        if status[v] == 'undiscovered':
-            status[v] = 'pending'
-            pending.append(v)
+from collections import deque
 
-    status[u] = 'visited'</code></pre>
-<p></code></pre></p>
+def modified_bfs(graph, source):
+    """Start a BFS at `source`."""
+    status = {node: 'undiscovered' for node in graph.nodes}
+    status[source] = 'pending'
+    pending = deque([source])
+
+    while pending:
+        u = pending.popleft()
+        for v in graph.neighbors(u):
+            if v == 9:
+                print("Here!") # <-- this is the added print statement
+            if status[v] == 'undiscovered':
+                status[v] = 'pending'
+                pending.append(v)
+
+        status[u] = 'visited'
+
+
+</code></pre>
+
 <p>Consider running this algorithm on the following graph, starting at node <span class="math">\(1\)</span>:</p>
 <center><div class="image"><img src="../images/234/graph.png" /></div></center>
 <p>How many times will <span class="inline-code"><code>"Here!"</code></span> be printed?</p>
@@ -443,19 +451,19 @@ pending = deque([source])</p>
 <p>2</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #235&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #235</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose a breadth-first search is performed on the following tree, starting at the root node <span class="math">\(s\)</span>:</p>
 <center><div class="image"><img src="../images/235/tree.png" /></div></center>
 <p>What is the most number of nodes that can be in the queue at any one time?</p>
@@ -464,19 +472,19 @@ pending = deque([source])</p>
 <p>8</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #236&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #236</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Consider calling <span class="inline-code"><code>full_bfs</code></span> on a <i>directed</i> graph, and recall that <span class="inline-code"><code>full_bfs</code></span> will make calls to <span class="inline-code"><code>bfs</code></span> until all nodes have been marked as visited.</p>
 <p>True or False: the number of calls made to <span class="inline-code"><code>bfs</code></span> depends on the order in which <span class="inline-code"><code>graph.nodes</code></span> produces the graph's nodes. That is, if nodes are produced in a different order, the number of calls to <span class="inline-code"><code>bfs</code></span> may be different.</p>
 
@@ -491,19 +499,19 @@ pending = deque([source])</p>
 <p>Consider the graph with the single edge <span class="math">\((a, b)\)</span>. If <span class="math">\(a\)</span> is produced first, <span class="inline-code"><code>bfs(a)</code></span> discovers <span class="math">\(b\)</span> and only one call is needed. If <span class="math">\(b\)</span> is produced first, <span class="inline-code"><code>bfs(b)</code></span> cannot reach <span class="math">\(a\)</span>, so a second call is needed.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #237&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/time complexity.html'&gt;time complexity&lt;/a&gt;, &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #237</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose an undirected graph with <span class="math">\(n\)</span> nodes satisfies the property that every node has degree <span class="math">\(n/2\)</span>. What is the time complexity of running full BFS on this graph?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
@@ -516,19 +524,19 @@ pending = deque([source])</p>
 <p><span class="math">\(\Theta(n^2)\)</span>. Full BFS takes <span class="math">\(\Theta(V + E)\)</span> time. The sum of the degrees is <span class="math">\(n \cdot n/2\)</span>, and each edge is counted twice in this sum, so there are <span class="math">\(n^2/4\)</span> edges. So the time is <span class="math">\(\Theta(n + n^2/4) = \Theta(n^2)\)</span>.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #238&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #238</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose a connected, undirected graph <span class="math">\(G\)</span> has <span class="math">\(n\)</span> nodes, half of which are ``red'' and half of which are ``blue''. Each red node shares an edge with <span class="math">\(\log_2 n\)</span> blue nodes, and the only edges in the graph are between red and blue nodes.</p>
 <p>What is the time complexity of BFS when run on <span class="math">\(G\)</span>? Your answer should be in asymptotic notation and in terms of <span class="math">\(n\)</span>, in as simplest terms possible.</p>
 <details>
@@ -536,48 +544,52 @@ pending = deque([source])</p>
 <p><span class="math">\(\Theta(n \log n)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #240&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/connected components.html'&gt;connected components&lt;/a&gt;, &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #240</h2>
+        <p>Tags: <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose you are running a full BFS on a graph. You are using the following code from lecture to run your full BFS, with some small modifications to include two new print statements:</p>
 <pre class="code"><code>
 from collections import deque
 
-<p>def bfs(graph, source, status=None):
-&quot;&quot;&quot;Start a BFS at <code>source</code>.&quot;&quot;&quot;
-if status is None:
-status = {node: 'undiscovered' for node in graph.nodes}</p>
-<pre><code>status[source] = 'pending'
-pending = deque([source])
+def bfs(graph, source, status=None):
+    """Start a BFS at `source`."""
+    if status is None:
+        status = {node: 'undiscovered' for node in graph.nodes}
 
-# while there are still pending nodes
-while pending:
-    u = pending.popleft()
-    for v in graph.neighbors(u):
-        # explore edge (u, v)
-        print('foo') # &lt;- this is new
-        if status[v] == 'undiscovered':
-            status[v] = 'pending'
-            # append to right
-            pending.append(v)
-    status[u] = 'visited'</code></pre>
-<p>def full_bfs(graph):
-status = {node: 'undiscovered' for node in graph.nodes}
-for node in graph.nodes:
-if status[node] == 'undiscovered':
-print(&quot;bar&quot;) # &lt;- this is also new
-bfs(graph, node, status)</p>
-<p></code></pre></p>
+    status[source] = 'pending'
+    pending = deque([source])
+
+    # while there are still pending nodes
+    while pending:
+        u = pending.popleft()
+        for v in graph.neighbors(u):
+            # explore edge (u, v)
+            print('foo') # <- this is new
+            if status[v] == 'undiscovered':
+                status[v] = 'pending'
+                # append to right
+                pending.append(v)
+        status[u] = 'visited'
+
+def full_bfs(graph):
+    status = {node: 'undiscovered' for node in graph.nodes}
+    for node in graph.nodes:
+        if status[node] == 'undiscovered':
+            print("bar") # <- this is also new
+            bfs(graph, node, status)
+
+</code></pre>
+
 <p>After running the full BFS, you find that the word “foo” has been printed 2 times, and the word “bar” has been printed 5 times. Assuming that the graph has 1 edge (but an unknown number of nodes), which of the following is true about the graph in question?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>There is 1 connected component, and it is undirected</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>There is 1 connected component, and it is directed</p></label></div>
@@ -590,41 +602,45 @@ bfs(graph, node, status)</p>
 <p>There are 5 connected components, and it is undirected. "bar" is printed once each time <span class="inline-code"><code>full_bfs</code></span> starts a new BFS, and in an undirected graph each new BFS starts in a new connected component, so there are 5 connected components. "foo" is printed once each time an edge is explored. In an undirected graph, each edge is explored twice (once from each endpoint), while in a directed graph it is explored only once. Since there is 1 edge and "foo" was printed 2 times, the graph is undirected.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #241&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #241</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Consider the code below, which is a modification of the BFS algorithm presented in lecture: there are two new lines, marked with comments.</p>
 <pre class="code"><code>
 
-<p>from collections import deque</p>
-<p>def modified_bfs(graph, source):
-&quot;&quot;&quot;Start a BFS at <code>source</code>.&quot;&quot;&quot;
-status = {node: 'undiscovered' for node in graph.nodes}
-status[source] = 'pending'
-pending = deque([source])</p>
-<pre><code>while pending:
-    u = pending.popleft()
-    for v in graph.neighbors(u):
+from collections import deque
 
-        for node in graph.nodes:  # &lt; -- this is the modification
-            print(status[node])   # &lt; -- this is the modification
+def modified_bfs(graph, source):
+    """Start a BFS at `source`."""
+    status = {node: 'undiscovered' for node in graph.nodes}
+    status[source] = 'pending'
+    pending = deque([source])
 
-        if status[v] == 'undiscovered':
-            status[v] = 'pending'
-            pending.append(v)
+    while pending:
+        u = pending.popleft()
+        for v in graph.neighbors(u):
 
-    status[u] = 'visited'</code></pre>
-<p></code></pre></p>
+            for node in graph.nodes:  # < -- this is the modification
+                print(status[node])   # < -- this is the modification
+
+            if status[v] == 'undiscovered':
+                status[v] = 'pending'
+                pending.append(v)
+
+        status[u] = 'visited'
+
+</code></pre>
+
 <p>What is the time complexity of this algorithm, in terms of <span class="math">\(|V|\)</span> and <span class="math">\(|E|\)</span>? You may assume the graph is undirected and connected, so that all nodes are reachable from the source.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
@@ -636,43 +652,47 @@ pending = deque([source])</p>
 <p>Because the graph is connected, <span class="math">\(|E| \geq |V| - 1\)</span>, and so <span class="math">\(\Theta(VE)\)</span> and <span class="math">\(\Theta(VE + V)\)</span> are equivalent. Only <span class="math">\(\Theta(VE + V)\)</span> is an option so <span class="math">\(\Theta(VE + V)\)</span> is the correct answer.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #242&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/time complexity.html'&gt;time complexity&lt;/a&gt;, &lt;a href='../tags/aggregate analysis.html'&gt;aggregate analysis&lt;/a&gt;, &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #242</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/aggregate analysis.html'>aggregate analysis</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Consider the following modification of BFS, where there are two new lines of code. What is the time complexity in terms of <span class="math">\(|V|\)</span> and <span class="math">\(|E|\)</span>?</p>
 <pre class="code"><code>
 from collections import deque
 
-<p>def foo(graph):
-status = {node: 'undiscovered' for node in graph.nodes}
-for u in graph.nodes:
-if status[u] == 'undiscovered':
-bar(graph, u, status)</p>
-<p>def bar(graph, source, status):
-status[source] = 'pending'
-pending = deque([source])</p>
-<pre><code># while there are still pending nodes
-while pending:
-    u = pending.popleft()
-    for v in graph.neighbors(u):
-        # explore edge (u,v)
-        if status[v] == 'undiscovered':
-            status[v] = 'pending'
-            pending.append(v)
-        for v in graph.nodes:
-            print(v)
-    status[u] = 'visited'</code></pre>
-<p></code></pre></p>
+def foo(graph):
+    status = {node: 'undiscovered' for node in graph.nodes}
+    for u in graph.nodes:
+        if status[u] == 'undiscovered':
+            bar(graph, u, status)
+
+def bar(graph, source, status):
+    status[source] = 'pending'
+    pending = deque([source])
+
+    # while there are still pending nodes
+    while pending:
+        u = pending.popleft()
+        for v in graph.neighbors(u):
+            # explore edge (u,v)
+            if status[v] == 'undiscovered':
+                status[v] = 'pending'
+                pending.append(v)
+            for v in graph.nodes:
+                print(v)
+        status[u] = 'visited'
+
+</code></pre>
+
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E^2)\)</span></p></label></div>
@@ -683,49 +703,53 @@ while pending:
 <p><span class="math">\(\Theta(V + VE)\)</span>. Without the two new lines, this is a full BFS, which takes <span class="math">\(\Theta(V + E)\)</span> time. The new inner loop runs once each time an edge is explored, and each time it takes <span class="math">\(\Theta(V)\)</span> time. By an aggregate analysis, edges are explored <span class="math">\(\Theta(E)\)</span> times in total, so the new lines add <span class="math">\(\Theta(VE)\)</span> time. The total is <span class="math">\(\Theta(V + E + VE) = \Theta(V + VE)\)</span>. (We can't drop the <span class="math">\(V\)</span> term: when there are no edges, the code still takes <span class="math">\(\Theta(V)\)</span> time.)</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #243&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/aggregate analysis.html'&gt;aggregate analysis&lt;/a&gt;, &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #243</h2>
+        <p>Tags: <a href='../tags/aggregate analysis.html'>aggregate analysis</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Consider the code below, which is a modification of the code for <span class="inline-code"><code>bfs</code></span> given in lecture:</p>
 <pre class="code"><code>
 from collections import deque
 
-<p>def modified_full_bfs(graph):
-status = {node: 'undiscovered' for node in graph.nodes}
-for node in graph.nodes:
-if status[node] == 'undiscovered':
-modified_bfs(graph, node, status)</p>
-<p>def modified_bfs(graph, source, status=None):
-&quot;&quot;&quot;Start a BFS at <code>source</code>.&quot;&quot;&quot;
-if status is None:
-status = {node: 'undiscovered' for node in graph.nodes}</p>
-<pre><code>status[source] = 'pending'
-pending = deque([source])
+def modified_full_bfs(graph):
+    status = {node: 'undiscovered' for node in graph.nodes}
+    for node in graph.nodes:
+        if status[node] == 'undiscovered':
+            modified_bfs(graph, node, status)
 
-# while there are still pending nodes
-while pending: 
-    u = pending.popleft()
-    for v in graph.neighbors(u):
-        # explore edge (u,v)
-        if status[v] == 'undiscovered':
-            status[v] = 'pending'
-            # append to right
-            pending.append(v)
-            for z in graph.nodes:   # &lt;----- new line!
-                print(z, status[z]) # &lt;----- new line!
+def modified_bfs(graph, source, status=None):
+    """Start a BFS at `source`."""
+    if status is None:
+        status = {node: 'undiscovered' for node in graph.nodes}
 
-    status[u] = 'visited'</code></pre>
-<p></code></pre></p>
+    status[source] = 'pending'
+    pending = deque([source])
+
+    # while there are still pending nodes
+    while pending: 
+        u = pending.popleft()
+        for v in graph.neighbors(u):
+            # explore edge (u,v)
+            if status[v] == 'undiscovered':
+                status[v] = 'pending'
+                # append to right
+                pending.append(v)
+                for z in graph.nodes:   # <----- new line!
+                    print(z, status[z]) # <----- new line!
+
+        status[u] = 'visited'
+
+</code></pre>
+
 <p>Notice the two new lines; these lines print all node statuses any time that an undiscovered node has been found.</p>
 <p>What is the time complexity of this modified <span class="inline-code"><code>modified_full_bfs</code></span>? State your answer in asymptotic notation in terms of the number of nodes, <span class="math">\(|V|\)</span>, and the number of edges, <span class="math">\(|E|\)</span>. You may assume that the graph is represented using an adjacency list, and that it is connected.</p>
 <details>
@@ -737,19 +761,19 @@ while pending:
 <p>You might wonder why the time complexity isn't <span class="math">\(\Theta(VE)\)</span>, since the new code is within the loop that ``explores'' each edge in the graph, and we know that it makes a total of <span class="math">\(2|E|\)</span> iterations when the graph is undirected. This is true, but recognize that the new code only executes when the <span class="inline-code"><code>if</code></span>-statement before it is <span class="inline-code"><code>True</code></span>, and this will happen on only a <i>subset</i> of the <span class="math">\(2|E|\)</span> iterations. In fact, it will happen exactly <span class="math">\(|V|-1\)</span> times, as we argued above.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #245&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #245</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose a breadth first search (BFS) is performed on the graph shown below using node <span class="math">\(a\)</span> as the source. Which node will be the BFS predecessor of node <span class="math">\(h\)</span> when the search is complete? You should use the convention that neighbors are produced in alphabetical order.</p>
 <center><div class="image"><img src="../images/245/graph.png" /></div></center>
 <details>
@@ -757,19 +781,19 @@ while pending:
 <p><span class="math">\(d\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #246&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #246</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose a BFS is run on the graph below using node 1 as the source node. Which node will be the BFS predecessor of node 8? You should use the convention that neighbors are produced in ascending order by label.</p>
 <center><div class="image"><img src="../images/246/fig/g2.png" /></div></center>
 <details>
@@ -777,19 +801,19 @@ while pending:
 <p>5</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #247&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #247</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose a BFS is run on the graph below using node 1 as the source node. Which node will be the BFS predecessor of node 9? You should use the convention that neighbors are produced in ascending order by label.</p>
 <center><div class="image"><img src="../images/247/graph.png" /></div></center>
 <details>
@@ -797,19 +821,19 @@ while pending:
 <p>5</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #248&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #248</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose a <i>breadth</i> first search (BFS) is run on the graph shown below using node <span class="math">\(u_4\)</span> as the source and the convention that <span class="inline-code"><code>graph.neighbors</code></span> produces nodes in ascending order by label. What will be the predecessor of <span class="math">\(u_6\)</span> in the BFS?</p>
 <center><div class="image"><img src="../images/248/f1.png" /></div></center>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_1\)</span></p></label></div>
@@ -826,19 +850,19 @@ while pending:
 <p><span class="math">\(u_2\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #251&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/connected components.html'&gt;connected components&lt;/a&gt;, &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;, &lt;a href='../tags/shortest paths.html'&gt;shortest paths&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #251</h2>
+        <p>Tags: <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose you are about to run a BFS on a graph whose exact edge structure you do not know. However, you do know that the graph is undirected, has 8 nodes, and has 2 connected components.</p>
 <p>You have picked a node to start on and are about to run a BFS to find shortest path distances. What is the <b>greatest shortest path</b> distance between the starting node and any other node that could possibly be found in such a graph? <b>Hint:</b> consider how large a connected component could possibly be.</p>
 <details>
@@ -846,19 +870,19 @@ while pending:
 <p>Answer: 6. The largest a connected component can be is 7 nodes (the other component must have at least one node). If those 7 nodes form a path and we start at one end, the node at the other end is at distance 6.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #252&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #252</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose a <i>breadth</i> first search (BFS) is run on a graph <span class="math">\(G = (V, E)\)</span>, and that node <span class="math">\(u\)</span> is distance 5 from the source while node <span class="math">\(v\)</span> is distance 3 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
@@ -868,19 +892,19 @@ while pending:
 <p>At any moment, the nodes in the BFS queue are all at distance <span class="math">\(d\)</span> or <span class="math">\(d + 1\)</span> from the source, for some <span class="math">\(d\)</span>. So two nodes whose distances differ by 2 can never be in the queue together.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #253&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #253</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose a breadth first search (BFS) is run on a graph <span class="math">\(G = (V, E)\)</span>, and that node <span class="math">\(u\)</span> is distance 6 from the source while node <span class="math">\(v\)</span> is distance 7 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
@@ -889,19 +913,19 @@ while pending:
 <p>True. Suppose another node <span class="math">\(w\)</span> is also at distance 6 and is a neighbor of <span class="math">\(v\)</span>. If <span class="math">\(w\)</span> is popped from the queue before <span class="math">\(u\)</span>, then <span class="math">\(v\)</span> is added to the queue while <span class="math">\(u\)</span> is still waiting in it.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #254&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #254</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose a breadth first search (BFS) is run on a graph <span class="math">\(G = (V, E)\)</span>, and that node <span class="math">\(u\)</span> is <b>the only node</b> which is distance 6 from the source while node <span class="math">\(v\)</span> is distance 7 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
@@ -910,19 +934,19 @@ while pending:
 <p>False. A node at distance 7 must be discovered while BFS is exploring the neighbors of a node at distance 6, and the only such node is <span class="math">\(u\)</span>. But <span class="math">\(u\)</span> is removed from the queue before its neighbors are explored, so by the time <span class="math">\(v\)</span> is added to the queue, <span class="math">\(u\)</span> is no longer in it.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #255&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;, &lt;a href='../tags/shortest paths.html'&gt;shortest paths&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #255</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose that a breadth-first search on an undirected graph <span class="math">\(G\)</span> is paused and the queue is printed. Suppose that every node in the queue is either distance 5 from the source, or distance 6. At this moment, node <span class="math">\(u\)</span> is undiscovered.</p>
 <p>True or False: it is possible that node <span class="math">\(u\)</span> is distance 4 from the source.</p>
 <details>
@@ -931,19 +955,19 @@ while pending:
 <p>BFS pops nodes in order of distance, so if every node in the queue is at distance 5 or more, every node at distance 4 has already been popped. That means it was discovered earlier, so it can't be undiscovered now.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #256&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #256</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose a breadth first search on an undirected, connected graph is paused at a particular moment in time and the node statuses are printed. Suppose it is found that all nodes which are distance 6 from the source are marked ``visited''.</p>
 <p>True or False: it is possible that there is a node, distance 7 from the source, whose status is ``undiscovered''.</p>
 
@@ -958,19 +982,19 @@ while pending:
 <p>Every node at distance 7 has a neighbor at distance 6 (the node just before it on a shortest path). When that neighbor was marked visited, all of its neighbors had already been discovered, so the node at distance 7 must have been discovered too.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #257&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #257</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose a breadth-first search (BFS) is performed in order to calculate a dictionary of shortest path distances, <span class="inline-code"><code>dist</code></span>, from a source node <span class="math">\(s\)</span> to all nodes reachable from <span class="math">\(s\)</span> in an undirected graph <span class="math">\(G = (V, E)\)</span>.</p>
 <p>Suppose node <span class="math">\(u\)</span> is a node in <span class="math">\(G\)</span>, and <span class="math">\(v_1\)</span> and <span class="math">\(v_2\)</span> are two neighbors of node <span class="math">\(u\)</span>. Assume that <span class="math">\(u\)</span> is reachable from <span class="math">\(s\)</span>.</p>
 <div class="subproblem">
@@ -993,19 +1017,19 @@ while pending:
 
 </div>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #259&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;, &lt;a href='../tags/shortest paths.html'&gt;shortest paths&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #259</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Consider the following problem: you're given an unweighted graph <span class="math">\(G\)</span>, a source node <span class="math">\(u\)</span>, a destination node <span class="math">\(v\)</span>, and an "intermediate" node <span class="math">\(x\)</span>. Your goal is to find a shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> that passes through <span class="math">\(x\)</span>.</p>
 <p>Your friend proposes the following algorithm: run a BFS starting at node <span class="math">\(u\)</span>, then terminate it when it reaches node <span class="math">\(x\)</span>. Then start a BFS at node <span class="math">\(x\)</span>, and terminate it when it reaches node <span class="math">\(v\)</span>.</p>
 <p>Does this algorithm work?</p>
@@ -1016,19 +1040,19 @@ while pending:
 <p>Yes. Any path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> through <span class="math">\(x\)</span> consists of a path from <span class="math">\(u\)</span> to <span class="math">\(x\)</span> followed by a path from <span class="math">\(x\)</span> to <span class="math">\(v\)</span>, so its length is at least the <span class="math">\(u\)</span>-to-<span class="math">\(x\)</span> distance plus the <span class="math">\(x\)</span>-to-<span class="math">\(v\)</span> distance. The first BFS finds a shortest path from <span class="math">\(u\)</span> to <span class="math">\(x\)</span> and the second finds a shortest path from <span class="math">\(x\)</span> to <span class="math">\(v\)</span>; joining them gives a path achieving this minimum.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #261&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #261</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>The table below shows the number of nodes in a graph <span class="math">\(G\)</span> which are distance 0 from node <span class="math">\(s\)</span>, distance 1 from node <span class="math">\(s\)</span>, distance 2, etc.:</p>
 <center><div class="image"><img src="../images/261/table.png" /></div></center>
 <p>Suppose a BFS is performed on this graph with node <span class="math">\(s\)</span> as the starting node. What is the largest number of nodes that could possibly be in the queue at any one time?</p>
@@ -1039,19 +1063,19 @@ while pending:
 <p>In this graph, let <span class="math">\(u\)</span> be a neighbor of the source, and suppose it has an edge with all nodes that are distance 2 from the source. If <span class="math">\(u\)</span> is the first node popped from the queue (after the source), then once its neighbors are added to the queue, the queue will contain all of the nodes at distance 1 except for <span class="math">\(u\)</span>(for 6 nodes in total), and all of the nodes at distance 2 (for 3 nodes in total). This gives us a total of 9 nodes in the queue.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #264&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/depth first search.html'&gt;depth first search&lt;/a&gt;, &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #264</h2>
+        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Let <span class="math">\(G = (V, E)\)</span> be an undirected tree.</p>
 <p>Suppose breadth-first search (BFS) and depth-first search (DFS) are each run on the graph using the same source node. True or False: for any node <span class="math">\(u\)</span> in the graph, the BFS predecessor of <span class="math">\(u\)</span> and the DFS predecessor of <span class="math">\(u\)</span> must be the same.</p>
 
@@ -1066,19 +1090,19 @@ while pending:
 <p>In a tree there is exactly one simple path from the source to <span class="math">\(u\)</span>. BFS and DFS both find a path from the source to <span class="math">\(u\)</span>, and it has to be this one, so both predecessors are the node right before <span class="math">\(u\)</span> on it.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #265&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/depth first search.html'&gt;depth first search&lt;/a&gt;, &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #265</h2>
+        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose both BFS and DFS are run on the same graph <span class="math">\(G = (V, E)\)</span> using the same source node. Assume that <span class="math">\(G\)</span> is a tree. Consider a particular node <span class="math">\(u\)</span> in the graph. True or False: the BFS predecessor found for <span class="math">\(u\)</span> and the DFS predecessor found for <span class="math">\(u\)</span> must be the same.</p>
 
 <div class="true-false">
@@ -1092,19 +1116,19 @@ while pending:
 <p>In a tree there is exactly one simple path from the source to <span class="math">\(u\)</span>. BFS and DFS both find a path from the source to <span class="math">\(u\)</span>, and it has to be this one, so both predecessors are the node right before <span class="math">\(u\)</span> on it.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #266&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/depth first search.html'&gt;depth first search&lt;/a&gt;, &lt;a href='../tags/connected components.html'&gt;connected components&lt;/a&gt;, &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #266</h2>
+        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>We saw in lecture that both full BFS and DFS produce trees when run on connected graphs, and <i>forests</i> when run on disconnected graphs. Suppose a full BFS and a full DFS are run on an undirected graph with three connected components. True or False: the number of trees in the BFS forest will equal to number of trees in the DFS forest.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
@@ -1113,19 +1137,19 @@ while pending:
 <p>True. Both full BFS and full DFS start a new search once for each connected component (each search discovers exactly the nodes in the source's component), so each produces one tree per connected component: three trees in both forests.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #309&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #309</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose that every edge in the weighted graph <span class="math">\(G\)</span> has weight -5. True or False: breadth first search on this graph will compute a <i>longest</i> path from the source to every node in the graph (that is, a path with greatest possible total edge weight).</p>
 <p>You may assume that every node in the graph is reachable from the source.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
@@ -1136,17 +1160,15 @@ while pending:
 <p>A path with <span class="math">\(k\)</span> edges has total weight <span class="math">\(-5k\)</span>, so the path with the greatest total weight is the one with the fewest edges. BFS finds exactly this path: the path with the fewest edges from the source to each node.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
-   &lt;/body&gt;</code></pre>
+       </body>
    </html>
-
-
     </div>
 </div>
 

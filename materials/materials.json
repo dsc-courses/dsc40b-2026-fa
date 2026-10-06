@@ -427,7 +427,14 @@
                         "date": "2026-10-05",
                         "topic": "Time Complexity (Lectures 01&ndash;02)"
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "quiz.pdf": {
+                            "path": "materials/quizzes/01/quiz.pdf"
+                        },
+                        "solution.pdf": {
+                            "path": "materials/quizzes/01/solution.pdf"
+                        }
+                    }
                 },
                 "02": {
                     "metadata": {

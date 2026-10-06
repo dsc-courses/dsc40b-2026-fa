@@ -198,65 +198,65 @@ Course Staff
 
     <div class="prose dark:prose-invert">
     <!DOCTYPE html> <html> <head> <meta
+                          charset="utf-8"> <title>Problems tagged with sorted structure</title>
 
-<pre><code>                      charset=&quot;utf-8&quot;&gt; &lt;title&gt;Problems tagged with sorted structure&lt;/title&gt;
+           <!-- MathJax -->
+           <script type="text/x-mathjax-config">
+             MathJax.Hub.Config({
+               tex: {
+                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+                 displayMath: [             // start/end delimiter pairs for display math
+                     ['\\[', '\\]']
+                 ],
+                 processEscapes: true
+               }
+           });
+           </script>
 
-       &lt;!-- MathJax --&gt;
-       &lt;script type=&quot;text/x-mathjax-config&quot;&gt;
-         MathJax.Hub.Config({
-           tex: {
-             inlineMath: [ ['$$','$$'], [&quot;\\(&quot;,&quot;\\)&quot;] ],
-             displayMath: [             // start/end delimiter pairs for display math
-                 ['\\[', '\\]']
-             ],
-             processEscapes: true
-           }
-       });
-       &lt;/script&gt;
+           <!-- highlightjs -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
-       &lt;!-- highlightjs --&gt;
-       &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css&quot;&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;&gt;&lt;/script&gt;
+           <!-- and it's easy to individually load additional languages -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
 
-       &lt;!-- and it's easy to individually load additional languages --&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js&quot;&gt;&lt;/script&gt;
+           <script>hljs.highlightAll();</script>
 
-       &lt;script&gt;hljs.highlightAll();&lt;/script&gt;
+           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+           <script type="text/javascript" id="MathJax-script" async
+             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+           </script>
 
-       &lt;script src=&quot;https://polyfill.io/v3/polyfill.min.js?features=es6&quot;&gt;&lt;/script&gt;
-       &lt;script type=&quot;text/javascript&quot; id=&quot;MathJax-script&quot; async
-         src=&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js&quot;&gt;
-       &lt;/script&gt;
-
-   &lt;/head&gt;
-   &lt;body&gt;
-       </code></pre>
+       </head>
+       <body>
+           
 <h1>Problems tagged with "sorted structure"</h1>
 
-<pre><code>    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #090&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/theoretical lower bounds.html'&gt;theoretical lower bounds&lt;/a&gt;, &lt;a href='../tags/sorted structure.html'&gt;sorted structure&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+
+        <div class="problem-outer">
+        <h2>Problem #090</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a>, <a href='../tags/sorted structure.html'>sorted structure</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose you are given a <b>sorted</b> array containing <span class="math">\(n\)</span> elements. Each element is either zero or one. You are tasked with determining if the majority (at least half) of the array's elements are one. What is the <b>tight</b> theoretical lower bound for the worst case time complexity of any algorithm which solves this problem?</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(1)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #120&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/theoretical lower bounds.html'&gt;theoretical lower bounds&lt;/a&gt;, &lt;a href='../tags/sorted structure.html'&gt;sorted structure&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #120</h2>
+        <p>Tags: <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a>, <a href='../tags/sorted structure.html'>sorted structure</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are two numbers, with <span class="math">\(a \leq b\)</span>. Consider the problem of counting the number of elements in an array which are between <span class="math">\(a\)</span> and <span class="math">\(b\)</span>; that is, the number of elements <span class="math">\(x\)</span> such that <span class="math">\(a
     \leq x \leq b\)</span>. You may assume for simplicity that both <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are in the array, and there are no duplicates.</p>
 <div class="subproblem">
@@ -282,41 +282,44 @@ Course Staff
 
 </div>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #126&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/sorted structure.html'&gt;sorted structure&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #126</h2>
+        <p>Tags: <a href='../tags/sorted structure.html'>sorted structure</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>A <i>rotated sorted array</i> is an array that is the result of taking a sorted array and moving a contiguous section from the front of the array to the back of the array. For example, the array <span class="inline-code"><code>[5, 6, 7, 1, 2, 3, 4]</code></span> is a rotated sorted array: it is the result of taking the sorted array <span class="inline-code"><code>[1, 2, 3, 4, 5, 6, 7]</code></span> and moving the first 4 elements, <span class="inline-code"><code>[1, 2, 3, 4]</code></span>, to the back of the array. Sorted arrays are also rotated sorted arrays, technically speaking, since you can think of a sorted array as the result of taking the sorted array and moving the first 0 elements to the back.</p>
 <p>The function below attempts to find the value of the minimum element in a rotated sorted array. It is given the array <span class="inline-code"><code>arr</code></span> and the indices <span class="inline-code"><code>start</code></span> and <span class="inline-code"><code>stop</code></span> which indicate the range of the array that should be searched. One line in the function has been left blank.</p>
 <pre class="code"><code>
 
-<p>import math
+import math
 def find_minimum_in_rotated_sorted(arr, start, stop):
-&quot;&quot;&quot;
-Searches arr[start:stop] for the smallest element.
-Assumes arr is a rotated sorted array.
-&quot;&quot;&quot;
-if stop &lt; start:
-return arr[0]
-if stop == start:
-return arr[start]
-mid = (start + stop) // 2</p>
-<pre><code>if ________________:
-    return arr[mid + 1]
-if arr[start] &lt; arr[mid]:
-    return find_minimum_in_rotated_sorted(arr, mid, stop)
-else:
-    return find_minimum_in_rotated_sorted(arr, start, mid - 1)</code></pre>
-<p></code></pre></p>
+    """
+    Searches arr[start:stop] for the smallest element.
+    Assumes arr is a rotated sorted array.
+    """
+    if stop < start:
+        return arr[0]
+    if stop == start:
+        return arr[start]
+    mid = (start + stop) // 2
+
+    if ________________:
+        return arr[mid + 1]
+    if arr[start] < arr[mid]:
+        return find_minimum_in_rotated_sorted(arr, mid, stop)
+    else:
+        return find_minimum_in_rotated_sorted(arr, start, mid - 1)
+
+</code></pre>
+
 <p>What should be filled in the blank line to make this function work correctly?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[middle] > arr[stop-1]</code></span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[middle] < arr[stop-1]</code></span></p></label></div>
@@ -329,17 +332,15 @@ else:
 <p>5th option: <span class="inline-code"><code>arr[middle] > arr[middle+1]</code></span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
-   &lt;/body&gt;</code></pre>
+       </body>
    </html>
-
-
     </div>
 </div>
 

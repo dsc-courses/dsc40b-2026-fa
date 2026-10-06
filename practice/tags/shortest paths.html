@@ -198,46 +198,46 @@ Course Staff
 
     <div class="prose dark:prose-invert">
     <!DOCTYPE html> <html> <head> <meta
+                          charset="utf-8"> <title>Problems tagged with shortest paths</title>
 
-<pre><code>                      charset=&quot;utf-8&quot;&gt; &lt;title&gt;Problems tagged with shortest paths&lt;/title&gt;
+           <!-- MathJax -->
+           <script type="text/x-mathjax-config">
+             MathJax.Hub.Config({
+               tex: {
+                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+                 displayMath: [             // start/end delimiter pairs for display math
+                     ['\\[', '\\]']
+                 ],
+                 processEscapes: true
+               }
+           });
+           </script>
 
-       &lt;!-- MathJax --&gt;
-       &lt;script type=&quot;text/x-mathjax-config&quot;&gt;
-         MathJax.Hub.Config({
-           tex: {
-             inlineMath: [ ['$$','$$'], [&quot;\\(&quot;,&quot;\\)&quot;] ],
-             displayMath: [             // start/end delimiter pairs for display math
-                 ['\\[', '\\]']
-             ],
-             processEscapes: true
-           }
-       });
-       &lt;/script&gt;
+           <!-- highlightjs -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
-       &lt;!-- highlightjs --&gt;
-       &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css&quot;&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;&gt;&lt;/script&gt;
+           <!-- and it's easy to individually load additional languages -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
 
-       &lt;!-- and it's easy to individually load additional languages --&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js&quot;&gt;&lt;/script&gt;
+           <script>hljs.highlightAll();</script>
 
-       &lt;script&gt;hljs.highlightAll();&lt;/script&gt;
+           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+           <script type="text/javascript" id="MathJax-script" async
+             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+           </script>
 
-       &lt;script src=&quot;https://polyfill.io/v3/polyfill.min.js?features=es6&quot;&gt;&lt;/script&gt;
-       &lt;script type=&quot;text/javascript&quot; id=&quot;MathJax-script&quot; async
-         src=&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js&quot;&gt;
-       &lt;/script&gt;
-
-   &lt;/head&gt;
-   &lt;body&gt;
-       </code></pre>
+       </head>
+       <body>
+           
 <h1>Problems tagged with "shortest paths"</h1>
 
-<pre><code>    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #251&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/connected components.html'&gt;connected components&lt;/a&gt;, &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;, &lt;a href='../tags/shortest paths.html'&gt;shortest paths&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+
+        <div class="problem-outer">
+        <h2>Problem #251</h2>
+        <p>Tags: <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose you are about to run a BFS on a graph whose exact edge structure you do not know. However, you do know that the graph is undirected, has 8 nodes, and has 2 connected components.</p>
 <p>You have picked a node to start on and are about to run a BFS to find shortest path distances. What is the <b>greatest shortest path</b> distance between the starting node and any other node that could possibly be found in such a graph? <b>Hint:</b> consider how large a connected component could possibly be.</p>
 <details>
@@ -245,19 +245,19 @@ Course Staff
 <p>Answer: 6. The largest a connected component can be is 7 nodes (the other component must have at least one node). If those 7 nodes form a path and we start at one end, the node at the other end is at distance 6.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #255&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;, &lt;a href='../tags/shortest paths.html'&gt;shortest paths&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #255</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose that a breadth-first search on an undirected graph <span class="math">\(G\)</span> is paused and the queue is printed. Suppose that every node in the queue is either distance 5 from the source, or distance 6. At this moment, node <span class="math">\(u\)</span> is undiscovered.</p>
 <p>True or False: it is possible that node <span class="math">\(u\)</span> is distance 4 from the source.</p>
 <details>
@@ -266,19 +266,19 @@ Course Staff
 <p>BFS pops nodes in order of distance, so if every node in the queue is at distance 5 or more, every node at distance 4 has already been popped. That means it was discovered earlier, so it can't be undiscovered now.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #259&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/breadth first search.html'&gt;breadth first search&lt;/a&gt;, &lt;a href='../tags/shortest paths.html'&gt;shortest paths&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #259</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Consider the following problem: you're given an unweighted graph <span class="math">\(G\)</span>, a source node <span class="math">\(u\)</span>, a destination node <span class="math">\(v\)</span>, and an "intermediate" node <span class="math">\(x\)</span>. Your goal is to find a shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> that passes through <span class="math">\(x\)</span>.</p>
 <p>Your friend proposes the following algorithm: run a BFS starting at node <span class="math">\(u\)</span>, then terminate it when it reaches node <span class="math">\(x\)</span>. Then start a BFS at node <span class="math">\(x\)</span>, and terminate it when it reaches node <span class="math">\(v\)</span>.</p>
 <p>Does this algorithm work?</p>
@@ -289,19 +289,19 @@ Course Staff
 <p>Yes. Any path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> through <span class="math">\(x\)</span> consists of a path from <span class="math">\(u\)</span> to <span class="math">\(x\)</span> followed by a path from <span class="math">\(x\)</span> to <span class="math">\(v\)</span>, so its length is at least the <span class="math">\(u\)</span>-to-<span class="math">\(x\)</span> distance plus the <span class="math">\(x\)</span>-to-<span class="math">\(v\)</span> distance. The first BFS finds a shortest path from <span class="math">\(u\)</span> to <span class="math">\(x\)</span> and the second finds a shortest path from <span class="math">\(x\)</span> to <span class="math">\(v\)</span>; joining them gives a path achieving this minimum.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #260&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/shortest paths.html'&gt;shortest paths&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #260</h2>
+        <p>Tags: <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Let <span class="math">\(G\)</span> be an undirected graph, and let <span class="math">\(u, v,\)</span> and <span class="math">\(z\)</span> be three nodes in the graph. Consider the problem of finding a shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> which passes through node <span class="math">\(z\)</span>.</p>
 <p>True or False: a shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> passing through <span class="math">\(z\)</span> may include node <span class="math">\(u\)</span> twice.</p>
 <details>
@@ -310,19 +310,19 @@ Course Staff
 <p>Consider the "chain" graph A - B - C - D - E. The shortest path from C to E that passes through B is C - B - C - D - E. It passes through C twice.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #298&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/shortest paths.html'&gt;shortest paths&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #298</h2>
+        <p>Tags: <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>True or False: It is possible for two arbitrary nodes to have a negative shortest path distance between them without the presence of a negative cycle in the graph.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
@@ -331,19 +331,19 @@ Course Staff
 <p>True. For example, if there is a single edge <span class="math">\((u, v)\)</span> with weight <span class="math">\(-1\)</span> and no other edges, the shortest path distance from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> is <span class="math">\(-1\)</span>, and there is no cycle at all.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #311&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/bellman-ford.html'&gt;bellman-ford&lt;/a&gt;, &lt;a href='../tags/dijkstra.html'&gt;dijkstra&lt;/a&gt;, &lt;a href='../tags/shortest paths.html'&gt;shortest paths&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #311</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a>, <a href='../tags/dijkstra.html'>dijkstra</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose you are planning a trip, and are intending to travel by air from San Diego to another city, with potentially multiple stops in between. You would like to schedule flights that take the least amount of time to get to your destination. In order to do this, you are thinking about these flights as a graph, where each airport is a node, and the weight of an edge connecting two airports corresponds to the amount of time it takes to travel between them.</p>
 <p>Which algorithm should you choose to compute the fastest route from San Diego to each of the other cities? If two algorithms both find the fastest routes, pick the one which has a better time complexity.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>BFS</p></label></div>
@@ -355,19 +355,19 @@ Course Staff
 <p>Dijkstra's Algorithm. The graph is weighted, so BFS and DFS won't find shortest paths. Travel times are never negative, so both Bellman-Ford and Dijkstra's algorithm work, but Dijkstra's algorithm has the better time complexity.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #312&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/bellman-ford.html'&gt;bellman-ford&lt;/a&gt;, &lt;a href='../tags/dijkstra.html'&gt;dijkstra&lt;/a&gt;, &lt;a href='../tags/shortest paths.html'&gt;shortest paths&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #312</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a>, <a href='../tags/dijkstra.html'>dijkstra</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose you are planning a trip by air from San Diego to another city, with potentially multiple stops in between. You are thinking about the flights as a graph, where each airport is a node and each flight is an edge. You don't care about the travel time, and instead care about the cost, so the weight of an edge is the cost of that flight. Also suppose that the airline has a special deal, where flights between certain cities will give you frequent flyer miles, or points towards free flights that you can use later in your trip. In other words, some flights have a negative cost. If you want to find the lowest cost route, which algorithm would be the best choice?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>BFS</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>DFS</p></label></div>
@@ -378,19 +378,19 @@ Course Staff
 <p>Bellman Ford. Some edge weights are negative, and Dijkstra's algorithm is not guaranteed to find shortest paths when there are negative edge weights. Bellman-Ford works with negative weights (as long as there are no negative cycles), and BFS and DFS don't find shortest paths in weighted graphs.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #320&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/minimum spanning trees.html'&gt;minimum spanning trees&lt;/a&gt;, &lt;a href='../tags/shortest paths.html'&gt;shortest paths&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #320</h2>
+        <p>Tags: <a href='../tags/minimum spanning trees.html'>minimum spanning trees</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose there is a unique shortest path <span class="math">\(p\)</span> between nodes <span class="math">\(u\)</span> and <span class="math">\(v\)</span> in a graph <span class="math">\(G\)</span> and that there is a unique minimum spanning tree <span class="math">\(T\)</span> of <span class="math">\(G\)</span>. True or false: the path between <span class="math">\(u\)</span> and <span class="math">\(v\)</span> in the MST <span class="math">\(T\)</span> must be the same as the path <span class="math">\(p\)</span>.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
@@ -399,17 +399,15 @@ Course Staff
 <p>False. Consider a triangle on nodes <span class="math">\(u\)</span>, <span class="math">\(v\)</span>, and <span class="math">\(w\)</span> with edge weights <span class="math">\(w(u, v) = 3\)</span>, <span class="math">\(w(u, w) = 2\)</span>, and <span class="math">\(w(w, v) = 2\)</span>. The unique MST uses edges <span class="math">\((u, w)\)</span> and <span class="math">\((w, v)\)</span>, so the path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> in the MST has length 4. But the unique shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> is the single edge <span class="math">\((u, v)\)</span>, with length 3.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
-   &lt;/body&gt;</code></pre>
+       </body>
    </html>
-
-
     </div>
 </div>
 

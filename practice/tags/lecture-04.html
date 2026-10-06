@@ -198,46 +198,46 @@ Course Staff
 
     <div class="prose dark:prose-invert">
     <!DOCTYPE html> <html> <head> <meta
+                          charset="utf-8"> <title>Problems tagged with lecture-04</title>
 
-<pre><code>                      charset=&quot;utf-8&quot;&gt; &lt;title&gt;Problems tagged with lecture-04&lt;/title&gt;
+           <!-- MathJax -->
+           <script type="text/x-mathjax-config">
+             MathJax.Hub.Config({
+               tex: {
+                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+                 displayMath: [             // start/end delimiter pairs for display math
+                     ['\\[', '\\]']
+                 ],
+                 processEscapes: true
+               }
+           });
+           </script>
 
-       &lt;!-- MathJax --&gt;
-       &lt;script type=&quot;text/x-mathjax-config&quot;&gt;
-         MathJax.Hub.Config({
-           tex: {
-             inlineMath: [ ['$$','$$'], [&quot;\\(&quot;,&quot;\\)&quot;] ],
-             displayMath: [             // start/end delimiter pairs for display math
-                 ['\\[', '\\]']
-             ],
-             processEscapes: true
-           }
-       });
-       &lt;/script&gt;
+           <!-- highlightjs -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
-       &lt;!-- highlightjs --&gt;
-       &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css&quot;&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;&gt;&lt;/script&gt;
+           <!-- and it's easy to individually load additional languages -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
 
-       &lt;!-- and it's easy to individually load additional languages --&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js&quot;&gt;&lt;/script&gt;
+           <script>hljs.highlightAll();</script>
 
-       &lt;script&gt;hljs.highlightAll();&lt;/script&gt;
+           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+           <script type="text/javascript" id="MathJax-script" async
+             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+           </script>
 
-       &lt;script src=&quot;https://polyfill.io/v3/polyfill.min.js?features=es6&quot;&gt;&lt;/script&gt;
-       &lt;script type=&quot;text/javascript&quot; id=&quot;MathJax-script&quot; async
-         src=&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js&quot;&gt;
-       &lt;/script&gt;
-
-   &lt;/head&gt;
-   &lt;body&gt;
-       </code></pre>
+       </head>
+       <body>
+           
 <h1>Problems tagged with "lecture-04"</h1>
 
-<pre><code>    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #038&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/asymptotic notation.html'&gt;asymptotic notation&lt;/a&gt;, &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+
+        <div class="problem-outer">
+        <h2>Problem #038</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose Algorithm A takes <span class="math">\(\Theta(n^2)\)</span> time, while Algorithm B takes <span class="math">\(\Theta(2^n)\)</span> time. True or False: there <b>could</b> exist an input on which Algorithm <span class="math">\(B\)</span> takes less time than Algorithm A.</p>
 
 <div class="true-false">
@@ -251,19 +251,19 @@ Course Staff
 <p>Asymptotic notation only describes how the time grows for large <span class="math">\(n\)</span> and hides constants. For example, if A takes <span class="math">\(1000n^2\)</span> steps and B takes <span class="math">\(2^n\)</span> steps, then B is faster on every input of size <span class="math">\(n = 10\)</span>(1024 steps vs. 100,000).</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #039&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/asymptotic notation.html'&gt;asymptotic notation&lt;/a&gt;, &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #039</h2>
+        <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose algorithm A takes <span class="math">\(\Theta(n^2)\)</span> time, while algorithm B takes <span class="math">\(\Theta(n^3)\)</span> time.</p>
 <p>True or False: there must exist an input of size 100 on which Algorithm A takes less time than Algorithm B.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
@@ -273,19 +273,19 @@ Course Staff
 <p>False. Algorithm A could have really large constants. For example, it could take 1,000,000 <span class="math">\(n^2\)</span> seconds to run, while algorithm B takes <span class="math">\(.0001 n^3\)</span> seconds to run. Algorithm B will still be better for <span class="math">\(n = 100\)</span>.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #074&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/theoretical lower bounds.html'&gt;theoretical lower bounds&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #074</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Which of the below is a tight theoretical lower bound for the problem of finding a mode of a collection of <span class="math">\(n\)</span> numbers?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
@@ -298,19 +298,19 @@ Course Staff
 <p><span class="math">\(\Theta(n)\)</span>. In the worst case, all numbers are distinct and we must loop through all of them to discover this, taking linear time.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #075&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/theoretical lower bounds.html'&gt;theoretical lower bounds&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #075</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose you are given a (possibly unsorted) array containing <span class="math">\(n\)</span> elements. Each element is either zero or one. You are tasked with determining if the majority (at least half) of the array's elements are one.</p>
 <p>What is the <b>tight</b> theoretical lower bound for the worst case time complexity of this problem?</p>
 <details>
@@ -318,19 +318,19 @@ Course Staff
 <p><span class="math">\(\Theta(n)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #076&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/best and worst case.html'&gt;best and worst case&lt;/a&gt;, &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #076</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the best case time complexity of the following code?</p>
 <pre class="code"><code>
 def insertion_sort(arr):
@@ -345,7 +345,8 @@ def insertion_sort(arr):
             j -= 1
         arr[j+1] = x
 
-<p></code></pre></p>
+</code></pre>
+
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -360,19 +361,19 @@ def insertion_sort(arr):
 <p><span class="math">\(\Theta(n)\)</span>. The best case occurs when the array is already sorted. Notice that in this case, the <span class="inline-code"><code>while</code></span> loop will never actually execute.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #077&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/best and worst case.html'&gt;best and worst case&lt;/a&gt;, &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #077</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the <i>worst case</i> time complexity of the following code?</p>
 <pre class="code"><code>
 def insertion_sort(arr):
@@ -387,7 +388,8 @@ def insertion_sort(arr):
             j -= 1
         arr[j+1] = x
 
-<p></code></pre></p>
+</code></pre>
+
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -402,19 +404,19 @@ def insertion_sort(arr):
 <p><span class="math">\(\Theta(n^2)\)</span>. The worst case occurs when the array is sorted in reverse order. In this case, the while-loop executes on every iteration of the for-loop, and must move <span class="inline-code"><code>x</code></span> from its current position all the way to the beginning of the array.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #078&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/best and worst case.html'&gt;best and worst case&lt;/a&gt;, &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #078</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the <i>best case</i> time complexity of the following function?</p>
 <pre class="code"><code>
 def foo(arr):
@@ -425,7 +427,8 @@ def foo(arr):
                 return sum(arr)
     return False
 
-<p></code></pre></p>
+</code></pre>
+
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -440,19 +443,19 @@ def foo(arr):
 <p><span class="math">\(\Theta(n)\)</span>. In the best case, we <span class="inline-code"><code>return sum(arr)</code></span> on the very first iteration.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #079&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/best and worst case.html'&gt;best and worst case&lt;/a&gt;, &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #079</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the <i>worst case</i> time complexity of the following function?</p>
 <pre class="code"><code>
 def foo(arr):
@@ -463,7 +466,8 @@ def foo(arr):
                 return sum(arr)
     return False
 
-<p></code></pre></p>
+</code></pre>
+
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -478,19 +482,19 @@ def foo(arr):
 <p><span class="math">\(\Theta(n^2)\)</span>. In the worst case, we never find <span class="inline-code"><code>x + y == 5</code></span>, and go through all <span class="math">\(\Theta(n^2)\)</span> iterations just to return <span class="inline-code"><code>False</code></span> at the end.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #080&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/best and worst case.html'&gt;best and worst case&lt;/a&gt;, &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #080</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the <b>best case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
 <pre class="code"><code>
 def foo(arr):
@@ -504,25 +508,26 @@ def foo(arr):
             return
         previous = x
 
-<p></code></pre></p>
+</code></pre>
+
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #081&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/best and worst case.html'&gt;best and worst case&lt;/a&gt;, &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #081</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the <b>best case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
 <pre class="code"><code>
 def foo(arr):
@@ -536,25 +541,26 @@ def foo(arr):
             return
         previous = x
 
-<p></code></pre></p>
+</code></pre>
+
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #082&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/best and worst case.html'&gt;best and worst case&lt;/a&gt;, &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #082</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the <b>worst case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
 <pre class="code"><code>
 def foo(arr):
@@ -568,25 +574,26 @@ def foo(arr):
             return
         previous = x
 
-<p></code></pre></p>
+</code></pre>
+
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #083&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/theoretical lower bounds.html'&gt;theoretical lower bounds&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #083</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose you are given a (possibly unsorted) array of <span class="math">\(n\)</span> floating point numbers and are tasked with counting the number of elements in the array which are within ten of the array's maximum (you are not told the maximum). That is, you must count the number of elements <span class="math">\(x\)</span> such that <span class="math">\(m - x \geq 10\)</span>, where <span class="math">\(m\)</span> is the array's maximum. You may assume that the array does not contain duplicate numbers.</p>
 <p>What is the <b>tight</b> theoretical lower bound for the worst case time complexity of this problem?</p>
 <details>
@@ -595,19 +602,19 @@ def foo(arr):
 <p>It takes <span class="math">\(\Theta(n)\)</span> time to find the maximum. After this, we loop through and keep track of how many elements are within ten of the maximum -- this also takes <span class="math">\(\Theta(n)\)</span> time.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #084&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/best and worst case.html'&gt;best and worst case&lt;/a&gt;, &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #084</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>The below code takes in an array of numbers and returns the index of the first maximum. What is this code's <b>best case</b> time complexity?</p>
 <pre class="code"><code>
 def index_of_maximum(arr):
@@ -616,25 +623,26 @@ def index_of_maximum(arr):
         if x == max(arr):
             return i
 
-<p></code></pre></p>
+</code></pre>
+
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #085&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/best and worst case.html'&gt;best and worst case&lt;/a&gt;, &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #085</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>The below code takes in an array of numbers and returns the index of the first maximum.</p>
 <pre class="code"><code>
 def foo(arr):
@@ -643,26 +651,27 @@ def foo(arr):
         if x == max(arr):
             return i
 
-<p></code></pre></p>
+</code></pre>
+
 <p>What is the <b>worst case</b> time complexity of the function?</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #086&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/best and worst case.html'&gt;best and worst case&lt;/a&gt;, &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #086</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>The code below takes in an array of <span class="math">\(n\)</span> numbers and checks whether there is a pair of numbers in the array which, when added together, equal the maximum element of the array.</p>
 <p>What is the <b>best case</b> time complexity of this code as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
 <pre class="code"><code>
@@ -675,40 +684,44 @@ def exists_pair_summing_to_max(arr):
                 return True
     return False
 
-<p></code></pre></p>
+</code></pre>
+
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #087&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/expected time.html'&gt;expected time&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #087</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the <i>expected</i> time complexity of the following function?</p>
 <pre class="code"><code>
 import random
 
-<p>def foo(n):
-# randomly draw a number from 0, 1, 2, ..., n-1
-x = random.randint(0, n-1)
-if x == 1:
-for i in range(n):
-print(i)
-else:
-print(&quot;lucky!&quot;)</p>
-<pre><code>for i in range(n):
-    print(i)</code></pre>
-<p></code></pre></p>
+def foo(n):
+    # randomly draw a number from 0, 1, 2, ..., n-1
+    x = random.randint(0, n-1)
+    if x == 1:
+        for i in range(n):
+            print(i)
+    else:
+        print("lucky!")
+
+    for i in range(n):
+        print(i)
+
+</code></pre>
+
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
@@ -723,96 +736,101 @@ print(&quot;lucky!&quot;)</p>
 <p><span class="math">\(\Theta(n)\)</span>. The last loop always runs <span class="math">\(n\)</span> times. With probability <span class="math">\(1/n\)</span> we have <span class="inline-code"><code>x == 1</code></span>, and the first loop also runs, taking <span class="math">\(\Theta(n)\)</span> time; otherwise we do constant work before the last loop. So the expected time is <span class="math">\(\frac{1}{n} \cdot \Theta(n) + \Theta(1) + \Theta(n) = \Theta(n)\)</span>. (In fact, every case takes <span class="math">\(\Theta(n)\)</span> time.)</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #088&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/time complexity.html'&gt;time complexity&lt;/a&gt;, &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #088</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the following function? State your answer using asymptotic notation.</p>
 <pre class="code"><code>
 import random
 
-<p>def boo(n):
-# draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
-x = random.randrange(n)</p>
-<pre><code>for i in range(x): # &lt;-- note that the range is random!
-    print(i)</code></pre>
-<p></code></pre></p>
+def boo(n):
+    # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
+    x = random.randrange(n)
+
+    for i in range(x): # <-- note that the range is random!
+        print(i)
+
+</code></pre>
+
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #089&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/expected time.html'&gt;expected time&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #089</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below?</p>
 <pre class="code"><code>
 import random
 
-<p>def foo(n):
-# draw a random number uniformly from 0, 1, 2, ..., 99
-# in constant time
-x = random.randrange(100)
-for i in range(x):
-for j in range(n):
-print(&quot;Here!&quot;)</p>
-<p></code></pre></p>
+def foo(n):
+    # draw a random number uniformly from 0, 1, 2, ..., 99
+    # in constant time
+    x = random.randrange(100)
+    for i in range(x):
+        for j in range(n):
+            print("Here!")
+
+</code></pre>
+
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span>. Note that in this question, the range of <span class="math">\(x\)</span> is between 0 and 99. Therefore the outer loop will run a constant number of times no matter what <span class="math">\(x\)</span> is. Then we can focus on the inner loop, which runs for <span class="math">\(n\)</span> times the print() operation, which is <span class="math">\(\Theta(n)\)</span> time. Therefore, the expected time complexity for this piece of code is <span class="math">\(\Theta(n)\)</span>.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #090&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/theoretical lower bounds.html'&gt;theoretical lower bounds&lt;/a&gt;, &lt;a href='../tags/sorted structure.html'&gt;sorted structure&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #090</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a>, <a href='../tags/sorted structure.html'>sorted structure</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose you are given a <b>sorted</b> array containing <span class="math">\(n\)</span> elements. Each element is either zero or one. You are tasked with determining if the majority (at least half) of the array's elements are one. What is the <b>tight</b> theoretical lower bound for the worst case time complexity of any algorithm which solves this problem?</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(1)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #091&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/best and worst case.html'&gt;best and worst case&lt;/a&gt;, &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #091</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>The code below takes in two lists, each containing <span class="math">\(n\)</span> integers, and determines if the any number in the second list appears at least <span class="math">\(n/2\)</span> times in the first list.</p>
 <pre class="code"><code>
 def boo(first_list, second_list):
@@ -827,7 +845,8 @@ def boo(first_list, second_list):
                 return True
     return False
 
-<p></code></pre></p>
+</code></pre>
+
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
 <p>What is the <b>best case</b> time complexity of this code as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
@@ -854,19 +873,19 @@ def boo(first_list, second_list):
 <p>In the worst case, there is no element in the second list that appears <span class="math">\(n/2\)</span> times in the first. We make all <span class="math">\(n\)</span> iterations of the outer loop, and during each of the outer iterations, make <span class="math">\(n\)</span> iterations of the inner loop, for a total of <span class="math">\(\Theta(n^2)\)</span> time.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #092&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/best and worst case.html'&gt;best and worst case&lt;/a&gt;, &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #092</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>The code below takes in two lists, each containing <span class="math">\(n\)</span> integers.</p>
 <pre class="code"><code>
 def are_lists_equal(list1, list2):
@@ -877,77 +896,84 @@ def are_lists_equal(list1, list2):
             return False
     return True
 
-<p>def foo(list1, list2):
-if are_lists_equal(list1, list2):
-for i in list1:
-print(i)
-else:
-for i in list1:
-for j in list2:
-for k in range(len(list1)):
-print(i, j, k)</p>
-<p></code></pre></p>
+
+def foo(list1, list2):
+    if are_lists_equal(list1, list2):
+        for i in list1:
+            print(i)
+    else:
+        for i in list1:
+            for j in list2:
+                for k in range(len(list1)):
+                    print(i, j, k)
+
+</code></pre>
+
 <p>What is the best case time complexity of <span class="inline-code"><code>foo</code></span> as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
 <p>The best case is where the lists are equal. In this case the time complexity is <span class="math">\(\Theta(n)\)</span>. The worst case is when the lists are not equal in which case the time complexity is <span class="math">\(\Theta(n^3)\)</span>.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #093&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/expected time.html'&gt;expected time&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #093</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below?</p>
 <pre class="code"><code>
 import random
 
-<p>def foo(n):
-# draw a random number uniformly from 0, 1, 2, ..., n-1
-# in constant time
-x = random.randrange(n)
-for i in range(x):
-for j in range(n):
-print(&quot;Here!&quot;)</p>
-<p></code></pre></p>
+def foo(n):
+    # draw a random number uniformly from 0, 1, 2, ..., n-1
+    # in constant time
+    x = random.randrange(n)
+    for i in range(x):
+        for j in range(n):
+            print("Here!")
+
+</code></pre>
+
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>. The inner loop is not random, and the time complexity of it is always <span class="math">\(\Theta(n)\)</span>. Therefore the expected time complexity of this function will be (using the arithmetic sequence sum formula)</p>
 <div class="math">\[\frac{1}{n}\sum_{i = 0}^{n - 1} i \times\Theta(n) = \Theta(n^2). \]</div>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #094&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/expected time.html'&gt;expected time&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #094</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the following function?</p>
 <pre class="code"><code>
 import random
 
-<p>def foo(n):
-for i in range(n):
-# draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
-x = random.randrange(n)
-for j in range(x):
-print(j)</p>
-<p></code></pre></p>
+def foo(n):
+    for i in range(n):
+        # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
+        x = random.randrange(n)
+        for j in range(x):
+            print(j)
+
+</code></pre>
+
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>. For this function, the outer loop wil execute <span class="math">\(n\)</span> times no matter what, hence we only have to find what the expected time complexity for the inner loop is, then combine that together with the outer loop. For the inner loop, the expected time complexity is</p>
@@ -956,82 +982,87 @@ print(j)</p>
 <div class="math">\[\Theta(n) \times\Theta(n) = \Theta(n^2). \]</div>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #095&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/expected time.html'&gt;expected time&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #095</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below?</p>
 <pre class="code"><code>
 import random
 
-<p>def foo(n):
-# draw a number uniformly at random from 0, 1, 2, ..., n-1
-# in constant time
-x = random.randrange(n)
-if x &lt; 100:
-for j in range(n**2):
-print(j)</p>
-<p></code></pre></p>
+def foo(n):
+    # draw a number uniformly at random from 0, 1, 2, ..., n-1
+    # in constant time
+    x = random.randrange(n)
+    if x < 100:
+        for j in range(n**2):
+            print(j)
+
+</code></pre>
+
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span>. The for loop is only executed if <span class="math">\(x\)</span> is less than 100, therefore we can write the expected time as (ignoring constants <span class="math">\(c\)</span>):</p>
 <div class="math">\[ f(n) = \frac{1}{n}\bigg(\sum_{i = 0}^{99} n^2 + \sum_{i = 100}^{n - 1} 1 \bigg)= \frac{1}{n}\cdot(\Theta(n^2) + \Theta(n)) = \Theta(n). \]</div>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #096&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/expected time.html'&gt;expected time&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #096</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the following function? State your answer using asymptotic notation.</p>
 <pre class="code"><code>
 import random
 
-<p>def foo(n):
-x = random.randrange(n)</p>
-<pre><code>if x &lt; 8:
-    for j in range(n**3):
-        print(j)
-else:
-    for j in range(n):
-        print(j)</code></pre>
-<p></code></pre></p>
+def foo(n):
+    x = random.randrange(n)
+
+    if x < 8:
+        for j in range(n**3):
+            print(j)
+    else:
+        for j in range(n):
+            print(j)
+
+</code></pre>
+
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>. The expected time complexity for this function is</p>
 <div class="math">\[\frac{1}{n}\bigg(\sum_{i = 0}^{7} n^3 + \sum_{i = 8}^{n - 1} n \bigg)= \frac{1}{n}(\Theta(n^3) + \Theta(n^2)) = \Theta(n^2). \]</div>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #097&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/time complexity.html'&gt;time complexity&lt;/a&gt;, &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #097</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below? State your answer using asymptotic notation.</p>
 <pre class="code"><code>
 import random
@@ -1047,73 +1078,79 @@ def foo(n):
     else:
         print("Lucky!")
 
-<p></code></pre></p>
+</code></pre>
+
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #098&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/expected time.html'&gt;expected time&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #098</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below?</p>
 <pre class="code"><code>
 import random
 
-<p>def foo(n):
-# draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
-x = random.randrange(n)
-if x &lt; math.sqrt(n):
-for j in range(n):
-print(j)</p>
-<p></code></pre></p>
+def foo(n):
+    # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
+    x = random.randrange(n)
+    if x < math.sqrt(n):
+        for j in range(n):
+            print(j)
+
+</code></pre>
+
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(\sqrt n)\)</span>. Since the for loop only executes when <span class="math">\(x\)</span> is less than <span class="math">\(\sqrt{n}\)</span>, the expected time complexity is</p>
 <div class="math">\[\frac{1}{n}\bigg(\sum_{i = 1}^{\lfloor \sqrt{n} \rfloor} n + \sum_{i = \lceil \sqrt{n} \rceil}^{n - 1} 1 \bigg)\approx\frac{1}{n}(n \sqrt{n} + (n - \sqrt{n})) = \Theta(\sqrt{n}). \]</div>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #099&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/expected time.html'&gt;expected time&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #099</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below?</p>
 <p>You may assume that <span class="inline-code"><code>math.sqrt</code></span> takes <span class="math">\(\Theta(1)\)</span> time.</p>
 <pre class="code"><code>
 import random
 import math
 
-<p>def foo(n):
-# draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
-x = random.randrange(n)</p>
-<pre><code>if x &lt; math.sqrt(n):
-    for j in range(n):
-        print(j)
-elif x &lt; n//2:
-    print('Ok!')
-else:
-    for i in range(n**2):
-        print(i)</code></pre>
-<p></code></pre></p>
+def foo(n):
+    # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
+    x = random.randrange(n)
+
+    if x < math.sqrt(n):
+        for j in range(n):
+            print(j)
+    elif x < n//2:
+        print('Ok!')
+    else:
+        for i in range(n**2):
+            print(i)
+
+</code></pre>
+
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>. The expected time complexity for this function is</p>
@@ -1123,37 +1160,40 @@ else:
         \]</div>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #100&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/expected time.html'&gt;expected time&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #100</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below? State your answer using asymptotic notation.</p>
 <p>You may assume that <span class="inline-code"><code>math.sqrt</code></span> and <span class="inline-code"><code>math.log2</code></span> take <span class="math">\(\Theta(1)\)</span> time.</p>
 <pre class="code"><code>
 import random
 import math
 
-<p>def boo(n):
-# draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
-x = random.randrange(n)</p>
-<pre><code>if x &lt; math.log2(n):
-    for i in range(n**2):
-        print(&quot;Very unlucky!&quot;)
-elif x &lt; math.sqrt(n):
-    for i in range(n):
-        print(&quot;Unlucky!&quot;)
-else:
-    print(&quot;Lucky!&quot;)</code></pre>
-<p></code></pre></p>
+def boo(n):
+    # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
+    x = random.randrange(n)
+
+    if x < math.log2(n):
+        for i in range(n**2):
+            print("Very unlucky!")
+    elif x < math.sqrt(n):
+        for i in range(n):
+            print("Unlucky!")
+    else:
+        print("Lucky!")
+
+</code></pre>
+
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n \log n)\)</span> There are three cases: Case 1) <span class="math">\(x < \log_2 n\)</span>; Case 2) <span class="math">\(1 < x < \sqrt n\)</span>; and Case 3) <span class="math">\(x \geq\sqrt{n}\)</span>.</p>
@@ -1171,37 +1211,40 @@ else:
 <center><div class="image"><img src="../images/100/plot.png" /></div></center>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #101&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/expected time.html'&gt;expected time&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #101</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below? State your answer using asymptotic notation.</p>
 <p>You may assume that <span class="inline-code"><code>math.sqrt</code></span> and <span class="inline-code"><code>math.log</code></span> take <span class="math">\(\Theta(1)\)</span> time. <span class="inline-code"><code>math.log</code></span> computes the natural log.</p>
 <pre class="code"><code>
 import random
 import math
 
-<p>def foo(n):
-# draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
-x = random.randrange(n)</p>
-<pre><code>if x &lt; math.log(n):
-    for j in range(n**2):
-        print(j)
-elif x &lt; math.sqrt(n):
-    print('Ok!')
-else:
-    for i in range(n):
-        print(i)</code></pre>
-<p></code></pre></p>
+def foo(n):
+    # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
+    x = random.randrange(n)
+
+    if x < math.log(n):
+        for j in range(n**2):
+            print(j)
+    elif x < math.sqrt(n):
+        print('Ok!')
+    else:
+        for i in range(n):
+            print(i)
+
+</code></pre>
+
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n \log n)\)</span> There are three cases: Case 1) <span class="math">\(x < \log n\)</span>; Case 2) <span class="math">\(\log n \geq x <
@@ -1228,19 +1271,19 @@ else:
             \end{aligned}\]</div>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #102&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/lecture-04.html'&gt;lecture-04&lt;/a&gt;, &lt;a href='../tags/theoretical lower bounds.html'&gt;theoretical lower bounds&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #102</h2>
+        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Consider the following problem: given a (possibly unsorted) list of size <span class="math">\(n\)</span> containing only ones and zeros, determine if the number of ones is equal to the number of zeros.</p>
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
@@ -1272,17 +1315,15 @@ else:
 
 </div>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
-   &lt;/body&gt;</code></pre>
+       </body>
    </html>
-
-
     </div>
 </div>
 

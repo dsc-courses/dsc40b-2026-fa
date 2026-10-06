@@ -198,46 +198,46 @@ Course Staff
 
     <div class="prose dark:prose-invert">
     <!DOCTYPE html> <html> <head> <meta
+                          charset="utf-8"> <title>Problems tagged with recursion</title>
 
-<pre><code>                      charset=&quot;utf-8&quot;&gt; &lt;title&gt;Problems tagged with recursion&lt;/title&gt;
+           <!-- MathJax -->
+           <script type="text/x-mathjax-config">
+             MathJax.Hub.Config({
+               tex: {
+                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+                 displayMath: [             // start/end delimiter pairs for display math
+                     ['\\[', '\\]']
+                 ],
+                 processEscapes: true
+               }
+           });
+           </script>
 
-       &lt;!-- MathJax --&gt;
-       &lt;script type=&quot;text/x-mathjax-config&quot;&gt;
-         MathJax.Hub.Config({
-           tex: {
-             inlineMath: [ ['$$','$$'], [&quot;\\(&quot;,&quot;\\)&quot;] ],
-             displayMath: [             // start/end delimiter pairs for display math
-                 ['\\[', '\\]']
-             ],
-             processEscapes: true
-           }
-       });
-       &lt;/script&gt;
+           <!-- highlightjs -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
-       &lt;!-- highlightjs --&gt;
-       &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css&quot;&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;&gt;&lt;/script&gt;
+           <!-- and it's easy to individually load additional languages -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
 
-       &lt;!-- and it's easy to individually load additional languages --&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js&quot;&gt;&lt;/script&gt;
+           <script>hljs.highlightAll();</script>
 
-       &lt;script&gt;hljs.highlightAll();&lt;/script&gt;
+           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+           <script type="text/javascript" id="MathJax-script" async
+             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+           </script>
 
-       &lt;script src=&quot;https://polyfill.io/v3/polyfill.min.js?features=es6&quot;&gt;&lt;/script&gt;
-       &lt;script type=&quot;text/javascript&quot; id=&quot;MathJax-script&quot; async
-         src=&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js&quot;&gt;
-       &lt;/script&gt;
-
-   &lt;/head&gt;
-   &lt;body&gt;
-       </code></pre>
+       </head>
+       <body>
+           
 <h1>Problems tagged with "recursion"</h1>
 
-<pre><code>    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #103&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/recursion.html'&gt;recursion&lt;/a&gt;, &lt;a href='../tags/binary search.html'&gt;binary search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+
+        <div class="problem-outer">
+        <h2>Problem #103</h2>
+        <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose <span class="inline-code"><code>binary_search</code></span> is called on a sorted array of size <span class="math">\(n\)</span>. In total, how many recursive calls to <span class="inline-code"><code>binary_search</code></span> are made in the worst case?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
@@ -248,19 +248,19 @@ Course Staff
 <p><span class="math">\(\Theta(\log n)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #115&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/recursion.html'&gt;recursion&lt;/a&gt;, &lt;a href='../tags/binary search.html'&gt;binary search&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #115</h2>
+        <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose <span class="inline-code"><code>binary_search</code></span> has been called on a sorted array <span class="inline-code"><code>arr</code></span> with a target <span class="inline-code"><code>t</code></span> that is not necessarily in the array, and with start and stop indices <span class="inline-code"><code>start</code></span> and <span class="inline-code"><code>stop</code></span>, respectively (remember, our convention is that the start index is included, while the stop index is excluded from the search). Which of the following must be true? <b>Mark all which apply</b>. You may assume that <span class="inline-code"><code>stop - start</code></span><span class="math">\(\geq 1\)</span>.</p>
 <p>Note: remember that any statement about an empty array is considered to be automatically true. Also, you cannot assume that this call to <span class="inline-code"><code>binary_search</code></span> is the <i>root</i> call (it could be a recursive call).</p>
 <div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>arr[start] < t < arr[stop]</code></span></p></label></div>
@@ -272,37 +272,40 @@ Course Staff
 <p>The last two answers are both correct.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #118&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/recursion.html'&gt;recursion&lt;/a&gt;, &lt;a href='../tags/verifying recursion.html'&gt;verifying recursion&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #118</h2>
+        <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Consider the code below which claims to compute the most common element in the array, returning a pair: the element along with the number of times it appears.</p>
 <pre class="code"><code>
 import math
 
-<p>def most_common(arr, start, stop):
-&quot;&quot;&quot;Attempts to compute the most common element in arr[start:stop].&quot;&quot;&quot;
-if stop - start == 1:
-return (arr[start], 1)</p>
-<pre><code>middle = math.floor((start + stop) / 2)
+def most_common(arr, start, stop):
+    """Attempts to compute the most common element in arr[start:stop]."""
+    if stop - start == 1:
+        return (arr[start], 1)
 
-left_value, left_count = most_common(arr, start, middle)
-right_value, right_count = most_common(arr, middle, stop)
+    middle = math.floor((start + stop) / 2)
 
-if left_count &gt; right_count:
-    return (left_value, left_count)
-else:
-    return (right_value, right_count)</code></pre>
-<p></code></pre></p>
+    left_value, left_count = most_common(arr, start, middle)
+    right_value, right_count = most_common(arr, middle, stop)
+
+    if left_count > right_count:
+        return (left_value, left_count)
+    else:
+        return (right_value, right_count)
+
+</code></pre>
+
 <p>You may assume that the function is always called on a non-empty array, and with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>. Will this code always return the correct answer (the most common element)?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Yes: it will always return the correct answer.</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may recurse infinitely.</p></label></div>
@@ -316,39 +319,42 @@ else:
 <p>You can also quickly see that the code cannot be correct because nowhere is a count greater than one ever returned.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #119&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/recursion.html'&gt;recursion&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #119</h2>
+        <p>Tags: <a href='../tags/recursion.html'>recursion</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Professor Billy claims to have invented a new sorting algorithm: <span class="inline-code"><code>mediansort</code></span>. The algorithm supposedly works by finding a median number, swapping it into the middle of the list, and recursing on the left half and the right half. Professor Billy's code is written below:</p>
 <pre class="code"><code>
 import math
 
-<p>def mediansort(arr, start, stop):
-&quot;&quot;&quot;Claims to sort the array, in-place.&quot;&quot;&quot;
-if stop - start &lt;= 1:
-return</p>
-<pre><code># finds the index of the median of arr[start:stop]
-median_ix = find_median(arr, start, stop)
+def mediansort(arr, start, stop):
+    """Claims to sort the array, in-place."""
+    if stop - start <= 1:
+        return
 
-middle_ix = math.floor((start + stop) / 2)
+    # finds the index of the median of arr[start:stop]
+    median_ix = find_median(arr, start, stop)
 
-# move the median to the middle by swapping
-arr[median_ix], arr[middle_ix] = arr[middle_ix], arr[median_ix]
+    middle_ix = math.floor((start + stop) / 2)
 
-# recurse on the left and right halves
-mediansort(arr, start, middle_ix)
-mediansort(arr, middle_ix + 1, stop)</code></pre>
-<p></code></pre></p>
+    # move the median to the middle by swapping
+    arr[median_ix], arr[middle_ix] = arr[middle_ix], arr[median_ix]
+
+    # recurse on the left and right halves
+    mediansort(arr, start, middle_ix)
+    mediansort(arr, middle_ix + 1, stop)
+
+</code></pre>
+
 <p>The code is supposed to sort ``in place'' by modifying the input array. You may assume that <span class="inline-code"><code>find_median</code></span> correctly returns the index of the median element in <span class="inline-code"><code>arr[start:stop]</code></span>.</p>
 <p>Does Professor Billy's <span class="inline-code"><code>mediansort</code></span> algorithm work? You may assume that it is called with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Yes: <span class="inline-code"><code>arr</code></span> will be in sorted order after the function exits.</p></label></div>
@@ -363,35 +369,38 @@ mediansort(arr, middle_ix + 1, stop)</code></pre>
 <p>It might help to look at this another way. On the root call to <span class="inline-code"><code>mediansort</code></span>, the median is put into its correct position in the sorted order. But on the recursive calls, this is not true. Consider the recursive call on the left half -- during this call, the median of the first <span class="math">\(n/2\)</span> numbers in the list is placed into position <span class="math">\(n/4\)</span>(roughly). This isn't quite what we want -- we want to put the median of the <i>smallest</i><span class="math">\(n/2\)</span> numbers here. But the first <span class="math">\(n/2\)</span> numbers in the list aren't necessarily the <i>smallest</i><span class="math">\(n/2\)</span> numbers in the list overall.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #123&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/recursion.html'&gt;recursion&lt;/a&gt;, &lt;a href='../tags/binary search.html'&gt;binary search&lt;/a&gt;, &lt;a href='../tags/verifying recursion.html'&gt;verifying recursion&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #123</h2>
+        <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/binary search.html'>binary search</a>, <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math">\(\geq x\)</span>). The full code is shown below for convenience:</p>
 <pre class="code"><code>
 import math
 
-<p>def new_binary_search(arr, start, stop, target):
-if stop &lt;= start:
-return None</p>
-<pre><code>middle = math.ceil((start + stop) / 2)
+def new_binary_search(arr, start, stop, target):
+    if stop <= start:
+        return None
 
-if arr[middle] == target:
-    return middle
-elif arr[middle] &lt; target:
-    return new_binary_search(arr, middle + 1, stop, target)
-else:
-    return new_binary_search(arr, start, middle, target)</code></pre>
-<p></code></pre></p>
+    middle = math.ceil((start + stop) / 2)
+
+    if arr[middle] == target:
+        return middle
+    elif arr[middle] < target:
+        return new_binary_search(arr, middle + 1, stop, target)
+    else:
+        return new_binary_search(arr, start, middle, target)
+
+</code></pre>
+
 <p>You may assume that <span class="inline-code"><code>arr</code></span> will be a sorted list containing at least one number, and that the initial call to <span class="inline-code"><code>new_binary_search</code></span> will be with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>.</p>
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
@@ -427,46 +436,50 @@ else:
 
 </div>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #135&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/recursion.html'&gt;recursion&lt;/a&gt;, &lt;a href='../tags/mergesort.html'&gt;mergesort&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #135</h2>
+        <p>Tags: <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/mergesort.html'>mergesort</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Consider the code for <span class="inline-code"><code>mergesort</code></span> and <span class="inline-code"><code>merge</code></span> where a new <span class="inline-code"><code>print</code></span>-statement has been added to <span class="inline-code"><code>merge</code></span>:</p>
 <pre class="code"><code>
 
-<p>def mergesort(arr):
-&quot;&quot;&quot;Sort array in-place.&quot;&quot;&quot;
-if len(arr) &gt; 1:
-middle = math.floor(len(arr) / 2)
-left = arr[:middle]
-right = arr[middle:]
-mergesort(left)
-mergesort(right)
-merge(left, right, arr)</p>
-<p>def merge(left, right, out):
-&quot;&quot;&quot;Merge sorted arrays, store in out.&quot;&quot;&quot;
-left.append(float('inf'))
-right.append(float('inf'))
-left_ix = 0
-right_ix = 0</p>
-<pre><code>for ix in range(len(out)):
-    print(&quot;Here!&quot;) # &lt;---- the newly-added line
-    if left[left_ix] &lt; right[right_ix]:
-        out[ix] = left[left_ix]
-        left_ix += 1
-    else:
-        out[ix] = right[right_ix]
-        right_ix += 1</code></pre>
-<p></code></pre></p>
+def mergesort(arr):
+    """Sort array in-place."""
+    if len(arr) > 1:
+        middle = math.floor(len(arr) / 2)
+        left = arr[:middle]
+        right = arr[middle:]
+        mergesort(left)
+        mergesort(right)
+        merge(left, right, arr)
+
+def merge(left, right, out):
+    """Merge sorted arrays, store in out."""
+    left.append(float('inf'))
+    right.append(float('inf'))
+    left_ix = 0
+    right_ix = 0
+
+    for ix in range(len(out)):
+        print("Here!") # <---- the newly-added line
+        if left[left_ix] < right[right_ix]:
+            out[ix] = left[left_ix]
+            left_ix += 1
+        else:
+            out[ix] = right[right_ix]
+            right_ix += 1
+
+</code></pre>
+
 <p>Suppose <span class="inline-code"><code>mergesort</code></span> is called on an array of size <span class="math">\(n\)</span>. In total, how many times will <span class="inline-code"><code>"Here!"</code></span> be printed?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
@@ -477,17 +490,15 @@ right_ix = 0</p>
 <p><span class="math">\(\Theta(n \log n)\)</span></p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
-   &lt;/body&gt;</code></pre>
+       </body>
    </html>
-
-
     </div>
 </div>
 

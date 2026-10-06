@@ -198,46 +198,46 @@ Course Staff
 
     <div class="prose dark:prose-invert">
     <!DOCTYPE html> <html> <head> <meta
+                          charset="utf-8"> <title>Problems tagged with minimum spanning trees</title>
 
-<pre><code>                      charset=&quot;utf-8&quot;&gt; &lt;title&gt;Problems tagged with minimum spanning trees&lt;/title&gt;
+           <!-- MathJax -->
+           <script type="text/x-mathjax-config">
+             MathJax.Hub.Config({
+               tex: {
+                 inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+                 displayMath: [             // start/end delimiter pairs for display math
+                     ['\\[', '\\]']
+                 ],
+                 processEscapes: true
+               }
+           });
+           </script>
 
-       &lt;!-- MathJax --&gt;
-       &lt;script type=&quot;text/x-mathjax-config&quot;&gt;
-         MathJax.Hub.Config({
-           tex: {
-             inlineMath: [ ['$$','$$'], [&quot;\\(&quot;,&quot;\\)&quot;] ],
-             displayMath: [             // start/end delimiter pairs for display math
-                 ['\\[', '\\]']
-             ],
-             processEscapes: true
-           }
-       });
-       &lt;/script&gt;
+           <!-- highlightjs -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
-       &lt;!-- highlightjs --&gt;
-       &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css&quot;&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;&gt;&lt;/script&gt;
+           <!-- and it's easy to individually load additional languages -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
 
-       &lt;!-- and it's easy to individually load additional languages --&gt;
-       &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js&quot;&gt;&lt;/script&gt;
+           <script>hljs.highlightAll();</script>
 
-       &lt;script&gt;hljs.highlightAll();&lt;/script&gt;
+           <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+           <script type="text/javascript" id="MathJax-script" async
+             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+           </script>
 
-       &lt;script src=&quot;https://polyfill.io/v3/polyfill.min.js?features=es6&quot;&gt;&lt;/script&gt;
-       &lt;script type=&quot;text/javascript&quot; id=&quot;MathJax-script&quot; async
-         src=&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js&quot;&gt;
-       &lt;/script&gt;
-
-   &lt;/head&gt;
-   &lt;body&gt;
-       </code></pre>
+       </head>
+       <body>
+           
 <h1>Problems tagged with "minimum spanning trees"</h1>
 
-<pre><code>    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #317&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/minimum spanning trees.html'&gt;minimum spanning trees&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+
+        <div class="problem-outer">
+        <h2>Problem #317</h2>
+        <p>Tags: <a href='../tags/minimum spanning trees.html'>minimum spanning trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Let <span class="math">\(G\)</span> be a connected graph with 9 nodes. As you know, there may be multiple minimum spanning trees of this graph. How many edges must be included in any given minimum spanning tree?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>8</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>9</p></label></div>
@@ -248,19 +248,19 @@ Course Staff
 <p>Answer: 8. Every spanning tree of a graph with <span class="math">\(|V|\)</span> nodes is a tree on those <span class="math">\(|V|\)</span> nodes, so it has exactly <span class="math">\(|V| - 1 = 8\)</span> edges.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #319&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/minimum spanning trees.html'&gt;minimum spanning trees&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #319</h2>
+        <p>Tags: <a href='../tags/minimum spanning trees.html'>minimum spanning trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Consider the following weighted graph:</p>
 <center><div class="image"><img src="../images/319/mst2.jpg" /></div></center>
 <p>True or false: the edge <span class="math">\((a, b)\)</span> is in every minimum spanning tree of the graph.</p>
@@ -271,19 +271,19 @@ Course Staff
 <p>True. Node <span class="math">\(b\)</span> has only two edges: <span class="math">\((a, b)\)</span> with weight 5 and <span class="math">\((b, d)\)</span> with weight 7. A spanning tree must include at least one of them. If a spanning tree used <span class="math">\((b, d)\)</span> but not <span class="math">\((a, b)\)</span>, adding <span class="math">\((a, b)\)</span> would create a cycle containing <span class="math">\((b, d)\)</span>; removing <span class="math">\((b, d)\)</span> gives another spanning tree with smaller total weight. So every minimum spanning tree contains <span class="math">\((a, b)\)</span>.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #320&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/minimum spanning trees.html'&gt;minimum spanning trees&lt;/a&gt;, &lt;a href='../tags/shortest paths.html'&gt;shortest paths&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #320</h2>
+        <p>Tags: <a href='../tags/minimum spanning trees.html'>minimum spanning trees</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose there is a unique shortest path <span class="math">\(p\)</span> between nodes <span class="math">\(u\)</span> and <span class="math">\(v\)</span> in a graph <span class="math">\(G\)</span> and that there is a unique minimum spanning tree <span class="math">\(T\)</span> of <span class="math">\(G\)</span>. True or false: the path between <span class="math">\(u\)</span> and <span class="math">\(v\)</span> in the MST <span class="math">\(T\)</span> must be the same as the path <span class="math">\(p\)</span>.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
@@ -292,19 +292,19 @@ Course Staff
 <p>False. Consider a triangle on nodes <span class="math">\(u\)</span>, <span class="math">\(v\)</span>, and <span class="math">\(w\)</span> with edge weights <span class="math">\(w(u, v) = 3\)</span>, <span class="math">\(w(u, w) = 2\)</span>, and <span class="math">\(w(w, v) = 2\)</span>. The unique MST uses edges <span class="math">\((u, w)\)</span> and <span class="math">\((w, v)\)</span>, so the path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> in the MST has length 4. But the unique shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> is the single edge <span class="math">\((u, v)\)</span>, with length 3.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #321&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/minimum spanning trees.html'&gt;minimum spanning trees&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #321</h2>
+        <p>Tags: <a href='../tags/minimum spanning trees.html'>minimum spanning trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Suppose you are running Kruskal's algorithm on the following undirected, weighted graph tofind a minimum spanning tree:</p>
 <center><div class="image"><img src="../images/321/mst3.jpg" /></div></center>
 <p>In what order are the edges of this graph added to the minimum spanning tree?</p>
@@ -317,19 +317,19 @@ Course Staff
 <p>(a, d), (a, c), (a, b), (c, e). Kruskal's algorithm considers edges in increasing order of weight: (a, d) with weight 2, (a, c) with weight 5, (a, b) with weight 7, and (c, e) with weight 9 are each added since none creates a cycle. The remaining edges, (b, d) with weight 20 and (a, e) with weight 21, would create cycles.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #322&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/minimum spanning trees.html'&gt;minimum spanning trees&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #322</h2>
+        <p>Tags: <a href='../tags/minimum spanning trees.html'>minimum spanning trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>True or false: given a graph <span class="math">\(G\)</span> with multiple minimum spanning trees (MSTs), Prim's and Kruskal's algorithms are guaranteed to return the same MST.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
@@ -338,19 +338,19 @@ Course Staff
 <p>False. When there are ties in the edge weights, the MST each algorithm returns depends on how the ties are broken, and the two algorithms consider edges in different orders. For example, in a triangle whose three edges all have the same weight, each algorithm could return any of the three MSTs, depending on the order in which it considers the edges.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #323&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/minimum spanning trees.html'&gt;minimum spanning trees&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #323</h2>
+        <p>Tags: <a href='../tags/minimum spanning trees.html'>minimum spanning trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>A <i>maximum spanning tree</i> of a graph is a spanning tree that has the greatest possible total edge weight. Suppose Kruskal's algorithm is modified so that instead of looping through edges in <i>ascending</i> order of weight, it processes them in <i>descending</i> order of weight. True or false: the output of this modified algorithm is guaranteed to be a maximum spanning tree.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
@@ -359,19 +359,19 @@ Course Staff
 <p>True. Processing edges in descending order of weight is the same as running ordinary Kruskal's algorithm on the graph with every weight negated. That finds a minimum spanning tree of the negated graph, which is a maximum spanning tree of the original graph.</p>
 </details>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
 
-    &lt;div class=&quot;problem-outer&quot;&gt;
-    &lt;h2&gt;Problem #324&lt;/h2&gt;
-    &lt;p&gt;Tags: &lt;a href='../tags/minimum spanning trees.html'&gt;minimum spanning trees&lt;/a&gt;&lt;/p&gt;
-    &lt;div class=&quot;problem&quot;&gt;
-&lt;div class=&quot;problem-body&quot;&gt;</code></pre>
+        <div class="problem-outer">
+        <h2>Problem #324</h2>
+        <p>Tags: <a href='../tags/minimum spanning trees.html'>minimum spanning trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
 <p>Consider finding the minimum spanning tree of the graph below.</p>
 <center><div class="image"><img src="../images/324/mst1.jpg" /></div></center>
 <div class="subproblem">
@@ -418,17 +418,15 @@ Course Staff
 
 </div>
 
-<pre><code>&lt;/div&gt;</code></pre>
+    </div>
 </div>
 
-<pre><code>    &lt;/div&gt;
+        </div>
 
 
 
-   &lt;/body&gt;</code></pre>
+       </body>
    </html>
-
-
     </div>
 </div>
 
