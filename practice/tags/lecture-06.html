@@ -168,106 +168,77 @@ Course Staff
 </div>
 
     <div class="prose dark:prose-invert">
-    <div>
-<h1>Practice Problems</h1>
+    
+<style>
+.multiple-choices .choice label, .multiple-select .choice label {
+    display: flex; align-items: center; gap: 0.6em; margin: 0.25em 0; cursor: pointer;
+}
+.multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+</style>
+<h1>Problems tagged with "lecture-06"</h1>
 
 
-            <div class="tagset">
-                <h2>Midterm 01</h2>
-                <p>Practice problems for topics on Midterm 01.
-See also the <a href="http://dsc40b.com/materials/default/supplementary/sample_midterm_01/sample_midterm_01.pdf">Sample Midterm 01</a>
-and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midterm_01/sample_midterm_01-solution.pdf">solutions</a>.</p>
-                <p>
-                    <a href="./midterm-01.html">See all problems in this set</a>, or
-                    choose a tag below to view only those problems.
-                </p>
-            <ul>
-<li><a href='./tags/asymptotic notation.html'>asymptotic notation</a></li>
-<li><a href='./tags/best and worst case.html'>best and worst case</a></li>
-<li><a href='./tags/binary search.html'>binary search</a></li>
-<li><a href='./tags/binary search trees.html'>binary search trees</a></li>
-<li><a href='./tags/expected time.html'>expected time</a></li>
-<li><a href='./tags/loop invariants.html'>loop invariants</a></li>
-<li><a href='./tags/mergesort.html'>mergesort</a></li>
-<li><a href='./tags/quickselect.html'>quickselect</a></li>
-<li><a href='./tags/recurrence relations.html'>recurrence relations</a></li>
-<li><a href='./tags/recursion.html'>recursion</a></li>
-<li><a href='./tags/sorted structure.html'>sorted structure</a></li>
-<li><a href='./tags/theoretical lower bounds.html'>theoretical lower bounds</a></li>
-<li><a href='./tags/time complexity.html'>time complexity</a></li>
-<li><a href='./tags/verifying recursion.html'>verifying recursion</a></li>
-</ul>
-            </div>
+        <div class="problem-outer">
+        <h2>Problem #132</h2>
+        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a>, <a href='../tags/lecture-06.html'>lecture-06</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>State (but do not solve) the recurrence describing the runtime of the following function.</p>
+<pre class="code"><code class="language-python">def foo(n):
+    if n &lt; 10:
+        print("Hello world.")
+        return
 
+    for i in range(n):
+        print(i)
 
-            <div class="tagset">
-                <h2>Midterm 02</h2>
-                <p>Practice problems for topics on Midterm 02.
-See also the <a href="http://dsc40b.com/materials/default/supplementary/sample_midterm_02/sample_midterm_02.pdf">Sample Midterm 02</a>
-and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midterm_02/sample_midterm_02-solution.pdf">solutions</a>.</p>
-                <p>
-                    <a href="./midterm-02.html">See all problems in this set</a>, or
-                    choose a tag below to view only those problems.
-                </p>
-            <ul>
-<li><a href='./tags/aggregate analysis.html'>aggregate analysis</a></li>
-<li><a href='./tags/bellman-ford.html'>bellman-ford</a></li>
-<li><a href='./tags/breadth first search.html'>breadth first search</a></li>
-<li><a href='./tags/connected components.html'>connected components</a></li>
-<li><a href='./tags/depth first search.html'>depth first search</a></li>
-<li><a href='./tags/dijkstra.html'>dijkstra</a></li>
-<li><a href='./tags/graph representations.html'>graph representations</a></li>
-<li><a href='./tags/graph theory.html'>graph theory</a></li>
-<li><a href='./tags/hashing.html'>hashing</a></li>
-<li><a href='./tags/shortest paths.html'>shortest paths</a></li>
-<li><a href='./tags/start and finish times.html'>start and finish times</a></li>
-<li><a href='./tags/topological sorting.html'>topological sorting</a></li>
-</ul>
-            </div>
+    for i in range(6):
+        foo(n//3)</code></pre>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(T(n) = 6 T(n/3) + \Theta(n)\)</span>.</p>
+</details>
 
-
-<div class="tagset">
-    <h2>Quiz 01</h2>
-    <p>Practice problems for topics on Quiz 01.</p>
-    <p>
-        <a href="./quiz-01.html">See all problems in this set</a>, or
-        choose a tag below to view only those problems.
-    </p>
-<ul>
-<li><a href='./tags/lecture-01.html'>lecture-01</a></li>
-<li><a href='./tags/lecture-02.html'>lecture-02</a></li>
-</ul>
+    </div>
 </div>
 
+        </div>
 
-<div class="tagset">
-    <h2>Quiz 02</h2>
-    <p>Practice problems for topics on Quiz 02.</p>
-    <p>
-        <a href="./quiz-02.html">See all problems in this set</a>, or
-        choose a tag below to view only those problems.
-    </p>
-<ul>
-<li><a href='./tags/lecture-03.html'>lecture-03</a></li>
-<li><a href='./tags/lecture-04.html'>lecture-04</a></li>
-</ul>
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #134</h2>
+        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a>, <a href='../tags/lecture-06.html'>lecture-06</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>State (but do not solve) the recurrence relation describing this function's run time.</p>
+<pre class="code"><code>import random
+
+def foo(n):
+    if n &lt;= 2:
+        return
+
+    for i in range(n):
+        for j in range(i, n):
+            print(i)
+
+    return foo(n//2) + foo(n//2)</code></pre>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(T(n) = 2 T(n/2) + T(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(T(n) = 2 T(n/2) + T(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(T(n) = 2 T(n/2) + \Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(T(n) = 2 T(n/2) + \Theta(n^2)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(T(n) = 2 T(n/2) + \Theta(n^2)\)</span>. The nested loops are dependent: the inner loop runs <span class="math">\(n - i\)</span> times, for a total of <span class="math">\(n + (n-1) + \ldots + 1 = \Theta(n^2)\)</span>. Then there are two recursive calls, each on a problem of size <span class="math">\(n/2\)</span>.</p>
+</details>
+
+    </div>
 </div>
 
+        </div>
 
-<div class="tagset">
-    <h2>Quiz 03</h2>
-    <p>Practice problems for topics on Quiz 03.</p>
-    <p>
-        <a href="./quiz-03.html">See all problems in this set</a>, or
-        choose a tag below to view only those problems.
-    </p>
-<ul>
-<li><a href='./tags/lecture-05.html'>lecture-05</a></li>
-<li><a href='./tags/lecture-06.html'>lecture-06</a></li>
-</ul>
-</div>
 
-</div>
     </div>
 </div>
 

@@ -175,12 +175,21 @@ Course Staff
 }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
 </style>
-<h1>Problems tagged with "binary search"</h1>
+<h1>Quiz 03</h1>
+<p>Practice problems for topics on Quiz 03.</p>
+<p>Tags in this problem set:</p>
+<ul>
+<ul>
+<li><a href='./tags/lecture-05.html'>lecture-05</a></li>
+<li><a href='./tags/lecture-06.html'>lecture-06</a></li>
+</ul>
+</ul>
+
 
 
         <div class="problem-outer">
         <h2>Problem #103</h2>
-        <p>Tags: <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/recursion.html'>recursion</a>, <a href='./tags/binary search.html'>binary search</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="inline-code"><code>binary_search</code></span> is called on a sorted array of size <span class="math">\(n\)</span>. In total, how many recursive calls to <span class="inline-code"><code>binary_search</code></span> are made in the worst case?</p>
@@ -203,7 +212,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #104</h2>
-        <p>Tags: <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/binary search.html'>binary search</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the version of binary search shown below:</p>
@@ -245,8 +254,155 @@ def binary_search(arr, t, start, stop):
 
 
         <div class="problem-outer">
+        <h2>Problem #105</h2>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/verifying recursion.html'>verifying recursion</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Will the following code always do what it says? You may assume that <span class="inline-code"><code>numbers</code></span> is a (possibly empty) array of numbers. The product of zero numbers is defined to be 1. Select all that apply.</p>
+<pre class="code"><code>def product(numbers):
+    """Should return the product of all elements in numbers"""
+    if len(numbers) == 0:
+        return 1
+    else:
+        return numbers[0] * product(numbers[1:])</code></pre>
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>Yes</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>No - it may encounter infinite recursion because the problem size does not always reduce in size</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>No - it does not infinitely recurse, but the result may be incorrect</p></label></div></div>
+<details>
+    <summary>Solution</summary>
+<p>Yes. The base case is correct, since the product of zero numbers is 1. The recursive call is on a list that is one element shorter, so the recursion always reaches the base case. And if <span class="inline-code"><code>product(numbers[1:])</code></span> correctly returns the product of all but the first number, then multiplying it by <span class="inline-code"><code>numbers[0]</code></span> gives the product of all of the numbers.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #106</h2>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/verifying recursion.html'>verifying recursion</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Will the following code always do what it claims? You may assume that <span class="inline-code"><code>numbers</code></span> is a (possibly empty) array of numbers. Select all that apply.</p>
+<pre class="code"><code>def reverse(numbers):
+    """Should reverse a given list of numbers."""
+    if len(numbers) == 0:
+        return numbers
+    else:
+        # numbers[:-1] *slices* the list, creating a new list
+        # with the same elements as the original, except with
+        # the last element removed
+        return reverse(numbers[:-1])</code></pre>
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>Yes</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>No - it may encounter infinite recursion because the problem size does not always reduce in size</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>No - it does not infinitely recurse, but the result may be incorrect</p></label></div></div>
+<details>
+    <summary>Solution</summary>
+<p>No - it does not infinitely recurse, but the result may be incorrect. Each recursive call is on a list that is one element shorter, so the recursion always reaches the base case. But the base case returns an empty list, and each recursive call simply returns what the next call returns, so <span class="inline-code"><code>reverse</code></span> always returns <span class="inline-code"><code>[]</code></span>. This is wrong for any nonempty list.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #107</h2>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/recurrence relations.html'>recurrence relations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>State (but do not solve) the recurrence describing the run time of the following code, assuming that the input, <span class="inline-code"><code>arr</code></span>, is a list of size <span class="math">\(n\)</span>.</p>
+<pre class="code"><code class="language-python">def foo(arr, stop=None):
+    if stop is None:
+        stop = len(arr) - 1
+
+    if stop &lt; 0:
+        return 1
+
+    last = arr[stop]
+    return last * foo(arr, stop - 1)</code></pre>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(T(n) = T(n-1) + \Theta(1)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #108</h2>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/recurrence relations.html'>recurrence relations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>State (but do not solve) the recurrence describing the run time of the following code, assuming that the input, <span class="inline-code"><code>arr</code></span>, is a list of size <span class="math">\(n\)</span>.</p>
+<pre class="code"><code class="language-python">def foo(arr, stop=None):
+    if stop is None:
+        stop = len(arr) - 1
+
+    if stop &lt; 0:
+        return 1
+
+    last = arr[stop]
+    return last * foo(arr, stop - 1)</code></pre>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(T(n) = T(n-1) + \Theta(1)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #109</h2>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/recurrence relations.html'>recurrence relations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>State (but do not solve) the recurrence describing the runtime of the following function.</p>
+<pre class="code"><code class="language-python">def foo(n):
+    if n &lt; 1:
+        return 0
+
+    for i in range(n**2):
+        print("here")
+
+    foo(n/2)</code></pre>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(
+        T(n) = \begin{cases}
+            \Theta(1), & n = 1\\
+            T(n/2) + \Theta(n^2)%
+            , & n > 1
+        \end{cases}\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
         <h2>Problem #110</h2>
-        <p>Tags: <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/binary search.html'>binary search</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the code below, which shows <span class="inline-code"><code>binary_search</code></span> as discussed in lecture, but with one additional line: a print statement.</p>
@@ -281,7 +437,7 @@ def binary_search(arr, t, start, stop):
 
         <div class="problem-outer">
         <h2>Problem #111</h2>
-        <p>Tags: <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/binary search.html'>binary search</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the version of binary search shown below. This is the same as the code given in lecture, except that a single <span class="inline-code"><code>print</code></span> statement has been added. This <span class="inline-code"><code>print</code></span> statement prints the value of <span class="inline-code"><code>stop</code></span> at the beginning of each call to <span class="inline-code"><code>binary_search</code></span>.</p>
@@ -324,7 +480,7 @@ def binary_search(arr, t, start, stop):
 
         <div class="problem-outer">
         <h2>Problem #112</h2>
-        <p>Tags: <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/binary search.html'>binary search</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the following array:</p>
@@ -365,7 +521,7 @@ def binary_search(arr, t, start, stop):
 
         <div class="problem-outer">
         <h2>Problem #113</h2>
-        <p>Tags: <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/binary search.html'>binary search</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a binary search is performed on the following array using the implementation of <span class="inline-code"><code>binary_search</code></span> below (from lecture), starting with the call <span class="inline-code"><code>binary_search(arr, target, 0, len(arr))</code></span>.</p>
@@ -404,7 +560,7 @@ def binary_search(arr, t, start, stop):
 
         <div class="problem-outer">
         <h2>Problem #114</h2>
-        <p>Tags: <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/loop invariants.html'>loop invariants</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/loop invariants.html'>loop invariants</a>, <a href='./tags/binary search.html'>binary search</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider <span class="inline-code"><code>iterative_binary_search</code></span> below and note the <span class="inline-code"><code>print</code></span> statement in the <span class="inline-code"><code>while</code></span>-loop:</p>
@@ -445,7 +601,7 @@ def iterative_binary_search(arr, target):
 
         <div class="problem-outer">
         <h2>Problem #115</h2>
-        <p>Tags: <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/recursion.html'>recursion</a>, <a href='./tags/binary search.html'>binary search</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="inline-code"><code>binary_search</code></span> has been called on a sorted array <span class="inline-code"><code>arr</code></span> with a target <span class="inline-code"><code>t</code></span> that is not necessarily in the array, and with start and stop indices <span class="inline-code"><code>start</code></span> and <span class="inline-code"><code>stop</code></span>, respectively (remember, our convention is that the start index is included, while the stop index is excluded from the search). Which of the following must be true? <b>Mark all which apply</b>. You may assume that <span class="inline-code"><code>stop - start</code></span><span class="math">\(\geq 1\)</span>.</p>
@@ -468,8 +624,235 @@ def iterative_binary_search(arr, target):
 
 
         <div class="problem-outer">
+        <h2>Problem #116</h2>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/verifying recursion.html'>verifying recursion</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the following function which attempts to compute the maximum of a list of numbers.</p>
+<pre class="code"><code class="language-python">import math
+def maximum(numbers):
+    n = len(numbers)
+    if n == 0:
+        return 0
+    middle = math.floor(n / 2)
+    return (
+        maximum(numbers[:middle])
+        +
+        maximum(numbers[middle:])
+    )</code></pre>
+<p>Is this code guaranteed to work for all non-empty lists?</p>
+<p>You should adopt the convention that the maximum of an empty list is <span class="math">\(-\infty\)</span>.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Yes: it will return the maximum number in the list.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may recurse infinitely.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may raise an exception.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it will run without error, but it might return the wrong answer.</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>2nd option: No: it may recurse infinitely.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #117</h2>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/verifying recursion.html'>verifying recursion</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the code below which claims to compute the maximum of the input array. Adopt the convention that the maximum of an empty array is <span class="math">\(-\infty\)</span>.</p>
+<pre class="code"><code class="language-python">import math
+def maximum(arr, start=0, stop=None):
+    """Find the maximum of arr[start:stop]."""
+    if stop is None:
+        stop = len(arr)
+    if stop - start == 0:
+        return -float('inf')
+
+    middle = math.floor((start + stop) / 2)
+    left = maximum(arr, start, middle)
+    right = maximum(arr, middle, stop)
+    if left &gt; right:
+        return left
+    else:
+        return right</code></pre>
+<p>Will this code always return the correct answer (the maximum)? If yes, simply say so. If no, describe what might happen (recurse infinitely, return the wrong answer, raise an index error, etc.).</p>
+<details>
+    <summary>Solution</summary>
+<p>This code will recurse infinitely when called on an array with a single element.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #118</h2>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/recursion.html'>recursion</a>, <a href='./tags/verifying recursion.html'>verifying recursion</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the code below which claims to compute the most common element in the array, returning a pair: the element along with the number of times it appears.</p>
+<pre class="code"><code class="language-python">import math
+
+def most_common(arr, start, stop):
+    """Attempts to compute the most common element in arr[start:stop]."""
+    if stop - start == 1:
+        return (arr[start], 1)
+
+    middle = math.floor((start + stop) / 2)
+
+    left_value, left_count = most_common(arr, start, middle)
+    right_value, right_count = most_common(arr, middle, stop)
+
+    if left_count &gt; right_count:
+        return (left_value, left_count)
+    else:
+        return (right_value, right_count)</code></pre>
+<p>You may assume that the function is always called on a non-empty array, and with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>. Will this code always return the correct answer (the most common element)?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Yes: it will always return the correct answer.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may recurse infinitely.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may try to access the array at an invalid index.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it will run without error, but the element returned may not be the most common element in the array.</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>No: it will run without error, but the element returned may not be the most common element in the array.</p>
+<p>It is not true in general that the most common element in the array is the most common in the left or the right. As a simple example, take: <span class="inline-code"><code>[1,1,1,0,0,2,2,2,0,0]</code></span>. 1 is the most common in the left half, and 2 is the most common in the right half, but 0 is the most common overall.</p>
+<p>So even if we assume that <span class="inline-code"><code>most_common(arr, start, middle)</code></span> finds the most common element in left half of the array, and <span class="inline-code"><code>most_common(arr, middle, stop)</code></span> finds the most common element in the right of the array, it is not necessarily the case that the most common between them is the overall most common in the array.</p>
+<p>You can also quickly see that the code cannot be correct because nowhere is a count greater than one ever returned.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #119</h2>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/recursion.html'>recursion</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Professor Billy claims to have invented a new sorting algorithm: <span class="inline-code"><code>mediansort</code></span>. The algorithm supposedly works by finding a median number, swapping it into the middle of the list, and recursing on the left half and the right half. Professor Billy's code is written below:</p>
+<pre class="code"><code class="language-python">import math
+
+def mediansort(arr, start, stop):
+    """Claims to sort the array, in-place."""
+    if stop - start &lt;= 1:
+        return
+
+    # finds the index of the median of arr[start:stop]
+    median_ix = find_median(arr, start, stop)
+
+    middle_ix = math.floor((start + stop) / 2)
+
+    # move the median to the middle by swapping
+    arr[median_ix], arr[middle_ix] = arr[middle_ix], arr[median_ix]
+
+    # recurse on the left and right halves
+    mediansort(arr, start, middle_ix)
+    mediansort(arr, middle_ix + 1, stop)</code></pre>
+<p>The code is supposed to sort ``in place'' by modifying the input array. You may assume that <span class="inline-code"><code>find_median</code></span> correctly returns the index of the median element in <span class="inline-code"><code>arr[start:stop]</code></span>.</p>
+<p>Does Professor Billy's <span class="inline-code"><code>mediansort</code></span> algorithm work? You may assume that it is called with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Yes: <span class="inline-code"><code>arr</code></span> will be in sorted order after the function exits.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may recurse infinitely.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may try to access the array at an invalid index and then raise an exception.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it will run without error, but <span class="inline-code"><code>arr</code></span> may not be sorted when the function exits.</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><b>No: it will run without error, but \mintinline{python}{arr} may not be sorted when the function exits</b>.</p>
+<p>Remember the three things to check when evaluating recursive code: 1) does it have a base case? 2) do the recursive subproblems get smaller and smaller? and 3) assuming that the recursive subcalls do what they say they will, does the algorithm work overall?</p>
+<p>In this situation, the third thing does not check out. That is: even if <span class="inline-code"><code>mediansort(arr, start, middle_ix)</code></span> correctly sorts the numbers in <span class="inline-code"><code>arr[start:middle_ix]</code></span>(and the other call does the same for the right half of the list), this does not mean that <span class="inline-code"><code>arr</code></span> will be in sorted order over all. We would still need to merge the two sorted halves together into one sorted list.</p>
+<p>It might help to look at this another way. On the root call to <span class="inline-code"><code>mediansort</code></span>, the median is put into its correct position in the sorted order. But on the recursive calls, this is not true. Consider the recursive call on the left half -- during this call, the median of the first <span class="math">\(n/2\)</span> numbers in the list is placed into position <span class="math">\(n/4\)</span>(roughly). This isn't quite what we want -- we want to put the median of the <i>smallest</i><span class="math">\(n/2\)</span> numbers here. But the first <span class="math">\(n/2\)</span> numbers in the list aren't necessarily the <i>smallest</i><span class="math">\(n/2\)</span> numbers in the list overall.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #120</h2>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/theoretical lower bounds.html'>theoretical lower bounds</a>, <a href='./tags/sorted structure.html'>sorted structure</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are two numbers, with <span class="math">\(a \leq b\)</span>. Consider the problem of counting the number of elements in an array which are between <span class="math">\(a\)</span> and <span class="math">\(b\)</span>; that is, the number of elements <span class="math">\(x\)</span> such that <span class="math">\(a
+    \leq x \leq b\)</span>. You may assume for simplicity that both <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are in the array, and there are no duplicates.</p>
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 1)</h3>
+<p>What is a <b>tight</b> theoretical lower bound for this problem, assuming that the array is <b>unsorted</b>? State your answer in asymptotic notation as a function of the number of elements in the array, <span class="math">\(n\)</span>.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p>Since the array is in arbitrary order, we have to at least read all of the elements, taking <span class="math">\(\Omega(n)\)</span> time. This is a tight lower bound, because we can count the number of elements between <span class="math">\(a\)</span> and <span class="math">\(b\)</span> by looping through and checking whether each element is in <span class="math">\([a, b]\)</span> in linear time.</p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 2)</h3>
+<p>What is a <b>tight</b> theoretical lower bound for this problem, assuming that the array is <b>sorted</b>? State your answer in asymptotic notation as a function of the number of elements in the array, <span class="math">\(n\)</span>.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log n)\)</span>.</p>
+<p>We can do this in worst-case <span class="math">\(\Theta(\log n)\)</span> time with binary search: find the index of <span class="math">\(a\)</span> in worst-case <span class="math">\(\Theta(\log n)\)</span> time; find the index of <span class="math">\(b\)</span> in worst-case <span class="math">\(\Theta(\log n)\)</span> time; and subtract the two indices (and add one) to get the total number of elements between <span class="math">\(a\)</span> and <span class="math">\(b\)</span>, inclusive.</p>
+<p>There cannot be an algorithm that is better than <span class="math">\(\Theta(\log n)\)</span> in the worst case, so this is a tight lower bound. To see why, recognize that we can solve the query problem (determine True/False if a target <span class="math">\(t\)</span> is in a sorted array) with any algorithm that solves this problem by setting <span class="math">\(a = b = t\)</span>. If an algorithm solves this problem in faster than <span class="math">\(\Theta(\log n)\)</span>, it will also solve the query problem in faster than <span class="math">\(\Theta(\log n)\)</span>, but we saw in class that the query problem has a theoretical lower bound of <span class="math">\(\Theta(\log n)\)</span>, so such an algorithm cannot exist.</p>
+</details>
+
+</div>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #121</h2>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose you are given a (possibly unsorted) array of <span class="math">\(n\)</span> floating point numbers and are tasked with counting the number of elements in the array which are within ten of the array's maximum (you are not told the maximum). That is, you must count the number of elements <span class="math">\(x\)</span> such that <span class="math">\(m - x \geq 10\)</span>, where <span class="math">\(m\)</span> is the array's maximum. You may assume that the array does not contain duplicate numbers.</p>
+<p>Now you may assume that the array is <b>sorted</b>.</p>
+<p>This question has two parts:</p>
+<p>First, give the tight theoretical lower bound for the worst case time complexity of any algorithm which solves this problem:</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log n)\)</span></p>
+</details>
+
+<p>Second, give a short description of an optimal algorithm. Your description does not need to be exact or very long (3 to 4 sentences will do). You do not <i>need</i> to provide pseudocode, but you can if you wish.</p>
+<details>
+    <summary>Solution</summary>
+<p>The maximum <span class="math">\(m\)</span> can be found in <span class="math">\(\Theta(1)\)</span> time -- it is the last element of the array. Use binary search (<span class="math">\(\Theta(\log n)\)</span> time) to look for <span class="math">\(m - 10\)</span>, but modify the code so that the last-checked index is returned if <span class="math">\(m -
+        10\)</span> is not found (everything to the right of that index is at least <span class="math">\(m - 10\)</span>). Subtract this index from <span class="math">\(n\)</span> to find the number of elements within 10 of the maximum.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
         <h2>Problem #122</h2>
-        <p>Tags: <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/verifying recursion.html'>verifying recursion</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/verifying recursion.html'>verifying recursion</a>, <a href='./tags/binary search.html'>binary search</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math">\(\geq x\)</span>). The full code is shown below for convenience:</p>
@@ -508,7 +891,7 @@ def new_binary_search(arr, start, stop, target):
 
         <div class="problem-outer">
         <h2>Problem #123</h2>
-        <p>Tags: <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/binary search.html'>binary search</a>, <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/recursion.html'>recursion</a>, <a href='./tags/binary search.html'>binary search</a>, <a href='./tags/verifying recursion.html'>verifying recursion</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math">\(\geq x\)</span>). The full code is shown below for convenience:</p>
@@ -571,7 +954,7 @@ def new_binary_search(arr, start, stop, target):
 
         <div class="problem-outer">
         <h2>Problem #124</h2>
-        <p>Tags: <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/best and worst case.html'>best and worst case</a>, <a href='./tags/binary search.html'>binary search</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>worst case</b> time complexity of binary search on an array of size <span class="math">\(n\)</span> under the assumption that the target is guaranteed to appear in the array more than <span class="math">\(n/6\)</span> times? You may assume that the input array is sorted.</p>
@@ -597,7 +980,7 @@ def new_binary_search(arr, start, stop, target):
 
         <div class="problem-outer">
         <h2>Problem #125</h2>
-        <p>Tags: <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/binary search.html'>binary search</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the problem of searching for an element <span class="inline-code"><code>t</code></span> in a <i>sorted</i> array, with the added requirement that if <span class="inline-code"><code>t</code></span> is in the array multiple times, we return the index of the <i>first</i> occurrence. For example, if <span class="inline-code"><code>arr = [3, 4, 4, 4, 5, 8]</code></span>, and <span class="inline-code"><code>t = 4</code></span>, the code should return <span class="inline-code"><code>1</code></span>, since the first <span class="inline-code"><code>4</code></span> is at index one.</p>
@@ -639,36 +1022,187 @@ else:
 
 
         <div class="problem-outer">
-        <h2>Problem #140</h2>
-        <p>Tags: <a href='../tags/loop invariants.html'>loop invariants</a>, <a href='../tags/binary search.html'>binary search</a></p>
+        <h2>Problem #126</h2>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/sorted structure.html'>sorted structure</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Consider the iterative implementation of binary search shown below:</p>
+<p>A <i>rotated sorted array</i> is an array that is the result of taking a sorted array and moving a contiguous section from the front of the array to the back of the array. For example, the array <span class="inline-code"><code>[5, 6, 7, 1, 2, 3, 4]</code></span> is a rotated sorted array: it is the result of taking the sorted array <span class="inline-code"><code>[1, 2, 3, 4, 5, 6, 7]</code></span> and moving the first 4 elements, <span class="inline-code"><code>[1, 2, 3, 4]</code></span>, to the back of the array. Sorted arrays are also rotated sorted arrays, technically speaking, since you can think of a sorted array as the result of taking the sorted array and moving the first 0 elements to the back.</p>
+<p>The function below attempts to find the value of the minimum element in a rotated sorted array. It is given the array <span class="inline-code"><code>arr</code></span> and the indices <span class="inline-code"><code>start</code></span> and <span class="inline-code"><code>stop</code></span> which indicate the range of the array that should be searched. One line in the function has been left blank.</p>
 <pre class="code"><code class="language-python">import math
+def find_minimum_in_rotated_sorted(arr, start, stop):
+    """
+    Searches arr[start:stop] for the smallest element.
+    Assumes arr is a rotated sorted array.
+    """
+    if stop &lt; start:
+        return arr[0]
+    if stop == start:
+        return arr[start]
+    mid = (start + stop) // 2
 
-def iterative_binary_search(arr, target):
-
-    start = 0
-    stop = len(arr)
-
-    while (stop - start) &gt; 0:
-        print(arr[start])
-        middle = math.floor((start + stop) / 2)
-        if arr[middle] == target:
-            return middle
-        elif arr[middle] &gt; target:
-            stop = middle
-        else:
-            start = middle + 1
-
-    return None</code></pre>
-<p>Which of the following loop invariants is true, assuming that <span class="inline-code"><code>arr</code></span> is sorted and non-empty, and <span class="inline-code"><code>target</code></span> is <b>not</b> in the array? Select all that apply.</p>
-<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, <span class="inline-code"><code>stop - start >= 0</code></span>.</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, <span class="inline-code"><code>stop - start >= 1</code></span>.</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, <span class="inline-code"><code>arr[start] <= target</code></span>.</p></label></div></div>
+    if ________________:
+        return arr[mid + 1]
+    if arr[start] &lt; arr[mid]:
+        return find_minimum_in_rotated_sorted(arr, mid, stop)
+    else:
+        return find_minimum_in_rotated_sorted(arr, start, mid - 1)</code></pre>
+<p>What should be filled in the blank line to make this function work correctly?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[middle] > arr[stop-1]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[middle] < arr[stop-1]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[middle] > arr[start]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[middle] < arr[start]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[middle] > arr[middle+1]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[middle] < arr[middle+1]</code></span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>The first option is correct.</p>
+<p>5th option: <span class="inline-code"><code>arr[middle] > arr[middle+1]</code></span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #132</h2>
+        <p>Tags: <a href='./tags/recurrence relations.html'>recurrence relations</a>, <a href='./tags/lecture-06.html'>lecture-06</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>State (but do not solve) the recurrence describing the runtime of the following function.</p>
+<pre class="code"><code class="language-python">def foo(n):
+    if n &lt; 10:
+        print("Hello world.")
+        return
+
+    for i in range(n):
+        print(i)
+
+    for i in range(6):
+        foo(n//3)</code></pre>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(T(n) = 6 T(n/3) + \Theta(n)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #134</h2>
+        <p>Tags: <a href='./tags/recurrence relations.html'>recurrence relations</a>, <a href='./tags/lecture-06.html'>lecture-06</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>State (but do not solve) the recurrence relation describing this function's run time.</p>
+<pre class="code"><code>import random
+
+def foo(n):
+    if n &lt;= 2:
+        return
+
+    for i in range(n):
+        for j in range(i, n):
+            print(i)
+
+    return foo(n//2) + foo(n//2)</code></pre>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(T(n) = 2 T(n/2) + T(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(T(n) = 2 T(n/2) + T(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(T(n) = 2 T(n/2) + \Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(T(n) = 2 T(n/2) + \Theta(n^2)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(T(n) = 2 T(n/2) + \Theta(n^2)\)</span>. The nested loops are dependent: the inner loop runs <span class="math">\(n - i\)</span> times, for a total of <span class="math">\(n + (n-1) + \ldots + 1 = \Theta(n^2)\)</span>. Then there are two recursive calls, each on a problem of size <span class="math">\(n/2\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #151</h2>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/recurrence relations.html'>recurrence relations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Solve the below recurrence, stating the solution in asymptotic notation. Show your work.</p>
+<div class="math">\[
+        T(n) =
+        \begin{cases}
+            T(n/2) + \Theta(n) & n > 1 \\
+            \Theta(1) & n = 1
+        \end{cases}\]</div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p>Unrolling several times, we find:</p>
+<div class="math">\[
+            T(n)
+            =
+                T(n/2) + n
+                \\
+            =
+                T(n/4) + \frac{n}{2} + n
+                \\
+            =
+                T(n/8) + \frac{n}{4} + \frac{n}{2} + n
+                \\\]</div>
+<p>On the <span class="math">\(k\)</span>th unroll, we'll get:</p>
+<div class="math">\[
+            T(n) = T(n/2^k) + \left[                n + \frac{n}{2} + \frac{n}{4} + \ldots + \frac{n}{2^{k-1}}\right]\]</div>
+<p>It will take <span class="math">\(\log_2 n\)</span> unrolls to reach the base case. Substituting this for <span class="math">\(k\)</span>, we get:</p>
+<div class="math">\[\begin{aligned}
+            T(n)
+            &= T(n/2^{\log_2 n}) + \left[                n + \frac{n}{2} + \frac{n}{4} + \ldots + \frac{n}{2^{(\log_2 n)-1}}
+            \right]            \\
+            &= T(1) + n\left[                1 + \frac{1}{2} + \frac{1}{4} + \ldots + \frac{1}{2^{(\log_2 n)-1}}
+            \right]            \\
+            & = T(1) + c n\\
+            & = \Theta(1) + c n\\
+            &= \Theta(n)
+        \end{aligned}\]</div>
+<p>The sum in brackets is a geometric series, which is at most <span class="math">\(1 + \frac{1}{2} + \frac{1}{4} + \ldots = 2\)</span>, so it is a constant <span class="math">\(c\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #152</h2>
+        <p>Tags: <a href='./tags/lecture-05.html'>lecture-05</a>, <a href='./tags/recurrence relations.html'>recurrence relations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Solve the below recurrence, stating the solution in asymptotic notation. You do not need to show your work (and your work won't be graded for partial credit, so be careful!).</p>
+<div class="math">\[
+        T(n) =
+        \begin{cases}
+            T(n/3) + \Theta(n) & n > 1 \\
+            \Theta(1) & n = 1
+        \end{cases}\]</div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p>Unrolling several times, we find:</p>
+<center><div class="image"><img src="images/152/plot1.png" /></div></center>
+<p>On the <span class="math">\(k\)</span>th unroll, we'll get:</p>
+<div class="math">\[
+            T(n) = T(n/3^k) + \left[                n + \frac{n}{3} + \frac{n}{9} + \ldots + \frac{n}{3^{k-1}}\right]\]</div>
+<p>It will take <span class="math">\(\log_3 n\)</span> unrolls to each the base case. Substituting this for <span class="math">\(k\)</span>, we get:</p>
+<center><div class="image"><img src="images/152/plot2.png" /></div></center>
 </details>
 
     </div>

@@ -280,9 +280,19 @@
                         "number": 5,
                         "date": "2026-10-08",
                         "topic": "Recurrences and Binary Search",
-                        "reading": "Sections 2.4.1 and 2.2"
+                        "reading": "Sections 2.4.1 and 2.2",
+                        "videos": [
+                            {
+                                "title": "Case Study: Matrix Multiplication",
+                                "url": "https://youtu.be/XkmFzgpufPQ"
+                            }
+                        ]
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "slides.pdf": {
+                            "path": "materials/lectures/05-binary_search-recurrences/slides.pdf"
+                        }
+                    }
                 },
                 "06-sorting": {
                     "metadata": {
