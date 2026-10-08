@@ -79,6 +79,9 @@
                     "artifacts": {
                         "homework.pdf": {
                             "path": "materials/homeworks/01-time_complexity/homework.pdf"
+                        },
+                        "solution.pdf": {
+                            "path": "materials/homeworks/01-time_complexity/solution.pdf"
                         }
                     }
                 },
