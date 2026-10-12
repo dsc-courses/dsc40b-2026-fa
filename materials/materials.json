@@ -307,7 +307,11 @@
                         "topic": "Sorting",
                         "reading": "Section 2.1 and 2.3"
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "slides.pdf": {
+                            "path": "materials/lectures/06-sorting/slides.pdf"
+                        }
+                    }
                 },
                 "07-quickselect": {
                     "metadata": {
