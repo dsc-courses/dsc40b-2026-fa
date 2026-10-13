@@ -469,7 +469,11 @@
                         "date": "2026-10-12",
                         "topic": "Asymptotic Notation; Best, Worst, and Expected Time (Lectures 03&ndash;04)"
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "solution.pdf": {
+                            "path": "materials/quizzes/02/solution.pdf"
+                        }
+                    }
                 },
                 "03": {
                     "metadata": {
