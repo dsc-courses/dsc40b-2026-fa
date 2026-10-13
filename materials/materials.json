@@ -470,6 +470,9 @@
                         "topic": "Asymptotic Notation; Best, Worst, and Expected Time (Lectures 03&ndash;04)"
                     },
                     "artifacts": {
+                        "quiz.pdf": {
+                            "path": "materials/quizzes/02/quiz.pdf"
+                        },
                         "solution.pdf": {
                             "path": "materials/quizzes/02/solution.pdf"
                         }
