@@ -105,7 +105,11 @@
                         "released": "2026-10-14 00:00:00",
                         "due": "2026-10-20 23:59:00"
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "homework.pdf": {
+                            "path": "materials/homeworks/03-recurrences-sorting/homework.pdf"
+                        }
+                    }
                 },
                 "04-quickselect-bst": {
                     "metadata": {
@@ -305,17 +309,14 @@
                         "number": 6,
                         "date": "2026-10-13",
                         "topic": "Sorting",
-                        "reading": "Section 2.1 and 2.3",
-                        "videos": [
-                            {
-                                "title": "Using sorted structure to solve the movie problem efficiently",
-                                "url": "https://youtu.be/Y6j1RweAI_I?t=3689"
-                            }
-                        ]
+                        "reading": "Section 2.1 and 2.3"
                     },
                     "artifacts": {
                         "slides.pdf": {
                             "path": "materials/lectures/06-sorting/slides.pdf"
+                        },
+                        "slides-marked.pdf": {
+                            "path": "materials/lectures/06-sorting/slides-marked.pdf"
                         }
                     }
                 },
@@ -324,7 +325,13 @@
                         "number": 7,
                         "date": "2026-10-15",
                         "topic": "Quickselect",
-                        "reading": null
+                        "reading": null,
+                        "videos": [
+                            {
+                                "title": "Using sorted structure to solve the movie problem efficiently",
+                                "url": "https://youtu.be/Y6j1RweAI_I?t=3689"
+                            }
+                        ]
                     },
                     "artifacts": {}
                 },
@@ -488,7 +495,7 @@
                     "metadata": {
                         "number": 3,
                         "date": "2026-10-19",
-                        "topic": "Recurrences, Binary Search, and Sorting (Lectures 05&ndash;06)"
+                        "topic": "Recurrences, Binary Search, and Sorting (Lectures 05&ndash;06 and the start of Lecture 07)"
                     },
                     "artifacts": {}
                 },
