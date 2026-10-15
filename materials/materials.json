@@ -95,6 +95,9 @@
                     "artifacts": {
                         "homework.pdf": {
                             "path": "materials/homeworks/02-asymptotic/homework.pdf"
+                        },
+                        "solution.pdf": {
+                            "path": "materials/homeworks/02-asymptotic/solution.pdf"
                         }
                     }
                 },
