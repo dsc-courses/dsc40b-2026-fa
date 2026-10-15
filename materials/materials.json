@@ -336,7 +336,11 @@
                             }
                         ]
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "slides.pdf": {
+                            "path": "materials/lectures/07-quickselect/slides.pdf"
+                        }
+                    }
                 },
                 "08-bst": {
                     "metadata": {
