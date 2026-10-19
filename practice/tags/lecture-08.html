@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head data-automata-theme="default">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DSC 40B</title>
+    <link href="/static/style.css" rel="stylesheet">
+    
+    <script defer src="https://unpkg.com/lucide@1.48.0/dist/umd/lucide.min.js"></script>
+    
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+            },
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    
+    
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    
+    
+
+
+
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+
+    <!-- Mobile menu button -->
+<div class="mobile-navbar lg:hidden fixed top-0 left-0 right-0 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-50 flex items-center">
+    <button id="mobile-menu-button" class="py-5 pl-4 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <i data-lucide="menu" class="w-6 h-5"></i>
+    </button>
+    <span class="ml-2 font-semibold">DSC 40B</span>
+</div>
+
+    <div class="flex min-h-screen">
+        <!-- Left Navigation Column -->
+        <nav id="sidebar" class="
+    w-64 flex-none
+    fixed lg:sticky
+    top-0 left-0 h-screen
+    transform -translate-x-full lg:translate-x-0 transition-transform duration-200 ease-in-out
+    bg-gray-50 dark:bg-gray-900
+    z-40
+    sidebar-mobile-spacing lg:pt-6
+    flex flex-col items-end
+    border-r lg:border-r-0 border-gray-200 dark:border-gray-700
+    ">
+
+    <div class="pt-6 pr-6 flex">
+        <ul class="space-y-2">
+            
+            <li>
+                <a href="/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="calendar-days" class="mr-2 text-slate-400"></i>
+Schedule
+                </a>
+            </li>
+            
+            <li>
+                <a href="/syllabus.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="scale" class="mr-2 text-slate-400"></i>
+Syllabus
+                </a>
+            </li>
+            
+            <li>
+                <a href="/office_hours.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="briefcase-business" class="mr-2 text-slate-400"></i>
+Office Hours
+                </a>
+            </li>
+            
+            <li>
+                <a href="/materials/default/notes/book.pdf" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="book-open" class="mr-2 text-slate-400"></i>
+Course Notes
+                </a>
+            </li>
+            
+            <li>
+                <a href="/practice/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="dumbbell" class="mr-2 text-slate-400"></i>
+Practice
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://campuswire.com/p/G43FA47CB" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-more" class="mr-2 text-slate-400"></i>
+Campuswire
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://www.gradescope.com/courses/1409241" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="spell-check" class="mr-2 text-slate-400"></i>
+Gradescope
+                </a>
+            </li>
+            
+            <li>
+                <a href="http://sierra.ucsd.edu/qa/dsc40b" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-question-mark" class="mr-2 text-slate-400"></i>
+Live Q&A
+                </a>
+            </li>
+            
+            <li>
+                <a href="/staff.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="users" class="mr-2 text-slate-400"></i>
+Course Staff
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="flex mr-9 pt-3 pb-6">
+        <button id="theme-toggle" class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-full transition-colors">
+            <span id="theme-icon" class="mr-1.5">☾</span>
+            <span id="theme-text">Dark</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Overlay for mobile -->
+<div id="overlay" class="fixed inset-0 bg-gray-200/40 dark:bg-black/50 backdrop-blur-[2px] z-30 hidden"></div>
+
+        <!-- Main Content Column -->
+        
+<!-- Main Content Column -->
+<div class="
+    w-full
+    bg-white dark:bg-gray-800
+    md:border-l
+    border-gray-200 dark:border-gray-700
+    md:min-w-180
+    px-4 md:px-12
+    pt-20 lg:pt-12
+    pb-24
+    ">
+
+    <div class="
+    text-xl font-semibold
+    left-12 right-12
+    py-4 lg:pt-0 lg:pb-0 lg:mb-10
+    lg:static
+    truncate
+    flex
+    ">
+    <div class="
+        shrink
+        lg:border-b border-gray-200 dark:border-gray-700
+        ">
+        <span class="hidden lg:inline">
+            DSC 40B
+            &ndash;
+            Theoretical Foundations of Data Science II
+        </span>
+    </div>
+</div>
+
+    <div class="prose dark:prose-invert">
+    
+<style>
+.multiple-choices .choice label, .multiple-select .choice label {
+    display: flex; align-items: center; gap: 0.6em; margin: 0.25em 0; cursor: pointer;
+}
+.multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+</style>
+<h1>Problems tagged with "lecture-08"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #150</h2>
+        <p>Tags: <a href='../tags/quicksort.html'>quicksort</a>, <a href='../tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Which of the following are properties of Quicksort? Select all that apply.</p>
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>expected time complexity is <span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>expected time complexity is <span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>expected time complexity is <span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>expected time complexity is <span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>best case time complexity is <span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>best case time complexity is <span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>best case time complexity is <span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>best case time complexity is <span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>worst case time complexity is <span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>worst case time complexity is <span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>worst case time complexity is <span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>worst case time complexity is <span class="math">\(\Theta(n^2 \log n)\)</span></p></label></div></div>
+<details>
+    <summary>Solution</summary>
+<p>Expected time complexity is <span class="math">\(\Theta(n \log n)\)</span>, best case time complexity is <span class="math">\(\Theta(n \log n)\)</span>, and worst case time complexity is <span class="math">\(\Theta(n^2)\)</span>. In the best case, every pivot splits the array in half, giving the recurrence <span class="math">\(T(n) = 2T(n/2) + \Theta(n)\)</span> (the same as mergesort), whose solution is <span class="math">\(\Theta(n \log n)\)</span>. In the worst case, every pivot is the minimum or maximum, giving <span class="math">\(T(n) = T(n-1) + \Theta(n)\)</span>, whose solution is <span class="math">\(\Theta(n^2)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #161</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a>, <a href='../tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>True or False: the below is a binary search tree.</p>
+<center><div class="image"><img src="../images/161/binary_tree_2.jpg" /></div></center>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>False. 24 is in the left subtree of 23, but 24 > 23. (It is also in the left subtree of 34, which is fine, but every node in 23's left subtree must be less than 23.)</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #162</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a>, <a href='../tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the following binary search tree:</p>
+<center><div class="image"><img src="../images/162/binary_tree_3.jpg" /></div></center>
+<p>How many comparisons does it take to query 3? That is, how many times is 3 compared to another number during a query?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>1</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>2</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>3</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>4</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>5</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>Answer: 4. The query compares 3 to 54, then 50, then 16, then 5. Since 5 has no left child, the query ends there and reports that 3 is not in the tree.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #163</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a>, <a href='../tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the following binary search tree:</p>
+<center><div class="image"><img src="../images/163/binary_tree_3.jpg" /></div></center>
+<p>Where should we insert 49 ?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>the left edge of 50</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>the right edge of 16</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>the left edge of 60</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>the right edge of 34</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>the left edge of 34</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>The right edge of 34. Starting at the root: 49 < 54, so go left to 50; 49 < 50, so go left to 16; 49 > 16, so go right to 34; 49 > 34, and 34 has no right child, so 49 becomes the right child of 34.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #164</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a>, <a href='../tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Draw the binary search tree that results from inserting the following nodes into an initially empty tree, in the order given: <span class="inline-code"><code>5, 3, 1, 8, 4, 2, 6</code></span>.</p>
+<details>
+    <summary>Solution</summary>
+<center><div class="image"><img src="../images/164/plot.png" /></div></center>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #165</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a>, <a href='../tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose the numbers <span class="inline-code"><code>41</code></span>, <span class="inline-code"><code>32</code></span>, and <span class="inline-code"><code>40</code></span> are inserted (in that order) into the below binary search tree. Draw where the new nodes will appear.</p>
+<center><div class="image"><img src="../images/165/bst.png" /></div></center>
+<details>
+    <summary>Solution</summary>
+<p>41 will be the right child of 33.</p>
+<p>32 will be the right child of 31.</p>
+<p>40 will be the left child of 41.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #166</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a>, <a href='../tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose the numbers <span class="inline-code"><code>41</code></span>, <span class="inline-code"><code>32</code></span>, and <span class="inline-code"><code>33</code></span> are inserted (in that order) into the below binary search tree. Draw where the new nodes will appear.</p>
+<center><div class="image"><img src="../images/166/bst.png" /></div></center>
+<details>
+    <summary>Solution</summary>
+<p>41 will become the left child of 46.</p>
+<p>32 will become the left child of 35.</p>
+<p>33 will become the right child of 32.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #167</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a>, <a href='../tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Define the <b>largest gap</b> in a collection of numbers (also known as its <b>range</b>) to be greatest difference between two elements in the collection (in absolute value). For example, the largest gap in <span class="math">\(\{4, 9, 5, 1, 6\}\)</span> is 8 (between 1 and 9).</p>
+<p>Suppose a collection of <span class="math">\(n\)</span> numbers is stored in a <b>balanced</b> binary search tree. What is the time complexity required of an efficient algorithm to calculate the largest gap in the collection? State your answer as a function of <span class="math">\(n\)</span> in asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log n)\)</span>. To find the largest gap, we simply need to find the minimum and the maximum in the balanced BST, which both take <span class="math">\(\Theta(\log{n})\)</span> time. Therefore adding them up, the time complexity for calculating the largest gap is <span class="math">\(\Theta(\log{n})\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #168</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a>, <a href='../tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Define the <b>largest gap</b> in a collection of numbers to be the largest difference between two distinct elements in the collection (in absolute value). For example, the largest gap in <span class="math">\(\{4, 9, 1, 6\}\)</span> is 8 (between 1 and 9).</p>
+<p>Suppose a collection of <span class="math">\(n\)</span> numbers is stored in a <b>balanced</b> binary search tree. What is the time complexity required for an efficient algorithm to calculate the largest gap of the numbers in the BST? State your answer as a function of <span class="math">\(n\)</span> in asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log n)\)</span>. With the same reasoning as Problem 20, we only require the largest and smallest number in the BST in order to find the largest gap (just subtract the smallest from the largest number), therefore the time complexity of this operation in a balanced BST will be <span class="math">\(\Theta(\log{n})\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #169</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a>, <a href='../tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a collection of <span class="math">\(n\)</span> numbers is stored in a balanced binary search tree. What is the time complexity required of an efficient algorithm to calculate the mean of the collection? State your answer as a function of <span class="math">\(n\)</span> in asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>. Without knowing any information on the numbers, the best we can do to compute the mean is to add all numbers in the BST divided by the total number of nodes in the BST. To do this, we will have to traverse the entire BST no matter what (via some traversal algorithm), which takes <span class="math">\(\Theta(n)\)</span> time. (Note that the word <span class="math">\(\textbf{balanced}\)</span> does not help in this question!!!)</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #170</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a>, <a href='../tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Define the <b>smallest gap</b> in a collection of numbers to be the smallest difference between two distinct elements in the collection (in absolute value). For example, the smallest gap in <span class="math">\(\{4, 9, 1, 6\}\)</span> is 2 (between 4 and 6).</p>
+<p>Suppose a collection of <span class="math">\(n\)</span> numbers is stored in a <b>balanced</b> binary search tree. What is the time complexity required for an efficient algorithm to calculate the smallest gap of the numbers in the BST? State your answer as a function of <span class="math">\(n\)</span> in asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>. The smallest gap in the BST can occur between any two consecutive pairs of numbers in the BST, meaning that no matter what we need to search through the whole tree to obtain this number, taking <span class="math">\(\Theta(n)\)</span> time.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #171</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a>, <a href='../tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the following <span class="inline-code"><code>.insert()</code></span> method for a binary search tree:</p>
+<pre class="code"><code class="language-python">def insert(self, new_key):
+    # assume new_key is unique
+    current_node = self.root
+    parent = None
+
+    # find place to insert the new node
+    while current_node is not None:
+        parent = current_node
+        if current_node.key &lt; new_key:
+            current_node = current_node.right
+        else: # current_node.key &gt; new_key
+            current_node = current_node.left
+
+    # create the new node
+    new_node = Node(key=new_key, parent=parent)
+
+    # if parent is None, this is the root. Otherwise, update the
+    # parent's left or right child as appropriate
+    if parent is None:
+        self.root = new_node
+    elif parent.key &lt; new_key:
+        parent.right = new_node
+    else:
+        parent.left = new_node</code></pre>
+<p>Let's say we want to insert a new number <span class="math">\(x\)</span> into a binary search tree.Define <span class="inline-code"><code>height_left</code></span> as the height of the left half of the binary tree (the root and everything to the left of it), and <span class="inline-code"><code>height_right</code></span> as the height of the right side. For this problem, measure height as the number of <i>nodes</i> on the longest path starting at the root (so a tree consisting of only a root has height 1). Let <span class="inline-code"><code>height_left</code></span> be greater than <span class="inline-code"><code>height_right</code></span>. In the worst case, how many iterations of the while loop of <span class="inline-code"><code>.insert()</code></span> will need to be completed?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>height_left</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>height_right</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>height_left</code></span> + <span class="inline-code"><code>height_right</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>None of the above</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="inline-code"><code>height_left</code></span>. Each iteration of the while loop moves one level down the tree, visiting one node. In the worst case, <span class="math">\(x\)</span> is inserted below the deepest node, which is on the left side since <span class="inline-code"><code>height_left</code></span> is greater than <span class="inline-code"><code>height_right</code></span>. The loop visits every node on the path from the root to that node, which is <span class="inline-code"><code>height_left</code></span> nodes.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #172</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a>, <a href='../tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>bst</code></span> is a binary search tree with <span class="math">\(n\)</span> nodes constructed in the following way:</p>
+<pre class="code"><code>bst = BinarySearchTree()
+for i in range(n):
+    if i % 2 == 0:
+        bst.insert(i)</code></pre>
+<p>What is the time complexity of the following code?</p>
+<pre class="code"><code>for i in range(n):
+    bst.query(i)</code></pre>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta( \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span>. The keys <span class="math">\(0, 2, 4, \ldots\)</span> are inserted in increasing order, so each new node becomes the right child of the previous one and the tree is a "linked list" of height <span class="math">\(\Theta(n)\)</span>. Querying <span class="math">\(i\)</span> walks down this chain past about <span class="math">\(i/2\)</span> nodes, so the total time is <span class="math">\(\sum_{i=0}^{n-1} \Theta(i) = \Theta(n^2)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #173</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/binary search trees.html'>binary search trees</a>, <a href='../tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a collection of unique numbers is stored in a <b>balanced</b> binary search tree, and that each node in the tree has been given a <span class="inline-code"><code>.size</code></span> attribute which contains the number of nodes in the subtree rooted at that node. What is the time complexity required of an efficient algorithm for computing the number of elements in the collection which are larger than some threshold, <span class="math">\(t\)</span>?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log{n})\)</span>. We can consider the following algorithm: Query for <span class="math">\(t\)</span> in the BST, and define a new variable total for tracking the result. For each step of the recursion, if we go to the left, add the size of the right branch + 1 to the running total. We repeat the above until the query() function finishes running, which will give us exactly the number of elements in the collection which are larger than <span class="math">\(t\)</span>. Since we are querying (and adding some constant time updating steps) in a balanced BST, the time complexity for this question will be <span class="math">\(\Theta(\log{n})\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+    </div>
+</div>
+
+    </div>
+
+    <script>
+        // Restore saved theme on page load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else if (savedTheme === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Dark mode toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        // Update button to reflect current theme
+        function updateThemeButton() {
+            const isDark = document.documentElement.classList.contains('dark');
+            themeIcon.textContent = isDark ? '☀' : '☾';
+            themeText.textContent = isDark ? 'Light' : 'Dark';
+        }
+
+        // Initialize button state
+        updateThemeButton();
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.contains('dark');
+
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+
+            updateThemeButton();
+        });
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        menuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        });
+
+        // Initialize Lucide icons. The script is deferred, so wait for it to
+        // load; DOMContentLoaded fires after deferred scripts have run.
+        document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+        
+        // highlight each <pre><code> block with a language-* class (e.g. from
+        // ```python), once the deferred highlight.js has run; a block without
+        // one is left plain, as guessing its language is often wrong
+        document.addEventListener('DOMContentLoaded', () => {
+            hljs.configure({ cssSelector: 'pre code[class*="language-"]' });
+            hljs.highlightAll();
+        });
+        
+    </script>
+
+</body>
+</html>

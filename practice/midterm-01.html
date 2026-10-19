@@ -190,6 +190,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 <li><a href='./tags/loop invariants.html'>loop invariants</a></li>
 <li><a href='./tags/mergesort.html'>mergesort</a></li>
 <li><a href='./tags/quickselect.html'>quickselect</a></li>
+<li><a href='./tags/quicksort.html'>quicksort</a></li>
 <li><a href='./tags/recurrence relations.html'>recurrence relations</a></li>
 <li><a href='./tags/recursion.html'>recursion</a></li>
 <li><a href='./tags/sorted structure.html'>sorted structure</a></li>
@@ -4729,7 +4730,7 @@ def mystery_partition(numbers):
 
         <div class="problem-outer">
         <h2>Problem #148</h2>
-        <p>Tags: <a href='./tags/quickselect.html'>quickselect</a></p>
+        <p>Tags: <a href='./tags/lecture-07.html'>lecture-07</a>, <a href='./tags/quickselect.html'>quickselect</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>True or False: <span class="inline-code"><code>quickselect</code></span> requires the input array to be sorted in order to function correctly.</p>
@@ -4755,7 +4756,7 @@ def mystery_partition(numbers):
 
         <div class="problem-outer">
         <h2>Problem #149</h2>
-        <p>Tags: <a href='./tags/quickselect.html'>quickselect</a></p>
+        <p>Tags: <a href='./tags/lecture-07.html'>lecture-07</a>, <a href='./tags/quickselect.html'>quickselect</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>True or False: in order to guarantee that its output is correct, <span class="inline-code"><code>quickselect</code></span> must be called on a sorted list.</p>
@@ -4769,6 +4770,37 @@ def mystery_partition(numbers):
     <summary>Solution</summary>
 <p>False.</p>
 <p><span class="inline-code"><code>quickselect</code></span> works on unsorted arrays: it partitions the array around a pivot, which puts the pivot in its correct sorted position, and then recurses only on the side that contains the <span class="math">\(k\)</span>th smallest element. If the array were already sorted, we wouldn't need <span class="inline-code"><code>quickselect</code></span> at all; we could just look up the element at index <span class="math">\(k\)</span> in <span class="math">\(\Theta(1)\)</span> time.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #150</h2>
+        <p>Tags: <a href='./tags/quicksort.html'>quicksort</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Which of the following are properties of Quicksort? Select all that apply.</p>
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>expected time complexity is <span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>expected time complexity is <span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>expected time complexity is <span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>expected time complexity is <span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>best case time complexity is <span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>best case time complexity is <span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>best case time complexity is <span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>best case time complexity is <span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>worst case time complexity is <span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>worst case time complexity is <span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>worst case time complexity is <span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>worst case time complexity is <span class="math">\(\Theta(n^2 \log n)\)</span></p></label></div></div>
+<details>
+    <summary>Solution</summary>
+<p>Expected time complexity is <span class="math">\(\Theta(n \log n)\)</span>, best case time complexity is <span class="math">\(\Theta(n \log n)\)</span>, and worst case time complexity is <span class="math">\(\Theta(n^2)\)</span>. In the best case, every pivot splits the array in half, giving the recurrence <span class="math">\(T(n) = 2T(n/2) + \Theta(n)\)</span> (the same as mergesort), whose solution is <span class="math">\(\Theta(n \log n)\)</span>. In the worst case, every pivot is the minimum or maximum, giving <span class="math">\(T(n) = T(n-1) + \Theta(n)\)</span>, whose solution is <span class="math">\(\Theta(n^2)\)</span>.</p>
 </details>
 
     </div>
@@ -4947,7 +4979,7 @@ def mystery_partition(numbers):
 
         <div class="problem-outer">
         <h2>Problem #155</h2>
-        <p>Tags: <a href='./tags/loop invariants.html'>loop invariants</a>, <a href='./tags/quickselect.html'>quickselect</a></p>
+        <p>Tags: <a href='./tags/loop invariants.html'>loop invariants</a>, <a href='./tags/lecture-07.html'>lecture-07</a>, <a href='./tags/quickselect.html'>quickselect</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Recall the partition operation from <span class="inline-code"><code>quickselect</code></span>. Which of the following arrays could have been partitioned at least once? Select all that apply.</p>
@@ -4971,7 +5003,7 @@ def mystery_partition(numbers):
 
         <div class="problem-outer">
         <h2>Problem #156</h2>
-        <p>Tags: <a href='./tags/quickselect.html'>quickselect</a></p>
+        <p>Tags: <a href='./tags/lecture-07.html'>lecture-07</a>, <a href='./tags/quickselect.html'>quickselect</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Which of the following arrays could have been partitioned at least once? (Select all that apply)</p>
@@ -4997,7 +5029,7 @@ def mystery_partition(numbers):
 
         <div class="problem-outer">
         <h2>Problem #157</h2>
-        <p>Tags: <a href='./tags/quickselect.html'>quickselect</a></p>
+        <p>Tags: <a href='./tags/lecture-07.html'>lecture-07</a>, <a href='./tags/quickselect.html'>quickselect</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>The code for <span class="inline-code"><code>quickselect</code></span> is shown below. It is the same as the code provided in lecture, except that it contains an added <span class="inline-code"><code>print</code></span> statement.</p>
@@ -5045,7 +5077,7 @@ def quickselect(arr, k, start, stop):
 
         <div class="problem-outer">
         <h2>Problem #158</h2>
-        <p>Tags: <a href='./tags/quickselect.html'>quickselect</a></p>
+        <p>Tags: <a href='./tags/lecture-07.html'>lecture-07</a>, <a href='./tags/quickselect.html'>quickselect</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a quickselect is being performed on an array. In the middle of the quickselect, you are told that the array has been partitioned exactly twice thus far, and that the third order and sixth order statistics have been identified as a result. Which one of the following arrays is partitioned in this manner?</p>
@@ -5118,7 +5150,7 @@ def foo(arr):
 
         <div class="problem-outer">
         <h2>Problem #160</h2>
-        <p>Tags: <a href='./tags/quickselect.html'>quickselect</a></p>
+        <p>Tags: <a href='./tags/lecture-07.html'>lecture-07</a>, <a href='./tags/quickselect.html'>quickselect</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose quickselect is used on an array of size 11 to find the median. The median is located as the second element of the array (at index 1), but the rest of the array is sorted in descending order. If we change the behavior of quickselect so that the pivot index is no longer random, instead always choosing <span class="inline-code"><code>start</code></span> as the pivot index (<span class="inline-code"><code>pivot_ix = start</code></span>), how many calls to quickselect will need to be made to find the median? Assume that quickselect is using the <span class="inline-code"><code>in_place_partition</code></span> algorithm from lecture. You may also assume that for the first call of quickselect <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>.</p>
@@ -5143,7 +5175,7 @@ def foo(arr):
 
         <div class="problem-outer">
         <h2>Problem #161</h2>
-        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a></p>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>True or False: the below is a binary search tree.</p>
@@ -5165,7 +5197,7 @@ def foo(arr):
 
         <div class="problem-outer">
         <h2>Problem #162</h2>
-        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a></p>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the following binary search tree:</p>
@@ -5191,7 +5223,7 @@ def foo(arr):
 
         <div class="problem-outer">
         <h2>Problem #163</h2>
-        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a></p>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the following binary search tree:</p>
@@ -5217,7 +5249,7 @@ def foo(arr):
 
         <div class="problem-outer">
         <h2>Problem #164</h2>
-        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a></p>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Draw the binary search tree that results from inserting the following nodes into an initially empty tree, in the order given: <span class="inline-code"><code>5, 3, 1, 8, 4, 2, 6</code></span>.</p>
@@ -5236,7 +5268,7 @@ def foo(arr):
 
         <div class="problem-outer">
         <h2>Problem #165</h2>
-        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a></p>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose the numbers <span class="inline-code"><code>41</code></span>, <span class="inline-code"><code>32</code></span>, and <span class="inline-code"><code>40</code></span> are inserted (in that order) into the below binary search tree. Draw where the new nodes will appear.</p>
@@ -5258,7 +5290,7 @@ def foo(arr):
 
         <div class="problem-outer">
         <h2>Problem #166</h2>
-        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a></p>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose the numbers <span class="inline-code"><code>41</code></span>, <span class="inline-code"><code>32</code></span>, and <span class="inline-code"><code>33</code></span> are inserted (in that order) into the below binary search tree. Draw where the new nodes will appear.</p>
@@ -5280,7 +5312,7 @@ def foo(arr):
 
         <div class="problem-outer">
         <h2>Problem #167</h2>
-        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a></p>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Define the <b>largest gap</b> in a collection of numbers (also known as its <b>range</b>) to be greatest difference between two elements in the collection (in absolute value). For example, the largest gap in <span class="math">\(\{4, 9, 5, 1, 6\}\)</span> is 8 (between 1 and 9).</p>
@@ -5300,7 +5332,7 @@ def foo(arr):
 
         <div class="problem-outer">
         <h2>Problem #168</h2>
-        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a></p>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Define the <b>largest gap</b> in a collection of numbers to be the largest difference between two distinct elements in the collection (in absolute value). For example, the largest gap in <span class="math">\(\{4, 9, 1, 6\}\)</span> is 8 (between 1 and 9).</p>
@@ -5320,7 +5352,7 @@ def foo(arr):
 
         <div class="problem-outer">
         <h2>Problem #169</h2>
-        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a></p>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a collection of <span class="math">\(n\)</span> numbers is stored in a balanced binary search tree. What is the time complexity required of an efficient algorithm to calculate the mean of the collection? State your answer as a function of <span class="math">\(n\)</span> in asymptotic notation.</p>
@@ -5339,7 +5371,7 @@ def foo(arr):
 
         <div class="problem-outer">
         <h2>Problem #170</h2>
-        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a></p>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Define the <b>smallest gap</b> in a collection of numbers to be the smallest difference between two distinct elements in the collection (in absolute value). For example, the smallest gap in <span class="math">\(\{4, 9, 1, 6\}\)</span> is 2 (between 4 and 6).</p>
@@ -5359,7 +5391,7 @@ def foo(arr):
 
         <div class="problem-outer">
         <h2>Problem #171</h2>
-        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a></p>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the following <span class="inline-code"><code>.insert()</code></span> method for a binary search tree:</p>
@@ -5407,7 +5439,7 @@ def foo(arr):
 
         <div class="problem-outer">
         <h2>Problem #172</h2>
-        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a></p>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="inline-code"><code>bst</code></span> is a binary search tree with <span class="math">\(n\)</span> nodes constructed in the following way:</p>
@@ -5438,7 +5470,7 @@ for i in range(n):
 
         <div class="problem-outer">
         <h2>Problem #173</h2>
-        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a>, <a href='./tags/binary search trees.html'>binary search trees</a></p>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a>, <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a collection of unique numbers is stored in a <b>balanced</b> binary search tree, and that each node in the tree has been given a <span class="inline-code"><code>.size</code></span> attribute which contains the number of nodes in the subtree rooted at that node. What is the time complexity required of an efficient algorithm for computing the number of elements in the collection which are larger than some threshold, <span class="math">\(t\)</span>?</p>

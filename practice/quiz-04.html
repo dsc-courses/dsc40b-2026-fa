@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head data-automata-theme="default">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DSC 40B</title>
+    <link href="/static/style.css" rel="stylesheet">
+    
+    <script defer src="https://unpkg.com/lucide@1.48.0/dist/umd/lucide.min.js"></script>
+    
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+            },
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    
+    
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    
+    
+
+
+
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+
+    <!-- Mobile menu button -->
+<div class="mobile-navbar lg:hidden fixed top-0 left-0 right-0 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-50 flex items-center">
+    <button id="mobile-menu-button" class="py-5 pl-4 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <i data-lucide="menu" class="w-6 h-5"></i>
+    </button>
+    <span class="ml-2 font-semibold">DSC 40B</span>
+</div>
+
+    <div class="flex min-h-screen">
+        <!-- Left Navigation Column -->
+        <nav id="sidebar" class="
+    w-64 flex-none
+    fixed lg:sticky
+    top-0 left-0 h-screen
+    transform -translate-x-full lg:translate-x-0 transition-transform duration-200 ease-in-out
+    bg-gray-50 dark:bg-gray-900
+    z-40
+    sidebar-mobile-spacing lg:pt-6
+    flex flex-col items-end
+    border-r lg:border-r-0 border-gray-200 dark:border-gray-700
+    ">
+
+    <div class="pt-6 pr-6 flex">
+        <ul class="space-y-2">
+            
+            <li>
+                <a href="/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="calendar-days" class="mr-2 text-slate-400"></i>
+Schedule
+                </a>
+            </li>
+            
+            <li>
+                <a href="/syllabus.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="scale" class="mr-2 text-slate-400"></i>
+Syllabus
+                </a>
+            </li>
+            
+            <li>
+                <a href="/office_hours.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="briefcase-business" class="mr-2 text-slate-400"></i>
+Office Hours
+                </a>
+            </li>
+            
+            <li>
+                <a href="/materials/default/notes/book.pdf" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="book-open" class="mr-2 text-slate-400"></i>
+Course Notes
+                </a>
+            </li>
+            
+            <li>
+                <a href="/practice/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="dumbbell" class="mr-2 text-slate-400"></i>
+Practice
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://campuswire.com/p/G43FA47CB" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-more" class="mr-2 text-slate-400"></i>
+Campuswire
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://www.gradescope.com/courses/1409241" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="spell-check" class="mr-2 text-slate-400"></i>
+Gradescope
+                </a>
+            </li>
+            
+            <li>
+                <a href="http://sierra.ucsd.edu/qa/dsc40b" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-question-mark" class="mr-2 text-slate-400"></i>
+Live Q&A
+                </a>
+            </li>
+            
+            <li>
+                <a href="/staff.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="users" class="mr-2 text-slate-400"></i>
+Course Staff
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="flex mr-9 pt-3 pb-6">
+        <button id="theme-toggle" class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-full transition-colors">
+            <span id="theme-icon" class="mr-1.5">☾</span>
+            <span id="theme-text">Dark</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Overlay for mobile -->
+<div id="overlay" class="fixed inset-0 bg-gray-200/40 dark:bg-black/50 backdrop-blur-[2px] z-30 hidden"></div>
+
+        <!-- Main Content Column -->
+        
+<!-- Main Content Column -->
+<div class="
+    w-full
+    bg-white dark:bg-gray-800
+    md:border-l
+    border-gray-200 dark:border-gray-700
+    md:min-w-180
+    px-4 md:px-12
+    pt-20 lg:pt-12
+    pb-24
+    ">
+
+    <div class="
+    text-xl font-semibold
+    left-12 right-12
+    py-4 lg:pt-0 lg:pb-0 lg:mb-10
+    lg:static
+    truncate
+    flex
+    ">
+    <div class="
+        shrink
+        lg:border-b border-gray-200 dark:border-gray-700
+        ">
+        <span class="hidden lg:inline">
+            DSC 40B
+            &ndash;
+            Theoretical Foundations of Data Science II
+        </span>
+    </div>
+</div>
+
+    <div class="prose dark:prose-invert">
+    
+<style>
+.multiple-choices .choice label, .multiple-select .choice label {
+    display: flex; align-items: center; gap: 0.6em; margin: 0.25em 0; cursor: pointer;
+}
+.multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+</style>
+<h1>Quiz 04</h1>
+<p>Practice problems for topics on Quiz 04.</p>
+<p>Tags in this problem set:</p>
+<ul>
+<ul>
+<li><a href='./tags/lecture-07.html'>lecture-07</a></li>
+<li><a href='./tags/lecture-08.html'>lecture-08</a></li>
+</ul>
+</ul>
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #143</h2>
+        <p>Tags: <a href='./tags/quicksort.html'>quicksort</a>, <a href='./tags/loop invariants.html'>loop invariants</a>, <a href='./tags/lecture-07.html'>lecture-07</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the following code, which takes in a list of integers and moves all of the odd numbers to the front and all of the even numbers to the end, in-place.</p>
+<p>Remember that the <span class="math">\(\%\)</span> operator computes the remainder of division. For example <span class="math">\(5 \% 2 = 1\)</span> and <span class="math">\(4 \% 2 = 0\)</span>. This can be used to check if a number is even; if <span class="math">\(x \% 2 = 0\)</span>, then <span class="inline-code"><code>x</code></span> is even.</p>
+<pre class="code"><code class="language-python">def separate_odd_from_even(numbers):
+    """Moves the odd numbers to the front, in-place."""
+    n = len(numbers)
+
+    def swap(i, j):
+        numbers[i], numbers[j] = numbers[j], numbers[i]
+
+    odd_barrier = 0
+    even_barrier = n - 1
+
+    while odd_barrier &lt; even_barrier:
+        if numbers[odd_barrier] % 2 == 0:
+            # the number is even
+            swap(odd_barrier, even_barrier)
+            even_barrier -= 1
+        else:
+            # the number is odd
+            odd_barrier += 1</code></pre>
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 1)</h3>
+<p>Which of the following are valid loop invariants for the <span class="inline-code"><code>while</code></span>-loop? Select all that apply.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>After the <span class="math">\(\alpha\)</span>th iteration, the first <span class="math">\(\alpha\)</span> elements of <span class="inline-code"><code>numbers</code></span> are odd.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>After the <span class="math">\(\alpha\)</span>th iteration, the last <span class="math">\(\alpha\)</span> elements of <span class="inline-code"><code>numbers</code></span> are even.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>After each iteration, the elements in <span class="inline-code"><code>numbers[:odd_barrier]</code></span> are odd.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>After each iteration, the elements in <span class="inline-code"><code>numbers[odd_barrier+1:]</code></span> are even.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>After each iteration, the elements in <span class="inline-code"><code>numbers[:even_barrier]</code></span> are odd.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>After each iteration, the elements in <span class="inline-code"><code>numbers[even_barrier+1:]</code></span> are even.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>After the <span class="math">\(\alpha\)</span>th iteration, <span class="inline-code"><code>even_barrier - odd_barrier = </code></span><span class="math">\(\alpha\)</span>.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>After the <span class="math">\(\alpha\)</span>th iteration, <span class="inline-code"><code>even_barrier - odd_barrier = n - 1 - </code></span><span class="math">\(\alpha\)</span>.</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>3rd option: After each iteration, the elements in <span class="inline-code"><code>numbers[:odd_barrier]</code></span> are odd.</p>
+<p>6th option: After each iteration, the elements in <span class="inline-code"><code>numbers[even_barrier+1:]</code></span> are even.</p>
+<p>8th option: After the <span class="math">\(\alpha\)</span>th iteration, <span class="inline-code"><code>even_barrier - odd_barrier = n - 1 - </code></span><span class="math">\(\alpha\)</span>.</p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 2)</h3>
+<p>How many iterations will the <span class="inline-code"><code>while</code></span>-loop in <span class="inline-code"><code>separate_odd_from_even</code></span> make if <span class="inline-code"><code>numbers</code></span> has length <span class="math">\(100\)</span>? Your answer should be a number.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(99\)</span></p>
+</details>
+
+</div>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #144</h2>
+        <p>Tags: <a href='./tags/quicksort.html'>quicksort</a>, <a href='./tags/loop invariants.html'>loop invariants</a>, <a href='./tags/lecture-07.html'>lecture-07</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider this code which partitions a list in a special way:</p>
+<pre class="code"><code class="language-python">def is_even(i):
+    """Returns True if i is even, False otherwise."""
+    return i % 2 == 0
+
+def mystery_partition(numbers):
+    def swap(i, j):
+        numbers[i], numbers[j] = numbers[j], numbers[i]
+
+    barrier_ix = 0
+    for i in range(len(numbers)):
+        if is_even(numbers[i]):
+            swap(i, barrier_ix)
+            if numbers[barrier_ix] &gt; numbers[0]:
+                swap(0, barrier_ix)
+            barrier_ix += 1</code></pre>
+<p>Which of the following loop invariants are true for this code? Select all that apply.</p>
+<p>Note: any statement about an empty set or list is considered to be automatically true.</p>
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration of the <span class="inline-code"><code>for</code></span> loop, all numbers in <span class="inline-code"><code>numbers[:barrier_ix]</code></span> are even.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration of the <span class="inline-code"><code>for</code></span> loop, all numbers in <span class="inline-code"><code>numbers[barrier_ix:]</code></span> are odd.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration of the <span class="inline-code"><code>for</code></span> loop, <span class="inline-code"><code>numbers[0]</code></span> is greater than or equal to all numbers in <span class="inline-code"><code>numbers[:barrier_ix]</code></span>.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration of the <span class="inline-code"><code>for</code></span> loop, <span class="inline-code"><code>numbers[0]</code></span> is the maximum of <span class="inline-code"><code>numbers[:i+1]</code></span>.</p></label></div></div>
+<details>
+    <summary>Solution</summary>
+<p>1st option: After each iteration of the <span class="inline-code"><code>for</code></span> loop, all numbers in <span class="inline-code"><code>numbers[:barrier_ix]</code></span> are even.</p>
+<p>3rd option: After each iteration of the <span class="inline-code"><code>for</code></span> loop, <span class="inline-code"><code>numbers[0]</code></span> is greater than or equal to all numbers in <span class="inline-code"><code>numbers[:barrier_ix]</code></span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #148</h2>
+        <p>Tags: <a href='./tags/lecture-07.html'>lecture-07</a>, <a href='./tags/quickselect.html'>quickselect</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>True or False: <span class="inline-code"><code>quickselect</code></span> requires the input array to be sorted in order to function correctly.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+<p><span class="inline-code"><code>quickselect</code></span> works on unsorted arrays: it partitions the array around a pivot, which puts the pivot in its correct sorted position, and then recurses only on the side that contains the <span class="math">\(k\)</span>th smallest element. If the array were already sorted, we wouldn't need <span class="inline-code"><code>quickselect</code></span> at all; we could just look up the element at index <span class="math">\(k\)</span> in <span class="math">\(\Theta(1)\)</span> time.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #149</h2>
+        <p>Tags: <a href='./tags/lecture-07.html'>lecture-07</a>, <a href='./tags/quickselect.html'>quickselect</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>True or False: in order to guarantee that its output is correct, <span class="inline-code"><code>quickselect</code></span> must be called on a sorted list.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+<p><span class="inline-code"><code>quickselect</code></span> works on unsorted arrays: it partitions the array around a pivot, which puts the pivot in its correct sorted position, and then recurses only on the side that contains the <span class="math">\(k\)</span>th smallest element. If the array were already sorted, we wouldn't need <span class="inline-code"><code>quickselect</code></span> at all; we could just look up the element at index <span class="math">\(k\)</span> in <span class="math">\(\Theta(1)\)</span> time.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #150</h2>
+        <p>Tags: <a href='./tags/quicksort.html'>quicksort</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Which of the following are properties of Quicksort? Select all that apply.</p>
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>expected time complexity is <span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>expected time complexity is <span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>expected time complexity is <span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>expected time complexity is <span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>best case time complexity is <span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>best case time complexity is <span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>best case time complexity is <span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>best case time complexity is <span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>worst case time complexity is <span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>worst case time complexity is <span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>worst case time complexity is <span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>worst case time complexity is <span class="math">\(\Theta(n^2 \log n)\)</span></p></label></div></div>
+<details>
+    <summary>Solution</summary>
+<p>Expected time complexity is <span class="math">\(\Theta(n \log n)\)</span>, best case time complexity is <span class="math">\(\Theta(n \log n)\)</span>, and worst case time complexity is <span class="math">\(\Theta(n^2)\)</span>. In the best case, every pivot splits the array in half, giving the recurrence <span class="math">\(T(n) = 2T(n/2) + \Theta(n)\)</span> (the same as mergesort), whose solution is <span class="math">\(\Theta(n \log n)\)</span>. In the worst case, every pivot is the minimum or maximum, giving <span class="math">\(T(n) = T(n-1) + \Theta(n)\)</span>, whose solution is <span class="math">\(\Theta(n^2)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #155</h2>
+        <p>Tags: <a href='./tags/loop invariants.html'>loop invariants</a>, <a href='./tags/lecture-07.html'>lecture-07</a>, <a href='./tags/quickselect.html'>quickselect</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Recall the partition operation from <span class="inline-code"><code>quickselect</code></span>. Which of the following arrays could have been partitioned at least once? Select all that apply.</p>
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[50, 10, 20, 30, 60, 40]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[20, 10, 30, 60, 40, 50]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[20, 50, 10, 40, 30, 60]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[60, 50, 40, 30, 20, 10]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[10, 20, 30, 40, 50, 60]</code></span></p></label></div></div>
+<details>
+    <summary>Solution</summary>
+<p>The second, third, and last all should be selected.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #156</h2>
+        <p>Tags: <a href='./tags/lecture-07.html'>lecture-07</a>, <a href='./tags/quickselect.html'>quickselect</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Which of the following arrays could have been partitioned at least once? (Select all that apply)</p>
+<p>Hint: there are three.</p>
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[15, 25, 35, 45, 55]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[55, 45, 35, 25, 15]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[6, 5, 1, 8, 3, 4]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[6, 5, 1, 8, 3, 15]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[2, 5, 3, 4, 1, 5, 1]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[0, 10, 15, 18, 20, 30, 29, 19]</code></span></p></label></div></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="inline-code"><code>[15, 25, 35, 45, 55]</code></span>, <span class="inline-code"><code>[6, 5, 1, 8, 3, 15]</code></span>, and <span class="inline-code"><code>[0, 10, 15, 18, 20, 30, 29, 19]</code></span>. After a partition, the pivot is in its final sorted position: everything to its left is smaller and everything to its right is at least as large. So an array could have been partitioned only if some element has this property. In <span class="inline-code"><code>[15, 25, 35, 45, 55]</code></span> every element does; in <span class="inline-code"><code>[6, 5, 1, 8, 3, 15]</code></span> the 15 does; and in <span class="inline-code"><code>[0, 10, 15, 18, 20, 30, 29, 19]</code></span> the 0 (and the 10, 15, and 18) does. None of the other arrays has such an element.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #157</h2>
+        <p>Tags: <a href='./tags/lecture-07.html'>lecture-07</a>, <a href='./tags/quickselect.html'>quickselect</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>The code for <span class="inline-code"><code>quickselect</code></span> is shown below. It is the same as the code provided in lecture, except that it contains an added <span class="inline-code"><code>print</code></span> statement.</p>
+<pre class="code"><code class="language-python">import random 
+def quickselect(arr, k, start, stop):
+    """Finds kth order statistic in numbers[start:stop])"""
+    print("hello world!") # &lt;--- here is the print
+    pivot_ix = random.randrange(start, stop)
+    pivot_ix = partition(arr, start, stop, pivot_ix)
+    pivot_order = pivot_ix + 1
+    if pivot_order == k:
+        return arr[pivot_ix]
+    elif pivot_order &lt; k:
+        return quickselect(arr, k, pivot_ix + 1, stop)
+    else:
+        return quickselect(arr, k, start, pivot_ix)</code></pre>
+<p>Suppose <span class="inline-code"><code>quickselect(arr, 3, 0, 10)</code></span> is called with <span class="inline-code"><code>arr = [5, 2, 8, 3, 1, 6, 9, 7, 4, 0]</code></span>.</p>
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 1)</h3>
+<p>What is the <b>fewest</b> number of times that ``hello world!'' can possibly be printed? Your answer should be a number, and not in terms of <span class="math">\(n\)</span>.</p>
+<details>
+    <summary>Solution</summary>
+<p>1</p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 2)</h3>
+<p>What is the <b>greatest</b> number of times that ``hello world'' can possibly be printed? Your answer should be a number, and not in terms of <span class="math">\(n\)</span>.</p>
+<details>
+    <summary>Solution</summary>
+<p>10</p>
+</details>
+
+</div>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #158</h2>
+        <p>Tags: <a href='./tags/lecture-07.html'>lecture-07</a>, <a href='./tags/quickselect.html'>quickselect</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a quickselect is being performed on an array. In the middle of the quickselect, you are told that the array has been partitioned exactly twice thus far, and that the third order and sixth order statistics have been identified as a result. Which one of the following arrays is partitioned in this manner?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>[6, 2, 4, 10, 9, 15, 33, 34]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>[10, 5, 20, 45, 21, 52, 67, 54]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>[1, 3, 2, 4, 3, 5, 4, 6]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>[5, 2, 13, 45, 14, 14, 34, 33]</code></span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="inline-code"><code>[10, 5, 20, 45, 21, 52, 67, 54]</code></span>. The two pivots must be the 3rd and 6th smallest elements, so they must sit at indices 2 and 5 with everything to their left smaller and everything to their right larger. In this array, 20 (index 2) and 52 (index 5) both satisfy this. In the first array, 4 has 6 to its left; in the third, 2 has 3 to its left; and in the fourth, 14 at index 5 has 45 to its left.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #160</h2>
+        <p>Tags: <a href='./tags/lecture-07.html'>lecture-07</a>, <a href='./tags/quickselect.html'>quickselect</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose quickselect is used on an array of size 11 to find the median. The median is located as the second element of the array (at index 1), but the rest of the array is sorted in descending order. If we change the behavior of quickselect so that the pivot index is no longer random, instead always choosing <span class="inline-code"><code>start</code></span> as the pivot index (<span class="inline-code"><code>pivot_ix = start</code></span>), how many calls to quickselect will need to be made to find the median? Assume that quickselect is using the <span class="inline-code"><code>in_place_partition</code></span> algorithm from lecture. You may also assume that for the first call of quickselect <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>1</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>2</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>3</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>5</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>6</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>10</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>Answer: 3. For example, take <span class="inline-code"><code>arr = [10, 5, 9, 8, 7, 6, 4, 3, 2, 1, 0]</code></span>, whose median is 5. The first call uses 10 (the maximum) as the pivot; <span class="inline-code"><code>in_place_partition</code></span> moves it to the end, giving <span class="inline-code"><code>[0, 5, 9, 8, 7, 6, 4, 3, 2, 1, 10]</code></span>, so we recurse on indices 0 through 9. The second call uses 0 (the minimum) as the pivot, which stays at index 0, so we recurse on indices 1 through 9. The third call uses the median, 5, as the pivot, and after partitioning it lands at index 5, so it is returned.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #161</h2>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>True or False: the below is a binary search tree.</p>
+<center><div class="image"><img src="images/161/binary_tree_2.jpg" /></div></center>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>False. 24 is in the left subtree of 23, but 24 > 23. (It is also in the left subtree of 34, which is fine, but every node in 23's left subtree must be less than 23.)</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #162</h2>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the following binary search tree:</p>
+<center><div class="image"><img src="images/162/binary_tree_3.jpg" /></div></center>
+<p>How many comparisons does it take to query 3? That is, how many times is 3 compared to another number during a query?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>1</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>2</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>3</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>4</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>5</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>Answer: 4. The query compares 3 to 54, then 50, then 16, then 5. Since 5 has no left child, the query ends there and reports that 3 is not in the tree.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #163</h2>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the following binary search tree:</p>
+<center><div class="image"><img src="images/163/binary_tree_3.jpg" /></div></center>
+<p>Where should we insert 49 ?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>the left edge of 50</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>the right edge of 16</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>the left edge of 60</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>the right edge of 34</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>the left edge of 34</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>The right edge of 34. Starting at the root: 49 < 54, so go left to 50; 49 < 50, so go left to 16; 49 > 16, so go right to 34; 49 > 34, and 34 has no right child, so 49 becomes the right child of 34.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #164</h2>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Draw the binary search tree that results from inserting the following nodes into an initially empty tree, in the order given: <span class="inline-code"><code>5, 3, 1, 8, 4, 2, 6</code></span>.</p>
+<details>
+    <summary>Solution</summary>
+<center><div class="image"><img src="images/164/plot.png" /></div></center>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #165</h2>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose the numbers <span class="inline-code"><code>41</code></span>, <span class="inline-code"><code>32</code></span>, and <span class="inline-code"><code>40</code></span> are inserted (in that order) into the below binary search tree. Draw where the new nodes will appear.</p>
+<center><div class="image"><img src="images/165/bst.png" /></div></center>
+<details>
+    <summary>Solution</summary>
+<p>41 will be the right child of 33.</p>
+<p>32 will be the right child of 31.</p>
+<p>40 will be the left child of 41.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #166</h2>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose the numbers <span class="inline-code"><code>41</code></span>, <span class="inline-code"><code>32</code></span>, and <span class="inline-code"><code>33</code></span> are inserted (in that order) into the below binary search tree. Draw where the new nodes will appear.</p>
+<center><div class="image"><img src="images/166/bst.png" /></div></center>
+<details>
+    <summary>Solution</summary>
+<p>41 will become the left child of 46.</p>
+<p>32 will become the left child of 35.</p>
+<p>33 will become the right child of 32.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #167</h2>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Define the <b>largest gap</b> in a collection of numbers (also known as its <b>range</b>) to be greatest difference between two elements in the collection (in absolute value). For example, the largest gap in <span class="math">\(\{4, 9, 5, 1, 6\}\)</span> is 8 (between 1 and 9).</p>
+<p>Suppose a collection of <span class="math">\(n\)</span> numbers is stored in a <b>balanced</b> binary search tree. What is the time complexity required of an efficient algorithm to calculate the largest gap in the collection? State your answer as a function of <span class="math">\(n\)</span> in asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log n)\)</span>. To find the largest gap, we simply need to find the minimum and the maximum in the balanced BST, which both take <span class="math">\(\Theta(\log{n})\)</span> time. Therefore adding them up, the time complexity for calculating the largest gap is <span class="math">\(\Theta(\log{n})\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #168</h2>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Define the <b>largest gap</b> in a collection of numbers to be the largest difference between two distinct elements in the collection (in absolute value). For example, the largest gap in <span class="math">\(\{4, 9, 1, 6\}\)</span> is 8 (between 1 and 9).</p>
+<p>Suppose a collection of <span class="math">\(n\)</span> numbers is stored in a <b>balanced</b> binary search tree. What is the time complexity required for an efficient algorithm to calculate the largest gap of the numbers in the BST? State your answer as a function of <span class="math">\(n\)</span> in asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log n)\)</span>. With the same reasoning as Problem 20, we only require the largest and smallest number in the BST in order to find the largest gap (just subtract the smallest from the largest number), therefore the time complexity of this operation in a balanced BST will be <span class="math">\(\Theta(\log{n})\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #169</h2>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a collection of <span class="math">\(n\)</span> numbers is stored in a balanced binary search tree. What is the time complexity required of an efficient algorithm to calculate the mean of the collection? State your answer as a function of <span class="math">\(n\)</span> in asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>. Without knowing any information on the numbers, the best we can do to compute the mean is to add all numbers in the BST divided by the total number of nodes in the BST. To do this, we will have to traverse the entire BST no matter what (via some traversal algorithm), which takes <span class="math">\(\Theta(n)\)</span> time. (Note that the word <span class="math">\(\textbf{balanced}\)</span> does not help in this question!!!)</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #170</h2>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Define the <b>smallest gap</b> in a collection of numbers to be the smallest difference between two distinct elements in the collection (in absolute value). For example, the smallest gap in <span class="math">\(\{4, 9, 1, 6\}\)</span> is 2 (between 4 and 6).</p>
+<p>Suppose a collection of <span class="math">\(n\)</span> numbers is stored in a <b>balanced</b> binary search tree. What is the time complexity required for an efficient algorithm to calculate the smallest gap of the numbers in the BST? State your answer as a function of <span class="math">\(n\)</span> in asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>. The smallest gap in the BST can occur between any two consecutive pairs of numbers in the BST, meaning that no matter what we need to search through the whole tree to obtain this number, taking <span class="math">\(\Theta(n)\)</span> time.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #171</h2>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the following <span class="inline-code"><code>.insert()</code></span> method for a binary search tree:</p>
+<pre class="code"><code class="language-python">def insert(self, new_key):
+    # assume new_key is unique
+    current_node = self.root
+    parent = None
+
+    # find place to insert the new node
+    while current_node is not None:
+        parent = current_node
+        if current_node.key &lt; new_key:
+            current_node = current_node.right
+        else: # current_node.key &gt; new_key
+            current_node = current_node.left
+
+    # create the new node
+    new_node = Node(key=new_key, parent=parent)
+
+    # if parent is None, this is the root. Otherwise, update the
+    # parent's left or right child as appropriate
+    if parent is None:
+        self.root = new_node
+    elif parent.key &lt; new_key:
+        parent.right = new_node
+    else:
+        parent.left = new_node</code></pre>
+<p>Let's say we want to insert a new number <span class="math">\(x\)</span> into a binary search tree.Define <span class="inline-code"><code>height_left</code></span> as the height of the left half of the binary tree (the root and everything to the left of it), and <span class="inline-code"><code>height_right</code></span> as the height of the right side. For this problem, measure height as the number of <i>nodes</i> on the longest path starting at the root (so a tree consisting of only a root has height 1). Let <span class="inline-code"><code>height_left</code></span> be greater than <span class="inline-code"><code>height_right</code></span>. In the worst case, how many iterations of the while loop of <span class="inline-code"><code>.insert()</code></span> will need to be completed?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>height_left</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>height_right</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>height_left</code></span> + <span class="inline-code"><code>height_right</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>None of the above</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="inline-code"><code>height_left</code></span>. Each iteration of the while loop moves one level down the tree, visiting one node. In the worst case, <span class="math">\(x\)</span> is inserted below the deepest node, which is on the left side since <span class="inline-code"><code>height_left</code></span> is greater than <span class="inline-code"><code>height_right</code></span>. The loop visits every node on the path from the root to that node, which is <span class="inline-code"><code>height_left</code></span> nodes.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #172</h2>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>bst</code></span> is a binary search tree with <span class="math">\(n\)</span> nodes constructed in the following way:</p>
+<pre class="code"><code>bst = BinarySearchTree()
+for i in range(n):
+    if i % 2 == 0:
+        bst.insert(i)</code></pre>
+<p>What is the time complexity of the following code?</p>
+<pre class="code"><code>for i in range(n):
+    bst.query(i)</code></pre>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta( \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span>. The keys <span class="math">\(0, 2, 4, \ldots\)</span> are inserted in increasing order, so each new node becomes the right child of the previous one and the tree is a "linked list" of height <span class="math">\(\Theta(n)\)</span>. Querying <span class="math">\(i\)</span> walks down this chain past about <span class="math">\(i/2\)</span> nodes, so the total time is <span class="math">\(\sum_{i=0}^{n-1} \Theta(i) = \Theta(n^2)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #173</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a>, <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/lecture-08.html'>lecture-08</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a collection of unique numbers is stored in a <b>balanced</b> binary search tree, and that each node in the tree has been given a <span class="inline-code"><code>.size</code></span> attribute which contains the number of nodes in the subtree rooted at that node. What is the time complexity required of an efficient algorithm for computing the number of elements in the collection which are larger than some threshold, <span class="math">\(t\)</span>?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log{n})\)</span>. We can consider the following algorithm: Query for <span class="math">\(t\)</span> in the BST, and define a new variable total for tracking the result. For each step of the recursion, if we go to the left, add the size of the right branch + 1 to the running total. We repeat the above until the query() function finishes running, which will give us exactly the number of elements in the collection which are larger than <span class="math">\(t\)</span>. Since we are querying (and adding some constant time updating steps) in a balanced BST, the time complexity for this question will be <span class="math">\(\Theta(\log{n})\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+    </div>
+</div>
+
+    </div>
+
+    <script>
+        // Restore saved theme on page load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else if (savedTheme === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Dark mode toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        // Update button to reflect current theme
+        function updateThemeButton() {
+            const isDark = document.documentElement.classList.contains('dark');
+            themeIcon.textContent = isDark ? '☀' : '☾';
+            themeText.textContent = isDark ? 'Light' : 'Dark';
+        }
+
+        // Initialize button state
+        updateThemeButton();
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.contains('dark');
+
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+
+            updateThemeButton();
+        });
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        menuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        });
+
+        // Initialize Lucide icons. The script is deferred, so wait for it to
+        // load; DOMContentLoaded fires after deferred scripts have run.
+        document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+        
+        // highlight each <pre><code> block with a language-* class (e.g. from
+        // ```python), once the deferred highlight.js has run; a block without
+        // one is left plain, as guessing its language is often wrong
+        document.addEventListener('DOMContentLoaded', () => {
+            hljs.configure({ cssSelector: 'pre code[class*="language-"]' });
+            hljs.highlightAll();
+        });
+        
+    </script>
+
+</body>
+</html>

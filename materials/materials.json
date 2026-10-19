@@ -350,9 +350,19 @@
                         "number": 8,
                         "date": "2026-10-20",
                         "topic": "Binary Search Trees",
-                        "reading": null
+                        "reading": null,
+                        "videos": [
+                            {
+                                "title": "Augmenting BSTs (Optional)",
+                                "url": "https://youtu.be/nh-J6gqCTqM"
+                            }
+                        ]
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "slides.pdf": {
+                            "path": "materials/lectures/08-bst/slides.pdf"
+                        }
+                    }
                 },
                 "09-hashing": {
                     "metadata": {
