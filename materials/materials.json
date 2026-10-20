@@ -517,7 +517,14 @@
                         "date": "2026-10-19",
                         "topic": "Recurrences, Binary Search, and Sorting (Lectures 05&ndash;06 and the start of Lecture 07)"
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "quiz.pdf": {
+                            "path": "materials/quizzes/03/quiz.pdf"
+                        },
+                        "solution.pdf": {
+                            "path": "materials/quizzes/03/solution.pdf"
+                        }
+                    }
                 },
                 "04": {
                     "metadata": {
