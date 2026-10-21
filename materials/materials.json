@@ -378,7 +378,11 @@
                         "topic": "Hashing",
                         "reading": null
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "slides.pdf": {
+                            "path": "materials/lectures/09-hashing/slides.pdf"
+                        }
+                    }
                 },
                 "10-graph_theory": {
                     "metadata": {
