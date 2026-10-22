@@ -111,6 +111,9 @@
                     "artifacts": {
                         "homework.pdf": {
                             "path": "materials/homeworks/03-recurrences-sorting/homework.pdf"
+                        },
+                        "solution.pdf": {
+                            "path": "materials/homeworks/03-recurrences-sorting/solution.pdf"
                         }
                     }
                 },
