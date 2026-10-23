@@ -384,6 +384,9 @@
                     "artifacts": {
                         "slides.pdf": {
                             "path": "materials/lectures/09-hashing/slides.pdf"
+                        },
+                        "slides-marked.pdf": {
+                            "path": "materials/lectures/09-hashing/slides-marked.pdf"
                         }
                     }
                 },
