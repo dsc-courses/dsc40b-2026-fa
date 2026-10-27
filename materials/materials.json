@@ -549,7 +549,14 @@
                         "date": "2026-10-26",
                         "topic": "Quickselect and BSTs (Lectures 07&ndash;08)"
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "quiz.pdf": {
+                            "path": "materials/quizzes/04/quiz.pdf"
+                        },
+                        "solution.pdf": {
+                            "path": "materials/quizzes/04/solution.pdf"
+                        }
+                    }
                 },
                 "05": {
                     "metadata": {
