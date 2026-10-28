@@ -397,7 +397,11 @@
                         "topic": "Graph Theory",
                         "reading": "Section 3.1 and 3.2"
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "slides.pdf": {
+                            "path": "materials/lectures/10-graph_theory/slides.pdf"
+                        }
+                    }
                 },
                 "11-bfs-pt_I": {
                     "metadata": {
