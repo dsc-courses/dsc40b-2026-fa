@@ -137,7 +137,11 @@
                         "released": "2026-10-28 23:59:00",
                         "due": "2026-11-03 23:59:00"
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "homework.pdf": {
+                            "path": "materials/homeworks/05-hashing/homework.pdf"
+                        }
+                    }
                 },
                 "06-graphs": {
                     "metadata": {
