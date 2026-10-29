@@ -127,6 +127,9 @@
                     "artifacts": {
                         "homework.pdf": {
                             "path": "materials/homeworks/04-quickselect-bst/homework.pdf"
+                        },
+                        "solution.pdf": {
+                            "path": "materials/homeworks/04-quickselect-bst/solution.pdf"
                         }
                     }
                 },
