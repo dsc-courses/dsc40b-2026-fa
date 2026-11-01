@@ -407,6 +407,9 @@
                     "artifacts": {
                         "slides.pdf": {
                             "path": "materials/lectures/10-graph_theory/slides.pdf"
+                        },
+                        "slides-marked.pdf": {
+                            "path": "materials/lectures/10-graph_theory/slides-marked.pdf"
                         }
                     }
                 },
