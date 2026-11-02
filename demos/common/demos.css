@@ -1,0 +1,230 @@
+/* Shared styles for the interactive demos.
+ *
+ * The status colors match the lecture slides (dscslides.cls):
+ *   visited      pastelred    #d20000, white text
+ *   pending      pastelyellow #FBC05E
+ *   undiscovered pastelgreen  #8fc34f
+ */
+
+.demo {
+    --demo-visited: #d20000;
+    --demo-pending: #FBC05E;
+    --demo-undiscovered: #8fc34f;
+    --demo-accent: #6E66BA; /* pastelpurple, as in the slides' exercise boxes */
+    --demo-ink: #111827;
+    --demo-muted: #6b7280;
+    --demo-edge: #9ca3af;
+    --demo-edge-active: #111827;
+    --demo-panel: #f9fafb;
+    --demo-border: #e5e7eb;
+    --demo-button: #ffffff;
+
+    color: var(--demo-ink);
+    margin-top: 1.5rem;
+}
+
+.dark .demo {
+    --demo-ink: #f3f4f6;
+    --demo-muted: #9ca3af;
+    --demo-edge: #6b7280;
+    --demo-edge-active: #f3f4f6;
+    --demo-panel: #111827;
+    --demo-border: #374151;
+    --demo-button: #1f2937;
+}
+
+/* let a page with a demo use more of the width than the site's text column
+   (65ch), but keep its paragraphs at a readable width */
+.prose:has(> .demo) {
+    max-width: 64rem;
+}
+
+.prose:has(> .demo) > p {
+    max-width: 65ch;
+}
+
+/* controls -------------------------------------------------------------- */
+
+.demo-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem 1.25rem;
+    align-items: end;
+    margin-bottom: 1rem;
+}
+
+.demo-controls label {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    font-size: .85rem;
+    color: var(--demo-muted);
+}
+
+.demo-controls label.demo-checkbox {
+    flex-direction: row;
+    align-items: center;
+    color: var(--demo-ink);
+    font-size: .95rem;
+}
+
+.demo select {
+    border: 1px solid var(--demo-border);
+    background: var(--demo-button);
+    color: var(--demo-ink);
+    border-radius: .375rem;
+    padding: .35rem .5rem;
+    font-size: .95rem;
+}
+
+.demo-stepper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.demo button {
+    border: 1px solid var(--demo-border);
+    background: var(--demo-button);
+    color: var(--demo-ink);
+    border-radius: .375rem;
+    padding: .4rem .9rem;
+    font-size: .95rem;
+    cursor: pointer;
+}
+
+.demo button:hover:not(:disabled) {
+    border-color: var(--demo-accent);
+}
+
+.demo button:disabled {
+    opacity: .4;
+    cursor: default;
+}
+
+.demo button.demo-primary {
+    background: var(--demo-accent);
+    border-color: var(--demo-accent);
+    color: white;
+}
+
+.demo-step-count {
+    color: var(--demo-muted);
+    font-size: .9rem;
+    margin-left: .25rem;
+}
+
+/* graph ------------------------------------------------------------------ */
+
+/* the p5.js canvas fills the width of its column */
+.demo-canvas {
+    width: 100%;
+}
+
+.demo-canvas canvas {
+    display: block;
+}
+
+/* status words, as in the slides ---------------------------------------- */
+
+.demo-status {
+    font-weight: 700;
+}
+
+/* literal colors, since status words also appear outside .demo */
+.demo-status.visited { color: #d20000; }
+.demo-status.pending { color: #d99a2b; }
+.demo-status.undiscovered { color: #5f9a26; }
+
+.dark .demo-status.visited { color: #ff5a5a; }
+.dark .demo-status.pending { color: #FBC05E; }
+.dark .demo-status.undiscovered { color: #8fc34f; }
+
+.demo-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    font-size: .9rem;
+    margin-top: .5rem;
+}
+
+.demo-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+}
+
+.demo-swatch {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 2px solid #000;
+    display: inline-block;
+}
+
+.dark .demo-swatch { border-color: #f3f4f6; }
+.demo-swatch.visited { background: var(--demo-visited); }
+.demo-swatch.pending { background: var(--demo-pending); }
+.demo-swatch.undiscovered { background: var(--demo-undiscovered); }
+
+/* panels ----------------------------------------------------------------- */
+
+.demo-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+}
+
+@media (min-width: 900px) {
+    .demo-layout {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+        align-items: start;
+    }
+}
+
+.demo-panel {
+    background: var(--demo-panel);
+    border: 1px solid var(--demo-border);
+    border-radius: .5rem;
+    padding: 1rem;
+}
+
+.demo-panel h3 {
+    font-size: .8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--demo-muted);
+    margin: 0 0 .5rem 0;
+}
+
+.demo-panel + .demo-panel {
+    margin-top: 1rem;
+}
+
+.demo-caption {
+    min-height: 4.5rem;
+    line-height: 1.5;
+}
+
+.demo-caption p {
+    margin: 0 0 .4rem 0;
+}
+
+.demo-hint {
+    color: var(--demo-muted);
+    font-size: .85rem;
+    margin-top: .75rem;
+}
+
+.demo kbd,
+.prose:has(> .demo) kbd {
+    border: 1px solid var(--demo-border);
+    border-bottom-width: 2px;
+    border-radius: .25rem;
+    padding: 0 .3rem;
+    font-size: .8rem;
+}

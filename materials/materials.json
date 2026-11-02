@@ -226,6 +226,21 @@
                                 }
                             }
                         },
+                        "demos": {
+                            "type": "list",
+                            "nullable": true,
+                            "element_schema": {
+                                "type": "dict",
+                                "required_keys": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "url": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
                         "note": {
                             "type": "string"
                         }
@@ -418,7 +433,13 @@
                         "number": 11,
                         "date": "2026-11-03",
                         "topic": "Breadth First Search",
-                        "reading": "Section 3.3"
+                        "reading": "Section 3.3",
+                        "demos": [
+                            {
+                                "title": "Breadth-First Search",
+                                "url": "demos/bfs/index.html"
+                            }
+                        ]
                     },
                     "artifacts": {
                         "slides.pdf": {

@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head data-automata-theme="default">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DSC 40B</title>
+    <link href="/static/style.css" rel="stylesheet">
+    
+    <script defer src="https://unpkg.com/lucide@1.48.0/dist/umd/lucide.min.js"></script>
+    
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+            },
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    
+    
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    
+    
+
+
+
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+
+    <!-- Mobile menu button -->
+<div class="mobile-navbar lg:hidden fixed top-0 left-0 right-0 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-50 flex items-center">
+    <button id="mobile-menu-button" class="py-5 pl-4 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <i data-lucide="menu" class="w-6 h-5"></i>
+    </button>
+    <span class="ml-2 font-semibold">DSC 40B</span>
+</div>
+
+    <div class="flex min-h-screen">
+        <!-- Left Navigation Column -->
+        <nav id="sidebar" class="
+    w-64 flex-none
+    fixed lg:sticky
+    top-0 left-0 h-screen
+    transform -translate-x-full lg:translate-x-0 transition-transform duration-200 ease-in-out
+    bg-gray-50 dark:bg-gray-900
+    z-40
+    sidebar-mobile-spacing lg:pt-6
+    flex flex-col items-end
+    border-r lg:border-r-0 border-gray-200 dark:border-gray-700
+    ">
+
+    <div class="pt-6 pr-6 flex">
+        <ul class="space-y-2">
+            
+            <li>
+                <a href="/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="calendar-days" class="mr-2 text-slate-400"></i>
+Schedule
+                </a>
+            </li>
+            
+            <li>
+                <a href="/syllabus.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="scale" class="mr-2 text-slate-400"></i>
+Syllabus
+                </a>
+            </li>
+            
+            <li>
+                <a href="/office_hours.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="briefcase-business" class="mr-2 text-slate-400"></i>
+Office Hours
+                </a>
+            </li>
+            
+            <li>
+                <a href="/materials/default/notes/book.pdf" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="book-open" class="mr-2 text-slate-400"></i>
+Course Notes
+                </a>
+            </li>
+            
+            <li>
+                <a href="/practice/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="dumbbell" class="mr-2 text-slate-400"></i>
+Practice
+                </a>
+            </li>
+            
+            <li>
+                <a href="/demos/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="mouse-pointer-click" class="mr-2 text-slate-400"></i>
+Demos
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://campuswire.com/p/G43FA47CB" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-more" class="mr-2 text-slate-400"></i>
+Campuswire
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://www.gradescope.com/courses/1409241" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="spell-check" class="mr-2 text-slate-400"></i>
+Gradescope
+                </a>
+            </li>
+            
+            <li>
+                <a href="http://sierra.ucsd.edu/qa/dsc40b" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-question-mark" class="mr-2 text-slate-400"></i>
+Live Q&A
+                </a>
+            </li>
+            
+            <li>
+                <a href="/staff.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="users" class="mr-2 text-slate-400"></i>
+Course Staff
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="flex mr-9 pt-3 pb-6">
+        <button id="theme-toggle" class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-full transition-colors">
+            <span id="theme-icon" class="mr-1.5">☾</span>
+            <span id="theme-text">Dark</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Overlay for mobile -->
+<div id="overlay" class="fixed inset-0 bg-gray-200/40 dark:bg-black/50 backdrop-blur-[2px] z-30 hidden"></div>
+
+        <!-- Main Content Column -->
+        
+<!-- Main Content Column -->
+<div class="
+    w-full
+    bg-white dark:bg-gray-800
+    md:border-l
+    border-gray-200 dark:border-gray-700
+    md:min-w-180
+    px-4 md:px-12
+    pt-20 lg:pt-12
+    pb-24
+    ">
+
+    <div class="
+    text-xl font-semibold
+    left-12 right-12
+    py-4 lg:pt-0 lg:pb-0 lg:mb-10
+    lg:static
+    truncate
+    flex
+    ">
+    <div class="
+        shrink
+        lg:border-b border-gray-200 dark:border-gray-700
+        ">
+        <span class="hidden lg:inline">
+            DSC 40B
+            &ndash;
+            Theoretical Foundations of Data Science II
+        </span>
+    </div>
+</div>
+
+    <div class="prose dark:prose-invert">
+    
+<style>
+.multiple-choices .choice label, .multiple-select .choice label {
+    display: flex; align-items: center; gap: 0.6em; margin: 0.25em 0; cursor: pointer;
+}
+.multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+</style>
+<h1>Problems tagged with "lecture-11"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #220</h2>
+        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/aggregate analysis.html'>aggregate analysis</a>, <a href='../tags/graph representations.html'>graph representations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a graph <span class="math">\(G = (V, E)\)</span> is stored using an adjacency list representation in the variable <span class="inline-code"><code>adj_list</code></span>. What is the time complexity of the below code?</p>
+<pre class="code"><code class="language-python">for lst in adj_list:
+    for u in lst:
+        print(u)</code></pre>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2 + E^2)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(V + E)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #221</h2>
+        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/aggregate analysis.html'>aggregate analysis</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a graph <span class="math">\(G = (V, E)\)</span> is stored using an adjacency list representation in the variable <span class="inline-code"><code>adj_list</code></span>. What is the time complexity of the below code?</p>
+<pre class="code"><code class="language-python">for u, lst in enumerate(adj_list):
+    for v in lst:
+        print(u, v, "is an edge")</code></pre>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2 + E^2)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>2nd option: <span class="math">\(\Theta(V + E)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #222</h2>
+        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/aggregate analysis.html'>aggregate analysis</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose the code below is run on a graph <span class="math">\(G = (V, E)\)</span>. What is its time complexity? You may assume that <span class="math">\(|E| \geq 1\)</span>.</p>
+<pre class="code"><code>for u in graph.nodes:
+    for v in graph.neighbors(u):
+        print(u, v)</code></pre>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(VE)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(V + E)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #227</h2>
+        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose you run a BFS on the graph below, however, the BFS is modified so that any time a node is popped from the queue, the message <span class="inline-code"><code>Node popped!!!</code></span> is printed to the screen.</p>
+<center><div class="image"><img src="../images/227/bfs_1.png" /></div></center>
+<p>How many times is the message printed?</p>
+<details>
+    <summary>Solution</summary>
+<p>Answer: 6. Every node reachable from the source is added to the queue exactly once and popped exactly once. This graph is connected, so all 6 nodes are popped, no matter which node the BFS starts at.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #228</h2>
+        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose you are performing a BFS on the following graph, starting on node 0: In which of the following orders are the nodes visited, assuming that the BFS algorithm produces neighbors in numerical order?</p>
+<center><div class="image"><img src="../images/228/bfs_1.png" /></div></center>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>0, 1, 2, 3, 4, 5</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>0, 1, 3, 5, 4, 2</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>0, 1, 3, 4, 5, 2</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>0, 3, 1, 4, 5, 2</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>0, 1, 3, 5, 4, 2. Visiting 0 adds 1 and 3 to the queue. Visiting 1 adds 5. Visiting 3 adds 4. Visiting 5 adds nothing new (4 is already pending). Visiting 4 adds 2. Finally 2 is visited.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #229</h2>
+        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a <i>breadth</i> first search is run on the graph below using node <span class="math">\(d\)</span> as the source. Adopt the convention that a node's neighbors are produced in alphabetical order.</p>
+<center><div class="image"><img src="../images/229/searchme.png" /></div></center>
+<p>What is the node popped from the queue after node <span class="math">\(g\)</span>?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>d</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>e</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>f</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>g</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>q</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>r</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>v</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(e\)</span>. The nodes are popped in the order <span class="math">\(d, f, q, r, g, e, v\)</span>. Popping <span class="math">\(d\)</span> adds <span class="math">\(f, q, r\)</span>; popping <span class="math">\(f\)</span> adds <span class="math">\(g\)</span>; popping <span class="math">\(q\)</span> adds <span class="math">\(e\)</span>; popping <span class="math">\(r\)</span> adds <span class="math">\(v\)</span>. So the queue is then <span class="math">\(g, e, v\)</span>, and <span class="math">\(e\)</span> comes right after <span class="math">\(g\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #230</h2>
+        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider running a breadth-first search (BFS) on the graph shown below, using node <span class="math">\(s\)</span> as the source and adopting the convention that neighbors are produced in ascending order by label.</p>
+<center><div class="image"><img src="../images/230/graph.png" /></div></center>
+<p>How many nodes will be popped from the queue before node <span class="math">\(u_8\)</span> is popped?</p>
+<details>
+    <summary>Solution</summary>
+<p>9</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #231</h2>
+        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Define a <i>circle graph</i> with <span class="math">\(n\)</span> nodes to be an undirected graph <span class="math">\(G =
+    (V, E)\)</span> with nodes <span class="math">\(u_1, u_2, \ldots, u_n\)</span> and edges <span class="math">\((u_1, u_2), (u_2,
+    u_3), \ldots, (u_{n-1}, u_n)\)</span>, along with one additional edge <span class="math">\((u_n, u_1)\)</span> completing the cycle. An example of a circle graph with 6 nodes is shown below:</p>
+<center><div class="image"><img src="../images/231/graph.png" /></div></center>
+<p>What is the time complexity of breath-first search when run on a circle graph with <span class="math">\(n\)</span> nodes? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #232</h2>
+        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a ``2-chain'' graph with <span class="math">\(n\)</span> nodes is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math">\(\ldots\)</span>, <span class="math">\(n\)</span>, and, for each node <span class="math">\(u\)</span>, making an edge to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span>(if they are in the graph).</p>
+<p>For example, such a graph with <span class="math">\(n = 7\)</span> looks like:</p>
+<center><div class="image"><img src="../images/232/g3.png" /></div></center>
+<p>Suppose BFS is run on a 2-chain graph with <span class="math">\(n\)</span> nodes, using node 1 as the source. What is the time taken as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #233</h2>
+        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>The code below is a modified version of BFS shown in class. This modification has a single addition: a <span class="inline-code"><code>print</code></span> statement. A comment in the code indicates where the <span class="inline-code"><code>print</code></span> statement is located.</p>
+<pre class="code"><code class="language-python">def bfs(graph, source):
+    """Start a BFS at `source`."""
+    status = {node: 'undiscovered' for node in graph.nodes}
+    status[source] = 'pending'
+    pending = deque([source])
+
+    while pending: 
+        u = pending.popleft()
+        for v in graph.neighbors(u):
+            print("here!") # &lt;--- this is the print statement
+            if status[v] == 'undiscovered':
+                status[v] = 'pending'
+                pending.append(v)
+        status[u] = 'visited'</code></pre>
+<p>Suppose this modified BFS is run on the following graph, starting at node <span class="math">\(a\)</span>.</p>
+<center><div class="image"><img src="../images/233/graph.png" /></div></center>
+<p>How many times will <span class="inline-code"><code>"here!"</code></span> be printed? Your answer should be an exact number.</p>
+<details>
+    <summary>Solution</summary>
+<p>10</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #234</h2>
+        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the following modification of BFS, with an added print statement:</p>
+<pre class="code"><code class="language-python">from collections import deque
+
+def modified_bfs(graph, source):
+    """Start a BFS at `source`."""
+    status = {node: 'undiscovered' for node in graph.nodes}
+    status[source] = 'pending'
+    pending = deque([source])
+
+    while pending:
+        u = pending.popleft()
+        for v in graph.neighbors(u):
+            if v == 9:
+                print("Here!") # &lt;-- this is the added print statement
+            if status[v] == 'undiscovered':
+                status[v] = 'pending'
+                pending.append(v)
+
+        status[u] = 'visited'</code></pre>
+<p>Consider running this algorithm on the following graph, starting at node <span class="math">\(1\)</span>:</p>
+<center><div class="image"><img src="../images/234/graph.png" /></div></center>
+<p>How many times will <span class="inline-code"><code>"Here!"</code></span> be printed?</p>
+<details>
+    <summary>Solution</summary>
+<p>2</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #236</h2>
+        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider calling <span class="inline-code"><code>full_bfs</code></span> on a <i>directed</i> graph, and recall that <span class="inline-code"><code>full_bfs</code></span> will make calls to <span class="inline-code"><code>bfs</code></span> until all nodes have been marked as visited.</p>
+<p>True or False: the number of calls made to <span class="inline-code"><code>bfs</code></span> depends on the order in which <span class="inline-code"><code>graph.nodes</code></span> produces the graph's nodes. That is, if nodes are produced in a different order, the number of calls to <span class="inline-code"><code>bfs</code></span> may be different.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+<p>Consider the graph with the single edge <span class="math">\((a, b)\)</span>. If <span class="math">\(a\)</span> is produced first, <span class="inline-code"><code>bfs(a)</code></span> discovers <span class="math">\(b\)</span> and only one call is needed. If <span class="math">\(b\)</span> is produced first, <span class="inline-code"><code>bfs(b)</code></span> cannot reach <span class="math">\(a\)</span>, so a second call is needed.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #237</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose an undirected graph with <span class="math">\(n\)</span> nodes satisfies the property that every node has degree <span class="math">\(n/2\)</span>. What is the time complexity of running full BFS on this graph?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2 \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span>. Full BFS takes <span class="math">\(\Theta(V + E)\)</span> time. The sum of the degrees is <span class="math">\(n \cdot n/2\)</span>, and each edge is counted twice in this sum, so there are <span class="math">\(n^2/4\)</span> edges. So the time is <span class="math">\(\Theta(n + n^2/4) = \Theta(n^2)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #238</h2>
+        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a connected, undirected graph <span class="math">\(G\)</span> has <span class="math">\(n\)</span> nodes, half of which are ``red'' and half of which are ``blue''. Each red node shares an edge with <span class="math">\(\log_2 n\)</span> blue nodes, and the only edges in the graph are between red and blue nodes.</p>
+<p>What is the time complexity of BFS when run on <span class="math">\(G\)</span>? Your answer should be in asymptotic notation and in terms of <span class="math">\(n\)</span>, in as simplest terms possible.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n \log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #240</h2>
+        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose you are running a full BFS on a graph. You are using the following code from lecture to run your full BFS, with some small modifications to include two new print statements:</p>
+<pre class="code"><code class="language-python">from collections import deque
+
+def bfs(graph, source, status=None):
+    """Start a BFS at `source`."""
+    if status is None:
+        status = {node: 'undiscovered' for node in graph.nodes}
+
+    status[source] = 'pending'
+    pending = deque([source])
+
+    # while there are still pending nodes
+    while pending:
+        u = pending.popleft()
+        for v in graph.neighbors(u):
+            # explore edge (u, v)
+            print('foo') # &lt;- this is new
+            if status[v] == 'undiscovered':
+                status[v] = 'pending'
+                # append to right
+                pending.append(v)
+        status[u] = 'visited'
+
+def full_bfs(graph):
+    status = {node: 'undiscovered' for node in graph.nodes}
+    for node in graph.nodes:
+        if status[node] == 'undiscovered':
+            print("bar") # &lt;- this is also new
+            bfs(graph, node, status)</code></pre>
+<p>After running the full BFS, you find that the word “foo” has been printed 2 times, and the word “bar” has been printed 5 times. Assuming that the graph has 1 edge (but an unknown number of nodes), which of the following is true about the graph in question?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>There is 1 connected component, and it is undirected</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>There is 1 connected component, and it is directed</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>There are 2 connected components, and it is undirected</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>There are 2 connected components, and it is directed</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>There are 5 connected components, and it is undirected</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>There are 5 connected components, and it is directed</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>There are 5 connected components, and it is undirected. "bar" is printed once each time <span class="inline-code"><code>full_bfs</code></span> starts a new BFS, and in an undirected graph each new BFS starts in a new connected component, so there are 5 connected components. "foo" is printed once each time an edge is explored. In an undirected graph, each edge is explored twice (once from each endpoint), while in a directed graph it is explored only once. Since there is 1 edge and "foo" was printed 2 times, the graph is undirected.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #242</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/aggregate analysis.html'>aggregate analysis</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the following modification of BFS, where there are two new lines of code. What is the time complexity in terms of <span class="math">\(|V|\)</span> and <span class="math">\(|E|\)</span>?</p>
+<pre class="code"><code>from collections import deque
+
+def foo(graph):
+    status = {node: 'undiscovered' for node in graph.nodes}
+    for u in graph.nodes:
+        if status[u] == 'undiscovered':
+            bar(graph, u, status)
+
+def bar(graph, source, status):
+    status[source] = 'pending'
+    pending = deque([source])
+
+    # while there are still pending nodes
+    while pending:
+        u = pending.popleft()
+        for v in graph.neighbors(u):
+            # explore edge (u,v)
+            if status[v] == 'undiscovered':
+                status[v] = 'pending'
+                pending.append(v)
+            for v in graph.nodes:
+                print(v)
+        status[u] = 'visited'</code></pre>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(VE)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + VE)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(V + VE)\)</span>. Without the two new lines, this is a full BFS, which takes <span class="math">\(\Theta(V + E)\)</span> time. The new inner loop runs once each time an edge is explored, and each time it takes <span class="math">\(\Theta(V)\)</span> time. By an aggregate analysis, edges are explored <span class="math">\(\Theta(E)\)</span> times in total, so the new lines add <span class="math">\(\Theta(VE)\)</span> time. The total is <span class="math">\(\Theta(V + E + VE) = \Theta(V + VE)\)</span>. (We can't drop the <span class="math">\(V\)</span> term: when there are no edges, the code still takes <span class="math">\(\Theta(V)\)</span> time.)</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #243</h2>
+        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/aggregate analysis.html'>aggregate analysis</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the code below, which is a modification of the code for <span class="inline-code"><code>bfs</code></span> given in lecture:</p>
+<pre class="code"><code class="language-python">from collections import deque
+
+def modified_full_bfs(graph):
+    status = {node: 'undiscovered' for node in graph.nodes}
+    for node in graph.nodes:
+        if status[node] == 'undiscovered':
+            modified_bfs(graph, node, status)
+
+def modified_bfs(graph, source, status=None):
+    """Start a BFS at `source`."""
+    if status is None:
+        status = {node: 'undiscovered' for node in graph.nodes}
+
+    status[source] = 'pending'
+    pending = deque([source])
+
+    # while there are still pending nodes
+    while pending: 
+        u = pending.popleft()
+        for v in graph.neighbors(u):
+            # explore edge (u,v)
+            if status[v] == 'undiscovered':
+                status[v] = 'pending'
+                # append to right
+                pending.append(v)
+                for z in graph.nodes:   # &lt;----- new line!
+                    print(z, status[z]) # &lt;----- new line!
+
+        status[u] = 'visited'</code></pre>
+<p>Notice the two new lines; these lines print all node statuses any time that an undiscovered node has been found.</p>
+<p>What is the time complexity of this modified <span class="inline-code"><code>modified_full_bfs</code></span>? State your answer in asymptotic notation in terms of the number of nodes, <span class="math">\(|V|\)</span>, and the number of edges, <span class="math">\(|E|\)</span>. You may assume that the graph is represented using an adjacency list, and that it is connected.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(V^2)\)</span>.</p>
+<p>First, the newly-added code (the <span class="inline-code"><code>for z in graph.nodes</code></span> loop), takes <span class="math">\(\Theta(V)\)</span> time each time the loop is encountered. The crux is: how many times is that loop encountered?</p>
+<p>This loop is encountered every time we add a node to the queue (except for the root node, which we add to the queue right at the beginning of BFS). Since this is a connected graph, each node will get added to the pending queue exactly once, meaning that this new code is encountered <i>exactly</i><span class="math">\(V-1\)</span> times (the <span class="math">\(-1\)</span> is subtracting the root node; the loop isn't encountered when we change it to pending).</p>
+<p>Since the new code takes <span class="math">\(\Theta(V)\)</span> time each time it's encountered, and since it's encountered <span class="math">\(\Theta(V)\)</span> times, the total time complexity of the loop is <span class="math">\(\Theta(V^2)\)</span>.</p>
+<p>You might wonder why the time complexity isn't <span class="math">\(\Theta(VE)\)</span>, since the new code is within the loop that ``explores'' each edge in the graph, and we know that it makes a total of <span class="math">\(2|E|\)</span> iterations when the graph is undirected. This is true, but recognize that the new code only executes when the <span class="inline-code"><code>if</code></span>-statement before it is <span class="inline-code"><code>True</code></span>, and this will happen on only a <i>subset</i> of the <span class="math">\(2|E|\)</span> iterations. In fact, it will happen exactly <span class="math">\(|V|-1\)</span> times, as we argued above.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #244</h2>
+        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/aggregate analysis.html'>aggregate analysis</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>A ``hub and spoke'' graph with <span class="math">\(n\)</span> nodes consists of a single ``hub'' node <span class="math">\(h\)</span> along with <span class="math">\(n - 1\)</span> ``spoke'' nodes, <span class="math">\(u_1, \ldots, u_{n-1}\)</span> and <span class="math">\(n - 1\)</span> edges from the hub node <span class="math">\(h\)</span> to each of the spoke nodes. For example, a ``hub and spoke'' graph with 8 nodes looks like the below:</p>
+<center><div class="image"><img src="../images/244/g5.png" /></div></center>
+<p>What is the <b>worst case</b> time complexity of an optimal algorithm which takes as input an arbitrary graph <span class="math">\(G = (V, E)\)</span> and determines if it is a ``hub and spoke'' graph? You may assume that the graph is represented as an adjacency list and that the total number of edges in the graph can be retrieved in constant time.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E^2)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(1)\)</span> Here's the algorithm. First, check that the number of edges is <span class="math">\(|V| - 1\)</span>. If not, it's not a ``hub and spoke'' graph. This takes constant time, by the assumption that the total number of edges can be retrieved in constant time.</p>
+<p>Next, take an arbitrary node and compute its degree (in <span class="math">\(\Theta(1)\)</span> time), since the graph is represented as an adjacency list). If the degree is <span class="math">\(n - 1\)</span>, then the graph is a ``hub and spoke'' graph, and this is the hub.</p>
+<p>If the degree is not <span class="math">\(n - 1\)</span>, but instead 1, this node might be a spoke. Check the degree of its neighbor as described above to see if its a hub.</p>
+<p>If you see a degree that's neither 1 nor <span class="math">\(n - 1\)</span>, then the graph is not a ``hub and spoke'' graph.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+    </div>
+</div>
+
+    </div>
+
+    <script>
+        // Restore saved theme on page load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else if (savedTheme === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Dark mode toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        // Update button to reflect current theme
+        function updateThemeButton() {
+            const isDark = document.documentElement.classList.contains('dark');
+            themeIcon.textContent = isDark ? '☀' : '☾';
+            themeText.textContent = isDark ? 'Light' : 'Dark';
+        }
+
+        // Initialize button state
+        updateThemeButton();
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.contains('dark');
+
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+
+            updateThemeButton();
+        });
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        menuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        });
+
+        // Initialize Lucide icons. The script is deferred, so wait for it to
+        // load; DOMContentLoaded fires after deferred scripts have run.
+        document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+        
+        // highlight each <pre><code> block with a language-* class (e.g. from
+        // ```python), once the deferred highlight.js has run; a block without
+        // one is left plain, as guessing its language is often wrong
+        document.addEventListener('DOMContentLoaded', () => {
+            hljs.configure({ cssSelector: 'pre code[class*="language-"]' });
+            hljs.highlightAll();
+        });
+        
+    </script>
+
+</body>
+</html>
