@@ -219,14 +219,17 @@
     const smallCheckbox = $("#bfs-small");
     const description = $("#bfs-description");
     const caption = $("#bfs-caption");
-    const drawing = DemoGraphs.sketch($("#bfs-canvas"));
 
+    // fill in the menu first, so that the controls work even if the drawing
+    // fails
     for (const graph of BFS_GRAPHS) {
         const option = document.createElement("option");
         option.value = graph.id;
         option.textContent = graph.name;
         graphSelect.append(option);
     }
+
+    const drawing = DemoGraphs.sketch($("#bfs-canvas"));
 
     let graph = null;
     let states = [];

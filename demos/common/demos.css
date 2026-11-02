@@ -77,12 +77,42 @@
     font-size: .95rem;
 }
 
+/* the step buttons stay on one line, sharing its width */
 .demo-stepper {
     display: flex;
-    flex-wrap: wrap;
-    gap: .5rem;
-    align-items: center;
-    margin: 1rem 0;
+    flex-wrap: nowrap;
+    gap: .4rem;
+    margin: 1rem 0 .35rem 0;
+}
+
+.demo-stepper button {
+    flex: 1 1 auto;
+    min-width: 0;
+    white-space: nowrap;
+    padding-left: .25rem;
+    padding-right: .25rem;
+}
+
+@media (max-width: 420px) {
+    .demo-stepper {
+        gap: .3rem;
+    }
+
+    .demo-stepper button {
+        font-size: .85rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .demo-stepper {
+        gap: .2rem;
+    }
+
+    .demo-stepper button {
+        font-size: .75rem;
+        padding-left: .1rem;
+        padding-right: .1rem;
+    }
 }
 
 .demo button {
@@ -113,7 +143,7 @@
 .demo-step-count {
     color: var(--demo-muted);
     font-size: .9rem;
-    margin-left: .25rem;
+    text-align: center;
 }
 
 /* graph ------------------------------------------------------------------ */
@@ -208,6 +238,10 @@
 .demo-caption {
     min-height: 4.5rem;
     line-height: 1.5;
+}
+
+.demo-error {
+    color: #d20000;
 }
 
 .demo-caption p {

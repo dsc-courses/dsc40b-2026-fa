@@ -223,14 +223,6 @@ Course Staff
 
     <p id="bfs-description" class="demo-hint" style="margin-top:0"></p>
 
-    <div class="demo-stepper">
-        <button id="bfs-first" title="Back to the start">&#x21E4; Start</button>
-        <button id="bfs-back" title="Previous step (left arrow)">&larr; Back</button>
-        <button id="bfs-next" class="demo-primary" title="Next step (right arrow)">Next &rarr;</button>
-        <button id="bfs-last" title="Skip to the end">End &#x21E5;</button>
-        <button id="bfs-play">Play</button>
-        <span id="bfs-counter" class="demo-step-count"></span>
-    </div>
 
     <div class="demo-layout">
         <div>
@@ -240,6 +232,16 @@ Course Staff
                 <span><i class="demo-swatch pending"></i> pending</span>
                 <span><i class="demo-swatch visited"></i> visited</span>
             </div>
+
+            <!-- the controls, below the figure -->
+            <div class="demo-stepper">
+                <button id="bfs-first" title="Back to the start">&#x21E4; Start</button>
+                <button id="bfs-back" title="Previous step (left arrow)">&larr; Back</button>
+                <button id="bfs-next" class="demo-primary" title="Next step (right arrow)">Next &rarr;</button>
+                <button id="bfs-last" title="Skip to the end">End &#x21E5;</button>
+                <button id="bfs-play">Play</button>
+            </div>
+            <div id="bfs-counter" class="demo-step-count"></div>
         </div>
 
         <div>
@@ -251,7 +253,25 @@ Course Staff
     </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+<script>
+    // show errors in the demo itself (e.g., on a phone, where there is no
+    // console): a script that fails to load, or one that fails to run
+    window.addEventListener("error", function (event) {
+        var box = document.getElementById("bfs-canvas");
+        if (!box) {
+            return;
+        }
+        var what = event.target && event.target.src
+            ? "Couldn't load " + event.target.src + "."
+            : event.message + " (" + String(event.filename).split("/").pop()
+                + ", line " + event.lineno + ")";
+        box.insertAdjacentHTML("beforeend",
+            '<p class="demo-error">The demo hit an error: ' + what + '</p>');
+    }, true);
+</script>
+<!-- p5.js 1.9.4 (LGPL 2.1, see common/vendor/LICENSE.txt), served from this
+     site rather than a CDN -->
+<script id="p5-script" async src="/demos/common/vendor/p5.min.js"></script>
 <script src="/demos/common/graph.js"></script>
 <script src="/demos/bfs/graphs.js"></script>
 <script src="/demos/bfs/bfs.js"></script>

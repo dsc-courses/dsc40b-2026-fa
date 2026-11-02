@@ -190,7 +190,11 @@ const DemoGraphs = {
             return {pop, edges, turns, flights, dims, visit, end: t, segments};
         }
 
-        const instance = new p5((p) => {
+        // p5.js may still be loading (the page loads it in the background,
+        // as a script with id "p5-script"), so start drawing once it is
+        // there; until then, setGraph and show just record what to draw
+        let instance = null;
+        const sketchFunction = (p) => {
 
             // colors that depend on the site's light/dark mode
             function theme() {
@@ -567,7 +571,19 @@ const DemoGraphs = {
 
             // expose a way to recompute the layout from outside
             p.demoResize = resize;
-        }, container);
+        };
+
+        function start() {
+            if (instance === null) {
+                instance = new p5(sketchFunction, container);
+            }
+        }
+
+        if (typeof p5 !== "undefined") {
+            start();
+        } else {
+            document.getElementById("p5-script")?.addEventListener("load", start);
+        }
 
         return {
             setGraph(newGraph, states) {
@@ -576,7 +592,9 @@ const DemoGraphs = {
                 longest = Math.max(1, ...states.map(s => s.queue.length));
                 previous = null;
                 layout = null;
-                instance.demoResize();
+                if (instance !== null) {
+                    instance.demoResize();
+                }
             },
 
             show(newState, previousState = null,
