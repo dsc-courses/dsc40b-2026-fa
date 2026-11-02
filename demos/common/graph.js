@@ -67,6 +67,183 @@ const DemoGraphs = {
         return `${a}--${b}`;
     },
 
+    // Start the p5.js sketch `sketchFunction` in `container` once p5.js has
+    // loaded: the page loads it in the background, as a script with id
+    // "p5-script". Calls `onStart(instance)` when the sketch starts.
+    startSketch(sketchFunction, container, onStart = () => {}) {
+        let instance = null;
+        function start() {
+            if (instance === null) {
+                instance = new p5(sketchFunction, container);
+                onStart(instance);
+            }
+        }
+        if (typeof p5 !== "undefined") {
+            start();
+        } else {
+            document.getElementById("p5-script")?.addEventListener("load", start);
+        }
+    },
+
+    // Fit the nodes of `graph` into a box `width` pixels wide and at most
+    // `maxHeight` tall (plus padding), whose left edge is at `left` and top
+    // at `top`. Returns the nodes' positions in pixels, and the height used.
+    fitGraph(graph, {left = 0, top = 0, width, maxHeight = 340, radius = 20}) {
+        const xs = graph.nodes.map(n => n.x);
+        const ys = graph.nodes.map(n => n.y);
+        const minX = Math.min(...xs), maxX = Math.max(...xs);
+        const minY = Math.min(...ys), maxY = Math.max(...ys);
+        const pad = radius + 12;
+
+        const spanX = Math.max(maxX - minX, 1e-9);
+        const spanY = Math.max(maxY - minY, 1e-9);
+        const scale = Math.min((width - 2 * pad) / spanX, maxHeight / spanY, 90);
+        const graphWidth = (maxX - minX) * scale;
+        const graphHeight = (maxY - minY) * scale;
+        const offsetX = left + (width - graphWidth) / 2;
+
+        const positions = new Map(graph.nodes.map(n => [n.id, {
+            x: offsetX + (n.x - minX) * scale,
+            y: top + pad + (maxY - n.y) * scale,
+        }]));
+        return {positions, height: graphHeight + 2 * pad};
+    },
+
+    // Drawing helpers shared by the demos' p5.js sketches, for the p5
+    // instance `p`: the site's colors, easing functions, and functions that
+    // draw nodes, edges, and rings.
+    painter(p, {radius: RADIUS = 20} = {}) {
+
+        // colors that depend on the site's light/dark mode
+        function theme() {
+            const dark = document.documentElement.classList.contains("dark");
+            return dark ? {
+                ink: "#f3f4f6", muted: "#9ca3af", edge: "#6b7280",
+                stroke: "#f3f4f6", slot: "#374151",
+                background: "#1f2937",  // the page's (bg-gray-800)
+            } : {
+                ink: "#111827", muted: "#6b7280", edge: "#9ca3af",
+                stroke: "#000000", slot: "#e5e7eb",
+                background: "#ffffff",
+            };
+        }
+
+        // 0 before time `a`, 1 after `a + length`, eased in between
+        function phase(t, a, length) {
+            if (length <= 0) {
+                return t >= a ? 1 : 0;
+            }
+            const s = Math.min(1, Math.max(0, (t - a) / length));
+            return s * s * (3 - 2 * s);
+        }
+
+        // 0 before time `a`, 1 after `a + length`; in between, it rises
+        // fast, overshoots 1 a little, and settles back (ease-out-back),
+        // for a snappy motion
+        function snap(t, a, length) {
+            const x = Math.min(1, Math.max(0, (t - a) / length));
+            const c1 = 1.70158, c3 = c1 + 1;
+            return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2);
+        }
+
+        function lerpPoint(P, Q, s) {
+            return {x: P.x + (Q.x - P.x) * s, y: P.y + (Q.y - P.y) * s};
+        }
+
+        // the pulsing purple ring around the node being visited, for a node
+        // of the given radius; `alpha` in [0, 1]
+        function drawRing(pos, alpha, radius = RADIUS) {
+            if (alpha <= 0) {
+                return;
+            }
+            p.noFill();
+            const c = p.color(DemoGraphs.COLORS.accent);
+            c.setAlpha(255 * alpha);
+            p.stroke(c);
+            p.strokeWeight(radius < RADIUS ? 3 : 4);
+            const scale = radius / RADIUS;
+            p.circle(pos.x, pos.y,
+                2 * radius + scale * (12 + 4 * Math.sin(p.millis() / 200)));
+        }
+
+        // draw a node; `light` gives it a white label, for dark fills
+        // `wash` in [0, 1] mixes the node's colors toward the background,
+        // so it looks faded but stays opaque
+        function drawNode(pos, fill, label,
+                          {ring = 0, alpha = 255, radius = RADIUS, wash = 0,
+                           light = fill === DemoGraphs.COLORS.visited} = {}) {
+            const colors = theme();
+
+            drawRing(pos, ring);
+
+            const background = p.color(colors.background);
+            const washed = (c) => {
+                const mixed = p.lerpColor(p.color(c), background, wash);
+                mixed.setAlpha(alpha);
+                return mixed;
+            };
+
+            const f = washed(fill);
+            const s = washed(colors.stroke);
+            p.fill(f);
+            p.stroke(s);
+            p.strokeWeight(radius < RADIUS ? 2.5 : 3);
+            p.circle(pos.x, pos.y, 2 * radius);
+
+            p.noStroke();
+            p.fill(washed(light ? "#ffffff" : "#000000"));
+            p.textAlign(p.CENTER, p.CENTER);
+            p.textSize(17 * radius / RADIUS);
+            p.text(label, pos.x, pos.y + 1);
+        }
+
+        function drawArrowhead(tip, ux, uy, color) {
+            const size = 12, w = size * 0.55;
+            const baseX = tip.x - ux * size, baseY = tip.y - uy * size;
+            p.noStroke();
+            p.fill(color);
+            p.triangle(tip.x, tip.y,
+                baseX - uy * w, baseY + ux * w,
+                baseX + uy * w, baseY - ux * w);
+        }
+
+        // draw the edge from the node at P to the node at Q (with an
+        // arrowhead at Q if `directed`); `progress` in [0, 1] is how much of
+        // it is highlighted, starting from P if `fromP`, or else from Q
+        function drawEdge(P, Q, directed, progress, fromP = true) {
+            const colors = theme();
+            const dx = Q.x - P.x, dy = Q.y - P.y;
+            const len = Math.hypot(dx, dy);
+            const ux = dx / len, uy = dy / len;
+            const start = {x: P.x + ux * RADIUS, y: P.y + uy * RADIUS};
+            const tip = {x: Q.x - ux * (RADIUS + 2), y: Q.y - uy * (RADIUS + 2)};
+            const end = directed
+                ? {x: tip.x - ux * 10, y: tip.y - uy * 10}
+                : {x: Q.x - ux * RADIUS, y: Q.y - uy * RADIUS};
+
+            p.stroke(colors.edge);
+            p.strokeWeight(2);
+            p.line(start.x, start.y, end.x, end.y);
+            if (directed) {
+                drawArrowhead(tip, ux, uy, colors.edge);
+            }
+
+            if (progress > 0) {
+                const [a, b] = fromP ? [start, end] : [end, start];
+                const m = lerpPoint(a, b, progress);
+                p.stroke(colors.ink);
+                p.strokeWeight(4);
+                p.line(a.x, a.y, m.x, m.y);
+                if (directed && progress >= 1) {
+                    drawArrowhead(tip, ux, uy, colors.ink);
+                }
+            }
+        }
+
+        return {RADIUS, theme, phase, snap, lerpPoint, drawRing, drawNode,
+                drawArrowhead, drawEdge};
+    },
+
     // Create an animated drawing of a graph and its queue inside the element
     // `container`, using p5.js in instance mode. Returns an object with
     //
@@ -190,50 +367,22 @@ const DemoGraphs = {
             return {pop, edges, turns, flights, dims, visit, end: t, segments};
         }
 
-        // p5.js may still be loading (the page loads it in the background,
-        // as a script with id "p5-script"), so start drawing once it is
-        // there; until then, setGraph and show just record what to draw
+        // p5.js may still be loading, so start drawing once it is there (see
+        // startSketch); until then, setGraph and show just record what to draw
         let instance = null;
         const sketchFunction = (p) => {
 
-            // colors that depend on the site's light/dark mode
-            function theme() {
-                const dark = document.documentElement.classList.contains("dark");
-                return dark ? {
-                    ink: "#f3f4f6", muted: "#9ca3af", edge: "#6b7280",
-                    stroke: "#f3f4f6", slot: "#374151",
-                    background: "#1f2937",  // the page's (bg-gray-800)
-                } : {
-                    ink: "#111827", muted: "#6b7280", edge: "#9ca3af",
-                    stroke: "#000000", slot: "#e5e7eb",
-                    background: "#ffffff",
-                };
-            }
+            const paint = DemoGraphs.painter(p, {radius: RADIUS});
+            const {theme, phase, snap, lerpPoint, drawNode} = paint;
 
             function computeLayout() {
-                const xs = graph.nodes.map(n => n.x);
-                const ys = graph.nodes.map(n => n.y);
-                const minX = Math.min(...xs), maxX = Math.max(...xs);
-                const minY = Math.min(...ys), maxY = Math.max(...ys);
-                const pad = RADIUS + 12;
-
-                // fit the graph to the canvas width, but not too tall
-                const spanX = Math.max(maxX - minX, 1e-9);
-                const spanY = Math.max(maxY - minY, 1e-9);
-                let scale = Math.min((p.width - 2 * pad) / spanX, 340 / spanY, 90);
-                const graphWidth = (maxX - minX) * scale;
-                const graphHeight = (maxY - minY) * scale;
-                const offsetX = (p.width - graphWidth) / 2;
-
-                const positions = new Map(graph.nodes.map(n => [n.id, {
-                    x: offsetX + (n.x - minX) * scale,
-                    y: pad + (maxY - n.y) * scale,
-                }]));
+                const fit = DemoGraphs.fitGraph(graph, {width: p.width, radius: RADIUS});
+                const positions = fit.positions;
 
                 // reserve room for the queue at its longest
                 const ids = graph.nodes.map(n => n.id);
                 queueLines = listLayout(ids.slice(0, longest), 0).lines;
-                const graphBottom = graphHeight + 2 * pad;
+                const graphBottom = fit.height;
                 const height = graphBottom + 8
                     + queueLines * LIST_LINE + 12;
                 return {positions, graphBottom, height};
@@ -347,108 +496,11 @@ const DemoGraphs = {
                 });
             }
 
-            // 0 before time `a`, 1 after `a + length`, eased in between
-            function phase(t, a, length) {
-                if (length <= 0) {
-                    return t >= a ? 1 : 0;
-                }
-                const s = Math.min(1, Math.max(0, (t - a) / length));
-                return s * s * (3 - 2 * s);
-            }
-
-            // 0 before time `a`, 1 after `a + length`; in between, it rises
-            // fast, overshoots 1 a little, and settles back (ease-out-back),
-            // for a snappy motion
-            function snap(t, a, length) {
-                const x = Math.min(1, Math.max(0, (t - a) / length));
-                const c1 = 1.70158, c3 = c1 + 1;
-                return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2);
-            }
-
-            function lerpPoint(P, Q, s) {
-                return {x: P.x + (Q.x - P.x) * s, y: P.y + (Q.y - P.y) * s};
-            }
-
-            // draw a node; `light` gives it a white label, for dark fills
-            // `wash` in [0, 1] mixes the node's colors toward the background,
-            // so it looks faded but stays opaque
-            function drawNode(pos, fill, label,
-                              {ring = 0, alpha = 255, radius = RADIUS, wash = 0,
-                               light = fill === DemoGraphs.COLORS.visited} = {}) {
-                const colors = theme();
-
-                if (ring > 0) {
-                    p.noFill();
-                    const c = p.color(DemoGraphs.COLORS.accent);
-                    c.setAlpha(255 * ring);
-                    p.stroke(c);
-                    p.strokeWeight(4);
-                    p.circle(pos.x, pos.y, 2 * RADIUS + 12 + 4 * Math.sin(p.millis() / 200));
-                }
-
-                const background = p.color(colors.background);
-                const washed = (c) => {
-                    const mixed = p.lerpColor(p.color(c), background, wash);
-                    mixed.setAlpha(alpha);
-                    return mixed;
-                };
-
-                const f = washed(fill);
-                const s = washed(colors.stroke);
-                p.fill(f);
-                p.stroke(s);
-                p.strokeWeight(radius < RADIUS ? 2.5 : 3);
-                p.circle(pos.x, pos.y, 2 * radius);
-
-                p.noStroke();
-                p.fill(washed(light ? "#ffffff" : "#000000"));
-                p.textAlign(p.CENTER, p.CENTER);
-                p.textSize(17 * radius / RADIUS);
-                p.text(label, pos.x, pos.y + 1);
-            }
-
-            function drawArrowhead(tip, ux, uy, color) {
-                const size = 12, w = size * 0.55;
-                const baseX = tip.x - ux * size, baseY = tip.y - uy * size;
-                p.noStroke();
-                p.fill(color);
-                p.triangle(tip.x, tip.y,
-                    baseX - uy * w, baseY + ux * w,
-                    baseX + uy * w, baseY - ux * w);
-            }
-
             // draw edge (u, v); `progress` in [0, 1] is how much of it is
             // highlighted, starting from `from`
             function drawEdge(u, v, progress, from) {
-                const colors = theme();
-                const P = layout.positions.get(u), Q = layout.positions.get(v);
-                const dx = Q.x - P.x, dy = Q.y - P.y;
-                const len = Math.hypot(dx, dy);
-                const ux = dx / len, uy = dy / len;
-                const start = {x: P.x + ux * RADIUS, y: P.y + uy * RADIUS};
-                const tip = {x: Q.x - ux * (RADIUS + 2), y: Q.y - uy * (RADIUS + 2)};
-                const end = graph.directed
-                    ? {x: tip.x - ux * 10, y: tip.y - uy * 10}
-                    : {x: Q.x - ux * RADIUS, y: Q.y - uy * RADIUS};
-
-                p.stroke(colors.edge);
-                p.strokeWeight(2);
-                p.line(start.x, start.y, end.x, end.y);
-                if (graph.directed) {
-                    drawArrowhead(tip, ux, uy, colors.edge);
-                }
-
-                if (progress > 0) {
-                    // highlight from `from` toward the other end
-                    const [a, b] = from === u ? [start, end] : [end, start];
-                    const m = lerpPoint(a, b, progress);
-                    p.stroke(colors.ink);
-                    p.strokeWeight(4);
-                    p.line(a.x, a.y, m.x, m.y);
-                    if (graph.directed && progress >= 1) {
-                        drawArrowhead(tip, ux, uy, colors.ink);
-                    }
-                }
+                paint.drawEdge(layout.positions.get(u), layout.positions.get(v),
+                    graph.directed, progress, from === u);
             }
 
             p.setup = () => {
@@ -573,17 +625,7 @@ const DemoGraphs = {
             p.demoResize = resize;
         };
 
-        function start() {
-            if (instance === null) {
-                instance = new p5(sketchFunction, container);
-            }
-        }
-
-        if (typeof p5 !== "undefined") {
-            start();
-        } else {
-            document.getElementById("p5-script")?.addEventListener("load", start);
-        }
+        DemoGraphs.startSketch(sketchFunction, container, (i) => { instance = i; });
 
         return {
             setGraph(newGraph, states) {

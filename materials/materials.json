@@ -461,7 +461,13 @@
                         "number": 13,
                         "date": "2026-11-10",
                         "topic": "Depth-First Search",
-                        "reading": "Section 3.4"
+                        "reading": "Section 3.4",
+                        "demos": [
+                            {
+                                "title": "Depth-First Search",
+                                "url": "demos/dfs/index.html"
+                            }
+                        ]
                     },
                     "artifacts": {}
                 },
