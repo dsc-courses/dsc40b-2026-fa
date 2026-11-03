@@ -714,6 +714,32 @@ const DemoGraphs = {
             play.textContent = "Play";
         }
 
+        // Show that a button was pressed. On an iPad, CSS :active rarely
+        // shows, and a quick tap would end it before it could be seen, so
+        // the button gets the class demo-pressed (see demos.css) from the
+        // moment it's touched until at least FLASH ms later.
+        const FLASH = 200;
+        function flash(button) {
+            if (button.disabled) {
+                return;
+            }
+            const started = performance.now();
+            button.classList.add("demo-pressed");
+            clearTimeout(button.demoUnpress);
+            const release = () => {
+                const left = Math.max(0, FLASH - (performance.now() - started));
+                button.demoUnpress = setTimeout(
+                    () => button.classList.remove("demo-pressed"), left);
+            };
+            // wherever the press ends, even off the button
+            window.addEventListener("pointerup", release, {once: true});
+            window.addEventListener("pointercancel", release, {once: true});
+            return release;
+        }
+        for (const button of [first, back, next, last, play]) {
+            button.addEventListener("pointerdown", () => flash(button));
+        }
+
         first.addEventListener("click", () => { stop(); go(0); });
         back.addEventListener("click", () => { stop(); go(i - 1); });
         next.addEventListener("click", () => { stop(); go(i + 1); });
@@ -743,10 +769,12 @@ const DemoGraphs = {
                 return;
             }
             if (event.key === "ArrowRight") {
+                flash(next)?.();
                 stop();
                 go(i + 1);
                 event.preventDefault();
             } else if (event.key === "ArrowLeft") {
+                flash(back)?.();
                 stop();
                 go(i - 1);
                 event.preventDefault();

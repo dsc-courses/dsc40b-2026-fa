@@ -136,6 +136,22 @@
     border-color: var(--demo-accent);
 }
 
+/* a button that was just pressed (see flash() in graph.js): darker and a
+   little smaller, so that a tap on an iPad is visible */
+.demo button {
+    touch-action: manipulation;
+    transition: transform 80ms ease-out, filter 80ms ease-out;
+}
+
+.demo button.demo-pressed {
+    transform: scale(.93);
+    filter: brightness(.8);
+}
+
+.dark .demo button.demo-pressed {
+    filter: brightness(1.4);
+}
+
 .demo button:disabled {
     opacity: .4;
     cursor: default;
