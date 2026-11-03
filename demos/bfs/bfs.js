@@ -256,6 +256,18 @@
         });
     }
 
+    // On a lecture slide (see "embedding" in demos.css), play a popping
+    // sound whenever a node is popped from the queue. Off the slides the
+    // demo is silent.
+    const embedded = document.documentElement.classList.contains("demo-embed");
+    const popSound = embedded ? new Audio(new URL("pop.wav", document.currentScript.src)) : null;
+
+    function playPop() {
+        popSound.currentTime = 0;
+        // the browser may refuse before the page has been clicked
+        popSound.play().catch(() => {});
+    }
+
     // show frame k; `previous` is the frame before it, when moving forward
     // one frame, so that the change is animated
     function show(k, previous) {
@@ -263,6 +275,10 @@
         const state = states[frame.state];
         const before = frame.state === 0 ? null : states[frame.state - 1];
         caption.innerHTML = frame.caption;
+        // a step's animation starts by popping the node it visits
+        if (popSound && previous !== null && frame.from === 0 && state.current !== null) {
+            playPop();
+        }
         return drawing.show(state, before, {
             from: frame.from,
             to: frame.to,
@@ -318,8 +334,8 @@
     fullCheckbox.addEventListener("change", rebuild);
     smallCheckbox.addEventListener("change", toggleSmallSteps);
 
-    // on a lecture slide (see "embedding" in demos.css), start with small steps
-    if (document.documentElement.classList.contains("demo-embed")) {
+    // on a lecture slide, start with small steps
+    if (embedded) {
         smallCheckbox.checked = true;
     }
 
