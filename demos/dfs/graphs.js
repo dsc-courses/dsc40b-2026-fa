@@ -88,6 +88,36 @@ const DFS_GRAPHS = [
         ],
     },
     {
+        id: "star",
+        name: "Directed star",
+        description: "Node 1 in the center, with four chains of nodes pointing away "
+            + "from it. DFS follows each chain all the way to its end before "
+            + "starting the next: 1, 2, 6, 10, then 3, 7, 11, and so on. "
+            + "Compare it to the same graph in the BFS demo.",
+        directed: true,
+        source: "1",
+        nodes: [
+            {id: "1", x: 0, y: 0},
+            {id: "2", x: 1.3, y: 0.75},
+            {id: "3", x: 1.3, y: -0.75},
+            {id: "4", x: -1.3, y: -0.75},
+            {id: "5", x: -1.3, y: 0.75},
+            {id: "6", x: 2.6, y: 1.5},
+            {id: "7", x: 2.6, y: -1.5},
+            {id: "8", x: -2.6, y: -1.5},
+            {id: "9", x: -2.6, y: 1.5},
+            {id: "10", x: 3.9, y: 2.25},
+            {id: "11", x: 3.9, y: -2.25},
+            {id: "12", x: -3.9, y: -2.25},
+            {id: "13", x: -3.9, y: 2.25},
+        ],
+        edges: [
+            ["1", "2"], ["1", "3"], ["1", "4"], ["1", "5"],
+            ["2", "6"], ["3", "7"], ["4", "8"], ["5", "9"],
+            ["6", "10"], ["7", "11"], ["8", "12"], ["9", "13"],
+        ],
+    },
+    {
         id: "disconnected",
         name: "Disconnected graph",
         description: "An undirected graph with three connected components. "
