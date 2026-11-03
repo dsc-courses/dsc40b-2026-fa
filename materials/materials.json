@@ -609,7 +609,14 @@
                         "date": "2026-11-02",
                         "topic": "Hashing (Lecture 09)"
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "quiz.pdf": {
+                            "path": "materials/quizzes/05/quiz.pdf"
+                        },
+                        "solution.pdf": {
+                            "path": "materials/quizzes/05/solution.pdf"
+                        }
+                    }
                 },
                 "06": {
                     "metadata": {
