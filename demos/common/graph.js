@@ -375,16 +375,37 @@ const DemoGraphs = {
             const paint = DemoGraphs.painter(p, {radius: RADIUS});
             const {theme, phase, snap, lerpPoint, drawNode} = paint;
 
-            function computeLayout() {
-                const fit = DemoGraphs.fitGraph(graph, {width: p.width, radius: RADIUS});
-                const positions = fit.positions;
+            // In an embedded demo (see "embedding" in demos.css), the graph
+            // gets whatever height the window has left after the rest of the
+            // demo and the queue, so that the whole demo fits without
+            // scrolling. Otherwise it is at most 340 pixels tall.
+            function maxGraphHeight(queueHeight) {
+                if (!document.documentElement.classList.contains("demo-embed")) {
+                    return 340;
+                }
+                const demo = container.closest(".demo") ?? container;
+                const column = demo.parentElement.parentElement;
+                const padding = parseFloat(getComputedStyle(column).paddingTop)
+                    + parseFloat(getComputedStyle(column).paddingBottom);
+                const rest = demo.offsetHeight - container.offsetHeight + padding;
+                const pad = 2 * (RADIUS + 12);
+                return Math.max(80, window.innerHeight - rest - queueHeight - pad);
+            }
 
+            function computeLayout() {
                 // reserve room for the queue at its longest
                 const ids = graph.nodes.map(n => n.id);
                 queueLines = listLayout(ids.slice(0, longest), 0).lines;
+                const queueHeight = 8 + queueLines * LIST_LINE + 12;
+
+                const fit = DemoGraphs.fitGraph(graph, {
+                    width: p.width,
+                    maxHeight: maxGraphHeight(queueHeight),
+                    radius: RADIUS,
+                });
+                const positions = fit.positions;
                 const graphBottom = fit.height;
-                const height = graphBottom + 8
-                    + queueLines * LIST_LINE + 12;
+                const height = graphBottom + queueHeight;
                 return {positions, graphBottom, height};
             }
 

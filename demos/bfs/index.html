@@ -181,6 +181,15 @@ Course Staff
 
 <link rel="stylesheet" href="/demos/common/demos.css">
 
+<!-- With ?embed in the URL (e.g. for a slide in Lectern), show only the demo,
+     without the site around it or the parts marked demo-no-embed. See
+     "embedding" in demos.css. -->
+<script>
+    if (new URLSearchParams(location.search).has("embed")) {
+        document.documentElement.classList.add("demo-embed");
+    }
+</script>
+
 <h1>Breadth-First Search</h1>
 
 <p>
@@ -211,7 +220,7 @@ Course Staff
             Source
             <select id="bfs-source"></select>
         </label>
-        <label class="demo-checkbox">
+        <label class="demo-checkbox demo-no-embed">
             <input type="checkbox" id="bfs-full">
             &nbsp;Full BFS (visit every node)
         </label>
@@ -221,7 +230,7 @@ Course Staff
         </label>
     </div>
 
-    <p id="bfs-description" class="demo-hint" style="margin-top:0"></p>
+    <p id="bfs-description" class="demo-hint demo-no-embed" style="margin-top:0"></p>
 
 
     <div class="demo-layout">
@@ -241,10 +250,10 @@ Course Staff
                 <button id="bfs-last" title="Skip to the end">End &#x21E5;</button>
                 <button id="bfs-play">Play</button>
             </div>
-            <div id="bfs-counter" class="demo-step-count"></div>
+            <div id="bfs-counter" class="demo-step-count demo-no-embed"></div>
         </div>
 
-        <div>
+        <div class="demo-no-embed">
             <div class="demo-panel">
                 <h3>What happened</h3>
                 <div id="bfs-caption" class="demo-caption" aria-live="polite"></div>

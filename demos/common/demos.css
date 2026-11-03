@@ -269,3 +269,49 @@
     padding: 0 .3rem;
     font-size: .8rem;
 }
+
+/* embedding ---------------------------------------------------------------
+
+   A demo page opened with ?embed in its URL (e.g. on a lecture slide, with
+   \lecternembed in Lectern) gets the class demo-embed on <html>, from a script
+   at the top of the page. It then shows only the demo: no sidebar, no course
+   title, nothing else on the page, and none of the demo's own parts marked
+   demo-no-embed. */
+
+.demo-embed #sidebar,
+.demo-embed .mobile-navbar,
+.demo-embed #overlay,
+.demo-embed .demo-no-embed,
+.demo-embed .prose:has(> .demo) > :not(.demo),
+.demo-embed div:has(> .prose > .demo) > :not(.prose) {
+    display: none !important;
+}
+
+.demo-embed body,
+.demo-embed div:has(> .prose > .demo) {
+    background: white;
+}
+
+/* the column the page sits in, without its padding, border and minimum width */
+.demo-embed div:has(> .prose > .demo) {
+    padding: .75rem 1rem;
+    border: 0;
+    min-width: 0;
+}
+
+.demo-embed .flex.min-h-screen {
+    min-height: 0;
+}
+
+.demo-embed .prose:has(> .demo) {
+    max-width: none;
+}
+
+.demo-embed .demo {
+    margin-top: 0;
+}
+
+/* with the side panel hidden, the figure takes the whole width */
+.demo-embed .demo-layout {
+    grid-template-columns: minmax(0, 1fr);
+}
