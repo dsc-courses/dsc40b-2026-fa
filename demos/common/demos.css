@@ -311,6 +311,10 @@
     margin-top: 0;
 }
 
+.demo-embed .demo-controls {
+    justify-content: center;
+}
+
 /* with the side panel hidden, the figure takes the whole width */
 .demo-embed .demo-layout {
     grid-template-columns: minmax(0, 1fr);

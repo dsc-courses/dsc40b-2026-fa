@@ -318,5 +318,10 @@
     fullCheckbox.addEventListener("change", rebuild);
     smallCheckbox.addEventListener("change", toggleSmallSteps);
 
+    // on a lecture slide (see "embedding" in demos.css), start with small steps
+    if (document.documentElement.classList.contains("demo-embed")) {
+        smallCheckbox.checked = true;
+    }
+
     chooseGraph(BFS_GRAPHS[0].id);
 })();
