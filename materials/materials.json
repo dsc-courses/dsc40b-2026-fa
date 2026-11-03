@@ -444,9 +444,6 @@
                     "artifacts": {
                         "slides.pdf": {
                             "path": "materials/lectures/11-bfs-pt_I/slides.pdf"
-                        },
-                        "slides-marked.pdf": {
-                            "path": "materials/lectures/11-bfs-pt_I/slides-marked.pdf"
                         }
                     }
                 },
