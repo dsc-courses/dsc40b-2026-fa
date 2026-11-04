@@ -153,7 +153,11 @@
                         "released": "2026-11-04 23:59:00",
                         "due": "2026-11-10 23:59:00"
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "homework.pdf": {
+                            "path": "materials/homeworks/06-graphs/homework.pdf"
+                        }
+                    }
                 },
                 "07-bfs-dfs": {
                     "metadata": {
