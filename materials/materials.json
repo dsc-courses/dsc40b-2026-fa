@@ -461,7 +461,11 @@
                         "topic": "BFS for Shortest Paths",
                         "reading": "Section 3.3"
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "slides.pdf": {
+                            "path": "materials/lectures/12-bfs-pt_II/slides.pdf"
+                        }
+                    }
                 },
                 "13-dfs": {
                     "metadata": {

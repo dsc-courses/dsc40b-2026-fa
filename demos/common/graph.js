@@ -277,7 +277,14 @@ const DemoGraphs = {
     //
     // The queue is drawn below the graph like a list of nodes, front first,
     // e.g. "pending = [4, 3, 5]".
-    sketch(container, {queueLabel = "pending"} = {}) {
+    //
+    // With `minimal` (e.g. for an animation on a lecture slide), only the
+    // graph is drawn: no node labels, no queue, no highlighted edges, and no
+    // ring around the node being visited, and
+    // the only animation is each node changing color as its status does
+    // (swelling slightly, and then shrinking back), one node at a time:
+    // discovered nodes, then the visited node.
+    sketch(container, {queueLabel = "pending", minimal = false} = {}) {
         // how long each part of a step's animation takes, in milliseconds
         const POP = 450;         // the popped node moves to the graph
         const EDGE = 400;        // an edge is drawn out
@@ -338,6 +345,9 @@ const DemoGraphs = {
             if (before === null) {
                 return {pop: 0, edges, turns, flights, dims, badges, arrows,
                         visit: 0, end: 0, segments: [[0, 0]]};
+            }
+            if (minimal) {
+                return minimalPlan(after, before);
             }
             const segments = [];
             const current = after.current;
@@ -408,6 +418,39 @@ const DemoGraphs = {
                     end: t, segments};
         }
 
+        // The plan for `minimal`: each node discovered in this step (or
+        // entering the queue without an edge, like bfs's source) swells,
+        // fades from green to yellow, and shrinks back, one after the other,
+        // and then the visited node does the same, fading from yellow to red.
+        // Nothing else moves. Each node's change is a part of its own.
+        function minimalPlan(after, before) {
+            const edges = new Map(), turns = new Map(), flights = new Map();
+            const dims = new Map(), badges = new Map(), arrows = new Map();
+            const segments = [];
+            let t = 0;
+            const entering = after.queue.filter(id => !before.queue.includes(id));
+            for (const id of entering) {
+                const start = t;
+                turns.set(id, t);
+                t += GROW + FADE;
+                // it is drawn pending from here on (see shownStatus)
+                flights.set(id, t);
+                t += SHRINK;
+                segments.push([start, t]);
+                t += PAUSE;
+            }
+            const visit = t;
+            if (after.current !== null) {
+                t += GROW + VISIT + SHRINK;
+                segments.push([visit, t]);
+            }
+            if (segments.length === 0) {
+                segments.push([0, t]);
+            }
+            return {pop: 0, edges, turns, flights, dims, badges, arrows, visit,
+                    end: t, segments};
+        }
+
         // p5.js may still be loading, so start drawing once it is there (see
         // startSketch); until then, setGraph and show just record what to draw
         let instance = null;
@@ -437,7 +480,7 @@ const DemoGraphs = {
                 // reserve room for the queue at its longest
                 const ids = graph.nodes.map(n => n.id);
                 queueLines = listLayout(ids.slice(0, longest), 0).lines;
-                const queueHeight = 8 + queueLines * LIST_LINE + 12;
+                const queueHeight = minimal ? 0 : 8 + queueLines * LIST_LINE + 12;
 
                 const fit = DemoGraphs.fitGraph(graph, {
                     width: p.width,
@@ -686,7 +729,7 @@ const DemoGraphs = {
                 for (const [u, v] of graph.edges) {
                     const key = DemoGraphs.edgeKey(graph, u, v);
                     const e = plan.edges.get(key);
-                    if (e === undefined) {
+                    if (e === undefined || minimal) {
                         drawEdge(u, v, 0, u);
                     } else {
                         drawEdge(u, v, animating ? phase(t, e.start, EDGE) : 1, current);
@@ -735,7 +778,8 @@ const DemoGraphs = {
                         return after;
                     }
                     if (id === current && after === "visited") {
-                        return t >= plan.visit + VISIT ? "visited" : before;
+                        const done = plan.visit + (minimal ? GROW : 0) + VISIT;
+                        return t >= done ? "visited" : before;
                     }
                     // a discovered node is pending once it has turned yellow
                     const fly = plan.flights.get(id);
@@ -755,7 +799,8 @@ const DemoGraphs = {
                     if (animating && turn !== undefined && t >= turn) {
                         const grow = snap(t, turn, GROW);
                         const fade = phase(t, turn + GROW, FADE);
-                        const shrink = phase(t, turn + TURN + FLY, SHRINK);
+                        const shrink = minimal ? phase(t, turn + TURN, SHRINK)
+                            : phase(t, turn + TURN + FLY, SHRINK);
                         radius = RADIUS * (1 + SWELL * (grow - shrink));
                         if (status === "undiscovered") {
                             fill = p.lerpColor(p.color(DemoGraphs.COLORS.undiscovered),
@@ -768,10 +813,21 @@ const DemoGraphs = {
                     let light = status === "visited";
                     if (animating && node.id === current && status !== "visited"
                             && state.status.get(node.id) === "visited" && t >= plan.visit) {
-                        const s = phase(t, plan.visit, VISIT);
+                        // with `minimal`, it swells first, and shrinks back after
+                        const fadeStart = plan.visit + (minimal ? GROW : 0);
+                        const s = phase(t, fadeStart, VISIT);
                         fill = p.lerpColor(p.color(DemoGraphs.COLORS[status]),
                             p.color(DemoGraphs.COLORS.visited), s);
                         light = s >= 0.5;
+                    }
+                    // with `minimal`, the visited node swells as it starts to
+                    // change, and shrinks back once it is red
+                    if (minimal && animating && node.id === current
+                            && previous.status.get(node.id) !== "visited"
+                            && state.status.get(node.id) === "visited" && t >= plan.visit) {
+                        const grow = snap(t, plan.visit, GROW);
+                        const shrink = phase(t, plan.visit + GROW + VISIT, SHRINK);
+                        radius = RADIUS * (1 + SWELL * (grow - shrink));
                     }
 
                     // a neighbor already seen washes out halfway and back
@@ -782,11 +838,12 @@ const DemoGraphs = {
                         wash = 0.5 * Math.sin(Math.PI * s);
                     }
 
-                    drawNode(layout.positions.get(node.id), fill, node.id, {
+                    drawNode(layout.positions.get(node.id), fill,
+                        minimal ? "" : node.id, {
                         radius,
                         wash,
                         light,
-                        ring: node.id === current ? popT : 0,
+                        ring: node.id === current && !minimal ? popT : 0,
                     });
                 }
 
@@ -798,6 +855,9 @@ const DemoGraphs = {
                 }
 
                 // the queue, front first
+                if (minimal) {
+                    return;
+                }
                 const queueY = layout.graphBottom + 8 + LIST_LINE / 2;
                 drawList(queueLabel, queueY,
                     animating ? previous.queue : state.queue, state.queue, "pending", {
@@ -872,8 +932,10 @@ const DemoGraphs = {
     // that the change can be animated), or null otherwise; it returns how
     // long its animation takes, in ms, so that Play can wait for it. Returns
     // an object whose `reset(count, start)` starts over with a new number of
-    // steps, at step `start` (0 by default).
-    stepper({first, back, next, last, play, counter}, count, show) {
+    // steps, at step `start` (0 by default). If given, `onFinish(duration)` is
+    // called when Play reaches the last step, with how long that step's
+    // animation takes.
+    stepper({first, back, next, last, play, counter}, count, show, {onFinish} = {}) {
         let i = 0;
         let timer = null;
 
@@ -946,6 +1008,8 @@ const DemoGraphs = {
                 const duration = go(i + 1);
                 if (timer !== null) {
                     timer = setTimeout(tick, duration + 600);
+                } else if (i === count - 1) {
+                    onFinish?.(duration);
                 }
             }
             timer = setTimeout(tick, 0);

@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head data-automata-theme="default">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DSC 40B</title>
+    <link href="/static/style.css" rel="stylesheet">
+    
+    <script defer src="https://unpkg.com/lucide@1.48.0/dist/umd/lucide.min.js"></script>
+    
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+            },
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    
+    
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    
+    
+
+
+
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+
+    <!-- Mobile menu button -->
+<div class="mobile-navbar lg:hidden fixed top-0 left-0 right-0 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-50 flex items-center">
+    <button id="mobile-menu-button" class="py-5 pl-4 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <i data-lucide="menu" class="w-6 h-5"></i>
+    </button>
+    <span class="ml-2 font-semibold">DSC 40B</span>
+</div>
+
+    <div class="flex min-h-screen">
+        <!-- Left Navigation Column -->
+        <nav id="sidebar" class="
+    w-64 flex-none
+    fixed lg:sticky
+    top-0 left-0 h-screen
+    transform -translate-x-full lg:translate-x-0 transition-transform duration-200 ease-in-out
+    bg-gray-50 dark:bg-gray-900
+    z-40
+    sidebar-mobile-spacing lg:pt-6
+    flex flex-col items-end
+    border-r lg:border-r-0 border-gray-200 dark:border-gray-700
+    ">
+
+    <div class="pt-6 pr-6 flex">
+        <ul class="space-y-2">
+            
+            <li>
+                <a href="/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="calendar-days" class="mr-2 text-slate-400"></i>
+Schedule
+                </a>
+            </li>
+            
+            <li>
+                <a href="/syllabus.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="scale" class="mr-2 text-slate-400"></i>
+Syllabus
+                </a>
+            </li>
+            
+            <li>
+                <a href="/office_hours.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="briefcase-business" class="mr-2 text-slate-400"></i>
+Office Hours
+                </a>
+            </li>
+            
+            <li>
+                <a href="/materials/default/notes/book.pdf" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="book-open" class="mr-2 text-slate-400"></i>
+Course Notes
+                </a>
+            </li>
+            
+            <li>
+                <a href="/practice/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="dumbbell" class="mr-2 text-slate-400"></i>
+Practice
+                </a>
+            </li>
+            
+            <li>
+                <a href="/demos/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="mouse-pointer-click" class="mr-2 text-slate-400"></i>
+Demos
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://campuswire.com/p/G43FA47CB" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-more" class="mr-2 text-slate-400"></i>
+Campuswire
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://www.gradescope.com/courses/1409241" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="spell-check" class="mr-2 text-slate-400"></i>
+Gradescope
+                </a>
+            </li>
+            
+            <li>
+                <a href="http://sierra.ucsd.edu/qa/dsc40b" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-question-mark" class="mr-2 text-slate-400"></i>
+Live Q&A
+                </a>
+            </li>
+            
+            <li>
+                <a href="/staff.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="users" class="mr-2 text-slate-400"></i>
+Course Staff
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="flex mr-9 pt-3 pb-6">
+        <button id="theme-toggle" class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-full transition-colors">
+            <span id="theme-icon" class="mr-1.5">☾</span>
+            <span id="theme-text">Dark</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Overlay for mobile -->
+<div id="overlay" class="fixed inset-0 bg-gray-200/40 dark:bg-black/50 backdrop-blur-[2px] z-30 hidden"></div>
+
+        <!-- Main Content Column -->
+        
+<!-- Main Content Column -->
+<div class="
+    w-full
+    bg-white dark:bg-gray-800
+    md:border-l
+    border-gray-200 dark:border-gray-700
+    md:min-w-180
+    px-4 md:px-12
+    pt-20 lg:pt-12
+    pb-24
+    ">
+
+    <div class="
+    text-xl font-semibold
+    left-12 right-12
+    py-4 lg:pt-0 lg:pb-0 lg:mb-10
+    lg:static
+    truncate
+    flex
+    ">
+    <div class="
+        shrink
+        lg:border-b border-gray-200 dark:border-gray-700
+        ">
+        <span class="hidden lg:inline">
+            DSC 40B
+            &ndash;
+            Theoretical Foundations of Data Science II
+        </span>
+    </div>
+</div>
+
+    <div class="prose dark:prose-invert">
+    
+<style>
+.multiple-choices .choice label, .multiple-select .choice label {
+    display: flex; align-items: center; gap: 0.6em; margin: 0.25em 0; cursor: pointer;
+}
+.multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+</style>
+<h1>Problems tagged with "lecture-12"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #235</h2>
+        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a breadth-first search is performed on the following tree, starting at the root node <span class="math">\(s\)</span>:</p>
+<center><div class="image"><img src="../images/235/tree.png" /></div></center>
+<p>What is the most number of nodes that can be in the queue at any one time?</p>
+<details>
+    <summary>Solution</summary>
+<p>8</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #241</h2>
+        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the code below, which is a modification of the BFS algorithm presented in lecture: there are two new lines, marked with comments.</p>
+<pre class="code"><code class="language-python">from collections import deque
+
+def modified_bfs(graph, source):
+    """Start a BFS at `source`."""
+    status = {node: 'undiscovered' for node in graph.nodes}
+    status[source] = 'pending'
+    pending = deque([source])
+
+    while pending:
+        u = pending.popleft()
+        for v in graph.neighbors(u):
+
+            for node in graph.nodes:  # &lt; -- this is the modification
+                print(status[node])   # &lt; -- this is the modification
+
+            if status[v] == 'undiscovered':
+                status[v] = 'pending'
+                pending.append(v)
+
+        status[u] = 'visited'</code></pre>
+<p>What is the time complexity of this algorithm, in terms of <span class="math">\(|V|\)</span> and <span class="math">\(|E|\)</span>? You may assume the graph is undirected and connected, so that all nodes are reachable from the source.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V E + V)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>Because the graph is connected, <span class="math">\(|E| \geq |V| - 1\)</span>, and so <span class="math">\(\Theta(VE)\)</span> and <span class="math">\(\Theta(VE + V)\)</span> are equivalent. Only <span class="math">\(\Theta(VE + V)\)</span> is an option so <span class="math">\(\Theta(VE + V)\)</span> is the correct answer.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #245</h2>
+        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a breadth first search (BFS) is performed on the graph shown below using node <span class="math">\(a\)</span> as the source. Which node will be the BFS predecessor of node <span class="math">\(h\)</span> when the search is complete? You should use the convention that neighbors are produced in alphabetical order.</p>
+<center><div class="image"><img src="../images/245/graph.png" /></div></center>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(d\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #246</h2>
+        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a BFS is run on the graph below using node 1 as the source node. Which node will be the BFS predecessor of node 8? You should use the convention that neighbors are produced in ascending order by label.</p>
+<center><div class="image"><img src="../images/246/fig/g2.png" /></div></center>
+<details>
+    <summary>Solution</summary>
+<p>5</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #247</h2>
+        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a BFS is run on the graph below using node 1 as the source node. Which node will be the BFS predecessor of node 9? You should use the convention that neighbors are produced in ascending order by label.</p>
+<center><div class="image"><img src="../images/247/graph.png" /></div></center>
+<details>
+    <summary>Solution</summary>
+<p>5</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #248</h2>
+        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a <i>breadth</i> first search (BFS) is run on the graph shown below using node <span class="math">\(u_4\)</span> as the source and the convention that <span class="inline-code"><code>graph.neighbors</code></span> produces nodes in ascending order by label. What will be the predecessor of <span class="math">\(u_6\)</span> in the BFS?</p>
+<center><div class="image"><img src="../images/248/f1.png" /></div></center>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_1\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_2\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_3\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_4\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_5\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_6\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_7\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_8\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_9\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(u_2\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #251</h2>
+        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose you are about to run a BFS on a graph whose exact edge structure you do not know. However, you do know that the graph is undirected, has 8 nodes, and has 2 connected components.</p>
+<p>You have picked a node to start on and are about to run a BFS to find shortest path distances. What is the <b>greatest shortest path</b> distance between the starting node and any other node that could possibly be found in such a graph? <b>Hint:</b> consider how large a connected component could possibly be.</p>
+<details>
+    <summary>Solution</summary>
+<p>Answer: 6. The largest a connected component can be is 7 nodes (the other component must have at least one node). If those 7 nodes form a path and we start at one end, the node at the other end is at distance 6.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #252</h2>
+        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a <i>breadth</i> first search (BFS) is run on a graph <span class="math">\(G = (V, E)\)</span>, and that node <span class="math">\(u\)</span> is distance 5 from the source while node <span class="math">\(v\)</span> is distance 3 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+<p>At any moment, the nodes in the BFS queue are all at distance <span class="math">\(d\)</span> or <span class="math">\(d + 1\)</span> from the source, for some <span class="math">\(d\)</span>. So two nodes whose distances differ by 2 can never be in the queue together.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #253</h2>
+        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a breadth first search (BFS) is run on a graph <span class="math">\(G = (V, E)\)</span>, and that node <span class="math">\(u\)</span> is distance 6 from the source while node <span class="math">\(v\)</span> is distance 7 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>True. Suppose another node <span class="math">\(w\)</span> is also at distance 6 and is a neighbor of <span class="math">\(v\)</span>. If <span class="math">\(w\)</span> is popped from the queue before <span class="math">\(u\)</span>, then <span class="math">\(v\)</span> is added to the queue while <span class="math">\(u\)</span> is still waiting in it.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #254</h2>
+        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a breadth first search (BFS) is run on a graph <span class="math">\(G = (V, E)\)</span>, and that node <span class="math">\(u\)</span> is <b>the only node</b> which is distance 6 from the source while node <span class="math">\(v\)</span> is distance 7 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>False. A node at distance 7 must be discovered while BFS is exploring the neighbors of a node at distance 6, and the only such node is <span class="math">\(u\)</span>. But <span class="math">\(u\)</span> is removed from the queue before its neighbors are explored, so by the time <span class="math">\(v\)</span> is added to the queue, <span class="math">\(u\)</span> is no longer in it.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #255</h2>
+        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose that a breadth-first search on an undirected graph <span class="math">\(G\)</span> is paused and the queue is printed. Suppose that every node in the queue is either distance 5 from the source, or distance 6. At this moment, node <span class="math">\(u\)</span> is undiscovered.</p>
+<p>True or False: it is possible that node <span class="math">\(u\)</span> is distance 4 from the source.</p>
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+<p>BFS pops nodes in order of distance, so if every node in the queue is at distance 5 or more, every node at distance 4 has already been popped. That means it was discovered earlier, so it can't be undiscovered now.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #256</h2>
+        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a breadth first search on an undirected, connected graph is paused at a particular moment in time and the node statuses are printed. Suppose it is found that all nodes which are distance 6 from the source are marked ``visited''.</p>
+<p>True or False: it is possible that there is a node, distance 7 from the source, whose status is ``undiscovered''.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+<p>Every node at distance 7 has a neighbor at distance 6 (the node just before it on a shortest path). When that neighbor was marked visited, all of its neighbors had already been discovered, so the node at distance 7 must have been discovered too.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #257</h2>
+        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a breadth-first search (BFS) is performed in order to calculate a dictionary of shortest path distances, <span class="inline-code"><code>dist</code></span>, from a source node <span class="math">\(s\)</span> to all nodes reachable from <span class="math">\(s\)</span> in an undirected graph <span class="math">\(G = (V, E)\)</span>.</p>
+<p>Suppose node <span class="math">\(u\)</span> is a node in <span class="math">\(G\)</span>, and <span class="math">\(v_1\)</span> and <span class="math">\(v_2\)</span> are two neighbors of node <span class="math">\(u\)</span>. Assume that <span class="math">\(u\)</span> is reachable from <span class="math">\(s\)</span>.</p>
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 1)</h3>
+<p>What is the <i>largest</i> that <span class="math">\(|\)</span><span class="inline-code"><code>dist[v_2] - dist[v_1]</code></span><span class="math">\(|\)</span> can be?</p>
+<details>
+    <summary>Solution</summary>
+<p>2</p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 2)</h3>
+<p>What is the <i>smallest</i> that <span class="math">\(|\)</span><span class="inline-code"><code>dist[v_2] - dist[v_1]</code></span><span class="math">\(|\)</span> can be?</p>
+<details>
+    <summary>Solution</summary>
+<p>0</p>
+</details>
+
+</div>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #258</h2>
+        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/shortest path.html'>shortest path</a>, <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose an undirected, connected graph has <span class="math">\(n\)</span> nodes, half of which are colored red and the other half are colored blue. Each red node is neighbors with <span class="math">\(n/4\)</span> blue nodes, and each blue node is neighbors with <span class="math">\(n/4\)</span> red nodes. There are no edges between nodes of the same color.</p>
+<p>What is the time complexity of computing a shortest path from a given red node to all other red nodes using BFS?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #259</h2>
+        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the following problem: you're given an unweighted graph <span class="math">\(G\)</span>, a source node <span class="math">\(u\)</span>, a destination node <span class="math">\(v\)</span>, and an "intermediate" node <span class="math">\(x\)</span>. Your goal is to find a shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> that passes through <span class="math">\(x\)</span>.</p>
+<p>Your friend proposes the following algorithm: run a BFS starting at node <span class="math">\(u\)</span>, then terminate it when it reaches node <span class="math">\(x\)</span>. Then start a BFS at node <span class="math">\(x\)</span>, and terminate it when it reaches node <span class="math">\(v\)</span>.</p>
+<p>Does this algorithm work?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>yes</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>no</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>Yes. Any path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> through <span class="math">\(x\)</span> consists of a path from <span class="math">\(u\)</span> to <span class="math">\(x\)</span> followed by a path from <span class="math">\(x\)</span> to <span class="math">\(v\)</span>, so its length is at least the <span class="math">\(u\)</span>-to-<span class="math">\(x\)</span> distance plus the <span class="math">\(x\)</span>-to-<span class="math">\(v\)</span> distance. The first BFS finds a shortest path from <span class="math">\(u\)</span> to <span class="math">\(x\)</span> and the second finds a shortest path from <span class="math">\(x\)</span> to <span class="math">\(v\)</span>; joining them gives a path achieving this minimum.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #260</h2>
+        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(G\)</span> be an undirected graph, and let <span class="math">\(u, v,\)</span> and <span class="math">\(z\)</span> be three nodes in the graph. Consider the problem of finding a shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> which passes through node <span class="math">\(z\)</span>.</p>
+<p>True or False: a shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> passing through <span class="math">\(z\)</span> may include node <span class="math">\(u\)</span> twice.</p>
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+<p>Consider the "chain" graph A - B - C - D - E. The shortest path from C to E that passes through B is C - B - C - D - E. It passes through C twice.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #261</h2>
+        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>The table below shows the number of nodes in a graph <span class="math">\(G\)</span> which are distance 0 from node <span class="math">\(s\)</span>, distance 1 from node <span class="math">\(s\)</span>, distance 2, etc.:</p>
+<center><div class="image"><img src="../images/261/table.png" /></div></center>
+<p>Suppose a BFS is performed on this graph with node <span class="math">\(s\)</span> as the starting node. What is the largest number of nodes that could possibly be in the queue at any one time?</p>
+<details>
+    <summary>Solution</summary>
+<p>Remember that the queue can only simultaneously contain nodes at two different distances (it can't contain nodes at distance 1, distance 2, and distance 3 at the same time, but it can contain nodes at distance 1 and distance 2 at the same time).</p>
+<p>The largest number of nodes that could possibly be in the queue at any one time is when we have (almost) all of the nodes from the first distance, and all of the nodes from the second distance.</p>
+<p>In this graph, let <span class="math">\(u\)</span> be a neighbor of the source, and suppose it has an edge with all nodes that are distance 2 from the source. If <span class="math">\(u\)</span> is the first node popped from the queue (after the source), then once its neighbors are added to the queue, the queue will contain all of the nodes at distance 1 except for <span class="math">\(u\)</span>(for 6 nodes in total), and all of the nodes at distance 2 (for 3 nodes in total). This gives us a total of 9 nodes in the queue.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+    </div>
+</div>
+
+    </div>
+
+    <script>
+        // Restore saved theme on page load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else if (savedTheme === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Dark mode toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        // Update button to reflect current theme
+        function updateThemeButton() {
+            const isDark = document.documentElement.classList.contains('dark');
+            themeIcon.textContent = isDark ? '☀' : '☾';
+            themeText.textContent = isDark ? 'Light' : 'Dark';
+        }
+
+        // Initialize button state
+        updateThemeButton();
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.contains('dark');
+
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+
+            updateThemeButton();
+        });
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        menuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        });
+
+        // Initialize Lucide icons. The script is deferred, so wait for it to
+        // load; DOMContentLoaded fires after deferred scripts have run.
+        document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+        
+        // highlight each <pre><code> block with a language-* class (e.g. from
+        // ```python), once the deferred highlight.js has run; a block without
+        // one is left plain, as guessing its language is often wrong
+        document.addEventListener('DOMContentLoaded', () => {
+            hljs.configure({ cssSelector: 'pre code[class*="language-"]' });
+            hljs.highlightAll();
+        });
+        
+    </script>
+
+</body>
+</html>

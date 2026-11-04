@@ -88,8 +88,8 @@ const DFS_GRAPHS = [
         ],
     },
     {
-        id: "star",
-        name: "Directed star",
+        id: "x",
+        name: "Directed X",
         description: "Node 1 in the center, with four chains of nodes pointing away "
             + "from it. DFS follows each chain all the way to its end before "
             + "starting the next: 1, 2, 6, 10, then 3, 7, 11, and so on. "

@@ -74,8 +74,8 @@ const BFS_GRAPHS = [
         ],
     },
     {
-        id: "star",
-        name: "Directed star",
+        id: "x",
+        name: "Directed X",
         description: "Node 1 in the center, with four chains of nodes pointing away "
             + "from it. BFS spreads out from 1 like a ripple, one ring at a time, "
             + "visiting 1, 2, 3, …, 13 in order. Compare it to the same graph "
@@ -101,6 +101,28 @@ const BFS_GRAPHS = [
             ["1", "2"], ["1", "3"], ["1", "4"], ["1", "5"],
             ["2", "6"], ["3", "7"], ["4", "8"], ["5", "9"],
             ["6", "10"], ["7", "11"], ["8", "12"], ["9", "13"],
+        ],
+    },
+    {
+        id: "shortest-paths",
+        name: "Shortest paths example",
+        description: "The undirected graph from the “Example” slides in "
+            + "Lecture 12. BFS from u finds the shortest path to every node "
+            + "it can reach; a can’t be reached from u.",
+        directed: false,
+        source: "u",
+        nodes: [
+            {id: "a", x: 0, y: 2},
+            {id: "b", x: 2, y: 2},
+            {id: "c", x: 4, y: 2},
+            {id: "u", x: 0, y: 0},
+            {id: "d", x: 2, y: 0},
+            {id: "e", x: 4, y: 0},
+            {id: "f", x: 6, y: 0.8},
+        ],
+        edges: [
+            ["u", "b"], ["u", "d"], ["b", "c"], ["b", "e"],
+            ["d", "c"], ["c", "e"], ["e", "f"],
         ],
     },
     {

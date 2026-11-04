@@ -420,3 +420,17 @@
 .demo-embed .demo-layout {
     grid-template-columns: minmax(0, 1fr);
 }
+
+/* autoplay ----------------------------------------------------------------
+
+   A demo opened with ?autoplay (e.g. an animation on a lecture slide) plays
+   by itself, so it shows only its drawing: no menus, legend, buttons, or
+   text. */
+
+.demo-autoplay .demo-controls,
+.demo-autoplay .demo-legend,
+.demo-autoplay .demo-stepper,
+.demo-autoplay .demo-hint,
+.demo-autoplay .demo-step-count {
+    display: none !important;
+}

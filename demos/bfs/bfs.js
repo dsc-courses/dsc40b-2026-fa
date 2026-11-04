@@ -261,7 +261,12 @@
         graphSelect.append(option);
     }
 
-    const drawing = DemoGraphs.sketch($("#bfs-canvas"));
+    // With ?autoplay in the URL (e.g. for an animation on a lecture slide),
+    // draw only the graph, with no labels and only its nodes' status changes
+    // animated; play the steps on load, and start over a few seconds after
+    // the end. (bfs/index.html hides the rest of the demo.)
+    const autoplay = new URLSearchParams(location.search).has("autoplay");
+    const drawing = DemoGraphs.sketch($("#bfs-canvas"), {minimal: autoplay});
 
     let graph = null;
     let states = [];
@@ -318,7 +323,7 @@
                 last: $("#bfs-last"),
                 play: $("#bfs-play"),
                 counter: $("#bfs-counter"),
-            }, frames.length, show);
+            }, frames.length, show, {onFinish: loop});
         } else {
             stepper.reset(frames.length);
         }
@@ -366,5 +371,20 @@
         smallCheckbox.checked = true;
     }
 
-    chooseGraph(BFS_GRAPHS[0].id);
+    function loop(duration) {
+        if (autoplay) {
+            setTimeout(() => $("#bfs-play").click(), duration + 3000);
+        }
+    }
+
+    // start with the graph named by ?graph=<id> in the URL (e.g. on a lecture
+    // slide), or else the first one
+    const requested = new URLSearchParams(location.search).get("graph");
+    const initial = BFS_GRAPHS.some(g => g.id === requested)
+        ? requested : BFS_GRAPHS[0].id;
+    graphSelect.value = initial;
+    chooseGraph(initial);
+    if (autoplay) {
+        $("#bfs-play").click();
+    }
 })();
