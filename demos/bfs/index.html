@@ -205,8 +205,13 @@ Course Staff
     and a node's neighbors are produced in sorted order.
 
     The node being visited is circled, and the edges
-        it explores are drawn in bold.
-    
+ it explores are drawn in bold.
+
+    Under <b>Options</b>, you can run a full BFS, step through one edge at a
+    time, or show shortest paths. With <b>Show shortest paths</b> checked, each discovered node shows the
+    distance BFS recorded for it, and a bold purple arrow points to it from its
+    BFS predecessor.
+
 </p>
 
 <div id="bfs-demo" class="demo not-prose">
@@ -220,14 +225,25 @@ Course Staff
             Source
             <select id="bfs-source"></select>
         </label>
-        <label class="demo-checkbox demo-no-embed">
-            <input type="checkbox" id="bfs-full">
-            &nbsp;Full BFS (visit every node)
-        </label>
-        <label class="demo-checkbox">
-            <input type="checkbox" id="bfs-small">
-            &nbsp;Small steps (one edge at a time)
-        </label>
+        <!-- the options, in a menu that opens below the button (see
+             DemoGraphs.optionsMenu in graph.js) -->
+        <details class="demo-options" id="bfs-options">
+            <summary>Options</summary>
+            <div class="demo-options-panel">
+                <label class="demo-checkbox">
+                    <input type="checkbox" id="bfs-full">
+                    &nbsp;Full BFS (visit every node)
+                </label>
+                <label class="demo-checkbox">
+                    <input type="checkbox" id="bfs-small">
+                    &nbsp;Small steps (one edge at a time)
+                </label>
+                <label class="demo-checkbox">
+                    <input type="checkbox" id="bfs-paths">
+                    &nbsp;Show shortest paths
+                </label>
+            </div>
+        </details>
     </div>
 
     <p id="bfs-description" class="demo-hint demo-no-embed" style="margin-top:0"></p>
@@ -240,6 +256,8 @@ Course Staff
                 <span><i class="demo-swatch undiscovered"></i> undiscovered</span>
                 <span><i class="demo-swatch pending"></i> pending</span>
                 <span><i class="demo-swatch visited"></i> visited</span>
+                <span id="bfs-paths-legend" hidden><i class="demo-swatch demo-distance">2</i> distance
+                    <svg class="demo-arrow" width="28" height="12" viewBox="0 0 28 12" aria-hidden="true"><line x1="2" y1="6" x2="17" y2="6" stroke-width="4"/><polygon points="28,6 16,0 16,12"/></svg> from BFS predecessor</span>
             </div>
 
             <!-- the controls, below the figure -->

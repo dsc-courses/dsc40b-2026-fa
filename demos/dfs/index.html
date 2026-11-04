@@ -206,6 +206,8 @@ Course Staff
 </p>
 
 <p>
+    Under <b>Options</b>, you can run a full DFS, or step through one edge at a
+    time.
     Check <b>Start and finish times</b> to show the clock above the graph, and
     each node's <code>[start, finish]</code> times both above the node in the
     graph and next to its call in the tree. The clock goes up by one whenever a
@@ -224,18 +226,25 @@ Course Staff
             Source
             <select id="dfs-source"></select>
         </label>
-        <label class="demo-checkbox">
-            <input type="checkbox" id="dfs-full">
-            &nbsp;Full DFS (visit every node)
-        </label>
-        <label class="demo-checkbox">
-            <input type="checkbox" id="dfs-small">
-            &nbsp;Small steps (one edge at a time)
-        </label>
-        <label class="demo-checkbox">
-            <input type="checkbox" id="dfs-times">
-            &nbsp;Start and finish times
-        </label>
+        <!-- the options, in a menu that opens below the button (see
+             DemoGraphs.optionsMenu in ../common/graph.js) -->
+        <details class="demo-options" id="dfs-options">
+            <summary>Options</summary>
+            <div class="demo-options-panel">
+                <label class="demo-checkbox">
+                    <input type="checkbox" id="dfs-full">
+                    &nbsp;Full DFS (visit every node)
+                </label>
+                <label class="demo-checkbox">
+                    <input type="checkbox" id="dfs-small">
+                    &nbsp;Small steps (one edge at a time)
+                </label>
+                <label class="demo-checkbox">
+                    <input type="checkbox" id="dfs-times">
+                    &nbsp;Start and finish times
+                </label>
+            </div>
+        </details>
     </div>
 
     <p id="dfs-description" class="demo-hint" style="margin-top:0"></p>

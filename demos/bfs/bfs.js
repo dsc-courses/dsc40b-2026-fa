@@ -36,16 +36,25 @@
     //     explorations: the edges explored in this step, in order, as
     //               {v, key, discovered}: the neighbor, the edge's key, and
     //               whether exploring the edge discovered the neighbor
+    //     dist:     Map from each discovered node to its distance from the
+    //               source of its call to bfs, as recorded by BFS
+    //     pred:     Map from each discovered node to its BFS predecessor
+    //               (null for the source)
     //     caption:  HTML describing the step
     //     substeps: HTML describing each part of the step, for "small
     //               steps": popping the node, exploring each edge, and
     //               marking the node visited (one part for other steps)
-    function bfsStates(graph, source, full) {
+    //
+    // With `paths`, the captions also say what distance and predecessor are
+    // recorded for each node that is discovered.
+    function bfsStates(graph, source, full, paths) {
         const neighbors = DemoGraphs.neighbors(graph);
         const nodes = DemoGraphs.sortedNodes(graph);
         const status = new Map(nodes.map(n => [n, "undiscovered"]));
         const queue = [];
         const order = [];
+        const dist = new Map();
+        const pred = new Map();
         const states = [];
         let iteration = 0;
         let calls = 0;
@@ -58,6 +67,8 @@
                 current,
                 explored: new Set(explorations.map(e => e.key)),
                 explorations,
+                dist: new Map(dist),
+                pred: new Map(pred),
                 caption,
                 substeps,
             });
@@ -79,21 +90,31 @@
 
             status.set(start, "pending");
             queue.push(start);
+            dist.set(start, 0);
+            pred.set(start, null);
+            // with paths, recording the source's distance is a substep of
+            // its own
+            const recordStart = (caption) => {
+                const note = `<p>Record <b>${start}</b>'s distance as 0. It has
+                    no predecessor.</p>`;
+                record(paths ? caption + note : caption, null, [],
+                    paths ? [caption, note] : [caption]);
+            };
             if (full && calls > 1) {
-                record(`<p>The queue is empty, so this call to <code>bfs</code> is done.
+                recordStart(`<p>The queue is empty, so this call to <code>bfs</code> is done.
                     <code>full_bfs</code> continues looping over the nodes, and the next
                     ${statusWord("undiscovered")} one is <b>${start}</b>, so it calls
                     <code>bfs(graph, ${start}, status)</code>.</p>
                     <p>Before iterating: <b>${start}</b> is marked
                     ${statusWord("pending")} and added to the queue.</p>`);
             } else if (full) {
-                record(`<p><code>full_bfs</code> loops over the nodes. The first one,
+                recordStart(`<p><code>full_bfs</code> loops over the nodes. The first one,
                     <b>${start}</b>, is ${statusWord("undiscovered")}, so it calls
                     <code>bfs(graph, ${start}, status)</code>.</p>
                     <p>Before iterating: <b>${start}</b> is marked
                     ${statusWord("pending")} and added to the queue.</p>`);
             } else {
-                record(`<p>Before iterating: the source, <b>${start}</b>, is marked
+                recordStart(`<p>Before iterating: the source, <b>${start}</b>, is marked
                     ${statusWord("pending")} and added to the queue.</p>`);
             }
 
@@ -115,6 +136,8 @@
                     if (status.get(v) === "undiscovered") {
                         status.set(v, "pending");
                         queue.push(v);
+                        dist.set(v, dist.get(u) + 1);
+                        pred.set(v, u);
                         discovered.push(v);
                     } else if (status.get(v) === "pending") {
                         alreadyPending.push(v);
@@ -140,7 +163,8 @@
                             ${statusWord("undiscovered")}, so
                             ${discovered.length === 1 ? "it is" : "they are"}
                             now ${statusWord("pending")} and added to the back
-                            of the queue`);
+                            of the queue${paths ? `, with distance ${dist.get(u) + 1}
+                            and predecessor <b>${u}</b>` : ""}`);
                     }
                     if (alreadyPending.length > 0) {
                         parts.push(`${listNodes(alreadyPending)}
@@ -169,6 +193,13 @@
                             ${kindOne} <b>${e.v}</b>. It was ${statusWord("undiscovered")},
                             so mark it ${statusWord("pending")} and add it to the back
                             of the queue.</p>`);
+                        // with paths, recording its distance and predecessor
+                        // is a substep of its own
+                        if (paths) {
+                            substeps.push(`<p>Record <b>${e.v}</b>'s distance as
+                                ${dist.get(u)} + 1 = ${dist.get(e.v)}, and its
+                                predecessor as <b>${u}</b>.</p>`);
+                        }
                     } else {
                         substeps.push(`<p>Explore the edge from <b>${u}</b> to its
                             ${kindOne} <b>${e.v}</b>. It is already
@@ -185,8 +216,8 @@
             }
         }
 
-        // describe the end of the search
-        const last = states[states.length - 1];
+        // the end of the search is a step of its own, in which no node is
+        // being visited and no edges are explored
         const never = nodes.filter(n => status.get(n) === "undiscovered");
         let ending;
         if (full) {
@@ -202,8 +233,7 @@
         } else {
             ending = `<p>The queue is empty, so <code>bfs</code> is done.</p>`;
         }
-        last.caption += ending;
-        last.substeps[last.substeps.length - 1] += ending;
+        record(ending);
 
         return states;
     }
@@ -217,6 +247,8 @@
     const sourceSelect = $("#bfs-source");
     const fullCheckbox = $("#bfs-full");
     const smallCheckbox = $("#bfs-small");
+    const pathsCheckbox = $("#bfs-paths");
+    DemoGraphs.optionsMenu($("#bfs-options"));
     const description = $("#bfs-description");
     const caption = $("#bfs-caption");
 
@@ -273,8 +305,10 @@
     function rebuild() {
         const full = fullCheckbox.checked;
         sourceSelect.disabled = full;
-        states = bfsStates(graph, sourceSelect.value, full);
+        states = bfsStates(graph, sourceSelect.value, full, pathsCheckbox.checked);
         drawing.setGraph(graph, states);
+        drawing.showPaths(pathsCheckbox.checked);
+        $("#bfs-paths-legend").hidden = !pathsCheckbox.checked;
         buildFrames();
         if (stepper === null) {
             stepper = DemoGraphs.stepper({
@@ -290,7 +324,8 @@
         }
     }
 
-    // switching between whole and small steps keeps the same BFS step
+    // switching between whole and small steps, or showing or hiding the
+    // shortest paths, keeps the same BFS step
     function toggleSmallSteps() {
         const now = frames[stepper.position()];
         buildFrames();
@@ -317,6 +352,14 @@
     sourceSelect.addEventListener("change", rebuild);
     fullCheckbox.addEventListener("change", rebuild);
     smallCheckbox.addEventListener("change", toggleSmallSteps);
+    pathsCheckbox.addEventListener("change", () => {
+        // the steps stay the same, only their captions change
+        states = bfsStates(graph, sourceSelect.value, fullCheckbox.checked,
+            pathsCheckbox.checked);
+        drawing.showPaths(pathsCheckbox.checked);
+        $("#bfs-paths-legend").hidden = !pathsCheckbox.checked;
+        toggleSmallSteps();
+    });
 
     // on a lecture slide (see "embedding" in demos.css), start with small steps
     if (document.documentElement.classList.contains("demo-embed")) {

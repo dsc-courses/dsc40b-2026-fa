@@ -271,6 +271,7 @@
     const fullCheckbox = $("#dfs-full");
     const smallCheckbox = $("#dfs-small");
     const timesCheckbox = $("#dfs-times");
+    DemoGraphs.optionsMenu($("#dfs-options"));
     const description = $("#dfs-description");
     const caption = $("#dfs-caption");
 

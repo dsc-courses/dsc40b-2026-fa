@@ -20,6 +20,8 @@
 //     queue:    the pending nodes, oldest (front) first
 //     current:  the node being visited this step, or null
 //     explored: Set of edge keys (see edgeKey) explored this step
+//     dist:     (optional) Map from node to its recorded distance
+//     pred:     (optional) Map from node to its BFS predecessor, or null
 
 const DemoGraphs = {
 
@@ -258,6 +260,10 @@ const DemoGraphs = {
     //                                   `animate` is false
     //     segments(state, previous)     the parts of that animation, as
     //                                   [start, end] pairs, in ms
+    //     showPaths(on)                 whether to draw each node's recorded
+    //                                   distance (state.dist), as a badge by
+    //                                   the node, and a bold arrow to it from
+    //                                   its BFS predecessor (state.pred)
     //
     // The animation of one BFS step happens in order:
     //   1. the node at the front of the queue moves to its place in the graph;
@@ -265,6 +271,9 @@ const DemoGraphs = {
     //      edge to it is drawn out from the node, and if that discovers the
     //      neighbor, it turns pending and moves to the back of the queue;
     //   3. the node turns visited.
+    // With showPaths, once a discovered node has turned pending and moved to
+    // the queue, its distance badge pops in, and then the arrow to it from its
+    // predecessor is drawn out.
     //
     // The queue is drawn below the graph like a list of nodes, front first,
     // e.g. "pending = [4, 3, 5]".
@@ -280,8 +289,16 @@ const DemoGraphs = {
         const DIM = 900;         // a neighbor already seen washes out halfway
                                  // and back, since nothing happens to it
         const FLY = 500;         // a discovered node moves to the queue
-        const PAUSE = 500;       // between one neighbor and the next
-        const POP_PAUSE = 500;   // after the popped node reaches the graph
+        const PAUSE = 500;       // between one action and the next: after the
+                                 // popped node reaches the graph, between
+                                 // neighbors, and between marking a node
+                                 // pending, its distance, and its arrow
+        const BADGE = 600;       // a discovered node's distance pops in,
+        const ARROW = 600;       // then the arrow from its predecessor is
+                                 // drawn out, thick (with showPaths),
+        const SETTLE = 300;      // and thins to the width of an explored edge
+        const ARROW_THICK = 8;   // the arrow's width while it is drawn out,
+        const ARROW_THIN = 4;    // and after (an explored edge's width)
         const VISIT = FADE;      // the node fades from yellow to red
         const RADIUS = 20;
         const TOKEN = 15;        // radius of the nodes drawn in the lists
@@ -300,6 +317,7 @@ const DemoGraphs = {
         let ready = false;        // whether p5 has created the canvas
         let queueLines = 1;       // lines reserved for the queue
         let longest = 0;          // the longest the queue will get
+        let paths = false;        // whether to draw distances and predecessors
 
         // When each part of the animation from `before` to `after` happens,
         // in ms from its start: when the popped node has reached the graph
@@ -311,23 +329,25 @@ const DemoGraphs = {
         // It also splits the animation into its parts (segments, as
         // [start, end] pairs): popping the node, exploring each edge, the
         // nodes entering the queue without an edge, and marking the node
-        // visited, in that order.
+        // visited, in that order. With showPaths, recording a discovered
+        // node's distance and predecessor is a part of its own, after the
+        // part that marks it pending.
         function plan(after, before) {
             const edges = new Map(), turns = new Map(), flights = new Map();
-            const dims = new Map();
+            const dims = new Map(), badges = new Map(), arrows = new Map();
             if (before === null) {
-                return {pop: 0, edges, turns, flights, dims, visit: 0, end: 0,
-                        segments: [[0, 0]]};
+                return {pop: 0, edges, turns, flights, dims, badges, arrows,
+                        visit: 0, end: 0, segments: [[0, 0]]};
             }
             const segments = [];
             const current = after.current;
             const pop = current !== null && before.queue[0] === current ? POP : 0;
-            let t = pop > 0 ? pop + POP_PAUSE : 0;
+            let t = pop > 0 ? pop + PAUSE : 0;
             if (pop > 0) {
                 segments.push([0, t]);
             }
             for (const e of after.explorations || []) {
-                const start = t;
+                let start = t;
                 edges.set(e.key, {start: t});
                 t += EDGE;
                 if (e.discovered) {
@@ -335,7 +355,19 @@ const DemoGraphs = {
                     t += TURN;
                     flights.set(e.v, t);
                     t += FLY;
-                    // (it shrinks back during the pause that follows)
+                    if (paths) {
+                        // once it has shrunk back, its distance and then
+                        // its predecessor arrow appear
+                        t += SHRINK + PAUSE;
+                        // (a part of its own, after marking it pending)
+                        segments.push([start, t]);
+                        start = t;
+                        badges.set(e.v, t);
+                        t += BADGE + PAUSE;
+                        arrows.set(e.v, t);
+                        t += ARROW + SETTLE;
+                    }
+                    // (otherwise it shrinks back during the pause that follows)
                 } else {
                     dims.set(e.v, t);
                     t += DIM;
@@ -344,13 +376,21 @@ const DemoGraphs = {
                 segments.push([start, t]);
             }
             // nodes that enter the queue without an edge (bfs's source)
-            const entering = t;
+            let entering = t;
             for (const id of after.queue) {
                 if (!before.queue.includes(id) && !flights.has(id)) {
                     turns.set(id, t);
                     t += TURN;
                     flights.set(id, t);
                     t += FLY + SHRINK;
+                    if (paths) {
+                        t += PAUSE;
+                        // (a part of its own, after marking it pending)
+                        segments.push([entering, t]);
+                        entering = t;
+                        badges.set(id, t);
+                        t += BADGE;
+                    }
                 }
             }
             if (t > entering) {
@@ -364,7 +404,8 @@ const DemoGraphs = {
             if (segments.length === 0) {
                 segments.push([0, t]);
             }
-            return {pop, edges, turns, flights, dims, visit, end: t, segments};
+            return {pop, edges, turns, flights, dims, badges, arrows, visit,
+                    end: t, segments};
         }
 
         // p5.js may still be loading, so start drawing once it is there (see
@@ -406,7 +447,39 @@ const DemoGraphs = {
                 const positions = fit.positions;
                 const graphBottom = fit.height;
                 const height = graphBottom + queueHeight;
-                return {positions, graphBottom, height};
+                return {positions, graphBottom, height, badges: badgeDirections(positions)};
+            }
+
+            // For each node, the direction (a unit vector) in which to draw
+            // its distance badge: of the four diagonals, the one farthest
+            // from the node's edges, so that the badge doesn't cover an edge
+            // or arrowhead. Ties go to the upper right.
+            function badgeDirections(positions) {
+                const angles = new Map(graph.nodes.map(n => [n.id, []]));
+                for (const [u, v] of graph.edges) {
+                    const P = positions.get(u), Q = positions.get(v);
+                    angles.get(u).push(Math.atan2(Q.y - P.y, Q.x - P.x));
+                    angles.get(v).push(Math.atan2(P.y - Q.y, P.x - Q.x));
+                }
+                const gap = (a, b) => {
+                    const d = Math.abs(a - b) % (2 * Math.PI);
+                    return Math.min(d, 2 * Math.PI - d);
+                };
+                // upper right, upper left, lower right, lower left (y down)
+                const candidates = [-Math.PI / 4, -3 * Math.PI / 4, Math.PI / 4, 3 * Math.PI / 4];
+                const badges = new Map();
+                for (const [id, edgeAngles] of angles) {
+                    let best = candidates[0], bestGap = -1;
+                    for (const c of candidates) {
+                        const g = Math.min(Math.PI, ...edgeAngles.map(a => gap(a, c)));
+                        if (g > bestGap + 1e-6) {
+                            best = c;
+                            bestGap = g;
+                        }
+                    }
+                    badges.set(id, {x: Math.cos(best), y: Math.sin(best)});
+                }
+                return badges;
             }
 
             function resize() {
@@ -524,6 +597,63 @@ const DemoGraphs = {
                     graph.directed, progress, from === u);
             }
 
+            // a bold arrow from the node at P, a BFS predecessor, to the node
+            // at Q, the node it discovered; `progress` in [0, 1] is how much
+            // of it has been drawn out from P, with the arrowhead at its
+            // front, and `weight` its width
+            function drawPredArrow(P, Q, progress, weight = ARROW_THIN) {
+                if (progress <= 0) {
+                    return;
+                }
+                const dx = Q.x - P.x, dy = Q.y - P.y;
+                const len = Math.hypot(dx, dy);
+                const ux = dx / len, uy = dy / len;
+                const start = {x: P.x + ux * RADIUS, y: P.y + uy * RADIUS};
+                const c = p.color(DemoGraphs.COLORS.accent);
+                // the arrowhead's size is proportional to the line's width
+                const size = 12 * weight / ARROW_THIN, w = size * 0.55;
+                // the arrowhead's tip moves from just past P to just short of Q
+                const last = {x: Q.x - ux * (RADIUS + 2), y: Q.y - uy * (RADIUS + 2)};
+                const first = {x: start.x + ux * size, y: start.y + uy * size};
+                const tip = lerpPoint(first, last, progress);
+                const end = {x: tip.x - ux * size * 0.7, y: tip.y - uy * size * 0.7};
+                p.stroke(c);
+                p.strokeWeight(weight);
+                p.line(start.x, start.y, end.x, end.y);
+                const baseX = tip.x - ux * size, baseY = tip.y - uy * size;
+                p.noStroke();
+                p.fill(c);
+                p.triangle(tip.x, tip.y,
+                    baseX - uy * w, baseY + ux * w,
+                    baseX + uy * w, baseY - ux * w);
+            }
+
+            // the distance `d` in a small badge by the node at `pos`, in the
+            // direction `dir` (see badgeDirections); `scale` is its size,
+            // relative to full size
+            function drawDistance(pos, dir, d, scale) {
+                if (scale <= 0) {
+                    return;
+                }
+                const colors = theme();
+                const r = 11 * scale;
+                const x = pos.x + dir.x * RADIUS * 1.2, y = pos.y + dir.y * RADIUS * 1.2;
+                const fill = p.color(DemoGraphs.COLORS.accent);
+                const ring = p.color(colors.background);
+                const ink = p.color("#ffffff");
+                p.fill(fill);
+                p.stroke(ring);
+                p.strokeWeight(2);
+                p.circle(x, y, 2 * r);
+                p.noStroke();
+                p.fill(ink);
+                p.textAlign(p.CENTER, p.CENTER);
+                p.textStyle(p.BOLD);
+                p.textSize(13 * scale);
+                p.text(String(d), x, y + 1);
+                p.textStyle(p.NORMAL);
+            }
+
             p.setup = () => {
                 p.createCanvas(Math.max(container.clientWidth, 280), 400);
                 // p5 quotes the font name, so this must be a single family, not a CSS list
@@ -560,6 +690,37 @@ const DemoGraphs = {
                         drawEdge(u, v, 0, u);
                     } else {
                         drawEdge(u, v, animating ? phase(t, e.start, EDGE) : 1, current);
+                    }
+                }
+
+                // the size of a node's distance badge as it pops in, and how
+                // much of the arrow from its predecessor has been drawn
+                function badgeT(id) {
+                    const b = plan.badges.get(id);
+                    return !animating || b === undefined ? 1 : t < b ? 0 : snap(t, b, BADGE);
+                }
+                function arrowT(id) {
+                    const a = plan.arrows.get(id);
+                    return !animating || a === undefined ? 1 : phase(t, a, ARROW);
+                }
+                // the arrow is thick while it is drawn out, then thins
+                function arrowWeight(id) {
+                    const a = plan.arrows.get(id);
+                    if (!animating || a === undefined) {
+                        return ARROW_THIN;
+                    }
+                    const s = phase(t, a + ARROW, SETTLE);
+                    return ARROW_THICK + (ARROW_THIN - ARROW_THICK) * s;
+                }
+
+                // the arrow to each discovered node from its BFS predecessor
+                if (paths && state.pred) {
+                    for (const [v, u] of state.pred) {
+                        if (u === null) {
+                            continue;
+                        }
+                        drawPredArrow(layout.positions.get(u), layout.positions.get(v),
+                            arrowT(v), arrowWeight(v));
                     }
                 }
 
@@ -629,6 +790,13 @@ const DemoGraphs = {
                     });
                 }
 
+                // each discovered node's distance, in a badge by the node
+                if (paths && state.dist) {
+                    for (const [id, d] of state.dist) {
+                        drawDistance(layout.positions.get(id), layout.badges.get(id), d, badgeT(id));
+                    }
+                }
+
                 // the queue, front first
                 const queueY = layout.graphBottom + 8 + LIST_LINE / 2;
                 drawList(queueLabel, queueY,
@@ -675,7 +843,27 @@ const DemoGraphs = {
             segments(newState, previousState) {
                 return plan(newState, previousState).segments;
             },
+
+            showPaths(on) {
+                paths = on;
+            },
         };
+    },
+
+    // Make the <details> element `menu` (a menu of options, see
+    // .demo-options in demos.css) close when the viewer clicks or taps
+    // outside it, or presses Escape.
+    optionsMenu(menu) {
+        document.addEventListener("pointerdown", (event) => {
+            if (menu.open && !menu.contains(event.target)) {
+                menu.open = false;
+            }
+        });
+        document.addEventListener("keydown", (event) => {
+            if (menu.open && event.key === "Escape") {
+                menu.open = false;
+            }
+        });
     },
 
     // Wire up Start / Back / Next / End / Play buttons and the arrow keys to
