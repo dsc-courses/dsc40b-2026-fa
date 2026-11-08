@@ -316,12 +316,15 @@ const DFSDrawing = {
                 p.line(x, child.y, child.x - 4, child.y);
             }
 
-            // draw line `i` of the tree, the call `call`; `status` is the
-            // fill of its node, `alpha` in [0, 1] fades in its text, and
-            // `showToken` is false while its node is still flying there
-            function drawCall(call, i, fill, light, alpha, showToken, finishShown, colors) {
+            // draw line `i` of the tree, the call `call`; `fill` is the
+            // fill of its node, `alpha` in [0, 1] fades in its text,
+            // `showToken` is false while its node is still flying there, and
+            // `done` in [0, 1] grays out its text once the call has returned
+            // (0 while it is running or waiting, 1 once it has returned)
+            function drawCall(call, i, fill, light, alpha, showToken, finishShown, colors, done = 0) {
                 const r = rowLayout(line(i), depth(call));
-                const ink = p.color(colors.ink);
+                const gray = p.color(colors.edge);
+                const ink = p.lerpColor(p.color(colors.ink), gray, done);
                 ink.setAlpha(255 * alpha);
                 treeFont();
                 p.noStroke();
@@ -331,7 +334,7 @@ const DFSDrawing = {
                 p.text("dfs(", r.x, r.y);
                 p.text(")", r.close, r.y);
                 if (options.times) {
-                    const muted = p.color(colors.muted);
+                    const muted = p.lerpColor(p.color(colors.muted), gray, done);
                     muted.setAlpha(255 * alpha);
                     p.fill(muted);
                     p.textStyle(p.NORMAL);
@@ -550,12 +553,16 @@ const DFSDrawing = {
                     }
                     let fill = DemoGraphs.COLORS[call.finish === null ? "pending" : "visited"];
                     let light = call.finish !== null;
+                    // a call that has returned is grayed out, as its node
+                    // turns red
+                    let done = call.finish !== null ? 1 : 0;
                     if (animating && call.node === returned && previous.calls[i].finish === null) {
                         fill = p.lerpColor(p.color(DemoGraphs.COLORS.pending),
                             p.color(DemoGraphs.COLORS.visited), visitT);
                         light = visitT >= 0.5;
+                        done = visitT;
                     }
-                    drawCall(call, i, fill, light, 1, true, finishShown(i), colors);
+                    drawCall(call, i, fill, light, 1, true, finishShown(i), colors, done);
                 });
 
                 // the ring in the tree moves along with the one in the graph
