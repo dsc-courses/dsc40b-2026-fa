@@ -69,9 +69,12 @@ const DFSDrawing = {
             + CLOCK_SHRINK + CLOCK_PAUSE;
         const CLOCK_SCALE = 1.5; // how big the clock gets
         const RADIUS = 20;
-        const TOKEN = 15;        // radius of the nodes drawn in the tree
-        const ROW = 2 * TOKEN + 8;   // height of one line of the tree
-        const INDENT = 30;       // how far each level of the tree is indented
+        const FULL_ROW = 38;     // height of one line of the tree, at full size
+        // the sizes of the tree, which shrinks if it has to fit (see scaleTree)
+        let TOKEN = 15;          // radius of the nodes drawn in the tree
+        let ROW = FULL_ROW;      // height of one line of the tree
+        let INDENT = 30;         // how far each level of the tree is indented
+        let treeFontSize = 18;
         const HEADER = 30;       // room for the tree's heading
         const CLOCK_ROOM = 48;   // room for the clock, above the graph
         const SIDE = 640;        // the narrowest canvas with the tree beside
@@ -181,7 +184,14 @@ const DFSDrawing = {
             function treeFont() {
                 p.textFont(TREE_FAMILY);
                 p.textStyle(p.BOLD);
-                p.textSize(TREE_FONT);
+                p.textSize(treeFontSize);
+            }
+
+            function scaleTree(scale) {
+                TOKEN = 15 * scale;
+                ROW = FULL_ROW * scale;
+                INDENT = 30 * scale;
+                treeFontSize = TREE_FONT * scale;
             }
 
             function computeLayout() {
@@ -190,8 +200,15 @@ const DFSDrawing = {
                 // leave room above the graph for the clock, and above the
                 // top nodes for their times
                 const top = options.times ? CLOCK_ROOM + 22 : 0;
-                const fit = DemoGraphs.fitGraph(graph, {width: graphWidth, top, radius: RADIUS});
+                // on a slide, the graph and the tree get only the height the
+                // window has left (see DemoGraphs.embedHeight)
+                const room = DemoGraphs.embedHeight(container);
+                const maxHeight = room === null
+                    ? 340 : Math.max(80, room - top - 2 * (RADIUS + 12));
+                const fit = DemoGraphs.fitGraph(graph, {width: graphWidth, top, maxHeight, radius: RADIUS});
                 fit.height += top;
+                scaleTree(room === null || !side
+                    ? 1 : Math.min(1, (room - HEADER - 12) / (rows * FULL_ROW)));
                 const treeHeight = HEADER + rows * ROW + 8;
                 const tree = side
                     ? {left: graphWidth + 16, top: 4}

@@ -412,6 +412,11 @@
     margin-top: 0;
 }
 
+/* the last thing on the page: nothing below it but the column's padding */
+.demo-embed .demo-stepper {
+    margin-bottom: 0;
+}
+
 .demo-embed .demo-controls {
     justify-content: center;
 }

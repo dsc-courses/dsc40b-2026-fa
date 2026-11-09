@@ -87,6 +87,21 @@ const DemoGraphs = {
         }
     },
 
+    // In an embedded demo (see "embedding" in demos.css), the height that the
+    // window has left for `container` after the rest of the demo, so that the
+    // whole demo fits without scrolling. Otherwise, null.
+    embedHeight(container) {
+        if (!document.documentElement.classList.contains("demo-embed")) {
+            return null;
+        }
+        const demo = container.closest(".demo") ?? container;
+        const column = demo.parentElement.parentElement;
+        const padding = parseFloat(getComputedStyle(column).paddingTop)
+            + parseFloat(getComputedStyle(column).paddingBottom);
+        return window.innerHeight
+            - (demo.offsetHeight - container.offsetHeight + padding);
+    },
+
     // Fit the nodes of `graph` into a box `width` pixels wide and at most
     // `maxHeight` tall (plus padding), whose left edge is at `left` and top
     // at `top`. Returns the nodes' positions in pixels, and the height used.
@@ -464,16 +479,12 @@ const DemoGraphs = {
             // demo and the queue, so that the whole demo fits without
             // scrolling. Otherwise it is at most 340 pixels tall.
             function maxGraphHeight(queueHeight) {
-                if (!document.documentElement.classList.contains("demo-embed")) {
+                const room = DemoGraphs.embedHeight(container);
+                if (room === null) {
                     return 340;
                 }
-                const demo = container.closest(".demo") ?? container;
-                const column = demo.parentElement.parentElement;
-                const padding = parseFloat(getComputedStyle(column).paddingTop)
-                    + parseFloat(getComputedStyle(column).paddingBottom);
-                const rest = demo.offsetHeight - container.offsetHeight + padding;
                 const pad = 2 * (RADIUS + 12);
-                return Math.max(80, window.innerHeight - rest - queueHeight - pad);
+                return Math.max(80, room - queueHeight - pad);
             }
 
             function computeLayout() {

@@ -376,6 +376,11 @@
     smallCheckbox.addEventListener("change", () => keepStep(false));
     timesCheckbox.addEventListener("change", () => keepStep(true));
 
+    // on a lecture slide (see "embedding" in demos.css), start with small steps
+    if (document.documentElement.classList.contains("demo-embed")) {
+        smallCheckbox.checked = true;
+    }
+
     // ?times in the URL (e.g. on a lecture slide) starts with the start and
     // finish times shown
     if (new URLSearchParams(location.search).has("times")) {
