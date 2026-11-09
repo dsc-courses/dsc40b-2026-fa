@@ -376,5 +376,17 @@
     smallCheckbox.addEventListener("change", () => keepStep(false));
     timesCheckbox.addEventListener("change", () => keepStep(true));
 
-    chooseGraph(DFS_GRAPHS[0].id);
+    // ?times in the URL (e.g. on a lecture slide) starts with the start and
+    // finish times shown
+    if (new URLSearchParams(location.search).has("times")) {
+        timesCheckbox.checked = true;
+    }
+
+    // start with the graph named by ?graph=<id> in the URL (e.g. on a lecture
+    // slide), or else the first one
+    const requested = new URLSearchParams(location.search).get("graph");
+    const initial = DFS_GRAPHS.some(g => g.id === requested)
+        ? requested : DFS_GRAPHS[0].id;
+    graphSelect.value = initial;
+    chooseGraph(initial);
 })();

@@ -483,7 +483,11 @@
                             }
                         ]
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "slides.pdf": {
+                            "path": "materials/lectures/13-dfs/slides.pdf"
+                        }
+                    }
                 },
                 "14-bellman_ford": {
                     "metadata": {

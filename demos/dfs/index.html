@@ -181,6 +181,15 @@ Course Staff
 
 <link rel="stylesheet" href="/demos/common/demos.css">
 
+<!-- With ?embed in the URL (e.g. for a slide in Lectern), show only the demo,
+     without the site around it or the parts marked demo-no-embed. See
+     "embedding" in demos.css. -->
+<script>
+    if (new URLSearchParams(location.search).has("embed")) {
+        document.documentElement.classList.add("demo-embed");
+    }
+</script>
+
 <h1>Depth-First Search</h1>
 
 <p>
@@ -247,7 +256,7 @@ Course Staff
         </details>
     </div>
 
-    <p id="dfs-description" class="demo-hint" style="margin-top:0"></p>
+    <p id="dfs-description" class="demo-hint demo-no-embed" style="margin-top:0"></p>
 
     <!-- the graph and the call tree share the full width, so that both stay
          in view; the explanation goes below them -->
@@ -265,9 +274,9 @@ Course Staff
         <button id="dfs-last" title="Skip to the end">End &#x21E5;</button>
         <button id="dfs-play">Play</button>
     </div>
-    <div id="dfs-counter" class="demo-step-count"></div>
+    <div id="dfs-counter" class="demo-step-count demo-no-embed"></div>
 
-    <div class="demo-panel" style="margin-top:1rem">
+    <div class="demo-panel demo-no-embed" style="margin-top:1rem">
         <h3>What happened</h3>
         <div id="dfs-caption" class="demo-caption" aria-live="polite"></div>
     </div>
