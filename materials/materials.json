@@ -642,7 +642,14 @@
                         "date": "2026-11-09",
                         "topic": "Graph Theory and BFS (Lectures 10&ndash;11)"
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "quiz.pdf": {
+                            "path": "materials/quizzes/06/quiz.pdf"
+                        },
+                        "solution.pdf": {
+                            "path": "materials/quizzes/06/solution.pdf"
+                        }
+                    }
                 },
                 "07": {
                     "metadata": {
