@@ -211,7 +211,7 @@ Course Staff
     Each call is indented under the call that made it. The calls that haven't
     returned yet are <span class="demo-status pending">pending</span>; they are
     the call stack. The calls that have returned are grayed out. The call that is running is circled, both in the graph and in
-    the tree, and the edges it explores are drawn in bold.
+    the tree, where its text is also purple, and the edges it explores are drawn in bold.
 </p>
 
 <p>
@@ -220,7 +220,7 @@ Course Staff
     Check <b>Start and finish times</b> to show the clock above the graph, and
     each node's <code>[start, finish]</code> times both above the node in the
     graph and next to its call in the tree. The clock goes up by one whenever a
-    node is marked pending or visited; the demo shows the tick just before the
+    node is marked pending or visited; the demo shows the tick just after the
     node changes color.
 </p>
 
@@ -246,7 +246,7 @@ Course Staff
                 </label>
                 <label class="demo-checkbox">
                     <input type="checkbox" id="dfs-small">
-                    &nbsp;Small steps (one edge at a time)
+                    &nbsp;Small steps
                 </label>
                 <label class="demo-checkbox">
                     <input type="checkbox" id="dfs-times">

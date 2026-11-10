@@ -57,8 +57,8 @@
 
         // the start of a call to dfs on u: mark u pending
         function enter(u, parent) {
-            clock += 1;
             status.set(u, "pending");
+            clock += 1;
             calls.push({
                 node: u,
                 parent,
@@ -70,16 +70,32 @@
         }
 
         // HTML for "..., which marks u as pending." or, with start and
-        // finish times shown, for the clock ticking first, as in the code
+        // finish times shown, also for the clock ticking, in the order of
+        // the code: the status changes, and then the clock ticks
         const tick = () => `The clock goes up from ${clock - 1} to <b>${clock}</b>`;
         const marksPending = (u) => times
-            ? `. ${tick()}, so <code>start[${u}] = ${clock}</code>, and <b>${u}</b>
-                is marked ${statusWord("pending")}.`
+            ? `, which marks <b>${u}</b> as ${statusWord("pending")}.
+                ${tick()}, so <code>start[${u}] = ${clock}</code>.`
             : `, which marks <b>${u}</b> as ${statusWord("pending")}.`;
         const marksVisited = (u) => times
-            ? `. ${tick()}, so <code>finish[${u}] = ${clock}</code>, and <b>${u}</b>
-                is marked ${statusWord("visited")}.`
+            ? `, so mark <b>${u}</b> as ${statusWord("visited")}.
+                ${tick()}, so <code>finish[${u}] = ${clock}</code>.`
             : `, so mark <b>${u}</b> as ${statusWord("visited")}.`;
+
+        // The captions for a call to dfs on u, with small steps: with start
+        // and finish times shown, marking u, the clock ticking, and setting
+        // the start time are each their own step. `lead` is the open
+        // paragraph that says u is called; `after` comes last.
+        function callSteps(lead, u, after = "") {
+            if (!times) {
+                return [`${lead}${marksPending(u)} ${after}</p>`];
+            }
+            return [
+                `${lead}, which marks <b>${u}</b> as ${statusWord("pending")}.</p>`,
+                `<p>${tick()}.</p>`,
+                `<p>Set <code>start[${u}] = ${clock}</code>. ${after}</p>`,
+            ];
+        }
 
         // HTML describing the exploration of the edge from u to e.v, when v
         // has already been seen
@@ -165,8 +181,9 @@
                 const substeps = substepsFor(before);
                 substeps.push(`${before.length === 0 ? opening() : ""}<p>Explore the
                     edge from <b>${u}</b> to its ${kindOne} <b>${v}</b>. It's
-                    ${statusWord("undiscovered")}, so call ${code(v)}${marksPending(v)}
-                    ${code(u)} waits until it returns.</p>`);
+                    ${statusWord("undiscovered")}.</p>`);
+                substeps.push(...callSteps(`<p>So call ${code(v)}`, v,
+                    `${code(u)} waits until it returns.`));
                 record({
                     explorations,
                     called: v,
@@ -180,8 +197,8 @@
             }
 
             // the loop is done: mark u visited and return
-            clock += 1;
             status.set(u, "visited");
+            clock += 1;
             calls[index].finish = clock;
             stack.pop();
             const parent = calls[index].parent;
@@ -196,9 +213,20 @@
             const last = neighbors.get(u).length === 0 ? ""
                 : explorations.length > 0 ? `That was <b>${u}</b>'s last ${kindOne}. `
                 : `<b>${u}</b> has no ${kind} left. `;
-            const returnText = `<p>${last}The loop is done${marksVisited(u)} ${code(u)} ${returnTo}.</p>`;
+            const lead = `<p>${last}The loop is done`;
+            const after = `${code(u)} ${returnTo}.`;
+            const returnText = `${lead}${marksVisited(u)} ${after}</p>`;
             const substeps = substepsFor(explorations);
-            substeps.push((explorations.length === 0 ? opening() : "") + returnText);
+            const head = explorations.length === 0 ? opening() : "";
+            substeps.push(`${head}${lead}, so mark <b>${u}</b> as ${statusWord("visited")}.</p>`);
+            if (times) {
+                // as for a call (see callSteps), each is its own step
+                substeps.push(
+                    `<p>${tick()}.</p>`,
+                    `<p>Set <code>finish[${u}] = ${clock}</code>.</p>`,
+                );
+            }
+            substeps.push(`<p>${after}</p>`);
             record({
                 explorations,
                 returned: u,
@@ -219,19 +247,23 @@
             }
             rootCalls += 1;
             enter(start, -1);
-            let caption;
+            let lead;
             if (!full) {
-                caption = `<p>Call ${code(start)}${marksPending(start)}</p>`;
+                lead = `<p>Call ${code(start)}`;
             } else if (rootCalls === 1) {
-                caption = `<p><code>full_dfs</code> loops over the nodes. The first
+                lead = `<p><code>full_dfs</code> loops over the nodes. The first
                     one, <b>${start}</b>, is ${statusWord("undiscovered")}, so it calls
-                    ${code(start)}${marksPending(start)}</p>`;
+                    ${code(start)}`;
             } else {
-                caption = `<p><code>full_dfs</code> continues looping over the nodes,
+                lead = `<p><code>full_dfs</code> continues looping over the nodes,
                     and the next ${statusWord("undiscovered")} one is <b>${start}</b>,
-                    so it calls ${code(start)}${marksPending(start)}</p>`;
+                    so it calls ${code(start)}`;
             }
-            record({called: start, caption});
+            record({
+                called: start,
+                caption: `${lead}${marksPending(start)}</p>`,
+                substeps: callSteps(lead, start),
+            });
             loop(start);
         }
 
@@ -289,7 +321,9 @@
     let stepper = null;
 
     // What each click of Next shows: a whole step, or with "small steps" one
-    // part of one (exploring one edge, or returning), as in the BFS demo
+    // part of one (exploring one edge, calling dfs, or returning). With
+    // start and finish times shown, marking a node, the clock ticking, and
+    // setting the time are separate parts.
     let frames = [];
 
     function buildFrames() {
