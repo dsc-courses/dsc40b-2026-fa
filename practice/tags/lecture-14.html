@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head data-automata-theme="default">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DSC 40B</title>
+    <link href="/static/style.css" rel="stylesheet">
+    
+    <script defer src="https://unpkg.com/lucide@1.48.0/dist/umd/lucide.min.js"></script>
+    
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+            },
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    
+    
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    
+    
+
+
+
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+
+    <!-- Mobile menu button -->
+<div class="mobile-navbar lg:hidden fixed top-0 left-0 right-0 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-50 flex items-center">
+    <button id="mobile-menu-button" class="py-5 pl-4 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <i data-lucide="menu" class="w-6 h-5"></i>
+    </button>
+    <span class="ml-2 font-semibold">DSC 40B</span>
+</div>
+
+    <div class="flex min-h-screen">
+        <!-- Left Navigation Column -->
+        <nav id="sidebar" class="
+    w-64 flex-none
+    fixed lg:sticky
+    top-0 left-0 h-screen
+    transform -translate-x-full lg:translate-x-0 transition-transform duration-200 ease-in-out
+    bg-gray-50 dark:bg-gray-900
+    z-40
+    sidebar-mobile-spacing lg:pt-6
+    flex flex-col items-end
+    border-r lg:border-r-0 border-gray-200 dark:border-gray-700
+    ">
+
+    <div class="pt-6 pr-6 flex">
+        <ul class="space-y-2">
+            
+            <li>
+                <a href="/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="calendar-days" class="mr-2 text-slate-400"></i>
+Schedule
+                </a>
+            </li>
+            
+            <li>
+                <a href="/syllabus.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="scale" class="mr-2 text-slate-400"></i>
+Syllabus
+                </a>
+            </li>
+            
+            <li>
+                <a href="/office_hours.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="briefcase-business" class="mr-2 text-slate-400"></i>
+Office Hours
+                </a>
+            </li>
+            
+            <li>
+                <a href="/materials/default/notes/book.pdf" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="book-open" class="mr-2 text-slate-400"></i>
+Course Notes
+                </a>
+            </li>
+            
+            <li>
+                <a href="/practice/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="dumbbell" class="mr-2 text-slate-400"></i>
+Practice
+                </a>
+            </li>
+            
+            <li>
+                <a href="/demos/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="mouse-pointer-click" class="mr-2 text-slate-400"></i>
+Demos
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://campuswire.com/p/G43FA47CB" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-more" class="mr-2 text-slate-400"></i>
+Campuswire
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://www.gradescope.com/courses/1409241" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="spell-check" class="mr-2 text-slate-400"></i>
+Gradescope
+                </a>
+            </li>
+            
+            <li>
+                <a href="http://sierra.ucsd.edu/qa/dsc40b" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-question-mark" class="mr-2 text-slate-400"></i>
+Live Q&A
+                </a>
+            </li>
+            
+            <li>
+                <a href="/staff.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="users" class="mr-2 text-slate-400"></i>
+Course Staff
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="flex mr-9 pt-3 pb-6">
+        <button id="theme-toggle" class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-full transition-colors">
+            <span id="theme-icon" class="mr-1.5">☾</span>
+            <span id="theme-text">Dark</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Overlay for mobile -->
+<div id="overlay" class="fixed inset-0 bg-gray-200/40 dark:bg-black/50 backdrop-blur-[2px] z-30 hidden"></div>
+
+        <!-- Main Content Column -->
+        
+<!-- Main Content Column -->
+<div class="
+    w-full
+    bg-white dark:bg-gray-800
+    md:border-l
+    border-gray-200 dark:border-gray-700
+    md:min-w-180
+    px-4 md:px-12
+    pt-20 lg:pt-12
+    pb-24
+    ">
+
+    <div class="
+    text-xl font-semibold
+    left-12 right-12
+    py-4 lg:pt-0 lg:pb-0 lg:mb-10
+    lg:static
+    truncate
+    flex
+    ">
+    <div class="
+        shrink
+        lg:border-b border-gray-200 dark:border-gray-700
+        ">
+        <span class="hidden lg:inline">
+            DSC 40B
+            &ndash;
+            Theoretical Foundations of Data Science II
+        </span>
+    </div>
+</div>
+
+    <div class="prose dark:prose-invert">
+    
+<style>
+.multiple-choices .choice label, .multiple-select .choice label {
+    display: flex; align-items: center; gap: 0.6em; margin: 0.25em 0; cursor: pointer;
+}
+.multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+</style>
+<h1>Problems tagged with "lecture-14"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #298</h2>
+        <p>Tags: <a href='../tags/lecture-14.html'>lecture-14</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>True or False: It is possible for two arbitrary nodes to have a negative shortest path distance between them without the presence of a negative cycle in the graph.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>True. For example, if there is a single edge <span class="math">\((u, v)\)</span> with weight <span class="math">\(-1\)</span> and no other edges, the shortest path distance from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> is <span class="math">\(-1\)</span>, and there is no cycle at all.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #299</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a>, <a href='../tags/lecture-14.html'>lecture-14</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose the Bellman-Ford algorithm is run on a graph <span class="math">\(G\)</span> that does not contain negative cycles. Let <span class="math">\(u\)</span> be an arbitrary node in the graph, and assume that <span class="math">\(u\)</span> is reachable from the source.</p>
+<p>True or False: <span class="math">\(u\)</span>'s estimated distance can change multiple times during the algorithm's execution.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+<p>Suppose there are edges <span class="math">\((s, u)\)</span> with weight 10, <span class="math">\((s, a)\)</span> with weight 1, and <span class="math">\((a, u)\)</span> with weight 1. If <span class="math">\((s, u)\)</span> is updated first, <span class="math">\(u\)</span>'s estimate drops from <span class="math">\(\infty\)</span> to 10. It drops again to 2 once <span class="math">\((s, a)\)</span> and then <span class="math">\((a, u)\)</span> are updated.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #300</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a>, <a href='../tags/lecture-14.html'>lecture-14</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Recall that Bellman-Ford with early stopping updates edges iteratively until no estimated distances change, at which point the algorithm terminates early. True or False: the number of iterations needed before early termination may depend on the order in which the edges are updated.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+<p>Consider the path graph <span class="math">\(s \to a \to b \to c\)</span>. If the edges are updated in order along the path, every distance is correct after one iteration, and the second iteration changes nothing. If they are updated in reverse order, each iteration only fixes one more node, so it takes all three iterations. (With <span class="math">\(|V| = 4\)</span>, the outer loop runs at most <span class="math">\(|V| - 1 = 3\)</span> times.)</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #301</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a>, <a href='../tags/lecture-14.html'>lecture-14</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose you have a directed graph with 8 nodes and 7 edges. If you were to run the Bellman Ford Algorithm on this graph with early stopping implemented, what is the <b>minimum</b> number of times the outer for loop could possibly run? You should assume that all 8 nodes are reachable from the source node.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>1</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>2</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>4</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>7</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>8</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>Answer: 2. In the best situation, the edges would be updated in just the right order so that all of the correct shortest paths are found on the first iteration. On the second iteration, B-F will detect that nothing changed, and it will terminate.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #302</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a>, <a href='../tags/lecture-14.html'>lecture-14</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Recall that the outer loop of the Bellman-Ford algorithm <i>without</i> early stopping loops for a fixed number of iterations, while the inner loop iterates over each edge of the graph.</p>
+<p>Suppose Bellman-Ford <i>with</i> early stopping is run on the graph below using node <span class="math">\(s\)</span> as the source:</p>
+<center><div class="image"><img src="../images/302/graph.png" /></div></center>
+<p>What is the fewest number of iterations of the outer loop that can possibly be performed?</p>
+<details>
+    <summary>Solution</summary>
+<p>2</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #303</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a>, <a href='../tags/lecture-14.html'>lecture-14</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose Bellman-Ford with early stopping is run on the weighted graph below whose edge weights are unknown to us (but known to the algorithm). The algorithm uses node <span class="math">\(a\)</span> as the source node.</p>
+<center><div class="image"><img src="../images/303/graph.png" /></div></center>
+<p>How many iterations of the outer loop will be run in the worst case? Your answer should be a number.</p>
+<details>
+    <summary>Solution</summary>
+<p>4</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #304</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a>, <a href='../tags/lecture-14.html'>lecture-14</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose the Bellman-Ford algorithm with early stopping is run on the weighted graph shown below using node <span class="math">\(s\)</span> as the source (the edge weights are intentionally not shown). In the worst case, how many iterations of Bellman-Ford will be performed? That is, how many iterations of the outer <span class="inline-code"><code>for</code></span>-loop will occur?</p>
+<center><div class="image"><img src="../images/304/g6.png" /></div></center>
+<details>
+    <summary>Solution</summary>
+<p>7</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #305</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a>, <a href='../tags/lecture-14.html'>lecture-14</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider a ``2-chain'' graph: a graph with <span class="math">\(n\)</span> nodes that is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math">\(\ldots\)</span>, <span class="math">\(n\)</span>, and, for each node <span class="math">\(u\)</span>, making an edge to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span>(if they are in the graph).</p>
+<p>Suppose the Bellman-Ford algorithm without early stopping is run on a 2-chain graph with <span class="math">\(n\)</span> nodes, using node 1 as the source. What is the time taken as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #306</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a>, <a href='../tags/lecture-14.html'>lecture-14</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose the Bellman-Ford algorithm is run on the following graph using node <span class="math">\(a\)</span> as the source node:</p>
+<center><div class="image"><img src="../images/306/graph.png" /></div></center>
+<p>Suppose when <span class="inline-code"><code>graph.edges</code></span> is called, the edges are returned in the order:</p>
+<p><span class="math">\((a, b),
+    (c, e),
+    (d, f),
+    (c, d),
+    (b, d),
+    (b, e),
+    (a, c),
+    (e, f)
+    \)</span>.</p>
+<p>After one iteration of the outer loop of Bellman-Ford, what is the estimated distance to node <span class="math">\(d\)</span>?</p>
+<details>
+    <summary>Solution</summary>
+<p>9</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #307</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a>, <a href='../tags/lecture-14.html'>lecture-14</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Recall that the Bellman-Ford algorithm keeps track of the estimated shortest path distance from the source to each node in the graph. These estimates are updated, and eventually become correct, provided that the graph has no negative cycles.</p>
+<p>Suppose the Bellman-Ford algorithm is run on the graph below using node <span class="math">\(s\)</span> as the source.</p>
+<center><div class="image"><img src="../images/307/graph.png" /></div></center>
+<p>After 2 iterations of the outer loop, which of the nodes listed below are guaranteed to have correct estimated shortest path distances (no matter the order in which <span class="inline-code"><code>graph.edges</code></span> produces the graph's edges)? Select all that apply.</p>
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(s\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(u_1\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(u_2\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(u_3\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(u_4\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(u_5\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(u_6\)</span></p></label></div></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(u_3\)</span>, <span class="math">\(u_4\)</span>, and <span class="math">\(u_5\)</span> are guaranteed to have correct estimated shortest path distances after 2 iterations of the outer loop. <span class="math">\(s\)</span>'s estimated distance is correct from the start, since it is initialized to <span class="math">\(0\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #308</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a>, <a href='../tags/lecture-14.html'>lecture-14</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose Bellman-Ford with early stopping is run on the weighted graph below. The algorithm uses node <span class="math">\(a\)</span> as the source node.</p>
+<center><div class="image"><img src="../images/308/graph.png" /></div></center>
+<p>After the third iteration, name all nodes whose shortest path from <span class="math">\(a\)</span> are guaranteed to be estimated correctly.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{a,b,c,e,f\}\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{g,f\}\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{a,b,c,e,f,g\}\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{a,b,c,d,e,f\}\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{a,b,c,d\}\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>1st option: <span class="math">\(\{a,b,c,e,f\}\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #309</h2>
+        <p>Tags: <a href='../tags/lecture-14.html'>lecture-14</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose that every edge in the weighted graph <span class="math">\(G\)</span> has weight -5. True or False: breadth first search on this graph will compute a <i>longest</i> path from the source to every node in the graph (that is, a path with greatest possible total edge weight).</p>
+<p>You may assume that every node in the graph is reachable from the source.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+<p>A path with <span class="math">\(k\)</span> edges has total weight <span class="math">\(-5k\)</span>, so the path with the greatest total weight is the one with the fewest edges. BFS finds exactly this path: the path with the fewest edges from the source to each node.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #310</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a>, <a href='../tags/lecture-14.html'>lecture-14</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider running Bellman-Ford on the graph below using node <span class="math">\(u\)</span> as the source.</p>
+<center><div class="image"><img src="../images/310/dgraph-1.png" /></div></center>
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 1)</h3>
+<p>Suppose that <span class="inline-code"><code>graph.edges</code></span> produces edges in the following order:</p>
+<div class="math">\[(u,c), (a, b), (a, d), (u, a), (b, e), (c, d), (e, b), (d, e)
+            \]</div>
+<p>After two iterations of the outer for-loop, what is the estimated shortest path distance for node <span class="math">\(b\)</span>?</p>
+<details>
+    <summary>Solution</summary>
+<p>7.</p>
+<p>After iteration 1, the estimates are <span class="math">\(a = 2\)</span>, <span class="math">\(c = 7\)</span>, <span class="math">\(d = 9\)</span>, <span class="math">\(e = 13\)</span>(<span class="math">\(b\)</span> is still <span class="math">\(\infty\)</span>). In iteration 2, <span class="math">\(b\)</span> becomes <span class="math">\(16\)</span> via <span class="math">\((a, b)\)</span>, <span class="math">\(d\)</span> becomes <span class="math">\(5\)</span>, then <span class="math">\(b\)</span> becomes <span class="math">\(13 - 6 = 7\)</span> via <span class="math">\((e, b)\)</span>, and <span class="math">\(e\)</span> becomes <span class="math">\(9\)</span>. So after two iterations, the estimate for <span class="math">\(b\)</span> is 7.</p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 2)</h3>
+<p>With the same edge order as in the previous part, how many iterations does the outer for-loop take? The algorithm includes early stopping.</p>
+<details>
+    <summary>Solution</summary>
+<p>4.</p>
+<p>Continuing from the previous part: in iteration 3, <span class="math">\(b\)</span> becomes <span class="math">\(9 - 6 = 3\)</span>. Iteration 4 changes nothing, so the algorithm stops after 4 iterations.</p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 3)</h3>
+<p>Now suppose that <span class="inline-code"><code>graph.edges</code></span> produces edges in a different order:</p>
+<div class="math">\[(a, b), (a, d), (b, e), (c, d), (d, e), (e, b), (u, a), (u, c)
+            \]</div>
+<p>How many iterations does the outer for-loop take? The algorithm includes early stopping.</p>
+<details>
+    <summary>Solution</summary>
+<p>3.</p>
+<p>Iteration 1 only sets <span class="math">\(a = 2\)</span> and <span class="math">\(c = 7\)</span>, since the edges out of <span class="math">\(u\)</span> come last. In iteration 2, <span class="math">\(b = 16\)</span>, <span class="math">\(d = 5\)</span>, <span class="math">\(e = 24\)</span> then <span class="math">\(9\)</span>, and <span class="math">\(b = 3\)</span>. Iteration 3 changes nothing, so the algorithm stops after 3 iterations.</p>
+</details>
+
+</div>
+
+    </div>
+</div>
+
+        </div>
+
+
+    </div>
+</div>
+
+    </div>
+
+    <script>
+        // Restore saved theme on page load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else if (savedTheme === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Dark mode toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        // Update button to reflect current theme
+        function updateThemeButton() {
+            const isDark = document.documentElement.classList.contains('dark');
+            themeIcon.textContent = isDark ? '☀' : '☾';
+            themeText.textContent = isDark ? 'Light' : 'Dark';
+        }
+
+        // Initialize button state
+        updateThemeButton();
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.contains('dark');
+
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+
+            updateThemeButton();
+        });
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        menuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        });
+
+        // Initialize Lucide icons. The script is deferred, so wait for it to
+        // load; DOMContentLoaded fires after deferred scripts have run.
+        document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+        
+        // highlight each <pre><code> block with a language-* class (e.g. from
+        // ```python), once the deferred highlight.js has run; a block without
+        // one is left plain, as guessing its language is often wrong
+        document.addEventListener('DOMContentLoaded', () => {
+            hljs.configure({ cssSelector: 'pre code[class*="language-"]' });
+            hljs.highlightAll();
+        });
+        
+    </script>
+
+</body>
+</html>

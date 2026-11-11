@@ -3314,7 +3314,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #298</h2>
-        <p>Tags: <a href='./tags/shortest paths.html'>shortest paths</a></p>
+        <p>Tags: <a href='./tags/lecture-14.html'>lecture-14</a>, <a href='./tags/shortest paths.html'>shortest paths</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>True or False: It is possible for two arbitrary nodes to have a negative shortest path distance between them without the presence of a negative cycle in the graph.</p>
@@ -3335,7 +3335,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #299</h2>
-        <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a></p>
+        <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose the Bellman-Ford algorithm is run on a graph <span class="math">\(G\)</span> that does not contain negative cycles. Let <span class="math">\(u\)</span> be an arbitrary node in the graph, and assume that <span class="math">\(u\)</span> is reachable from the source.</p>
@@ -3362,7 +3362,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #300</h2>
-        <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a></p>
+        <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Recall that Bellman-Ford with early stopping updates edges iteratively until no estimated distances change, at which point the algorithm terminates early. True or False: the number of iterations needed before early termination may depend on the order in which the edges are updated.</p>
@@ -3371,7 +3371,7 @@ def modified_bfs(graph, source, status=None):
 <details>
     <summary>Solution</summary>
 <p>True.</p>
-<p>Consider the path graph <span class="math">\(s \to a \to b \to c\)</span>. If the edges are updated in order along the path, every distance is correct after one iteration, and the second iteration changes nothing. If they are updated in reverse order, each iteration only fixes one more node, so it takes three iterations (plus one with no changes).</p>
+<p>Consider the path graph <span class="math">\(s \to a \to b \to c\)</span>. If the edges are updated in order along the path, every distance is correct after one iteration, and the second iteration changes nothing. If they are updated in reverse order, each iteration only fixes one more node, so it takes all three iterations. (With <span class="math">\(|V| = 4\)</span>, the outer loop runs at most <span class="math">\(|V| - 1 = 3\)</span> times.)</p>
 </details>
 
     </div>
@@ -3384,7 +3384,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #301</h2>
-        <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a></p>
+        <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose you have a directed graph with 8 nodes and 7 edges. If you were to run the Bellman Ford Algorithm on this graph with early stopping implemented, what is the <b>minimum</b> number of times the outer for loop could possibly run? You should assume that all 8 nodes are reachable from the source node.</p>
@@ -3408,7 +3408,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #302</h2>
-        <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a></p>
+        <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Recall that the outer loop of the Bellman-Ford algorithm <i>without</i> early stopping loops for a fixed number of iterations, while the inner loop iterates over each edge of the graph.</p>
@@ -3430,7 +3430,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #303</h2>
-        <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a></p>
+        <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose Bellman-Ford with early stopping is run on the weighted graph below whose edge weights are unknown to us (but known to the algorithm). The algorithm uses node <span class="math">\(a\)</span> as the source node.</p>
@@ -3451,7 +3451,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #304</h2>
-        <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a></p>
+        <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose the Bellman-Ford algorithm with early stopping is run on the weighted graph shown below using node <span class="math">\(s\)</span> as the source (the edge weights are intentionally not shown). In the worst case, how many iterations of Bellman-Ford will be performed? That is, how many iterations of the outer <span class="inline-code"><code>for</code></span>-loop will occur?</p>
@@ -3471,7 +3471,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #305</h2>
-        <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a></p>
+        <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider a ``2-chain'' graph: a graph with <span class="math">\(n\)</span> nodes that is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math">\(\ldots\)</span>, <span class="math">\(n\)</span>, and, for each node <span class="math">\(u\)</span>, making an edge to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span>(if they are in the graph).</p>
@@ -3491,7 +3491,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #306</h2>
-        <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a></p>
+        <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose the Bellman-Ford algorithm is run on the following graph using node <span class="math">\(a\)</span> as the source node:</p>
@@ -3522,13 +3522,13 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #307</h2>
-        <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a></p>
+        <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Recall that the Bellman-Ford algorithm keeps track of the estimated shortest path distance from the source to each node in the graph. These estimates are updated, and eventually become correct, provided that the graph has no negative cycles.</p>
 <p>Suppose the Bellman-Ford algorithm is run on the graph below using node <span class="math">\(s\)</span> as the source.</p>
 <center><div class="image"><img src="images/307/graph.png" /></div></center>
-<p>After 2 iterations of the outer loop, which of the nodes listed below are guaranteed to have correct estimated shortest path distances (no matter the order in which <span class="inline-code"><code>graph.nodes</code></span> produces the graph's nodes)? Select all that apply.</p>
+<p>After 2 iterations of the outer loop, which of the nodes listed below are guaranteed to have correct estimated shortest path distances (no matter the order in which <span class="inline-code"><code>graph.edges</code></span> produces the graph's edges)? Select all that apply.</p>
 <div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(s\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(u_1\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(u_2\)</span></p></label></div>
@@ -3538,7 +3538,7 @@ def modified_bfs(graph, source, status=None):
 <div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(u_6\)</span></p></label></div></div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(u_3\)</span>, <span class="math">\(u_4\)</span>, and <span class="math">\(u_5\)</span> are guaranteed to have correct estimated shortest path distances after 2 iterations of the outer loop. <span class="math">\(s\)</span> is guaranteed to have a correct estimated shortest path distance after 1 iteration of the outer loop.</p>
+<p><span class="math">\(u_3\)</span>, <span class="math">\(u_4\)</span>, and <span class="math">\(u_5\)</span> are guaranteed to have correct estimated shortest path distances after 2 iterations of the outer loop. <span class="math">\(s\)</span>'s estimated distance is correct from the start, since it is initialized to <span class="math">\(0\)</span>.</p>
 </details>
 
     </div>
@@ -3551,7 +3551,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #308</h2>
-        <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a></p>
+        <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose Bellman-Ford with early stopping is run on the weighted graph below. The algorithm uses node <span class="math">\(a\)</span> as the source node.</p>
@@ -3577,7 +3577,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #309</h2>
-        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/lecture-14.html'>lecture-14</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose that every edge in the weighted graph <span class="math">\(G\)</span> has weight -5. True or False: breadth first search on this graph will compute a <i>longest</i> path from the source to every node in the graph (that is, a path with greatest possible total edge weight).</p>
@@ -3600,7 +3600,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #310</h2>
-        <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a></p>
+        <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider running Bellman-Ford on the graph below using node <span class="math">\(u\)</span> as the source.</p>
