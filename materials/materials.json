@@ -486,6 +486,9 @@
                     "artifacts": {
                         "slides.pdf": {
                             "path": "materials/lectures/13-dfs/slides.pdf"
+                        },
+                        "slides-marked.pdf": {
+                            "path": "materials/lectures/13-dfs/slides-marked.pdf"
                         }
                     }
                 },
