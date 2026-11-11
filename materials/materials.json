@@ -166,7 +166,11 @@
                         "released": "2026-11-11 23:59:00",
                         "due": "2026-11-17 23:59:00"
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "homework.pdf": {
+                            "path": "materials/homeworks/07-bfs-dfs/homework.pdf"
+                        }
+                    }
                 },
                 "08-spd": {
                     "metadata": {
