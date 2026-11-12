@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head data-automata-theme="default">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DSC 40B</title>
+    <link href="/static/style.css" rel="stylesheet">
+    
+    <script defer src="https://unpkg.com/lucide@1.48.0/dist/umd/lucide.min.js"></script>
+    
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+            },
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    
+    
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    
+    
+
+
+
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+
+    <!-- Mobile menu button -->
+<div class="mobile-navbar lg:hidden fixed top-0 left-0 right-0 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-50 flex items-center">
+    <button id="mobile-menu-button" class="py-5 pl-4 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <i data-lucide="menu" class="w-6 h-5"></i>
+    </button>
+    <span class="ml-2 font-semibold">DSC 40B</span>
+</div>
+
+    <div class="flex min-h-screen">
+        <!-- Left Navigation Column -->
+        <nav id="sidebar" class="
+    w-64 flex-none
+    fixed lg:sticky
+    top-0 left-0 h-screen
+    transform -translate-x-full lg:translate-x-0 transition-transform duration-200 ease-in-out
+    bg-gray-50 dark:bg-gray-900
+    z-40
+    sidebar-mobile-spacing lg:pt-6
+    flex flex-col items-end
+    border-r lg:border-r-0 border-gray-200 dark:border-gray-700
+    ">
+
+    <div class="pt-6 pr-6 flex">
+        <ul class="space-y-2">
+            
+            <li>
+                <a href="/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="calendar-days" class="mr-2 text-slate-400"></i>
+Schedule
+                </a>
+            </li>
+            
+            <li>
+                <a href="/syllabus.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="scale" class="mr-2 text-slate-400"></i>
+Syllabus
+                </a>
+            </li>
+            
+            <li>
+                <a href="/office_hours.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="briefcase-business" class="mr-2 text-slate-400"></i>
+Office Hours
+                </a>
+            </li>
+            
+            <li>
+                <a href="/materials/default/notes/book.pdf" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="book-open" class="mr-2 text-slate-400"></i>
+Course Notes
+                </a>
+            </li>
+            
+            <li>
+                <a href="/practice/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="dumbbell" class="mr-2 text-slate-400"></i>
+Practice
+                </a>
+            </li>
+            
+            <li>
+                <a href="/demos/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="mouse-pointer-click" class="mr-2 text-slate-400"></i>
+Demos
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://campuswire.com/p/G43FA47CB" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-more" class="mr-2 text-slate-400"></i>
+Campuswire
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://www.gradescope.com/courses/1409241" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="spell-check" class="mr-2 text-slate-400"></i>
+Gradescope
+                </a>
+            </li>
+            
+            <li>
+                <a href="http://sierra.ucsd.edu/qa/dsc40b" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-question-mark" class="mr-2 text-slate-400"></i>
+Live Q&A
+                </a>
+            </li>
+            
+            <li>
+                <a href="/staff.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="users" class="mr-2 text-slate-400"></i>
+Course Staff
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="flex mr-9 pt-3 pb-6">
+        <button id="theme-toggle" class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-full transition-colors">
+            <span id="theme-icon" class="mr-1.5">☾</span>
+            <span id="theme-text">Dark</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Overlay for mobile -->
+<div id="overlay" class="fixed inset-0 bg-gray-200/40 dark:bg-black/50 backdrop-blur-[2px] z-30 hidden"></div>
+
+        <!-- Main Content Column -->
+        
+<!-- Main Content Column -->
+<div class="
+    w-full
+    bg-white dark:bg-gray-800
+    md:border-l
+    border-gray-200 dark:border-gray-700
+    md:min-w-180
+    px-4 md:px-12
+    pt-20 lg:pt-12
+    pb-24
+    ">
+
+    <div class="
+    text-xl font-semibold
+    left-12 right-12
+    py-4 lg:pt-0 lg:pb-0 lg:mb-10
+    lg:static
+    truncate
+    flex
+    ">
+    <div class="
+        shrink
+        lg:border-b border-gray-200 dark:border-gray-700
+        ">
+        <span class="hidden lg:inline">
+            DSC 40B
+            &ndash;
+            Theoretical Foundations of Data Science II
+        </span>
+    </div>
+</div>
+
+    <div class="prose dark:prose-invert">
+    <!-- The Bellman-Ford demo. automata renders this page and fills in its
+     template expressions, so the JavaScript lives in separate files, which
+     are copied as is. -->
+
+<link rel="stylesheet" href="/demos/common/demos.css">
+
+<!-- With ?embed in the URL (e.g. for a slide in Lectern), show only the demo,
+     without the site around it or the parts marked demo-no-embed. See
+     "embedding" in demos.css. -->
+<script>
+    if (new URLSearchParams(location.search).has("embed")) {
+        document.documentElement.classList.add("demo-embed");
+    }
+</script>
+
+<style>
+    /* the edges in the order they're updated */
+    .bf-status {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: center;
+        gap: .3rem .5rem;
+        font-size: .9rem;
+    }
+    .bf-iteration {
+        font-weight: 600;
+        margin-right: .5rem;
+    }
+    /* the iteration number, under the edge update order */
+    .bf-iteration-line {
+        text-align: center;
+        font-weight: 600;
+        font-size: .9rem;
+        margin-top: .4rem;
+    }
+    .bf-edge {
+        border: 1px solid var(--demo-border);
+        border-radius: .3rem;
+        padding: 0 .3rem;
+        white-space: nowrap;
+    }
+    .bf-edge.bf-done {
+        color: var(--demo-muted);
+        opacity: .55;
+    }
+    /* the edge being updated: a thicker border and bolder text, drawn so
+       that the pill stays the same size and nothing around it moves (a
+       shadow outside the border, and text thickened with shadows rather
+       than a bold font) */
+    .bf-edge.bf-current {
+        border-color: var(--demo-ink);
+        box-shadow: 0 0 0 1px var(--demo-ink);
+        text-shadow: .35px 0 0 currentColor, -.35px 0 0 currentColor;
+    }
+    .demo-caption code {
+        font-size: .9em;
+    }
+    .demo-swatch.bf-correct {
+        background: #3f8f2a;
+        border-color: #3f8f2a;
+    }
+    .bf-legend-badge {
+        border-radius: .3rem;
+        width: auto;
+        padding: 0 .25rem;
+    }
+    .bf-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1rem 1.5rem;
+        margin-top: .5rem;
+    }
+    @media (min-width: 900px) {
+        .bf-layout {
+            grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+            align-items: start;
+        }
+    }
+    /* embedded, the explanation is hidden, so the graph takes the width */
+    .demo-embed .bf-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+</style>
+
+<h1>Bellman-Ford</h1>
+
+<p>
+    <b>Instructions</b>:
+    Choose a graph, then click the buttons (or press the
+    <kbd>&larr;</kbd> and <kbd>&rarr;</kbd> keys) to step through Bellman-Ford.
+    Each step is one call to <code>update</code>.
+</p>
+
+<p>
+    The number next to each node is its <b>estimated distance</b> from the
+    source, <code>est</code>, and the purple arrows point to each node from its
+    estimated <b>predecessor</b>. The edge being updated is drawn in bold.
+    One <b>iteration</b> updates every edge once; Bellman-Ford without
+    early stopping runs |V| − 1
+    iterations in total.
+</p>
+
+<p>
+    Remember that the order in which Bellman-Ford updates the edges is arbitrary,
+    in the sense that the algorithm is guaranteed to find the correct shortest paths
+    no matter what order the edges are updated in. However, if we use Bellman-Ford
+    with early stopping, some orders of updates may converge to the correct distances faster than others.
+    The order that the edges are updated in the demo is shown in the status line above the graph.
+</p>
+
+<p>
+    Bellman-Ford never knows which of its estimates are correct: nothing in
+    <code>est</code> says whether a number is final. What it does guarantee is
+    the loop invariant: after <i>k</i> iterations, every node whose actual
+    shortest path from the source has at most <i>k</i> edges is estimated
+    correctly. Check <b>Mark correct estimates</b> under <b>Options</b> to see which
+    estimates are already correct at each step, which is something the
+    algorithm itself can't see.
+</p>
+
+<div id="bf-demo" class="demo not-prose">
+
+    <div class="demo-controls">
+        <label>
+            Graph
+            <select id="bf-graph"></select>
+        </label>
+        <!-- the options, in a menu that opens below the button (see
+             DemoGraphs.optionsMenu in ../common/graph.js) -->
+        <details class="demo-options" id="bf-options">
+            <summary>Options</summary>
+            <div class="demo-options-panel">
+                <label class="demo-checkbox">
+                    <input type="checkbox" id="bf-early">
+                    &nbsp;Early stopping
+                </label>
+                <label class="demo-checkbox">
+                    <input type="checkbox" id="bf-detect">
+                    &nbsp;Detect negative cycles
+                </label>
+                <label class="demo-checkbox">
+                    <input type="checkbox" id="bf-whole">
+                    &nbsp;One iteration per step
+                </label>
+                <label class="demo-checkbox">
+                    <input type="checkbox" id="bf-correct">
+                    &nbsp;Mark correct estimates
+                </label>
+            </div>
+        </details>
+    </div>
+
+    <p id="bf-description" class="demo-hint demo-no-embed" style="margin-top:0; margin-bottom:1.5rem"></p>
+
+    <div class="bf-status">
+        <span class="bf-iteration">Edge update order:</span>
+        <span id="bf-edges" class="bf-status"></span>
+    </div>
+    <div id="bf-iteration" class="bf-iteration-line"></div>
+
+    <!-- the graph and its buttons, with the explanation to their right on a
+         wide screen (below them on a narrow one, and hidden when embedded) -->
+    <div class="bf-layout">
+    <div>
+    <div id="bf-canvas" class="demo-canvas"></div>
+    <div class="demo-legend demo-no-embed">
+        <span><i class="demo-swatch demo-distance bf-legend-badge">2</i> estimated distance</span>
+        <span><svg class="demo-arrow" width="28" height="12" viewBox="0 0 28 12" aria-hidden="true"><line x1="2" y1="6" x2="17" y2="6" stroke-width="4"/><polygon points="28,6 16,0 16,12"/></svg> estimated predecessor</span>
+    </div>
+
+    <div class="demo-stepper demo-stepper-narrow">
+        <button id="bf-first" title="Back to the start">&#x21E4; Start</button>
+        <button id="bf-back" title="Previous step (left arrow)">&larr; Back</button>
+        <button id="bf-next" class="demo-primary" title="Next step (right arrow)">Next &rarr;</button>
+        <button id="bf-last" title="Skip to the end">End &#x21E5;</button>
+        <button id="bf-play">Play</button>
+    </div>
+    <div id="bf-counter" class="demo-step-count demo-no-embed"></div>
+    </div>
+
+    <div class="demo-panel demo-no-embed">
+        <h3>What happened</h3>
+        <div id="bf-caption" class="demo-caption" aria-live="polite"></div>
+    </div>
+    </div>
+</div>
+
+<script>
+    // show errors in the demo itself (e.g., on a phone, where there is no
+    // console): a script that fails to load, or one that fails to run
+    window.addEventListener("error", function (event) {
+        var box = document.getElementById("bf-canvas");
+        if (!box) {
+            return;
+        }
+        var what = event.target && event.target.src
+            ? "Couldn't load " + event.target.src + "."
+            : event.message + " (" + String(event.filename).split("/").pop()
+                + ", line " + event.lineno + ")";
+        box.insertAdjacentHTML("beforeend",
+            '<p class="demo-error">The demo hit an error: ' + what + '</p>');
+    }, true);
+</script>
+<!-- p5.js 1.9.4 (LGPL 2.1, see common/vendor/LICENSE.txt), served from this
+     site rather than a CDN -->
+<script id="p5-script" async src="/demos/common/vendor/p5.min.js"></script>
+<script src="/demos/common/graph.js"></script>
+<script src="/demos/bellman-ford/graphs.js"></script>
+<script src="/demos/bellman-ford/drawing.js"></script>
+<script src="/demos/bellman-ford/bf.js"></script>
+    </div>
+</div>
+
+    </div>
+
+    <script>
+        // Restore saved theme on page load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else if (savedTheme === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Dark mode toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        // Update button to reflect current theme
+        function updateThemeButton() {
+            const isDark = document.documentElement.classList.contains('dark');
+            themeIcon.textContent = isDark ? '☀' : '☾';
+            themeText.textContent = isDark ? 'Light' : 'Dark';
+        }
+
+        // Initialize button state
+        updateThemeButton();
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.contains('dark');
+
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+
+            updateThemeButton();
+        });
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        menuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        });
+
+        // Initialize Lucide icons. The script is deferred, so wait for it to
+        // load; DOMContentLoaded fires after deferred scripts have run.
+        document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+        
+        // highlight each <pre><code> block with a language-* class (e.g. from
+        // ```python), once the deferred highlight.js has run; a block without
+        // one is left plain, as guessing its language is often wrong
+        document.addEventListener('DOMContentLoaded', () => {
+            hljs.configure({ cssSelector: 'pre code[class*="language-"]' });
+            hljs.highlightAll();
+        });
+        
+    </script>
+
+</body>
+</html>

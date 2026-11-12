@@ -501,7 +501,13 @@
                         "number": 14,
                         "date": "2026-11-12",
                         "topic": "Bellman-Ford",
-                        "reading": null
+                        "reading": null,
+                        "demos": [
+                            {
+                                "title": "Bellman-Ford",
+                                "url": "demos/bellman-ford/index.html"
+                            }
+                        ]
                     },
                     "artifacts": {
                         "slides.pdf": {
