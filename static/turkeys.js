@@ -1,6 +1,7 @@
 // A Thanksgiving easter egg for the schedule: each click on the turkey in a
 // week's title turns one more word on the page into a turkey, in the order
-// of WORDS: "Office" in Office Hours, then "Staff" in Course Staff. The
+// of WORDS: "Complexity" in Complexity Theory, then "Algorithm" in
+// Kruskal's Algorithm. The
 // click after those starts a takeover: every word on the page turns
 // into a turkey, in a random order, slowly at first and then faster and
 // faster. Each turkey falls from the top of the window onto its word. Then
@@ -15,15 +16,15 @@
     // that becomes a turkey]
     const NAVIGATION = "#sidebar a, .mobile-navbar a";
     const WORDS = [
-        [NAVIGATION, "Office Hours", "Office"],
-        [NAVIGATION, "Course Staff", "Staff"],
+        ["h2", "Complexity Theory", "Complexity"],
+        ["h2", "Kruskal", "Algorithm"],
     ];
 
     // the first words to go in the takeover, in this order (in the same
     // form as WORDS); the rest go in a random order
     const FIRST = [
-        ["h2", "Complexity Theory", "Complexity"],
-        ["h2", "Kruskal", "Algorithm"],
+        [NAVIGATION, "Office Hours", "Office"],
+        [NAVIGATION, "Course Staff", "Staff"],
         [NAVIGATION, "Campuswire", "Campus"],
         [NAVIGATION, "Gradescope", "Grade"],
     ];
@@ -40,7 +41,8 @@
     // or hyphens inside it
     const WORD = /[\p{L}\p{N}]+(?:['’-][\p{L}\p{N}]+)*/gu;
 
-    // Then, the turkeys swirl into these words (one line each)
+    // Then, the turkeys swirl into these words (one line each), as big as
+    // they fit in the window (so, on a phone, they're small)
     const MESSAGE = ["HAPPY", "THANKSGIVING!"];
     const SWIRL_DELAY = 700;  // ms after the last word turns into a turkey
     const SWIRL = 4200;       // how long each turkey takes to get to its place,
@@ -310,16 +312,16 @@
     const LETTER_GAP = 1;     // pixels between letters,
     const LINE_GAP = 2;       // and between lines
 
-    // Where the turkeys go to spell MESSAGE, as big as it fits in the
+    // Where the turkeys go to spell the words, as big as they fit in the
     // window: the centers of its pixels, as [x, y], and the size of a pixel.
     function messageCells() {
         const glyph = (letter) => FONT[letter] ?? FONT[" "];
         const lineWidth = (line) => [...line].reduce(
             (sum, letter) => sum + glyph(letter)[0].length + LETTER_GAP, -LETTER_GAP);
+        // the size of a pixel, so that the words fit in the window
         const cols = Math.max(...MESSAGE.map(lineWidth));
         const rows = MESSAGE.length * (7 + LINE_GAP) - LINE_GAP;
-        const size = Math.max(8, Math.floor(Math.min(
-            window.innerWidth * 0.92 / cols, window.innerHeight * 0.7 / rows)));
+        const size = Math.min(window.innerWidth * 0.92 / cols, window.innerHeight * 0.7 / rows);
         const top = (window.innerHeight - rows * size) / 2;
         const cells = [];
         MESSAGE.forEach((line, l) => {
