@@ -1,7 +1,8 @@
 // The Bellman-Ford demo: choose a graph, then step through Bellman-Ford from
 // Lecture 14 one update at a time (or one iteration at a time), watching
 // the estimated distances and predecessors change. Uses DemoGraphs from
-// ../common/graph.js, BFDrawing from ./drawing.js, and BF_GRAPHS from
+// ../common/graph.js, WeightedDrawing from
+// ../common/weighted.js, and BF_GRAPHS from
 // ./graphs.js.
 
 (function () {
@@ -231,7 +232,7 @@
         graphSelect.append(option);
     }
 
-    const drawing = BFDrawing.sketch($("#bf-canvas"));
+    const drawing = WeightedDrawing.sketch($("#bf-canvas"));
 
     let graph = null;
     let run = null;
@@ -250,12 +251,12 @@
         edgeList.replaceChildren();
         graph.edges.forEach(([u, v, w], k) => {
             const chip = document.createElement("span");
-            chip.className = "bf-edge";
+            chip.className = "demo-chip";
             if (state.iteration > 0) {
                 if (k < state.position) {
-                    chip.classList.add("bf-done");
+                    chip.classList.add("demo-done");
                 } else if (k === state.position) {
-                    chip.classList.add(wholeCheckbox.checked ? "bf-done" : "bf-current");
+                    chip.classList.add(wholeCheckbox.checked ? "demo-done" : "demo-current");
                 }
             }
             chip.innerHTML = `(${name(u)}, ${name(v)})`;

@@ -191,19 +191,6 @@ Course Staff
 </script>
 
 <style>
-    /* the edges in the order they're updated */
-    .bf-status {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: baseline;
-        justify-content: center;
-        gap: .3rem .5rem;
-        font-size: .9rem;
-    }
-    .bf-iteration {
-        font-weight: 600;
-        margin-right: .5rem;
-    }
     /* the iteration number, under the edge update order */
     .bf-iteration-line {
         text-align: center;
@@ -211,52 +198,8 @@ Course Staff
         font-size: .9rem;
         margin-top: .4rem;
     }
-    .bf-edge {
-        border: 1px solid var(--demo-border);
-        border-radius: .3rem;
-        padding: 0 .3rem;
-        white-space: nowrap;
-    }
-    .bf-edge.bf-done {
-        color: var(--demo-muted);
-        opacity: .55;
-    }
-    /* the edge being updated: a thicker border and bolder text, drawn so
-       that the pill stays the same size and nothing around it moves (a
-       shadow outside the border, and text thickened with shadows rather
-       than a bold font) */
-    .bf-edge.bf-current {
-        border-color: var(--demo-ink);
-        box-shadow: 0 0 0 1px var(--demo-ink);
-        text-shadow: .35px 0 0 currentColor, -.35px 0 0 currentColor;
-    }
     .demo-caption code {
         font-size: .9em;
-    }
-    .demo-swatch.bf-correct {
-        background: #3f8f2a;
-        border-color: #3f8f2a;
-    }
-    .bf-legend-badge {
-        border-radius: .3rem;
-        width: auto;
-        padding: 0 .25rem;
-    }
-    .bf-layout {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr);
-        gap: 1rem 1.5rem;
-        margin-top: .5rem;
-    }
-    @media (min-width: 900px) {
-        .bf-layout {
-            grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
-            align-items: start;
-        }
-    }
-    /* embedded, the explanation is hidden, so the graph takes the width */
-    .demo-embed .bf-layout {
-        grid-template-columns: minmax(0, 1fr);
     }
 </style>
 
@@ -330,19 +273,19 @@ Course Staff
 
     <p id="bf-description" class="demo-hint demo-no-embed" style="margin-top:0; margin-bottom:1.5rem"></p>
 
-    <div class="bf-status">
-        <span class="bf-iteration">Edge update order:</span>
-        <span id="bf-edges" class="bf-status"></span>
+    <div class="demo-chips">
+        <span class="demo-chips-label">Edge update order:</span>
+        <span id="bf-edges" class="demo-chips"></span>
     </div>
     <div id="bf-iteration" class="bf-iteration-line"></div>
 
     <!-- the graph and its buttons, with the explanation to their right on a
          wide screen (below them on a narrow one, and hidden when embedded) -->
-    <div class="bf-layout">
+    <div class="demo-layout demo-layout-wide">
     <div>
     <div id="bf-canvas" class="demo-canvas"></div>
     <div class="demo-legend demo-no-embed">
-        <span><i class="demo-swatch demo-distance bf-legend-badge">2</i> estimated distance</span>
+        <span><i class="demo-swatch demo-distance demo-badge-swatch">2</i> estimated distance</span>
         <span><svg class="demo-arrow" width="28" height="12" viewBox="0 0 28 12" aria-hidden="true"><line x1="2" y1="6" x2="17" y2="6" stroke-width="4"/><polygon points="28,6 16,0 16,12"/></svg> estimated predecessor</span>
     </div>
 
@@ -384,7 +327,7 @@ Course Staff
 <script id="p5-script" async src="/demos/common/vendor/p5.min.js"></script>
 <script src="/demos/common/graph.js"></script>
 <script src="/demos/bellman-ford/graphs.js"></script>
-<script src="/demos/bellman-ford/drawing.js"></script>
+<script src="/demos/common/weighted.js"></script>
 <script src="/demos/bellman-ford/bf.js"></script>
     </div>
 </div>

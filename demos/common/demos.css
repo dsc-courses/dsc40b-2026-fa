@@ -233,6 +233,18 @@
     color: white;
 }
 
+/* Next while a step's animation is still playing (see `busy` in
+   DemoGraphs.stepper): grayed out like a disabled button, but it can still be
+   clicked. It grays out at once, and fades back in a moment after the
+   animation is done. */
+.demo button.demo-primary {
+    transition: transform 80ms ease-out, filter 80ms ease-out, opacity 450ms ease-out 250ms;
+}
+.demo button.demo-busy {
+    opacity: .4;
+    transition: transform 80ms ease-out, filter 80ms ease-out;
+}
+
 .demo-step-count {
     color: var(--demo-muted);
     font-size: .9rem;
@@ -308,6 +320,52 @@
 .demo-arrow line { stroke: var(--demo-accent); }
 .demo-arrow polygon { fill: var(--demo-accent); }
 
+/* a correct estimate (in green) and the badge of an estimated distance, in
+   the legends of the shortest-path demos */
+.demo-swatch.demo-correct {
+    background: #3f8f2a;
+    border-color: #3f8f2a;
+}
+.demo-badge-swatch {
+    border-radius: .3rem;
+    width: auto;
+    padding: 0 .25rem;
+}
+
+/* chips: a row of short items, like the edges in Bellman-Ford's update
+   order, or the nodes in Dijkstra's priority queue ------------------------ */
+
+.demo-chips {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    gap: .3rem .5rem;
+    font-size: .9rem;
+}
+.demo-chips-label {
+    font-weight: 600;
+    margin-right: .5rem;
+}
+.demo-chip {
+    border: 1px solid var(--demo-border);
+    border-radius: .3rem;
+    padding: 0 .3rem;
+    white-space: nowrap;
+}
+.demo-chip.demo-done {
+    color: var(--demo-muted);
+    opacity: .55;
+}
+/* the item being worked on: a thicker border and bolder text, drawn so that
+   the chip stays the same size and nothing around it moves (a shadow outside
+   the border, and text thickened with shadows rather than a bold font) */
+.demo-chip.demo-current {
+    border-color: var(--demo-ink);
+    box-shadow: 0 0 0 1px var(--demo-ink);
+    text-shadow: .35px 0 0 currentColor, -.35px 0 0 currentColor;
+}
+
 /* panels ----------------------------------------------------------------- */
 
 .demo-layout {
@@ -316,10 +374,20 @@
     gap: 1.25rem;
 }
 
+.demo-layout.demo-layout-wide {
+    gap: 1rem 1.5rem;
+    margin-top: .5rem;
+}
+
 @media (min-width: 900px) {
     .demo-layout {
         grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
         align-items: start;
+    }
+    /* more room for the figure, for the wide graphs of the shortest-path
+       demos */
+    .demo-layout.demo-layout-wide {
+        grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
     }
 }
 

@@ -526,7 +526,13 @@
                         "number": 15,
                         "date": "2026-11-17",
                         "topic": "Dijkstra's Algorithm",
-                        "reading": null
+                        "reading": null,
+                        "demos": [
+                            {
+                                "title": "Dijkstra's Algorithm",
+                                "url": "demos/dijkstra/index.html"
+                            }
+                        ]
                     },
                     "artifacts": {}
                 },

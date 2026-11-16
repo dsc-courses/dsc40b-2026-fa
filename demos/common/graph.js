@@ -945,13 +945,23 @@ const DemoGraphs = {
     // an object whose `reset(count, start)` starts over with a new number of
     // steps, at step `start` (0 by default). If given, `onFinish(duration)` is
     // called when Play reaches the last step, with how long that step's
-    // animation takes.
-    stepper({first, back, next, last, play, counter}, count, show, {onFinish} = {}) {
+    // animation takes. With `busy`, the Next button is grayed out (see
+    // .demo-busy in demos.css) while a step's animation plays, though it can
+    // still be clicked to move on at once.
+    stepper({first, back, next, last, play, counter}, count, show, {onFinish, busy = false} = {}) {
         let i = 0;
         let timer = null;
+        let busyTimer = null;
 
         function render(previous) {
             const duration = show(i, previous) || 0;
+            if (busy) {
+                clearTimeout(busyTimer);
+                next.classList.toggle("demo-busy", duration > 0);
+                if (duration > 0) {
+                    busyTimer = setTimeout(() => next.classList.remove("demo-busy"), duration);
+                }
+            }
             first.disabled = back.disabled = i === 0;
             next.disabled = last.disabled = i === count - 1;
             counter.textContent = `Step ${i} of ${count - 1}`;

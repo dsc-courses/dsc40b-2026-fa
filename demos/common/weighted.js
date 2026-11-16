@@ -1,7 +1,7 @@
-// The animated drawing for the Bellman-Ford demo: a weighted, directed graph
-// with each node's estimated distance in a badge next to it, and a purple
-// arrow to each node from its estimated predecessor. Uses the helpers in
-// ../common/graph.js.
+// The animated drawing for the shortest-path demos (Bellman-Ford and
+// Dijkstra's): a weighted, directed graph with each node's estimated
+// distance in a badge next to it, and a purple arrow to each node from its
+// estimated predecessor. Uses the helpers in ./graph.js.
 //
 // A state, as drawn here, has
 //
@@ -12,16 +12,32 @@
 //     improved: whether that update changed est[v]
 //     correct:  (optional) Map from node to its actual distance, to mark the
 //               estimates that are correct
+//     visited:  (optional) Set of the nodes that are drawn as visited (for
+//               Dijkstra's, the ones taken out of the priority queue)
+//     current:  (optional) the node whose edges are being updated, which is
+//               circled, or null
+//     queue:    (optional) the nodes in a priority queue, smallest priority
+//               (estimate) first. If states have one, it is drawn below the
+//               graph like a list of small nodes, each with its priority
+//               under it, e.g. "priority_queue = [u1, u3, u2]"
 
-const BFDrawing = {
+const WeightedDrawing = {
 
     // Create the drawing inside the element `container`. Returns an object
     // like DemoGraphs.sketch's:
     //
     //     setGraph(graph, states)          draw a new graph, in states[0]
     //     show(state, previous, part)      as in DemoGraphs.sketch
+    //     segments(state, previous)        as in DemoGraphs.sketch
     //     markCorrect(on)                  whether to mark correct estimates
     //
+    // When a node becomes visited, it first flies out of the priority queue
+    // to its place in the graph (if there is a queue), then turns the visited
+    // color (and is circled, if it is state.current); everything else waits
+    // for that. When an estimate changes, after the predecessor arrow has
+    // been redrawn and the node has shrunk back (as change_priority comes
+    // after update), its priority in the queue rolls over, and then the
+    // queue slides into its new order.
     // The animation of one update, of the edge (u, v), happens in order:
     //   1. the edge is drawn out from u, in bold;
     //   2. if the update finds a shorter path to v, v swells, its estimate
@@ -39,6 +55,9 @@ const BFDrawing = {
         const UNARROW = 600;     // the old predecessor arrow retracts, and
         const ARROW = 600;       // then the new one is drawn out
         const SHRINK = 300;      // v shrinks back
+        const VISIT = 600;       // a node turns visited
+        const FLY = 550;         // a node flies from the queue to the graph
+        const SLIDE = 450;       // the nodes in the queue slide into place
         const DIM = 900;         // v washes out and back
         const BACK = 600;        // then, on a purple edge, the bold edge
                                  // fades back to purple
@@ -48,25 +67,102 @@ const BFDrawing = {
         const BADGE_GAP = 6;     // between a node and its badge
         const CURVE = 0.22;      // how much an edge with a reverse edge bends
         const CORRECT = "#3f8f2a";
+        const TOKEN = 15;        // radius of the nodes in the queue
+        const TOKEN_BADGE = 18;  // height of a priority badge under one
+        const LIST_LINE = 2 * TOKEN + TOKEN_BADGE + 14;  // one line of the queue
+        const LIST_FAMILY = "Courier New";
+        const LIST_FONT = 18;
+        const LIST_LABEL = "priority_queue";
 
         let graph = null;
         let state = null;
         let previous = null;
         let started = -Infinity;
-        let to = 0;
+        let from = 0, to = 0;    // the part of the animation being played
         let playing = true;
         let timeline = plan(null, null);
         let layout = null;
         let ready = false;
         let correct = false;
+        let longest = 0;         // the longest the queue gets (0: no queue)
 
         // when each part of the animation from `before` to `after` happens
         function plan(after, before) {
             const none = {edge: null, swell: null, roll: null, unarrow: null, arrow: null,
-                          shrink: null, dim: null, changed: new Set(), end: 0};
+                          shrink: null, dim: null, changed: new Set(), visit: null,
+                          visited: new Set(), fly: null, qroll: null, reorder: null, end: 0,
+                          segments: [[0, 0]]};
             if (before === null || after === null) {
                 return none;
             }
+            // nodes that become visited do so first, and the rest of the
+            // animation waits for them
+            const was = before.visited ?? new Set();
+            const visited = new Set([...(after.visited ?? [])].filter(n => !was.has(n)));
+            const leaving = before.queue && after.queue
+                && before.queue.some(n => !after.queue.includes(n));
+            const fly = visited.size > 0 && leaving ? FLY : 0;
+            const offset = visited.size > 0 ? fly + VISIT : 0;
+            const shift = (timeline) => {
+                const shifted = {...timeline};
+                for (const key of ["edge", "swell", "roll", "unarrow", "arrow", "shrink", "dim"]) {
+                    if (shifted[key] !== null) {
+                        shifted[key] += offset;
+                    }
+                }
+                shifted.end = timeline.end + offset;
+                shifted.visit = offset > 0 ? fly : null;
+                shifted.visited = visited;
+                // The queue: a node leaving it flies out first, and the rest
+                // slide into place as it goes. A changed priority comes
+                // last, as change_priority is called after update: once
+                // the estimate and predecessor have changed, the node's
+                // priority in the queue rolls over, and then the queue
+                // slides into its new order.
+                if (before.queue && after.queue) {
+                    shifted.fly = leaving ? 0 : null;
+                    const queued = [...shifted.changed].some(n => after.queue.includes(n)
+                        && before.est.get(n) !== after.est.get(n));
+                    if (queued && shifted.roll !== null) {
+                        shifted.qroll = timeline.end + offset + PAUSE;
+                        const kept = before.queue.filter(n => after.queue.includes(n));
+                        const moved = kept.some((n, i) => after.queue[i] !== n);
+                        // (a moment after the priority has rolled over)
+                        shifted.reorder = shifted.qroll + ROLL + (moved ? 350 : 0);
+                        shifted.end = shifted.reorder + (moved ? SLIDE : 0);
+                    } else {
+                        shifted.qroll = null;
+                        shifted.reorder = 0;
+                        shifted.end = Math.max(shifted.end, SLIDE);
+                    }
+                }
+                // The parts of the animation, one thing at a time, for
+                // stepping through it in small steps: for an update that
+                // finds a shorter path, drawing out the edge, the estimate
+                // rolling over, the predecessor arrow, and then the change of
+                // priority with the queue's new order, if there is a queue.
+                // Anything else is a single part.
+                const update = after.index === before.index + 1 && after.edge !== null
+                    && after.improved;
+                if (update) {
+                    const done = timeline.end + offset;
+                    shifted.segments = [[0, shifted.swell], [shifted.swell, shifted.unarrow],
+                                        [shifted.unarrow, done]];
+                    // (the priority rolling over and the queue's new order are
+                    // one part, without a pause between them)
+                    if (shifted.qroll !== null && shifted.qroll !== undefined) {
+                        shifted.segments.push([done, shifted.end]);
+                    }
+                } else {
+                    shifted.segments = [[0, shifted.end]];
+                }
+                return shifted;
+            };
+            return shift(planUpdate(after, before, none));
+        }
+
+        // the rest of the animation from `before` to `after`
+        function planUpdate(after, before, none) {
             const changed = new Set([...after.est.keys()].filter(
                 n => after.est.get(n) !== before.est.get(n)
                     || after.pred.get(n) !== before.pred.get(n)));
@@ -149,7 +245,14 @@ const BFDrawing = {
                     // above (or to the left of) a straight one
                     const mid = at(0.5);
                     const side = (bend > 0 ? 1 : -1) * (flip === "flip" ? -1 : 1);
-                    const label = {x: mid.x + side * n.x * 14, y: mid.y + side * n.y * 14};
+                    // far enough from the edge that a wide label (like
+                    // "−100") beside a steep edge doesn't cover it
+                    p.textStyle(p.BOLD);
+                    p.textSize(16);
+                    const away = 6 + Math.abs(n.x) * p.textWidth(format(w)) / 2
+                        + Math.abs(n.y) * 8;
+                    p.textStyle(p.NORMAL);
+                    const label = {x: mid.x + side * n.x * away, y: mid.y + side * n.y * away};
                     paths.set(`${u}->${v}`, {points, lengths, total: lengths[lengths.length - 1],
                                              label, weight: w});
                 }
@@ -211,16 +314,142 @@ const BFDrawing = {
             }
 
             function computeLayout() {
+                // room for the queue at its longest, if there is one, on
+                // one line, scaled down to fit the width if need be
+                let queueScale = 1, queueHeight = 0;
+                if (longest > 0) {
+                    const ids = graph.nodes.slice(0, longest).map(n => n.id);
+                    const full = listLayout(ids, 0, 1).width;
+                    queueScale = Math.min(1, (p.width - 16) / full);
+                    queueHeight = 4 + LIST_LINE * queueScale;
+                }
                 const room = DemoGraphs.embedHeight(container);
                 const pad = 2 * (RADIUS + BADGE_GAP + BADGE_H + 12);
-                const maxHeight = room === null ? 300 : Math.max(80, room - pad - 8);
+                const maxHeight = room === null ? 300
+                    : Math.max(80, room - pad - 8 - queueHeight);
                 const fit = DemoGraphs.fitGraph(graph, {
                     width: p.width,
                     maxHeight,
                     radius: RADIUS + BADGE_GAP + BADGE_H,
                 });
-                return {positions: fit.positions, height: fit.height,
-                        paths: edgePaths(fit.positions)};
+                return {positions: fit.positions, graphBottom: fit.height, queueScale,
+                        height: fit.height + queueHeight, paths: edgePaths(fit.positions)};
+            }
+
+            // set the font of the queue's label, brackets and commas, at
+            // scale k
+            function listFont(k) {
+                p.textFont(LIST_FAMILY);
+                p.textStyle(p.BOLD);
+                p.textSize(LIST_FONT * k);
+            }
+
+            // Where the parts of the queue go, drawn like a list on one line,
+            // e.g. "priority_queue = [u1, u3]", with each item a small node,
+            // at scale k (on a narrow canvas, the whole list is drawn
+            // smaller rather than wrapped). x positions start at x0; y is 0.
+            // Also returns the list's width, from x0 to after the "]".
+            function listLayout(items, x0, k) {
+                listFont(k);
+                const comma = p.textWidth(",") + 6 * k;
+                const start = x0 + p.textWidth(`${LIST_LABEL} = [`) + 4 * k;
+                const positions = [], commas = [];
+                let x = start;
+                items.forEach((id, i) => {
+                    positions.push({x: x + TOKEN * k, y: 0});
+                    x += 2 * TOKEN * k;
+                    if (i < items.length - 1) {
+                        commas.push({x: x + k, y: 0});
+                        x += comma;
+                    }
+                });
+                // an empty list is drawn "[]", without a gap
+                const close = items.length > 0 ? {x: x + 4 * k, y: 0} : {x: start - 4 * k, y: 0};
+                return {items: positions, commas, close,
+                        width: close.x + p.textWidth("]") - x0};
+            }
+
+            // a node's priority, in a small badge under it in the queue, at
+            // scale k
+            function drawPriority(pos, k, oldValue, newValue, roll, alpha = 255) {
+                p.textStyle(p.BOLD);
+                p.textSize(12 * k);
+                const width = Math.max(26 * k, p.textWidth(format(oldValue)) + 10 * k,
+                    p.textWidth(format(newValue)) + 10 * k);
+                const h = TOKEN_BADGE * k;
+                const top = pos.y + (TOKEN + 3) * k;
+                const value = roll < 0.5 ? oldValue : newValue;
+                const fill = p.color(value === Infinity ? "#9ca3af" : DemoGraphs.COLORS.accent);
+                fill.setAlpha(alpha);
+                p.fill(fill);
+                p.noStroke();
+                p.rect(pos.x - width / 2, top, width, h, 5 * k);
+                const ctx = p.drawingContext;
+                ctx.save();
+                ctx.beginPath();
+                ctx.rect(pos.x - width / 2, top, width, h);
+                ctx.clip();
+                const ink = p.color("#ffffff");
+                ink.setAlpha(alpha);
+                p.fill(ink);
+                p.textAlign(p.CENTER, p.CENTER);
+                const mid = top + h / 2 + k;
+                if (roll > 0 && roll < 1) {
+                    p.text(format(oldValue), pos.x, mid - roll * h);
+                    p.text(format(newValue), pos.x, mid + (1 - roll) * h);
+                } else {
+                    p.text(format(roll >= 1 ? newValue : oldValue), pos.x, mid);
+                }
+                ctx.restore();
+                p.textStyle(p.NORMAL);
+            }
+
+            // The priority queue below the graph, animating from `before` to
+            // `after` (lists of nodes, smallest priority first): a node that
+            // leaves flies from its place in the list to its node in the
+            // graph as `flyT` goes from 0 to 1, and the others slide to their
+            // new places as `slideT` does. `priority(id)` gives
+            // [old, new, roll] for a node's priority badge.
+            function drawQueue(before, after, flyT, slideT, priority) {
+                const colors = theme();
+                const k = layout.queueScale;
+                const x0 = 8;
+                const y = layout.graphBottom + 4 + (LIST_LINE / 2 - TOKEN_BADGE / 2) * k;
+                const at = (q) => ({x: q.x, y: y + q.y});
+                const old = listLayout(before, x0, k);
+                const now = listLayout(after, x0, k);
+                // the brackets and commas fit the nodes still in the list:
+                // one that leaves does so halfway through its flight
+                const frame = listLayout(flyT >= 0.5 ? after : before, x0, k);
+                p.noStroke();
+                p.fill(colors.ink);
+                listFont(k);
+                p.textAlign(p.LEFT, p.CENTER);
+                p.text(`${LIST_LABEL} = [`, x0, y);
+                for (const c of frame.commas) {
+                    p.text(",", c.x, y + c.y + 6 * k);
+                }
+                p.text("]", frame.close.x, y + frame.close.y);
+                p.textStyle(p.NORMAL);
+                p.textFont("Arial");
+
+                after.forEach((id, i) => {
+                    const j = before.indexOf(id);
+                    const from = j >= 0 ? at(old.items[j]) : at(now.items[i]);
+                    const pos = paint.lerpPoint(from, at(now.items[i]), slideT);
+                    drawNode(pos, id, TOKEN * k, 0);
+                    drawPriority(pos, k, ...priority(id));
+                });
+                // a node leaving flies to the graph, growing, over the rest
+                before.forEach((id, j) => {
+                    if (after.includes(id) || flyT >= 1) {
+                        return;
+                    }
+                    const pos = paint.lerpPoint(at(old.items[j]), layout.positions.get(id), flyT);
+                    drawNode(pos, id, TOKEN * k + (RADIUS - TOKEN * k) * flyT, 0);
+                    const [o, n, r] = priority(id);
+                    drawPriority(pos, k, o, n, r, 255 * (1 - Math.min(1, flyT * 2)));
+                });
             }
 
             function resize() {
@@ -235,21 +464,29 @@ const BFDrawing = {
                 }
             }
 
-            // a node, labeled like "v" with a subscript "1"
-            function drawNode(pos, id, radius, wash) {
+            // a node, labeled like "v" with a subscript "1"; `visit` in
+            // [0, 1] is how far it has turned the visited color, and `ring`
+            // in [0, 1] how strongly it is circled
+            function drawNode(pos, id, radius, wash, visit = 0, ring = 0) {
                 const colors = theme();
                 const dark = document.documentElement.classList.contains("dark");
                 const background = p.color(colors.background);
                 const washed = (c) => p.lerpColor(p.color(c), background, wash);
-                p.fill(washed(dark ? "#4b5563" : "#e5e7eb"));
+                paint.drawRing(pos, ring, radius);
+                const unvisited = p.color(dark ? "#4b5563" : "#e5e7eb");
+                const fill = p.lerpColor(unvisited, p.color(DemoGraphs.COLORS.visited), visit);
+                p.fill(washed(fill));
                 p.stroke(washed(colors.stroke));
-                p.strokeWeight(3);
+                // thinner for the queue's smaller nodes, when it is scaled down
+                p.strokeWeight(Math.min(3, Math.max(1.5, 3 * radius / TOKEN)));
                 p.circle(pos.x, pos.y, 2 * radius);
 
                 const scale = radius / RADIUS;
                 const m = /^([A-Za-z]+)(\d+)$/.exec(id);
                 p.noStroke();
-                p.fill(washed(colors.ink));
+                // a white label on the visited color
+                p.fill(washed(p.lerpColor(p.color(colors.ink), p.color("#ffffff"),
+                    dark ? 1 : visit)));
                 p.textStyle(p.ITALIC);
                 if (m === null) {
                     p.textAlign(p.CENTER, p.CENTER);
@@ -336,7 +573,7 @@ const BFDrawing = {
                 if (!graph || !state || !layout) {
                     return;
                 }
-                const t = playing ? Math.min(to, performance.now() - started) : to;
+                const t = playing ? Math.min(to, from + performance.now() - started) : to;
                 const P = timeline;
                 const animating = previous !== null && t < P.end;
 
@@ -427,10 +664,31 @@ const BFDrawing = {
                     const isCorrect = correct && state.correct
                         && state.correct.get(id) === shown;
                     drawBadge(node, oldValue, newValue, roll, isCorrect);
-                    nodeDrawings.push([layout.positions.get(id), id, radius, wash]);
+                    // turning visited, or circled as the current node
+                    const isVisited = state.visited?.has(id) ?? false;
+                    const turning = animating && P.visit !== null && P.visited.has(id);
+                    const visit = !isVisited ? 0 : turning ? phase(t, P.visit, VISIT) : 1;
+                    const isCurrent = state.current === id;
+                    const wasCurrent = previous !== null && previous.current === id;
+                    const ring = !isCurrent ? 0
+                        : animating && !wasCurrent ? phase(t, P.visit ?? 0, VISIT) : 1;
+                    nodeDrawings.push([layout.positions.get(id), id, radius, wash, visit, ring]);
                 }
                 for (const args of nodeDrawings) {
                     drawNode(...args);
+                }
+
+                // the priority queue, if there is one
+                if (state.queue) {
+                    const before = animating && previous.queue ? previous.queue : state.queue;
+                    const flyT = animating && P.fly !== null ? phase(t, P.fly, FLY) : 1;
+                    const slideT = animating && P.reorder !== null ? phase(t, P.reorder, SLIDE) : 1;
+                    drawQueue(before, state.queue, flyT, slideT, (id) => {
+                        const changed = animating && P.changed.has(id);
+                        const old = changed ? previous.est.get(id) : state.est.get(id);
+                        return [old, state.est.get(id),
+                            changed && P.qroll !== null ? phase(t, P.qroll, ROLL) : 1];
+                    });
                 }
             };
 
@@ -443,6 +701,7 @@ const BFDrawing = {
             setGraph(newGraph, states) {
                 graph = newGraph;
                 state = states[0];
+                longest = Math.max(0, ...states.map(s => (s.queue ? s.queue.length : 0)));
                 previous = null;
                 timeline = plan(null, null);
                 layout = null;
@@ -451,14 +710,22 @@ const BFDrawing = {
                 }
             },
 
-            show(newState, previousState = null, {animate = true} = {}) {
+            show(newState, previousState = null,
+                 {from: start = 0, to: stop = Infinity, animate = true} = {}) {
                 previous = previousState;
                 state = newState;
                 timeline = plan(newState, previousState);
-                to = timeline.end;
+                from = start;
+                to = Math.min(stop, timeline.end);
                 playing = animate;
                 started = performance.now();
-                return previousState === null || !animate ? 0 : to;
+                return previousState === null || !animate ? 0 : to - from;
+            },
+
+            // the parts of the animation from `previousState` to `newState`,
+            // as [start, end] pairs in ms (see plan)
+            segments(newState, previousState) {
+                return plan(newState, previousState).segments;
             },
 
             markCorrect(on) {
