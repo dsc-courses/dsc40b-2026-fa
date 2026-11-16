@@ -534,7 +534,11 @@
                             }
                         ]
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "slides.pdf": {
+                            "path": "materials/lectures/15-dijkstra/slides.pdf"
+                        }
+                    }
                 },
                 "16-prim": {
                     "metadata": {
