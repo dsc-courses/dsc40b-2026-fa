@@ -690,7 +690,14 @@
                         "date": "2026-11-16",
                         "topic": "BFS for Shortest Paths and DFS (Lectures 12&ndash;13)"
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "quiz.pdf": {
+                            "path": "materials/quizzes/07/quiz.pdf"
+                        },
+                        "solution.pdf": {
+                            "path": "materials/quizzes/07/solution.pdf"
+                        }
+                    }
                 },
                 "08": {
                     "metadata": {
