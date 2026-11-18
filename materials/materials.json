@@ -537,6 +537,9 @@
                     "artifacts": {
                         "slides.pdf": {
                             "path": "materials/lectures/15-dijkstra/slides.pdf"
+                        },
+                        "slides-marked.pdf": {
+                            "path": "materials/lectures/15-dijkstra/slides-marked.pdf"
                         }
                     }
                 },
