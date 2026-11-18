@@ -182,7 +182,11 @@
                         "released": "2026-11-18 23:59:00",
                         "due": "2026-11-24 23:59:00"
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "homework.pdf": {
+                            "path": "materials/homeworks/08-spd/homework.pdf"
+                        }
+                    }
                 },
                 "09-super_homework": {
                     "metadata": {
