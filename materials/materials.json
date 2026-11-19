@@ -172,6 +172,9 @@
                     "artifacts": {
                         "homework.pdf": {
                             "path": "materials/homeworks/07-bfs-dfs/homework.pdf"
+                        },
+                        "solution.pdf": {
+                            "path": "materials/homeworks/07-bfs-dfs/solution.pdf"
                         }
                     }
                 },
