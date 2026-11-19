@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head data-automata-theme="default">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DSC 40B</title>
+    <link href="/static/style.css" rel="stylesheet">
+    
+    <script defer src="https://unpkg.com/lucide@1.48.0/dist/umd/lucide.min.js"></script>
+    
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']],
+            },
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    
+    
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    
+    
+
+
+
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+
+    <!-- Mobile menu button -->
+<div class="mobile-navbar lg:hidden fixed top-0 left-0 right-0 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 z-50 flex items-center">
+    <button id="mobile-menu-button" class="py-5 pl-4 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <i data-lucide="menu" class="w-6 h-5"></i>
+    </button>
+    <span class="ml-2 font-semibold">DSC 40B</span>
+</div>
+
+    <div class="flex min-h-screen">
+        <!-- Left Navigation Column -->
+        <nav id="sidebar" class="
+    w-64 flex-none
+    fixed lg:sticky
+    top-0 left-0 h-screen
+    transform -translate-x-full lg:translate-x-0 transition-transform duration-200 ease-in-out
+    bg-gray-50 dark:bg-gray-900
+    z-40
+    sidebar-mobile-spacing lg:pt-6
+    flex flex-col items-end
+    border-r lg:border-r-0 border-gray-200 dark:border-gray-700
+    ">
+
+    <div class="pt-6 pr-6 flex">
+        <ul class="space-y-2">
+            
+            <li>
+                <a href="/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="calendar-days" class="mr-2 text-slate-400"></i>
+Schedule
+                </a>
+            </li>
+            
+            <li>
+                <a href="/syllabus.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="scale" class="mr-2 text-slate-400"></i>
+Syllabus
+                </a>
+            </li>
+            
+            <li>
+                <a href="/office_hours.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="briefcase-business" class="mr-2 text-slate-400"></i>
+Office Hours
+                </a>
+            </li>
+            
+            <li>
+                <a href="/materials/default/notes/book.pdf" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="book-open" class="mr-2 text-slate-400"></i>
+Course Notes
+                </a>
+            </li>
+            
+            <li>
+                <a href="/practice/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="dumbbell" class="mr-2 text-slate-400"></i>
+Practice
+                </a>
+            </li>
+            
+            <li>
+                <a href="/demos/index.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="mouse-pointer-click" class="mr-2 text-slate-400"></i>
+Demos
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://campuswire.com/p/G43FA47CB" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-more" class="mr-2 text-slate-400"></i>
+Campuswire
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://www.gradescope.com/courses/1409241" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="spell-check" class="mr-2 text-slate-400"></i>
+Gradescope
+                </a>
+            </li>
+            
+            <li>
+                <a href="http://sierra.ucsd.edu/qa/dsc40b" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="message-circle-question-mark" class="mr-2 text-slate-400"></i>
+Live Q&A
+                </a>
+            </li>
+            
+            <li>
+                <a href="/staff.html" class="flex justify-end px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg font-medium">
+                    <i data-lucide="users" class="mr-2 text-slate-400"></i>
+Course Staff
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="flex mr-9 pt-3 pb-6">
+        <button id="theme-toggle" class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-full transition-colors">
+            <span id="theme-icon" class="mr-1.5">☾</span>
+            <span id="theme-text">Dark</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Overlay for mobile -->
+<div id="overlay" class="fixed inset-0 bg-gray-200/40 dark:bg-black/50 backdrop-blur-[2px] z-30 hidden"></div>
+
+        <!-- Main Content Column -->
+        
+<!-- Main Content Column -->
+<div class="
+    w-full
+    bg-white dark:bg-gray-800
+    md:border-l
+    border-gray-200 dark:border-gray-700
+    md:min-w-180
+    px-4 md:px-12
+    pt-20 lg:pt-12
+    pb-24
+    ">
+
+    <div class="
+    text-xl font-semibold
+    left-12 right-12
+    py-4 lg:pt-0 lg:pb-0 lg:mb-10
+    lg:static
+    truncate
+    flex
+    ">
+    <div class="
+        shrink
+        lg:border-b border-gray-200 dark:border-gray-700
+        ">
+        <span class="hidden lg:inline">
+            DSC 40B
+            &ndash;
+            Theoretical Foundations of Data Science II
+        </span>
+    </div>
+</div>
+
+    <div class="prose dark:prose-invert">
+    <!-- The single-linkage clustering demo. automata renders this page and fills
+     in its template expressions, so the JavaScript lives in separate files,
+     which are copied as is. -->
+
+<link rel="stylesheet" href="/demos/common/demos.css">
+
+<!-- With ?embed in the URL (e.g. for a slide in Lectern), show only the demo,
+     without the site around it or the parts marked demo-no-embed. See
+     "embedding" in demos.css. -->
+<script>
+    if (new URLSearchParams(location.search).has("embed")) {
+        document.documentElement.classList.add("demo-embed");
+    }
+</script>
+
+<style>
+    /* the number of clusters, above the points */
+    .sl-count-line {
+        text-align: center;
+        font-weight: 600;
+        font-size: .95rem;
+        margin-top: .4rem;
+    }
+    /* a cluster's color, in the explanation and the legend */
+    .sl-dot {
+        display: inline-block;
+        width: .8rem;
+        height: .8rem;
+        border-radius: 50%;
+        border: 1.5px solid #000;
+        vertical-align: -.05rem;
+    }
+    .dark .sl-dot { border-color: #f3f4f6; }
+    .sl-dot.sl-alone { background: #d1d5db; }
+    .dark .sl-dot.sl-alone { background: #6b7280; }
+    .sl-line {
+        display: inline-block;
+        width: 1.6rem;
+        height: 0;
+        border-top: 3px solid var(--demo-ink);
+    }
+    .sl-line.sl-new { border-top-color: var(--demo-accent); border-top-width: 4px; }
+    #sl-new[hidden] { display: none; }
+</style>
+
+<h1>Single-Linkage Clustering</h1>
+
+<p>
+    <b>Instructions</b>:
+    Choose a set of points and the number of clusters, <i>k</i>, then click
+    the buttons (or press the <kbd>&larr;</kbd> and <kbd>&rarr;</kbd> keys)
+    to step through single-linkage clustering, one merge at a time.
+</p>
+
+<p>
+    Every point starts in a cluster of its own. At each step, the two closest
+    points that are in <b>different</b> clusters are joined by an edge, and
+    their clusters merge into one. Each cluster is drawn in its own color,
+    and points still on their own are gray. Clustering stops when there are
+    <i>k</i> clusters left. This is essentially Kruskal's algorithm, run on
+    the weighted distance graph.
+</p>
+
+<div id="sl-demo" class="demo not-prose">
+
+    <div class="demo-controls">
+        <label>
+            Points
+            <select id="sl-data"></select>
+        </label>
+        <label>
+            <span>Stop at <i>k</i> clusters</span>
+            <select id="sl-k"></select>
+        </label>
+        <button id="sl-new" hidden>New points</button>
+    </div>
+
+    <p id="sl-description" class="demo-hint demo-no-embed" style="margin-top:0; margin-bottom:1.5rem"></p>
+
+    <div id="sl-count" class="sl-count-line"></div>
+
+    <!-- the points and the buttons, with the explanation to their right on a
+         wide screen (below them on a narrow one, and hidden when embedded) -->
+    <div class="demo-layout demo-layout-wide">
+    <div>
+    <div id="sl-canvas" class="demo-canvas"></div>
+    <div class="demo-legend demo-no-embed">
+        <span><i class="sl-dot sl-alone"></i> a point on its own</span>
+        <span><i class="sl-dot" style="background:#007aff"></i><i class="sl-dot" style="background:#d20000"></i> clusters</span>
+        <span><i class="sl-line sl-new"></i> merge just made</span>
+    </div>
+
+    <div class="demo-stepper demo-stepper-narrow">
+        <button id="sl-first" title="Back to the start">&#x21E4; Start</button>
+        <button id="sl-back" title="Previous merge (left arrow)">&larr; Back</button>
+        <button id="sl-next" class="demo-primary" title="Next merge (right arrow)">Next &rarr;</button>
+        <button id="sl-last" title="Skip to k clusters">End &#x21E5;</button>
+        <button id="sl-play">Play</button>
+    </div>
+    <div id="sl-counter" class="demo-step-count demo-no-embed"></div>
+    </div>
+
+    <div class="demo-panel demo-no-embed">
+        <h3>What happened</h3>
+        <div id="sl-caption" class="demo-caption" aria-live="polite"></div>
+    </div>
+    </div>
+</div>
+
+<script>
+    // show errors in the demo itself (e.g., on a phone, where there is no
+    // console): a script that fails to load, or one that fails to run
+    window.addEventListener("error", function (event) {
+        var box = document.getElementById("sl-canvas");
+        if (!box) {
+            return;
+        }
+        var what = event.target && event.target.src
+            ? "Couldn't load " + event.target.src + "."
+            : event.message + " (" + String(event.filename).split("/").pop()
+                + ", line " + event.lineno + ")";
+        box.insertAdjacentHTML("beforeend",
+            '<p class="demo-error">The demo hit an error: ' + what + '</p>');
+    }, true);
+</script>
+<!-- p5.js 1.9.4 (LGPL 2.1, see common/vendor/LICENSE.txt), served from this
+     site rather than a CDN -->
+<script id="p5-script" async src="/demos/common/vendor/p5.min.js"></script>
+<script src="/demos/common/graph.js"></script>
+<script src="/demos/single-linkage/points.js"></script>
+<script src="/demos/single-linkage/single-linkage.js"></script>
+    </div>
+</div>
+
+    </div>
+
+    <script>
+        // Restore saved theme on page load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else if (savedTheme === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Dark mode toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        // Update button to reflect current theme
+        function updateThemeButton() {
+            const isDark = document.documentElement.classList.contains('dark');
+            themeIcon.textContent = isDark ? '☀' : '☾';
+            themeText.textContent = isDark ? 'Light' : 'Dark';
+        }
+
+        // Initialize button state
+        updateThemeButton();
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.contains('dark');
+
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+
+            updateThemeButton();
+        });
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        menuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        });
+
+        // Initialize Lucide icons. The script is deferred, so wait for it to
+        // load; DOMContentLoaded fires after deferred scripts have run.
+        document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+        
+        // highlight each <pre><code> block with a language-* class (e.g. from
+        // ```python), once the deferred highlight.js has run; a block without
+        // one is left plain, as guessing its language is often wrong
+        document.addEventListener('DOMContentLoaded', () => {
+            hljs.configure({ cssSelector: 'pre code[class*="language-"]' });
+            hljs.highlightAll();
+        });
+        
+    </script>
+
+</body>
+</html>
