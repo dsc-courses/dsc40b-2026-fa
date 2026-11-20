@@ -560,6 +560,9 @@
                     "artifacts": {
                         "slides.pdf": {
                             "path": "materials/lectures/16-prim/slides.pdf"
+                        },
+                        "slides-marked.pdf": {
+                            "path": "materials/lectures/16-prim/slides-marked.pdf"
                         }
                     }
                 },
