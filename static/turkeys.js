@@ -1,8 +1,7 @@
 // A Thanksgiving easter egg for the schedule: each click on the turkey in a
 // week's title turns one more word on the page into a turkey, in the order
-// of WORDS: "Complexity" in Complexity Theory, then "Algorithm" in
-// Kruskal's Algorithm. The
-// click after those starts a takeover: every word on the page turns
+// of WORDS: the "B" in DSC 40B in the site's title, then "Data" in Data
+// Science. The click after those starts a takeover: every word on the page turns
 // into a turkey, in a random order, slowly at first and then faster and
 // faster. Each turkey falls from the top of the window onto its word. Then
 // the turkeys swirl around the page and settle into the words
@@ -15,9 +14,12 @@
     // [where to look, the text the element has to contain, the part of it
     // that becomes a turkey]
     const NAVIGATION = "#sidebar a, .mobile-navbar a";
+    // the site's title, at the top of the page (and, on small screens, the
+    // "DSC 40B" in the bar at the top)
+    const TITLE = "span.lg\\:inline, .mobile-navbar span";
     const WORDS = [
-        ["h2", "Complexity Theory", "Complexity"],
-        ["h2", "Kruskal", "Algorithm"],
+        [TITLE, "DSC 40B", "B"],
+        [TITLE, "Data Science", "Data"],
     ];
 
     // the first words to go in the takeover, in this order (in the same
