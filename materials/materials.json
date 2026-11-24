@@ -722,7 +722,14 @@
                         "date": "2026-11-23",
                         "topic": "Bellman-Ford and Dijkstra's Algorithm (Lectures 14&ndash;15)"
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "quiz.pdf": {
+                            "path": "materials/quizzes/08/quiz.pdf"
+                        },
+                        "solution.pdf": {
+                            "path": "materials/quizzes/08/solution.pdf"
+                        }
+                    }
                 }
             },
             "templates": null
