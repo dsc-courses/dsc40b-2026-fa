@@ -188,6 +188,9 @@
                     "artifacts": {
                         "homework.pdf": {
                             "path": "materials/homeworks/08-spd/homework.pdf"
+                        },
+                        "solution.pdf": {
+                            "path": "materials/homeworks/08-spd/solution.pdf"
                         }
                     }
                 },
