@@ -27,6 +27,74 @@
 
 
 
+
+<script type="speculationrules">
+{
+    "prerender": [{
+        "where": {"or": [
+            {"href_matches": "/*.html"},
+            {"href_matches": "/*/"},
+            {"href_matches": "/"}
+        ]},
+        "eagerness": "moderate"
+    }]
+}
+</script>
+
+
+<script>
+    (function () {
+        if (HTMLScriptElement.supports && HTMLScriptElement.supports('speculationrules')) {
+            return;
+        }
+
+        const fetched = new Set();
+
+        function prefetchable(link) {
+            if (!link || !link.href || link.target === '_blank' || link.hasAttribute('download')) {
+                return false;
+            }
+            const url = new URL(link.href, location.href);
+            const page = /(\.html|\/)$/.test(url.pathname);
+            const here = url.pathname === location.pathname && url.search === location.search;
+            return url.origin === location.origin && page && !here;
+        }
+
+        function prefetch(link) {
+            const url = new URL(link.href, location.href);
+            url.hash = '';
+            if (fetched.has(url.href)) {
+                return;
+            }
+            fetched.add(url.href);
+            fetch(url.href, { credentials: 'same-origin', priority: 'low' }).catch(() => {});
+        }
+
+        let timer = null;
+
+        document.addEventListener('mouseover', (event) => {
+            const link = event.target.closest('a');
+            if (prefetchable(link)) {
+                clearTimeout(timer);
+                timer = setTimeout(() => prefetch(link), 65);
+            }
+        }, { passive: true });
+
+        document.addEventListener('mouseout', (event) => {
+            const link = event.target.closest('a');
+            if (link && !link.contains(event.relatedTarget)) {
+                clearTimeout(timer);
+            }
+        }, { passive: true });
+
+        document.addEventListener('touchstart', (event) => {
+            const link = event.target.closest('a');
+            if (prefetchable(link)) {
+                prefetch(link);
+            }
+        }, { passive: true });
+    })();
+</script>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -2456,11 +2524,11 @@ Redemption Exams on Monday, December 7
 
 <!-- clicking the turkey in a week's title fills the screen with turkeys -->
 
-<script src="/static/turkeys.js"></script>
+<script defer src="/static/turkeys.js"></script>
 
 <!-- clicking the M in "Midterm 02" strikes out every M on the page -->
 
-<script src="/static/strike-m.js"></script>
+<script defer src="/static/strike-m.js"></script>
 
 
 </div>
