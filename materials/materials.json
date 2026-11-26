@@ -191,14 +191,18 @@
                         }
                     }
                 },
-                "09-super_homework": {
+                "09-final_project": {
                     "metadata": {
                         "number": 9,
                         "topic": "Final Project",
                         "released": "2026-11-25 23:59:00",
                         "due": "2026-12-09 23:59:00"
                     },
-                    "artifacts": {}
+                    "artifacts": {
+                        "homework.pdf": {
+                            "path": "materials/homeworks/09-final_project/homework.pdf"
+                        }
+                    }
                 }
             },
             "templates": null
