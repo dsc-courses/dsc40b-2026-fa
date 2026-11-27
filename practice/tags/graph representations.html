@@ -108,6 +108,405 @@
         mix-blend-mode: lighten;
     }
 </style>
+
+
+<style>
+    .prose .tagset {
+        position: relative;
+        margin: 0 0 0 .9rem;
+        padding: .2rem 0 1.4rem 2.5rem;
+        border-left: 2px solid #e5e7eb;
+    }
+    .prose .tagset:last-child {
+        border-left-color: transparent;
+    }
+    html.dark .prose .tagset {
+        border-left-color: #374151;
+    }
+    html.dark .prose .tagset:last-child {
+        border-left-color: transparent;
+    }
+    .prose .tagset::before {
+        content: "";
+        position: absolute;
+        left: calc(-.5rem - 1px);
+        top: .55rem;
+        width: 1rem;
+        height: 1rem;
+        box-sizing: border-box;
+        border-radius: 50%;
+        background: #fff;
+        border: 3px solid #9ca3af;
+    }
+    html.dark .prose .tagset::before {
+        background: #111827;
+        border-color: #6b7280;
+    }
+    .prose .tagset:has(a[href*="midterm"])::before,
+    html.dark .prose .tagset:has(a[href*="midterm"])::before {
+        left: calc(-.6rem - 1px);
+        width: 1.2rem;
+        height: 1.2rem;
+        background: #2563eb;
+        border-color: #2563eb;
+    }
+    /* in dark mode the links are the theme's sky blue, so the midterm's dot
+       matches them and its heading stays white, keeping to one blue */
+    html.dark .prose .tagset:has(a[href*="midterm"])::before {
+        background: var(--color-sky-400);
+        border-color: var(--color-sky-400);
+    }
+    .prose .tagset h2 {
+        margin: 0;
+        font-size: 1.15rem;
+    }
+    .prose .tagset:has(a[href*="midterm"]) h2 {
+        font-size: 1.4rem;
+    }
+    html:not(.dark) .prose .tagset:has(a[href*="midterm"]) h2 {
+        color: #1d4ed8;
+    }
+    .prose .tagset p {
+        margin: .2rem 0;
+        font-size: .9rem;
+        color: #6b7280;
+    }
+    html.dark .prose .tagset p {
+        color: #9ca3af;
+    }
+    .prose .tagset:not(:has(a[href*="midterm"])) p:first-of-type {
+        display: none;
+    }
+    .prose .tagset p:last-of-type {
+        font-size: 0;
+    }
+    .prose .tagset p:last-of-type a {
+        font-size: .9rem;
+        font-weight: 600;
+    }
+    .prose .tagset p:last-of-type a::after {
+        content: " →";
+    }
+    .prose .tagset ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: .35rem;
+        margin: .5rem 0 0;
+        padding: 0;
+    }
+    .prose .tagset li {
+        margin: 0;
+        padding: 0;
+    }
+    .prose .tagset li a {
+        display: block;
+        padding: .15rem .6rem;
+        border-radius: 6px;
+        font-size: .8rem;
+        text-decoration: none;
+        color: #374151;
+        background: #f3f4f6;
+    }
+    .prose .tagset li a:hover {
+        color: #1e40af;
+        background: #dbeafe;
+    }
+    html.dark .prose .tagset li a {
+        color: #e5e7eb;
+        background: #374151;
+    }
+    html.dark .prose .tagset li a:hover {
+        color: #dbeafe;
+        background: #1e3a8a;
+    }
+    .prose .tagset li a[href*="lecture-"] {
+        text-transform: capitalize;
+    }
+</style>
+
+
+<style>
+    .practice-back {
+        display: block;
+        margin-bottom: .25rem;
+        font-size: .85rem;
+        font-weight: 600;
+        text-decoration: none;
+    }
+    .prose:has(> .practicebank-problems) > h1 ~ p:not(:has(+ ul)) {
+        color: #6b7280;
+    }
+    html.dark .prose:has(> .practicebank-problems) > h1 ~ p:not(:has(+ ul)) {
+        color: #9ca3af;
+    }
+
+    /* "Tags in this problem set:" becomes a small "Topics" label */
+    .prose:has(> .practicebank-problems) > p:has(+ ul) {
+        font-size: 0;
+        margin: 1.25rem 0 0;
+    }
+    .prose:has(> .practicebank-problems) > p:has(+ ul)::before {
+        content: "Topics";
+        font-size: .75rem;
+        font-weight: 600;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+
+    /* the tags, as chips like the index's */
+    .prose:has(> .practicebank-problems) > ul,
+    .prose:has(> .practicebank-problems) > ul > ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .prose:has(> .practicebank-problems) > ul {
+        margin-top: .5rem;
+    }
+    .prose:has(> .practicebank-problems) > ul > ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .35rem;
+    }
+    .prose:has(> .practicebank-problems) > ul li {
+        margin: 0;
+        padding: 0;
+    }
+    .prose:has(> .practicebank-problems) > ul li a {
+        display: block;
+        padding: .15rem .6rem;
+        border-radius: 6px;
+        font-size: .8rem;
+        font-weight: 500;
+        text-decoration: none;
+        color: #374151;
+        background: #f3f4f6;
+    }
+    .prose:has(> .practicebank-problems) > ul li a:hover {
+        color: #1e40af;
+        background: #dbeafe;
+    }
+    html.dark .prose:has(> .practicebank-problems) > ul li a {
+        color: #e5e7eb;
+        background: #374151;
+    }
+    html.dark .prose:has(> .practicebank-problems) > ul li a:hover {
+        color: #dbeafe;
+        background: #1e3a8a;
+    }
+    .prose:has(> .practicebank-problems) > ul li a[href*="lecture-"] {
+        text-transform: capitalize;
+    }
+
+    /* the switch as a two-part control. the button's own text is hidden
+       (font-size 0), and its ::before and ::after are the two parts; the
+       counts come from the data-all and data-hard attributes the script
+       below sets (without it, the parts have no counts) */
+    .prose .practicebank-filter {
+        margin: 1.5rem 0 1.75rem;
+        padding: 0;
+        border: 0;
+    }
+    .prose .practicebank-filter button[role="switch"] {
+        display: inline-flex;
+        align-self: flex-start;
+        gap: 0;
+        width: auto;
+        padding: 3px;
+        border-radius: 10px;
+        font-size: 0;
+        background: #f3f4f6;
+    }
+    html.dark .prose .practicebank-filter button[role="switch"] {
+        background: #374151;
+    }
+    .prose .practicebank-switch {
+        display: none;
+    }
+    .prose .practicebank-filter button::before,
+    .prose .practicebank-filter button::after {
+        padding: .35rem .9rem;
+        border-radius: 7px;
+        font-size: .9rem;
+        font-weight: 600;
+        color: #6b7280;
+    }
+    html.dark .prose .practicebank-filter button::before,
+    html.dark .prose .practicebank-filter button::after {
+        color: #9ca3af;
+    }
+    .prose .practicebank-filter button::before {
+        content: "All problems" attr(data-all);
+    }
+    .prose .practicebank-filter button::after {
+        content: "Hardest problems 🌶️" attr(data-hard);
+    }
+    .prose .practicebank-filter button[aria-checked="false"]::before,
+    .prose .practicebank-filter button[aria-checked="true"]::after {
+        color: #111827;
+        background: #fff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+    }
+    html.dark .prose .practicebank-filter button[aria-checked="false"]::before,
+    html.dark .prose .practicebank-filter button[aria-checked="true"]::after {
+        color: #f9fafb;
+        background: #111827;
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const set = document.querySelector('.prose:has(> .practicebank-problems)');
+        if (!set) {
+            return;
+        }
+
+        // a link back to the index, above the title (the per-tag pages are
+        // one folder down, in practice/tags/)
+        const title = set.querySelector(':scope > h1');
+        if (title) {
+            const back = document.createElement('a');
+            back.className = 'practice-back';
+            back.href = location.pathname.includes('/tags/') ? '../index.html' : './index.html';
+            back.textContent = '← All practice problems';
+            title.before(back);
+        }
+
+        // the counts for the two parts of the switch
+        const button = set.querySelector('.practicebank-filter button[data-only="hard"]');
+        if (button) {
+            const all = set.querySelectorAll('.practicebank-problems .problem-outer').length;
+            const hard = set.querySelectorAll('.practicebank-problems .practicebank-badge[data-badge="hard"]').length;
+            button.dataset.all = ' · ' + all;
+            button.dataset.hard = ' · ' + hard;
+        }
+    });
+</script>
+
+
+<style>
+    .practicebank-problems .problem-outer {
+        margin-top: 2rem;
+        padding-top: 1.75rem;
+        border-top: 1px solid #e5e7eb;
+    }
+    html.dark .practicebank-problems .problem-outer {
+        border-top-color: #374151;
+    }
+
+    /* the title, with its tags beside it */
+    .practicebank-problems .problem-outer > h2 {
+        display: inline;
+        margin: 0;
+        font-size: 1.3rem;
+    }
+    .practicebank-problems .problem-outer > p:first-of-type {
+        display: inline;
+        margin-left: .75rem;
+        font-size: 0;
+    }
+    .practicebank-problems .problem-outer > p:first-of-type a {
+        font-size: .85rem;
+        font-weight: 500;
+        text-decoration: none;
+        color: #6b7280;
+    }
+    html.dark .practicebank-problems .problem-outer > p:first-of-type a {
+        color: #9ca3af;
+    }
+    .practicebank-problems .problem-outer > p:first-of-type a:hover {
+        color: #2563eb;
+    }
+    html.dark .practicebank-problems .problem-outer > p:first-of-type a:hover {
+        color: var(--color-sky-400);
+    }
+    .practicebank-problems .problem-outer > p:first-of-type a + a::before {
+        content: "·";
+        margin: 0 .4rem;
+        color: #9ca3af;
+    }
+    .practicebank-problems .problem-outer > p:first-of-type a[href*="lecture-"] {
+        text-transform: capitalize;
+    }
+    .practicebank-problems .problem-outer .problem {
+        margin-top: .75rem;
+    }
+
+    /* the solutions */
+    .practicebank-problems .problem-outer details,
+    .practicebank-problems .problem-outer details[open] {
+        margin: 1rem 0;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: none;
+    }
+    .practicebank-problems .problem-outer details summary {
+        display: inline-flex;
+        align-items: center;
+        box-sizing: border-box;
+        height: 2.1rem;
+        margin: 0;
+        padding: .3rem .8rem;
+        border: 1px solid #d1d5db;
+        border-radius: 999px;
+        list-style: none;
+        cursor: pointer;
+        font-size: 0;
+        font-weight: 600;
+        color: #374151;
+    }
+    html.dark .practicebank-problems .problem-outer details summary {
+        border-color: #4b5563;
+        color: #d1d5db;
+    }
+    .practicebank-problems .problem-outer details summary::-webkit-details-marker {
+        display: none;
+    }
+    .practicebank-problems .problem-outer details summary::marker {
+        content: "";
+    }
+    .practicebank-problems .problem-outer details summary::before {
+        content: "Show solution";
+        font-size: .9rem;
+    }
+    .practicebank-problems .problem-outer details[open] summary::before {
+        content: "Hide solution";
+    }
+    .practicebank-problems .problem-outer details[open] {
+        --solution-rule: #16a34a;
+        background: linear-gradient(var(--solution-rule), var(--solution-rule))
+            left bottom / 3px calc(100% - 2.85rem) no-repeat;
+    }
+    html.dark .practicebank-problems .problem-outer details[open] {
+        --solution-rule: #4ade80;
+    }
+    .practicebank-problems .problem-outer details[open] > :not(summary) {
+        margin-left: 1rem;
+    }
+    .practicebank-problems .problem-outer details[open] > summary + * {
+        margin-top: .75rem;
+        padding-top: 0;
+    }
+    .practicebank-problems .problem-outer details[open] > :last-child {
+        margin-bottom: 0;
+    }
+
+    /* parts and answer choices */
+    .practicebank-problems .subproblem-id {
+        margin: 1.5rem 0 .25rem;
+        font-size: 1rem;
+        color: #6b7280;
+    }
+    html.dark .practicebank-problems .subproblem-id {
+        color: #9ca3af;
+    }
+    .practicebank-problems .multiple-choices .choice label,
+    .practicebank-problems .multiple-select .choice label {
+        padding: .2rem 0;
+    }
+</style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
