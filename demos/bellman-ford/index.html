@@ -507,6 +507,293 @@
         padding: .2rem 0;
     }
 </style>
+
+
+<style>
+    .prose:has(> details.toc) {
+        > p:first-of-type { color: #4b5563; }
+        html.dark & > p:first-of-type { color: #d1d5db; }
+
+        /* sections */
+        h2 { margin-top: 3.25rem; padding-top: 2rem; border-top: 1px solid #e5e7eb; }
+        html.dark & h2 { border-top-color: #374151; }
+        h3 { font-size: 1.15rem; margin-top: 2rem; }
+        h4 {
+            margin-top: 1.75rem;
+            font-size: .8rem;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            color: #6b7280;
+        }
+        html.dark & h4 { color: #9ca3af; }
+
+        /* "Optional" (the script removes its parentheses) */
+        h2 em {
+            margin-left: .35rem;
+            padding: .2rem .55rem;
+            border-radius: 6px;
+            vertical-align: .3em;
+            font-style: normal;
+            font-size: .75rem;
+            font-weight: 600;
+            letter-spacing: .02em;
+            color: #4b5563;
+            background: #f3f4f6;
+        }
+        html.dark & h2 em { color: #e5e7eb; background: #374151; }
+        a .opt { margin-left: .2rem; font-size: .7rem; font-weight: 500; color: #9ca3af; }
+
+        /* access codes */
+        :not(pre) > code {
+            padding: .1rem .4rem;
+            border-radius: 5px;
+            font-weight: 600;
+            color: #111827;
+            background: #f3f4f6;
+        }
+        :not(pre) > code::before,
+        :not(pre) > code::after { content: none; }
+        html.dark & :not(pre) > code { color: #f9fafb; background: #374151; }
+
+        /* the grade formula */
+        p:has(> mjx-container[display="true"]) {
+            padding: .25rem 1rem;
+            border-radius: 10px;
+            overflow-x: auto;
+            background: #f9fafb;
+        }
+        html.dark & p:has(> mjx-container[display="true"]) { background: rgba(17, 24, 39, .45); }
+
+        /* the tip */
+        .admonition.tip,
+        html.dark & .admonition.tip {
+            padding: .1rem 0 .1rem 1.1rem;
+            border-radius: 0;
+            border-left-width: 3px;
+            border-left-color: #16a34a;
+            background: none;
+        }
+        html.dark & .admonition.tip { border-left-color: #4ade80; }
+        .admonition.tip .admonition-title { color: inherit; }
+
+        /* the table of contents */
+        details.toc { margin: 1.75rem 0 2.5rem; padding: 0; border: 0; background: none; }
+        details.toc > summary {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            list-style: none;
+            pointer-events: none;
+            font-size: .75rem;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: #6b7280;
+        }
+        html.dark & details.toc > summary { color: #9ca3af; }
+        details.toc > summary::-webkit-details-marker { display: none; }
+        details.toc > summary::marker { content: ""; }
+        details.toc ul { list-style: none; margin: 0; padding: 0; }
+        details.toc li { margin: 0; padding: 0; }
+        details.toc > ul > li > a,
+        details.toc > ul > li > ul > li > ul { display: none; }
+        details.toc > ul > li > ul { margin-top: .6rem; border-left: 1px solid #e5e7eb; }
+        html.dark & details.toc > ul > li > ul { border-left-color: #374151; }
+        details.toc > ul > li > ul > li > a {
+            display: block;
+            padding: .3rem 0 .3rem .9rem;
+            font-size: .95rem;
+            font-weight: 500;
+            line-height: 1.3;
+            text-decoration: none;
+            color: #4b5563;
+        }
+        html.dark & details.toc > ul > li > ul > li > a { color: #d1d5db; }
+        details.toc > ul > li > ul > li > a:hover { color: #2563eb; }
+        html.dark & details.toc > ul > li > ul > li > a:hover { color: var(--color-sky-400); }
+
+        /* the grade bars. credits are the one accent colour, the rest gray */
+        .grade-bars {
+            margin: 1.5rem 0 1.75rem;
+            padding: 1rem 1.1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+        }
+        html.dark & .grade-bars { border-color: #374151; }
+        .bar-row { display: grid; grid-template-columns: 9rem 1fr; align-items: center; gap: .75rem; margin: .4rem 0; }
+        .bar-name { font-size: .85rem; color: #4b5563; }
+        html.dark & .bar-name { color: #d1d5db; }
+        /* each segment's width is set in the HTML. the gaps between
+           segments are borders in the page's colour, inside those widths, so
+           a segment's width is exactly its share (flex-grow with gaps and
+           padding would skew the shares) */
+        .bar { display: flex; height: 1.75rem; border-radius: 7px; overflow: hidden; }
+        .bar i {
+            flex: none;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            min-width: 0;
+            padding: 0 .5rem;
+            overflow: hidden;
+            white-space: nowrap;
+            font-style: normal;
+            font-size: .75rem;
+            font-weight: 600;
+        }
+        .bar i + i { border-left: 2px solid #fff; }
+        html.dark & .bar i + i { border-left-color: #1f2937; }
+        .bar .exam { color: #374151; background: #e5e7eb; }
+        .bar .proj { color: #fff; background: #9ca3af; }
+        .bar .cred { color: #fff; background: #2563eb; }
+        html.dark & .bar .exam { color: #e5e7eb; background: #374151; }
+        html.dark & .bar .proj { color: #f9fafb; background: #6b7280; }
+        html.dark & .bar .cred { color: #0c1a2a; background: var(--color-sky-400); }
+        /* the segments other than the exams are labelled by abbreviation
+           (the attendance sliver is only about 15px wide), centred; the
+           legend spells them out, each beside a chip like its segment */
+        .bar i:not(.exam) { justify-content: center; padding: 0; }
+        .bar-legend { display: flex; flex-wrap: wrap; gap: .3rem 1rem; font-size: .8rem; color: #6b7280; }
+        html.dark & .bar-legend { color: #9ca3af; }
+        .bar-legend span { display: inline-flex; align-items: center; gap: .35rem; }
+        .bar-legend i {
+            min-width: 1.3rem;
+            padding: .05rem .3rem;
+            box-sizing: border-box;
+            border-radius: 4px;
+            text-align: center;
+            font-style: normal;
+            font-size: .68rem;
+            font-weight: 600;
+        }
+        .bar-legend .cred { color: #fff; background: #2563eb; }
+        .bar-legend .proj { color: #fff; background: #9ca3af; }
+        html.dark & .bar-legend .cred { color: #0c1a2a; background: var(--color-sky-400); }
+        html.dark & .bar-legend .proj { color: #f9fafb; background: #6b7280; }
+        /* on phones the bars are a row below their names */
+        @media (max-width: 640px) {
+            .bar-row { grid-template-columns: 1fr; gap: .2rem; }
+            .bar i { font-size: .68rem; }
+            .bar .exam { padding: 0 .3rem; }
+        }
+    }
+
+    /* the outline on wide screens */
+    .syllabus-grid { display: block; }
+    .syllabus-outline { display: none; }
+    @media (min-width: 80rem) {
+        .syllabus-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 65ch) 13.5rem;
+            gap: 3.5rem;
+            align-items: start;
+        }
+        .syllabus-outline {
+            display: block;
+            position: sticky;
+            top: 2.5rem;
+            max-height: calc(100vh - 5rem);
+            overflow-y: auto;
+            padding-top: 1rem;
+            font-size: .85rem;
+        }
+        .syllabus-grid .prose details.toc { display: none; }
+    }
+    .syllabus-outline .outline-label {
+        margin-bottom: .6rem;
+        font-size: .72rem;
+        font-weight: 600;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+        color: #6b7280;
+    }
+    html.dark .syllabus-outline .outline-label { color: #9ca3af; }
+    .syllabus-outline ul { list-style: none; margin: 0; padding: 0; border-left: 1px solid #e5e7eb; }
+    html.dark .syllabus-outline ul { border-left-color: #374151; }
+    .syllabus-outline li a {
+        display: block;
+        margin-left: -1px;
+        padding: .28rem 0 .28rem .9rem;
+        border-left: 2px solid transparent;
+        line-height: 1.3;
+        text-decoration: none;
+        color: #6b7280;
+    }
+    html.dark .syllabus-outline li a { color: #9ca3af; }
+    .syllabus-outline li a:hover { color: #111827; }
+    html.dark .syllabus-outline li a:hover { color: #f9fafb; }
+    .syllabus-outline li a.active,
+    html.dark .syllabus-outline li a.active { font-weight: 600; color: #2563eb; border-left-color: #2563eb; }
+    html.dark .syllabus-outline li a.active { color: var(--color-sky-400); border-left-color: var(--color-sky-400); }
+    .syllabus-outline li a .opt { margin-left: .2rem; font-size: .7rem; font-weight: 500; color: #9ca3af; }
+    .syllabus-outline li ul { display: none; border: 0; }
+    .syllabus-outline li.open ul { display: block; }
+    .syllabus-outline li ul a { padding-left: 1.7rem; font-size: .8rem; }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const page = document.querySelector('.prose:has(> details.toc)');
+        if (!page) {
+            return;
+        }
+        const toc = page.querySelector(':scope > details.toc');
+
+        // "(Optional)" in the headings becomes "Optional" (a chip), and in
+        // the table of contents a small "optional" after the name
+        page.querySelectorAll('h2 em').forEach((em) => {
+            em.textContent = em.textContent.replace(/[()]/g, '');
+        });
+        toc.querySelector('summary').textContent = 'On this page';
+        toc.querySelectorAll('a').forEach((a) => {
+            if (/\(Optional\)/.test(a.textContent)) {
+                const name = a.textContent.replace(/\s*\(Optional\)/, '');
+                a.textContent = name + ' ';
+                const opt = document.createElement('span');
+                opt.className = 'opt';
+                opt.textContent = 'optional';
+                a.append(opt);
+            }
+        });
+
+        // the FAQ's questions are too long for the outline
+        const faq = Array.from(toc.querySelectorAll('a')).find((a) => a.textContent.trim() === 'FAQ');
+        if (faq && faq.nextElementSibling) {
+            faq.nextElementSibling.remove();
+        }
+
+        // the outline: the page and the outline side by side (CSS shows the
+        // outline only on wide screens)
+        const grid = document.createElement('div');
+        grid.className = 'syllabus-grid';
+        page.before(grid);
+        grid.append(page);
+        const outline = document.createElement('nav');
+        outline.className = 'syllabus-outline';
+        const label = document.createElement('div');
+        label.className = 'outline-label';
+        label.textContent = 'On this page';
+        outline.append(label, toc.querySelector(':scope > ul > li > ul').cloneNode(true));
+        grid.append(outline);
+
+        // highlight the section being read: the last heading above 140px
+        const links = Array.from(outline.querySelectorAll('a'));
+        const targets = links.map((a) => document.getElementById(a.getAttribute('href').slice(1)));
+        const update = () => {
+            let current = 0;
+            targets.forEach((target, i) => {
+                if (target && target.getBoundingClientRect().top < 140) {
+                    current = i;
+                }
+            });
+            links.forEach((a, i) => a.classList.toggle('active', i === current));
+            outline.querySelectorAll(':scope > ul > li').forEach((li) => {
+                li.classList.toggle('open', li.contains(links[current]));
+            });
+        };
+        document.addEventListener('scroll', update, { passive: true });
+        update();
+    });
+</script>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
