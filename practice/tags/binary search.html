@@ -98,6 +98,11 @@
 
 
 <style>
+    .problem .image img {
+        max-height: 22rem;
+        width: auto;
+        max-width: 100%;
+    }
     html.dark .problem .image img {
         filter: invert(1) hue-rotate(180deg);
         mix-blend-mode: lighten;
@@ -329,7 +334,7 @@ def binary_search(arr, t, start, stop):
 <p>Suppose <span class="inline-code"><code>binary_search(arr, t, 0, len(arr))</code></span> is called on a sorted array of size <span class="math">\(n\)</span>. In total, how many recursive calls to <span class="inline-code"><code>binary_search</code></span> are made in the worst case?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(\log n)\)</span></p>
+<p><span class="math">\(\Theta(\log n)\)</span>. In the worst case, <span class="math">\(t\)</span> isn't in the array, so the search only stops when the range is empty. Each call recurses on at most half of the current range, so after <span class="math">\(k\)</span> calls the range has at most <span class="math">\(n/2^k\)</span> elements, and it becomes empty after <span class="math">\(\Theta(\log n)\)</span> calls.</p>
 </details>
 
     </div>
@@ -559,7 +564,7 @@ def iterative_binary_search(arr, target):
 <p>What will be the last value of <span class="inline-code"><code>arr[start]</code></span> printed?</p>
 <details>
     <summary>Solution</summary>
-<p>10</p>
+<p>10. The printed values are <span class="math">\(-202\)</span>, <span class="math">\(3\)</span>, <span class="math">\(10\)</span>, <span class="math">\(10\)</span>, <span class="math">\(10\)</span>. <span class="inline-code"><code>start</code></span> goes <span class="math">\(0 \to 10 \to 15\)</span> (since <span class="inline-code"><code>arr[9] = 1</code></span> and <span class="inline-code"><code>arr[14] = 9</code></span> are less than 11), then <span class="inline-code"><code>stop</code></span> shrinks <span class="math">\(19 \to 17 \to 16\)</span> (since <span class="inline-code"><code>arr[17] = 15</code></span> and <span class="inline-code"><code>arr[16] = 12</code></span> are greater than 11) while <span class="inline-code"><code>arr[15] = 10</code></span> is printed each time. Finally, <span class="inline-code"><code>arr[15] = 10</code></span> is less than 11, so <span class="inline-code"><code>start</code></span> becomes 16, which equals <span class="inline-code"><code>stop</code></span>, and the loop ends.</p>
 </details>
 
     </div>
@@ -583,7 +588,9 @@ def iterative_binary_search(arr, target):
 <div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>arr[stop:] > t</code></span>. That is, everything after <span class="inline-code"><code>stop</code></span>, including the element at <span class="inline-code"><code>stop</code></span>, is greater than the target.</p></label></div></div>
 <details>
     <summary>Solution</summary>
-<p>The last two answers are both correct.</p>
+<p><span class="inline-code"><code>arr[:start] < t</code></span> and <span class="inline-code"><code>arr[stop:] > t</code></span> are both true.</p>
+<p>Both hold in the root call, where <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>, because <span class="inline-code"><code>arr[:0]</code></span> and <span class="inline-code"><code>arr[len(arr):]</code></span> are empty. Now suppose they hold in some call, and that call recurses. It recurses on the right half, setting <span class="inline-code"><code>start = middle + 1</code></span>, only after seeing <span class="inline-code"><code>arr[middle] < t</code></span>. Since the array is sorted, everything up to and including <span class="inline-code"><code>arr[middle]</code></span> is less than <span class="math">\(t\)</span>, so <span class="inline-code"><code>arr[:middle + 1] < t</code></span> holds in the new call (and <span class="inline-code"><code>stop</code></span> doesn't change). Similarly, it recurses on the left half, setting <span class="inline-code"><code>stop = middle</code></span>, only after seeing <span class="inline-code"><code>arr[middle] > t</code></span>, so everything from <span class="inline-code"><code>arr[middle]</code></span> on is greater than <span class="math">\(t\)</span>. So both statements hold in every call.</p>
+<p>The first two can fail. In the root call, if <span class="math">\(t\)</span> is smaller than every element, then <span class="inline-code"><code>arr[start] < t</code></span> is false (and in the first option, <span class="inline-code"><code>arr[stop]</code></span> is past the end of the array). Similarly, if <span class="math">\(t\)</span> is larger than every element, then <span class="inline-code"><code>t < arr[stop - 1]</code></span> is false. The search range only tells us that the elements <i>outside</i> it are on the correct side of <span class="math">\(t\)</span>; it says nothing about the elements at its ends.</p>
 </details>
 
     </div>
@@ -777,7 +784,7 @@ def iterative_binary_search(arr, target):
 <div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, <span class="inline-code"><code>arr[start] <= target</code></span>.</p></label></div></div>
 <details>
     <summary>Solution</summary>
-<p>The first option is correct.</p>
+<p>Only <span class="inline-code"><code>stop - start >= 0</code></span> is a loop invariant. It holds initially, and <span class="inline-code"><code>middle</code></span> is always between <span class="inline-code"><code>start</code></span> and <span class="inline-code"><code>stop - 1</code></span>, so setting <span class="inline-code"><code>stop = middle</code></span> or <span class="inline-code"><code>start = middle + 1</code></span> never makes <span class="inline-code"><code>start</code></span> pass <span class="inline-code"><code>stop</code></span>. The second option fails after the last iteration: the loop only ends (with the target not in the array) when <span class="inline-code"><code>stop - start</code></span> is 0. The third fails if the target is smaller than every element: <span class="inline-code"><code>start</code></span> stays 0, and <span class="inline-code"><code>arr[0]</code></span> is greater than the target.</p>
 </details>
 
     </div>

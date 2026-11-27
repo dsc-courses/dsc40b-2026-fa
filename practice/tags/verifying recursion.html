@@ -98,6 +98,11 @@
 
 
 <style>
+    .problem .image img {
+        max-height: 22rem;
+        width: auto;
+        max-width: 100%;
+    }
     html.dark .problem .image img {
         filter: invert(1) hue-rotate(180deg);
         mix-blend-mode: lighten;
@@ -389,7 +394,7 @@ def maximum(numbers):
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it will run without error, but it might return the wrong answer.</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>2nd option: No: it may recurse infinitely.</p>
+<p>No: it may recurse infinitely. On a list with one element, <span class="math">\(n = 1\)</span>, so <span class="inline-code"><code>middle = math.floor(1/2) = 0</code></span>. Then <span class="inline-code"><code>numbers[middle:]</code></span> is the whole list again, so <span class="inline-code"><code>maximum</code></span> calls itself on the same one-element list forever. The base case only stops lists of size 0, and every non-empty list eventually recurses down to a one-element list.</p>
 </details>
 
     </div>

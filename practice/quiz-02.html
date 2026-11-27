@@ -98,6 +98,11 @@
 
 
 <style>
+    .problem .image img {
+        max-height: 22rem;
+        width: auto;
+        max-width: 100%;
+    }
     html.dark .problem .image img {
         filter: invert(1) hue-rotate(180deg);
         mix-blend-mode: lighten;
@@ -328,7 +333,7 @@ def boo(n):
                 print(i + j + k)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^4 \log n)\)</span></p>
+<p><span class="math">\(\Theta(n^4 \log n)\)</span>. The outer loop runs <span class="math">\(n\)</span> times, and the middle loop runs <span class="math">\(500n^3 - n^2 - 100 = \Theta(n^3)\)</span> times. The innermost loop runs <span class="math">\(\lfloor \log n \rfloor - 1{,}000\)</span> times, which is zero for small <span class="math">\(n\)</span> but is <span class="math">\(\Theta(\log n)\)</span> for large <span class="math">\(n\)</span>, and asymptotic notation only cares about large <span class="math">\(n\)</span>. So the total is <span class="math">\(n \times \Theta(n^3) \times \Theta(\log n) = \Theta(n^4 \log n)\)</span>.</p>
 </details>
 
     </div>
@@ -717,7 +722,15 @@ def boo(n):
 <p>Write <span class="math">\(f(n)\)</span> in asymptotic notation in the simplest terms possible.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(f(n) = \Theta(\sqrt n \log n)\)</span></p>
+<p><span class="math">\(f(n) = \Theta(\sqrt n \log n)\)</span>.</p>
+<p>We simplify each piece by keeping only its dominant term. In the first fraction, the numerator <span class="math">\(n^3 + 10n\)</span> is <span class="math">\(\Theta(n^3)\)</span> and the denominator <span class="math">\(\sqrt n - 100\)</span> is <span class="math">\(\Theta(\sqrt n)\)</span>. In the second fraction, <span class="math">\(\log(n^2 + 10) = \Theta(\log n^2) = \Theta(2 \log n) = \Theta(\log n)\)</span>, and <span class="math">\(n(n+1) = \Theta(n^2)\)</span>. Putting them together:</p>
+<div class="math">\[
+            \begin{aligned}
+                f(n) &= \Theta\biggl(\frac{n^3}{\sqrt n}\biggr) \times \Theta\biggl(\frac{\log n}{n^2}\biggr) \\
+                     &= \Theta(n^{2.5}) \times \Theta\biggl(\frac{\log n}{n^2}\biggr) \\
+                     &= \Theta(n^{0.5} \log n) = \Theta(\sqrt n \log n).
+            \end{aligned}
+        \]</div>
 </details>
 
     </div>
@@ -743,7 +756,7 @@ def boo(n):
 <p>Write <span class="math">\(f\)</span> in asymptotic notation in the simplest terms possible.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(f(n) = \Theta(n^2)\)</span></p>
+<p><span class="math">\(f(n) = \Theta(n^2)\)</span>. Since <span class="math">\(0 \leq |\sin \pi n| \leq 1\)</span>, the denominator of the middle term is between <span class="math">\(n + 2\)</span> and <span class="math">\(n + 3\)</span>, so the middle term is <span class="math">\(\Theta(n^3 / n) = \Theta(n^2)\)</span>. The other terms, <span class="math">\(5n \log n\)</span> and <span class="math">\(n\sqrt n = n^{1.5}\)</span>, grow more slowly than <span class="math">\(n^2\)</span>, so the middle term dominates.</p>
 </details>
 
     </div>
@@ -770,7 +783,7 @@ def boo(n):
 <p>and define <span class="math">\(f(n) = f_1(n) \times f_2(n) \times f_3(n)\)</span>. What is <span class="math">\(f(n)\)</span>, in asymptotic notation, in simplest terms possible?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^3)\)</span></p>
+<p><span class="math">\(\Theta(n^3)\)</span>. We simplify each factor: <span class="math">\(f_1(n) = \Theta(n^3 / n) = \Theta(n^2)\)</span>; <span class="math">\(f_2(n) = \Theta(n)\)</span>, since <span class="math">\(\sin(\pi n)\)</span> is between <span class="math">\(-1\)</span> and <span class="math">\(1\)</span>; and <span class="math">\(f_3(n) = \Theta(n^2/n^2) = \Theta(1)\)</span>. So <span class="math">\(f(n) = \Theta(n^2) \times \Theta(n) \times \Theta(1) = \Theta(n^3)\)</span>.</p>
 </details>
 
     </div>
@@ -1003,7 +1016,7 @@ def boo(n):
 <p>If the upper and lower bounds are the same, you may use <span class="math">\(\Theta\)</span>. If the upper and lower bounds are different, you should state them separately using <span class="math">\(O\)</span> and <span class="math">\(\Omega\)</span>.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^3)\)</span></p>
+<p><span class="math">\(\Theta(n^3)\)</span>. Since <span class="math">\(f\)</span> is <span class="math">\(O(n^2)\)</span>, it grows more slowly than <span class="math">\(g = \Theta(n^3)\)</span>, so <span class="math">\(g\)</span> dominates the sum: <span class="math">\(f + g \leq c n^2 + c' n^3 = O(n^3)\)</span>. And since <span class="math">\(f\)</span> is positive, <span class="math">\(f + g \geq g = \Omega(n^3)\)</span>.</p>
 </details>
 
     </div>
@@ -1023,7 +1036,7 @@ def boo(n):
 <p>If the upper and lower bounds are the same, you may use <span class="math">\(\Theta\)</span>; otherwise you should use <span class="math">\(O\)</span> and <span class="math">\(\Omega\)</span>.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(O(n^5)\)</span> and <span class="math">\(\Omega(n^4)\)</span></p>
+<p><span class="math">\(O(n^5)\)</span> and <span class="math">\(\Omega(n^4)\)</span>. Multiplying the bounds, <span class="math">\(f \times g\)</span> is at most about <span class="math">\(n^2 \cdot n^3 = n^5\)</span> and at least about <span class="math">\(n \cdot n^3 = n^4\)</span>. Both bounds are tight, since <span class="math">\(f\)</span> could be exactly <span class="math">\(n^2\)</span> or exactly <span class="math">\(n\)</span>, so we can't use <span class="math">\(\Theta\)</span>.</p>
 </details>
 
     </div>
@@ -1064,7 +1077,13 @@ def boo(n):
 <p>Consider the function <span class="math">\(g(n) = f_2(n) / f_1(n)\)</span>. Give the tightest possible upper bound on <span class="math">\(g(n)\)</span>.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(O(n)\)</span></p>
+<p><span class="math">\(O(n)\)</span>.</p>
+<p>To find an upper bound on a fraction, we want the largest the numerator can be and the smallest the denominator can be. Since <span class="math">\(f_2(n) = O(n^2)\)</span>, the numerator is at most <span class="math">\(c_2 n^2\)</span> for large <span class="math">\(n\)</span>. Since <span class="math">\(f_1(n) = \Omega(n)\)</span>, the denominator is at least <span class="math">\(c_1 n\)</span>. So</p>
+<div class="math">\[
+            g(n) = \frac{f_2(n)}{f_1(n)} \leq \frac{c_2 n^2}{c_1 n} = \frac{c_2}{c_1} n,
+        \]</div>
+<p>which means <span class="math">\(g(n) = O(n)\)</span>. Notice that the upper bound on <span class="math">\(g\)</span> uses the <i>lower</i> bound on <span class="math">\(f_1\)</span>; the <span class="math">\(O(n^3)\)</span> bound on <span class="math">\(f_1\)</span> and the <span class="math">\(\Omega(\sqrt n)\)</span> bound on <span class="math">\(f_2\)</span> don't matter here.</p>
+<p>This bound is the tightest possible, since <span class="math">\(f_2(n)\)</span> could be exactly <span class="math">\(n^2\)</span> and <span class="math">\(f_1(n)\)</span> could be exactly <span class="math">\(n\)</span>, in which case <span class="math">\(g(n) = n\)</span>, which isn't <span class="math">\(O(n^{c})\)</span> for any <span class="math">\(c < 1\)</span>.</p>
 </details>
 
     </div>
@@ -1105,7 +1124,7 @@ def boo(n):
 <p>Consider the function <span class="math">\(g(n) = f_2(n) / f_1(n)\)</span>. Give the tightest possible upper bound on <span class="math">\(g(n)\)</span>.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(O(n^2)\)</span></p>
+<p><span class="math">\(O(n^2)\)</span>. <span class="math">\(g\)</span> is largest when the numerator is as large as possible and the denominator as small as possible: <span class="math">\(f_2(n) \leq c n^4\)</span> and <span class="math">\(f_1(n) \geq c' n^2\)</span>, so <span class="math">\(g(n) \leq \frac{c\, n^4}{c'\, n^2} = O(n^2)\)</span>. This is tight, since <span class="math">\(f_2\)</span> could be exactly <span class="math">\(n^4\)</span> and <span class="math">\(f_1\)</span> exactly <span class="math">\(n^2\)</span>.</p>
 </details>
 
     </div>
@@ -1309,7 +1328,7 @@ def boo(n):
 <p>What is the <b>tight</b> theoretical lower bound for the worst case time complexity of this problem?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span></p>
+<p><span class="math">\(\Theta(n)\)</span>. Any algorithm must read every element in the worst case: if it skips one, that element could be the one that tips the count of ones over half (or keeps it under), so the algorithm can't know the answer. So the lower bound is <span class="math">\(\Omega(n)\)</span>, and it's tight because counting the ones in a single pass takes <span class="math">\(\Theta(n)\)</span> time.</p>
 </details>
 
     </div>
@@ -1450,7 +1469,7 @@ def boo(n):
         previous = x</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span></p>
+<p><span class="math">\(\Theta(n)\)</span>. In the best case, no two adjacent elements are equal (e.g., all elements are distinct), so the <span class="math">\(n^2\)</span> loop never runs and the function does constant work for each of the <span class="math">\(n\)</span> elements. Any input with two equal adjacent elements runs the <span class="math">\(n^2\)</span> loop, so it's slower.</p>
 </details>
 
     </div>
@@ -1479,7 +1498,9 @@ def boo(n):
         previous = x</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span></p>
+<p><span class="math">\(\Theta(n^2)\)</span>.</p>
+<p>There are two kinds of inputs. If no two adjacent elements are equal, the loop goes through all <span class="math">\(n\)</span> elements doing constant work on each, and the function takes <span class="math">\(\Theta(n)\)</span> time. Otherwise, suppose the first pair of equal adjacent elements ends at index <span class="math">\(k\)</span>. The loop runs <span class="math">\(k + 1 \leq n\)</span> times, then the inner loop prints <span class="math">\(n^2\)</span> times and the function returns, for a total of <span class="math">\(\Theta(k + n^2) = \Theta(n^2)\)</span>, since <span class="math">\(k < n\)</span>.</p>
+<p>So the worst case is any input with two equal adjacent elements, e.g., an array whose elements are all equal, and it takes <span class="math">\(\Theta(n^2)\)</span> time. Note that the function returns right after the <span class="math">\(n^2\)</span> loop, so it can only run once; that's why the worst case isn't <span class="math">\(\Theta(n^3)\)</span>.</p>
 </details>
 
     </div>
@@ -1524,7 +1545,7 @@ def boo(n):
             return i</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span></p>
+<p><span class="math">\(\Theta(n)\)</span>. In the best case, the maximum is the first element. Then the loop returns on its first iteration, after calling <span class="inline-code"><code>max(arr)</code></span> once, which takes <span class="math">\(\Theta(n)\)</span> time.</p>
 </details>
 
     </div>
@@ -1549,7 +1570,7 @@ def boo(n):
 <p>What is the <b>worst case</b> time complexity of the function?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span></p>
+<p><span class="math">\(\Theta(n^2)\)</span>. In the worst case, the maximum is the last element (and appears only once), so the loop runs <span class="math">\(n\)</span> times. Each iteration calls <span class="inline-code"><code>max(arr)</code></span>, which takes <span class="math">\(\Theta(n)\)</span> time, so the total is <span class="math">\(n \times \Theta(n) = \Theta(n^2)\)</span>.</p>
 </details>
 
     </div>
@@ -1577,7 +1598,7 @@ def boo(n):
     return False</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span></p>
+<p><span class="math">\(\Theta(n)\)</span>. Computing <span class="inline-code"><code>max(arr)</code></span> always takes <span class="math">\(\Theta(n)\)</span> time. In the best case, the first pair checked works, i.e., <span class="inline-code"><code>arr[0] + arr[1]</code></span> equals the maximum (e.g., <span class="inline-code"><code>[1, 1, 2, 0, 0]</code></span>), so the nested loops return after <span class="math">\(\Theta(1)\)</span> time and the total is <span class="math">\(\Theta(n)\)</span>.</p>
 </details>
 
     </div>
@@ -1636,7 +1657,7 @@ def boo(n):
         print(i)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span></p>
+<p><span class="math">\(\Theta(n)\)</span>. The loop runs <span class="math">\(x\)</span> times, and <span class="math">\(x\)</span> is equally likely to be any of <span class="math">\(0, 1, \ldots, n-1\)</span>. So the expected number of iterations is <span class="math">\(\frac{1}{n}\sum_{x=0}^{n-1} x = \frac{1}{n} \cdot \frac{n(n-1)}{2} = \frac{n-1}{2} = \Theta(n)\)</span>.</p>
 </details>
 
     </div>
@@ -1683,7 +1704,7 @@ def foo(n):
 <p>Suppose you are given a <b>sorted</b> array containing <span class="math">\(n\)</span> elements. Each element is either zero or one. You are tasked with determining if the majority (at least half) of the array's elements are one. What is the <b>tight</b> theoretical lower bound for the worst case time complexity of any algorithm which solves this problem?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(1)\)</span></p>
+<p><span class="math">\(\Theta(1)\)</span>. Since the array is sorted, the zeros come first and the ones are at the end. At least half the elements are ones exactly when the element at index <span class="math">\(\lfloor n/2 \rfloor\)</span> is a one, so we only need to check that one element.</p>
 </details>
 
     </div>
@@ -1918,7 +1939,7 @@ def foo(n):
         print("Lucky!")</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>.</p>
+<p><span class="math">\(\Theta(n^2)\)</span>. The first branch happens with probability <span class="math">\(20/n\)</span> and takes <span class="math">\(\Theta(n^3)\)</span> time; the second happens with probability about <span class="math">\(1/2\)</span> and takes <span class="math">\(\Theta(n)\)</span> time; the third takes <span class="math">\(\Theta(1)\)</span> time. So the expected time is about <span class="math">\(\frac{20}{n} \cdot n^3 + \frac12 \cdot n + \frac12 \cdot 1 = 20n^2 + \frac{n}{2} + \frac12 = \Theta(n^2)\)</span>.</p>
 </details>
 
     </div>
@@ -2129,7 +2150,9 @@ def foo(n):
 <p>What is a <b>tight</b> theoretical lower bound for this problem? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span></p>
+<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p>First, we argue that any algorithm must look at every element in the worst case. Suppose an algorithm claims that an array has an equal number of ones and zeros without reading some element. If we flipped that element (from a one to a zero, or vice versa), the algorithm would see exactly the same thing and give the same answer, but now the number of ones differs from the number of zeros by two. So the algorithm would be wrong on one of the two arrays. Therefore any correct algorithm needs to read all <span class="math">\(n\)</span> elements, and the lower bound is <span class="math">\(\Omega(n)\)</span>.</p>
+<p>This bound is tight because there is an algorithm that achieves it: loop through the array once, counting the ones, and check whether the count equals <span class="math">\(n/2\)</span>. This takes <span class="math">\(\Theta(n)\)</span> time.</p>
 </details>
 
 </div>

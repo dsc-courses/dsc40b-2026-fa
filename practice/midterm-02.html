@@ -98,6 +98,11 @@
 
 
 <style>
+    .problem .image img {
+        max-height: 22rem;
+        width: auto;
+        max-width: 100%;
+    }
     html.dark .problem .image img {
         filter: invert(1) hue-rotate(180deg);
         mix-blend-mode: lighten;
@@ -334,7 +339,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose <span class="math">\(T\)</span> is a hash table of size 100 (that is, it has 100 bins). 300 elements are inserted into the hash table using a hash function that satisfies the uniform hashing assumption (that is, any element is equally-likely to hash into any bin). What is the expected number of elements in the first bin?</p>
 <details>
     <summary>Solution</summary>
-<p>3</p>
+<p>3, since each element lands in the first bin with probability <span class="math">\(1/100\)</span>. By linearity of expectation, the expected number of elements in it is <span class="math">\(300 \cdot \frac{1}{100} = 3\)</span>.</p>
 </details>
 
     </div>
@@ -478,7 +483,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>What is the expected time complexity of this code if <span class="inline-code"><code>A</code></span> and <span class="inline-code"><code>B</code></span> are Python <span class="inline-code"><code>set</code></span>s (hash tables) with <span class="math">\(n\)</span> elements each? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation. You may assume that the hash function used is “good” in that it hashes evenly (that is, it satisfies the simple universal hashing assumption).</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span></p>
+<p><span class="math">\(\Theta(n)\)</span>. The loop runs <span class="math">\(n\)</span> times, once for each element of <span class="inline-code"><code>A</code></span>. Since <span class="inline-code"><code>B</code></span> and <span class="inline-code"><code>common</code></span> are hash tables, <span class="inline-code"><code>x in B</code></span> and <span class="inline-code"><code>common.add(x)</code></span> each take <span class="math">\(\Theta(1)\)</span> expected time, so the total is <span class="math">\(\Theta(n)\)</span>.</p>
 </details>
 
     </div>
@@ -507,7 +512,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     return duplicates</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span></p>
+<p><span class="math">\(\Theta(n)\)</span>. The loop runs <span class="math">\(n\)</span> times, and each iteration does one membership check and one <span class="inline-code"><code>add</code></span>, which take <span class="math">\(\Theta(1)\)</span> expected time on a set. So the total is <span class="math">\(\Theta(n)\)</span>.</p>
 </details>
 
     </div>
@@ -538,7 +543,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     return counts</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span></p>
+<p><span class="math">\(\Theta(n^2)\)</span>. The nested loops run <span class="math">\(n \times n = n^2\)</span> times. Each iteration does a dictionary lookup and an insertion or update, each taking <span class="math">\(\Theta(1)\)</span> expected time, so the total is <span class="math">\(\Theta(n^2)\)</span>.</p>
 </details>
 
     </div>
@@ -558,7 +563,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>What will be the time complexity of this single insertion operation that causes the table to grow?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span></p>
+<p><span class="math">\(\Theta(n)\)</span>. Growing means making a new table with <span class="math">\(n\)</span> bins and rehashing every element into it. There are <span class="math">\(n + 1\)</span> elements, each taking <span class="math">\(\Theta(1)\)</span> time to insert, so the insertion takes <span class="math">\(\Theta(n)\)</span> time.</p>
 </details>
 
     </div>
@@ -714,7 +719,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <center><div class="image"><img src="images/191/g1.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p>4</p>
+<p>4. Node <span class="math">\(u\)</span> has edges going out to three other nodes (the top, middle, and bottom nodes), plus the self-loop, which also counts as an edge out of <span class="math">\(u\)</span>.</p>
 </details>
 
     </div>
@@ -733,7 +738,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Let <span class="math">\(V = \{a, b, c, d\}\)</span> and <span class="math">\(E = \{(a,b), (a,a), (a,c), (d,b), (c,a)\}\)</span> be the nodes and edges of a directed graph. How many predecessors does node <span class="math">\(b\)</span> have?</p>
 <details>
     <summary>Solution</summary>
-<p>2</p>
+<p>2, namely <span class="math">\(a\)</span> (from the edge <span class="math">\((a, b)\)</span>) and <span class="math">\(d\)</span> (from <span class="math">\((d, b)\)</span>), the nodes with an edge into <span class="math">\(b\)</span>.</p>
 </details>
 
     </div>
@@ -757,7 +762,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(|V|^2\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(|V| - 1\)</span></p>
+<p><span class="math">\(|V| - 1\)</span>. In a complete graph, <span class="math">\(u\)</span> has an edge to every other node, and there are <span class="math">\(|V| - 1\)</span> of them. (In an undirected graph there are no self-loops, so <span class="math">\(u\)</span> isn't a neighbor of itself.)</p>
 </details>
 
     </div>
@@ -816,7 +821,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Let <span class="math">\(V = \{a, b, c, d, e, f, g\}\)</span> and <span class="math">\(E = \{(a,g), (b,d), (d, e), (f, d)\}\)</span>. How many connected components does the undirected graph <span class="math">\(G =(V, E)\)</span> have?</p>
 <details>
     <summary>Solution</summary>
-<p>3</p>
+<p>3. The connected components are <span class="math">\(\{a, g\}\)</span>, <span class="math">\(\{b, d, e, f\}\)</span> (since <span class="math">\(d\)</span> is connected to <span class="math">\(b\)</span>, <span class="math">\(e\)</span> and <span class="math">\(f\)</span>), and <span class="math">\(\{c\}\)</span>, which has no edges.</p>
 </details>
 
     </div>
@@ -936,7 +941,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>An <i>undirected</i> graph has 5 nodes. What is the greatest number of edges it can have?</p>
 <details>
     <summary>Solution</summary>
-<p>10</p>
+<p>10. The most edges is when every pair of nodes is connected, and there are <span class="math">\(\binom{5}{2} = \frac{5 \cdot 4}{2} = 10\)</span> pairs.</p>
 </details>
 
     </div>
@@ -1040,7 +1045,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Let <span class="math">\(G = (V, E)\)</span> be a connected, undirected graph with 16 nodes and 35 edges. What is the greatest possible number of edges that can be in a simple path within <span class="math">\(G\)</span>?</p>
 <details>
     <summary>Solution</summary>
-<p>15</p>
+<p>15, since a simple path can't repeat a node, so it visits at most all 16 nodes, and a path through 16 nodes has 15 edges.</p>
 </details>
 
     </div>
@@ -1078,7 +1083,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose an <b>undirected</b> graph has 3 connected components and 7 nodes. What is the <i>maximum</i> number of edges it can have?</p>
 <details>
     <summary>Solution</summary>
-<p>10</p>
+<p>10. To have as many edges as possible, put 5 nodes in one component with every possible edge between them, and leave the other two nodes isolated as their own components. That's <span class="math">\(\binom{5}{2} = 10\)</span> edges. Spreading the nodes out gives fewer, e.g., components of sizes 4, 2 and 1 have <span class="math">\(6 + 1 = 7\)</span> edges.</p>
 </details>
 
     </div>
@@ -1097,7 +1102,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose an <b>undirected</b> graph has 16 edges. What is the <i>smallest</i> number of nodes it can have?</p>
 <details>
     <summary>Solution</summary>
-<p>7</p>
+<p>7. An undirected graph with <span class="math">\(n\)</span> nodes has at most <span class="math">\(\binom{n}{2} = \frac{n(n-1)}{2}\)</span> edges. With 6 nodes that's 15, which is less than 16, but with 7 nodes it's 21, so 7 nodes is enough.</p>
 </details>
 
     </div>
@@ -1116,7 +1121,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>A <i>directed</i> graph has 10 <i>edges</i>. What is the <i>smallest</i> number of <i>nodes</i> it can have?</p>
 <details>
     <summary>Solution</summary>
-<p>4</p>
+<p>4. A directed graph with <span class="math">\(n\)</span> nodes can have an edge from every node to every node, including self-loops, so at most <span class="math">\(n^2\)</span> edges. With 3 nodes that's 9, which is less than 10, but with 4 nodes it's 16.</p>
 </details>
 
     </div>
@@ -1284,7 +1289,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n^2\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(n\)</span></p>
+<p><span class="math">\(n\)</span>. Row <span class="math">\(u\)</span> of <span class="math">\(A\)</span> has a one for each edge leaving <span class="math">\(u\)</span>, so its sum is <span class="math">\(u\)</span>'s out-degree. A directed graph may have self-loops, so <span class="math">\(u\)</span> can have an edge to all <span class="math">\(n\)</span> nodes, including itself, and the row can be all ones.</p>
 </details>
 
     </div>
@@ -1330,7 +1335,12 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         print(u, v, "is an edge")</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(V + E)\)</span></p>
+<p><span class="math">\(\Theta(V + E)\)</span>.</p>
+<p>It's tempting to multiply the two loops, but the inner loop runs a different number of times for each node: for node <span class="math">\(u\)</span>, it runs once for each neighbor of <span class="math">\(u\)</span>, i.e., <span class="inline-code"><code>len(adj_list[u])</code></span> times. So instead we add up the work node by node. For each node <span class="math">\(u\)</span>, the outer loop does <span class="math">\(\Theta(1)\)</span> work, and the inner loop does <span class="math">\(\Theta(\text{degree}(u))\)</span> work. The total is</p>
+<div class="math">\[
+            \sum_{u \in V} \bigl(\Theta(1) + \Theta(\text{degree}(u))\bigr) = \Theta(V) + \Theta\Biggl(\sum_{u \in V} \text{degree}(u)\Biggr) = \Theta(V) + \Theta(E),
+        \]</div>
+<p>since the lengths of all the adjacency lists add up to <span class="math">\(|E|\)</span> in a directed graph and <span class="math">\(2|E|\)</span> in an undirected one. The <span class="math">\(\Theta(V)\)</span> term matters too: a node with no neighbors still costs <span class="math">\(\Theta(1)\)</span> for the outer loop, so if there are few edges, the outer loop dominates. So the time is <span class="math">\(\Theta(V + E)\)</span>.</p>
 </details>
 
     </div>
@@ -1352,7 +1362,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         print(u, v)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(V + E)\)</span></p>
+<p><span class="math">\(\Theta(V + E)\)</span>. The inner loop doesn't run the same number of times for every node, so we can't just multiply: for node <span class="math">\(u\)</span>, it runs <span class="math">\(\text{degree}(u)\)</span> times. Adding up over all nodes, the outer loop does <span class="math">\(\Theta(1)\)</span> work for each of the <span class="math">\(|V|\)</span> nodes, which is <span class="math">\(\Theta(V)\)</span>, and the inner loop runs <span class="math">\(\sum_{u \in V} \text{degree}(u)\)</span> times in total, which is <span class="math">\(2|E|\)</span> for an undirected graph (each edge is seen from both ends) or <span class="math">\(|E|\)</span> for a directed one (counting out-degrees). Either way, that's <span class="math">\(\Theta(E)\)</span>, so the total is <span class="math">\(\Theta(V + E)\)</span>. Neither term can be dropped in general: if there are few edges, looping over the nodes dominates, and if there are many, printing the edges dominates.</p>
 </details>
 
     </div>
@@ -1372,7 +1382,9 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose a graph <span class="math">\(G = (V, E)\)</span> is represented using an adjacency matrix. What is the best possible worst-case time complexity of an efficient algorithm for computing the number of isolated nodes in the graph? State your answer as a function of <span class="math">\(|V|\)</span> and <span class="math">\(|E|\)</span> using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(V^2)\)</span></p>
+<p><span class="math">\(\Theta(V^2)\)</span>.</p>
+<p>A node <span class="math">\(u\)</span> is isolated exactly when row <span class="math">\(u\)</span> of the adjacency matrix is all zeros. To check that, we have to look at the entries of that row until we find a one; if the node is isolated, there is no one to find, so we look at all <span class="math">\(|V|\)</span> entries. Doing this for every node takes <span class="math">\(|V| \times \Theta(V) = \Theta(V^2)\)</span> time in the worst case.</p>
+<p>We can't do better. In the worst case, e.g., a graph with no edges at all, every node is isolated, and to be sure of that, an algorithm has to read every entry of the matrix (or, by symmetry, every entry on one side of the diagonal, which is still <span class="math">\(\Theta(V^2)\)</span> entries): any entry it skips could be a one, which would make two nodes not isolated. Notice that the answer doesn't depend on <span class="math">\(|E|\)</span>: with an adjacency matrix, scanning a row takes <span class="math">\(\Theta(V)\)</span> time no matter how many edges there are.</p>
 </details>
 
     </div>
@@ -1392,7 +1404,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>What is the worst case time complexity of an efficient algorithm that checks to see if a graph <span class="math">\(G = (V, E)\)</span> has an isolated node? You should assume that the graph is represented as an adjacency list.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(V)\)</span></p>
+<p><span class="math">\(\Theta(V)\)</span>. A node is isolated exactly when its adjacency list is empty, which we can check in <span class="math">\(\Theta(1)\)</span> time per node, so checking every node takes <span class="math">\(\Theta(V)\)</span> time. In the worst case (no node is isolated), we have to check them all.</p>
 </details>
 
     </div>
@@ -1415,7 +1427,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     \ldots, x_d)^T\)</span> and <span class="math">\(\vec y = (y_1, \ldots, y_d)^T\)</span> is equal to <span class="math">\(x_1 y_1 + x_2 y_2 + \ldots + x_d y_d\)</span>.</p>
 <details>
     <summary>Solution</summary>
-<p>4</p>
+<p>4. Each entry of the dot product is 1 exactly when a node is a neighbor of both node 1 and node 2, so the dot product counts their common neighbors. Node 1's neighbors are the top node, the two nodes on the upper left and upper right, the node on the right, and the node on the lower left; node 2 is adjacent to all of these except the upper-left node, so there are 4 common neighbors.</p>
 </details>
 
     </div>
@@ -1535,7 +1547,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>How many nodes will be popped from the queue before node <span class="math">\(u_8\)</span> is popped?</p>
 <details>
     <summary>Solution</summary>
-<p>9</p>
+<p>9. BFS pops <span class="math">\(s, u_1, u_2, u_3, u_5, u_4, u_6, u_7\)</span> and <span class="math">\(u_9\)</span>, and then <span class="math">\(u_8\)</span>. (<span class="math">\(u_5\)</span> is discovered from <span class="math">\(u_2\)</span> before <span class="math">\(u_4\)</span> is discovered from <span class="math">\(u_3\)</span>, and <span class="math">\(u_8\)</span> is discovered from <span class="math">\(u_6\)</span> after <span class="math">\(u_9\)</span> is discovered from <span class="math">\(u_4\)</span>.)</p>
 </details>
 
     </div>
@@ -1558,7 +1570,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>What is the time complexity of breadth-first search when run on a circle graph with <span class="math">\(n\)</span> nodes? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span></p>
+<p><span class="math">\(\Theta(n)\)</span>. BFS takes <span class="math">\(\Theta(V + E)\)</span> time. A circle graph has <span class="math">\(|V| = n\)</span> nodes and <span class="math">\(|E| = n\)</span> edges, so this is <span class="math">\(\Theta(n + n) = \Theta(n)\)</span>.</p>
 </details>
 
     </div>
@@ -1580,7 +1592,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose BFS is run on a 2-chain graph with <span class="math">\(n\)</span> nodes, using node 1 as the source. What is the time taken as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span></p>
+<p><span class="math">\(\Theta(n)\)</span>. BFS takes <span class="math">\(\Theta(V + E)\)</span> time. Each node has at most two outgoing edges, so there are fewer than <span class="math">\(2n\)</span> edges, and <span class="math">\(\Theta(V + E) = \Theta(n + 2n) = \Theta(n)\)</span>.</p>
 </details>
 
     </div>
@@ -1616,7 +1628,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>How many times will <span class="inline-code"><code>"here!"</code></span> be printed? Your answer should be an exact number.</p>
 <details>
     <summary>Solution</summary>
-<p>10</p>
+<p>10. BFS only reaches <span class="math">\(a\)</span>'s connected component: <span class="math">\(a, b, c, d, e, f\)</span>. It has 5 edges, <span class="math">\((a, b)\)</span>, <span class="math">\((b, c)\)</span>, <span class="math">\((c, d)\)</span>, <span class="math">\((a, e)\)</span> and <span class="math">\((b, f)\)</span>, and in an undirected graph each edge is explored twice (once from each endpoint), so <span class="inline-code"><code>"here!"</code></span> is printed <span class="math">\(2 \times 5 = 10\)</span> times.</p>
 </details>
 
     </div>
@@ -1656,7 +1668,7 @@ def modified_bfs(graph, source):
 <p>How many times will <span class="inline-code"><code>"Here!"</code></span> be printed?</p>
 <details>
     <summary>Solution</summary>
-<p>2</p>
+<p>2. The print runs each time <span class="math">\(9\)</span> comes up as a neighbor of a popped node. In this directed graph, the only edges into <span class="math">\(9\)</span> are <span class="math">\((7, 9)\)</span> and <span class="math">\((8, 9)\)</span>, and <span class="math">\(7\)</span> and <span class="math">\(8\)</span> are each popped once, so <span class="inline-code"><code>"Here!"</code></span> is printed twice.</p>
 </details>
 
     </div>
@@ -1677,7 +1689,7 @@ def modified_bfs(graph, source):
 <p>What is the largest number of nodes that can be in the queue at any one time?</p>
 <details>
     <summary>Solution</summary>
-<p>8</p>
+<p>8. The tree has 1, 2, 4 and 8 nodes at depths 0, 1, 2 and 3. Each time a node at depth 1 or 2 is popped, the queue grows by one (one node out, two children in). So it is largest right after the last depth-2 node is popped and its children are added, when it holds exactly the 8 leaves. After that, nodes are only removed.</p>
 </details>
 
     </div>
@@ -1737,7 +1749,7 @@ def modified_bfs(graph, source):
 <p>What is the time complexity of BFS when run on <span class="math">\(G\)</span>? Your answer should be in asymptotic notation and in terms of <span class="math">\(n\)</span>, in the simplest terms possible.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n \log n)\)</span></p>
+<p><span class="math">\(\Theta(n \log n)\)</span>. BFS takes <span class="math">\(\Theta(V + E)\)</span> time. Every edge joins a red node to a blue node, and each of the <span class="math">\(n/2\)</span> red nodes has <span class="math">\(\log_2 n\)</span> of them, so there are <span class="math">\(E = \frac{n}{2} \log_2 n\)</span> edges. So the time is <span class="math">\(\Theta(n + \frac{n}{2}\log_2 n) = \Theta(n \log n)\)</span>.</p>
 </details>
 
     </div>
@@ -1758,7 +1770,9 @@ def modified_bfs(graph, source):
 <p>Note: in studying, you might have come across a problem in the practice bank about “hub and spoke” graphs. This question is related, but not the same!</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(V)\)</span></p>
+<p><span class="math">\(\Theta(V)\)</span>.</p>
+<p>A node <span class="math">\(u\)</span> is a hub exactly when it has an edge to each of the <span class="math">\(V - 1\)</span> other nodes, that is, when its adjacency list has <span class="math">\(V - 1\)</span> entries. We don't need to look at what's in the list to check this: we can get its length in <span class="math">\(\Theta(1)\)</span> time (e.g., with <span class="inline-code"><code>len(adj[u])</code></span>). So the algorithm loops over the nodes and checks whether <span class="inline-code"><code>len(adj[u]) == V - 1</code></span> for each one. That's <span class="math">\(\Theta(1)\)</span> time per node, and in the worst case (when there is no hub) it checks all of them, for <span class="math">\(\Theta(V)\)</span> time in total.</p>
+<p>Notice that the time doesn't depend on <span class="math">\(E\)</span>, because we never look at the edges themselves. An algorithm that scanned every adjacency list would take <span class="math">\(\Theta(V + E)\)</span> time, which can be as large as <span class="math">\(\Theta(V^2)\)</span>.</p>
 </details>
 
     </div>
@@ -1998,7 +2012,7 @@ def modified_bfs(graph, source, status=None):
 <center><div class="image"><img src="images/245/graph.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(d\)</span></p>
+<p><span class="math">\(d\)</span>. Node <span class="math">\(a\)</span> discovers <span class="math">\(b\)</span>, <span class="math">\(c\)</span> and <span class="math">\(d\)</span>, so the queue is <span class="math">\(b, c, d\)</span>. Popping <span class="math">\(b\)</span> discovers <span class="math">\(f\)</span>, and popping <span class="math">\(c\)</span> discovers nothing new. Then <span class="math">\(d\)</span> is popped before <span class="math">\(e\)</span> and <span class="math">\(f\)</span>, and <span class="math">\(h\)</span> is still undiscovered, so <span class="math">\(d\)</span> discovers it.</p>
 </details>
 
     </div>
@@ -2018,7 +2032,7 @@ def modified_bfs(graph, source, status=None):
 <center><div class="image"><img src="images/246/fig/g2.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p>5</p>
+<p>5. Node 1 discovers 2 and 3. Popping 2 discovers 5 and 6, in that order, and popping 3 discovers 4, so the queue is <span class="math">\(5, 6, 4\)</span>. Node 5 is popped next and is adjacent to 8, so it discovers 8 before 6 can.</p>
 </details>
 
     </div>
@@ -2038,7 +2052,7 @@ def modified_bfs(graph, source, status=None):
 <center><div class="image"><img src="images/247/graph.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p>5</p>
+<p>5. Node 1 discovers 2 and 3. Popping 2 discovers 5 and 6, in that order, and popping 3 discovers 4, so the queue is <span class="math">\(5, 6, 4\)</span>. Node 5 is popped next and is adjacent to 9, so it discovers 9 before 4 can.</p>
 </details>
 
     </div>
@@ -2067,7 +2081,7 @@ def modified_bfs(graph, source, status=None):
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_9\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(u_2\)</span></p>
+<p><span class="math">\(u_2\)</span>. From <span class="math">\(u_4\)</span>, BFS discovers <span class="math">\(u_2\)</span> and <span class="math">\(u_5\)</span>, in that order. Then <span class="math">\(u_2\)</span> is popped first and discovers its undiscovered neighbors <span class="math">\(u_1\)</span>, <span class="math">\(u_3\)</span> and <span class="math">\(u_6\)</span>, so <span class="math">\(u_6\)</span>'s predecessor is <span class="math">\(u_2\)</span>.</p>
 </details>
 
     </div>
@@ -2086,7 +2100,7 @@ def modified_bfs(graph, source, status=None):
 <p>An undirected graph <span class="math">\(G = (V, E)\)</span> has 23 nodes and 2 connected components. What is the <i>smallest</i> number of edges it can have?</p>
 <details>
     <summary>Solution</summary>
-<p>21</p>
+<p>21. A connected component with <span class="math">\(k\)</span> nodes needs at least <span class="math">\(k - 1\)</span> edges (as many as a tree has). So if the components have <span class="math">\(k_1\)</span> and <span class="math">\(k_2\)</span> nodes, where <span class="math">\(k_1 + k_2 = 23\)</span>, the graph has at least <span class="math">\((k_1 - 1) + (k_2 - 1) = 23 - 2 = 21\)</span> edges, and making each component a tree gives exactly 21.</p>
 </details>
 
     </div>
@@ -2105,7 +2119,7 @@ def modified_bfs(graph, source, status=None):
 <p>An undirected graph with 20 nodes and 30 edges has three connected components: <span class="math">\(A\)</span>, <span class="math">\(B\)</span>, and <span class="math">\(C\)</span>. Connected component <span class="math">\(A\)</span> has 7 nodes. What is the smallest number of edges that <span class="math">\(A\)</span> can have?</p>
 <details>
     <summary>Solution</summary>
-<p>6</p>
+<p>6. <span class="math">\(A\)</span> is connected and has 7 nodes, so it needs at least <span class="math">\(7 - 1 = 6\)</span> edges, and a tree on its 7 nodes has exactly 6. The other 24 edges can go in <span class="math">\(B\)</span> and <span class="math">\(C\)</span>, which have 13 nodes between them (e.g., a <span class="math">\(B\)</span> with 12 nodes has room for up to 66 edges).</p>
 </details>
 
     </div>
@@ -2248,7 +2262,7 @@ def modified_bfs(graph, source, status=None):
 <p>What is the <i>largest</i> that <span class="inline-code"><code>abs(dist[v_2] - dist[v_1])</code></span> can be?</p>
 <details>
     <summary>Solution</summary>
-<p>2</p>
+<p>2. Since <span class="math">\(v_1\)</span> and <span class="math">\(v_2\)</span> are neighbors of <span class="math">\(u\)</span>, the distance to each is within 1 of <span class="inline-code"><code>dist[u]</code></span>: it's <span class="inline-code"><code>dist[u] - 1</code></span>, <span class="inline-code"><code>dist[u]</code></span> or <span class="inline-code"><code>dist[u] + 1</code></span>. So the difference is at most 2, which happens when, e.g., <span class="math">\(v_1\)</span> is <span class="math">\(u\)</span>'s predecessor (at <span class="inline-code"><code>dist[u] - 1</code></span>) and <span class="math">\(v_2\)</span> is discovered from <span class="math">\(u\)</span> (at <span class="inline-code"><code>dist[u] + 1</code></span>).</p>
 </details>
 
 </div>
@@ -2258,7 +2272,7 @@ def modified_bfs(graph, source, status=None):
 <p>What is the <i>smallest</i> that <span class="inline-code"><code>abs(dist[v_2] - dist[v_1])</code></span> can be?</p>
 <details>
     <summary>Solution</summary>
-<p>0</p>
+<p>0. This happens when <span class="math">\(v_1\)</span> and <span class="math">\(v_2\)</span> are the same distance from <span class="math">\(s\)</span>, e.g., when both are discovered from <span class="math">\(u\)</span>, so that both are at <span class="inline-code"><code>dist[u] + 1</code></span>.</p>
 </details>
 
 </div>
@@ -2280,7 +2294,13 @@ def modified_bfs(graph, source, status=None):
 <p>What is the time complexity of computing a shortest path from a given red node to all other red nodes using BFS?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span></p>
+<p><span class="math">\(\Theta(n^2)\)</span>.</p>
+<p>BFS takes <span class="math">\(\Theta(V + E)\)</span> time, so we need to count the edges. Every edge joins a red node to a blue node. There are <span class="math">\(n/2\)</span> red nodes, and each has <span class="math">\(n/4\)</span> blue neighbors, so there are</p>
+<div class="math">\[
+            E = \frac{n}{2} \cdot \frac{n}{4} = \frac{n^2}{8}
+        \]</div>
+<p>edges. Each edge is counted exactly once here, since it has exactly one red endpoint. (Counting from the blue side gives the same number.)</p>
+<p>So BFS takes <span class="math">\(\Theta(n + n^2/8) = \Theta(n^2)\)</span> time. Asking only for the paths to the red nodes doesn't change this: BFS from the red node still explores the whole graph, and the edges, not the nodes, dominate the time.</p>
 </details>
 
     </div>
@@ -2372,7 +2392,7 @@ def modified_bfs(graph, source, status=None):
 <p>What is the time complexity of depth first search (DFS) when run on a tree with <span class="math">\(n\)</span> nodes?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span></p>
+<p><span class="math">\(\Theta(n)\)</span>. DFS takes <span class="math">\(\Theta(V + E)\)</span> time, and a tree with <span class="math">\(n\)</span> nodes has <span class="math">\(n - 1\)</span> edges, so it takes <span class="math">\(\Theta(n + (n - 1)) = \Theta(n)\)</span> time.</p>
 </details>
 
     </div>
@@ -2392,7 +2412,7 @@ def modified_bfs(graph, source, status=None):
 <p>Including the root call of <span class="inline-code"><code>dfs</code></span> on node <span class="math">\(s\)</span>, how many calls to <span class="inline-code"><code>dfs</code></span> will be made?</p>
 <details>
     <summary>Solution</summary>
-<p>34</p>
+<p>34. A tree with 33 edges has <span class="math">\(33 + 1 = 34\)</span> nodes, and it's connected, so every node is reachable from <span class="math">\(s\)</span>. DFS calls <span class="inline-code"><code>dfs</code></span> exactly once on each reachable node, so it makes 34 calls.</p>
 </details>
 
     </div>
@@ -2452,7 +2472,13 @@ def modified_bfs(graph, source, status=None):
 <p>How many valid topological sorts of this graph are there?</p>
 <details>
     <summary>Solution</summary>
-<p>3</p>
+<p>3.</p>
+<p>A topological sort is an ordering of the nodes in which every edge goes from an earlier node to a later one. The only edge is <span class="math">\((a, b)\)</span>, so the only rule is that <span class="math">\(a\)</span> comes before <span class="math">\(b\)</span>. Node <span class="math">\(c\)</span> has no edges at all, so it can go anywhere.</p>
+<p>So we can start from the ordering <span class="math">\(a, b\)</span> and put <span class="math">\(c\)</span> in any of the three places: before <span class="math">\(a\)</span>, between <span class="math">\(a\)</span> and <span class="math">\(b\)</span>, or after <span class="math">\(b\)</span>. That gives the three topological sorts</p>
+<div class="math">\[
+            c, a, b \qquad a, c, b \qquad a, b, c.
+        \]</div>
+<p>Another way to count them: there are <span class="math">\(3! = 6\)</span> orderings of the three nodes, and <span class="math">\(a\)</span> comes before <span class="math">\(b\)</span> in exactly half of them.</p>
 </details>
 
     </div>
@@ -2471,7 +2497,7 @@ def modified_bfs(graph, source, status=None):
 <p>Consider the directed acyclic graph <span class="math">\(G = (V, E)\)</span> with <span class="math">\(V = \{a, b, c, d\}\)</span> and <span class="math">\(E = \{(a, b), (a,c), (a,d)\}\)</span>. How many topological sorts of this graph are there?</p>
 <details>
     <summary>Solution</summary>
-<p>6</p>
+<p>6. The edges say that <span class="math">\(a\)</span> comes before <span class="math">\(b\)</span>, <span class="math">\(c\)</span> and <span class="math">\(d\)</span>, so <span class="math">\(a\)</span> must be first. There are no edges among <span class="math">\(b\)</span>, <span class="math">\(c\)</span> and <span class="math">\(d\)</span>, so they can follow in any order: <span class="math">\(3! = 6\)</span>.</p>
 </details>
 
     </div>
@@ -2490,7 +2516,7 @@ def modified_bfs(graph, source, status=None):
 <p>Let <span class="math">\(G = (V,E)\)</span> be the directed graph with <span class="math">\(V = \{a, b, c, d, e\}\)</span> and <span class="math">\(E = \{(a, b), (a, c), (a, d), (b, e), (c, e), (d, e)\}\)</span>. How many valid topological sorts of <span class="math">\(V\)</span> are there?</p>
 <details>
     <summary>Solution</summary>
-<p>6</p>
+<p>6, since node <span class="math">\(a\)</span> has an edge to each of <span class="math">\(b, c, d\)</span>, and each of them has an edge to <span class="math">\(e\)</span>. So <span class="math">\(a\)</span> must be first and <span class="math">\(e\)</span> last. There are no edges among <span class="math">\(b, c, d\)</span>, so they can go in the middle in any order: <span class="math">\(3! = 6\)</span>.</p>
 </details>
 
     </div>
@@ -2550,7 +2576,7 @@ def modified_bfs(graph, source, status=None):
 <center><div class="image"><img src="images/272/f1.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(u_1\)</span></p>
+<p><span class="math">\(u_1\)</span>. DFS from <span class="math">\(u_4\)</span> first visits <span class="math">\(u_2\)</span>, its smaller neighbor, and <span class="math">\(u_2\)</span> first visits <span class="math">\(u_1\)</span>. The only neighbor of <span class="math">\(u_1\)</span> is <span class="math">\(u_2\)</span>, which is pending, so <span class="math">\(u_1\)</span> finishes right away (at time 4), before any other node.</p>
 </details>
 
     </div>
@@ -2570,7 +2596,7 @@ def modified_bfs(graph, source, status=None):
 <center><div class="image"><img src="images/273/f1.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p>12</p>
+<p>12, since the search starts <span class="math">\(u_4\)</span> (1), <span class="math">\(u_2\)</span> (2), <span class="math">\(u_1\)</span> (3, finishing at 4), <span class="math">\(u_3\)</span> (5), <span class="math">\(u_5\)</span> (6), <span class="math">\(u_6\)</span> (7, finishing at 8), <span class="math">\(u_8\)</span> (9, finishing at 10) and <span class="math">\(u_9\)</span> (11), always taking the smallest undiscovered neighbor. Then <span class="math">\(u_9\)</span> visits its only undiscovered neighbor, <span class="math">\(u_7\)</span>, which starts at time 12.</p>
 </details>
 
     </div>
@@ -2633,7 +2659,7 @@ def modified_bfs(graph, source, status=None):
 <p>What will be the DFS predecessor of node 3 in the search? Use the convention that a node's neighbors are produced in ascending order by label.</p>
 <details>
     <summary>Solution</summary>
-<p>1</p>
+<p>1. Starting at 11, DFS visits 8 (the smaller neighbor), then 5, then 2, then 1, taking the smallest undiscovered neighbor each time. Node 1's neighbors are 2, which is pending, and 3, which is still undiscovered, so <span class="inline-code"><code>dfs</code></span> is called on 3 from 1.</p>
 </details>
 
     </div>
@@ -2656,7 +2682,7 @@ def modified_bfs(graph, source, status=None):
 <p>What will be the start time of node 2? Use the convention that the start time of the source is 1.</p>
 <details>
     <summary>Solution</summary>
-<p>4</p>
+<p>4. DFS starts 11 at time 1, then visits its smaller neighbor 8 (time 2), then 8's smallest undiscovered neighbor 5 (time 3), and then 5's smallest neighbor 2 (time 4).</p>
 </details>
 
 </div>
@@ -2666,7 +2692,7 @@ def modified_bfs(graph, source, status=None):
 <p>What will be the finish time of node 10?</p>
 <details>
     <summary>Solution</summary>
-<p>11</p>
+<p>11. Continuing the search: 2 visits 1 (time 5), 1 visits 3 (6), 3 visits 4 (7), and 4 visits 9 (8). Node 9's neighbors (4, 5 and 11) are all pending, so 9 finishes at 9. Then 4 visits 10 (10), whose only neighbor is 4, so 10 finishes at 11.</p>
 </details>
 
 </div>
@@ -2689,7 +2715,7 @@ def modified_bfs(graph, source, status=None):
 <p>What will be the <b>finish</b> time of node <span class="math">\(c\)</span>? Assume the convention that a node's neighbors are produced in alphabetical order.</p>
 <details>
     <summary>Solution</summary>
-<p>11</p>
+<p>11. DFS from <span class="math">\(a\)</span> visits <span class="math">\(b\)</span> first (time 2), then <span class="math">\(b\)</span>'s descendants <span class="math">\(f\)</span>, <span class="math">\(g\)</span> and <span class="math">\(e\)</span>, and <span class="math">\(b\)</span> finishes at time 9. Next <span class="math">\(a\)</span> visits <span class="math">\(c\)</span>, which starts at time 10. Both of <span class="math">\(c\)</span>'s neighbors, <span class="math">\(b\)</span> and <span class="math">\(e\)</span>, are already visited, so <span class="math">\(c\)</span> finishes right away, at time 11.</p>
 </details>
 
     </div>
@@ -2710,7 +2736,7 @@ def modified_bfs(graph, source, status=None):
 <p>What will be the finish time of node <span class="math">\(e\)</span>? Assume the convention that a node's neighbors are produced in alphabetical order.</p>
 <details>
     <summary>Solution</summary>
-<p>13</p>
+<p>13. Taking the first undiscovered neighbor in alphabetical order each time, DFS starts <span class="math">\(a\)</span> (1), <span class="math">\(b\)</span> (2), <span class="math">\(d\)</span> (3), <span class="math">\(e\)</span> (4), <span class="math">\(f\)</span> (5) and <span class="math">\(c\)</span> (6). Then <span class="math">\(c\)</span> finishes (7), <span class="math">\(f\)</span> visits <span class="math">\(h\)</span> (8), <span class="math">\(h\)</span> finishes (9), and <span class="math">\(f\)</span> finishes (10). Back at <span class="math">\(e\)</span>, the only undiscovered neighbor left is <span class="math">\(g\)</span> (start 11, finish 12), so <span class="math">\(e\)</span> finishes at 13.</p>
 </details>
 
     </div>
@@ -2733,7 +2759,7 @@ def modified_bfs(graph, source, status=None):
 <p>What will be the start time of node <span class="math">\(u_7\)</span>?</p>
 <details>
     <summary>Solution</summary>
-<p>8</p>
+<p>8. Taking the smallest undiscovered neighbor each time, the search starts <span class="math">\(s\)</span> (1), <span class="math">\(u_1\)</span> (2), <span class="math">\(u_2\)</span> (3), <span class="math">\(u_3\)</span> (4), <span class="math">\(u_4\)</span> (5), <span class="math">\(u_5\)</span> (6) and <span class="math">\(u_6\)</span> (7). Then <span class="math">\(u_6\)</span>'s smallest undiscovered neighbor is <span class="math">\(u_7\)</span>, which starts at time 8.</p>
 </details>
 
 </div>
@@ -2743,7 +2769,7 @@ def modified_bfs(graph, source, status=None):
 <p>What will be the finish time of node <span class="math">\(u_7\)</span>?</p>
 <details>
     <summary>Solution</summary>
-<p>9</p>
+<p>9. The neighbors of <span class="math">\(u_7\)</span>, <span class="math">\(u_5\)</span> and <span class="math">\(u_6\)</span>, are both pending, so <span class="math">\(u_7\)</span> finishes right after it starts, at time 9.</p>
 </details>
 
 </div>
@@ -2753,7 +2779,7 @@ def modified_bfs(graph, source, status=None):
 <p>Which node will be the DFS predecessor of node <span class="math">\(u_7\)</span>?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(u_6\)</span></p>
+<p><span class="math">\(u_6\)</span>. As in the first part, <span class="math">\(u_5\)</span> visits <span class="math">\(u_6\)</span> before it gets to <span class="math">\(u_7\)</span>, and <span class="math">\(u_6\)</span> then visits <span class="math">\(u_7\)</span>, so <span class="inline-code"><code>dfs</code></span> is called on <span class="math">\(u_7\)</span> from <span class="math">\(u_6\)</span>.</p>
 </details>
 
 </div>
@@ -2789,7 +2815,7 @@ def modified_bfs(graph, source, status=None):
 <p>How many times will <span class="inline-code"><code>"Hello!"</code></span> be printed? Note that this is not a full DFS, and that not all nodes are reachable from <span class="math">\(a\)</span>.</p>
 <details>
     <summary>Solution</summary>
-<p>6</p>
+<p>6. The print runs once for each recursive call, that is, once for every node discovered other than <span class="math">\(a\)</span>. Following the edges' directions, the nodes reachable from <span class="math">\(a\)</span> are <span class="math">\(a, b, c, d, e, f, g\)</span>. Each of the six besides <span class="math">\(a\)</span> is discovered once, so <span class="inline-code"><code>"Hello!"</code></span> is printed 6 times.</p>
 </details>
 
     </div>
@@ -2823,7 +2849,13 @@ def modified_bfs(graph, source, status=None):
 <p>How many times will <span class="inline-code"><code>"Hello!"</code></span> be printed? Note that this is not a full DFS, and that not all nodes are reachable from <span class="math">\(a\)</span>.</p>
 <details>
     <summary>Solution</summary>
-<p>10</p>
+<p>10.</p>
+<p>The print statement is inside the loop over <span class="math">\(u\)</span>'s neighbors, but before the check of <span class="math">\(v\)</span>'s status. So it runs once for every neighbor of every node that <span class="inline-code"><code>dfs</code></span> is called on, whether or not that neighbor has been discovered. Since <span class="inline-code"><code>dfs</code></span> is called exactly once on each node reachable from <span class="math">\(a\)</span>, the number of prints is the sum of the out-degrees of the nodes reachable from <span class="math">\(a\)</span>.</p>
+<p>Following the edges' directions, <span class="math">\(a\)</span> reaches <span class="math">\(b\)</span>, <span class="math">\(c\)</span>, <span class="math">\(d\)</span>, <span class="math">\(e\)</span>, <span class="math">\(f\)</span> and <span class="math">\(g\)</span>, but not <span class="math">\(h\)</span>, since all of <span class="math">\(h\)</span>'s edges point away from it. Adding up the out-degrees:</p>
+<div class="math">\[
+            \underbrace{3}_{a} + \underbrace{2}_{b} + \underbrace{1}_{c} + \underbrace{1}_{d} + \underbrace{1}_{e} + \underbrace{1}_{f} + \underbrace{1}_{g} = 10.
+        \]</div>
+<p>Notice that <span class="math">\((e, g)\)</span> and <span class="math">\((g, e)\)</span> both count, since they are two different edges, and that <span class="math">\(h\)</span>'s three edges don't count, since <span class="math">\(h\)</span> is never visited.</p>
 </details>
 
     </div>
@@ -2856,7 +2888,7 @@ def modified_bfs(graph, source, status=None):
 <center><div class="image"><img src="images/283/g4.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p>12</p>
+<p>12. The print runs once for every neighbor of every node visited. The DFS visits only <span class="math">\(u\)</span>'s connected component, which has 5 nodes and 6 edges. In an undirected graph each edge appears in two adjacency lists, so the total is <span class="math">\(2 \times 6 = 12\)</span>.</p>
 </details>
 
     </div>
@@ -2877,7 +2909,7 @@ def modified_bfs(graph, source, status=None):
 <p>What is the time complexity of depth-first search when run on a forward-looking graph with <span class="math">\(n\)</span> nodes, using node <span class="math">\(u_1\)</span> as the source? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span></p>
+<p><span class="math">\(\Theta(n^2)\)</span>. DFS takes <span class="math">\(\Theta(V + E)\)</span> time, and every node is reachable from <span class="math">\(u_1\)</span>. There is an edge for each pair <span class="math">\(i < j\)</span>, so <span class="math">\(E = n(n-1)/2\)</span>, and the time is <span class="math">\(\Theta(n + n^2) = \Theta(n^2)\)</span>.</p>
 </details>
 
     </div>
@@ -2994,7 +3026,7 @@ def modified_bfs(graph, source, status=None):
 <p>In a DFS on an undirected graph <span class="math">\(G\)</span>, the start time of node <span class="math">\(u\)</span> is 12, while the finish time of node <span class="math">\(u\)</span> is 37. How many nodes were marked pending between the moment that node <span class="math">\(u\)</span> was marked pending and the moment that it was marked visited? Node <span class="math">\(u\)</span> itself should be <i>excluded</i> from your count.</p>
 <details>
     <summary>Solution</summary>
-<p>12</p>
+<p>12. Every node that is marked pending during this time is also marked visited during it, and each one uses two time steps: one for its start and one for its finish. The times strictly between 12 and 37 are <span class="math">\(13, \ldots, 36\)</span>, which is 24 time steps, so <span class="math">\(24 / 2 = 12\)</span> nodes.</p>
 </details>
 
     </div>
@@ -3067,13 +3099,13 @@ def modified_bfs(graph, source, status=None):
     \]</div>
 <p>Now suppose another DFS is run using node <span class="math">\(s\)</span> as the source, but adopting a different convention about the order in which neighbors are produced. Suppose <span class="inline-code"><code>new_start</code></span> and <span class="inline-code"><code>new_finish</code></span> are the start and finish times found by this second DFS. True or False: it must be that</p>
 <div class="math">\[
-        \text{new_start}[u]
+        \text{new\_start}[u]
         <
-        \text{new_start}[v]
+        \text{new\_start}[v]
         <
-        \text{new_finish}[v]
+        \text{new\_finish}[v]
         <
-        \text{new_finish}[u]
+        \text{new\_finish}[u]
     \]</div>
 <details>
     <summary>Solution</summary>
@@ -3266,7 +3298,7 @@ def modified_bfs(graph, source, status=None):
 <p>What is the fewest number of iterations of the outer loop that can possibly be performed?</p>
 <details>
     <summary>Solution</summary>
-<p>2</p>
+<p>2. If the edges happen to come in the order of the shortest paths (e.g., <span class="math">\((s, u_3)\)</span>, <span class="math">\((u_3, u_4)\)</span>, <span class="math">\((u_4, u_1)\)</span>, <span class="math">\((u_3, u_5)\)</span>, <span class="math">\((u_5, u_2)\)</span> and <span class="math">\((u_5, u_6)\)</span> first), one iteration gets every estimate right. But the algorithm only stops after an iteration that changes nothing, so it needs a second iteration to see that. It can't stop after one, since the first iteration always changes the estimates of <span class="math">\(s\)</span>'s neighbors.</p>
 </details>
 
     </div>
@@ -3287,7 +3319,7 @@ def modified_bfs(graph, source, status=None):
 <p>How many iterations of the outer loop will be run in the worst case? Your answer should be a number.</p>
 <details>
     <summary>Solution</summary>
-<p>4</p>
+<p>4. No path in this graph has more than 3 edges, so after 3 iterations every estimate is correct, whatever the weights are. In the worst case, a shortest path has 3 edges (e.g., <span class="math">\(a \to b \to d \to f\)</span>) and the edges come in an unlucky order, so that all 3 iterations are needed, and then a 4th iteration is needed to see that nothing changes.</p>
 </details>
 
     </div>
@@ -3307,7 +3339,9 @@ def modified_bfs(graph, source, status=None):
 <center><div class="image"><img src="images/304/g6.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p>7</p>
+<p>7.</p>
+<p>After <span class="math">\(k\)</span> iterations, Bellman-Ford has the correct distance to every node whose shortest path from <span class="math">\(s\)</span> uses at most <span class="math">\(k\)</span> edges. With early stopping, it stops after the first iteration in which no estimate changes. So if every shortest path has at most <span class="math">\(k\)</span> edges, the estimates are all correct after <span class="math">\(k\)</span> iterations, and one more iteration confirms it, for <span class="math">\(k + 1\)</span> iterations in all.</p>
+<p>We don't know the weights, so in the worst case a shortest path is the longest path in the graph. The longest path from <span class="math">\(s\)</span> goes from <span class="math">\(s\)</span> to the next node, then up and around the top square to the center node (3 edges), and then right along the last two edges: <span class="math">\(1 + 3 + 2 = 6\)</span> edges. The graph has no cycles, so no path is longer. If the edges are processed in an unlucky order, each iteration gets only one more edge of this path right, so it takes 6 iterations to get every estimate right and a 7th to see that nothing changed.</p>
 </details>
 
     </div>
@@ -3327,7 +3361,7 @@ def modified_bfs(graph, source, status=None):
 <p>Suppose the Bellman-Ford algorithm without early stopping is run on a 2-chain graph with <span class="math">\(n\)</span> nodes, using node 1 as the source. What is the time taken as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span></p>
+<p><span class="math">\(\Theta(n^2)\)</span>. Each node has edges to at most two others, so there are about <span class="math">\(2n\)</span> edges (exactly <span class="math">\(2n - 3\)</span>). Bellman-Ford without early stopping runs <span class="math">\(|V| - 1 = n - 1\)</span> iterations, each looping over every edge, for <span class="math">\(\Theta(VE) = \Theta(n \cdot n) = \Theta(n^2)\)</span> time.</p>
 </details>
 
     </div>
@@ -3359,7 +3393,7 @@ def modified_bfs(graph, source, status=None):
 <p>After one iteration of the outer loop of Bellman-Ford, what is the estimated distance to node <span class="math">\(d\)</span>?</p>
 <details>
     <summary>Solution</summary>
-<p>9</p>
+<p>9. Going through the edges in the given order: <span class="math">\((a, b)\)</span> sets <span class="math">\(b\)</span>'s estimate to 1; <span class="math">\((c, e)\)</span>, <span class="math">\((d, f)\)</span> and <span class="math">\((c, d)\)</span> change nothing, since <span class="math">\(c\)</span> and <span class="math">\(d\)</span> are still at <span class="math">\(\infty\)</span>; then <span class="math">\((b, d)\)</span> sets <span class="math">\(d\)</span>'s estimate to <span class="math">\(1 + 8 = 9\)</span>. The shorter path through <span class="math">\(c\)</span> isn't found yet, because <span class="math">\((a, c)\)</span> comes after <span class="math">\((c, d)\)</span> in the order.</p>
 </details>
 
     </div>
@@ -3414,7 +3448,20 @@ def modified_bfs(graph, source, status=None):
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{a,b,c,d\}\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>1st option: <span class="math">\(\{a,b,c,e,f\}\)</span></p>
+<p><span class="math">\(\{a,b,c,e,f\}\)</span>.</p>
+<p>After <span class="math">\(k\)</span> iterations of the outer loop, Bellman-Ford is guaranteed to have the correct distance to every node whose shortest path from the source uses at most <span class="math">\(k\)</span> edges. Other estimates might happen to be correct too, depending on the order of the edges, but they aren't guaranteed to be. So we need each node's shortest path, and how many edges it uses:</p>
+<div class="math">\[
+            \begin{aligned}
+                b&: a \to b && \text{distance } 1 && \text{1 edge}\\
+                c&: a \to c && \text{distance } 10 && \text{1 edge}\\
+                e&: a \to c \to e && \text{distance } 10 - 9 = 1 && \text{2 edges}\\
+                f&: a \to c \to e \to f && \text{distance } 1 + 1 = 2 && \text{3 edges}\\
+                g&: a \to c \to e \to f \to g && \text{distance } 2 - 5 = -3 && \text{4 edges}\\
+                d&: a \to c \to e \to f \to g \to d && \text{distance } -3 - 4 = -7 && \text{5 edges}
+            \end{aligned}
+        \]</div>
+<p>These beat the other paths: <span class="math">\(a \to b \to e\)</span> has distance 2, <span class="math">\(a \to c \to e \to g\)</span> has distance 2, and <span class="math">\(a \to b \to d\)</span> has distance 4.</p>
+<p>The source <span class="math">\(a\)</span> is correct (distance 0) from the start. So after the third iteration, <span class="math">\(a\)</span>, <span class="math">\(b\)</span>, <span class="math">\(c\)</span>, <span class="math">\(e\)</span> and <span class="math">\(f\)</span> are guaranteed to be correct, but <span class="math">\(g\)</span> (4 edges) and <span class="math">\(d\)</span> (5 edges) aren't.</p>
 </details>
 
     </div>
@@ -3606,7 +3653,7 @@ def modified_bfs(graph, source, status=None):
 <p>What will be the fourth node popped from the priority queue? (The first node popped is the source, <span class="math">\(a\)</span>.)</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(f\)</span></p>
+<p><span class="math">\(f\)</span>. After popping <span class="math">\(a\)</span>, the estimates are <span class="math">\(b = 1\)</span> and <span class="math">\(c = 4\)</span>, so <span class="math">\(b\)</span> is popped second. Its edges lower <span class="math">\(e\)</span> to 2 (and set <span class="math">\(d\)</span> to 9), so <span class="math">\(e\)</span> is popped third. Then <span class="math">\((e, f)\)</span> lowers <span class="math">\(f\)</span> to 3, which is less than <span class="math">\(c\)</span>'s 4, so <span class="math">\(f\)</span> is popped fourth.</p>
 </details>
 
     </div>
@@ -3628,7 +3675,7 @@ def modified_bfs(graph, source, status=None):
 <p>What will be the fifth node added to <span class="math">\(C\)</span> by Dijkstra's algorithm? (The first node added to <span class="math">\(C\)</span> is the source, <span class="math">\(a\)</span>.)</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(b\)</span></p>
+<p><span class="math">\(b\)</span>. Popping <span class="math">\(a\)</span> sets <span class="math">\(g = 1\)</span>, <span class="math">\(b = 4\)</span> and <span class="math">\(c = 5\)</span>. Then <span class="math">\(g\)</span> is added (1), and it sets <span class="math">\(d = 9\)</span> and <span class="math">\(e = 2\)</span>. Then <span class="math">\(e\)</span> is added (2), and it sets <span class="math">\(f = 3\)</span>. Then <span class="math">\(f\)</span> is added (3). The smallest remaining estimate is now <span class="math">\(b\)</span>'s 4, so <span class="math">\(b\)</span> is fifth.</p>
 </details>
 
     </div>

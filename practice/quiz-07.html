@@ -98,6 +98,11 @@
 
 
 <style>
+    .problem .image img {
+        max-height: 22rem;
+        width: auto;
+        max-width: 100%;
+    }
     html.dark .problem .image img {
         filter: invert(1) hue-rotate(180deg);
         mix-blend-mode: lighten;
@@ -324,7 +329,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>What is the largest number of nodes that can be in the queue at any one time?</p>
 <details>
     <summary>Solution</summary>
-<p>8</p>
+<p>8. The tree has 1, 2, 4 and 8 nodes at depths 0, 1, 2 and 3. Each time a node at depth 1 or 2 is popped, the queue grows by one (one node out, two children in). So it is largest right after the last depth-2 node is popped and its children are added, when it holds exactly the 8 leaves. After that, nodes are only removed.</p>
 </details>
 
     </div>
@@ -389,7 +394,7 @@ def modified_bfs(graph, source):
 <center><div class="image"><img src="images/245/graph.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(d\)</span></p>
+<p><span class="math">\(d\)</span>. Node <span class="math">\(a\)</span> discovers <span class="math">\(b\)</span>, <span class="math">\(c\)</span> and <span class="math">\(d\)</span>, so the queue is <span class="math">\(b, c, d\)</span>. Popping <span class="math">\(b\)</span> discovers <span class="math">\(f\)</span>, and popping <span class="math">\(c\)</span> discovers nothing new. Then <span class="math">\(d\)</span> is popped before <span class="math">\(e\)</span> and <span class="math">\(f\)</span>, and <span class="math">\(h\)</span> is still undiscovered, so <span class="math">\(d\)</span> discovers it.</p>
 </details>
 
     </div>
@@ -409,7 +414,7 @@ def modified_bfs(graph, source):
 <center><div class="image"><img src="images/246/fig/g2.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p>5</p>
+<p>5. Node 1 discovers 2 and 3. Popping 2 discovers 5 and 6, in that order, and popping 3 discovers 4, so the queue is <span class="math">\(5, 6, 4\)</span>. Node 5 is popped next and is adjacent to 8, so it discovers 8 before 6 can.</p>
 </details>
 
     </div>
@@ -429,7 +434,7 @@ def modified_bfs(graph, source):
 <center><div class="image"><img src="images/247/graph.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p>5</p>
+<p>5. Node 1 discovers 2 and 3. Popping 2 discovers 5 and 6, in that order, and popping 3 discovers 4, so the queue is <span class="math">\(5, 6, 4\)</span>. Node 5 is popped next and is adjacent to 9, so it discovers 9 before 4 can.</p>
 </details>
 
     </div>
@@ -458,7 +463,7 @@ def modified_bfs(graph, source):
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_9\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(u_2\)</span></p>
+<p><span class="math">\(u_2\)</span>. From <span class="math">\(u_4\)</span>, BFS discovers <span class="math">\(u_2\)</span> and <span class="math">\(u_5\)</span>, in that order. Then <span class="math">\(u_2\)</span> is popped first and discovers its undiscovered neighbors <span class="math">\(u_1\)</span>, <span class="math">\(u_3\)</span> and <span class="math">\(u_6\)</span>, so <span class="math">\(u_6\)</span>'s predecessor is <span class="math">\(u_2\)</span>.</p>
 </details>
 
     </div>
@@ -601,7 +606,7 @@ def modified_bfs(graph, source):
 <p>What is the <i>largest</i> that <span class="inline-code"><code>abs(dist[v_2] - dist[v_1])</code></span> can be?</p>
 <details>
     <summary>Solution</summary>
-<p>2</p>
+<p>2. Since <span class="math">\(v_1\)</span> and <span class="math">\(v_2\)</span> are neighbors of <span class="math">\(u\)</span>, the distance to each is within 1 of <span class="inline-code"><code>dist[u]</code></span>: it's <span class="inline-code"><code>dist[u] - 1</code></span>, <span class="inline-code"><code>dist[u]</code></span> or <span class="inline-code"><code>dist[u] + 1</code></span>. So the difference is at most 2, which happens when, e.g., <span class="math">\(v_1\)</span> is <span class="math">\(u\)</span>'s predecessor (at <span class="inline-code"><code>dist[u] - 1</code></span>) and <span class="math">\(v_2\)</span> is discovered from <span class="math">\(u\)</span> (at <span class="inline-code"><code>dist[u] + 1</code></span>).</p>
 </details>
 
 </div>
@@ -611,7 +616,7 @@ def modified_bfs(graph, source):
 <p>What is the <i>smallest</i> that <span class="inline-code"><code>abs(dist[v_2] - dist[v_1])</code></span> can be?</p>
 <details>
     <summary>Solution</summary>
-<p>0</p>
+<p>0. This happens when <span class="math">\(v_1\)</span> and <span class="math">\(v_2\)</span> are the same distance from <span class="math">\(s\)</span>, e.g., when both are discovered from <span class="math">\(u\)</span>, so that both are at <span class="inline-code"><code>dist[u] + 1</code></span>.</p>
 </details>
 
 </div>
@@ -633,7 +638,13 @@ def modified_bfs(graph, source):
 <p>What is the time complexity of computing a shortest path from a given red node to all other red nodes using BFS?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span></p>
+<p><span class="math">\(\Theta(n^2)\)</span>.</p>
+<p>BFS takes <span class="math">\(\Theta(V + E)\)</span> time, so we need to count the edges. Every edge joins a red node to a blue node. There are <span class="math">\(n/2\)</span> red nodes, and each has <span class="math">\(n/4\)</span> blue neighbors, so there are</p>
+<div class="math">\[
+            E = \frac{n}{2} \cdot \frac{n}{4} = \frac{n^2}{8}
+        \]</div>
+<p>edges. Each edge is counted exactly once here, since it has exactly one red endpoint. (Counting from the blue side gives the same number.)</p>
+<p>So BFS takes <span class="math">\(\Theta(n + n^2/8) = \Theta(n^2)\)</span> time. Asking only for the paths to the red nodes doesn't change this: BFS from the red node still explores the whole graph, and the edges, not the nodes, dominate the time.</p>
 </details>
 
     </div>
@@ -725,7 +736,7 @@ def modified_bfs(graph, source):
 <p>What is the time complexity of depth first search (DFS) when run on a tree with <span class="math">\(n\)</span> nodes?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span></p>
+<p><span class="math">\(\Theta(n)\)</span>. DFS takes <span class="math">\(\Theta(V + E)\)</span> time, and a tree with <span class="math">\(n\)</span> nodes has <span class="math">\(n - 1\)</span> edges, so it takes <span class="math">\(\Theta(n + (n - 1)) = \Theta(n)\)</span> time.</p>
 </details>
 
     </div>
@@ -745,7 +756,7 @@ def modified_bfs(graph, source):
 <p>Including the root call of <span class="inline-code"><code>dfs</code></span> on node <span class="math">\(s\)</span>, how many calls to <span class="inline-code"><code>dfs</code></span> will be made?</p>
 <details>
     <summary>Solution</summary>
-<p>34</p>
+<p>34. A tree with 33 edges has <span class="math">\(33 + 1 = 34\)</span> nodes, and it's connected, so every node is reachable from <span class="math">\(s\)</span>. DFS calls <span class="inline-code"><code>dfs</code></span> exactly once on each reachable node, so it makes 34 calls.</p>
 </details>
 
     </div>
@@ -805,7 +816,13 @@ def modified_bfs(graph, source):
 <p>How many valid topological sorts of this graph are there?</p>
 <details>
     <summary>Solution</summary>
-<p>3</p>
+<p>3.</p>
+<p>A topological sort is an ordering of the nodes in which every edge goes from an earlier node to a later one. The only edge is <span class="math">\((a, b)\)</span>, so the only rule is that <span class="math">\(a\)</span> comes before <span class="math">\(b\)</span>. Node <span class="math">\(c\)</span> has no edges at all, so it can go anywhere.</p>
+<p>So we can start from the ordering <span class="math">\(a, b\)</span> and put <span class="math">\(c\)</span> in any of the three places: before <span class="math">\(a\)</span>, between <span class="math">\(a\)</span> and <span class="math">\(b\)</span>, or after <span class="math">\(b\)</span>. That gives the three topological sorts</p>
+<div class="math">\[
+            c, a, b \qquad a, c, b \qquad a, b, c.
+        \]</div>
+<p>Another way to count them: there are <span class="math">\(3! = 6\)</span> orderings of the three nodes, and <span class="math">\(a\)</span> comes before <span class="math">\(b\)</span> in exactly half of them.</p>
 </details>
 
     </div>
@@ -824,7 +841,7 @@ def modified_bfs(graph, source):
 <p>Consider the directed acyclic graph <span class="math">\(G = (V, E)\)</span> with <span class="math">\(V = \{a, b, c, d\}\)</span> and <span class="math">\(E = \{(a, b), (a,c), (a,d)\}\)</span>. How many topological sorts of this graph are there?</p>
 <details>
     <summary>Solution</summary>
-<p>6</p>
+<p>6. The edges say that <span class="math">\(a\)</span> comes before <span class="math">\(b\)</span>, <span class="math">\(c\)</span> and <span class="math">\(d\)</span>, so <span class="math">\(a\)</span> must be first. There are no edges among <span class="math">\(b\)</span>, <span class="math">\(c\)</span> and <span class="math">\(d\)</span>, so they can follow in any order: <span class="math">\(3! = 6\)</span>.</p>
 </details>
 
     </div>
@@ -843,7 +860,7 @@ def modified_bfs(graph, source):
 <p>Let <span class="math">\(G = (V,E)\)</span> be the directed graph with <span class="math">\(V = \{a, b, c, d, e\}\)</span> and <span class="math">\(E = \{(a, b), (a, c), (a, d), (b, e), (c, e), (d, e)\}\)</span>. How many valid topological sorts of <span class="math">\(V\)</span> are there?</p>
 <details>
     <summary>Solution</summary>
-<p>6</p>
+<p>6, since node <span class="math">\(a\)</span> has an edge to each of <span class="math">\(b, c, d\)</span>, and each of them has an edge to <span class="math">\(e\)</span>. So <span class="math">\(a\)</span> must be first and <span class="math">\(e\)</span> last. There are no edges among <span class="math">\(b, c, d\)</span>, so they can go in the middle in any order: <span class="math">\(3! = 6\)</span>.</p>
 </details>
 
     </div>
@@ -903,7 +920,7 @@ def modified_bfs(graph, source):
 <center><div class="image"><img src="images/272/f1.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(u_1\)</span></p>
+<p><span class="math">\(u_1\)</span>. DFS from <span class="math">\(u_4\)</span> first visits <span class="math">\(u_2\)</span>, its smaller neighbor, and <span class="math">\(u_2\)</span> first visits <span class="math">\(u_1\)</span>. The only neighbor of <span class="math">\(u_1\)</span> is <span class="math">\(u_2\)</span>, which is pending, so <span class="math">\(u_1\)</span> finishes right away (at time 4), before any other node.</p>
 </details>
 
     </div>
@@ -923,7 +940,7 @@ def modified_bfs(graph, source):
 <center><div class="image"><img src="images/273/f1.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p>12</p>
+<p>12, since the search starts <span class="math">\(u_4\)</span> (1), <span class="math">\(u_2\)</span> (2), <span class="math">\(u_1\)</span> (3, finishing at 4), <span class="math">\(u_3\)</span> (5), <span class="math">\(u_5\)</span> (6), <span class="math">\(u_6\)</span> (7, finishing at 8), <span class="math">\(u_8\)</span> (9, finishing at 10) and <span class="math">\(u_9\)</span> (11), always taking the smallest undiscovered neighbor. Then <span class="math">\(u_9\)</span> visits its only undiscovered neighbor, <span class="math">\(u_7\)</span>, which starts at time 12.</p>
 </details>
 
     </div>
@@ -986,7 +1003,7 @@ def modified_bfs(graph, source):
 <p>What will be the DFS predecessor of node 3 in the search? Use the convention that a node's neighbors are produced in ascending order by label.</p>
 <details>
     <summary>Solution</summary>
-<p>1</p>
+<p>1. Starting at 11, DFS visits 8 (the smaller neighbor), then 5, then 2, then 1, taking the smallest undiscovered neighbor each time. Node 1's neighbors are 2, which is pending, and 3, which is still undiscovered, so <span class="inline-code"><code>dfs</code></span> is called on 3 from 1.</p>
 </details>
 
     </div>
@@ -1009,7 +1026,7 @@ def modified_bfs(graph, source):
 <p>What will be the start time of node 2? Use the convention that the start time of the source is 1.</p>
 <details>
     <summary>Solution</summary>
-<p>4</p>
+<p>4. DFS starts 11 at time 1, then visits its smaller neighbor 8 (time 2), then 8's smallest undiscovered neighbor 5 (time 3), and then 5's smallest neighbor 2 (time 4).</p>
 </details>
 
 </div>
@@ -1019,7 +1036,7 @@ def modified_bfs(graph, source):
 <p>What will be the finish time of node 10?</p>
 <details>
     <summary>Solution</summary>
-<p>11</p>
+<p>11. Continuing the search: 2 visits 1 (time 5), 1 visits 3 (6), 3 visits 4 (7), and 4 visits 9 (8). Node 9's neighbors (4, 5 and 11) are all pending, so 9 finishes at 9. Then 4 visits 10 (10), whose only neighbor is 4, so 10 finishes at 11.</p>
 </details>
 
 </div>
@@ -1042,7 +1059,7 @@ def modified_bfs(graph, source):
 <p>What will be the <b>finish</b> time of node <span class="math">\(c\)</span>? Assume the convention that a node's neighbors are produced in alphabetical order.</p>
 <details>
     <summary>Solution</summary>
-<p>11</p>
+<p>11. DFS from <span class="math">\(a\)</span> visits <span class="math">\(b\)</span> first (time 2), then <span class="math">\(b\)</span>'s descendants <span class="math">\(f\)</span>, <span class="math">\(g\)</span> and <span class="math">\(e\)</span>, and <span class="math">\(b\)</span> finishes at time 9. Next <span class="math">\(a\)</span> visits <span class="math">\(c\)</span>, which starts at time 10. Both of <span class="math">\(c\)</span>'s neighbors, <span class="math">\(b\)</span> and <span class="math">\(e\)</span>, are already visited, so <span class="math">\(c\)</span> finishes right away, at time 11.</p>
 </details>
 
     </div>
@@ -1063,7 +1080,7 @@ def modified_bfs(graph, source):
 <p>What will be the finish time of node <span class="math">\(e\)</span>? Assume the convention that a node's neighbors are produced in alphabetical order.</p>
 <details>
     <summary>Solution</summary>
-<p>13</p>
+<p>13. Taking the first undiscovered neighbor in alphabetical order each time, DFS starts <span class="math">\(a\)</span> (1), <span class="math">\(b\)</span> (2), <span class="math">\(d\)</span> (3), <span class="math">\(e\)</span> (4), <span class="math">\(f\)</span> (5) and <span class="math">\(c\)</span> (6). Then <span class="math">\(c\)</span> finishes (7), <span class="math">\(f\)</span> visits <span class="math">\(h\)</span> (8), <span class="math">\(h\)</span> finishes (9), and <span class="math">\(f\)</span> finishes (10). Back at <span class="math">\(e\)</span>, the only undiscovered neighbor left is <span class="math">\(g\)</span> (start 11, finish 12), so <span class="math">\(e\)</span> finishes at 13.</p>
 </details>
 
     </div>
@@ -1086,7 +1103,7 @@ def modified_bfs(graph, source):
 <p>What will be the start time of node <span class="math">\(u_7\)</span>?</p>
 <details>
     <summary>Solution</summary>
-<p>8</p>
+<p>8. Taking the smallest undiscovered neighbor each time, the search starts <span class="math">\(s\)</span> (1), <span class="math">\(u_1\)</span> (2), <span class="math">\(u_2\)</span> (3), <span class="math">\(u_3\)</span> (4), <span class="math">\(u_4\)</span> (5), <span class="math">\(u_5\)</span> (6) and <span class="math">\(u_6\)</span> (7). Then <span class="math">\(u_6\)</span>'s smallest undiscovered neighbor is <span class="math">\(u_7\)</span>, which starts at time 8.</p>
 </details>
 
 </div>
@@ -1096,7 +1113,7 @@ def modified_bfs(graph, source):
 <p>What will be the finish time of node <span class="math">\(u_7\)</span>?</p>
 <details>
     <summary>Solution</summary>
-<p>9</p>
+<p>9. The neighbors of <span class="math">\(u_7\)</span>, <span class="math">\(u_5\)</span> and <span class="math">\(u_6\)</span>, are both pending, so <span class="math">\(u_7\)</span> finishes right after it starts, at time 9.</p>
 </details>
 
 </div>
@@ -1106,7 +1123,7 @@ def modified_bfs(graph, source):
 <p>Which node will be the DFS predecessor of node <span class="math">\(u_7\)</span>?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(u_6\)</span></p>
+<p><span class="math">\(u_6\)</span>. As in the first part, <span class="math">\(u_5\)</span> visits <span class="math">\(u_6\)</span> before it gets to <span class="math">\(u_7\)</span>, and <span class="math">\(u_6\)</span> then visits <span class="math">\(u_7\)</span>, so <span class="inline-code"><code>dfs</code></span> is called on <span class="math">\(u_7\)</span> from <span class="math">\(u_6\)</span>.</p>
 </details>
 
 </div>
@@ -1142,7 +1159,7 @@ def modified_bfs(graph, source):
 <p>How many times will <span class="inline-code"><code>"Hello!"</code></span> be printed? Note that this is not a full DFS, and that not all nodes are reachable from <span class="math">\(a\)</span>.</p>
 <details>
     <summary>Solution</summary>
-<p>6</p>
+<p>6. The print runs once for each recursive call, that is, once for every node discovered other than <span class="math">\(a\)</span>. Following the edges' directions, the nodes reachable from <span class="math">\(a\)</span> are <span class="math">\(a, b, c, d, e, f, g\)</span>. Each of the six besides <span class="math">\(a\)</span> is discovered once, so <span class="inline-code"><code>"Hello!"</code></span> is printed 6 times.</p>
 </details>
 
     </div>
@@ -1176,7 +1193,13 @@ def modified_bfs(graph, source):
 <p>How many times will <span class="inline-code"><code>"Hello!"</code></span> be printed? Note that this is not a full DFS, and that not all nodes are reachable from <span class="math">\(a\)</span>.</p>
 <details>
     <summary>Solution</summary>
-<p>10</p>
+<p>10.</p>
+<p>The print statement is inside the loop over <span class="math">\(u\)</span>'s neighbors, but before the check of <span class="math">\(v\)</span>'s status. So it runs once for every neighbor of every node that <span class="inline-code"><code>dfs</code></span> is called on, whether or not that neighbor has been discovered. Since <span class="inline-code"><code>dfs</code></span> is called exactly once on each node reachable from <span class="math">\(a\)</span>, the number of prints is the sum of the out-degrees of the nodes reachable from <span class="math">\(a\)</span>.</p>
+<p>Following the edges' directions, <span class="math">\(a\)</span> reaches <span class="math">\(b\)</span>, <span class="math">\(c\)</span>, <span class="math">\(d\)</span>, <span class="math">\(e\)</span>, <span class="math">\(f\)</span> and <span class="math">\(g\)</span>, but not <span class="math">\(h\)</span>, since all of <span class="math">\(h\)</span>'s edges point away from it. Adding up the out-degrees:</p>
+<div class="math">\[
+            \underbrace{3}_{a} + \underbrace{2}_{b} + \underbrace{1}_{c} + \underbrace{1}_{d} + \underbrace{1}_{e} + \underbrace{1}_{f} + \underbrace{1}_{g} = 10.
+        \]</div>
+<p>Notice that <span class="math">\((e, g)\)</span> and <span class="math">\((g, e)\)</span> both count, since they are two different edges, and that <span class="math">\(h\)</span>'s three edges don't count, since <span class="math">\(h\)</span> is never visited.</p>
 </details>
 
     </div>
@@ -1209,7 +1232,7 @@ def modified_bfs(graph, source):
 <center><div class="image"><img src="images/283/g4.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p>12</p>
+<p>12. The print runs once for every neighbor of every node visited. The DFS visits only <span class="math">\(u\)</span>'s connected component, which has 5 nodes and 6 edges. In an undirected graph each edge appears in two adjacency lists, so the total is <span class="math">\(2 \times 6 = 12\)</span>.</p>
 </details>
 
     </div>
@@ -1230,7 +1253,7 @@ def modified_bfs(graph, source):
 <p>What is the time complexity of depth-first search when run on a forward-looking graph with <span class="math">\(n\)</span> nodes, using node <span class="math">\(u_1\)</span> as the source? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span></p>
+<p><span class="math">\(\Theta(n^2)\)</span>. DFS takes <span class="math">\(\Theta(V + E)\)</span> time, and every node is reachable from <span class="math">\(u_1\)</span>. There is an edge for each pair <span class="math">\(i < j\)</span>, so <span class="math">\(E = n(n-1)/2\)</span>, and the time is <span class="math">\(\Theta(n + n^2) = \Theta(n^2)\)</span>.</p>
 </details>
 
     </div>
@@ -1347,7 +1370,7 @@ def modified_bfs(graph, source):
 <p>In a DFS on an undirected graph <span class="math">\(G\)</span>, the start time of node <span class="math">\(u\)</span> is 12, while the finish time of node <span class="math">\(u\)</span> is 37. How many nodes were marked pending between the moment that node <span class="math">\(u\)</span> was marked pending and the moment that it was marked visited? Node <span class="math">\(u\)</span> itself should be <i>excluded</i> from your count.</p>
 <details>
     <summary>Solution</summary>
-<p>12</p>
+<p>12. Every node that is marked pending during this time is also marked visited during it, and each one uses two time steps: one for its start and one for its finish. The times strictly between 12 and 37 are <span class="math">\(13, \ldots, 36\)</span>, which is 24 time steps, so <span class="math">\(24 / 2 = 12\)</span> nodes.</p>
 </details>
 
     </div>
@@ -1420,13 +1443,13 @@ def modified_bfs(graph, source):
     \]</div>
 <p>Now suppose another DFS is run using node <span class="math">\(s\)</span> as the source, but adopting a different convention about the order in which neighbors are produced. Suppose <span class="inline-code"><code>new_start</code></span> and <span class="inline-code"><code>new_finish</code></span> are the start and finish times found by this second DFS. True or False: it must be that</p>
 <div class="math">\[
-        \text{new_start}[u]
+        \text{new\_start}[u]
         <
-        \text{new_start}[v]
+        \text{new\_start}[v]
         <
-        \text{new_finish}[v]
+        \text{new\_finish}[v]
         <
-        \text{new_finish}[u]
+        \text{new\_finish}[u]
     \]</div>
 <details>
     <summary>Solution</summary>

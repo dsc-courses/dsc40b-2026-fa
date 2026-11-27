@@ -98,6 +98,11 @@
 
 
 <style>
+    .problem .image img {
+        max-height: 22rem;
+        width: auto;
+        max-width: 100%;
+    }
     html.dark .problem .image img {
         filter: invert(1) hue-rotate(180deg);
         mix-blend-mode: lighten;
@@ -329,7 +334,7 @@ def binary_search(arr, t, start, stop):
 <p>Suppose <span class="inline-code"><code>binary_search(arr, t, 0, len(arr))</code></span> is called on a sorted array of size <span class="math">\(n\)</span>. In total, how many recursive calls to <span class="inline-code"><code>binary_search</code></span> are made in the worst case?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(\log n)\)</span></p>
+<p><span class="math">\(\Theta(\log n)\)</span>. In the worst case, <span class="math">\(t\)</span> isn't in the array, so the search only stops when the range is empty. Each call recurses on at most half of the current range, so after <span class="math">\(k\)</span> calls the range has at most <span class="math">\(n/2^k\)</span> elements, and it becomes empty after <span class="math">\(\Theta(\log n)\)</span> calls.</p>
 </details>
 
     </div>
@@ -353,7 +358,9 @@ def binary_search(arr, t, start, stop):
 <div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>arr[stop:] > t</code></span>. That is, everything after <span class="inline-code"><code>stop</code></span>, including the element at <span class="inline-code"><code>stop</code></span>, is greater than the target.</p></label></div></div>
 <details>
     <summary>Solution</summary>
-<p>The last two answers are both correct.</p>
+<p><span class="inline-code"><code>arr[:start] < t</code></span> and <span class="inline-code"><code>arr[stop:] > t</code></span> are both true.</p>
+<p>Both hold in the root call, where <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>, because <span class="inline-code"><code>arr[:0]</code></span> and <span class="inline-code"><code>arr[len(arr):]</code></span> are empty. Now suppose they hold in some call, and that call recurses. It recurses on the right half, setting <span class="inline-code"><code>start = middle + 1</code></span>, only after seeing <span class="inline-code"><code>arr[middle] < t</code></span>. Since the array is sorted, everything up to and including <span class="inline-code"><code>arr[middle]</code></span> is less than <span class="math">\(t\)</span>, so <span class="inline-code"><code>arr[:middle + 1] < t</code></span> holds in the new call (and <span class="inline-code"><code>stop</code></span> doesn't change). Similarly, it recurses on the left half, setting <span class="inline-code"><code>stop = middle</code></span>, only after seeing <span class="inline-code"><code>arr[middle] > t</code></span>, so everything from <span class="inline-code"><code>arr[middle]</code></span> on is greater than <span class="math">\(t\)</span>. So both statements hold in every call.</p>
+<p>The first two can fail. In the root call, if <span class="math">\(t\)</span> is smaller than every element, then <span class="inline-code"><code>arr[start] < t</code></span> is false (and in the first option, <span class="inline-code"><code>arr[stop]</code></span> is past the end of the array). Similarly, if <span class="math">\(t\)</span> is larger than every element, then <span class="inline-code"><code>t < arr[stop - 1]</code></span> is false. The search range only tells us that the elements <i>outside</i> it are on the correct side of <span class="math">\(t\)</span>; it says nothing about the elements at its ends.</p>
 </details>
 
     </div>
@@ -538,7 +545,9 @@ def merge(left, right, out):
 <p>Suppose <span class="inline-code"><code>mergesort</code></span> is called on an array of size <span class="math">\(n\)</span>. In total, how many times will <span class="inline-code"><code>"Here!"</code></span> be printed?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n \log n)\)</span></p>
+<p><span class="math">\(\Theta(n \log n)\)</span>.</p>
+<p>The <span class="inline-code"><code>print</code></span> is inside <span class="inline-code"><code>merge</code></span>'s loop, which runs once for each element of <span class="inline-code"><code>out</code></span>. So a call to <span class="inline-code"><code>merge</code></span> that produces an array of size <span class="math">\(m\)</span> prints “Here!” <span class="math">\(m\)</span> times, i.e., the number of prints is exactly the number of elements merged.</p>
+<p>Now look at the recursion tree of <span class="inline-code"><code>mergesort</code></span>. At each level, the subarrays being sorted together make up the whole array (each element is in exactly one of them), so the merges at that level produce at most <span class="math">\(n\)</span> elements in total, and exactly <span class="math">\(n\)</span> at every level above the leaves. There are <span class="math">\(\Theta(\log n)\)</span> levels, since the size halves at each one. So the total number of prints is <span class="math">\(\Theta(n)\)</span> per level times <span class="math">\(\Theta(\log n)\)</span> levels, which is <span class="math">\(\Theta(n \log n)\)</span>. This is the same argument that shows <span class="inline-code"><code>mergesort</code></span> takes <span class="math">\(\Theta(n \log n)\)</span> time.</p>
 </details>
 
     </div>

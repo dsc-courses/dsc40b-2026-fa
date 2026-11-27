@@ -98,6 +98,11 @@
 
 
 <style>
+    .problem .image img {
+        max-height: 22rem;
+        width: auto;
+        max-width: 100%;
+    }
     html.dark .problem .image img {
         filter: invert(1) hue-rotate(180deg);
         mix-blend-mode: lighten;
@@ -353,7 +358,7 @@ def boo(n):
         print(i)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span></p>
+<p><span class="math">\(\Theta(n)\)</span>. The loop runs <span class="math">\(x\)</span> times, and <span class="math">\(x\)</span> is equally likely to be any of <span class="math">\(0, 1, \ldots, n-1\)</span>. So the expected number of iterations is <span class="math">\(\frac{1}{n}\sum_{x=0}^{n-1} x = \frac{1}{n} \cdot \frac{n(n-1)}{2} = \frac{n-1}{2} = \Theta(n)\)</span>.</p>
 </details>
 
     </div>
@@ -531,7 +536,7 @@ def foo(n):
         print("Lucky!")</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>.</p>
+<p><span class="math">\(\Theta(n^2)\)</span>. The first branch happens with probability <span class="math">\(20/n\)</span> and takes <span class="math">\(\Theta(n^3)\)</span> time; the second happens with probability about <span class="math">\(1/2\)</span> and takes <span class="math">\(\Theta(n)\)</span> time; the third takes <span class="math">\(\Theta(1)\)</span> time. So the expected time is about <span class="math">\(\frac{20}{n} \cdot n^3 + \frac12 \cdot n + \frac12 \cdot 1 = 20n^2 + \frac{n}{2} + \frac12 = \Theta(n^2)\)</span>.</p>
 </details>
 
     </div>

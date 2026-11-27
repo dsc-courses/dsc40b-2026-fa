@@ -98,6 +98,11 @@
 
 
 <style>
+    .problem .image img {
+        max-height: 22rem;
+        width: auto;
+        max-width: 100%;
+    }
     html.dark .problem .image img {
         filter: invert(1) hue-rotate(180deg);
         mix-blend-mode: lighten;
@@ -400,7 +405,7 @@ def quickselect(arr, k, start, stop):
 <p>What is the <b>fewest</b> number of times that “hello world!” can possibly be printed? Your answer should be a number, and not in terms of <span class="math">\(n\)</span>.</p>
 <details>
     <summary>Solution</summary>
-<p>1</p>
+<p>1. If the first pivot chosen is the 3rd smallest element (the 2), then after partitioning <span class="inline-code"><code>pivot_order</code></span> equals 3, and the function returns without recursing.</p>
 </details>
 
 </div>
@@ -410,7 +415,7 @@ def quickselect(arr, k, start, stop):
 <p>What is the <b>greatest</b> number of times that “hello world!” can possibly be printed? Your answer should be a number, and not in terms of <span class="math">\(n\)</span>.</p>
 <details>
     <summary>Solution</summary>
-<p>10</p>
+<p>10. Each call removes at least the pivot from the range it recurses on, so the range shrinks by at least one per call, and a call on a range of size 1 must pick the target. The most calls happen when every pivot is the smallest or largest element of its range but isn't the target (e.g., the pivots are 9, 8, 7, 6, 5, 4, 3, 0, 1 and finally 2), so the range shrinks by exactly one each time, giving one call for each of the sizes <span class="math">\(10, 9, \ldots, 1\)</span>.</p>
 </details>
 
 </div>
