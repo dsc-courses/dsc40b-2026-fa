@@ -1210,6 +1210,9 @@
     .md\:ml-\[1px\] {
       margin-left: 1px;
     }
+    .md\:flex {
+      display: flex;
+    }
     .md\:w-72 {
       width: calc(var(--spacing) * 72);
     }
@@ -1228,6 +1231,12 @@
     .md\:flex-wrap {
       flex-wrap: wrap;
     }
+    .md\:items-center {
+      align-items: center;
+    }
+    .md\:justify-center {
+      justify-content: center;
+    }
     .md\:gap-10 {
       gap: calc(var(--spacing) * 10);
     }
@@ -1243,6 +1252,12 @@
     }
     .md\:px-12 {
       padding-inline: calc(var(--spacing) * 12);
+    }
+    .md\:py-4 {
+      padding-block: calc(var(--spacing) * 4);
+    }
+    .md\:text-center {
+      text-align: center;
     }
   }
   @media (width >= 64rem) {
