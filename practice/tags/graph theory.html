@@ -794,6 +794,145 @@
         update();
     });
 </script>
+
+
+<style>
+    .prose:has(> .demos-index) {
+        max-width: 64rem;
+        --demos-ink: #111827;
+        --demos-muted: #6b7280;
+        --demos-line: #e5e7eb;
+        --demos-panel: #f9fafb;
+        --demos-blank: #ffffff;
+        --demos-edge: #9ca3af;
+        --demos-est: #6E66BA;
+        --demos-accent: #2563eb;
+    }
+    html.dark .prose:has(> .demos-index) {
+        --demos-ink: #f3f4f6;
+        --demos-muted: #9ca3af;
+        --demos-line: #374151;
+        --demos-panel: #111827;
+        --demos-blank: #1f2937;
+        --demos-edge: #6b7280;
+        --demos-est: #a5a0e0;
+        --demos-accent: var(--color-sky-400);
+    }
+    .prose:has(> .demos-index) > p {
+        max-width: 65ch;
+        color: var(--demos-muted);
+    }
+    .prose .demos-index {
+        list-style: none;
+        margin: 1.5rem 0 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+        gap: 1.5rem 1.25rem;
+    }
+    .prose .demos-index li {
+        margin: 0;
+        padding: 0;
+    }
+    .prose .demos-index a {
+        display: block;
+        text-decoration: none;
+    }
+    .prose .demos-preview {
+        padding: 1.1rem 1.4rem;
+        border: 1px solid var(--demos-line);
+        border-radius: 10px;
+        background: var(--demos-panel);
+        transition: border-color .15s;
+    }
+    .prose .demos-index a:hover .demos-preview {
+        border-color: var(--demos-accent);
+    }
+    .prose .demos-meta {
+        margin-top: .65rem;
+        font-size: .75rem;
+        font-weight: 600;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+        color: var(--demos-muted);
+    }
+    .prose .demos-title {
+        display: block;
+        margin: .1rem 0 .2rem;
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--demos-ink);
+    }
+    .prose .demos-index a:hover .demos-title {
+        color: var(--demos-accent);
+    }
+    .prose .demos-desc {
+        margin: 0;
+        font-size: .9rem;
+        line-height: 1.45;
+        color: var(--demos-muted);
+    }
+    .prose .demos-desc code {
+        font-size: .85em;
+    }
+    @media (max-width: 520px) {
+        .prose .demos-preview {
+            padding: .6rem;
+        }
+        .prose .demos-preview svg {
+            max-width: 200px;
+            margin: 0 auto;
+        }
+    }
+
+    /* the drawings */
+    .demos-svg {
+        display: block;
+        width: 100%;
+        height: auto;
+        overflow: visible;
+    }
+    .demos-svg .demos-node,
+    .demos-svg .demos-ring {
+        stroke: var(--demos-ink);
+        stroke-width: 1.6;
+    }
+    .demos-svg .demos-ring {
+        stroke-width: 1.2;
+    }
+    .demos-svg .demos-band {
+        fill: none;
+        stroke: var(--demos-edge);
+        stroke-width: 1;
+        stroke-dasharray: 2 3;
+        opacity: .7;
+    }
+    .demos-svg .demos-edge {
+        stroke: var(--demos-edge);
+        stroke-width: 1.3;
+    }
+    .demos-svg .demos-bold {
+        stroke: var(--demos-ink);
+        stroke-width: 2.2;
+    }
+    .demos-svg .demos-arrow {
+        stroke: #6E66BA;
+        stroke-width: 2.4;
+    }
+    .demos-svg text {
+        font: 600 9px ui-sans-serif, system-ui, sans-serif;
+        text-anchor: middle;
+        dominant-baseline: middle;
+    }
+    .demos-svg .demos-weight {
+        fill: var(--demos-muted);
+        font-weight: 500;
+    }
+    .demos-svg .demos-est {
+        fill: var(--demos-est);
+        font-size: 10px;
+    }
+</style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
