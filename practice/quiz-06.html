@@ -95,6 +95,14 @@
         }, { passive: true });
     })();
 </script>
+
+
+<style>
+    html.dark .problem .image img {
+        filter: invert(1) hue-rotate(180deg);
+        mix-blend-mode: lighten;
+    }
+</style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -311,7 +319,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>What type of graph would be best for representing a network of friends on social media, where friendships are mutual? (i.e, if person A is person B's friend, person B is also person A's friend)</p>
+<p>What type of graph would be best for representing a network of friends on social media, where friendships are mutual? (i.e., if person A is person B's friend, person B is also person A's friend)</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Undirected graph</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Directed graph</p></label></div></form></div>
 <details>
@@ -417,8 +425,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V, E)\)</span> be a <i>directed</i> graph, and suppose <span class="math">\(u, v, w \in V\)</span> are all nodes. True or False: if <span class="math">\(w\)</span> is reachable from <span class="math">\(v\)</span>, and <span class="math">\(v\)</span> is reachable from <span class="math">\(u\)</span>, then <span class="math">\(w\)</span> is reachable from <span class="math">\(u\)</span>.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -439,8 +445,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(C\)</span> be a connected component in an undirected graph <span class="math">\(G\)</span>. Suppose <span class="math">\(u_1\)</span> is a node in <span class="math">\(C\)</span> and let <span class="math">\(u_2\)</span> be a node that is reachable from <span class="math">\(u_1\)</span>. True or False: <span class="math">\(u_2\)</span> must also be in the same connected component, <span class="math">\(C\)</span>.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -460,7 +464,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(v = \{a, b, c, d, e, f, g\}\)</span> and <span class="math">\(E = \{(a,g), (b,d), (d, e), (f, d)\}\)</span>. How many connected components does the undirected graph <span class="math">\(G =(V, E)\)</span> have?</p>
+<p>Let <span class="math">\(V = \{a, b, c, d, e, f, g\}\)</span> and <span class="math">\(E = \{(a,g), (b,d), (d, e), (f, d)\}\)</span>. How many connected components does the undirected graph <span class="math">\(G =(V, E)\)</span> have?</p>
 <details>
     <summary>Solution</summary>
 <p>3</p>
@@ -480,7 +484,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Consider the undirected graph <span class="math">\(G = (V, E)\)</span> with</p>
-<p><span class="math">\(V = \{0, 1, 2, 3, 4, 5, 6, 7\}\)</span> <span class="math">\(E = \{(0, 1), (3, 6), (1, 5), (2, 4), (3, 4)\}\)</span></p>
+<p><span class="math">\(V = \{0, 1, 2, 3, 4, 5, 6, 7\}\)</span></p>
+<p><span class="math">\(E = \{(0, 1), (3, 6), (1, 5), (2, 4), (3, 4)\}\)</span></p>
 <p>What are the connected components of <span class="math">\(G\)</span>?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{\{0, 1, 5, 7\}, \{2, 3, 4, 6\}\}\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{\{0, 1, 5, 2, 4\}, \{3, 6, 7\}\}\)</span></p></label></div>
@@ -506,14 +511,13 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V,E)\)</span> be an undirected graph with:</p>
-<center><div class="image"><img src="images/198/plot.png" /></div></center>
+<div class="math">\[
+        \begin{aligned}
+            V &= \{a, b, c, d, e, f, g, h\}\\
+            E &= \{(b, g), (a, e), (e, f), (c, b), (h, b), (d, b), (g, d), (a, f)\}
+        \end{aligned}
+    \]</div>
 <p>True or False: <span class="math">\(\{b, d, g\}\)</span> is a connected component of this graph.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False. The connected components of this graph are <span class="math">\(\{a, e, f\}\)</span> and <span class="math">\(\{b, c, d, g, h\}\)</span>.</p>
@@ -534,14 +538,13 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V,E)\)</span> be an undirected graph with:</p>
-<center><div class="image"><img src="images/199/graph.png" /></div></center>
+<div class="math">\[
+        \begin{aligned}
+            V &= \{a, b, c, d, e, f, g\}\\
+            E &= \{(a, c), (a, d), (a, e), (b, g), (b, f)\}
+        \end{aligned}
+    \]</div>
 <p>True or False: <span class="math">\(\{a, d, e\}\)</span> is a connected component of this graph.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -562,12 +565,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V, E)\)</span> be an undirected graph, and suppose that <span class="math">\(u, v, \)</span> and <span class="math">\(w\)</span> are three nodes in <span class="math">\(V\)</span>. Suppose that <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the same connected component, but <span class="math">\(u\)</span> and <span class="math">\(w\)</span> are not in the same connected component. True or False: it is possible that <span class="math">\(v\)</span> and <span class="math">\(w\)</span> are in the same connected component.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -632,12 +629,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G\)</span> be an undirected graph. Suppose that the degree of every node in the graph is greater than or equal to one. True or False: <span class="math">\(G\)</span> must be connected.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -658,8 +649,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(G = (V, E)\)</span> is an undirected graph. Let <span class="math">\(k\)</span> be the number of connected components in <span class="math">\(G\)</span>. True or False: it is possible that <span class="math">\(k > |E|\)</span>.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -721,7 +710,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose an undirected graph <span class="math">\(G = (V,E)\)</span> has two connected components, <span class="math">\(C_1\)</span> and <span class="math">\(C_2\)</span>. Suppose that <span class="math">\(|C_1| = 4\)</span> and <span class="math">\(|C_2| = 3\)</span>. What is the largest that <span class="math">\(|E|\)</span> can possibly be?</p>
 <details>
     <summary>Solution</summary>
-<p>Answer: 9. To load a graph with the most edges, make each connected component "fully connected". The most edges we can put in a component with 4 nodes is <span class="math">\(4 * 3 / 2 = 6\)</span>, and the most we can put into a component with 3 nodes is <span class="math">\(3 * 2 / 2 = 3\)</span>. Therefore, we can put at most 9 edges in this graph.</p>
+<p>Answer: 9. To get a graph with the most edges, make each connected component "fully connected". The most edges we can put in a component with 4 nodes is <span class="math">\(4 \cdot 3 / 2 = 6\)</span>, and the most we can put into a component with 3 nodes is <span class="math">\(3 \cdot 2 / 2 = 3\)</span>. Therefore, we can put at most 9 edges in this graph.</p>
 </details>
 
     </div>
@@ -837,8 +826,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Consider the graph below</p>
 <center><div class="image"><img src="images/213/graph_theory_1.png" /></div></center>
 <p>True or False: there are <i>infinitely many</i> paths from <span class="math">\(0\)</span> to <span class="math">\(5\)</span>. (Here, "path" means any path, not necessarily a simple path.)</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p>False. Paths may repeat nodes, so there would be infinitely many paths from 0 to 5 if some path from 0 to 5 could go around a cycle. But this graph has no cycles (every edge goes "forward"), so no path can repeat a node, and the only paths from 0 to 5 are the three simple paths <span class="math">\(0 \to 5\)</span>, <span class="math">\(0 \to 4 \to 5\)</span>, and <span class="math">\(0 \to 2 \to 4 \to 5\)</span>.</p>
@@ -859,12 +846,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Let <span class="math">\(G\)</span> be an undirected graph, and suppose <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are two nodes belonging to the same connected component of <span class="math">\(G\)</span>, with <span class="math">\(v\)</span> being a neighbor of <span class="math">\(u\)</span>. That is, the edge <span class="math">\((u, v)\)</span> is in <span class="math">\(G\)</span>.</p>
 <p>Let <span class="math">\(G'\)</span> be the graph obtained from <span class="math">\(G\)</span> by deleting the edge <span class="math">\((u, v)\)</span>. True or False: <span class="math">\(u\)</span> and <span class="math">\(v\)</span> must still be in the same connected component of the new graph, <span class="math">\(G'\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -884,14 +865,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose that every node in an undirected graph with <span class="math">\(n\)</span> nodes has degree 2.</p>
+<p>Suppose that every node in an undirected graph <span class="math">\(G\)</span> with <span class="math">\(n\)</span> nodes has degree 2.</p>
 <p>True or False: <span class="math">\(G\)</span> must have one connected component.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -912,13 +887,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G=(V,E)\)</span> be an undirected graph with <span class="math">\(V=\{a,b,c,d,e\}\)</span> and <span class="math">\(E=\{(a,b),(c,d),(e,a),(b,c),(e,d),(d,a)\}\)</span>.</p>
-<p>True or False: it is possible to color nodes of <span class="math">\(G\)</span> with red and blue such that there are no edges between nodes of the same color.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
+<p>True or False: it is possible to color the nodes of <span class="math">\(G\)</span> with red and blue such that there are no edges between nodes of the same color.</p>
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -940,12 +909,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V, E)\)</span> be a directed graph with the property that there is a node <span class="math">\(u\)</span> in <span class="math">\(G\)</span> such that every other node in <span class="math">\(G\)</span> is reachable from <span class="math">\(u\)</span>.</p>
 <p>Let <span class="math">\(H \)</span> be the directed graph obtained from <span class="math">\(G\)</span> by reversing the direction of every edge. True or False: there must be a node <span class="math">\(v\)</span> in <span class="math">\(H\)</span> such that every other node in <span class="math">\(H\)</span> is reachable from <span class="math">\(v\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False. Consider the graph <span class="math">\(a \leftarrow b \rightarrow c\)</span>. Every node is reachable from <span class="math">\(b\)</span>. Now flip the edges to get the graph: <span class="math">\(a \rightarrow b \leftarrow c\)</span>. There's no node from which every other node is reachable.</p>
@@ -964,7 +927,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/graph representations.html'>graph representations</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(A\)</span> be the adjacency matrix representing a directed graph with $n$ nodes. What is the greatest possible sum of any <i>row</i> of <span class="math">\(A\)</span>?</p>
+<p>Let <span class="math">\(A\)</span> be the adjacency matrix representing a directed graph with <span class="math">\(n\)</span> nodes. What is the greatest possible sum of any <i>row</i> of <span class="math">\(A\)</span>?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(1\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n - 1\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n\)</span></p></label></div>
@@ -988,7 +951,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/graph representations.html'>graph representations</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(A\)</span> be the adjacency matrix representing a undirected graph with <span class="math">\(n\)</span> nodes. What is the greatest possible sum of any <i>row</i> of <span class="math">\(A\)</span>?</p>
+<p>Let <span class="math">\(A\)</span> be the adjacency matrix representing an undirected graph with <span class="math">\(n\)</span> nodes. What is the greatest possible sum of any <i>row</i> of <span class="math">\(A\)</span>?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(1\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n - 1\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n\)</span></p></label></div>
@@ -997,33 +960,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(n - 1\)</span>. The sum of row <span class="math">\(i\)</span> is the degree of node <span class="math">\(i\)</span>. Since an undirected graph has no self-loops, a node can be adjacent to at most the other <span class="math">\(n - 1\)</span> nodes.</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #220</h2>
-        <p>Tags: <a href='./tags/aggregate analysis.html'>aggregate analysis</a>, <a href='./tags/graph representations.html'>graph representations</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Suppose a graph <span class="math">\(G = (V, E)\)</span> is stored using an adjacency list representation in the variable <span class="inline-code"><code>adj_list</code></span>. What is the time complexity of the below code?</p>
-<pre class="code"><code class="language-python">for lst in adj_list:
-    for u in lst:
-        print(u)</code></pre>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2 + E^2)\)</span></p></label></div></form></div>
-<details>
-    <summary>Solution</summary>
-<p><span class="math">\(\Theta(V + E)\)</span></p>
 </details>
 
     </div>
@@ -1043,14 +979,9 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <pre class="code"><code class="language-python">for u, lst in enumerate(adj_list):
     for v in lst:
         print(u, v, "is an edge")</code></pre>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2 + E^2)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>2nd option: <span class="math">\(\Theta(V + E)\)</span></p>
+<p><span class="math">\(\Theta(V + E)\)</span></p>
 </details>
 
     </div>
@@ -1067,14 +998,9 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Suppose the code below is run on a graph <span class="math">\(G = (V, E)\)</span>. What is its time complexity? You may assume that <span class="math">\(|E| \geq 1\)</span>.</p>
-<pre class="code"><code>for u in graph.nodes:
+<pre class="code"><code class="language-python">for u in graph.nodes:
     for v in graph.neighbors(u):
         print(u, v)</code></pre>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(VE)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(V + E)\)</span></p>
@@ -1115,11 +1041,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>An “isolated node” in a graph is a node that has no edges attached to it.</p>
 <p>What is the worst case time complexity of an efficient algorithm that checks to see if a graph <span class="math">\(G = (V, E)\)</span> has an isolated node? You should assume that the graph is represented as an adjacency list.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V \cdot E)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(V)\)</span></p>
@@ -1175,12 +1096,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         \end{pmatrix}
     \]</div>
 <p>True or False: there is a path from node <span class="math">\(u_1\)</span> to node <span class="math">\(u_8\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -1221,7 +1136,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose you are performing a BFS on the following graph, starting on node 0: In which of the following orders are the nodes visited, assuming that the BFS algorithm produces neighbors in numerical order?</p>
+<p>Suppose you are performing a BFS on the following graph, starting at node 0. In which of the following orders are the nodes visited, assuming that the BFS algorithm produces neighbors in numerical order?</p>
 <center><div class="image"><img src="images/228/bfs_1.png" /></div></center>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>0, 1, 2, 3, 4, 5</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>0, 1, 3, 5, 4, 2</p></label></div>
@@ -1248,13 +1163,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose a <i>breadth</i> first search is run on the graph below using node <span class="math">\(d\)</span> as the source. Adopt the convention that a node's neighbors are produced in alphabetical order.</p>
 <center><div class="image"><img src="images/229/searchme.png" /></div></center>
 <p>What is the node popped from the queue after node <span class="math">\(g\)</span>?</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>d</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>e</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>f</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>g</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>q</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>r</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>v</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(e\)</span>. The nodes are popped in the order <span class="math">\(d, f, q, r, g, e, v\)</span>. Popping <span class="math">\(d\)</span> adds <span class="math">\(f, q, r\)</span>; popping <span class="math">\(f\)</span> adds <span class="math">\(g\)</span>; popping <span class="math">\(q\)</span> adds <span class="math">\(e\)</span>; popping <span class="math">\(r\)</span> adds <span class="math">\(v\)</span>. So the queue is then <span class="math">\(g, e, v\)</span>, and <span class="math">\(e\)</span> comes right after <span class="math">\(g\)</span>.</p>
@@ -1298,7 +1206,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     (V, E)\)</span> with nodes <span class="math">\(u_1, u_2, \ldots, u_n\)</span> and edges <span class="math">\((u_1, u_2), (u_2,
     u_3), \ldots, (u_{n-1}, u_n)\)</span>, along with one additional edge <span class="math">\((u_n, u_1)\)</span> completing the cycle. An example of a circle graph with 6 nodes is shown below:</p>
 <center><div class="image"><img src="images/231/graph.png" /></div></center>
-<p>What is the time complexity of breath-first search when run on a circle graph with <span class="math">\(n\)</span> nodes? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation.</p>
+<p>What is the time complexity of breadth-first search when run on a circle graph with <span class="math">\(n\)</span> nodes? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
@@ -1317,7 +1225,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a “2-chain” graph with <span class="math">\(n\)</span> nodes is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math">\(\ldots\)</span>, <span class="math">\(n\)</span>, and, for each node <span class="math">\(u\)</span>, making an edge to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span> (if they are in the graph).</p>
+<p>Suppose a “2-chain” graph with <span class="math">\(n\)</span> nodes is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math">\(\ldots\)</span>, <span class="math">\(n\)</span>, and, for each node <span class="math">\(u\)</span>, making a directed edge from <span class="math">\(u\)</span> to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span> (if they are in the graph).</p>
 <p>For example, such a graph with <span class="math">\(n = 7\)</span> looks like:</p>
 <center><div class="image"><img src="images/232/g3.png" /></div></center>
 <p>Suppose BFS is run on a 2-chain graph with <span class="math">\(n\)</span> nodes, using node 1 as the source. What is the time taken as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
@@ -1417,12 +1325,6 @@ def modified_bfs(graph, source):
     <div class="problem-body">
 <p>Consider calling <span class="inline-code"><code>full_bfs</code></span> on a <i>directed</i> graph, and recall that <span class="inline-code"><code>full_bfs</code></span> will make calls to <span class="inline-code"><code>bfs</code></span> until all nodes have been marked as visited.</p>
 <p>True or False: the number of calls made to <span class="inline-code"><code>bfs</code></span> depends on the order in which <span class="inline-code"><code>graph.nodes</code></span> produces the graph's nodes. That is, if nodes are produced in a different order, the number of calls to <span class="inline-code"><code>bfs</code></span> may be different.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -1443,12 +1345,6 @@ def modified_bfs(graph, source):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose an undirected graph with <span class="math">\(n\)</span> nodes satisfies the property that every node has degree <span class="math">\(n/2\)</span>. What is the time complexity of running full BFS on this graph?</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2 \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>. Full BFS takes <span class="math">\(\Theta(V + E)\)</span> time. The sum of the degrees is <span class="math">\(n \cdot n/2\)</span>, and each edge is counted twice in this sum, so there are <span class="math">\(n^2/4\)</span> edges. So the time is <span class="math">\(\Theta(n + n^2/4) = \Theta(n^2)\)</span>.</p>
@@ -1468,7 +1364,7 @@ def modified_bfs(graph, source):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a connected, undirected graph <span class="math">\(G\)</span> has <span class="math">\(n\)</span> nodes, half of which are “red” and half of which are “blue”. Each red node shares an edge with <span class="math">\(\log_2 n\)</span> blue nodes, and the only edges in the graph are between red and blue nodes.</p>
-<p>What is the time complexity of BFS when run on <span class="math">\(G\)</span>? Your answer should be in asymptotic notation and in terms of <span class="math">\(n\)</span>, in as simplest terms possible.</p>
+<p>What is the time complexity of BFS when run on <span class="math">\(G\)</span>? Your answer should be in asymptotic notation and in terms of <span class="math">\(n\)</span>, in the simplest terms possible.</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n \log n)\)</span></p>
@@ -1563,7 +1459,7 @@ def full_bfs(graph):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the following modification of BFS, where there are two new lines of code. What is the time complexity in terms of <span class="math">\(|V|\)</span> and <span class="math">\(|E|\)</span>?</p>
-<pre class="code"><code>from collections import deque
+<pre class="code"><code class="language-python">from collections import deque
 
 def foo(graph):
     status = {node: 'undiscovered' for node in graph.nodes}
@@ -1583,14 +1479,9 @@ def bar(graph, source, status):
             if status[v] == 'undiscovered':
                 status[v] = 'pending'
                 pending.append(v)
-            for v in graph.nodes:
-                print(v)
+            for z in graph.nodes:
+                print(z)
         status[u] = 'visited'</code></pre>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(VE)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + VE)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(V + VE)\)</span>. Without the two new lines, this is a full BFS, which takes <span class="math">\(\Theta(V + E)\)</span> time. The new inner loop runs once each time an edge is explored, and each time it takes <span class="math">\(\Theta(V)\)</span> time. By an aggregate analysis, edges are explored <span class="math">\(\Theta(E)\)</span> times in total, so the new lines add <span class="math">\(\Theta(VE)\)</span> time. The total is <span class="math">\(\Theta(V + E + VE) = \Theta(V + VE)\)</span>. (We can't drop the <span class="math">\(V\)</span> term: when there are no edges, the code still takes <span class="math">\(\Theta(V)\)</span> time.)</p>
@@ -1640,7 +1531,7 @@ def modified_bfs(graph, source, status=None):
 
         status[u] = 'visited'</code></pre>
 <p>Notice the two new lines; these lines print all node statuses any time that an undiscovered node has been found.</p>
-<p>What is the time complexity of this modified <span class="inline-code"><code>modified_full_bfs</code></span>? State your answer in asymptotic notation in terms of the number of nodes, <span class="math">\(|V|\)</span>, and the number of edges, <span class="math">\(|E|\)</span>. You may assume that the graph is represented using an adjacency list, and that it is connected.</p>
+<p>What is the time complexity of <span class="inline-code"><code>modified_full_bfs</code></span>? State your answer in asymptotic notation in terms of the number of nodes, <span class="math">\(|V|\)</span>, and the number of edges, <span class="math">\(|E|\)</span>. You may assume that the graph is represented using an adjacency list, and that it is connected.</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(V^2)\)</span>.</p>
@@ -1666,17 +1557,12 @@ def modified_bfs(graph, source, status=None):
 <p>A “hub and spoke” graph with <span class="math">\(n\)</span> nodes consists of a single “hub” node <span class="math">\(h\)</span> along with <span class="math">\(n - 1\)</span> “spoke” nodes, <span class="math">\(u_1, \ldots, u_{n-1}\)</span> and <span class="math">\(n - 1\)</span> edges from the hub node <span class="math">\(h\)</span> to each of the spoke nodes. For example, a “hub and spoke” graph with 8 nodes looks like the below:</p>
 <center><div class="image"><img src="images/244/g5.png" /></div></center>
 <p>What is the <b>worst case</b> time complexity of an optimal algorithm which takes as input an arbitrary graph <span class="math">\(G = (V, E)\)</span> and determines if it is a “hub and spoke” graph? You may assume that the graph is represented as an adjacency list and that the total number of edges in the graph can be retrieved in constant time.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E^2)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(1)\)</span></p>
-<p>Here's the algorithm. First, check that the number of edges is <span class="math">\(|V| - 1\)</span>. If not, it's not a “hub and spoke” graph. This takes constant time, by the assumption that the total number of edges can be retrieved in constant time.</p>
-<p>Next, take an arbitrary node and compute its degree (in <span class="math">\(\Theta(1)\)</span> time), since the graph is represented as an adjacency list). If the degree is <span class="math">\(n - 1\)</span>, then the graph is a “hub and spoke” graph, and this is the hub.</p>
-<p>If the degree is not <span class="math">\(n - 1\)</span>, but instead 1, this node might be a spoke. Check the degree of its neighbor as described above to see if its a hub.</p>
+<p>Here's the algorithm. First, check that the number of edges is <span class="math">\(n - 1\)</span>, where <span class="math">\(n = |V|\)</span>. If not, it's not a “hub and spoke” graph. This takes constant time, by the assumption that the total number of edges can be retrieved in constant time.</p>
+<p>Next, take an arbitrary node and compute its degree (in <span class="math">\(\Theta(1)\)</span> time, since the graph is represented as an adjacency list). If the degree is <span class="math">\(n - 1\)</span>, then the graph is a “hub and spoke” graph, and this is the hub.</p>
+<p>If the degree is not <span class="math">\(n - 1\)</span>, but instead 1, this node might be a spoke. Check the degree of its neighbor as described above to see if it's a hub.</p>
 <p>If you see a degree that's neither 1 nor <span class="math">\(n - 1\)</span>, then the graph is not a “hub and spoke” graph.</p>
 </details>
 
@@ -1712,7 +1598,7 @@ def modified_bfs(graph, source, status=None):
         <p>Tags: <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>An undirected graph with 20 nodes and 30 edges has three connected components: <span class="math">\(A\)</span>, <span class="math">\(B\)</span>, and <span class="math">\(C\)</span>. Connected component <span class="math">\(A\)</span> has 7 nodes. What is the smallest number of edges it can have?</p>
+<p>An undirected graph with 20 nodes and 30 edges has three connected components: <span class="math">\(A\)</span>, <span class="math">\(B\)</span>, and <span class="math">\(C\)</span>. Connected component <span class="math">\(A\)</span> has 7 nodes. What is the smallest number of edges that <span class="math">\(A\)</span> can have?</p>
 <details>
     <summary>Solution</summary>
 <p>6</p>

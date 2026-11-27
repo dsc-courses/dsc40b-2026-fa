@@ -95,6 +95,14 @@
         }, { passive: true });
     })();
 </script>
+
+
+<style>
+    html.dark .problem .image img {
+        filter: invert(1) hue-rotate(180deg);
+        mix-blend-mode: lighten;
+    }
+</style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -303,12 +311,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(f(n) = 3n^2 \log n\)</span>. True or False: <span class="math">\(f(n) = O(n^3)\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -358,12 +360,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Let <span class="math">\(f(n) = \displaystyle\frac{n^3 - 2n^2 + 100}{n + 10}\)</span></p>
 <p>True or False: <span class="math">\(f(n) = O(n^4)\)</span></p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -388,16 +384,10 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         f(n) =
         \begin{cases}
             3n, & \text{if $n$ is even;}\\
-            5n ,& \text{if $n$ is odd.}
+            5n, & \text{if $n$ is odd.}
         \end{cases}
     \]</div>
 <p>True or False: <span class="math">\(f(n) = \Theta(n)\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -420,12 +410,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Consider the function <span class="math">\(f(n) = \sin(12 n) \cdot \cos(n) + 2\)</span>. A plot of this function is shown below:</p>
 <center><div class="image"><img src="../images/036/plot.png" /></div></center>
 <p>True or False: this function is <span class="math">\(\Theta(1)\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>True. This function is upper bounded by 3 and lower bounded by 1 for all <span class="math">\(n\)</span>, and is therefore <span class="math">\(\Theta(1)\)</span>.</p>
@@ -447,12 +431,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Consider the function <span class="math">\(f(n) = \sin(12n) \cdot \cos(n) + 2\)</span>. A plot of this function is shown below:</p>
 <center><div class="image"><img src="../images/037/plot.png" /></div></center>
 <p>True or False: <span class="math">\(f(n) = O(n^3)\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>True. We saw that this function is <span class="math">\(\Theta(1)\)</span>, but it is also correct to say that it is <span class="math">\(O(n^3)\)</span>, though this is not a tight upper bound.</p>
@@ -471,13 +449,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose Algorithm A takes <span class="math">\(\Theta(n^2)\)</span> time, while Algorithm B takes <span class="math">\(\Theta(2^n)\)</span> time. True or False: there <b>could</b> exist an input on which Algorithm <span class="math">\(B\)</span> takes less time than Algorithm A.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
+<p>Suppose Algorithm A takes <span class="math">\(\Theta(n^2)\)</span> time, while Algorithm B takes <span class="math">\(\Theta(2^n)\)</span> time. True or False: there <b>could</b> exist an input on which Algorithm B takes less time than Algorithm A.</p>
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -499,11 +471,9 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Suppose algorithm A takes <span class="math">\(\Theta(n^2)\)</span> time, while algorithm B takes <span class="math">\(\Theta(n^3)\)</span> time.</p>
 <p>True or False: there must exist an input of size 100 on which Algorithm A takes less time than Algorithm B.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>False. Algorithm A could have really large constants. For example, it could take 1,000,000 <span class="math">\(n^2\)</span> seconds to run, while algorithm B takes <span class="math">\(.0001 n^3\)</span> seconds to run. Algorithm B will still be better for <span class="math">\(n = 100\)</span>.</p>
+<p>False. Algorithm A could have really large constants. For example, it could take <span class="math">\(1{,}000{,}000\, n^2\)</span> seconds to run, while algorithm B takes <span class="math">\(0.0001\, n^3\)</span> seconds to run. Algorithm B will still be better for <span class="math">\(n = 100\)</span>.</p>
 </details>
 
     </div>
@@ -521,12 +491,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Consider the function <span class="math">\(f(n) = \frac{n^8 + 2^{3 + \log n} - \sqrt n}{20 n^5 - n^2}\)</span>.</p>
 <p>True or False: <span class="math">\(f(n) = O(n^{4})\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -548,12 +512,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Consider the function <span class="math">\(f(n) = \frac{n^8 + 2^{3 + \log n} - \sqrt n}{20 n^5 - n^2}\)</span>.</p>
 <p>True or False: <span class="math">\(f(n) = \Omega(n^2)\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -582,12 +540,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         \cdot n^2
     \]</div>
 <p>True or False: <span class="math">\(f(n) = \Theta(n^2)\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -640,7 +592,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         +
         n \sqrt n
     \]</div>
-<p>Write <span class="math">\(f\)</span> in asymptotic notation in as simplest terms possible.</p>
+<p>Write <span class="math">\(f\)</span> in asymptotic notation in the simplest terms possible.</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(f(n) = \Theta(n^2)\)</span></p>
@@ -660,8 +612,14 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Let</p>
-<center><div class="image"><img src="../images/050/plot.png" /></div></center>
-<p>Define <span class="math">\(f(n)  = f_1(n) \times f_2(n) \times f_3(n)\)</span>. What is <span class="math">\(f(n)\)</span>, in asymptotic notation, in simplest terms possible?</p>
+<div class="math">\[
+        \begin{aligned}
+            f_1(n) &= \frac{5n^3 + 3n^2 - 10n + 100}{n + 10}\\
+            f_2(n) &= 3n + \sin(\pi n)\\
+            f_3(n) &= \frac{2n^2 + \log n}{(n + 5)(n - 5)}
+        \end{aligned}
+    \]</div>
+<p>and define <span class="math">\(f(n) = f_1(n) \times f_2(n) \times f_3(n)\)</span>. What is <span class="math">\(f(n)\)</span>, in asymptotic notation, in simplest terms possible?</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^3)\)</span></p>
@@ -683,12 +641,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Let <span class="math">\(f(n) = n \cdot (\sin{n} + 1 )\)</span>. A plot of this function is shown below.</p>
 <center><div class="image"><img src="../images/051/plot.png" /></div></center>
 <p>True or False: <span class="math">\(f(n) = \Theta(n)\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -713,12 +665,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Consider the function <span class="math">\(f(n) = n \times (\sin(n) + 1)\)</span>. A plot of this function is shown below:</p>
 <center><div class="image"><img src="../images/052/plot.png" /></div></center>
 <p>True or False: this function is <span class="math">\(O(1 + \sin n)\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -742,12 +688,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Consider the function <span class="math">\(f(n) = n \times ( \sin (n) + 1)\)</span>. A plot of this function is shown below:</p>
 <center><div class="image"><img src="../images/053/plot.png" /></div></center>
 <p>True or False: <span class="math">\(f(n) = O(n^3)\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -776,18 +716,12 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     \]</div>
 <p>If you were to plot <span class="math">\(f\)</span>, the function would look like <span class="math">\(n^2\)</span>, but would have point discontinuities where it “jumps” back to 1 whenever <span class="math">\(n\)</span> is a multiple of 1 million.</p>
 <p>True or False: <span class="math">\(f(n) = \Theta(n^2)\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False.</p>
 <p><span class="math">\(f(n)\)</span> <i>is</i> upper bounded by <span class="math">\(O(n^2)\)</span>, but it doesn't have a lower bound of <span class="math">\(\Omega(n^2)\)</span>, which is necessary for it to be <span class="math">\(\Theta(n^2)\)</span>.</p>
 <p>To see why, remember that for <span class="math">\(f(n)\)</span> to be <span class="math">\(\Omega(n^2)\)</span>, there must be a positive constant <span class="math">\(c\)</span> so that <span class="math">\(f(n)\)</span> stays above <span class="math">\(c\cdot n^2\)</span> for all <span class="math">\(n\)</span> greater than some <span class="math">\(n_0\)</span>, meaning that it goes above <span class="math">\(c n^2\)</span> <i>and it stays above </i><span class="math">\(c n^2\)</span> forever, after some point.</p>
-<p>Pick whatever positive <span class="math">\(c\)</span> you'd like – the function <span class="math">\(c\cdot n^2\)</span> grows larger and larger as <span class="math">\(n\)</span> increases, and eventually becomes larger than 1. But the function <span class="math">\(f(n)\)</span> keeps dipping down to 1, meaning that it doesn't stay above <span class="math">\(c\cdot n^2\)</span> for all <span class="math">\(n\)</span> when <span class="math">\(n\)</span> is large. Therefore, <span class="math">\(f(n)\)</span> is not <span class="math">\(\Omega(n^2)\)</span>, and therefore also not <span class="math">\(\Theta(n^2)\)</span>.</p>
+<p>Pick whatever positive <span class="math">\(c\)</span> you'd like—the function <span class="math">\(c\cdot n^2\)</span> grows larger and larger as <span class="math">\(n\)</span> increases, and eventually becomes larger than 1. But the function <span class="math">\(f(n)\)</span> keeps dipping down to 1, meaning that it doesn't stay above <span class="math">\(c\cdot n^2\)</span> for all <span class="math">\(n\)</span> when <span class="math">\(n\)</span> is large. Therefore, <span class="math">\(f(n)\)</span> is not <span class="math">\(\Omega(n^2)\)</span>, and therefore also not <span class="math">\(\Theta(n^2)\)</span>.</p>
 </details>
 
     </div>
@@ -803,13 +737,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(f(n) = n^{ \frac{1}{\log_2(n)} } \times n.\)</span> Which of the following asymptotic bounds on <span class="math">\(f\)</span> is true?</p>
+<p>Let <span class="math">\(f(n) = n^{ \frac{1}{\log_2(n)} } \times n.\)</span> Give a tight asymptotic bound on <span class="math">\(f\)</span> using <span class="math">\(\Theta\)</span> notation, in the simplest form possible.</p>
 <p><i>Hint</i>: you might want to review your log properties. One useful one may be <span class="math">\(\log_b c = 1 / \log_c b\)</span>.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(3^n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2 \cdot 3^n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(2^n)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span>. Using <span class="math">\(\frac{1}{\log_2 n} = \log_n 2\)</span>, we get <span class="math">\(n^{1/\log_2 n} = n^{\log_n 2} = 2\)</span>. So <span class="math">\(f(n) = 2n = \Theta(n)\)</span>.</p>
@@ -828,14 +757,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(f(n) = 12 \log_2(3^{(n^2 - 2n)} + 2^{(\log n)} - 10n^2 - \log_3 n).\)</span> Which of the following asymptotic bounds on <span class="math">\(f\)</span> is true?</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(2^n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(3^n)\)</span></p></label></div></form></div>
+<p>Let <span class="math">\(f(n) = 12 \log_2(3^{(n^2 - 2n)} + 2^{(\log n)} - 10n^2 - \log_3 n).\)</span> Give a tight asymptotic bound on <span class="math">\(f\)</span> using <span class="math">\(\Theta\)</span> notation, in the simplest form possible.</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>. Inside the logarithm, the term <span class="math">\(3^{(n^2 - 2n)}\)</span> dominates the others (which grow at most like <span class="math">\(n^2\)</span>), so for large <span class="math">\(n\)</span> the argument is between <span class="math">\(\frac{1}{2} \cdot 3^{(n^2 - 2n)}\)</span> and <span class="math">\(2 \cdot 3^{(n^2 - 2n)}\)</span>. Taking <span class="math">\(\log_2\)</span>, <span class="math">\(f(n)\)</span> is within a constant of <span class="math">\(12 (n^2 - 2n) \log_2 3\)</span>, which is <span class="math">\(\Theta(n^2)\)</span>.</p>
@@ -856,12 +778,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Suppose <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^2)\)</span> and <span class="math">\(\Omega(n)\)</span>. Also suppose that <span class="math">\(f_2(n) = \Theta(n^2)\)</span>.</p>
 <p>Consider the function <span class="math">\(f(n) = f_1(n) + f_2(n)\)</span>. True or false: it must be the case that <span class="math">\(f(n) = \Theta(n^2)\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -923,12 +839,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Suppose <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^3)\)</span> and <span class="math">\(\Omega(n)\)</span>. Also suppose that <span class="math">\(f_2(n) = O(n^2)\)</span> and <span class="math">\(\Omega(\sqrt n)\)</span>.</p>
 <p>Consider the function <span class="math">\(f(n) = f_1(n) + f_2(n)\)</span>. True or false: it must be the case that <span class="math">\(f(n) = \Omega(n)\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -949,7 +859,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Suppose that <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^3)\)</span> and <span class="math">\(\Omega(n)\)</span>. Also suppose that <span class="math">\(f_2(n) = O(n^2)\)</span> and <span class="math">\(\Omega(\sqrt n)\)</span>.</p>
-<p>Consider the function <span class="math">\(g(n) = f_2(n) / f_1(n)\)</span>. Give the tightest possible upper bound on <span class="math">\(g(n)\)</span>:</p>
+<p>Consider the function <span class="math">\(g(n) = f_2(n) / f_1(n)\)</span>. Give the tightest possible upper bound on <span class="math">\(g(n)\)</span>.</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(O(n)\)</span></p>
@@ -970,12 +880,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Suppose <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^3)\)</span> and <span class="math">\(\Omega(n^2)\)</span>. Also suppose that <span class="math">\(f_2(n)\)</span> is <span class="math">\(O(n^4)\)</span> and <span class="math">\(\Omega(n)\)</span>.</p>
 <p>Consider the function <span class="math">\(f(n) = f_1(n) + f_2(n)\)</span>. True or false: it must be the case that <span class="math">\(f(n) = \Omega(n^2)\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -996,7 +900,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Suppose that <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^3)\)</span> and <span class="math">\(\Omega(n^2)\)</span>. Also suppose that <span class="math">\(f_2(n)\)</span> is <span class="math">\(O(n^4)\)</span> and <span class="math">\(\Omega(n)\)</span>.</p>
-<p>Consider the function <span class="math">\(g(n) = f_2(n) / f_1(n)\)</span>. Give the tightest possible upper bound on <span class="math">\(g(n)\)</span>:</p>
+<p>Consider the function <span class="math">\(g(n) = f_2(n) / f_1(n)\)</span>. Give the tightest possible upper bound on <span class="math">\(g(n)\)</span>.</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(O(n^2)\)</span></p>
@@ -1016,11 +920,9 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>True or False. If <span class="math">\(f = \Omega(n^5)\)</span> and <span class="math">\(f = O(n^7)\)</span> then <span class="math">\(f\)</span> must be either <span class="math">\(\Theta(n^5)\)</span>, or <span class="math">\(\Theta(n^6)\)</span>, or <span class="math">\(\Theta(n^7)\)</span>.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>False. Counterexample: <span class="math">\(f = n^{6.5}\)</span>. This is neither <span class="math">\(\Theta(n^5)\)</span> or <span class="math">\(\Theta(n^6)\)</span> or <span class="math">\(\Theta(n^7)\)</span>; it is <span class="math">\(\Theta(n^{6.5})\)</span>.</p>
+<p>False. Counterexample: <span class="math">\(f = n^{6.5}\)</span>. This is neither <span class="math">\(\Theta(n^5)\)</span> nor <span class="math">\(\Theta(n^6)\)</span> nor <span class="math">\(\Theta(n^7)\)</span>; it is <span class="math">\(\Theta(n^{6.5})\)</span>.</p>
 </details>
 
     </div>
@@ -1037,12 +939,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(f_1(n) = O(g_1(n))\)</span> and <span class="math">\(f_2(n) = \Omega(g_2(n))\)</span>. True or False: it is necessarily the case that <span class="math">\(f_1 + f_2 = O(g_1(n))\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -1064,17 +960,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Suppose <span class="math">\(f(n) = \Omega(n^3)\)</span> and <span class="math">\(g(n) = \Omega(n)\)</span>.</p>
 <p>True or False: it is necessarily the case that <span class="math">\(f/g = \Omega(n^2)\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False. Take <span class="math">\(f(n) = n^3\)</span> and <span class="math">\(g(n) = n^3\)</span>. We can see from definition that <span class="math">\(f(n) = \Omega(n^3)\)</span> and <span class="math">\(g(n) = \Omega(n)\)</span>. However,</p>
 <div class="math">\[ \frac{f}{g}(n) = 1 \neq \Omega(n^2). \]</div>
-<p>The key takeaway for this question is, since <span class="math">\(g\)</span> is on the denominator, we can make it grow arbitrarily fast, so that <span class="math">\(f/g\)</span> do not meet the requirements that we want.</p>
+<p>The key takeaway for this question is, since <span class="math">\(g\)</span> is in the denominator, we can make it grow arbitrarily fast, so that <span class="math">\(f/g\)</span> does not meet the requirements that we want.</p>
 </details>
 
     </div>
@@ -1092,12 +982,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Suppose <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^2)\)</span> and <span class="math">\(\Omega(n)\)</span>. Also suppose that <span class="math">\(f_2(n) = \Theta(n^2)\)</span>.</p>
 <p>Consider the function <span class="math">\(g(n) = f_2(n) / f_1(n)\)</span>. True or false: it must be the case that <span class="math">\(g(n) = \Omega(n)\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -1118,11 +1002,9 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>True or False. If <span class="math">\(f_1 = \Theta(g_1(n))\)</span> and <span class="math">\(f_2 = O(g_2(n))\)</span> then <span class="math">\(\frac{f_1}{f_2} = \Theta(g_1 / g_2)\)</span>.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>False. Try breaking it with a counterexample. What if <span class="math">\(f_1 = n^3\)</span>, <span class="math">\(f_2 = n^2\)</span>, <span class="math">\(g_1 = n^3\)</span> and <span class="math">\(g_2 = n^3\)</span>. All of the conditions are satisfied, but <span class="math">\(f_1/f_2 = n\)</span>, while <span class="math">\(g_1/g_2 = 1\)</span>, so <span class="math">\(f_1 / f_2\)</span> is not <span class="math">\(\Theta(g_1/g_2)\)</span>.</p>
+<p>False. Try breaking it with a counterexample. What if <span class="math">\(f_1 = n^3\)</span>, <span class="math">\(f_2 = n^2\)</span>, <span class="math">\(g_1 = n^3\)</span> and <span class="math">\(g_2 = n^3\)</span>? All of the conditions are satisfied, but <span class="math">\(f_1/f_2 = n\)</span>, while <span class="math">\(g_1/g_2 = 1\)</span>, so <span class="math">\(f_1 / f_2\)</span> is not <span class="math">\(\Theta(g_1/g_2)\)</span>.</p>
 </details>
 
     </div>
@@ -1138,13 +1020,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose <span class="math">\(f_1(n) = O(g_1(n))\)</span> and <span class="math">\(f_2 = O(g_2(n))\)</span>. Define <span class="math">\(f(n) = \min \{ f_1(n), f_2(n) \}\)</span> and <span class="math">\(g(n) = \min \{ g_1(n), g_2(n) \}\)</span>. True or false, it is necessarily the case that <span class="math">\(f(n) = O(g(n))\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
+<p>Suppose <span class="math">\(f_1(n) = O(g_1(n))\)</span> and <span class="math">\(f_2(n) = O(g_2(n))\)</span>. Define <span class="math">\(f(n) = \min \{ f_1(n), f_2(n) \}\)</span> and <span class="math">\(g(n) = \min \{ g_1(n), g_2(n) \}\)</span>. True or false: it is necessarily the case that <span class="math">\(f(n) = O(g(n))\)</span>.</p>
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -1164,14 +1040,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose <span class="math">\(f_1(n) = \Omega(g_1(n))\)</span> and <span class="math">\(f_2 = \Omega(g_2(n))\)</span>. Define <span class="math">\(f(n) = \min \{ f_1(n), f_2(n) \}\)</span> and <span class="math">\(g(n) = \min \{ g_1(n), g_2(n)\}\)</span>.</p>
+<p>Suppose <span class="math">\(f_1(n) = \Omega(g_1(n))\)</span> and <span class="math">\(f_2(n) = \Omega(g_2(n))\)</span>. Define <span class="math">\(f(n) = \min \{ f_1(n), f_2(n) \}\)</span> and <span class="math">\(g(n) = \min \{ g_1(n), g_2(n)\}\)</span>.</p>
 <p>True or false: it is necessarily the case that <span class="math">\(f(n) = \Omega(g(n))\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -1191,16 +1061,10 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/asymptotic notation.html'>asymptotic notation</a>, <a href='../tags/lecture-03.html'>lecture-03</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose <span class="math">\(f_1(n) = \Omega(g_1(n))\)</span> and <span class="math">\(f_2 = \Omega(g_2(n))\)</span>. Define <span class="math">\(f(n) = \max \{ f_1(n), f_2(n) \}\)</span> and <span class="math">\(g(n) = \max \{ g_1(n), g_2(n)\}\)</span>.</p>
+<p>Suppose <span class="math">\(f_1(n) = \Omega(g_1(n))\)</span> and <span class="math">\(f_2(n) = \Omega(g_2(n))\)</span>. Define <span class="math">\(f(n) = \max \{ f_1(n), f_2(n) \}\)</span> and <span class="math">\(g(n) = \max \{ g_1(n), g_2(n)\}\)</span>.</p>
 <p>True or false: it is necessarily the case that <span class="math">\(f(n) = \Omega(g(n))\)</span>. In other words, it must be the case that <span class="math">\(
-    \max \{ f_1(n), f_2(n) \} = \Omega ( \max\{ g_1(n), g_2(n) \} )
+    \max \{ f_1(n), f_2(n) \} = \Omega ( \max\{ g_1(n), g_2(n) \} ).
     \)</span></p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>True.</p>

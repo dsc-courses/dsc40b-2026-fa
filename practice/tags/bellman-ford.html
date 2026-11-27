@@ -95,6 +95,14 @@
         }, { passive: true });
     })();
 </script>
+
+
+<style>
+    html.dark .problem .image img {
+        filter: invert(1) hue-rotate(180deg);
+        mix-blend-mode: lighten;
+    }
+</style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -304,12 +312,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Suppose the Bellman-Ford algorithm is run on a graph <span class="math">\(G\)</span> that does not contain negative cycles. Let <span class="math">\(u\)</span> be an arbitrary node in the graph, and assume that <span class="math">\(u\)</span> is reachable from the source.</p>
 <p>True or False: <span class="math">\(u\)</span>'s estimated distance can change multiple times during the algorithm's execution.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -330,8 +332,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Recall that Bellman-Ford with early stopping updates edges iteratively until no estimated distances change, at which point the algorithm terminates early. True or False: the number of iterations needed before early termination may depend on the order in which the edges are updated.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -351,7 +351,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a>, <a href='../tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose you have a directed graph with 8 nodes and 7 edges. If you were to run the Bellman Ford Algorithm on this graph with early stopping implemented, what is the <b>minimum</b> number of times the outer for loop could possibly run? You should assume that all 8 nodes are reachable from the source node.</p>
+<p>Suppose you have a directed graph with 8 nodes and 7 edges. If you were to run the Bellman-Ford algorithm on this graph with early stopping implemented, what is the <b>minimum</b> number of times the outer for loop could possibly run? You should assume that all 8 nodes are reachable from the source node.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>1</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>2</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>4</p></label></div>
@@ -521,7 +521,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Suppose Bellman-Ford with early stopping is run on the weighted graph below. The algorithm uses node <span class="math">\(a\)</span> as the source node.</p>
 <center><div class="image"><img src="../images/308/graph.png" /></div></center>
-<p>After the third iteration, name all nodes whose shortest path from <span class="math">\(a\)</span> are guaranteed to be estimated correctly.</p>
+<p>After the third iteration, name all nodes whose shortest path distances from <span class="math">\(a\)</span> are guaranteed to be estimated correctly.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{a,b,c,e,f\}\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{g,f\}\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{a,b,c,e,f,g\}\)</span></p></label></div>
@@ -605,7 +605,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Which algorithm should you choose to compute the fastest route from San Diego to each of the other cities? If two algorithms both find the fastest routes, pick the one which has a better time complexity.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>BFS</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>DFS</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Bellman Ford</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Bellman-Ford</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Dijkstra's Algorithm</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
@@ -628,11 +628,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose you are planning a trip by air from San Diego to another city, with potentially multiple stops in between. You are thinking about the flights as a graph, where each airport is a node and each flight is an edge. You don't care about the travel time, and instead care about the cost, so the weight of an edge is the cost of that flight. Also suppose that the airline has a special deal, where flights between certain cities will give you frequent flyer miles, or points towards free flights that you can use later in your trip. In other words, some flights have a negative cost. If you want to find the lowest cost route, which algorithm would be the best choice?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>BFS</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>DFS</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Bellman Ford</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Bellman-Ford</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Dijkstra's Algorithm</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>Bellman Ford. Some edge weights are negative, and Dijkstra's algorithm is not guaranteed to find shortest paths when there are negative edge weights. Bellman-Ford works with negative weights (as long as there are no negative cycles), and BFS and DFS don't find shortest paths in weighted graphs.</p>
+<p>Bellman-Ford. Some edge weights are negative, and Dijkstra's algorithm is not guaranteed to find shortest paths when there are negative edge weights. Bellman-Ford works with negative weights (as long as there are no negative cycles), and BFS and DFS don't find shortest paths in weighted graphs.</p>
 </details>
 
     </div>

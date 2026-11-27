@@ -95,6 +95,14 @@
         }, { passive: true });
     })();
 </script>
+
+
+<style>
+    html.dark .problem .image img {
+        filter: invert(1) hue-rotate(180deg);
+        mix-blend-mode: lighten;
+    }
+</style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -339,15 +347,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     for x in data:
         total += (x - mu)**2
     return total / len(data)</code></pre>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(2^n)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span>. <span class="inline-code"><code>sum(data)</code></span> takes <span class="math">\(\Theta(n)\)</span> time but is computed only once, before the loop. The loop runs <span class="math">\(n\)</span> times and does constant work on each iteration.</p>
@@ -378,15 +377,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         mu = sum(data) / len(data)
         total += (x - mu)**2
     return total / len(data)</code></pre>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(2^n)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>. <span class="inline-code"><code>sum(data)</code></span> takes <span class="math">\(\Theta(n)\)</span> time and is recomputed on each of the <span class="math">\(n\)</span> iterations of the loop.</p>
@@ -412,15 +402,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     for i in range(n):
         r = sum(arr) * sum(arr)
         print(r)</code></pre>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(2^n)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>. Each iteration of the loop calls <span class="inline-code"><code>sum(arr)</code></span> twice, and each call takes <span class="math">\(\Theta(n)\)</span> time. The loop runs <span class="math">\(n\)</span> times, so the total is <span class="math">\(\Theta(n^2)\)</span>.</p>
@@ -439,7 +420,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/lecture-01.html'>lecture-01</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose numbers is a list of integers of length <span class="math">\(n\)</span>. What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>) in the simplest terms possible.</p>
+<p>Suppose <span class="inline-code"><code>numbers</code></span> is a list of integers of length <span class="math">\(n\)</span>. What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>) in the simplest terms possible.</p>
 <pre class="code"><code class="language-python">def foo(numbers):
     for x in numbers:
         r = max(numbers) * min(numbers) * x
@@ -573,15 +554,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         j = 0
         while j &lt; n:
             j += 1</code></pre>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(2^n)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^3)\)</span>. The outer loop runs <span class="math">\(n^2 - 2n + 100 = \Theta(n^2)\)</span> times, and on each of its iterations the inner <span class="inline-code"><code>while</code></span> loop runs <span class="math">\(n\)</span> times, for a total of <span class="math">\(\Theta(n^2) \cdot \Theta(n) = \Theta(n^3)\)</span>.</p>
@@ -601,22 +573,13 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function?</p>
-<pre class="code"><code>def foo(n):
+<pre class="code"><code class="language-python">def foo(n):
     total = 0
     for i in range(n**2):
         for j in range(n**2 + 5*n - 100):
             for k in range(n // 1_000_000):
                 total += i**2 + n**2
     return total</code></pre>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^4)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^5)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^6)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^5)\)</span>. The three loops run <span class="math">\(n^2\)</span>, <span class="math">\(n^2 + 5n - 100 = \Theta(n^2)\)</span>, and <span class="math">\(\lfloor n / 1{,}000{,}000 \rfloor = \Theta(n)\)</span> times, and the loop body takes constant time, so the total is <span class="math">\(\Theta(n^2 \cdot n^2 \cdot n) = \Theta(n^5)\)</span>.</p>
@@ -660,7 +623,7 @@ def foo(n):
         <p>Tags: <a href='../tags/lecture-02.html'>lecture-02</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Express the time complexity of the following code using asymptotic notation in as simplest terms possible.</p>
+<p>Express the time complexity of the following code using asymptotic notation in the simplest terms possible.</p>
 <pre class="code"><code class="language-python">def foo(n):
     for i in range(n**3):
         for j in range(n):
@@ -738,18 +701,10 @@ def foo(n):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of the following function?</p>
-<pre class="code"><code>def foo(n):
+<pre class="code"><code class="language-python">def foo(n):
     while n &gt; 1:
         n /= 10
         print(n)</code></pre>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^{10})\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(10^n)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(\log n)\)</span>. After <span class="math">\(k\)</span> iterations, the value of <span class="inline-code"><code>n</code></span> is <span class="math">\(n / 10^k\)</span>. The loop stops once this is at most 1, which happens after about <span class="math">\(\log_{10} n = \Theta(\log n)\)</span> iterations.</p>
@@ -795,7 +750,7 @@ def boo(n):
         <p>Tags: <a href='../tags/lecture-02.html'>lecture-02</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Express the time complexity of the following code using asymptotic notation in as simplest terms possible.</p>
+<p>Express the time complexity of the following code using asymptotic notation in the simplest terms possible.</p>
 <pre class="code"><code class="language-python">import math
 
 def foo(arr):
@@ -835,15 +790,6 @@ def foo(arr):
         while j &lt; n:
             j += 1
         i *= 2</code></pre>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(2^n)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n \log n)\)</span>. Since <span class="inline-code"><code>i</code></span> doubles on each iteration, the outer loop runs <span class="math">\(\Theta(\log n)\)</span> times. The inner loop runs <span class="math">\(n\)</span> times on each of these, for a total of <span class="math">\(\Theta(n \log n)\)</span>.</p>
@@ -964,7 +910,7 @@ def foo(n):
         <p>Tags: <a href='../tags/lecture-02.html'>lecture-02</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Express the time complexity of the following code using asymptotic notation in as simplest terms possible.</p>
+<p>Express the time complexity of the following code using asymptotic notation in the simplest terms possible.</p>
 <pre class="code"><code class="language-python">def foo(n):
     for i in range(n):
         for j in range(i):
@@ -994,15 +940,6 @@ def foo(n):
         for j in range(n):
             for k in range(j): # ← notice the range!
                 print(j)</code></pre>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^4)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^5)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^6)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^3)\)</span>. For a fixed <span class="inline-code"><code>i</code></span>, the two inner loops run <span class="math">\(0 + 1 + 2 + \ldots + (n-1) = n(n-1)/2 = \Theta(n^2)\)</span> times in total. The outer loop runs <span class="math">\(n\)</span> times, so the total is <span class="math">\(\Theta(n^3)\)</span>.</p>
@@ -1048,7 +985,7 @@ def foo(n):
         <p>Tags: <a href='../tags/lecture-02.html'>lecture-02</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Express the time complexity of the following code using asymptotic notation in as simplest terms possible.</p>
+<p>Express the time complexity of the following code using asymptotic notation in the simplest terms possible.</p>
 <pre class="code"><code class="language-python">def foo(n):
     for i in range(200, n):
         for j in range(i, 2*i + n**2):
@@ -1195,32 +1132,6 @@ def boo(n):
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #041</h2>
-        <p>Tags: <a href='../tags/lecture-03.html'>lecture-03</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s time complexity is <span class="math">\(\Theta(n^3)\)</span>, while <span class="inline-code"><code>baz</code></span>'s time complexity is <span class="math">\(\Theta(n^2)\)</span>.</p>
-<p>Suppose <span class="inline-code"><code>foo</code></span> is defined as below:</p>
-<pre class="code"><code class="language-python">def foo(n):
-    if n &lt; 1_000:
-        bar(n)
-    else:
-        baz(n)</code></pre>
-<p>What is the asymptotic time complexity of <span class="inline-code"><code>foo</code></span>?</p>
-<details>
-    <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span></p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
         <div class="problem-outer" data-badges="hard">
         <h2>Problem #042 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
         <p>Tags: <a href='../tags/lecture-03.html'>lecture-03</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
@@ -1239,7 +1150,7 @@ def boo(n):
 <p><span class="math">\(\Theta(n)\)</span></p>
 <p>If you were to plot the function <span class="math">\(T(n)\)</span> that gives the time taken by <span class="inline-code"><code>foo</code></span> as a function of <span class="math">\(n\)</span>, you'd see something like the below:</p>
 <center><div class="image"><img src="../images/042/plot.png" /></div></center>
-<p>This function starts off looking like <span class="math">\(n^4\)</span>, but at <span class="math">\(n = 1_000_000\)</span>, it "switches" to looking like <span class="math">\(n\)</span>.</p>
+<p>This function starts off looking like <span class="math">\(n^4\)</span>, but at <span class="math">\(n = 1{,}000{,}000\)</span>, it "switches" to looking like <span class="math">\(n\)</span>.</p>
 <p>Since asymptotic time complexity is concerned with the behavior of the function as <span class="math">\(n\)</span> gets large, we can ignore the part where <span class="math">\(n\)</span> is "small" (in this case, less than <span class="math">\(1{,}000{,}000\)</span>). So, asymptotically, this function is <span class="math">\(\Theta(n)\)</span>.</p>
 </details>
 
@@ -1268,7 +1179,7 @@ def boo(n):
 <p>What is the asymptotic time complexity of <span class="inline-code"><code>foo</code></span>?</p>
 <details>
     <summary>Solution</summary>
-<p>Asymptotic time complexity concerns the time taken when <span class="math">\(n\)</span> is large. Therefore, it doesn't matter what happens when <span class="math">\(n < 1000\)</span>. When <span class="math">\(n \geq 1000\)</span>, the time taken is <span class="math">\(\Theta(n^2)\)</span>, since that is the time taken by <span class="inline-code"><code>bar_2</code></span>.</p>
+<p>Asymptotic time complexity concerns the time taken when <span class="math">\(n\)</span> is large. Therefore, it doesn't matter what happens when <span class="math">\(n \leq 2023\)</span>. When <span class="math">\(n > 2023\)</span>, the time taken is <span class="math">\(\Theta(n^2)\)</span>, since that is the time taken by <span class="inline-code"><code>bar_2</code></span>.</p>
 </details>
 
     </div>
@@ -1293,13 +1204,7 @@ def boo(n):
         bar(n)
     else:
         baz(n)</code></pre>
-<p>Let <span class="math">\(T(n)\)</span> be the time taken by <span class="inline-code"><code>foo</code></span> on an input of sized <span class="math">\(n\)</span>. True or False: <span class="math">\(T(n) = \Theta(n^2)\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
+<p>Let <span class="math">\(T(n)\)</span> be the time taken by <span class="inline-code"><code>foo</code></span> on an input of size <span class="math">\(n\)</span>. True or False: <span class="math">\(T(n) = \Theta(n^2)\)</span>.</p>
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -1325,15 +1230,6 @@ def boo(n):
     for i in range(n):
         for j in range(i**2): # &lt;-- notice the bound!
             print(i + j)</code></pre>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(2^n)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^3)\)</span>. The inner loop runs <span class="math">\(i^2\)</span> times, so the total number of iterations is <span class="math">\(0^2 + 1^2 + \ldots + (n-1)^2 = \frac{(n-1)n(2n-1)}{6} = \Theta(n^3)\)</span>.</p>
@@ -1361,12 +1257,13 @@ def boo(n):
             print(i + j)
 
     for i in range(math.floor(math.sqrt(n))):
-        for j in range(math.log2(i), i * math.floor(math.log2(i + 10))):
+        for j in range(math.floor(math.log2(i + 1)), i * math.floor(math.log2(i + 10))):
             print(i + j)</code></pre>
 <details>
     <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span>.</p>
 <p>The second loop looks complicated to analyze, but we can effectively ignore it. This is because the most <span class="inline-code"><code>i</code></span> can ever be is <span class="math">\(\sqrt
-        n\)</span>, and so an upper bound for the number of iterations made by the second loop is <span class="math">\(O(\sqrt n \log n)\)</span>. Since the first loop takes <span class="math">\(\Theta(n^2)\)</span>, it will dominate the time complexity, and we do not need to worry about the time taken by the second loop.</p>
+        n\)</span>, so each iteration of the outer loop makes <span class="math">\(O(\sqrt n \log n)\)</span> iterations of the inner loop. There are <span class="math">\(O(\sqrt n)\)</span> iterations of the outer loop, so the second loop takes <span class="math">\(O(n \log n)\)</span> time in total. Since the first loop takes <span class="math">\(\Theta(n^2)\)</span>, it will dominate the time complexity, and we do not need to worry about the time taken by the second loop.</p>
 </details>
 
     </div>
@@ -1379,7 +1276,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #088</h2>
-        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
+        <p>Tags: <a href='../tags/expected time.html'>expected time</a>, <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the following function? State your answer using asymptotic notation.</p>
@@ -1406,7 +1303,7 @@ def boo(n):
 
         <div class="problem-outer">
         <h2>Problem #097</h2>
-        <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
+        <p>Tags: <a href='../tags/expected time.html'>expected time</a>, <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below? State your answer using asymptotic notation.</p>
@@ -1477,7 +1374,7 @@ def mediansort(arr, start, stop):
         <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a>, <a href='../tags/lecture-08.html'>lecture-08</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a collection of unique numbers is stored in a <b>balanced</b> binary search tree, and that each node in the tree has been given a <span class="inline-code"><code>.size</code></span> attribute which contains the number of nodes in the subtree rooted at that node. What is the time complexity required of an efficient algorithm for computing the number of elements in the collection which are larger than some threshold, <span class="math">\(t\)</span>?</p>
+<p>Suppose a collection of <span class="math">\(n\)</span> unique numbers is stored in a <b>balanced</b> binary search tree, and that each node in the tree has been given a <span class="inline-code"><code>.size</code></span> attribute which contains the number of nodes in the subtree rooted at that node. What is the time complexity required of an efficient algorithm for computing the number of elements in the collection which are larger than some threshold, <span class="math">\(t\)</span>?</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(\log{n})\)</span>. We can consider the following algorithm: Query for <span class="math">\(t\)</span> in the BST, and define a new variable total for tracking the result. For each step of the recursion, if we go to the left, add the size of the right branch + 1 to the running total. We repeat the above until the query() function finishes running, which will give us exactly the number of elements in the collection which are larger than <span class="math">\(t\)</span>. Since we are querying (and adding some constant time updating steps) in a balanced BST, the time complexity for this question will be <span class="math">\(\Theta(\log{n})\)</span>.</p>
@@ -1497,12 +1394,6 @@ def mediansort(arr, start, stop):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose an undirected graph with <span class="math">\(n\)</span> nodes satisfies the property that every node has degree <span class="math">\(n/2\)</span>. What is the time complexity of running full BFS on this graph?</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2 \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>. Full BFS takes <span class="math">\(\Theta(V + E)\)</span> time. The sum of the degrees is <span class="math">\(n \cdot n/2\)</span>, and each edge is counted twice in this sum, so there are <span class="math">\(n^2/4\)</span> edges. So the time is <span class="math">\(\Theta(n + n^2/4) = \Theta(n^2)\)</span>.</p>
@@ -1522,7 +1413,7 @@ def mediansort(arr, start, stop):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the following modification of BFS, where there are two new lines of code. What is the time complexity in terms of <span class="math">\(|V|\)</span> and <span class="math">\(|E|\)</span>?</p>
-<pre class="code"><code>from collections import deque
+<pre class="code"><code class="language-python">from collections import deque
 
 def foo(graph):
     status = {node: 'undiscovered' for node in graph.nodes}
@@ -1542,14 +1433,9 @@ def bar(graph, source, status):
             if status[v] == 'undiscovered':
                 status[v] = 'pending'
                 pending.append(v)
-            for v in graph.nodes:
-                print(v)
+            for z in graph.nodes:
+                print(z)
         status[u] = 'visited'</code></pre>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(VE)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + VE)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(V + VE)\)</span>. Without the two new lines, this is a full BFS, which takes <span class="math">\(\Theta(V + E)\)</span> time. The new inner loop runs once each time an edge is explored, and each time it takes <span class="math">\(\Theta(V)\)</span> time. By an aggregate analysis, edges are explored <span class="math">\(\Theta(E)\)</span> times in total, so the new lines add <span class="math">\(\Theta(VE)\)</span> time. The total is <span class="math">\(\Theta(V + E + VE) = \Theta(V + VE)\)</span>. (We can't drop the <span class="math">\(V\)</span> term: when there are no edges, the code still takes <span class="math">\(\Theta(V)\)</span> time.)</p>

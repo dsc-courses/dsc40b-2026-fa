@@ -95,6 +95,14 @@
         }, { passive: true });
     })();
 </script>
+
+
+<style>
+    html.dark .problem .image img {
+        filter: invert(1) hue-rotate(180deg);
+        mix-blend-mode: lighten;
+    }
+</style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -344,12 +352,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Suppose a hash table is constructed so that collisions are resolved through chaining. The hash table has <span class="math">\(10\)</span> bins, and 100 items are inserted into the hash table.</p>
 <p>True or False: it is possible for one of the bins to contain all 100 items.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -371,12 +373,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Assume that a hash table is implemented using chaining to resolve collisions. The hash table stores <span class="math">\(n\)</span> numbers.</p>
 <p>Suppose a membership query is made for 42. True or False: more than one bin in the hash table may be checked with a linear search during the query.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -397,14 +393,9 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a hash table is constructed using linked lists to store the data within each bin, and that collisions are resolved by chaining. What is the <i>worst case</i> time complexity of inserting a new element into the hash table? You may assume that the hash table will not need to be resized, and that evaluating the hash function takes <span class="math">\(\Theta(1)\)</span> time.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(1)\)</span>. Inserting an item into a hash table takes two steps: first, we hash the item to find its bin -- this takes <span class="math">\(\Theta(1)\)</span> time. Next, we actually insert the item into that bin. When we use chaining, we do this by appending the item to the linked list containing that bins elements. Appending to a linked list takes <span class="math">\(\Theta(1)\)</span> time, and so overall this takes <span class="math">\(\Theta(1)\)</span>.</p>
+<p><span class="math">\(\Theta(1)\)</span>. Inserting an item into a hash table takes two steps: first, we hash the item to find its bin—this takes <span class="math">\(\Theta(1)\)</span> time. Next, we actually insert the item into that bin. When we use chaining, we do this by appending the item to the linked list containing that bin's elements. Appending to a linked list takes <span class="math">\(\Theta(1)\)</span> time, and so overall this takes <span class="math">\(\Theta(1)\)</span>.</p>
 </details>
 
     </div>
@@ -421,11 +412,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a hash table is constructed using linked lists to store the data within each bin, and that collisions are resolved by chaining. Suppose <span class="math">\(n\)</span> elements have been inserted into the hash table. What is the worst case time complexity of querying whether an object exists within the hash table? You may assume that the hash table will not need to be resized, and that evaluating the hash function takes <span class="math">\(\Theta(1)\)</span> time.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span>. Remember: in the worst case, all of the elements hashed to the same bin, and our query leads us to perform a linear search in that bin, taking linear time.</p>
@@ -445,8 +431,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Suppose we are building a hash table to store numbers. Our hash table will have 1000 bins. True or false: <span class="math">\(f(x) = x \% 2\)</span> is a good hash function. Here, <span class="math">\(x \% 2\)</span> returns the remainder after dividing <span class="math">\(x\)</span> by 2.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p>False. <span class="math">\(x \% 2\)</span> is not a good hash function because the outcome is either 0 or 1. All the elements will be hashed into bin 0 or bin 1. This hash function doesn't utilize all bins evenly.</p>
@@ -466,11 +450,9 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Suppose you insert 11 elements into a hash table with 20 bins. True or False: there must exist <b>exactly</b> 9 empty bins, no more, no less, since the number of elements being hashed is less than the number of bins in the hash table by nine.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>False. The key word here is <b>exactly</b>. It is tempting to think that the all 11 elements were distributed evenly, with one per bin, leaving the other 9 bins all empty. But this isn't necessary -- all of the elements might have hashed to the same bin, for example.</p>
+<p>False. The key word here is <b>exactly</b>. It is tempting to think that all 11 elements were distributed evenly, with one per bin, leaving the other 9 bins all empty. But this isn't necessary—all of the elements might have hashed to the same bin, for example.</p>
 </details>
 
     </div>
@@ -513,7 +495,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>In the problem below, suppose <span class="inline-code"><code>arr</code></span> is an array of <span class="math">\(n\)</span> integers. What is the expected time complexity of the code below? Write your answer using asymptotic notation as a function of <span class="math">\(n\)</span>.</p>
-<p>Remember: <span class="inline-code"><code>set</code></span> is implemented using a hash table. You may assume that the hash table is large enough to store all of th numbers without needing to resize.</p>
+<p>Remember: <span class="inline-code"><code>set</code></span> is implemented using a hash table. You may assume that the hash table is large enough to store all of the numbers without needing to resize.</p>
 <pre class="code"><code class="language-python">def find_duplicates(arr):
     seen = set()
     duplicates = set()
@@ -572,7 +554,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/hashing.html'>hashing</a>, <a href='./tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a hash table with <span class="math">\(n/2\)</span> bins stores <span class="math">\(n\)</span> elements, and suppose that when the next element is inserted into the hash table, a “grow” will be triggered. That is, the insertion will cause the hash table to resize to <span class="math">\(n\)</span> bins containing the same <span class="math">\(n + 1\)</span> elements, plus the newly-added element.</p>
+<p>Suppose a hash table with <span class="math">\(n/2\)</span> bins stores <span class="math">\(n\)</span> elements, and suppose that when the next element is inserted into the hash table, a “grow” will be triggered. That is, the insertion will cause the hash table to resize to <span class="math">\(n\)</span> bins containing the same <span class="math">\(n\)</span> elements, plus the newly-added element.</p>
 <p>What will be the time complexity of this single insertion operation that causes the table to grow?</p>
 <details>
     <summary>Solution</summary>
@@ -592,7 +574,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/hashing.html'>hashing</a>, <a href='./tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a hash table in constructed so that collisions are resolved through chaining. The hash table has a number of bins <span class="math">\(k\)</span> that is <span class="math">\(\Theta(n)\)</span>, where <span class="math">\(n\)</span> is the number of elements being stored in the hash table; that is, the hash table grows as more elements are inserted.</p>
+<p>Suppose a hash table is constructed so that collisions are resolved through chaining. The hash table has a number of bins <span class="math">\(k\)</span> that is <span class="math">\(\Theta(n)\)</span>, where <span class="math">\(n\)</span> is the number of elements being stored in the hash table; that is, the hash table grows as more elements are inserted.</p>
 <p>Suppose the hash function uses only the first <span class="math">\(k / 2\)</span> bins of the hash table, but appears to hash items into these bins evenly.</p>
 <p>What is the expected time complexity of a membership query on this hash table? State your answer in asymptotic notation in terms of the number of elements in the hash table, <span class="math">\(n\)</span>.</p>
 <details>
@@ -638,7 +620,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/hashing.html'>hashing</a>, <a href='./tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose you need to keep track of a large dynamic collection of numbers. You will be performing <span class="inline-code"><code>n</code></span> insertions, <span class="inline-code"><code>n</code></span> deletions, and a very small number of queries for the maximum element in the collection. You will also be performing membership queries.</p>
+<p>Suppose you need to keep track of a large dynamic collection of numbers. You will be performing <span class="math">\(n\)</span> insertions, <span class="math">\(n\)</span> deletions, and a very small number of queries for the maximum element in the collection. You will also be performing membership queries.</p>
 <p>Which data structure should you use? You may assume that time complexity is the most important criterion.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Hash table</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Balanced binary search tree</p></label></div>
@@ -646,7 +628,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Sorted array with binary search</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>A hash table. In a hash table, insertions and deletions take constant time (on average), while a query for the maximum element takes <span class="math">\(\Theta(n)\)</span>. Since we are running only a constant number of max queries, they take <span class="math">\(\Theta(n)\)</span> time in total, and the <span class="math">\(n\)</span> insertions and <span class="math">\(n\)</span> deletions also take <span class="math">\(\Theta(n)\)</span> time in total. In a balanced BST, all of these operations take <span class="math">\(\Theta(\log n)\)</span>, which means running <span class="inline-code"><code>n</code></span> insertions and deletions will be <span class="math">\(\Theta(n \log n)\)</span> -- slower than a hash table.</p>
+<p>A hash table. In a hash table, insertions and deletions take constant time (on average), while a query for the maximum element takes <span class="math">\(\Theta(n)\)</span>. Since we are running only a constant number of max queries, they take <span class="math">\(\Theta(n)\)</span> time in total, and the <span class="math">\(n\)</span> insertions and <span class="math">\(n\)</span> deletions also take <span class="math">\(\Theta(n)\)</span> time in total. In a balanced BST, all of these operations take <span class="math">\(\Theta(\log n)\)</span>, which means running <span class="math">\(n\)</span> insertions and deletions will be <span class="math">\(\Theta(n \log n)\)</span>—slower than a hash table.</p>
 </details>
 
     </div>
@@ -665,12 +647,12 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose you need to keep track of a large dynamic collection of numbers. The three most common operations you will be performing are insertions, deletions, and queries for the maximum element in the collection. You may assume that the number of maximum queries you will be making is close to the number of insertions/deletions. You will also be performing membership queries.</p>
 <p>Which data structure should you use? You may assume that time complexity is the most important criterion.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Hash table</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Self-Balancing binary search tree</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Self-balancing binary search tree</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Unsorted array with linear search</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Sorted array with binary search</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>A self-balancing binary search tree. The key is that we're allowing deletions and max queries. If we delete the maximum, we'll need to find the <i>next maximum</i> upon our next query. In a hash table and unsorted array, this will take linear time. In a sorted array, finding the next max takes constant time -- but insertion and deletion potentially take linear time. In a balanced BST, all of these operations take <span class="math">\(\Theta(\log n)\)</span> in the worst case -- this is because a BST essentially keeps nodes in sorted order.</p>
+<p>A self-balancing binary search tree. The key is that we're allowing deletions and max queries. If we delete the maximum, we'll need to find the <i>next maximum</i> upon our next query. In a hash table and unsorted array, this will take linear time. In a sorted array, finding the next max takes constant time—but insertion and deletion potentially take linear time. In a balanced BST, all of these operations take <span class="math">\(\Theta(\log n)\)</span> in the worst case—this is because a BST essentially keeps nodes in sorted order.</p>
 </details>
 
     </div>
@@ -686,7 +668,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>What type of graph would be best for representing a network of friends on social media, where friendships are mutual? (i.e, if person A is person B's friend, person B is also person A's friend)</p>
+<p>What type of graph would be best for representing a network of friends on social media, where friendships are mutual? (i.e., if person A is person B's friend, person B is also person A's friend)</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Undirected graph</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Directed graph</p></label></div></form></div>
 <details>
@@ -792,8 +774,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V, E)\)</span> be a <i>directed</i> graph, and suppose <span class="math">\(u, v, w \in V\)</span> are all nodes. True or False: if <span class="math">\(w\)</span> is reachable from <span class="math">\(v\)</span>, and <span class="math">\(v\)</span> is reachable from <span class="math">\(u\)</span>, then <span class="math">\(w\)</span> is reachable from <span class="math">\(u\)</span>.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -814,8 +794,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(C\)</span> be a connected component in an undirected graph <span class="math">\(G\)</span>. Suppose <span class="math">\(u_1\)</span> is a node in <span class="math">\(C\)</span> and let <span class="math">\(u_2\)</span> be a node that is reachable from <span class="math">\(u_1\)</span>. True or False: <span class="math">\(u_2\)</span> must also be in the same connected component, <span class="math">\(C\)</span>.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -835,7 +813,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(v = \{a, b, c, d, e, f, g\}\)</span> and <span class="math">\(E = \{(a,g), (b,d), (d, e), (f, d)\}\)</span>. How many connected components does the undirected graph <span class="math">\(G =(V, E)\)</span> have?</p>
+<p>Let <span class="math">\(V = \{a, b, c, d, e, f, g\}\)</span> and <span class="math">\(E = \{(a,g), (b,d), (d, e), (f, d)\}\)</span>. How many connected components does the undirected graph <span class="math">\(G =(V, E)\)</span> have?</p>
 <details>
     <summary>Solution</summary>
 <p>3</p>
@@ -855,7 +833,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Consider the undirected graph <span class="math">\(G = (V, E)\)</span> with</p>
-<p><span class="math">\(V = \{0, 1, 2, 3, 4, 5, 6, 7\}\)</span> <span class="math">\(E = \{(0, 1), (3, 6), (1, 5), (2, 4), (3, 4)\}\)</span></p>
+<p><span class="math">\(V = \{0, 1, 2, 3, 4, 5, 6, 7\}\)</span></p>
+<p><span class="math">\(E = \{(0, 1), (3, 6), (1, 5), (2, 4), (3, 4)\}\)</span></p>
 <p>What are the connected components of <span class="math">\(G\)</span>?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{\{0, 1, 5, 7\}, \{2, 3, 4, 6\}\}\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{\{0, 1, 5, 2, 4\}, \{3, 6, 7\}\}\)</span></p></label></div>
@@ -881,14 +860,13 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V,E)\)</span> be an undirected graph with:</p>
-<center><div class="image"><img src="images/198/plot.png" /></div></center>
+<div class="math">\[
+        \begin{aligned}
+            V &= \{a, b, c, d, e, f, g, h\}\\
+            E &= \{(b, g), (a, e), (e, f), (c, b), (h, b), (d, b), (g, d), (a, f)\}
+        \end{aligned}
+    \]</div>
 <p>True or False: <span class="math">\(\{b, d, g\}\)</span> is a connected component of this graph.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False. The connected components of this graph are <span class="math">\(\{a, e, f\}\)</span> and <span class="math">\(\{b, c, d, g, h\}\)</span>.</p>
@@ -909,14 +887,13 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V,E)\)</span> be an undirected graph with:</p>
-<center><div class="image"><img src="images/199/graph.png" /></div></center>
+<div class="math">\[
+        \begin{aligned}
+            V &= \{a, b, c, d, e, f, g\}\\
+            E &= \{(a, c), (a, d), (a, e), (b, g), (b, f)\}
+        \end{aligned}
+    \]</div>
 <p>True or False: <span class="math">\(\{a, d, e\}\)</span> is a connected component of this graph.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -937,12 +914,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V, E)\)</span> be an undirected graph, and suppose that <span class="math">\(u, v, \)</span> and <span class="math">\(w\)</span> are three nodes in <span class="math">\(V\)</span>. Suppose that <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the same connected component, but <span class="math">\(u\)</span> and <span class="math">\(w\)</span> are not in the same connected component. True or False: it is possible that <span class="math">\(v\)</span> and <span class="math">\(w\)</span> are in the same connected component.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -1007,12 +978,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G\)</span> be an undirected graph. Suppose that the degree of every node in the graph is greater than or equal to one. True or False: <span class="math">\(G\)</span> must be connected.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -1033,8 +998,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(G = (V, E)\)</span> is an undirected graph. Let <span class="math">\(k\)</span> be the number of connected components in <span class="math">\(G\)</span>. True or False: it is possible that <span class="math">\(k > |E|\)</span>.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -1096,7 +1059,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose an undirected graph <span class="math">\(G = (V,E)\)</span> has two connected components, <span class="math">\(C_1\)</span> and <span class="math">\(C_2\)</span>. Suppose that <span class="math">\(|C_1| = 4\)</span> and <span class="math">\(|C_2| = 3\)</span>. What is the largest that <span class="math">\(|E|\)</span> can possibly be?</p>
 <details>
     <summary>Solution</summary>
-<p>Answer: 9. To load a graph with the most edges, make each connected component "fully connected". The most edges we can put in a component with 4 nodes is <span class="math">\(4 * 3 / 2 = 6\)</span>, and the most we can put into a component with 3 nodes is <span class="math">\(3 * 2 / 2 = 3\)</span>. Therefore, we can put at most 9 edges in this graph.</p>
+<p>Answer: 9. To get a graph with the most edges, make each connected component "fully connected". The most edges we can put in a component with 4 nodes is <span class="math">\(4 \cdot 3 / 2 = 6\)</span>, and the most we can put into a component with 3 nodes is <span class="math">\(3 \cdot 2 / 2 = 3\)</span>. Therefore, we can put at most 9 edges in this graph.</p>
 </details>
 
     </div>
@@ -1212,8 +1175,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Consider the graph below</p>
 <center><div class="image"><img src="images/213/graph_theory_1.png" /></div></center>
 <p>True or False: there are <i>infinitely many</i> paths from <span class="math">\(0\)</span> to <span class="math">\(5\)</span>. (Here, "path" means any path, not necessarily a simple path.)</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p>False. Paths may repeat nodes, so there would be infinitely many paths from 0 to 5 if some path from 0 to 5 could go around a cycle. But this graph has no cycles (every edge goes "forward"), so no path can repeat a node, and the only paths from 0 to 5 are the three simple paths <span class="math">\(0 \to 5\)</span>, <span class="math">\(0 \to 4 \to 5\)</span>, and <span class="math">\(0 \to 2 \to 4 \to 5\)</span>.</p>
@@ -1234,12 +1195,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Let <span class="math">\(G\)</span> be an undirected graph, and suppose <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are two nodes belonging to the same connected component of <span class="math">\(G\)</span>, with <span class="math">\(v\)</span> being a neighbor of <span class="math">\(u\)</span>. That is, the edge <span class="math">\((u, v)\)</span> is in <span class="math">\(G\)</span>.</p>
 <p>Let <span class="math">\(G'\)</span> be the graph obtained from <span class="math">\(G\)</span> by deleting the edge <span class="math">\((u, v)\)</span>. True or False: <span class="math">\(u\)</span> and <span class="math">\(v\)</span> must still be in the same connected component of the new graph, <span class="math">\(G'\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -1259,14 +1214,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose that every node in an undirected graph with <span class="math">\(n\)</span> nodes has degree 2.</p>
+<p>Suppose that every node in an undirected graph <span class="math">\(G\)</span> with <span class="math">\(n\)</span> nodes has degree 2.</p>
 <p>True or False: <span class="math">\(G\)</span> must have one connected component.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -1287,13 +1236,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G=(V,E)\)</span> be an undirected graph with <span class="math">\(V=\{a,b,c,d,e\}\)</span> and <span class="math">\(E=\{(a,b),(c,d),(e,a),(b,c),(e,d),(d,a)\}\)</span>.</p>
-<p>True or False: it is possible to color nodes of <span class="math">\(G\)</span> with red and blue such that there are no edges between nodes of the same color.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
+<p>True or False: it is possible to color the nodes of <span class="math">\(G\)</span> with red and blue such that there are no edges between nodes of the same color.</p>
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -1315,12 +1258,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V, E)\)</span> be a directed graph with the property that there is a node <span class="math">\(u\)</span> in <span class="math">\(G\)</span> such that every other node in <span class="math">\(G\)</span> is reachable from <span class="math">\(u\)</span>.</p>
 <p>Let <span class="math">\(H \)</span> be the directed graph obtained from <span class="math">\(G\)</span> by reversing the direction of every edge. True or False: there must be a node <span class="math">\(v\)</span> in <span class="math">\(H\)</span> such that every other node in <span class="math">\(H\)</span> is reachable from <span class="math">\(v\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False. Consider the graph <span class="math">\(a \leftarrow b \rightarrow c\)</span>. Every node is reachable from <span class="math">\(b\)</span>. Now flip the edges to get the graph: <span class="math">\(a \rightarrow b \leftarrow c\)</span>. There's no node from which every other node is reachable.</p>
@@ -1339,7 +1276,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/graph representations.html'>graph representations</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(A\)</span> be the adjacency matrix representing a directed graph with $n$ nodes. What is the greatest possible sum of any <i>row</i> of <span class="math">\(A\)</span>?</p>
+<p>Let <span class="math">\(A\)</span> be the adjacency matrix representing a directed graph with <span class="math">\(n\)</span> nodes. What is the greatest possible sum of any <i>row</i> of <span class="math">\(A\)</span>?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(1\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n - 1\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n\)</span></p></label></div>
@@ -1363,7 +1300,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/graph representations.html'>graph representations</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(A\)</span> be the adjacency matrix representing a undirected graph with <span class="math">\(n\)</span> nodes. What is the greatest possible sum of any <i>row</i> of <span class="math">\(A\)</span>?</p>
+<p>Let <span class="math">\(A\)</span> be the adjacency matrix representing an undirected graph with <span class="math">\(n\)</span> nodes. What is the greatest possible sum of any <i>row</i> of <span class="math">\(A\)</span>?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(1\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n - 1\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n\)</span></p></label></div>
@@ -1372,33 +1309,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(n - 1\)</span>. The sum of row <span class="math">\(i\)</span> is the degree of node <span class="math">\(i\)</span>. Since an undirected graph has no self-loops, a node can be adjacent to at most the other <span class="math">\(n - 1\)</span> nodes.</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #220</h2>
-        <p>Tags: <a href='./tags/aggregate analysis.html'>aggregate analysis</a>, <a href='./tags/graph representations.html'>graph representations</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Suppose a graph <span class="math">\(G = (V, E)\)</span> is stored using an adjacency list representation in the variable <span class="inline-code"><code>adj_list</code></span>. What is the time complexity of the below code?</p>
-<pre class="code"><code class="language-python">for lst in adj_list:
-    for u in lst:
-        print(u)</code></pre>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2 + E^2)\)</span></p></label></div></form></div>
-<details>
-    <summary>Solution</summary>
-<p><span class="math">\(\Theta(V + E)\)</span></p>
 </details>
 
     </div>
@@ -1418,14 +1328,9 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <pre class="code"><code class="language-python">for u, lst in enumerate(adj_list):
     for v in lst:
         print(u, v, "is an edge")</code></pre>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2 + E^2)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>2nd option: <span class="math">\(\Theta(V + E)\)</span></p>
+<p><span class="math">\(\Theta(V + E)\)</span></p>
 </details>
 
     </div>
@@ -1442,14 +1347,9 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Suppose the code below is run on a graph <span class="math">\(G = (V, E)\)</span>. What is its time complexity? You may assume that <span class="math">\(|E| \geq 1\)</span>.</p>
-<pre class="code"><code>for u in graph.nodes:
+<pre class="code"><code class="language-python">for u in graph.nodes:
     for v in graph.neighbors(u):
         print(u, v)</code></pre>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(VE)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(V + E)\)</span></p>
@@ -1490,11 +1390,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>An “isolated node” in a graph is a node that has no edges attached to it.</p>
 <p>What is the worst case time complexity of an efficient algorithm that checks to see if a graph <span class="math">\(G = (V, E)\)</span> has an isolated node? You should assume that the graph is represented as an adjacency list.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V \cdot E)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(V)\)</span></p>
@@ -1550,12 +1445,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         \end{pmatrix}
     \]</div>
 <p>True or False: there is a path from node <span class="math">\(u_1\)</span> to node <span class="math">\(u_8\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -1596,7 +1485,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose you are performing a BFS on the following graph, starting on node 0: In which of the following orders are the nodes visited, assuming that the BFS algorithm produces neighbors in numerical order?</p>
+<p>Suppose you are performing a BFS on the following graph, starting at node 0. In which of the following orders are the nodes visited, assuming that the BFS algorithm produces neighbors in numerical order?</p>
 <center><div class="image"><img src="images/228/bfs_1.png" /></div></center>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>0, 1, 2, 3, 4, 5</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>0, 1, 3, 5, 4, 2</p></label></div>
@@ -1623,13 +1512,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose a <i>breadth</i> first search is run on the graph below using node <span class="math">\(d\)</span> as the source. Adopt the convention that a node's neighbors are produced in alphabetical order.</p>
 <center><div class="image"><img src="images/229/searchme.png" /></div></center>
 <p>What is the node popped from the queue after node <span class="math">\(g\)</span>?</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>d</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>e</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>f</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>g</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>q</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>r</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>v</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(e\)</span>. The nodes are popped in the order <span class="math">\(d, f, q, r, g, e, v\)</span>. Popping <span class="math">\(d\)</span> adds <span class="math">\(f, q, r\)</span>; popping <span class="math">\(f\)</span> adds <span class="math">\(g\)</span>; popping <span class="math">\(q\)</span> adds <span class="math">\(e\)</span>; popping <span class="math">\(r\)</span> adds <span class="math">\(v\)</span>. So the queue is then <span class="math">\(g, e, v\)</span>, and <span class="math">\(e\)</span> comes right after <span class="math">\(g\)</span>.</p>
@@ -1673,7 +1555,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     (V, E)\)</span> with nodes <span class="math">\(u_1, u_2, \ldots, u_n\)</span> and edges <span class="math">\((u_1, u_2), (u_2,
     u_3), \ldots, (u_{n-1}, u_n)\)</span>, along with one additional edge <span class="math">\((u_n, u_1)\)</span> completing the cycle. An example of a circle graph with 6 nodes is shown below:</p>
 <center><div class="image"><img src="images/231/graph.png" /></div></center>
-<p>What is the time complexity of breath-first search when run on a circle graph with <span class="math">\(n\)</span> nodes? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation.</p>
+<p>What is the time complexity of breadth-first search when run on a circle graph with <span class="math">\(n\)</span> nodes? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
@@ -1692,7 +1574,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a “2-chain” graph with <span class="math">\(n\)</span> nodes is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math">\(\ldots\)</span>, <span class="math">\(n\)</span>, and, for each node <span class="math">\(u\)</span>, making an edge to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span> (if they are in the graph).</p>
+<p>Suppose a “2-chain” graph with <span class="math">\(n\)</span> nodes is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math">\(\ldots\)</span>, <span class="math">\(n\)</span>, and, for each node <span class="math">\(u\)</span>, making a directed edge from <span class="math">\(u\)</span> to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span> (if they are in the graph).</p>
 <p>For example, such a graph with <span class="math">\(n = 7\)</span> looks like:</p>
 <center><div class="image"><img src="images/232/g3.png" /></div></center>
 <p>Suppose BFS is run on a 2-chain graph with <span class="math">\(n\)</span> nodes, using node 1 as the source. What is the time taken as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
@@ -1792,7 +1674,7 @@ def modified_bfs(graph, source):
     <div class="problem-body">
 <p>Suppose a breadth-first search is performed on the following tree, starting at the root node <span class="math">\(s\)</span>:</p>
 <center><div class="image"><img src="images/235/tree.png" /></div></center>
-<p>What is the most number of nodes that can be in the queue at any one time?</p>
+<p>What is the largest number of nodes that can be in the queue at any one time?</p>
 <details>
     <summary>Solution</summary>
 <p>8</p>
@@ -1813,12 +1695,6 @@ def modified_bfs(graph, source):
     <div class="problem-body">
 <p>Consider calling <span class="inline-code"><code>full_bfs</code></span> on a <i>directed</i> graph, and recall that <span class="inline-code"><code>full_bfs</code></span> will make calls to <span class="inline-code"><code>bfs</code></span> until all nodes have been marked as visited.</p>
 <p>True or False: the number of calls made to <span class="inline-code"><code>bfs</code></span> depends on the order in which <span class="inline-code"><code>graph.nodes</code></span> produces the graph's nodes. That is, if nodes are produced in a different order, the number of calls to <span class="inline-code"><code>bfs</code></span> may be different.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -1839,12 +1715,6 @@ def modified_bfs(graph, source):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose an undirected graph with <span class="math">\(n\)</span> nodes satisfies the property that every node has degree <span class="math">\(n/2\)</span>. What is the time complexity of running full BFS on this graph?</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2 \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>. Full BFS takes <span class="math">\(\Theta(V + E)\)</span> time. The sum of the degrees is <span class="math">\(n \cdot n/2\)</span>, and each edge is counted twice in this sum, so there are <span class="math">\(n^2/4\)</span> edges. So the time is <span class="math">\(\Theta(n + n^2/4) = \Theta(n^2)\)</span>.</p>
@@ -1864,7 +1734,7 @@ def modified_bfs(graph, source):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a connected, undirected graph <span class="math">\(G\)</span> has <span class="math">\(n\)</span> nodes, half of which are “red” and half of which are “blue”. Each red node shares an edge with <span class="math">\(\log_2 n\)</span> blue nodes, and the only edges in the graph are between red and blue nodes.</p>
-<p>What is the time complexity of BFS when run on <span class="math">\(G\)</span>? Your answer should be in asymptotic notation and in terms of <span class="math">\(n\)</span>, in as simplest terms possible.</p>
+<p>What is the time complexity of BFS when run on <span class="math">\(G\)</span>? Your answer should be in asymptotic notation and in terms of <span class="math">\(n\)</span>, in the simplest terms possible.</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n \log n)\)</span></p>
@@ -1971,8 +1841,8 @@ def modified_bfs(graph, source):
         u = pending.popleft()
         for v in graph.neighbors(u):
 
-            for node in graph.nodes:  # &lt; -- this is the modification
-                print(status[node])   # &lt; -- this is the modification
+            for node in graph.nodes:  # &lt;-- this is the modification
+                print(status[node])   # &lt;-- this is the modification
 
             if status[v] == 'undiscovered':
                 status[v] = 'pending'
@@ -2004,7 +1874,7 @@ def modified_bfs(graph, source):
         <div class="problem">
     <div class="problem-body">
 <p>Consider the following modification of BFS, where there are two new lines of code. What is the time complexity in terms of <span class="math">\(|V|\)</span> and <span class="math">\(|E|\)</span>?</p>
-<pre class="code"><code>from collections import deque
+<pre class="code"><code class="language-python">from collections import deque
 
 def foo(graph):
     status = {node: 'undiscovered' for node in graph.nodes}
@@ -2024,14 +1894,9 @@ def bar(graph, source, status):
             if status[v] == 'undiscovered':
                 status[v] = 'pending'
                 pending.append(v)
-            for v in graph.nodes:
-                print(v)
+            for z in graph.nodes:
+                print(z)
         status[u] = 'visited'</code></pre>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(VE)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + VE)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(V + VE)\)</span>. Without the two new lines, this is a full BFS, which takes <span class="math">\(\Theta(V + E)\)</span> time. The new inner loop runs once each time an edge is explored, and each time it takes <span class="math">\(\Theta(V)\)</span> time. By an aggregate analysis, edges are explored <span class="math">\(\Theta(E)\)</span> times in total, so the new lines add <span class="math">\(\Theta(VE)\)</span> time. The total is <span class="math">\(\Theta(V + E + VE) = \Theta(V + VE)\)</span>. (We can't drop the <span class="math">\(V\)</span> term: when there are no edges, the code still takes <span class="math">\(\Theta(V)\)</span> time.)</p>
@@ -2081,7 +1946,7 @@ def modified_bfs(graph, source, status=None):
 
         status[u] = 'visited'</code></pre>
 <p>Notice the two new lines; these lines print all node statuses any time that an undiscovered node has been found.</p>
-<p>What is the time complexity of this modified <span class="inline-code"><code>modified_full_bfs</code></span>? State your answer in asymptotic notation in terms of the number of nodes, <span class="math">\(|V|\)</span>, and the number of edges, <span class="math">\(|E|\)</span>. You may assume that the graph is represented using an adjacency list, and that it is connected.</p>
+<p>What is the time complexity of <span class="inline-code"><code>modified_full_bfs</code></span>? State your answer in asymptotic notation in terms of the number of nodes, <span class="math">\(|V|\)</span>, and the number of edges, <span class="math">\(|E|\)</span>. You may assume that the graph is represented using an adjacency list, and that it is connected.</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(V^2)\)</span>.</p>
@@ -2107,17 +1972,12 @@ def modified_bfs(graph, source, status=None):
 <p>A “hub and spoke” graph with <span class="math">\(n\)</span> nodes consists of a single “hub” node <span class="math">\(h\)</span> along with <span class="math">\(n - 1\)</span> “spoke” nodes, <span class="math">\(u_1, \ldots, u_{n-1}\)</span> and <span class="math">\(n - 1\)</span> edges from the hub node <span class="math">\(h\)</span> to each of the spoke nodes. For example, a “hub and spoke” graph with 8 nodes looks like the below:</p>
 <center><div class="image"><img src="images/244/g5.png" /></div></center>
 <p>What is the <b>worst case</b> time complexity of an optimal algorithm which takes as input an arbitrary graph <span class="math">\(G = (V, E)\)</span> and determines if it is a “hub and spoke” graph? You may assume that the graph is represented as an adjacency list and that the total number of edges in the graph can be retrieved in constant time.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E^2)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(1)\)</span></p>
-<p>Here's the algorithm. First, check that the number of edges is <span class="math">\(|V| - 1\)</span>. If not, it's not a “hub and spoke” graph. This takes constant time, by the assumption that the total number of edges can be retrieved in constant time.</p>
-<p>Next, take an arbitrary node and compute its degree (in <span class="math">\(\Theta(1)\)</span> time), since the graph is represented as an adjacency list). If the degree is <span class="math">\(n - 1\)</span>, then the graph is a “hub and spoke” graph, and this is the hub.</p>
-<p>If the degree is not <span class="math">\(n - 1\)</span>, but instead 1, this node might be a spoke. Check the degree of its neighbor as described above to see if its a hub.</p>
+<p>Here's the algorithm. First, check that the number of edges is <span class="math">\(n - 1\)</span>, where <span class="math">\(n = |V|\)</span>. If not, it's not a “hub and spoke” graph. This takes constant time, by the assumption that the total number of edges can be retrieved in constant time.</p>
+<p>Next, take an arbitrary node and compute its degree (in <span class="math">\(\Theta(1)\)</span> time, since the graph is represented as an adjacency list). If the degree is <span class="math">\(n - 1\)</span>, then the graph is a “hub and spoke” graph, and this is the hub.</p>
+<p>If the degree is not <span class="math">\(n - 1\)</span>, but instead 1, this node might be a spoke. Check the degree of its neighbor as described above to see if it's a hub.</p>
 <p>If you see a degree that's neither 1 nor <span class="math">\(n - 1\)</span>, then the graph is not a “hub and spoke” graph.</p>
 </details>
 
@@ -2242,7 +2102,7 @@ def modified_bfs(graph, source, status=None):
         <p>Tags: <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>An undirected graph with 20 nodes and 30 edges has three connected components: <span class="math">\(A\)</span>, <span class="math">\(B\)</span>, and <span class="math">\(C\)</span>. Connected component <span class="math">\(A\)</span> has 7 nodes. What is the smallest number of edges it can have?</p>
+<p>An undirected graph with 20 nodes and 30 edges has three connected components: <span class="math">\(A\)</span>, <span class="math">\(B\)</span>, and <span class="math">\(C\)</span>. Connected component <span class="math">\(A\)</span> has 7 nodes. What is the smallest number of edges that <span class="math">\(A\)</span> can have?</p>
 <details>
     <summary>Solution</summary>
 <p>6</p>
@@ -2282,8 +2142,6 @@ def modified_bfs(graph, source, status=None):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a <i>breadth</i> first search (BFS) is run on a graph <span class="math">\(G = (V, E)\)</span>, and that node <span class="math">\(u\)</span> is distance 5 from the source while node <span class="math">\(v\)</span> is distance 3 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -2304,8 +2162,6 @@ def modified_bfs(graph, source, status=None):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a breadth first search (BFS) is run on a graph <span class="math">\(G = (V, E)\)</span>, and that node <span class="math">\(u\)</span> is distance 6 from the source while node <span class="math">\(v\)</span> is distance 7 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p>True. Suppose another node <span class="math">\(w\)</span> is also at distance 6 and is a neighbor of <span class="math">\(v\)</span>. If <span class="math">\(w\)</span> is popped from the queue before <span class="math">\(u\)</span>, then <span class="math">\(v\)</span> is added to the queue while <span class="math">\(u\)</span> is still waiting in it.</p>
@@ -2325,8 +2181,6 @@ def modified_bfs(graph, source, status=None):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a breadth first search (BFS) is run on a graph <span class="math">\(G = (V, E)\)</span>, and that node <span class="math">\(u\)</span> is <b>the only node</b> which is distance 6 from the source while node <span class="math">\(v\)</span> is distance 7 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p>False. A node at distance 7 must be discovered while BFS is exploring the neighbors of a node at distance 6, and the only such node is <span class="math">\(u\)</span>. But <span class="math">\(u\)</span> is removed from the queue before its neighbors are explored, so by the time <span class="math">\(v\)</span> is added to the queue, <span class="math">\(u\)</span> is no longer in it.</p>
@@ -2368,12 +2222,6 @@ def modified_bfs(graph, source, status=None):
     <div class="problem-body">
 <p>Suppose a breadth first search on an undirected, connected graph is paused at a particular moment in time and the node statuses are printed. Suppose it is found that all nodes which are distance 6 from the source are marked “visited”.</p>
 <p>True or False: it is possible that there is a node, distance 7 from the source, whose status is “undiscovered”.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -2397,7 +2245,7 @@ def modified_bfs(graph, source, status=None):
 <p>Suppose node <span class="math">\(u\)</span> is a node in <span class="math">\(G\)</span>, and <span class="math">\(v_1\)</span> and <span class="math">\(v_2\)</span> are two neighbors of node <span class="math">\(u\)</span>. Assume that <span class="math">\(u\)</span> is reachable from <span class="math">\(s\)</span>.</p>
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
-<p>What is the <i>largest</i> that <span class="math">\(|\)</span><span class="inline-code"><code>dist[v_2] - dist[v_1]</code></span><span class="math">\(|\)</span> can be?</p>
+<p>What is the <i>largest</i> that <span class="inline-code"><code>abs(dist[v_2] - dist[v_1])</code></span> can be?</p>
 <details>
     <summary>Solution</summary>
 <p>2</p>
@@ -2407,7 +2255,7 @@ def modified_bfs(graph, source, status=None):
 
 <div class="subproblem">
     <h3 class="subproblem-id">Part 2)</h3>
-<p>What is the <i>smallest</i> that <span class="math">\(|\)</span><span class="inline-code"><code>dist[v_2] - dist[v_1]</code></span><span class="math">\(|\)</span> can be?</p>
+<p>What is the <i>smallest</i> that <span class="inline-code"><code>abs(dist[v_2] - dist[v_1])</code></span> can be?</p>
 <details>
     <summary>Solution</summary>
 <p>0</p>
@@ -2425,15 +2273,11 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer" data-badges="hard">
         <h2>Problem #258 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
-        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-12.html'>lecture-12</a>, <a href='./tags/shortest path.html'>shortest path</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-12.html'>lecture-12</a>, <a href='./tags/shortest paths.html'>shortest paths</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose an undirected, connected graph has <span class="math">\(n\)</span> nodes, half of which are colored red and the other half are colored blue. Each red node is neighbors with <span class="math">\(n/4\)</span> blue nodes, and each blue node is neighbors with <span class="math">\(n/4\)</span> red nodes. There are no edges between nodes of the same color.</p>
 <p>What is the time complexity of computing a shortest path from a given red node to all other red nodes using BFS?</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span></p>
@@ -2455,8 +2299,8 @@ def modified_bfs(graph, source, status=None):
 <p>Consider the following problem: you're given an unweighted graph <span class="math">\(G\)</span>, a source node <span class="math">\(u\)</span>, a destination node <span class="math">\(v\)</span>, and an "intermediate" node <span class="math">\(x\)</span>. Your goal is to find a shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> that passes through <span class="math">\(x\)</span>.</p>
 <p>Your friend proposes the following algorithm: run a BFS starting at node <span class="math">\(u\)</span>, then terminate it when it reaches node <span class="math">\(x\)</span>. Then start a BFS at node <span class="math">\(x\)</span>, and terminate it when it reaches node <span class="math">\(v\)</span>.</p>
 <p>Does this algorithm work?</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>yes</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>no</p></label></div></form></div>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Yes</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p>Yes. Any path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> through <span class="math">\(x\)</span> consists of a path from <span class="math">\(u\)</span> to <span class="math">\(x\)</span> followed by a path from <span class="math">\(x\)</span> to <span class="math">\(v\)</span>, so its length is at least the <span class="math">\(u\)</span>-to-<span class="math">\(x\)</span> distance plus the <span class="math">\(x\)</span>-to-<span class="math">\(v\)</span> distance. The first BFS finds a shortest path from <span class="math">\(u\)</span> to <span class="math">\(x\)</span> and the second finds a shortest path from <span class="math">\(x\)</span> to <span class="math">\(v\)</span>; joining them gives a path achieving this minimum.</p>
@@ -2480,7 +2324,7 @@ def modified_bfs(graph, source, status=None):
 <details>
     <summary>Solution</summary>
 <p>True.</p>
-<p>Consider the "chain" graph A - B - C - D - E. The shortest path from C to E that passes through B is C - B - C - D - E. It passes through C twice.</p>
+<p>Consider the “chain” graph A - B - C - D - E, and take <span class="math">\(u = C\)</span>, <span class="math">\(z = B\)</span> and <span class="math">\(v = E\)</span>. The shortest path from C to E that passes through B is C - B - C - D - E. It passes through C twice.</p>
 </details>
 
     </div>
@@ -2497,7 +2341,13 @@ def modified_bfs(graph, source, status=None):
         <div class="problem">
     <div class="problem-body">
 <p>The table below shows the number of nodes in a graph <span class="math">\(G\)</span> which are distance 0 from node <span class="math">\(s\)</span>, distance 1 from node <span class="math">\(s\)</span>, distance 2, etc.:</p>
-<center><div class="image"><img src="images/261/table.png" /></div></center>
+<div class="math">\[
+        \begin{array}{l|cccccc}
+            \text{Distance from } s & 0 & 1 & 2 & 3 & 4 & 5\\
+            \hline
+            \text{Number of nodes} & 1 & 7 & 3 & 6 & 3 & 1
+        \end{array}
+    \]</div>
 <p>Suppose a BFS is performed on this graph with node <span class="math">\(s\)</span> as the starting node. What is the largest number of nodes that could possibly be in the queue at any one time?</p>
 <details>
     <summary>Solution</summary>
@@ -2520,12 +2370,6 @@ def modified_bfs(graph, source, status=None):
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of depth first search (DFS) when run on a tree with <span class="math">\(n\)</span> nodes?</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
@@ -2566,38 +2410,6 @@ def modified_bfs(graph, source, status=None):
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V, E)\)</span> be an undirected tree.</p>
 <p>Suppose breadth-first search (BFS) and depth-first search (DFS) are each run on the graph using the same source node. True or False: for any node <span class="math">\(u\)</span> in the graph, the BFS predecessor of <span class="math">\(u\)</span> and the DFS predecessor of <span class="math">\(u\)</span> must be the same.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
-<details>
-    <summary>Solution</summary>
-<p>True.</p>
-<p>In a tree there is exactly one simple path from the source to <span class="math">\(u\)</span>. BFS and DFS both find a path from the source to <span class="math">\(u\)</span>, and it has to be this one, so both predecessors are the node right before <span class="math">\(u\)</span> on it.</p>
-</details>
-
-    </div>
-</div>
-
-        </div>
-
-
-
-
-        <div class="problem-outer">
-        <h2>Problem #265</h2>
-        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
-        <div class="problem">
-    <div class="problem-body">
-<p>Suppose both BFS and DFS are run on the same graph <span class="math">\(G = (V, E)\)</span> using the same source node. Assume that <span class="math">\(G\)</span> is a tree. Consider a particular node <span class="math">\(u\)</span> in the graph. True or False: the BFS predecessor found for <span class="math">\(u\)</span> and the DFS predecessor found for <span class="math">\(u\)</span> must be the same.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -2617,9 +2429,7 @@ def modified_bfs(graph, source, status=None):
         <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>We saw in lecture that both full BFS and DFS produce trees when run on connected graphs, and <i>forests</i> when run on disconnected graphs. Suppose a full BFS and a full DFS are run on an undirected graph with three connected components. True or False: the number of trees in the BFS forest will equal to number of trees in the DFS forest.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<p>We saw in lecture that both full BFS and DFS produce trees when run on connected graphs, and <i>forests</i> when run on disconnected graphs. Suppose a full BFS and a full DFS are run on an undirected graph with three connected components. True or False: the number of trees in the BFS forest will equal the number of trees in the DFS forest.</p>
 <details>
     <summary>Solution</summary>
 <p>True. Both full BFS and full DFS start a new search once for each connected component (each search discovers exactly the nodes in the source's component), so each produces one tree per connected component: three trees in both forests.</p>
@@ -2638,7 +2448,7 @@ def modified_bfs(graph, source, status=None):
         <p>Tags: <a href='./tags/lecture-13.html'>lecture-13</a>, <a href='./tags/topological sorting.html'>topological sorting</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Consider the graph <span class="math">\(G = (V, E)\)</span> with <span class="math">\(V = \{a, b, c\}\)</span> and <span class="math">\(E = \{(a, b)\}\)</span>.</p>
+<p>Consider the directed graph <span class="math">\(G = (V, E)\)</span> with <span class="math">\(V = \{a, b, c\}\)</span> and <span class="math">\(E = \{(a, b)\}\)</span>.</p>
 <p>How many valid topological sorts of this graph are there?</p>
 <details>
     <summary>Solution</summary>
@@ -2677,7 +2487,7 @@ def modified_bfs(graph, source, status=None):
         <p>Tags: <a href='./tags/lecture-13.html'>lecture-13</a>, <a href='./tags/topological sorting.html'>topological sorting</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(G = (V,E)\)</span> be the directed graph with <span class="math">\(V = \{a, b, c, d, e\}\)</span> and <span class="math">\(E = \{(a, b), (a, c), (a, d), (b, e), (c, e), (d, e)\}\)</span>. How many valid topological sorts of $V$ are there?</p>
+<p>Let <span class="math">\(G = (V,E)\)</span> be the directed graph with <span class="math">\(V = \{a, b, c, d, e\}\)</span> and <span class="math">\(E = \{(a, b), (a, c), (a, d), (b, e), (c, e), (d, e)\}\)</span>. How many valid topological sorts of <span class="math">\(V\)</span> are there?</p>
 <details>
     <summary>Solution</summary>
 <p>6</p>
@@ -2700,7 +2510,7 @@ def modified_bfs(graph, source, status=None):
 <center><div class="image"><img src="images/270/graph.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p>d a b c e</p>
+<p><span class="math">\(d, a, b, c, e\)</span>. This is the only topological sort of this graph.</p>
 </details>
 
     </div>
@@ -2718,15 +2528,6 @@ def modified_bfs(graph, source, status=None):
     <div class="problem-body">
 <p>Suppose a <i>depth</i> first search (DFS) is run on the graph shown below using node <span class="math">\(u_4\)</span> as the source and the convention that <span class="inline-code"><code>graph.neighbors</code></span> produces nodes in ascending order by label. What will be the predecessor of <span class="math">\(u_6\)</span> in the DFS?</p>
 <center><div class="image"><img src="images/271/f1.png" /></div></center>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_1\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_2\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_3\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_4\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_5\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_6\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_7\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_8\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_9\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(u_5\)</span>. DFS starts at <span class="math">\(u_4\)</span>, looks at the neighbors, and sees <span class="math">\(u_2\)</span> is undiscovered, so it makes a recursive call <span class="inline-code"><code>dfs(u_2)</code></span>. At <span class="math">\(u_2\)</span>, it sees that <span class="math">\(u_1\)</span> is undiscovered, and calls <span class="inline-code"><code>dfs(u_1)</code></span>. At <span class="math">\(u_1\)</span>, there's nothing to do, so it's marked as visited and the recursion unrolls back to the call on <span class="inline-code"><code>dfs(u_2)</code></span>. We then look at the next neighbor of <span class="math">\(u_2\)</span>, which is <span class="math">\(u_3\)</span>. We make a call to <span class="inline-code"><code>dfs(u_3)</code></span>, which looks at its neighbors and sees <span class="math">\(u_5\)</span>. We make a call to <span class="inline-code"><code>dfs(u_5)</code></span>, and during this call we discover <span class="math">\(u_6\)</span>, meaning that <span class="math">\(u_5\)</span> is the DFS predecessor of <span class="math">\(u_6\)</span>.</p>
@@ -2747,15 +2548,6 @@ def modified_bfs(graph, source, status=None):
     <div class="problem-body">
 <p>Suppose a depth first search is run on the graph shown below using node <span class="math">\(u_4\)</span> as the source, and adopt the convention that <span class="inline-code"><code>graph.neighbors</code></span> produces nodes in ascending order of label. Which node will have the smallest finish time?</p>
 <center><div class="image"><img src="images/272/f1.png" /></div></center>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_1\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_2\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_3\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_4\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_5\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_6\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_7\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_8\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_9\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(u_1\)</span></p>
@@ -2774,7 +2566,7 @@ def modified_bfs(graph, source, status=None):
         <p>Tags: <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/lecture-13.html'>lecture-13</a>, <a href='./tags/start and finish times.html'>start and finish times</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a depth first search is run on the graph shown below using node <span class="math">\(u_4\)</span> as the source, and adopt the convention that <span class="inline-code"><code>graph.neighbors</code></span> produces nodes in ascending order of label. What will be the start time of node <span class="math">\(u_7\)</span>?</p>
+<p>Suppose a depth first search is run on the graph shown below using node <span class="math">\(u_4\)</span> as the source, and adopt the convention that <span class="inline-code"><code>graph.neighbors</code></span> produces nodes in ascending order of label. Use the convention that the start time of the source is 1. What will be the start time of node <span class="math">\(u_7\)</span>?</p>
 <center><div class="image"><img src="images/273/f1.png" /></div></center>
 <details>
     <summary>Solution</summary>
@@ -2797,13 +2589,6 @@ def modified_bfs(graph, source, status=None):
 <p>Suppose a <i>depth</i> first search is run on the graph below using node <span class="math">\(d\)</span> as the source, and using the convention that a node's neighbors are produced in alphabetical order.</p>
 <center><div class="image"><img src="images/274/searchme.png" /></div></center>
 <p>What is the predecessor of node <span class="math">\(v\)</span> in the DFS search tree?</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>d</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>e</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>f</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>g</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>q</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>r</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>v</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(r\)</span>. From <span class="math">\(d\)</span>, DFS first visits <span class="math">\(f\)</span>, then (from <span class="math">\(f\)</span>) <span class="math">\(g\)</span>, then (from <span class="math">\(g\)</span>) <span class="math">\(r\)</span>, and then (from <span class="math">\(r\)</span>) <span class="math">\(v\)</span>. So <span class="math">\(v\)</span> is discovered from <span class="math">\(r\)</span>.</p>
@@ -3109,8 +2894,6 @@ def modified_bfs(graph, source, status=None):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose you run DFS on a graph in which all nodes are reachable from the source node. True or false: the source node will be marked as visited last, <b>only</b> if the graph is undirected.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p>False. The source is marked as visited last in both directed and undirected graphs. Every other node is reachable from the source, so each is discovered and finished during the recursive calls made by the call on the source, which finishes only after all of them have.</p>
@@ -3130,12 +2913,6 @@ def modified_bfs(graph, source, status=None):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a DFS is run on a <b>directed</b> graph. Let <span class="math">\(u\)</span> and <span class="math">\(v\)</span> be two nodes in the graph, and assume that the edge <span class="math">\((u, v)\)</span> exists. True or False: it is possible that, at some moment in time, <span class="math">\(u\)</span> is marked as “visited” while <span class="math">\(v\)</span> is marked as “undiscovered”.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -3155,9 +2932,7 @@ def modified_bfs(graph, source, status=None):
         <p>Tags: <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a <i>depth</i> first search is run on a directed graph. True or False: it is possible that, at any moment in time, there is a node marked as visited which has a neighbor (successor) that is marked as pending.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<p>Suppose a <i>depth</i> first search is run on a directed graph. True or False: it is possible that, at some moment in time, there is a node marked as visited which has a neighbor (successor) that is marked as pending.</p>
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -3178,12 +2953,6 @@ def modified_bfs(graph, source, status=None):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose that a depth first search is being performed on an <b>undirected</b> graph, and when <span class="inline-code"><code>dfs</code></span> is called on a node <span class="math">\(u\)</span>, the statuses of all of its neighbors are printed. True or False: it is possible that one of the neighbors is marked as “visited”.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -3204,8 +2973,6 @@ def modified_bfs(graph, source, status=None):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a depth first search (DFS) is run on a connected undirected graph, and there is a node <span class="math">\(u\)</span> which has only one neighbor. True or False: the finish time of node <span class="math">\(u\)</span> will be equal to its start time plus 3.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p>False. If <span class="math">\(u\)</span> is not the source, its only neighbor is the node it was discovered from, which is already pending. So DFS finds nothing new to visit from <span class="math">\(u\)</span>, and <span class="math">\(u\)</span>'s finish time is its start time plus 1. (If <span class="math">\(u\)</span> is the source, its finish time is its start time plus <span class="math">\(2(|V| - 1) + 1\)</span>, which equals its start time plus 3 only when the graph has exactly two nodes.)</p>
@@ -3243,7 +3010,7 @@ def modified_bfs(graph, source, status=None):
         <p>Tags: <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/lecture-13.html'>lecture-13</a>, <a href='./tags/start and finish times.html'>start and finish times</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose <span class="math">\(T = (V, E)\)</span> is a connected, undirected graph with no cycles (that is, <span class="math">\(T\)</span> is a tree). Suppose a depth first search is run on <span class="math">\(T\)</span> using node s as the source. Assume that node s has two neighbors: <span class="math">\(u\)</span> and <span class="math">\(v\)</span>. If <span class="math">\(|V| = 15\)</span>, which one of the below represents possible start and finish times of <span class="math">\(u\)</span> and <span class="math">\(v\)</span>? You may assume that <span class="inline-code"><code>graph.neighbors</code></span> produces neighbors in ascending order of label.</p>
+<p>Suppose <span class="math">\(T = (V, E)\)</span> is a connected, undirected graph with no cycles (that is, <span class="math">\(T\)</span> is a tree). Suppose a depth first search is run on <span class="math">\(T\)</span> using node <span class="math">\(s\)</span> as the source. Assume that node <span class="math">\(s\)</span> has two neighbors: <span class="math">\(u\)</span> and <span class="math">\(v\)</span>. If <span class="math">\(|V| = 15\)</span>, which one of the below represents possible start and finish times of <span class="math">\(u\)</span> and <span class="math">\(v\)</span>? You may assume that <span class="inline-code"><code>graph.neighbors</code></span> produces neighbors in ascending order of label.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>start[u] = 2</code></span>, <span class="inline-code"><code>finish[u] = 10</code></span>, <span class="inline-code"><code>start[v] = 8</code></span>, <span class="inline-code"><code>finish[v] = 29</code></span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>start[u] = 2</code></span>, <span class="inline-code"><code>finish[u] = 21</code></span>, <span class="inline-code"><code>start[v] = 22</code></span>, <span class="inline-code"><code>finish[v] = 29</code></span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>start[u] = 1</code></span>, <span class="inline-code"><code>finish[u] = 16</code></span>, <span class="inline-code"><code>start[v] = 17</code></span>, <span class="inline-code"><code>finish[v] = 30</code></span></p></label></div>
@@ -3263,17 +3030,11 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #292</h2>
-        <p>Tags: <a href='./tags/lecture-13.html'>lecture-13</a>, <a href='./tags/start and finish times.html'>start and finish times</a></p>
+        <p>Tags: <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/lecture-13.html'>lecture-13</a>, <a href='./tags/start and finish times.html'>start and finish times</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose an undirected graph has 50 nodes. A full DFS is run on the graph to compute start and finish times. Suppose that, for each node, the difference between the node's start and finish is printed, and the largest difference is found to be 15.</p>
 <p>True or False: it is possible that the graph is connected.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -3314,12 +3075,6 @@ def modified_bfs(graph, source, status=None):
         <
         \text{new_finish}[u]
     \]</div>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -3336,17 +3091,11 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer" data-badges="hard">
         <h2>Problem #294 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
-        <p>Tags: <a href='./tags/lecture-13.html'>lecture-13</a>, <a href='./tags/start and finish times.html'>start and finish times</a></p>
+        <p>Tags: <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/lecture-13.html'>lecture-13</a>, <a href='./tags/start and finish times.html'>start and finish times</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G\)</span> be an undirected graph, and let <span class="math">\(u\)</span> and <span class="math">\(v\)</span> be two nodes in the graph, with <span class="math">\(v\)</span> reachable from <span class="math">\(u\)</span>.</p>
 <p>Suppose that at the moment <span class="inline-code"><code>dfs(u)</code></span> is called, <span class="math">\(v\)</span> is still undiscovered. True or False: the eventual start time of <span class="math">\(v\)</span> must be less than the finish time of <span class="math">\(u\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -3367,11 +3116,9 @@ def modified_bfs(graph, source, status=None):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(v\)</span> is reachable from node <span class="math">\(u\)</span> in a directed graph. A DFS is run on the graph, and node <span class="math">\(u\)</span> is discovered before node <span class="math">\(v\)</span> (its start time is less than <span class="math">\(v\)</span>'s start time). True or false: the finish time of node <span class="math">\(v\)</span> must be less than the finish time of node <span class="math">\(u\)</span>.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>False. Consider the graph with nodes s, u, and v, and edges (s,u), (u,s), and (s,v), where a DFS is run with node <span class="math">\(s\)</span> as source, going to node u first. u will be finished before v is started (and thus before it is finished, too).</p>
+<p>False. Consider the graph with nodes <span class="math">\(s\)</span>, <span class="math">\(u\)</span>, and <span class="math">\(v\)</span>, and edges <span class="math">\((s,u)\)</span>, <span class="math">\((u,s)\)</span>, and <span class="math">\((s,v)\)</span>, where a DFS is run with node <span class="math">\(s\)</span> as source, going to node <span class="math">\(u\)</span> first. Then <span class="math">\(u\)</span> will be finished before <span class="math">\(v\)</span> is started (and thus before it is finished, too).</p>
 </details>
 
     </div>
@@ -3387,14 +3134,8 @@ def modified_bfs(graph, source, status=None):
         <p>Tags: <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>True or False: a depth first search with source node <span class="math">\(s\)</span> is guaranteed to find the <i>longest</i> simple path starting from <span class="math">\(s\)</span> in a connected, undirected graph <span class="math">\(G\)</span></p>
-<p>That is, suppose that there is a unique longest simple path in <span class="math">\(G\)</span>, and call this path <span class="math">\(p\)</span>. True or False: the longest simple path in the DFS forest must be also be <span class="math">\(p\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
+<p>Suppose <span class="math">\(G\)</span> is a connected, undirected graph with a unique longest simple path; call this path <span class="math">\(p\)</span>. A depth first search is run on <span class="math">\(G\)</span> from some source node <span class="math">\(s\)</span>.</p>
+<p>True or False: the longest simple path in the DFS tree must be <span class="math">\(p\)</span>.</p>
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -3416,12 +3157,6 @@ def modified_bfs(graph, source, status=None):
     <div class="problem-body">
 <p>Suppose <span class="math">\(G\)</span> is an acyclic directed graph. Let <span class="math">\(a\)</span> and <span class="math">\(b\)</span> be two nodes of <span class="math">\(G\)</span> such that <span class="math">\(a\)</span> appears before <span class="math">\(b\)</span> in <i>every possible</i> topological sort of <span class="math">\(G\)</span>.</p>
 <p>True or False: there must be a path from <span class="math">\(a\)</span> to <span class="math">\(b\)</span>.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -3442,8 +3177,6 @@ def modified_bfs(graph, source, status=None):
         <div class="problem">
     <div class="problem-body">
 <p>True or False: It is possible for two arbitrary nodes to have a negative shortest path distance between them without the presence of a negative cycle in the graph.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p>True. For example, if there is a single edge <span class="math">\((u, v)\)</span> with weight <span class="math">\(-1\)</span> and no other edges, the shortest path distance from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> is <span class="math">\(-1\)</span>, and there is no cycle at all.</p>
@@ -3464,12 +3197,6 @@ def modified_bfs(graph, source, status=None):
     <div class="problem-body">
 <p>Suppose the Bellman-Ford algorithm is run on a graph <span class="math">\(G\)</span> that does not contain negative cycles. Let <span class="math">\(u\)</span> be an arbitrary node in the graph, and assume that <span class="math">\(u\)</span> is reachable from the source.</p>
 <p>True or False: <span class="math">\(u\)</span>'s estimated distance can change multiple times during the algorithm's execution.</p>
-
-<div class="true-false">
-    <input type="radio" name="true-false" value="true" /> True
-    <input type="radio" name="true-false" value="false" /> False
-</div>
-
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -3490,8 +3217,6 @@ def modified_bfs(graph, source, status=None):
         <div class="problem">
     <div class="problem-body">
 <p>Recall that Bellman-Ford with early stopping updates edges iteratively until no estimated distances change, at which point the algorithm terminates early. True or False: the number of iterations needed before early termination may depend on the order in which the edges are updated.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -3511,7 +3236,7 @@ def modified_bfs(graph, source, status=None):
         <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose you have a directed graph with 8 nodes and 7 edges. If you were to run the Bellman Ford Algorithm on this graph with early stopping implemented, what is the <b>minimum</b> number of times the outer for loop could possibly run? You should assume that all 8 nodes are reachable from the source node.</p>
+<p>Suppose you have a directed graph with 8 nodes and 7 edges. If you were to run the Bellman-Ford algorithm on this graph with early stopping implemented, what is the <b>minimum</b> number of times the outer for loop could possibly run? You should assume that all 8 nodes are reachable from the source node.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>1</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>2</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>4</p></label></div>
@@ -3681,7 +3406,7 @@ def modified_bfs(graph, source, status=None):
     <div class="problem-body">
 <p>Suppose Bellman-Ford with early stopping is run on the weighted graph below. The algorithm uses node <span class="math">\(a\)</span> as the source node.</p>
 <center><div class="image"><img src="images/308/graph.png" /></div></center>
-<p>After the third iteration, name all nodes whose shortest path from <span class="math">\(a\)</span> are guaranteed to be estimated correctly.</p>
+<p>After the third iteration, name all nodes whose shortest path distances from <span class="math">\(a\)</span> are guaranteed to be estimated correctly.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{a,b,c,e,f\}\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{g,f\}\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{a,b,c,e,f,g\}\)</span></p></label></div>
@@ -3705,10 +3430,8 @@ def modified_bfs(graph, source, status=None):
         <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose that every edge in the weighted graph <span class="math">\(G\)</span> has weight -5. True or False: breadth first search on this graph will compute a <i>longest</i> path from the source to every node in the graph (that is, a path with greatest possible total edge weight).</p>
+<p>Suppose that every edge in the weighted graph <span class="math">\(G\)</span> has weight <span class="math">\(-5\)</span>. True or False: breadth first search on this graph will compute a <i>longest</i> path from the source to every node in the graph (that is, a path with greatest possible total edge weight).</p>
 <p>You may assume that every node in the graph is reachable from the source.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -3788,7 +3511,7 @@ def modified_bfs(graph, source, status=None):
 <p>Which algorithm should you choose to compute the fastest route from San Diego to each of the other cities? If two algorithms both find the fastest routes, pick the one which has a better time complexity.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>BFS</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>DFS</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Bellman Ford</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Bellman-Ford</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Dijkstra's Algorithm</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
@@ -3811,11 +3534,11 @@ def modified_bfs(graph, source, status=None):
 <p>Suppose you are planning a trip by air from San Diego to another city, with potentially multiple stops in between. You are thinking about the flights as a graph, where each airport is a node and each flight is an edge. You don't care about the travel time, and instead care about the cost, so the weight of an edge is the cost of that flight. Also suppose that the airline has a special deal, where flights between certain cities will give you frequent flyer miles, or points towards free flights that you can use later in your trip. In other words, some flights have a negative cost. If you want to find the lowest cost route, which algorithm would be the best choice?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>BFS</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>DFS</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Bellman Ford</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Bellman-Ford</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Dijkstra's Algorithm</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>Bellman Ford. Some edge weights are negative, and Dijkstra's algorithm is not guaranteed to find shortest paths when there are negative edge weights. Bellman-Ford works with negative weights (as long as there are no negative cycles), and BFS and DFS don't find shortest paths in weighted graphs.</p>
+<p>Bellman-Ford. Some edge weights are negative, and Dijkstra's algorithm is not guaranteed to find shortest paths when there are negative edge weights. Bellman-Ford works with negative weights (as long as there are no negative cycles), and BFS and DFS don't find shortest paths in weighted graphs.</p>
 </details>
 
     </div>
@@ -3831,14 +3554,14 @@ def modified_bfs(graph, source, status=None):
         <p>Tags: <a href='./tags/dijkstra.html'>dijkstra</a>, <a href='./tags/lecture-15.html'>lecture-15</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Consider running Dijkstra's Algorithm implemented using a priority queue on the graph below using node a as the source.</p>
+<p>Consider running Dijkstra's Algorithm implemented using a priority queue on the graph below using node <span class="math">\(a\)</span> as the source.</p>
 <center><div class="image"><img src="images/313/f2.png" /></div></center>
 <p>You may assume that <span class="inline-code"><code>graph.nodes</code></span> produces nodes in alphabetical order.</p>
-<p>On which iteration of the while loop is est[b] updated for the first time?</p>
-<p>After six iterations of the while loop, what is the value of est[b]?</p>
+<p>(a) On which iteration of the while loop is <span class="inline-code"><code>est[b]</code></span> updated for the first time?</p>
+<p>(b) After six iterations of the while loop, what is the value of <span class="inline-code"><code>est[b]</code></span>?</p>
 <details>
     <summary>Solution</summary>
-<p>1 and 3. On the first iteration, <span class="math">\(a\)</span> is popped from the priority queue and the edge <span class="math">\((a, b)\)</span> is updated, setting est[b] to 3. The only edge into <span class="math">\(b\)</span> is <span class="math">\((a, b)\)</span>, so est[b] never changes again and is still 3 after six iterations.</p>
+<p>(a) 1. On the first iteration, <span class="math">\(a\)</span> is popped from the priority queue and the edge <span class="math">\((a, b)\)</span> is updated, setting <span class="inline-code"><code>est[b]</code></span> to 3. (b) 3. The only edge into <span class="math">\(b\)</span> is <span class="math">\((a, b)\)</span>, so <span class="inline-code"><code>est[b]</code></span> never changes again and is still 3 after six iterations.</p>
 </details>
 
     </div>
@@ -3862,7 +3585,7 @@ def modified_bfs(graph, source, status=None):
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Infinite</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>Answer: 4. We defined an exit path to be any path starting at the source where all but the last node is in the correct set, and the last node is outside of the correct set. More informally: it's a path where the last node is gray and all of the other nodes are green. The four exit paths are (s, u1, u6), (s, u1, u3), (s, u1, u2, u4), and (s, u2, u4).</p>
+<p>Answer: 4. We defined an exit path to be any path starting at the source where all but the last node is in the correct set, and the last node is outside of the correct set. More informally: it's a path where the last node is gray and all of the other nodes are green. The four exit paths are <span class="math">\((s, u_1, u_6)\)</span>, <span class="math">\((s, u_1, u_3)\)</span>, <span class="math">\((s, u_1, u_2, u_4)\)</span>, and <span class="math">\((s, u_2, u_4)\)</span>.</p>
 </details>
 
     </div>
@@ -3922,8 +3645,6 @@ def modified_bfs(graph, source, status=None):
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V,E)\)</span> be a connected, undirected graph with <span class="math">\(|E| = |V| - 1\)</span>. Suppose <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are both nodes in <span class="math">\(G\)</span>. True or False: there can be more than one simple path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span>.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p>False.</p>
@@ -3944,11 +3665,9 @@ def modified_bfs(graph, source, status=None):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose there is a unique shortest path <span class="math">\(p\)</span> between nodes <span class="math">\(u\)</span> and <span class="math">\(v\)</span> in a graph <span class="math">\(G\)</span> and that there is a unique minimum spanning tree <span class="math">\(T\)</span> of <span class="math">\(G\)</span>. True or false: the path between <span class="math">\(u\)</span> and <span class="math">\(v\)</span> in the MST <span class="math">\(T\)</span> must be the same as the path <span class="math">\(p\)</span>.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>False. Consider a triangle on nodes <span class="math">\(u\)</span>, <span class="math">\(v\)</span>, and <span class="math">\(w\)</span> with edge weights <span class="math">\(w(u, v) = 3\)</span>, <span class="math">\(w(u, w) = 2\)</span>, and <span class="math">\(w(w, v) = 2\)</span>. The unique MST uses edges <span class="math">\((u, w)\)</span> and <span class="math">\((w, v)\)</span>, so the path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> in the MST has length 4. But the unique shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> is the single edge <span class="math">\((u, v)\)</span>, with length 3.</p>
+<p>False. Consider a triangle on nodes <span class="math">\(u\)</span>, <span class="math">\(v\)</span>, and <span class="math">\(x\)</span> with edge weights <span class="math">\(w(u, v) = 3\)</span>, <span class="math">\(w(u, x) = 2\)</span>, and <span class="math">\(w(x, v) = 2\)</span>. The unique MST uses edges <span class="math">\((u, x)\)</span> and <span class="math">\((x, v)\)</span>, so the path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> in the MST has length 4. But the unique shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> is the single edge <span class="math">\((u, v)\)</span>, with length 3.</p>
 </details>
 
     </div>

@@ -95,6 +95,14 @@
         }, { passive: true });
     })();
 </script>
+
+
+<style>
+    html.dark .problem .image img {
+        filter: invert(1) hue-rotate(180deg);
+        mix-blend-mode: lighten;
+    }
+</style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -316,18 +324,36 @@ def foo(n):
 
     for i in range(n):
         print(i)</code></pre>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\sqrt{n})\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n\sqrt{n})\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^3)\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(2^n)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span>. The last loop always runs <span class="math">\(n\)</span> times. With probability <span class="math">\(1/n\)</span> we have <span class="inline-code"><code>x == 1</code></span>, and the first loop also runs, taking <span class="math">\(\Theta(n)\)</span> time; otherwise we do constant work before the last loop. So the expected time is <span class="math">\(\frac{1}{n} \cdot \Theta(n) + \Theta(1) + \Theta(n) = \Theta(n)\)</span>. (In fact, every case takes <span class="math">\(\Theta(n)\)</span> time.)</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #088</h2>
+        <p>Tags: <a href='../tags/expected time.html'>expected time</a>, <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>expected</b> time complexity of the following function? State your answer using asymptotic notation.</p>
+<pre class="code"><code class="language-python">import random
+
+def boo(n):
+    # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
+    x = random.randrange(n)
+
+    for i in range(x): # &lt;-- note that the range is random!
+        print(i)</code></pre>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
 </details>
 
     </div>
@@ -355,7 +381,7 @@ def foo(n):
             print("Here!")</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. Note that in this question, the range of <span class="math">\(x\)</span> is between 0 and 99. Therefore the outer loop will run a constant number of times no matter what <span class="math">\(x\)</span> is. Then we can focus on the inner loop, which runs for <span class="math">\(n\)</span> times the print() operation, which is <span class="math">\(\Theta(n)\)</span> time. Therefore, the expected time complexity for this piece of code is <span class="math">\(\Theta(n)\)</span>.</p>
+<p><span class="math">\(\Theta(n)\)</span>. Note that in this question, the range of <span class="math">\(x\)</span> is between 0 and 99. Therefore the outer loop will run a constant number of times no matter what <span class="math">\(x\)</span> is. Then we can focus on the inner loop, which calls <span class="inline-code"><code>print</code></span> <span class="math">\(n\)</span> times, taking <span class="math">\(\Theta(n)\)</span> time. Therefore, the expected time complexity for this piece of code is <span class="math">\(\Theta(n)\)</span>.</p>
 </details>
 
     </div>
@@ -411,7 +437,7 @@ def foo(n):
             print(j)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. For this function, the outer loop wil execute <span class="math">\(n\)</span> times no matter what, hence we only have to find what the expected time complexity for the inner loop is, then combine that together with the outer loop. For the inner loop, the expected time complexity is</p>
+<p><span class="math">\(\Theta(n^2)\)</span>. For this function, the outer loop will execute <span class="math">\(n\)</span> times no matter what, hence we only have to find what the expected time complexity for the inner loop is, then combine that together with the outer loop. For the inner loop, the expected time complexity is</p>
 <div class="math">\[ \frac{1}{n} \sum_{i = 1}^{n - 1} i = \frac{1}{n} \cdot \Theta(n^2) = \Theta(n). \]</div>
 <p>Then, the expected complexity for the whole function will be</p>
 <div class="math">\[ \Theta(n) \times \Theta(n) = \Theta(n^2). \]</div>
@@ -442,7 +468,7 @@ def foo(n):
             print(j)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. The for loop is only executed if <span class="math">\(x\)</span> is less than 100, therefore we can write the expected time as (ignoring constants <span class="math">\(c\)</span>):</p>
+<p><span class="math">\(\Theta(n)\)</span>. The for loop is only executed if <span class="math">\(x\)</span> is less than 100, therefore we can write the expected time as (ignoring constant factors):</p>
 <div class="math">\[ f(n) = \frac{1}{n} \bigg(\sum_{i = 0}^{99} n^2 + \sum_{i = 100}^{n - 1} 1 \bigg)= \frac{1}{n} \cdot (\Theta(n^2) + \Theta(n)) = \Theta(n). \]</div>
 </details>
 
@@ -485,13 +511,45 @@ def foo(n):
 
 
 
+        <div class="problem-outer">
+        <h2>Problem #097</h2>
+        <p>Tags: <a href='../tags/expected time.html'>expected time</a>, <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>expected</b> time complexity of the function below? State your answer using asymptotic notation.</p>
+<pre class="code"><code class="language-python">import random
+def foo(n):
+    # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1) time
+    x = random.randrange(n)
+    if x &lt; 20:
+        for i in range(n**3):
+            print("Very unlucky!")
+    elif x &lt; n / 2:
+        for i in range(n):
+            print("Unlucky!")
+    else:
+        print("Lucky!")</code></pre>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
         <div class="problem-outer" data-badges="hard">
         <h2>Problem #098 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
         <p>Tags: <a href='../tags/expected time.html'>expected time</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>expected</b> time complexity of the function below?</p>
-<pre class="code"><code class="language-python">import random
+<pre class="code"><code class="language-python">import math
+import random
 
 def foo(n):
     # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
@@ -539,8 +597,8 @@ def foo(n):
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n^2)\)</span>. The expected time complexity for this function is</p>
-<div class="math">\[ f(n) = \frac{1}{n} \bigg(\sum_{i = 1}^{\lfloor \sqrt{n} \rfloor} n + \sum_{i = \lceil \sqrt{n} \rceil}^{\lfloor n/2 \rfloor} 1 
-        + \sum_{i = \lceil n/2 \rceil}^{n - 1} n^2 \bigg)        = \frac{1}{n} (\Theta(n \sqrt{n}) + \Theta(n) + \Theta(n^3))
+<div class="math">\[ f(n) = \frac{1}{n} \bigg(\sum_{x = 0}^{\lceil \sqrt{n} \rceil - 1} n + \sum_{x = \lceil \sqrt{n} \rceil}^{\lfloor n/2 \rfloor - 1} 1 
+        + \sum_{x = \lfloor n/2 \rfloor}^{n - 1} n^2 \bigg)        = \frac{1}{n} (\Theta(n \sqrt{n}) + \Theta(n) + \Theta(n^3))
         = \Theta(n^2).
         \]</div>
 </details>
@@ -578,7 +636,7 @@ def boo(n):
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n \log n)\)</span></p>
-<p>There are three cases: Case 1) <span class="math">\(x < \log_2 n\)</span>; Case 2) <span class="math">\(1 < x < \sqrt n\)</span>; and Case 3) <span class="math">\(x \geq \sqrt{n}\)</span>.</p>
+<p>There are three cases: Case 1) <span class="math">\(x < \log_2 n\)</span>; Case 2) <span class="math">\(\log_2 n \leq x < \sqrt n\)</span>; and Case 3) <span class="math">\(x \geq \sqrt{n}\)</span>.</p>
 <p>The probability of Case 1 is <span class="math">\(\log n / n\)</span>. The time taken in case 1 is <span class="math">\(\Theta(n^2)\)</span>.</p>
 <p>The probability of Case 2 is</p>
 <div class="math">\[
@@ -587,11 +645,22 @@ def boo(n):
 <p>The time taken in this case is <span class="math">\(\Theta(n)\)</span>.</p>
 <p>The probability of Case 3 is 1 minus the probability of the sum of the other two cases, which will simply be <span class="math">\(\Theta(1)\)</span>:</p>
 <div class="math">\[
-            1 - \Theta(1 / n) - \Theta(1 / \sqrt{n}) = \Theta(1).
+            1 - \Theta((\log n) / n) - \Theta(1 / \sqrt{n}) = \Theta(1).
         \]</div>
 <p>The time taken is <span class="math">\(\Theta(1)\)</span>.</p>
 <p>Therefore, the expected time is:</p>
-<center><div class="image"><img src="../images/100/plot.png" /></div></center>
+<div class="math">\[
+            \begin{aligned}
+            \frac{\log n}{n} \times \Theta(n^2)
+            + \Theta(1/\sqrt n) \times \Theta(n)
+            + \Theta(1) \times \Theta(1)
+            &=
+            \Theta(n \log n) + \Theta(\sqrt n) + \Theta(1)
+            \\
+            &=
+            \Theta(n \log n)
+            \end{aligned}
+        \]</div>
 </details>
 
     </div>
@@ -627,7 +696,7 @@ def foo(n):
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n \log n)\)</span></p>
-<p>There are three cases: Case 1) <span class="math">\(x < \log n\)</span>; Case 2) <span class="math">\(\log n \geq x <
+<p>There are three cases: Case 1) <span class="math">\(x < \log n\)</span>; Case 2) <span class="math">\(\log n \leq x <
         \sqrt n\)</span>; and Case 3) <span class="math">\(x \geq \sqrt{n}\)</span>.</p>
 <p>The probability of Case 1 is <span class="math">\(\log n / n\)</span>. The time taken in case 1 is <span class="math">\(\Theta(n^2)\)</span>.</p>
 <p>The probability of Case 2 is</p>

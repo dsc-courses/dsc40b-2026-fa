@@ -95,6 +95,14 @@
         }, { passive: true });
     })();
 </script>
+
+
+<style>
+    html.dark .problem .image img {
+        filter: invert(1) hue-rotate(180deg);
+        mix-blend-mode: lighten;
+    }
+</style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -362,7 +370,7 @@ def iterative_binary_search(arr, target):
             start = middle + 1
 
     return None</code></pre>
-<p>Which of the following loop invariants is true, assuming that <span class="inline-code"><code>arr</code></span> is sorted and non-empty, and <span class="inline-code"><code>target</code></span> is <b>not</b> in the array? Select all that apply.</p>
+<p>Which of the following loop invariants are true, assuming that <span class="inline-code"><code>arr</code></span> is sorted and non-empty, and <span class="inline-code"><code>target</code></span> is <b>not</b> in the array? Select all that apply.</p>
 <div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, <span class="inline-code"><code>stop - start >= 0</code></span>.</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, <span class="inline-code"><code>stop - start >= 1</code></span>.</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, <span class="inline-code"><code>arr[start] <= target</code></span>.</p></label></div></div>
@@ -436,14 +444,14 @@ def iterative_binary_search(arr, target):
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
 <p>Which of the following are valid loop invariants for the <span class="inline-code"><code>while</code></span>-loop? Select all that apply.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>After the <span class="math">\(\alpha\)</span>th iteration, the first <span class="math">\(\alpha\)</span> elements of <span class="inline-code"><code>numbers</code></span> are odd.</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>After the <span class="math">\(\alpha\)</span>th iteration, the last <span class="math">\(\alpha\)</span> elements of <span class="inline-code"><code>numbers</code></span> are even.</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>After each iteration, the elements in <span class="inline-code"><code>numbers[:odd_barrier]</code></span> are odd.</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>After each iteration, the elements in <span class="inline-code"><code>numbers[odd_barrier+1:]</code></span> are even.</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>After each iteration, the elements in <span class="inline-code"><code>numbers[:even_barrier]</code></span> are odd.</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>After each iteration, the elements in <span class="inline-code"><code>numbers[even_barrier+1:]</code></span> are even.</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>After the <span class="math">\(\alpha\)</span>th iteration, <span class="inline-code"><code>even_barrier - odd_barrier = </code></span> <span class="math">\(\alpha\)</span>.</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>After the <span class="math">\(\alpha\)</span>th iteration, <span class="inline-code"><code>even_barrier - odd_barrier = n - 1 - </code></span> <span class="math">\(\alpha\)</span>.</p></label></div></form></div>
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After the <span class="math">\(\alpha\)</span>th iteration, the first <span class="math">\(\alpha\)</span> elements of <span class="inline-code"><code>numbers</code></span> are odd.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After the <span class="math">\(\alpha\)</span>th iteration, the last <span class="math">\(\alpha\)</span> elements of <span class="inline-code"><code>numbers</code></span> are even.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, the elements in <span class="inline-code"><code>numbers[:odd_barrier]</code></span> are odd.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, the elements in <span class="inline-code"><code>numbers[odd_barrier+1:]</code></span> are even.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, the elements in <span class="inline-code"><code>numbers[:even_barrier]</code></span> are odd.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, the elements in <span class="inline-code"><code>numbers[even_barrier+1:]</code></span> are even.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After the <span class="math">\(\alpha\)</span>th iteration, <span class="inline-code"><code>even_barrier - odd_barrier = </code></span> <span class="math">\(\alpha\)</span>.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After the <span class="math">\(\alpha\)</span>th iteration, <span class="inline-code"><code>even_barrier - odd_barrier = n - 1 - </code></span> <span class="math">\(\alpha\)</span>.</p></label></div></div>
 <details>
     <summary>Solution</summary>
 <p>3rd option: After each iteration, the elements in <span class="inline-code"><code>numbers[:odd_barrier]</code></span> are odd.</p>

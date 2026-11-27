@@ -95,6 +95,14 @@
         }, { passive: true });
     })();
 </script>
+
+
+<style>
+    html.dark .problem .image img {
+        filter: invert(1) hue-rotate(180deg);
+        mix-blend-mode: lighten;
+    }
+</style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -306,7 +314,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Which algorithm should you choose to compute the fastest route from San Diego to each of the other cities? If two algorithms both find the fastest routes, pick the one which has a better time complexity.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>BFS</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>DFS</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Bellman Ford</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Bellman-Ford</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Dijkstra's Algorithm</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
@@ -329,11 +337,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose you are planning a trip by air from San Diego to another city, with potentially multiple stops in between. You are thinking about the flights as a graph, where each airport is a node and each flight is an edge. You don't care about the travel time, and instead care about the cost, so the weight of an edge is the cost of that flight. Also suppose that the airline has a special deal, where flights between certain cities will give you frequent flyer miles, or points towards free flights that you can use later in your trip. In other words, some flights have a negative cost. If you want to find the lowest cost route, which algorithm would be the best choice?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>BFS</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>DFS</p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Bellman Ford</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Bellman-Ford</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Dijkstra's Algorithm</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>Bellman Ford. Some edge weights are negative, and Dijkstra's algorithm is not guaranteed to find shortest paths when there are negative edge weights. Bellman-Ford works with negative weights (as long as there are no negative cycles), and BFS and DFS don't find shortest paths in weighted graphs.</p>
+<p>Bellman-Ford. Some edge weights are negative, and Dijkstra's algorithm is not guaranteed to find shortest paths when there are negative edge weights. Bellman-Ford works with negative weights (as long as there are no negative cycles), and BFS and DFS don't find shortest paths in weighted graphs.</p>
 </details>
 
     </div>
@@ -349,14 +357,14 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/dijkstra.html'>dijkstra</a>, <a href='../tags/lecture-15.html'>lecture-15</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Consider running Dijkstra's Algorithm implemented using a priority queue on the graph below using node a as the source.</p>
+<p>Consider running Dijkstra's Algorithm implemented using a priority queue on the graph below using node <span class="math">\(a\)</span> as the source.</p>
 <center><div class="image"><img src="../images/313/f2.png" /></div></center>
 <p>You may assume that <span class="inline-code"><code>graph.nodes</code></span> produces nodes in alphabetical order.</p>
-<p>On which iteration of the while loop is est[b] updated for the first time?</p>
-<p>After six iterations of the while loop, what is the value of est[b]?</p>
+<p>(a) On which iteration of the while loop is <span class="inline-code"><code>est[b]</code></span> updated for the first time?</p>
+<p>(b) After six iterations of the while loop, what is the value of <span class="inline-code"><code>est[b]</code></span>?</p>
 <details>
     <summary>Solution</summary>
-<p>1 and 3. On the first iteration, <span class="math">\(a\)</span> is popped from the priority queue and the edge <span class="math">\((a, b)\)</span> is updated, setting est[b] to 3. The only edge into <span class="math">\(b\)</span> is <span class="math">\((a, b)\)</span>, so est[b] never changes again and is still 3 after six iterations.</p>
+<p>(a) 1. On the first iteration, <span class="math">\(a\)</span> is popped from the priority queue and the edge <span class="math">\((a, b)\)</span> is updated, setting <span class="inline-code"><code>est[b]</code></span> to 3. (b) 3. The only edge into <span class="math">\(b\)</span> is <span class="math">\((a, b)\)</span>, so <span class="inline-code"><code>est[b]</code></span> never changes again and is still 3 after six iterations.</p>
 </details>
 
     </div>
@@ -380,7 +388,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Infinite</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>Answer: 4. We defined an exit path to be any path starting at the source where all but the last node is in the correct set, and the last node is outside of the correct set. More informally: it's a path where the last node is gray and all of the other nodes are green. The four exit paths are (s, u1, u6), (s, u1, u3), (s, u1, u2, u4), and (s, u2, u4).</p>
+<p>Answer: 4. We defined an exit path to be any path starting at the source where all but the last node is in the correct set, and the last node is outside of the correct set. More informally: it's a path where the last node is gray and all of the other nodes are green. The four exit paths are <span class="math">\((s, u_1, u_6)\)</span>, <span class="math">\((s, u_1, u_3)\)</span>, <span class="math">\((s, u_1, u_2, u_4)\)</span>, and <span class="math">\((s, u_2, u_4)\)</span>.</p>
 </details>
 
     </div>
