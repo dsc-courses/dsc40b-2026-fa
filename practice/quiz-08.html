@@ -1361,14 +1361,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Recall that the Bellman-Ford algorithm keeps track of the estimated shortest path distance from the source to each node in the graph. These estimates are updated, and eventually become correct, provided that the graph has no negative cycles.</p>
 <p>Suppose the Bellman-Ford algorithm is run on the graph below using node <span class="math">\(s\)</span> as the source.</p>
 <center><div class="image"><img src="images/307/graph.png" /></div></center>
-<p>After 2 iterations of the outer loop, which of the nodes listed below are guaranteed to have correct estimated shortest path distances (no matter the order in which <span class="inline-code"><code>graph.edges</code></span> produces the graph's edges)? Select all that apply.</p>
-<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(s\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(u_1\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(u_2\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(u_3\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(u_4\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(u_5\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(u_6\)</span></p></label></div></div>
+<p>After 2 iterations of the outer loop, which nodes are guaranteed to have correct estimated shortest path distances (no matter the order in which <span class="inline-code"><code>graph.edges</code></span> produces the graph's edges)? Name all such nodes.</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math-with-punctuation"><span class="math">\(s\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(u_3\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(u_4\)</span>,</span> and <span class="math-with-punctuation"><span class="math">\(u_5\)</span>.</span></p>
@@ -1391,11 +1384,6 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose Bellman-Ford with early stopping is run on the weighted graph below. The algorithm uses node <span class="math">\(a\)</span> as the source node.</p>
 <center><div class="image"><img src="images/308/graph.png" /></div></center>
 <p>After the third iteration, name all nodes whose shortest path distances from <span class="math">\(a\)</span> are guaranteed to be estimated correctly.</p>
-<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{a,b,c,e,f\}\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{g,f\}\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{a,b,c,e,f,g\}\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{a,b,c,d,e,f\}\)</span></p></label></div>
-<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{a,b,c,d\}\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
 <p><span class="math-with-punctuation"><span class="math">\(\{a,b,c,e,f\}\)</span>.</span></p>
