@@ -246,16 +246,60 @@ Course Staff
     
 <style>
 .multiple-choices .choice label, .multiple-select .choice label {
-    display: flex; align-items: center; gap: 0.6em; margin: 0.25em 0; cursor: pointer;
+    display: flex; align-items: baseline; gap: 0.6em; margin: 0.25em 0; cursor: pointer;
 }
+/* level the box with the first line of the choice, not the middle of a wrapped one */
+.multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
 </style>
 <h1>Problems tagged with "lecture-09"</h1>
+<style>
+.practicebank-filter {
+    display: flex; flex-direction: column; gap: 0.25em;
+    margin: 1.5em 0; padding: 0.6em 0;
+    border-top: 1px solid rgba(128, 128, 128, 0.3);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+}
+.practicebank-filter[hidden] { display: none; }
+.practicebank-filter button[role="switch"] {
+    -webkit-appearance: none; appearance: none;
+    display: flex; align-items: center; gap: 0.75em; width: 100%;
+    margin: 0; padding: 0.35em 0.25em; border: 0; border-radius: 6px;
+    background: none; box-shadow: none; color: inherit;
+    font: inherit; line-height: inherit; text-align: left; cursor: pointer;
+}
+.practicebank-filter button[role="switch"]:focus { outline: none; }
+.practicebank-filter button[role="switch"]:focus-visible:not([data-pointer]) {
+    outline: 2px solid #3b82f6; outline-offset: 2px;
+}
+.practicebank-switch {
+    position: relative; flex: none; width: 44px; height: 24px; border-radius: 12px;
+    background: #9ca3af; transition: background-color 0.2s ease;
+}
+.practicebank-switch::after {
+    content: ""; position: absolute; top: 2px; left: 2px;
+    width: 20px; height: 20px; border-radius: 50%; background: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); transition: transform 0.2s ease;
+    will-change: transform;
+}
+button[aria-checked="true"] > .practicebank-switch { background: #dc2626; }
+button[aria-checked="true"] > .practicebank-switch::after { transform: translateX(20px); }
+@media (prefers-reduced-motion: reduce) {
+    .practicebank-switch, .practicebank-switch::after { transition: none; }
+}
+.practicebank-badge { cursor: help; }
+.practicebank-problems .problem-outer.practicebank-filtered-out,
+.practicebank-empty[hidden] { display: none !important; }
+</style>
+<div class="practicebank-filter" role="group" aria-label="Filter problems" hidden>
+<button type="button" role="switch" aria-checked="false" data-only="hard" title="One of the hardest problems on past exams and quizzes"><span class="practicebank-switch" aria-hidden="true"></span><span class="practicebank-switch-label">Show only the hardest problems 🌶️</span></button>
+</div>
+<div class="practicebank-problems">
 
 
         <div class="problem-outer">
         <h2>Problem #174</h2>
-        <p>Tags: <a href='../tags/lecture-09.html'>lecture-09</a>, <a href='../tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='../tags/hashing.html'>hashing</a>, <a href='../tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(T\)</span> is a hash table of size 100 (that is, it has 100 bins). 300 elements are inserted into the hash table using a hash function that satisfies the uniform hashing assumption (that is, any element is equally-likely to hash into any bin). What is the expected number of elements in the first bin?</p>
@@ -274,7 +318,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #175</h2>
-        <p>Tags: <a href='../tags/lecture-09.html'>lecture-09</a>, <a href='../tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='../tags/hashing.html'>hashing</a>, <a href='../tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a hash table is constructed so that collisions are resolved through chaining. The hash table has <span class="math">\(10\)</span> bins, and 100 items are inserted into the hash table.</p>
@@ -301,7 +345,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #176</h2>
-        <p>Tags: <a href='../tags/lecture-09.html'>lecture-09</a>, <a href='../tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='../tags/hashing.html'>hashing</a>, <a href='../tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Assume that a hash table is implemented using chaining to resolve collisions. The hash table stores <span class="math">\(n\)</span> numbers.</p>
@@ -326,9 +370,9 @@ Course Staff
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #177</h2>
-        <p>Tags: <a href='../tags/lecture-09.html'>lecture-09</a>, <a href='../tags/hashing.html'>hashing</a></p>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #177 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
+        <p>Tags: <a href='../tags/hashing.html'>hashing</a>, <a href='../tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a hash table is constructed using linked lists to store the data within each bin, and that collisions are resolved by chaining. What is the <i>worst case</i> time complexity of inserting a new element into the hash table? You may assume that the hash table will not need to be resized, and that evaluating the hash function takes <span class="math">\(\Theta(1)\)</span> time.</p>
@@ -352,7 +396,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #178</h2>
-        <p>Tags: <a href='../tags/lecture-09.html'>lecture-09</a>, <a href='../tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='../tags/hashing.html'>hashing</a>, <a href='../tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a hash table is constructed using linked lists to store the data within each bin, and that collisions are resolved by chaining. Suppose <span class="math">\(n\)</span> elements have been inserted into the hash table. What is the worst case time complexity of querying whether an object exists within the hash table? You may assume that the hash table will not need to be resized, and that evaluating the hash function takes <span class="math">\(\Theta(1)\)</span> time.</p>
@@ -376,7 +420,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #179</h2>
-        <p>Tags: <a href='../tags/lecture-09.html'>lecture-09</a>, <a href='../tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='../tags/hashing.html'>hashing</a>, <a href='../tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose we are building a hash table to store numbers. Our hash table will have 1000 bins. True or false: <span class="math">\(f(x) = x \% 2\)</span> is a good hash function. Here, <span class="math">\(x \% 2\)</span> returns the remainder after dividing <span class="math">\(x\)</span> by 2.</p>
@@ -397,7 +441,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #180</h2>
-        <p>Tags: <a href='../tags/lecture-09.html'>lecture-09</a>, <a href='../tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='../tags/hashing.html'>hashing</a>, <a href='../tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose you insert 11 elements into a hash table with 20 bins. True or False: there must exist <b>exactly</b> 9 empty bins, no more, no less, since the number of elements being hashed is less than the number of bins in the hash table by nine.</p>
@@ -418,7 +462,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #181</h2>
-        <p>Tags: <a href='../tags/lecture-09.html'>lecture-09</a>, <a href='../tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='../tags/hashing.html'>hashing</a>, <a href='../tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the code below:</p>
@@ -428,7 +472,7 @@ Course Staff
         if x in B:
             common.add(x)
     return common</code></pre>
-<p>What is the expected time complexity of this code if <span class="inline-code"><code>A</code></span> and <span class="inline-code"><code>B</code></span> are Python <span class="inline-code"><code>set</code></span>s (hash tables) with <span class="math">\(n\)</span> elements each? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation. You may assume that the hash function used is ``good'' in that it hashes evenly (that is, it satisfies the simple universal hashing assumption).</p>
+<p>What is the expected time complexity of this code if <span class="inline-code"><code>A</code></span> and <span class="inline-code"><code>B</code></span> are Python <span class="inline-code"><code>set</code></span>s (hash tables) with <span class="math">\(n\)</span> elements each? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation. You may assume that the hash function used is “good” in that it hashes evenly (that is, it satisfies the simple universal hashing assumption).</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
@@ -444,7 +488,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #182</h2>
-        <p>Tags: <a href='../tags/lecture-09.html'>lecture-09</a>, <a href='../tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='../tags/hashing.html'>hashing</a>, <a href='../tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>In the problem below, suppose <span class="inline-code"><code>arr</code></span> is an array of <span class="math">\(n\)</span> integers. What is the expected time complexity of the code below? Write your answer using asymptotic notation as a function of <span class="math">\(n\)</span>.</p>
@@ -473,7 +517,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #183</h2>
-        <p>Tags: <a href='../tags/lecture-09.html'>lecture-09</a>, <a href='../tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='../tags/hashing.html'>hashing</a>, <a href='../tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>What is the expected time complexity of the code shown below, assuming that <span class="inline-code"><code>numbers</code></span> is a Python <span class="inline-code"><code>list</code></span>? Express your answer as a function of <span class="math">\(n\)</span> using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
@@ -504,10 +548,10 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #184</h2>
-        <p>Tags: <a href='../tags/lecture-09.html'>lecture-09</a>, <a href='../tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='../tags/hashing.html'>hashing</a>, <a href='../tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a hash table with <span class="math">\(n/2\)</span> bins stores <span class="math">\(n\)</span> elements, and suppose that when the next element is inserted into the hash table, a ``grow'' will be triggered. That is, the insertion will cause the hash table to resize to <span class="math">\(n\)</span> bins containing the same <span class="math">\(n + 1\)</span> elements, plus the newly-added element.</p>
+<p>Suppose a hash table with <span class="math">\(n/2\)</span> bins stores <span class="math">\(n\)</span> elements, and suppose that when the next element is inserted into the hash table, a “grow” will be triggered. That is, the insertion will cause the hash table to resize to <span class="math">\(n\)</span> bins containing the same <span class="math">\(n + 1\)</span> elements, plus the newly-added element.</p>
 <p>What will be the time complexity of this single insertion operation that causes the table to grow?</p>
 <details>
     <summary>Solution</summary>
@@ -524,7 +568,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #185</h2>
-        <p>Tags: <a href='../tags/lecture-09.html'>lecture-09</a>, <a href='../tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='../tags/hashing.html'>hashing</a>, <a href='../tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a hash table in constructed so that collisions are resolved through chaining. The hash table has a number of bins <span class="math">\(k\)</span> that is <span class="math">\(\Theta(n)\)</span>, where <span class="math">\(n\)</span> is the number of elements being stored in the hash table; that is, the hash table grows as more elements are inserted.</p>
@@ -532,7 +576,8 @@ Course Staff
 <p>What is the expected time complexity of a membership query on this hash table? State your answer in asymptotic notation in terms of the number of elements in the hash table, <span class="math">\(n\)</span>.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(1)\)</span> Since only <span class="math">\(k/2\)</span> bins are being used, the expected number of elements within each bin is <span class="math">\(n / (k/2) = 2n / k\)</span>. But since <span class="math">\(k = \Theta(n)\)</span>, this is just <span class="math">\(\Theta(1)\)</span>.</p>
+<p><span class="math">\(\Theta(1)\)</span></p>
+<p>Since only <span class="math">\(k/2\)</span> bins are being used, the expected number of elements within each bin is <span class="math">\(n / (k/2) = 2n / k\)</span>. But since <span class="math">\(k = \Theta(n)\)</span>, this is just <span class="math">\(\Theta(1)\)</span>.</p>
 </details>
 
     </div>
@@ -545,7 +590,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #186</h2>
-        <p>Tags: <a href='../tags/lecture-09.html'>lecture-09</a>, <a href='../tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='../tags/hashing.html'>hashing</a>, <a href='../tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose you will be receiving a <i>stream</i> of numbers, one by one, and you wish to keep track of the largest number seen so far. You will not need to perform membership queries. What should you do?</p>
@@ -569,7 +614,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #187</h2>
-        <p>Tags: <a href='../tags/lecture-09.html'>lecture-09</a>, <a href='../tags/hashing.html'>hashing</a>, <a href='../tags/binary search trees.html'>binary search trees</a></p>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a>, <a href='../tags/hashing.html'>hashing</a>, <a href='../tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose you need to keep track of a large dynamic collection of numbers. You will be performing <span class="inline-code"><code>n</code></span> insertions, <span class="inline-code"><code>n</code></span> deletions, and a very small number of queries for the maximum element in the collection. You will also be performing membership queries.</p>
@@ -591,9 +636,9 @@ Course Staff
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #188</h2>
-        <p>Tags: <a href='../tags/lecture-09.html'>lecture-09</a>, <a href='../tags/hashing.html'>hashing</a>, <a href='../tags/binary search trees.html'>binary search trees</a></p>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #188 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a>, <a href='../tags/hashing.html'>hashing</a>, <a href='../tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose you need to keep track of a large dynamic collection of numbers. The three most common operations you will be performing are insertions, deletions, and queries for the maximum element in the collection. You may assume that the number of maximum queries you will be making is close to the number of insertions/deletions. You will also be performing membership queries.</p>
@@ -613,6 +658,139 @@ Course Staff
         </div>
 
 
+<p class="practicebank-empty" data-only="hard" hidden>No 🌶️ problems in this topic.</p>
+</div>
+<script>
+(function () {
+    var KEY = "practicebank-only";
+    var filters = document.querySelectorAll(".practicebank-filter");
+    var lists = document.querySelectorAll(".practicebank-problems");
+    var known = {};
+    filters.forEach(function (f) {
+        f.querySelectorAll("button[data-only]").forEach(function (b) {
+            if (b.dataset.only) { known[b.dataset.only] = true; }
+        });
+    });
+
+    function valid(tag) { return tag && known[tag] ? tag : ""; }
+    function load() { try { return valid(localStorage.getItem(KEY)); } catch (e) { return ""; } }
+    function save(tag) {
+        try {
+            if (tag) { localStorage.setItem(KEY, tag); } else { localStorage.removeItem(KEY); }
+        } catch (e) {}
+    }
+
+    function setSwitches(tag) {
+        filters.forEach(function (f) {
+            f.hidden = false;
+            f.querySelectorAll("button[data-only]").forEach(function (b) {
+                b.setAttribute("aria-checked", String(b.dataset.only === tag));
+            });
+        });
+    }
+
+    function filterProblems(tag) {
+        lists.forEach(function (list) {
+            var shown = 0;
+            list.querySelectorAll(".problem-outer").forEach(function (p) {
+                var badges = (p.dataset.badges || "").split(" ");
+                var keep = !tag || badges.indexOf(tag) !== -1;
+                p.classList.toggle("practicebank-filtered-out", !keep);
+                if (keep) { shown++; }
+            });
+            list.querySelectorAll(".practicebank-empty").forEach(function (e) {
+                e.hidden = !(tag && shown === 0 && e.dataset.only === tag);
+            });
+        });
+        try {
+            var url = new URL(location.href);
+            if (tag) { url.searchParams.set("only", tag); } else { url.searchParams.delete("only"); }
+            if (url.href !== location.href) { history.replaceState(history.state, "", url.href); }
+        } catch (e) {}
+    }
+
+    // apply a choice at once: on page load, and when another page changes it
+    var pending = null;
+    function apply(tag) {
+        clearTimeout(pending);
+        pending = null;
+        latest++;
+        setSwitches(tag);
+        filterProblems(tag);
+    }
+
+    // on a toggle, move the switch first and filter after its slide: showing or
+    // hiding many problems is a long relayout (a quarter second on a page with a
+    // couple hundred problems and their math), which would freeze the slide if it
+    // ran in the same frame. Toggling again before then replaces the pending
+    // filter, so only the last choice is applied.
+    // With reduced motion the switch doesn't slide, so it only has to be painted
+    // first: the filter runs in a task after the next frame.
+    var SLIDE_MS = 220;  // just over the switch's 0.2s transition
+    var latest = 0;
+    function toggle(tag) {
+        setSwitches(tag);
+        clearTimeout(pending);
+        var id = ++latest;
+        function run() {
+            if (id !== latest) { return; }
+            pending = null;
+            filterProblems(tag);
+        }
+        var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce) {
+            requestAnimationFrame(function () {
+                if (id === latest) { pending = setTimeout(run, 0); }
+            });
+        } else {
+            pending = setTimeout(run, SLIDE_MS);
+        }
+    }
+
+    // show the focus ring only for keyboard focus: some browsers count a click on a
+    // button as focus-visible, so a switch clicked with the pointer is marked
+    // until it is next used from the keyboard or loses focus
+    filters.forEach(function (f) {
+        f.addEventListener("pointerdown", function (event) {
+            var b = event.target.closest("button[data-only]");
+            if (b) { b.setAttribute("data-pointer", ""); }
+        });
+        f.addEventListener("keydown", function (event) {
+            var b = event.target.closest("button[data-only]");
+            if (b) { b.removeAttribute("data-pointer"); }
+        });
+        f.addEventListener("focusout", function (event) {
+            var b = event.target.closest("button[data-only]");
+            if (b) { b.removeAttribute("data-pointer"); }
+        });
+    });
+
+    filters.forEach(function (f) {
+        f.addEventListener("click", function (event) {
+            var b = event.target.closest("button[data-only]");
+            if (!b) { return; }
+            // a switch that is on turns the filter off; one that is off turns it on
+            var on = b.getAttribute("aria-checked") === "true";
+            var tag = on ? "" : valid(b.dataset.only);
+            save(tag);
+            toggle(tag);
+        });
+    });
+
+    // ?only=<tag> wins over the stored choice, and becomes the stored choice
+    var param = null;
+    try { param = new URLSearchParams(location.search).get("only"); } catch (e) {}
+    if (param !== null) { save(valid(param)); }
+    apply(param !== null ? valid(param) : load());
+
+    // pages that were prerendered or kept in the back/forward cache catch up
+    // with a choice made on another page since
+    function resync() { apply(load()); }
+    window.addEventListener("storage", function (event) { if (event.key === KEY) { resync(); } });
+    window.addEventListener("pageshow", function (event) { if (event.persisted) { resync(); } });
+    document.addEventListener("prerenderingchange", resync);
+})();
+</script>
     </div>
 </div>
 

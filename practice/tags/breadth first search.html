@@ -246,16 +246,60 @@ Course Staff
     
 <style>
 .multiple-choices .choice label, .multiple-select .choice label {
-    display: flex; align-items: center; gap: 0.6em; margin: 0.25em 0; cursor: pointer;
+    display: flex; align-items: baseline; gap: 0.6em; margin: 0.25em 0; cursor: pointer;
 }
+/* level the box with the first line of the choice, not the middle of a wrapped one */
+.multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
 </style>
 <h1>Problems tagged with "breadth first search"</h1>
+<style>
+.practicebank-filter {
+    display: flex; flex-direction: column; gap: 0.25em;
+    margin: 1.5em 0; padding: 0.6em 0;
+    border-top: 1px solid rgba(128, 128, 128, 0.3);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+}
+.practicebank-filter[hidden] { display: none; }
+.practicebank-filter button[role="switch"] {
+    -webkit-appearance: none; appearance: none;
+    display: flex; align-items: center; gap: 0.75em; width: 100%;
+    margin: 0; padding: 0.35em 0.25em; border: 0; border-radius: 6px;
+    background: none; box-shadow: none; color: inherit;
+    font: inherit; line-height: inherit; text-align: left; cursor: pointer;
+}
+.practicebank-filter button[role="switch"]:focus { outline: none; }
+.practicebank-filter button[role="switch"]:focus-visible:not([data-pointer]) {
+    outline: 2px solid #3b82f6; outline-offset: 2px;
+}
+.practicebank-switch {
+    position: relative; flex: none; width: 44px; height: 24px; border-radius: 12px;
+    background: #9ca3af; transition: background-color 0.2s ease;
+}
+.practicebank-switch::after {
+    content: ""; position: absolute; top: 2px; left: 2px;
+    width: 20px; height: 20px; border-radius: 50%; background: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); transition: transform 0.2s ease;
+    will-change: transform;
+}
+button[aria-checked="true"] > .practicebank-switch { background: #dc2626; }
+button[aria-checked="true"] > .practicebank-switch::after { transform: translateX(20px); }
+@media (prefers-reduced-motion: reduce) {
+    .practicebank-switch, .practicebank-switch::after { transition: none; }
+}
+.practicebank-badge { cursor: help; }
+.practicebank-problems .problem-outer.practicebank-filtered-out,
+.practicebank-empty[hidden] { display: none !important; }
+</style>
+<div class="practicebank-filter" role="group" aria-label="Filter problems" hidden>
+<button type="button" role="switch" aria-checked="false" data-only="hard" title="One of the hardest problems on past exams and quizzes"><span class="practicebank-switch" aria-hidden="true"></span><span class="practicebank-switch-label">Show only the hardest problems 🌶️</span></button>
+</div>
+<div class="practicebank-problems">
 
 
         <div class="problem-outer">
         <h2>Problem #227</h2>
-        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose you run a BFS on the graph below, however, the BFS is modified so that any time a node is popped from the queue, the message <span class="inline-code"><code>Node popped!!!</code></span> is printed to the screen.</p>
@@ -276,7 +320,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #228</h2>
-        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose you are performing a BFS on the following graph, starting on node 0: In which of the following orders are the nodes visited, assuming that the BFS algorithm produces neighbors in numerical order?</p>
@@ -300,7 +344,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #229</h2>
-        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a <i>breadth</i> first search is run on the graph below using node <span class="math">\(d\)</span> as the source. Adopt the convention that a node's neighbors are produced in alphabetical order.</p>
@@ -328,7 +372,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #230</h2>
-        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider running a breadth-first search (BFS) on the graph shown below, using node <span class="math">\(s\)</span> as the source and adopting the convention that neighbors are produced in ascending order by label.</p>
@@ -349,7 +393,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #231</h2>
-        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Define a <i>circle graph</i> with <span class="math">\(n\)</span> nodes to be an undirected graph <span class="math">\(G =
@@ -372,10 +416,10 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #232</h2>
-        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a ``2-chain'' graph with <span class="math">\(n\)</span> nodes is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math">\(\ldots\)</span>, <span class="math">\(n\)</span>, and, for each node <span class="math">\(u\)</span>, making an edge to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span>(if they are in the graph).</p>
+<p>Suppose a “2-chain” graph with <span class="math">\(n\)</span> nodes is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math">\(\ldots\)</span>, <span class="math">\(n\)</span>, and, for each node <span class="math">\(u\)</span>, making an edge to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span> (if they are in the graph).</p>
 <p>For example, such a graph with <span class="math">\(n = 7\)</span> looks like:</p>
 <center><div class="image"><img src="../images/232/g3.png" /></div></center>
 <p>Suppose BFS is run on a 2-chain graph with <span class="math">\(n\)</span> nodes, using node 1 as the source. What is the time taken as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
@@ -394,7 +438,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #233</h2>
-        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>The code below is a modified version of BFS shown in class. This modification has a single addition: a <span class="inline-code"><code>print</code></span> statement. A comment in the code indicates where the <span class="inline-code"><code>print</code></span> statement is located.</p>
@@ -430,7 +474,7 @@ Course Staff
 
         <div class="problem-outer">
         <h2>Problem #234</h2>
-        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the following modification of BFS, with an added print statement:</p>
@@ -470,7 +514,7 @@ def modified_bfs(graph, source):
 
         <div class="problem-outer">
         <h2>Problem #235</h2>
-        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a breadth-first search is performed on the following tree, starting at the root node <span class="math">\(s\)</span>:</p>
@@ -489,9 +533,9 @@ def modified_bfs(graph, source):
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #236</h2>
-        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #236 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider calling <span class="inline-code"><code>full_bfs</code></span> on a <i>directed</i> graph, and recall that <span class="inline-code"><code>full_bfs</code></span> will make calls to <span class="inline-code"><code>bfs</code></span> until all nodes have been marked as visited.</p>
@@ -516,9 +560,9 @@ def modified_bfs(graph, source):
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #237</h2>
-        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #237 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose an undirected graph with <span class="math">\(n\)</span> nodes satisfies the property that every node has degree <span class="math">\(n/2\)</span>. What is the time complexity of running full BFS on this graph?</p>
@@ -543,10 +587,10 @@ def modified_bfs(graph, source):
 
         <div class="problem-outer">
         <h2>Problem #238</h2>
-        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a connected, undirected graph <span class="math">\(G\)</span> has <span class="math">\(n\)</span> nodes, half of which are ``red'' and half of which are ``blue''. Each red node shares an edge with <span class="math">\(\log_2 n\)</span> blue nodes, and the only edges in the graph are between red and blue nodes.</p>
+<p>Suppose a connected, undirected graph <span class="math">\(G\)</span> has <span class="math">\(n\)</span> nodes, half of which are “red” and half of which are “blue”. Each red node shares an edge with <span class="math">\(\log_2 n\)</span> blue nodes, and the only edges in the graph are between red and blue nodes.</p>
 <p>What is the time complexity of BFS when run on <span class="math">\(G\)</span>? Your answer should be in asymptotic notation and in terms of <span class="math">\(n\)</span>, in as simplest terms possible.</p>
 <details>
     <summary>Solution</summary>
@@ -563,7 +607,7 @@ def modified_bfs(graph, source):
 
         <div class="problem-outer">
         <h2>Problem #240</h2>
-        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose you are running a full BFS on a graph. You are using the following code from lecture to run your full BFS, with some small modifications to include two new print statements:</p>
@@ -617,7 +661,7 @@ def full_bfs(graph):
 
         <div class="problem-outer">
         <h2>Problem #241</h2>
-        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the code below, which is a modification of the BFS algorithm presented in lecture: there are two new lines, marked with comments.</p>
@@ -662,7 +706,7 @@ def modified_bfs(graph, source):
 
         <div class="problem-outer">
         <h2>Problem #242</h2>
-        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a>, <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/aggregate analysis.html'>aggregate analysis</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='../tags/aggregate analysis.html'>aggregate analysis</a>, <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the following modification of BFS, where there are two new lines of code. What is the time complexity in terms of <span class="math">\(|V|\)</span> and <span class="math">\(|E|\)</span>?</p>
@@ -707,9 +751,9 @@ def bar(graph, source, status):
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #243</h2>
-        <p>Tags: <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/aggregate analysis.html'>aggregate analysis</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #243 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
+        <p>Tags: <a href='../tags/aggregate analysis.html'>aggregate analysis</a>, <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the code below, which is a modification of the code for <span class="inline-code"><code>bfs</code></span> given in lecture:</p>
@@ -748,9 +792,9 @@ def modified_bfs(graph, source, status=None):
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(V^2)\)</span>.</p>
 <p>First, the newly-added code (the <span class="inline-code"><code>for z in graph.nodes</code></span> loop), takes <span class="math">\(\Theta(V)\)</span> time each time the loop is encountered. The crux is: how many times is that loop encountered?</p>
-<p>This loop is encountered every time we add a node to the queue (except for the root node, which we add to the queue right at the beginning of BFS). Since this is a connected graph, each node will get added to the pending queue exactly once, meaning that this new code is encountered <i>exactly</i><span class="math">\(V-1\)</span> times (the <span class="math">\(-1\)</span> is subtracting the root node; the loop isn't encountered when we change it to pending).</p>
+<p>This loop is encountered every time we add a node to the queue (except for the root node, which we add to the queue right at the beginning of BFS). Since this is a connected graph, each node will get added to the pending queue exactly once, meaning that this new code is encountered <i>exactly</i> <span class="math">\(V-1\)</span> times (the <span class="math">\(-1\)</span> is subtracting the root node; the loop isn't encountered when we change it to pending).</p>
 <p>Since the new code takes <span class="math">\(\Theta(V)\)</span> time each time it's encountered, and since it's encountered <span class="math">\(\Theta(V)\)</span> times, the total time complexity of the loop is <span class="math">\(\Theta(V^2)\)</span>.</p>
-<p>You might wonder why the time complexity isn't <span class="math">\(\Theta(VE)\)</span>, since the new code is within the loop that ``explores'' each edge in the graph, and we know that it makes a total of <span class="math">\(2|E|\)</span> iterations when the graph is undirected. This is true, but recognize that the new code only executes when the <span class="inline-code"><code>if</code></span>-statement before it is <span class="inline-code"><code>True</code></span>, and this will happen on only a <i>subset</i> of the <span class="math">\(2|E|\)</span> iterations. In fact, it will happen exactly <span class="math">\(|V|-1\)</span> times, as we argued above.</p>
+<p>You might wonder why the time complexity isn't <span class="math">\(\Theta(VE)\)</span>, since the new code is within the loop that “explores” each edge in the graph, and we know that it makes a total of <span class="math">\(2|E|\)</span> iterations when the graph is undirected. This is true, but recognize that the new code only executes when the <span class="inline-code"><code>if</code></span>-statement before it is <span class="inline-code"><code>True</code></span>, and this will happen on only a <i>subset</i> of the <span class="math">\(2|E|\)</span> iterations. In fact, it will happen exactly <span class="math">\(|V|-1\)</span> times, as we argued above.</p>
 </details>
 
     </div>
@@ -763,7 +807,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #245</h2>
-        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a breadth first search (BFS) is performed on the graph shown below using node <span class="math">\(a\)</span> as the source. Which node will be the BFS predecessor of node <span class="math">\(h\)</span> when the search is complete? You should use the convention that neighbors are produced in alphabetical order.</p>
@@ -783,7 +827,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #246</h2>
-        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a BFS is run on the graph below using node 1 as the source node. Which node will be the BFS predecessor of node 8? You should use the convention that neighbors are produced in ascending order by label.</p>
@@ -803,7 +847,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #247</h2>
-        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a BFS is run on the graph below using node 1 as the source node. Which node will be the BFS predecessor of node 9? You should use the convention that neighbors are produced in ascending order by label.</p>
@@ -823,7 +867,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #248</h2>
-        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a <i>breadth</i> first search (BFS) is run on the graph shown below using node <span class="math">\(u_4\)</span> as the source and the convention that <span class="inline-code"><code>graph.neighbors</code></span> produces nodes in ascending order by label. What will be the predecessor of <span class="math">\(u_6\)</span> in the BFS?</p>
@@ -852,7 +896,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #251</h2>
-        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose you are about to run a BFS on a graph whose exact edge structure you do not know. However, you do know that the graph is undirected, has 8 nodes, and has 2 connected components.</p>
@@ -872,7 +916,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #252</h2>
-        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a <i>breadth</i> first search (BFS) is run on a graph <span class="math">\(G = (V, E)\)</span>, and that node <span class="math">\(u\)</span> is distance 5 from the source while node <span class="math">\(v\)</span> is distance 3 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
@@ -894,7 +938,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #253</h2>
-        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a breadth first search (BFS) is run on a graph <span class="math">\(G = (V, E)\)</span>, and that node <span class="math">\(u\)</span> is distance 6 from the source while node <span class="math">\(v\)</span> is distance 7 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
@@ -915,7 +959,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #254</h2>
-        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a breadth first search (BFS) is run on a graph <span class="math">\(G = (V, E)\)</span>, and that node <span class="math">\(u\)</span> is <b>the only node</b> which is distance 6 from the source while node <span class="math">\(v\)</span> is distance 7 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
@@ -936,7 +980,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #255</h2>
-        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose that a breadth-first search on an undirected graph <span class="math">\(G\)</span> is paused and the queue is printed. Suppose that every node in the queue is either distance 5 from the source, or distance 6. At this moment, node <span class="math">\(u\)</span> is undiscovered.</p>
@@ -957,11 +1001,11 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #256</h2>
-        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a breadth first search on an undirected, connected graph is paused at a particular moment in time and the node statuses are printed. Suppose it is found that all nodes which are distance 6 from the source are marked ``visited''.</p>
-<p>True or False: it is possible that there is a node, distance 7 from the source, whose status is ``undiscovered''.</p>
+<p>Suppose a breadth first search on an undirected, connected graph is paused at a particular moment in time and the node statuses are printed. Suppose it is found that all nodes which are distance 6 from the source are marked “visited”.</p>
+<p>True or False: it is possible that there is a node, distance 7 from the source, whose status is “undiscovered”.</p>
 
 <div class="true-false">
     <input type="radio" name="true-false" value="true" /> True
@@ -984,7 +1028,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #257</h2>
-        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a breadth-first search (BFS) is performed in order to calculate a dictionary of shortest path distances, <span class="inline-code"><code>dist</code></span>, from a source node <span class="math">\(s\)</span> to all nodes reachable from <span class="math">\(s\)</span> in an undirected graph <span class="math">\(G = (V, E)\)</span>.</p>
@@ -1019,7 +1063,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #259</h2>
-        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the following problem: you're given an unweighted graph <span class="math">\(G\)</span>, a source node <span class="math">\(u\)</span>, a destination node <span class="math">\(v\)</span>, and an "intermediate" node <span class="math">\(x\)</span>. Your goal is to find a shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> that passes through <span class="math">\(x\)</span>.</p>
@@ -1042,7 +1086,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #261</h2>
-        <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>The table below shows the number of nodes in a graph <span class="math">\(G\)</span> which are distance 0 from node <span class="math">\(s\)</span>, distance 1 from node <span class="math">\(s\)</span>, distance 2, etc.:</p>
@@ -1052,7 +1096,7 @@ def modified_bfs(graph, source, status=None):
     <summary>Solution</summary>
 <p>Remember that the queue can only simultaneously contain nodes at two different distances (it can't contain nodes at distance 1, distance 2, and distance 3 at the same time, but it can contain nodes at distance 1 and distance 2 at the same time).</p>
 <p>The largest number of nodes that could possibly be in the queue at any one time is when we have (almost) all of the nodes from the first distance, and all of the nodes from the second distance.</p>
-<p>In this graph, let <span class="math">\(u\)</span> be a neighbor of the source, and suppose it has an edge with all nodes that are distance 2 from the source. If <span class="math">\(u\)</span> is the first node popped from the queue (after the source), then once its neighbors are added to the queue, the queue will contain all of the nodes at distance 1 except for <span class="math">\(u\)</span>(for 6 nodes in total), and all of the nodes at distance 2 (for 3 nodes in total). This gives us a total of 9 nodes in the queue.</p>
+<p>In this graph, let <span class="math">\(u\)</span> be a neighbor of the source, and suppose it has an edge with all nodes that are distance 2 from the source. If <span class="math">\(u\)</span> is the first node popped from the queue (after the source), then once its neighbors are added to the queue, the queue will contain all of the nodes at distance 1 except for <span class="math">\(u\)</span> (for 6 nodes in total), and all of the nodes at distance 2 (for 3 nodes in total). This gives us a total of 9 nodes in the queue.</p>
 </details>
 
     </div>
@@ -1065,7 +1109,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #264</h2>
-        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-13.html'>lecture-13</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/lecture-13.html'>lecture-13</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V, E)\)</span> be an undirected tree.</p>
@@ -1092,7 +1136,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #265</h2>
-        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-13.html'>lecture-13</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/lecture-13.html'>lecture-13</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose both BFS and DFS are run on the same graph <span class="math">\(G = (V, E)\)</span> using the same source node. Assume that <span class="math">\(G\)</span> is a tree. Consider a particular node <span class="math">\(u\)</span> in the graph. True or False: the BFS predecessor found for <span class="math">\(u\)</span> and the DFS predecessor found for <span class="math">\(u\)</span> must be the same.</p>
@@ -1118,7 +1162,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #266</h2>
-        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-13.html'>lecture-13</a></p>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/connected components.html'>connected components</a>, <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/lecture-13.html'>lecture-13</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>We saw in lecture that both full BFS and DFS produce trees when run on connected graphs, and <i>forests</i> when run on disconnected graphs. Suppose a full BFS and a full DFS are run on an undirected graph with three connected components. True or False: the number of trees in the BFS forest will equal to number of trees in the DFS forest.</p>
@@ -1137,9 +1181,9 @@ def modified_bfs(graph, source, status=None):
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #309</h2>
-        <p>Tags: <a href='../tags/lecture-14.html'>lecture-14</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #309 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose that every edge in the weighted graph <span class="math">\(G\)</span> has weight -5. True or False: breadth first search on this graph will compute a <i>longest</i> path from the source to every node in the graph (that is, a path with greatest possible total edge weight).</p>
@@ -1158,6 +1202,139 @@ def modified_bfs(graph, source, status=None):
         </div>
 
 
+<p class="practicebank-empty" data-only="hard" hidden>No 🌶️ problems in this topic.</p>
+</div>
+<script>
+(function () {
+    var KEY = "practicebank-only";
+    var filters = document.querySelectorAll(".practicebank-filter");
+    var lists = document.querySelectorAll(".practicebank-problems");
+    var known = {};
+    filters.forEach(function (f) {
+        f.querySelectorAll("button[data-only]").forEach(function (b) {
+            if (b.dataset.only) { known[b.dataset.only] = true; }
+        });
+    });
+
+    function valid(tag) { return tag && known[tag] ? tag : ""; }
+    function load() { try { return valid(localStorage.getItem(KEY)); } catch (e) { return ""; } }
+    function save(tag) {
+        try {
+            if (tag) { localStorage.setItem(KEY, tag); } else { localStorage.removeItem(KEY); }
+        } catch (e) {}
+    }
+
+    function setSwitches(tag) {
+        filters.forEach(function (f) {
+            f.hidden = false;
+            f.querySelectorAll("button[data-only]").forEach(function (b) {
+                b.setAttribute("aria-checked", String(b.dataset.only === tag));
+            });
+        });
+    }
+
+    function filterProblems(tag) {
+        lists.forEach(function (list) {
+            var shown = 0;
+            list.querySelectorAll(".problem-outer").forEach(function (p) {
+                var badges = (p.dataset.badges || "").split(" ");
+                var keep = !tag || badges.indexOf(tag) !== -1;
+                p.classList.toggle("practicebank-filtered-out", !keep);
+                if (keep) { shown++; }
+            });
+            list.querySelectorAll(".practicebank-empty").forEach(function (e) {
+                e.hidden = !(tag && shown === 0 && e.dataset.only === tag);
+            });
+        });
+        try {
+            var url = new URL(location.href);
+            if (tag) { url.searchParams.set("only", tag); } else { url.searchParams.delete("only"); }
+            if (url.href !== location.href) { history.replaceState(history.state, "", url.href); }
+        } catch (e) {}
+    }
+
+    // apply a choice at once: on page load, and when another page changes it
+    var pending = null;
+    function apply(tag) {
+        clearTimeout(pending);
+        pending = null;
+        latest++;
+        setSwitches(tag);
+        filterProblems(tag);
+    }
+
+    // on a toggle, move the switch first and filter after its slide: showing or
+    // hiding many problems is a long relayout (a quarter second on a page with a
+    // couple hundred problems and their math), which would freeze the slide if it
+    // ran in the same frame. Toggling again before then replaces the pending
+    // filter, so only the last choice is applied.
+    // With reduced motion the switch doesn't slide, so it only has to be painted
+    // first: the filter runs in a task after the next frame.
+    var SLIDE_MS = 220;  // just over the switch's 0.2s transition
+    var latest = 0;
+    function toggle(tag) {
+        setSwitches(tag);
+        clearTimeout(pending);
+        var id = ++latest;
+        function run() {
+            if (id !== latest) { return; }
+            pending = null;
+            filterProblems(tag);
+        }
+        var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce) {
+            requestAnimationFrame(function () {
+                if (id === latest) { pending = setTimeout(run, 0); }
+            });
+        } else {
+            pending = setTimeout(run, SLIDE_MS);
+        }
+    }
+
+    // show the focus ring only for keyboard focus: some browsers count a click on a
+    // button as focus-visible, so a switch clicked with the pointer is marked
+    // until it is next used from the keyboard or loses focus
+    filters.forEach(function (f) {
+        f.addEventListener("pointerdown", function (event) {
+            var b = event.target.closest("button[data-only]");
+            if (b) { b.setAttribute("data-pointer", ""); }
+        });
+        f.addEventListener("keydown", function (event) {
+            var b = event.target.closest("button[data-only]");
+            if (b) { b.removeAttribute("data-pointer"); }
+        });
+        f.addEventListener("focusout", function (event) {
+            var b = event.target.closest("button[data-only]");
+            if (b) { b.removeAttribute("data-pointer"); }
+        });
+    });
+
+    filters.forEach(function (f) {
+        f.addEventListener("click", function (event) {
+            var b = event.target.closest("button[data-only]");
+            if (!b) { return; }
+            // a switch that is on turns the filter off; one that is off turns it on
+            var on = b.getAttribute("aria-checked") === "true";
+            var tag = on ? "" : valid(b.dataset.only);
+            save(tag);
+            toggle(tag);
+        });
+    });
+
+    // ?only=<tag> wins over the stored choice, and becomes the stored choice
+    var param = null;
+    try { param = new URLSearchParams(location.search).get("only"); } catch (e) {}
+    if (param !== null) { save(valid(param)); }
+    apply(param !== null ? valid(param) : load());
+
+    // pages that were prerendered or kept in the back/forward cache catch up
+    // with a choice made on another page since
+    function resync() { apply(load()); }
+    window.addEventListener("storage", function (event) { if (event.key === KEY) { resync(); } });
+    window.addEventListener("pageshow", function (event) { if (event.persisted) { resync(); } });
+    document.addEventListener("prerenderingchange", resync);
+})();
+</script>
     </div>
 </div>
 

@@ -246,8 +246,10 @@ Course Staff
     
 <style>
 .multiple-choices .choice label, .multiple-select .choice label {
-    display: flex; align-items: center; gap: 0.6em; margin: 0.25em 0; cursor: pointer;
+    display: flex; align-items: baseline; gap: 0.6em; margin: 0.25em 0; cursor: pointer;
 }
+/* level the box with the first line of the choice, not the middle of a wrapped one */
+.multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
 </style>
 <h1>Quiz 08</h1>
@@ -260,6 +262,48 @@ Course Staff
 </ul>
 </ul>
 
+<style>
+.practicebank-filter {
+    display: flex; flex-direction: column; gap: 0.25em;
+    margin: 1.5em 0; padding: 0.6em 0;
+    border-top: 1px solid rgba(128, 128, 128, 0.3);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+}
+.practicebank-filter[hidden] { display: none; }
+.practicebank-filter button[role="switch"] {
+    -webkit-appearance: none; appearance: none;
+    display: flex; align-items: center; gap: 0.75em; width: 100%;
+    margin: 0; padding: 0.35em 0.25em; border: 0; border-radius: 6px;
+    background: none; box-shadow: none; color: inherit;
+    font: inherit; line-height: inherit; text-align: left; cursor: pointer;
+}
+.practicebank-filter button[role="switch"]:focus { outline: none; }
+.practicebank-filter button[role="switch"]:focus-visible:not([data-pointer]) {
+    outline: 2px solid #3b82f6; outline-offset: 2px;
+}
+.practicebank-switch {
+    position: relative; flex: none; width: 44px; height: 24px; border-radius: 12px;
+    background: #9ca3af; transition: background-color 0.2s ease;
+}
+.practicebank-switch::after {
+    content: ""; position: absolute; top: 2px; left: 2px;
+    width: 20px; height: 20px; border-radius: 50%; background: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); transition: transform 0.2s ease;
+    will-change: transform;
+}
+button[aria-checked="true"] > .practicebank-switch { background: #dc2626; }
+button[aria-checked="true"] > .practicebank-switch::after { transform: translateX(20px); }
+@media (prefers-reduced-motion: reduce) {
+    .practicebank-switch, .practicebank-switch::after { transition: none; }
+}
+.practicebank-badge { cursor: help; }
+.practicebank-problems .problem-outer.practicebank-filtered-out,
+.practicebank-empty[hidden] { display: none !important; }
+</style>
+<div class="practicebank-filter" role="group" aria-label="Filter problems" hidden>
+<button type="button" role="switch" aria-checked="false" data-only="hard" title="One of the hardest problems on past exams and quizzes"><span class="practicebank-switch" aria-hidden="true"></span><span class="practicebank-switch-label">Show only the hardest problems 🌶️</span></button>
+</div>
+<div class="practicebank-problems">
 
 
         <div class="problem-outer">
@@ -399,8 +443,8 @@ Course Staff
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #304</h2>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #304 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
         <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -424,7 +468,7 @@ Course Staff
         <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Consider a ``2-chain'' graph: a graph with <span class="math">\(n\)</span> nodes that is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math">\(\ldots\)</span>, <span class="math">\(n\)</span>, and, for each node <span class="math">\(u\)</span>, making an edge to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span>(if they are in the graph).</p>
+<p>Consider a “2-chain” graph: a graph with <span class="math">\(n\)</span> nodes that is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math">\(\ldots\)</span>, <span class="math">\(n\)</span>, and, for each node <span class="math">\(u\)</span>, making an edge to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span> (if they are in the graph).</p>
 <p>Suppose the Bellman-Ford algorithm without early stopping is run on a 2-chain graph with <span class="math">\(n\)</span> nodes, using node 1 as the source. What is the time taken as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
@@ -447,7 +491,8 @@ Course Staff
 <p>Suppose the Bellman-Ford algorithm is run on the following graph using node <span class="math">\(a\)</span> as the source node:</p>
 <center><div class="image"><img src="images/306/graph.png" /></div></center>
 <p>Suppose when <span class="inline-code"><code>graph.edges</code></span> is called, the edges are returned in the order:</p>
-<p><span class="math">\((a, b),
+<p><span class="math">\(
+    (a, b),
     (c, e),
     (d, f),
     (c, d),
@@ -470,8 +515,8 @@ Course Staff
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #307</h2>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #307 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
         <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -499,8 +544,8 @@ Course Staff
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #308</h2>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #308 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
         <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -525,9 +570,9 @@ Course Staff
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #309</h2>
-        <p>Tags: <a href='./tags/lecture-14.html'>lecture-14</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #309 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose that every edge in the weighted graph <span class="math">\(G\)</span> has weight -5. True or False: breadth first search on this graph will compute a <i>longest</i> path from the source to every node in the graph (that is, a path with greatest possible total edge weight).</p>
@@ -558,13 +603,14 @@ Course Staff
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
 <p>Suppose that <span class="inline-code"><code>graph.edges</code></span> produces edges in the following order:</p>
-<div class="math">\[(u,c), (a, b), (a, d), (u, a), (b, e), (c, d), (e, b), (d, e)
+<div class="math">\[
+                (u,c), (a, b), (a, d), (u, a), (b, e), (c, d), (e, b), (d, e)
             \]</div>
 <p>After two iterations of the outer for-loop, what is the estimated shortest path distance for node <span class="math">\(b\)</span>?</p>
 <details>
     <summary>Solution</summary>
 <p>7.</p>
-<p>After iteration 1, the estimates are <span class="math">\(a = 2\)</span>, <span class="math">\(c = 7\)</span>, <span class="math">\(d = 9\)</span>, <span class="math">\(e = 13\)</span>(<span class="math">\(b\)</span> is still <span class="math">\(\infty\)</span>). In iteration 2, <span class="math">\(b\)</span> becomes <span class="math">\(16\)</span> via <span class="math">\((a, b)\)</span>, <span class="math">\(d\)</span> becomes <span class="math">\(5\)</span>, then <span class="math">\(b\)</span> becomes <span class="math">\(13 - 6 = 7\)</span> via <span class="math">\((e, b)\)</span>, and <span class="math">\(e\)</span> becomes <span class="math">\(9\)</span>. So after two iterations, the estimate for <span class="math">\(b\)</span> is 7.</p>
+<p>After iteration 1, the estimates are <span class="math">\(a = 2\)</span>, <span class="math">\(c = 7\)</span>, <span class="math">\(d = 9\)</span>, <span class="math">\(e = 13\)</span> (<span class="math">\(b\)</span> is still <span class="math">\(\infty\)</span>). In iteration 2, <span class="math">\(b\)</span> becomes <span class="math">\(16\)</span> via <span class="math">\((a, b)\)</span>, <span class="math">\(d\)</span> becomes <span class="math">\(5\)</span>, then <span class="math">\(b\)</span> becomes <span class="math">\(13 - 6 = 7\)</span> via <span class="math">\((e, b)\)</span>, and <span class="math">\(e\)</span> becomes <span class="math">\(9\)</span>. So after two iterations, the estimate for <span class="math">\(b\)</span> is 7.</p>
 </details>
 
 </div>
@@ -583,7 +629,8 @@ Course Staff
 <div class="subproblem">
     <h3 class="subproblem-id">Part 3)</h3>
 <p>Now suppose that <span class="inline-code"><code>graph.edges</code></span> produces edges in a different order:</p>
-<div class="math">\[(a, b), (a, d), (b, e), (c, d), (d, e), (e, b), (u, a), (u, c)
+<div class="math">\[
+                (a, b), (a, d), (b, e), (c, d), (d, e), (e, b), (u, a), (u, c)
             \]</div>
 <p>How many iterations does the outer for-loop take? The algorithm includes early stopping.</p>
 <details>
@@ -724,7 +771,7 @@ Course Staff
     <div class="problem-body">
 <p>Suppose Dijkstra's algorithm is run on the graph shown below using node <span class="math">\(a\)</span> as the source.</p>
 <center><div class="image"><img src="images/316/graph.png" /></div></center>
-<p>Suppose <span class="math">\(C\)</span> is the set of ``correct'' nodes: that is, <span class="math">\(C\)</span> is the set of nodes whose estimated distances are known to be correct.</p>
+<p>Suppose <span class="math">\(C\)</span> is the set of “correct” nodes: that is, <span class="math">\(C\)</span> is the set of nodes whose estimated distances are known to be correct.</p>
 <p>What will be the fifth node added to <span class="math">\(C\)</span> by Dijkstra's algorithm? (The first node added to <span class="math">\(C\)</span> is the source, <span class="math">\(a\)</span>.)</p>
 <details>
     <summary>Solution</summary>
@@ -737,6 +784,139 @@ Course Staff
         </div>
 
 
+<p class="practicebank-empty" data-only="hard" hidden>No 🌶️ problems in this set.</p>
+</div>
+<script>
+(function () {
+    var KEY = "practicebank-only";
+    var filters = document.querySelectorAll(".practicebank-filter");
+    var lists = document.querySelectorAll(".practicebank-problems");
+    var known = {};
+    filters.forEach(function (f) {
+        f.querySelectorAll("button[data-only]").forEach(function (b) {
+            if (b.dataset.only) { known[b.dataset.only] = true; }
+        });
+    });
+
+    function valid(tag) { return tag && known[tag] ? tag : ""; }
+    function load() { try { return valid(localStorage.getItem(KEY)); } catch (e) { return ""; } }
+    function save(tag) {
+        try {
+            if (tag) { localStorage.setItem(KEY, tag); } else { localStorage.removeItem(KEY); }
+        } catch (e) {}
+    }
+
+    function setSwitches(tag) {
+        filters.forEach(function (f) {
+            f.hidden = false;
+            f.querySelectorAll("button[data-only]").forEach(function (b) {
+                b.setAttribute("aria-checked", String(b.dataset.only === tag));
+            });
+        });
+    }
+
+    function filterProblems(tag) {
+        lists.forEach(function (list) {
+            var shown = 0;
+            list.querySelectorAll(".problem-outer").forEach(function (p) {
+                var badges = (p.dataset.badges || "").split(" ");
+                var keep = !tag || badges.indexOf(tag) !== -1;
+                p.classList.toggle("practicebank-filtered-out", !keep);
+                if (keep) { shown++; }
+            });
+            list.querySelectorAll(".practicebank-empty").forEach(function (e) {
+                e.hidden = !(tag && shown === 0 && e.dataset.only === tag);
+            });
+        });
+        try {
+            var url = new URL(location.href);
+            if (tag) { url.searchParams.set("only", tag); } else { url.searchParams.delete("only"); }
+            if (url.href !== location.href) { history.replaceState(history.state, "", url.href); }
+        } catch (e) {}
+    }
+
+    // apply a choice at once: on page load, and when another page changes it
+    var pending = null;
+    function apply(tag) {
+        clearTimeout(pending);
+        pending = null;
+        latest++;
+        setSwitches(tag);
+        filterProblems(tag);
+    }
+
+    // on a toggle, move the switch first and filter after its slide: showing or
+    // hiding many problems is a long relayout (a quarter second on a page with a
+    // couple hundred problems and their math), which would freeze the slide if it
+    // ran in the same frame. Toggling again before then replaces the pending
+    // filter, so only the last choice is applied.
+    // With reduced motion the switch doesn't slide, so it only has to be painted
+    // first: the filter runs in a task after the next frame.
+    var SLIDE_MS = 220;  // just over the switch's 0.2s transition
+    var latest = 0;
+    function toggle(tag) {
+        setSwitches(tag);
+        clearTimeout(pending);
+        var id = ++latest;
+        function run() {
+            if (id !== latest) { return; }
+            pending = null;
+            filterProblems(tag);
+        }
+        var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce) {
+            requestAnimationFrame(function () {
+                if (id === latest) { pending = setTimeout(run, 0); }
+            });
+        } else {
+            pending = setTimeout(run, SLIDE_MS);
+        }
+    }
+
+    // show the focus ring only for keyboard focus: some browsers count a click on a
+    // button as focus-visible, so a switch clicked with the pointer is marked
+    // until it is next used from the keyboard or loses focus
+    filters.forEach(function (f) {
+        f.addEventListener("pointerdown", function (event) {
+            var b = event.target.closest("button[data-only]");
+            if (b) { b.setAttribute("data-pointer", ""); }
+        });
+        f.addEventListener("keydown", function (event) {
+            var b = event.target.closest("button[data-only]");
+            if (b) { b.removeAttribute("data-pointer"); }
+        });
+        f.addEventListener("focusout", function (event) {
+            var b = event.target.closest("button[data-only]");
+            if (b) { b.removeAttribute("data-pointer"); }
+        });
+    });
+
+    filters.forEach(function (f) {
+        f.addEventListener("click", function (event) {
+            var b = event.target.closest("button[data-only]");
+            if (!b) { return; }
+            // a switch that is on turns the filter off; one that is off turns it on
+            var on = b.getAttribute("aria-checked") === "true";
+            var tag = on ? "" : valid(b.dataset.only);
+            save(tag);
+            toggle(tag);
+        });
+    });
+
+    // ?only=<tag> wins over the stored choice, and becomes the stored choice
+    var param = null;
+    try { param = new URLSearchParams(location.search).get("only"); } catch (e) {}
+    if (param !== null) { save(valid(param)); }
+    apply(param !== null ? valid(param) : load());
+
+    // pages that were prerendered or kept in the back/forward cache catch up
+    // with a choice made on another page since
+    function resync() { apply(load()); }
+    window.addEventListener("storage", function (event) { if (event.key === KEY) { resync(); } });
+    window.addEventListener("pageshow", function (event) { if (event.persisted) { resync(); } });
+    document.addEventListener("prerenderingchange", resync);
+})();
+</script>
     </div>
 </div>
 

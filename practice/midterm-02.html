@@ -246,8 +246,10 @@ Course Staff
     
         <style>
 .multiple-choices .choice label, .multiple-select .choice label {
-    display: flex; align-items: center; gap: 0.6em; margin: 0.25em 0; cursor: pointer;
+    display: flex; align-items: baseline; gap: 0.6em; margin: 0.25em 0; cursor: pointer;
 }
+/* level the box with the first line of the choice, not the middle of a wrapped one */
+.multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
 </style>
         <h1>Midterm 02</h1>
@@ -272,11 +274,53 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 </ul>
         </ul>
 
-        
+        <style>
+.practicebank-filter {
+    display: flex; flex-direction: column; gap: 0.25em;
+    margin: 1.5em 0; padding: 0.6em 0;
+    border-top: 1px solid rgba(128, 128, 128, 0.3);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+}
+.practicebank-filter[hidden] { display: none; }
+.practicebank-filter button[role="switch"] {
+    -webkit-appearance: none; appearance: none;
+    display: flex; align-items: center; gap: 0.75em; width: 100%;
+    margin: 0; padding: 0.35em 0.25em; border: 0; border-radius: 6px;
+    background: none; box-shadow: none; color: inherit;
+    font: inherit; line-height: inherit; text-align: left; cursor: pointer;
+}
+.practicebank-filter button[role="switch"]:focus { outline: none; }
+.practicebank-filter button[role="switch"]:focus-visible:not([data-pointer]) {
+    outline: 2px solid #3b82f6; outline-offset: 2px;
+}
+.practicebank-switch {
+    position: relative; flex: none; width: 44px; height: 24px; border-radius: 12px;
+    background: #9ca3af; transition: background-color 0.2s ease;
+}
+.practicebank-switch::after {
+    content: ""; position: absolute; top: 2px; left: 2px;
+    width: 20px; height: 20px; border-radius: 50%; background: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); transition: transform 0.2s ease;
+    will-change: transform;
+}
+button[aria-checked="true"] > .practicebank-switch { background: #dc2626; }
+button[aria-checked="true"] > .practicebank-switch::after { transform: translateX(20px); }
+@media (prefers-reduced-motion: reduce) {
+    .practicebank-switch, .practicebank-switch::after { transition: none; }
+}
+.practicebank-badge { cursor: help; }
+.practicebank-problems .problem-outer.practicebank-filtered-out,
+.practicebank-empty[hidden] { display: none !important; }
+</style>
+<div class="practicebank-filter" role="group" aria-label="Filter problems" hidden>
+<button type="button" role="switch" aria-checked="false" data-only="hard" title="One of the hardest problems on past exams and quizzes"><span class="practicebank-switch" aria-hidden="true"></span><span class="practicebank-switch-label">Show only the hardest problems 🌶️</span></button>
+</div>
+<div class="practicebank-problems">
+
 
         <div class="problem-outer">
         <h2>Problem #174</h2>
-        <p>Tags: <a href='./tags/lecture-09.html'>lecture-09</a>, <a href='./tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='./tags/hashing.html'>hashing</a>, <a href='./tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(T\)</span> is a hash table of size 100 (that is, it has 100 bins). 300 elements are inserted into the hash table using a hash function that satisfies the uniform hashing assumption (that is, any element is equally-likely to hash into any bin). What is the expected number of elements in the first bin?</p>
@@ -295,7 +339,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #175</h2>
-        <p>Tags: <a href='./tags/lecture-09.html'>lecture-09</a>, <a href='./tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='./tags/hashing.html'>hashing</a>, <a href='./tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a hash table is constructed so that collisions are resolved through chaining. The hash table has <span class="math">\(10\)</span> bins, and 100 items are inserted into the hash table.</p>
@@ -322,7 +366,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #176</h2>
-        <p>Tags: <a href='./tags/lecture-09.html'>lecture-09</a>, <a href='./tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='./tags/hashing.html'>hashing</a>, <a href='./tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Assume that a hash table is implemented using chaining to resolve collisions. The hash table stores <span class="math">\(n\)</span> numbers.</p>
@@ -347,9 +391,9 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #177</h2>
-        <p>Tags: <a href='./tags/lecture-09.html'>lecture-09</a>, <a href='./tags/hashing.html'>hashing</a></p>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #177 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
+        <p>Tags: <a href='./tags/hashing.html'>hashing</a>, <a href='./tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a hash table is constructed using linked lists to store the data within each bin, and that collisions are resolved by chaining. What is the <i>worst case</i> time complexity of inserting a new element into the hash table? You may assume that the hash table will not need to be resized, and that evaluating the hash function takes <span class="math">\(\Theta(1)\)</span> time.</p>
@@ -373,7 +417,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #178</h2>
-        <p>Tags: <a href='./tags/lecture-09.html'>lecture-09</a>, <a href='./tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='./tags/hashing.html'>hashing</a>, <a href='./tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a hash table is constructed using linked lists to store the data within each bin, and that collisions are resolved by chaining. Suppose <span class="math">\(n\)</span> elements have been inserted into the hash table. What is the worst case time complexity of querying whether an object exists within the hash table? You may assume that the hash table will not need to be resized, and that evaluating the hash function takes <span class="math">\(\Theta(1)\)</span> time.</p>
@@ -397,7 +441,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #179</h2>
-        <p>Tags: <a href='./tags/lecture-09.html'>lecture-09</a>, <a href='./tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='./tags/hashing.html'>hashing</a>, <a href='./tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose we are building a hash table to store numbers. Our hash table will have 1000 bins. True or false: <span class="math">\(f(x) = x \% 2\)</span> is a good hash function. Here, <span class="math">\(x \% 2\)</span> returns the remainder after dividing <span class="math">\(x\)</span> by 2.</p>
@@ -418,7 +462,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #180</h2>
-        <p>Tags: <a href='./tags/lecture-09.html'>lecture-09</a>, <a href='./tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='./tags/hashing.html'>hashing</a>, <a href='./tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose you insert 11 elements into a hash table with 20 bins. True or False: there must exist <b>exactly</b> 9 empty bins, no more, no less, since the number of elements being hashed is less than the number of bins in the hash table by nine.</p>
@@ -439,7 +483,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #181</h2>
-        <p>Tags: <a href='./tags/lecture-09.html'>lecture-09</a>, <a href='./tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='./tags/hashing.html'>hashing</a>, <a href='./tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the code below:</p>
@@ -449,7 +493,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
         if x in B:
             common.add(x)
     return common</code></pre>
-<p>What is the expected time complexity of this code if <span class="inline-code"><code>A</code></span> and <span class="inline-code"><code>B</code></span> are Python <span class="inline-code"><code>set</code></span>s (hash tables) with <span class="math">\(n\)</span> elements each? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation. You may assume that the hash function used is ``good'' in that it hashes evenly (that is, it satisfies the simple universal hashing assumption).</p>
+<p>What is the expected time complexity of this code if <span class="inline-code"><code>A</code></span> and <span class="inline-code"><code>B</code></span> are Python <span class="inline-code"><code>set</code></span>s (hash tables) with <span class="math">\(n\)</span> elements each? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation. You may assume that the hash function used is “good” in that it hashes evenly (that is, it satisfies the simple universal hashing assumption).</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
@@ -465,7 +509,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #182</h2>
-        <p>Tags: <a href='./tags/lecture-09.html'>lecture-09</a>, <a href='./tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='./tags/hashing.html'>hashing</a>, <a href='./tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>In the problem below, suppose <span class="inline-code"><code>arr</code></span> is an array of <span class="math">\(n\)</span> integers. What is the expected time complexity of the code below? Write your answer using asymptotic notation as a function of <span class="math">\(n\)</span>.</p>
@@ -494,7 +538,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #183</h2>
-        <p>Tags: <a href='./tags/lecture-09.html'>lecture-09</a>, <a href='./tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='./tags/hashing.html'>hashing</a>, <a href='./tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>What is the expected time complexity of the code shown below, assuming that <span class="inline-code"><code>numbers</code></span> is a Python <span class="inline-code"><code>list</code></span>? Express your answer as a function of <span class="math">\(n\)</span> using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
@@ -525,10 +569,10 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #184</h2>
-        <p>Tags: <a href='./tags/lecture-09.html'>lecture-09</a>, <a href='./tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='./tags/hashing.html'>hashing</a>, <a href='./tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a hash table with <span class="math">\(n/2\)</span> bins stores <span class="math">\(n\)</span> elements, and suppose that when the next element is inserted into the hash table, a ``grow'' will be triggered. That is, the insertion will cause the hash table to resize to <span class="math">\(n\)</span> bins containing the same <span class="math">\(n + 1\)</span> elements, plus the newly-added element.</p>
+<p>Suppose a hash table with <span class="math">\(n/2\)</span> bins stores <span class="math">\(n\)</span> elements, and suppose that when the next element is inserted into the hash table, a “grow” will be triggered. That is, the insertion will cause the hash table to resize to <span class="math">\(n\)</span> bins containing the same <span class="math">\(n + 1\)</span> elements, plus the newly-added element.</p>
 <p>What will be the time complexity of this single insertion operation that causes the table to grow?</p>
 <details>
     <summary>Solution</summary>
@@ -545,7 +589,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #185</h2>
-        <p>Tags: <a href='./tags/lecture-09.html'>lecture-09</a>, <a href='./tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='./tags/hashing.html'>hashing</a>, <a href='./tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a hash table in constructed so that collisions are resolved through chaining. The hash table has a number of bins <span class="math">\(k\)</span> that is <span class="math">\(\Theta(n)\)</span>, where <span class="math">\(n\)</span> is the number of elements being stored in the hash table; that is, the hash table grows as more elements are inserted.</p>
@@ -553,7 +597,8 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 <p>What is the expected time complexity of a membership query on this hash table? State your answer in asymptotic notation in terms of the number of elements in the hash table, <span class="math">\(n\)</span>.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(1)\)</span> Since only <span class="math">\(k/2\)</span> bins are being used, the expected number of elements within each bin is <span class="math">\(n / (k/2) = 2n / k\)</span>. But since <span class="math">\(k = \Theta(n)\)</span>, this is just <span class="math">\(\Theta(1)\)</span>.</p>
+<p><span class="math">\(\Theta(1)\)</span></p>
+<p>Since only <span class="math">\(k/2\)</span> bins are being used, the expected number of elements within each bin is <span class="math">\(n / (k/2) = 2n / k\)</span>. But since <span class="math">\(k = \Theta(n)\)</span>, this is just <span class="math">\(\Theta(1)\)</span>.</p>
 </details>
 
     </div>
@@ -566,7 +611,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #186</h2>
-        <p>Tags: <a href='./tags/lecture-09.html'>lecture-09</a>, <a href='./tags/hashing.html'>hashing</a></p>
+        <p>Tags: <a href='./tags/hashing.html'>hashing</a>, <a href='./tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose you will be receiving a <i>stream</i> of numbers, one by one, and you wish to keep track of the largest number seen so far. You will not need to perform membership queries. What should you do?</p>
@@ -590,7 +635,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #187</h2>
-        <p>Tags: <a href='./tags/lecture-09.html'>lecture-09</a>, <a href='./tags/hashing.html'>hashing</a>, <a href='./tags/binary search trees.html'>binary search trees</a></p>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/hashing.html'>hashing</a>, <a href='./tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose you need to keep track of a large dynamic collection of numbers. You will be performing <span class="inline-code"><code>n</code></span> insertions, <span class="inline-code"><code>n</code></span> deletions, and a very small number of queries for the maximum element in the collection. You will also be performing membership queries.</p>
@@ -612,9 +657,9 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #188</h2>
-        <p>Tags: <a href='./tags/lecture-09.html'>lecture-09</a>, <a href='./tags/hashing.html'>hashing</a>, <a href='./tags/binary search trees.html'>binary search trees</a></p>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #188 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a>, <a href='./tags/hashing.html'>hashing</a>, <a href='./tags/lecture-09.html'>lecture-09</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose you need to keep track of a large dynamic collection of numbers. The three most common operations you will be performing are insertions, deletions, and queries for the maximum element in the collection. You may assume that the number of maximum queries you will be making is close to the number of insertions/deletions. You will also be performing membership queries.</p>
@@ -638,7 +683,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #189</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>What type of graph would be best for representing a network of friends on social media, where friendships are mutual? (i.e, if person A is person B's friend, person B is also person A's friend)</p>
@@ -659,7 +704,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #190</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the graph below</p>
@@ -680,7 +725,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #191</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>What is the <b>out-degree</b> of node <span class="math">\(u\)</span> in the graph shown below?</p>
@@ -700,7 +745,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #192</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(V = \{a, b, c, d\}\)</span> and <span class="math">\(E = \{(a,b), (a,a), (a,c), (d,b), (c,a)\}\)</span> be the nodes and edges of a directed graph. How many predecessors does node <span class="math">\(b\)</span> have?</p>
@@ -719,7 +764,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #193</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(u\)</span> is a node in a complete, undirected graph <span class="math">\(G = (V,E)\)</span>. What is the degree of <span class="math">\(u\)</span>? Remember, an undirected graph is <i>complete</i> if it contains every possible edge.</p>
@@ -743,7 +788,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #194</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V, E)\)</span> be a <i>directed</i> graph, and suppose <span class="math">\(u, v, w \in V\)</span> are all nodes. True or False: if <span class="math">\(w\)</span> is reachable from <span class="math">\(v\)</span>, and <span class="math">\(v\)</span> is reachable from <span class="math">\(u\)</span>, then <span class="math">\(w\)</span> is reachable from <span class="math">\(u\)</span>.</p>
@@ -752,7 +797,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 <details>
     <summary>Solution</summary>
 <p>True.</p>
-<p>There is a path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> and a path from <span class="math">\(v\)</span> to <span class="math">\(w\)</span>. Following the first path and then the second gives a path from <span class="math">\(u\)</span> to <span class="math">\(w\)</span>(all of the edges point in the right direction, since each path follows its edges forward).</p>
+<p>There is a path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> and a path from <span class="math">\(v\)</span> to <span class="math">\(w\)</span>. Following the first path and then the second gives a path from <span class="math">\(u\)</span> to <span class="math">\(w\)</span> (all of the edges point in the right direction, since each path follows its edges forward).</p>
 </details>
 
     </div>
@@ -765,7 +810,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #195</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(C\)</span> be a connected component in an undirected graph <span class="math">\(G\)</span>. Suppose <span class="math">\(u_1\)</span> is a node in <span class="math">\(C\)</span> and let <span class="math">\(u_2\)</span> be a node that is reachable from <span class="math">\(u_1\)</span>. True or False: <span class="math">\(u_2\)</span> must also be in the same connected component, <span class="math">\(C\)</span>.</p>
@@ -787,7 +832,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #196</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(v = \{a, b, c, d, e, f, g\}\)</span> and <span class="math">\(E = \{(a,g), (b,d), (d, e), (f, d)\}\)</span>. How many connected components does the undirected graph <span class="math">\(G =(V, E)\)</span> have?</p>
@@ -806,11 +851,11 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #197</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/connected components.html'>connected components</a></p>
+        <p>Tags: <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the undirected graph <span class="math">\(G = (V, E)\)</span> with</p>
-<p><span class="math">\(V = \{0, 1, 2, 3, 4, 5, 6, 7\}\)</span><span class="math">\(E = \{(0, 1), (3, 6), (1, 5), (2, 4), (3, 4)\}\)</span></p>
+<p><span class="math">\(V = \{0, 1, 2, 3, 4, 5, 6, 7\}\)</span> <span class="math">\(E = \{(0, 1), (3, 6), (1, 5), (2, 4), (3, 4)\}\)</span></p>
 <p>What are the connected components of <span class="math">\(G\)</span>?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{\{0, 1, 5, 7\}, \{2, 3, 4, 6\}\}\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{\{0, 1, 5, 2, 4\}, \{3, 6, 7\}\}\)</span></p></label></div>
@@ -832,7 +877,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #198</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/connected components.html'>connected components</a></p>
+        <p>Tags: <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V,E)\)</span> be an undirected graph with:</p>
@@ -847,7 +892,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 <details>
     <summary>Solution</summary>
 <p>False. The connected components of this graph are <span class="math">\(\{a, e, f\}\)</span> and <span class="math">\(\{b, c, d, g, h\}\)</span>.</p>
-<p>Remember: a connected component has to contain <i>all</i> nodes reachable from any node in the component. While <span class="math">\(b\)</span>, <span class="math">\(d\)</span>, and <span class="math">\(g\)</span> are all reachable from one another (and are ``connected''), they do not form a connected component because there are more nodes reachable from this group: namely, <span class="math">\(h\)</span> and <span class="math">\(c\)</span>.</p>
+<p>Remember: a connected component has to contain <i>all</i> nodes reachable from any node in the component. While <span class="math">\(b\)</span>, <span class="math">\(d\)</span>, and <span class="math">\(g\)</span> are all reachable from one another (and are “connected”), they do not form a connected component because there are more nodes reachable from this group: namely, <span class="math">\(h\)</span> and <span class="math">\(c\)</span>.</p>
 </details>
 
     </div>
@@ -860,7 +905,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #199</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/connected components.html'>connected components</a></p>
+        <p>Tags: <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V,E)\)</span> be an undirected graph with:</p>
@@ -888,7 +933,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #200</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V, E)\)</span> be an undirected graph, and suppose that <span class="math">\(u, v, \)</span> and <span class="math">\(w\)</span> are three nodes in <span class="math">\(V\)</span>. Suppose that <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the same connected component, but <span class="math">\(u\)</span> and <span class="math">\(w\)</span> are not in the same connected component. True or False: it is possible that <span class="math">\(v\)</span> and <span class="math">\(w\)</span> are in the same connected component.</p>
@@ -914,7 +959,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #201</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>An <i>undirected</i> graph has 5 nodes. What is the greatest number of edges it can have?</p>
@@ -933,7 +978,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #202</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>You are told that a <b>directed</b> graph has 10 nodes. If the graph is fully connected with the exception of self loops (meaning, it has all possible edges except self loops) how many edges are there?</p>
@@ -958,7 +1003,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #203</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G\)</span> be an undirected graph. Suppose that the degree of every node in the graph is greater than or equal to one. True or False: <span class="math">\(G\)</span> must be connected.</p>
@@ -984,7 +1029,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #204</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(G = (V, E)\)</span> is an undirected graph. Let <span class="math">\(k\)</span> be the number of connected components in <span class="math">\(G\)</span>. True or False: it is possible that <span class="math">\(k > |E|\)</span>.</p>
@@ -1006,7 +1051,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #205</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V, E)\)</span> be a directed graph with <span class="math">\(|V| > 1\)</span>. Suppose that every node in <span class="math">\(G\)</span> is reachable from every other node. True or False: each node in the graph must have an out-degree of at least one and an in-degree of at least one.</p>
@@ -1026,7 +1071,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #206</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V, E)\)</span> be a connected, undirected graph with 16 nodes and 35 edges. What is the greatest possible number of edges that can be in a simple path within <span class="math">\(G\)</span>?</p>
@@ -1045,7 +1090,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #207</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose an undirected graph <span class="math">\(G = (V,E)\)</span> has two connected components, <span class="math">\(C_1\)</span> and <span class="math">\(C_2\)</span>. Suppose that <span class="math">\(|C_1| = 4\)</span> and <span class="math">\(|C_2| = 3\)</span>. What is the largest that <span class="math">\(|E|\)</span> can possibly be?</p>
@@ -1064,7 +1109,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #208</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/connected components.html'>connected components</a></p>
+        <p>Tags: <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose an <b>undirected</b> graph has 3 connected components and 7 nodes. What is the <i>maximum</i> number of edges it can have?</p>
@@ -1083,7 +1128,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #209</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose an <b>undirected</b> graph has 16 edges. What is the <i>smallest</i> number of nodes it can have?</p>
@@ -1102,7 +1147,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #210</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>A <i>directed</i> graph has 10 <i>edges</i>. What is the <i>smallest</i> number of <i>nodes</i> it can have?</p>
@@ -1121,7 +1166,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #211</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a <b>directed</b> graph has 5 nodes and 3 edges. What is the greatest possible degree of any node in the graph?</p>
@@ -1140,7 +1185,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #212</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the graph below</p>
@@ -1161,7 +1206,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #213</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the graph below</p>
@@ -1184,7 +1229,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #214</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/connected components.html'>connected components</a></p>
+        <p>Tags: <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G\)</span> be an undirected graph, and suppose <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are two nodes belonging to the same connected component of <span class="math">\(G\)</span>, with <span class="math">\(v\)</span> being a neighbor of <span class="math">\(u\)</span>. That is, the edge <span class="math">\((u, v)\)</span> is in <span class="math">\(G\)</span>.</p>
@@ -1211,7 +1256,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #215</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/connected components.html'>connected components</a></p>
+        <p>Tags: <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose that every node in an undirected graph with <span class="math">\(n\)</span> nodes has degree 2.</p>
@@ -1238,7 +1283,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #216</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G=(V,E)\)</span> be an undirected graph with <span class="math">\(V=\{a,b,c,d,e\}\)</span> and <span class="math">\(E=\{(a,b),(c,d),(e,a),(b,c),(e,d),(d,a)\}\)</span>.</p>
@@ -1265,7 +1310,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #217</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V, E)\)</span> be a directed graph with the property that there is a node <span class="math">\(u\)</span> in <span class="math">\(G\)</span> such that every other node in <span class="math">\(G\)</span> is reachable from <span class="math">\(u\)</span>.</p>
@@ -1291,7 +1336,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #218</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph representations.html'>graph representations</a></p>
+        <p>Tags: <a href='./tags/graph representations.html'>graph representations</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(A\)</span> be the adjacency matrix representing a directed graph with $n$ nodes. What is the greatest possible sum of any <i>row</i> of <span class="math">\(A\)</span>?</p>
@@ -1315,7 +1360,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #219</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph representations.html'>graph representations</a></p>
+        <p>Tags: <a href='./tags/graph representations.html'>graph representations</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(A\)</span> be the adjacency matrix representing a undirected graph with <span class="math">\(n\)</span> nodes. What is the greatest possible sum of any <i>row</i> of <span class="math">\(A\)</span>?</p>
@@ -1339,7 +1384,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #220</h2>
-        <p>Tags: <a href='./tags/lecture-11.html'>lecture-11</a>, <a href='./tags/aggregate analysis.html'>aggregate analysis</a>, <a href='./tags/graph representations.html'>graph representations</a></p>
+        <p>Tags: <a href='./tags/aggregate analysis.html'>aggregate analysis</a>, <a href='./tags/graph representations.html'>graph representations</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a graph <span class="math">\(G = (V, E)\)</span> is stored using an adjacency list representation in the variable <span class="inline-code"><code>adj_list</code></span>. What is the time complexity of the below code?</p>
@@ -1364,9 +1409,9 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #221</h2>
-        <p>Tags: <a href='./tags/lecture-11.html'>lecture-11</a>, <a href='./tags/aggregate analysis.html'>aggregate analysis</a></p>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #221 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
+        <p>Tags: <a href='./tags/aggregate analysis.html'>aggregate analysis</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a graph <span class="math">\(G = (V, E)\)</span> is stored using an adjacency list representation in the variable <span class="inline-code"><code>adj_list</code></span>. What is the time complexity of the below code?</p>
@@ -1391,9 +1436,9 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #222</h2>
-        <p>Tags: <a href='./tags/lecture-11.html'>lecture-11</a>, <a href='./tags/aggregate analysis.html'>aggregate analysis</a></p>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #222 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
+        <p>Tags: <a href='./tags/aggregate analysis.html'>aggregate analysis</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose the code below is run on a graph <span class="math">\(G = (V, E)\)</span>. What is its time complexity? You may assume that <span class="math">\(|E| \geq 1\)</span>.</p>
@@ -1418,9 +1463,9 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #223</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph representations.html'>graph representations</a></p>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #223 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
+        <p>Tags: <a href='./tags/graph representations.html'>graph representations</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>An <i>isolated</i> node in an undirected graph is a node that has no neighbors.</p>
@@ -1440,10 +1485,10 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #224</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph representations.html'>graph representations</a></p>
+        <p>Tags: <a href='./tags/graph representations.html'>graph representations</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>An ``isolated node'' in a graph is a node that has no edges attached to it.</p>
+<p>An “isolated node” in a graph is a node that has no edges attached to it.</p>
 <p>What is the worst case time complexity of an efficient algorithm that checks to see if a graph <span class="math">\(G = (V, E)\)</span> has an isolated node? You should assume that the graph is represented as an adjacency list.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
@@ -1465,12 +1510,12 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #225</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph representations.html'>graph representations</a></p>
+        <p>Tags: <a href='./tags/graph representations.html'>graph representations</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(A\)</span> be the adjacency matrix of the graph shown below:</p>
 <center><div class="image"><img src="images/225/graph.png" /></div></center>
-<p>Let <span class="math">\(\vec{a}^{(1)}\)</span> be the first row of <span class="math">\(A\)</span> and <span class="math">\(\vec{a}^{(2)}\)</span> be the second row of <span class="math">\(A\)</span>. What is <span class="math">\(\vec{a}^{(1)}\cdot\vec{a}^{(2)}\)</span>? That is, what is the dot product between the first row of <span class="math">\(A\)</span> and the second row of <span class="math">\(A\)</span>? Your answer should be in the form of a number.</p>
+<p>Let <span class="math">\(\vec{a}^{(1)}\)</span> be the first row of <span class="math">\(A\)</span> and <span class="math">\(\vec{a}^{(2)}\)</span> be the second row of <span class="math">\(A\)</span>. What is <span class="math">\(\vec{a}^{(1)} \cdot \vec{a}^{(2)}\)</span>? That is, what is the dot product between the first row of <span class="math">\(A\)</span> and the second row of <span class="math">\(A\)</span>? Your answer should be in the form of a number.</p>
 <p>It may help to recall that the dot product between vectors <span class="math">\(\vec x = (x_1,
     \ldots, x_d)^T\)</span> and <span class="math">\(\vec y = (y_1, \ldots, y_d)^T\)</span> is equal to <span class="math">\(x_1 y_1 + x_2 y_2 + \ldots + x_d y_d\)</span>.</p>
 <details>
@@ -1486,13 +1531,14 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #226</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #226 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>The adjacency matrix of a directed graph with nodes <span class="math">\(u_1, \ldots, u_8\)</span> is shown below:</p>
-<div class="math">\[\begin{pmatrix}
+<div class="math">\[
+        \begin{pmatrix}
             0 & \textbf{1} & 0 & 0 & 0 & 0 & 0 & 0 \\
             \textbf{1} & 0 & \textbf{1} & 0 & 0 & 0 & 0 & 0 \\
             0 & 0 & 0 & \textbf{1} & 0 & 0 & 0 & 0 \\
@@ -1501,7 +1547,8 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
             0 & 0 & 0 & \textbf{1} & 0 & 0 & \textbf{1} & 0 \\
             \textbf{1} & 0 & \textbf{1} & 0 & 0 & 0 & 0 & \textbf{1} \\
             \textbf{1} & 0 & 0 & \textbf{1} & 0 & 0 & 0 & 0 \\
-        \end{pmatrix}\]</div>
+        \end{pmatrix}
+    \]</div>
 <p>True or False: there is a path from node <span class="math">\(u_1\)</span> to node <span class="math">\(u_8\)</span>.</p>
 
 <div class="true-false">
@@ -1525,7 +1572,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #227</h2>
-        <p>Tags: <a href='./tags/lecture-11.html'>lecture-11</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose you run a BFS on the graph below, however, the BFS is modified so that any time a node is popped from the queue, the message <span class="inline-code"><code>Node popped!!!</code></span> is printed to the screen.</p>
@@ -1546,7 +1593,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #228</h2>
-        <p>Tags: <a href='./tags/lecture-11.html'>lecture-11</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose you are performing a BFS on the following graph, starting on node 0: In which of the following orders are the nodes visited, assuming that the BFS algorithm produces neighbors in numerical order?</p>
@@ -1570,7 +1617,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #229</h2>
-        <p>Tags: <a href='./tags/lecture-11.html'>lecture-11</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a <i>breadth</i> first search is run on the graph below using node <span class="math">\(d\)</span> as the source. Adopt the convention that a node's neighbors are produced in alphabetical order.</p>
@@ -1598,7 +1645,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #230</h2>
-        <p>Tags: <a href='./tags/lecture-11.html'>lecture-11</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider running a breadth-first search (BFS) on the graph shown below, using node <span class="math">\(s\)</span> as the source and adopting the convention that neighbors are produced in ascending order by label.</p>
@@ -1619,7 +1666,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #231</h2>
-        <p>Tags: <a href='./tags/lecture-11.html'>lecture-11</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Define a <i>circle graph</i> with <span class="math">\(n\)</span> nodes to be an undirected graph <span class="math">\(G =
@@ -1642,10 +1689,10 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #232</h2>
-        <p>Tags: <a href='./tags/lecture-11.html'>lecture-11</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a ``2-chain'' graph with <span class="math">\(n\)</span> nodes is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math">\(\ldots\)</span>, <span class="math">\(n\)</span>, and, for each node <span class="math">\(u\)</span>, making an edge to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span>(if they are in the graph).</p>
+<p>Suppose a “2-chain” graph with <span class="math">\(n\)</span> nodes is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math">\(\ldots\)</span>, <span class="math">\(n\)</span>, and, for each node <span class="math">\(u\)</span>, making an edge to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span> (if they are in the graph).</p>
 <p>For example, such a graph with <span class="math">\(n = 7\)</span> looks like:</p>
 <center><div class="image"><img src="images/232/g3.png" /></div></center>
 <p>Suppose BFS is run on a 2-chain graph with <span class="math">\(n\)</span> nodes, using node 1 as the source. What is the time taken as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
@@ -1664,7 +1711,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #233</h2>
-        <p>Tags: <a href='./tags/lecture-11.html'>lecture-11</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>The code below is a modified version of BFS shown in class. This modification has a single addition: a <span class="inline-code"><code>print</code></span> statement. A comment in the code indicates where the <span class="inline-code"><code>print</code></span> statement is located.</p>
@@ -1700,7 +1747,7 @@ and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midter
 
         <div class="problem-outer">
         <h2>Problem #234</h2>
-        <p>Tags: <a href='./tags/lecture-11.html'>lecture-11</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the following modification of BFS, with an added print statement:</p>
@@ -1740,7 +1787,7 @@ def modified_bfs(graph, source):
 
         <div class="problem-outer">
         <h2>Problem #235</h2>
-        <p>Tags: <a href='./tags/lecture-12.html'>lecture-12</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a breadth-first search is performed on the following tree, starting at the root node <span class="math">\(s\)</span>:</p>
@@ -1759,9 +1806,9 @@ def modified_bfs(graph, source):
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #236</h2>
-        <p>Tags: <a href='./tags/lecture-11.html'>lecture-11</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #236 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider calling <span class="inline-code"><code>full_bfs</code></span> on a <i>directed</i> graph, and recall that <span class="inline-code"><code>full_bfs</code></span> will make calls to <span class="inline-code"><code>bfs</code></span> until all nodes have been marked as visited.</p>
@@ -1786,9 +1833,9 @@ def modified_bfs(graph, source):
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #237</h2>
-        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a>, <a href='./tags/lecture-11.html'>lecture-11</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #237 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-11.html'>lecture-11</a>, <a href='./tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose an undirected graph with <span class="math">\(n\)</span> nodes satisfies the property that every node has degree <span class="math">\(n/2\)</span>. What is the time complexity of running full BFS on this graph?</p>
@@ -1813,10 +1860,10 @@ def modified_bfs(graph, source):
 
         <div class="problem-outer">
         <h2>Problem #238</h2>
-        <p>Tags: <a href='./tags/lecture-11.html'>lecture-11</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a connected, undirected graph <span class="math">\(G\)</span> has <span class="math">\(n\)</span> nodes, half of which are ``red'' and half of which are ``blue''. Each red node shares an edge with <span class="math">\(\log_2 n\)</span> blue nodes, and the only edges in the graph are between red and blue nodes.</p>
+<p>Suppose a connected, undirected graph <span class="math">\(G\)</span> has <span class="math">\(n\)</span> nodes, half of which are “red” and half of which are “blue”. Each red node shares an edge with <span class="math">\(\log_2 n\)</span> blue nodes, and the only edges in the graph are between red and blue nodes.</p>
 <p>What is the time complexity of BFS when run on <span class="math">\(G\)</span>? Your answer should be in asymptotic notation and in terms of <span class="math">\(n\)</span>, in as simplest terms possible.</p>
 <details>
     <summary>Solution</summary>
@@ -1831,14 +1878,14 @@ def modified_bfs(graph, source):
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #239</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #239 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>A ``hub node'' in a graph is a node that has an edge to all the other nodes in the graph.</p>
+<p>A “hub node” in a graph is a node that has an edge to all the other nodes in the graph.</p>
 <p>What is the worst case time complexity of an efficient algorithm that checks to see if a graph <span class="math">\(G = (V,E)\)</span> has a hub node? You should assume that the graph is represented as an adjacency list. State your answer in asymptotic notation and in terms of <span class="math">\(V\)</span> and <span class="math">\(E\)</span>.</p>
-<p>Note: in studying, you might have come across a problem in the practice bank about ``hub and spoke'' graphs. This question is related, but not the same!</p>
+<p>Note: in studying, you might have come across a problem in the practice bank about “hub and spoke” graphs. This question is related, but not the same!</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(V)\)</span></p>
@@ -1854,7 +1901,7 @@ def modified_bfs(graph, source):
 
         <div class="problem-outer">
         <h2>Problem #240</h2>
-        <p>Tags: <a href='./tags/lecture-11.html'>lecture-11</a>, <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose you are running a full BFS on a graph. You are using the following code from lecture to run your full BFS, with some small modifications to include two new print statements:</p>
@@ -1908,7 +1955,7 @@ def full_bfs(graph):
 
         <div class="problem-outer">
         <h2>Problem #241</h2>
-        <p>Tags: <a href='./tags/lecture-12.html'>lecture-12</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the code below, which is a modification of the BFS algorithm presented in lecture: there are two new lines, marked with comments.</p>
@@ -1953,7 +2000,7 @@ def modified_bfs(graph, source):
 
         <div class="problem-outer">
         <h2>Problem #242</h2>
-        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a>, <a href='./tags/lecture-11.html'>lecture-11</a>, <a href='./tags/aggregate analysis.html'>aggregate analysis</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/aggregate analysis.html'>aggregate analysis</a>, <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-11.html'>lecture-11</a>, <a href='./tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the following modification of BFS, where there are two new lines of code. What is the time complexity in terms of <span class="math">\(|V|\)</span> and <span class="math">\(|E|\)</span>?</p>
@@ -1998,9 +2045,9 @@ def bar(graph, source, status):
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #243</h2>
-        <p>Tags: <a href='./tags/lecture-11.html'>lecture-11</a>, <a href='./tags/aggregate analysis.html'>aggregate analysis</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #243 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
+        <p>Tags: <a href='./tags/aggregate analysis.html'>aggregate analysis</a>, <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the code below, which is a modification of the code for <span class="inline-code"><code>bfs</code></span> given in lecture:</p>
@@ -2039,9 +2086,9 @@ def modified_bfs(graph, source, status=None):
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(V^2)\)</span>.</p>
 <p>First, the newly-added code (the <span class="inline-code"><code>for z in graph.nodes</code></span> loop), takes <span class="math">\(\Theta(V)\)</span> time each time the loop is encountered. The crux is: how many times is that loop encountered?</p>
-<p>This loop is encountered every time we add a node to the queue (except for the root node, which we add to the queue right at the beginning of BFS). Since this is a connected graph, each node will get added to the pending queue exactly once, meaning that this new code is encountered <i>exactly</i><span class="math">\(V-1\)</span> times (the <span class="math">\(-1\)</span> is subtracting the root node; the loop isn't encountered when we change it to pending).</p>
+<p>This loop is encountered every time we add a node to the queue (except for the root node, which we add to the queue right at the beginning of BFS). Since this is a connected graph, each node will get added to the pending queue exactly once, meaning that this new code is encountered <i>exactly</i> <span class="math">\(V-1\)</span> times (the <span class="math">\(-1\)</span> is subtracting the root node; the loop isn't encountered when we change it to pending).</p>
 <p>Since the new code takes <span class="math">\(\Theta(V)\)</span> time each time it's encountered, and since it's encountered <span class="math">\(\Theta(V)\)</span> times, the total time complexity of the loop is <span class="math">\(\Theta(V^2)\)</span>.</p>
-<p>You might wonder why the time complexity isn't <span class="math">\(\Theta(VE)\)</span>, since the new code is within the loop that ``explores'' each edge in the graph, and we know that it makes a total of <span class="math">\(2|E|\)</span> iterations when the graph is undirected. This is true, but recognize that the new code only executes when the <span class="inline-code"><code>if</code></span>-statement before it is <span class="inline-code"><code>True</code></span>, and this will happen on only a <i>subset</i> of the <span class="math">\(2|E|\)</span> iterations. In fact, it will happen exactly <span class="math">\(|V|-1\)</span> times, as we argued above.</p>
+<p>You might wonder why the time complexity isn't <span class="math">\(\Theta(VE)\)</span>, since the new code is within the loop that “explores” each edge in the graph, and we know that it makes a total of <span class="math">\(2|E|\)</span> iterations when the graph is undirected. This is true, but recognize that the new code only executes when the <span class="inline-code"><code>if</code></span>-statement before it is <span class="inline-code"><code>True</code></span>, and this will happen on only a <i>subset</i> of the <span class="math">\(2|E|\)</span> iterations. In fact, it will happen exactly <span class="math">\(|V|-1\)</span> times, as we argued above.</p>
 </details>
 
     </div>
@@ -2052,14 +2099,14 @@ def modified_bfs(graph, source, status=None):
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #244</h2>
-        <p>Tags: <a href='./tags/lecture-11.html'>lecture-11</a>, <a href='./tags/aggregate analysis.html'>aggregate analysis</a></p>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #244 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
+        <p>Tags: <a href='./tags/aggregate analysis.html'>aggregate analysis</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>A ``hub and spoke'' graph with <span class="math">\(n\)</span> nodes consists of a single ``hub'' node <span class="math">\(h\)</span> along with <span class="math">\(n - 1\)</span> ``spoke'' nodes, <span class="math">\(u_1, \ldots, u_{n-1}\)</span> and <span class="math">\(n - 1\)</span> edges from the hub node <span class="math">\(h\)</span> to each of the spoke nodes. For example, a ``hub and spoke'' graph with 8 nodes looks like the below:</p>
+<p>A “hub and spoke” graph with <span class="math">\(n\)</span> nodes consists of a single “hub” node <span class="math">\(h\)</span> along with <span class="math">\(n - 1\)</span> “spoke” nodes, <span class="math">\(u_1, \ldots, u_{n-1}\)</span> and <span class="math">\(n - 1\)</span> edges from the hub node <span class="math">\(h\)</span> to each of the spoke nodes. For example, a “hub and spoke” graph with 8 nodes looks like the below:</p>
 <center><div class="image"><img src="images/244/g5.png" /></div></center>
-<p>What is the <b>worst case</b> time complexity of an optimal algorithm which takes as input an arbitrary graph <span class="math">\(G = (V, E)\)</span> and determines if it is a ``hub and spoke'' graph? You may assume that the graph is represented as an adjacency list and that the total number of edges in the graph can be retrieved in constant time.</p>
+<p>What is the <b>worst case</b> time complexity of an optimal algorithm which takes as input an arbitrary graph <span class="math">\(G = (V, E)\)</span> and determines if it is a “hub and spoke” graph? You may assume that the graph is represented as an adjacency list and that the total number of edges in the graph can be retrieved in constant time.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V + E)\)</span></p></label></div>
@@ -2067,10 +2114,11 @@ def modified_bfs(graph, source, status=None):
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E^2)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(1)\)</span> Here's the algorithm. First, check that the number of edges is <span class="math">\(|V| - 1\)</span>. If not, it's not a ``hub and spoke'' graph. This takes constant time, by the assumption that the total number of edges can be retrieved in constant time.</p>
-<p>Next, take an arbitrary node and compute its degree (in <span class="math">\(\Theta(1)\)</span> time), since the graph is represented as an adjacency list). If the degree is <span class="math">\(n - 1\)</span>, then the graph is a ``hub and spoke'' graph, and this is the hub.</p>
+<p><span class="math">\(\Theta(1)\)</span></p>
+<p>Here's the algorithm. First, check that the number of edges is <span class="math">\(|V| - 1\)</span>. If not, it's not a “hub and spoke” graph. This takes constant time, by the assumption that the total number of edges can be retrieved in constant time.</p>
+<p>Next, take an arbitrary node and compute its degree (in <span class="math">\(\Theta(1)\)</span> time), since the graph is represented as an adjacency list). If the degree is <span class="math">\(n - 1\)</span>, then the graph is a “hub and spoke” graph, and this is the hub.</p>
 <p>If the degree is not <span class="math">\(n - 1\)</span>, but instead 1, this node might be a spoke. Check the degree of its neighbor as described above to see if its a hub.</p>
-<p>If you see a degree that's neither 1 nor <span class="math">\(n - 1\)</span>, then the graph is not a ``hub and spoke'' graph.</p>
+<p>If you see a degree that's neither 1 nor <span class="math">\(n - 1\)</span>, then the graph is not a “hub and spoke” graph.</p>
 </details>
 
     </div>
@@ -2083,7 +2131,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #245</h2>
-        <p>Tags: <a href='./tags/lecture-12.html'>lecture-12</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a breadth first search (BFS) is performed on the graph shown below using node <span class="math">\(a\)</span> as the source. Which node will be the BFS predecessor of node <span class="math">\(h\)</span> when the search is complete? You should use the convention that neighbors are produced in alphabetical order.</p>
@@ -2103,7 +2151,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #246</h2>
-        <p>Tags: <a href='./tags/lecture-12.html'>lecture-12</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a BFS is run on the graph below using node 1 as the source node. Which node will be the BFS predecessor of node 8? You should use the convention that neighbors are produced in ascending order by label.</p>
@@ -2123,7 +2171,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #247</h2>
-        <p>Tags: <a href='./tags/lecture-12.html'>lecture-12</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a BFS is run on the graph below using node 1 as the source node. Which node will be the BFS predecessor of node 9? You should use the convention that neighbors are produced in ascending order by label.</p>
@@ -2143,7 +2191,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #248</h2>
-        <p>Tags: <a href='./tags/lecture-12.html'>lecture-12</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a <i>breadth</i> first search (BFS) is run on the graph shown below using node <span class="math">\(u_4\)</span> as the source and the convention that <span class="inline-code"><code>graph.neighbors</code></span> produces nodes in ascending order by label. What will be the predecessor of <span class="math">\(u_6\)</span> in the BFS?</p>
@@ -2172,7 +2220,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #249</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>An undirected graph <span class="math">\(G = (V, E)\)</span> has 23 nodes and 2 connected components. What is the <i>smallest</i> number of edges it can have?</p>
@@ -2191,7 +2239,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #250</h2>
-        <p>Tags: <a href='./tags/lecture-10.html'>lecture-10</a>, <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>An undirected graph with 20 nodes and 30 edges has three connected components: <span class="math">\(A\)</span>, <span class="math">\(B\)</span>, and <span class="math">\(C\)</span>. Connected component <span class="math">\(A\)</span> has 7 nodes. What is the smallest number of edges it can have?</p>
@@ -2210,7 +2258,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #251</h2>
-        <p>Tags: <a href='./tags/lecture-12.html'>lecture-12</a>, <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/shortest paths.html'>shortest paths</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/lecture-12.html'>lecture-12</a>, <a href='./tags/shortest paths.html'>shortest paths</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose you are about to run a BFS on a graph whose exact edge structure you do not know. However, you do know that the graph is undirected, has 8 nodes, and has 2 connected components.</p>
@@ -2230,7 +2278,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #252</h2>
-        <p>Tags: <a href='./tags/lecture-12.html'>lecture-12</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a <i>breadth</i> first search (BFS) is run on a graph <span class="math">\(G = (V, E)\)</span>, and that node <span class="math">\(u\)</span> is distance 5 from the source while node <span class="math">\(v\)</span> is distance 3 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
@@ -2252,7 +2300,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #253</h2>
-        <p>Tags: <a href='./tags/lecture-12.html'>lecture-12</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a breadth first search (BFS) is run on a graph <span class="math">\(G = (V, E)\)</span>, and that node <span class="math">\(u\)</span> is distance 6 from the source while node <span class="math">\(v\)</span> is distance 7 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
@@ -2273,7 +2321,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #254</h2>
-        <p>Tags: <a href='./tags/lecture-12.html'>lecture-12</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a breadth first search (BFS) is run on a graph <span class="math">\(G = (V, E)\)</span>, and that node <span class="math">\(u\)</span> is <b>the only node</b> which is distance 6 from the source while node <span class="math">\(v\)</span> is distance 7 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
@@ -2294,7 +2342,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #255</h2>
-        <p>Tags: <a href='./tags/lecture-12.html'>lecture-12</a>, <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/shortest paths.html'>shortest paths</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-12.html'>lecture-12</a>, <a href='./tags/shortest paths.html'>shortest paths</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose that a breadth-first search on an undirected graph <span class="math">\(G\)</span> is paused and the queue is printed. Suppose that every node in the queue is either distance 5 from the source, or distance 6. At this moment, node <span class="math">\(u\)</span> is undiscovered.</p>
@@ -2315,11 +2363,11 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #256</h2>
-        <p>Tags: <a href='./tags/lecture-12.html'>lecture-12</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a breadth first search on an undirected, connected graph is paused at a particular moment in time and the node statuses are printed. Suppose it is found that all nodes which are distance 6 from the source are marked ``visited''.</p>
-<p>True or False: it is possible that there is a node, distance 7 from the source, whose status is ``undiscovered''.</p>
+<p>Suppose a breadth first search on an undirected, connected graph is paused at a particular moment in time and the node statuses are printed. Suppose it is found that all nodes which are distance 6 from the source are marked “visited”.</p>
+<p>True or False: it is possible that there is a node, distance 7 from the source, whose status is “undiscovered”.</p>
 
 <div class="true-false">
     <input type="radio" name="true-false" value="true" /> True
@@ -2342,7 +2390,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #257</h2>
-        <p>Tags: <a href='./tags/lecture-12.html'>lecture-12</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a breadth-first search (BFS) is performed in order to calculate a dictionary of shortest path distances, <span class="inline-code"><code>dist</code></span>, from a source node <span class="math">\(s\)</span> to all nodes reachable from <span class="math">\(s\)</span> in an undirected graph <span class="math">\(G = (V, E)\)</span>.</p>
@@ -2375,9 +2423,9 @@ def modified_bfs(graph, source, status=None):
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #258</h2>
-        <p>Tags: <a href='./tags/lecture-12.html'>lecture-12</a>, <a href='./tags/shortest path.html'>shortest path</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #258 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-12.html'>lecture-12</a>, <a href='./tags/shortest path.html'>shortest path</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose an undirected, connected graph has <span class="math">\(n\)</span> nodes, half of which are colored red and the other half are colored blue. Each red node is neighbors with <span class="math">\(n/4\)</span> blue nodes, and each blue node is neighbors with <span class="math">\(n/4\)</span> red nodes. There are no edges between nodes of the same color.</p>
@@ -2401,7 +2449,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #259</h2>
-        <p>Tags: <a href='./tags/lecture-12.html'>lecture-12</a>, <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/shortest paths.html'>shortest paths</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-12.html'>lecture-12</a>, <a href='./tags/shortest paths.html'>shortest paths</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the following problem: you're given an unweighted graph <span class="math">\(G\)</span>, a source node <span class="math">\(u\)</span>, a destination node <span class="math">\(v\)</span>, and an "intermediate" node <span class="math">\(x\)</span>. Your goal is to find a shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> that passes through <span class="math">\(x\)</span>.</p>
@@ -2445,7 +2493,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #261</h2>
-        <p>Tags: <a href='./tags/lecture-12.html'>lecture-12</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>The table below shows the number of nodes in a graph <span class="math">\(G\)</span> which are distance 0 from node <span class="math">\(s\)</span>, distance 1 from node <span class="math">\(s\)</span>, distance 2, etc.:</p>
@@ -2455,7 +2503,7 @@ def modified_bfs(graph, source, status=None):
     <summary>Solution</summary>
 <p>Remember that the queue can only simultaneously contain nodes at two different distances (it can't contain nodes at distance 1, distance 2, and distance 3 at the same time, but it can contain nodes at distance 1 and distance 2 at the same time).</p>
 <p>The largest number of nodes that could possibly be in the queue at any one time is when we have (almost) all of the nodes from the first distance, and all of the nodes from the second distance.</p>
-<p>In this graph, let <span class="math">\(u\)</span> be a neighbor of the source, and suppose it has an edge with all nodes that are distance 2 from the source. If <span class="math">\(u\)</span> is the first node popped from the queue (after the source), then once its neighbors are added to the queue, the queue will contain all of the nodes at distance 1 except for <span class="math">\(u\)</span>(for 6 nodes in total), and all of the nodes at distance 2 (for 3 nodes in total). This gives us a total of 9 nodes in the queue.</p>
+<p>In this graph, let <span class="math">\(u\)</span> be a neighbor of the source, and suppose it has an edge with all nodes that are distance 2 from the source. If <span class="math">\(u\)</span> is the first node popped from the queue (after the source), then once its neighbors are added to the queue, the queue will contain all of the nodes at distance 1 except for <span class="math">\(u\)</span> (for 6 nodes in total), and all of the nodes at distance 2 (for 3 nodes in total). This gives us a total of 9 nodes in the queue.</p>
 </details>
 
     </div>
@@ -2468,7 +2516,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #262</h2>
-        <p>Tags: <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/trees.html'>trees</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
+        <p>Tags: <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/lecture-13.html'>lecture-13</a>, <a href='./tags/trees.html'>trees</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>What is the time complexity of depth first search (DFS) when run on a tree with <span class="math">\(n\)</span> nodes?</p>
@@ -2493,7 +2541,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #263</h2>
-        <p>Tags: <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/aggregate analysis.html'>aggregate analysis</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
+        <p>Tags: <a href='./tags/aggregate analysis.html'>aggregate analysis</a>, <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose an undirected graph <span class="math">\(G = (V, E)\)</span> is a tree with 33 edges. Suppose a node <span class="math">\(s\)</span> is used as the source of a depth-first search.</p>
@@ -2513,7 +2561,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #264</h2>
-        <p>Tags: <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V, E)\)</span> be an undirected tree.</p>
@@ -2540,7 +2588,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #265</h2>
-        <p>Tags: <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose both BFS and DFS are run on the same graph <span class="math">\(G = (V, E)\)</span> using the same source node. Assume that <span class="math">\(G\)</span> is a tree. Consider a particular node <span class="math">\(u\)</span> in the graph. True or False: the BFS predecessor found for <span class="math">\(u\)</span> and the DFS predecessor found for <span class="math">\(u\)</span> must be the same.</p>
@@ -2566,7 +2614,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #266</h2>
-        <p>Tags: <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>We saw in lecture that both full BFS and DFS produce trees when run on connected graphs, and <i>forests</i> when run on disconnected graphs. Suppose a full BFS and a full DFS are run on an undirected graph with three connected components. True or False: the number of trees in the BFS forest will equal to number of trees in the DFS forest.</p>
@@ -2585,9 +2633,9 @@ def modified_bfs(graph, source, status=None):
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #267</h2>
-        <p>Tags: <a href='./tags/topological sorting.html'>topological sorting</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #267 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
+        <p>Tags: <a href='./tags/lecture-13.html'>lecture-13</a>, <a href='./tags/topological sorting.html'>topological sorting</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the graph <span class="math">\(G = (V, E)\)</span> with <span class="math">\(V = \{a, b, c\}\)</span> and <span class="math">\(E = \{(a, b)\}\)</span>.</p>
@@ -2607,7 +2655,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #268</h2>
-        <p>Tags: <a href='./tags/topological sorting.html'>topological sorting</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
+        <p>Tags: <a href='./tags/lecture-13.html'>lecture-13</a>, <a href='./tags/topological sorting.html'>topological sorting</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the directed acyclic graph <span class="math">\(G = (V, E)\)</span> with <span class="math">\(V = \{a, b, c, d\}\)</span> and <span class="math">\(E = \{(a, b), (a,c), (a,d)\}\)</span>. How many topological sorts of this graph are there?</p>
@@ -2626,7 +2674,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #269</h2>
-        <p>Tags: <a href='./tags/topological sorting.html'>topological sorting</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
+        <p>Tags: <a href='./tags/lecture-13.html'>lecture-13</a>, <a href='./tags/topological sorting.html'>topological sorting</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V,E)\)</span> be the directed graph with <span class="math">\(V = \{a, b, c, d, e\}\)</span> and <span class="math">\(E = \{(a, b), (a, c), (a, d), (b, e), (c, e), (d, e)\}\)</span>. How many valid topological sorts of $V$ are there?</p>
@@ -2645,7 +2693,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #270</h2>
-        <p>Tags: <a href='./tags/topological sorting.html'>topological sorting</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
+        <p>Tags: <a href='./tags/lecture-13.html'>lecture-13</a>, <a href='./tags/topological sorting.html'>topological sorting</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Find a topological sort of the graph shown below:</p>
@@ -2944,6 +2992,7 @@ def modified_bfs(graph, source, status=None):
     # initialize status if it was not passed
     if status is None:
         status = {node: 'undiscovered' for node in graph.nodes}
+
     status[u] = 'pending'
     for v in graph.neighbors(u):
         if status[v] == 'undiscovered':
@@ -2966,8 +3015,8 @@ def modified_bfs(graph, source, status=None):
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #282</h2>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #282 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
         <p>Tags: <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -2977,6 +3026,7 @@ def modified_bfs(graph, source, status=None):
     # initialize status if it was not passed
     if status is None:
         status = {node: 'undiscovered' for node in graph.nodes}
+
     status[u] = 'pending'
     for v in graph.neighbors(u):
         print("Hello!")
@@ -3001,7 +3051,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #283</h2>
-        <p>Tags: <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/aggregate analysis.html'>aggregate analysis</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
+        <p>Tags: <a href='./tags/aggregate analysis.html'>aggregate analysis</a>, <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Consider the code shown below. It shows DFS as seen in lecture, with one modification: a <span class="inline-code"><code>print</code></span> statement in the for-loop.</p>
@@ -3010,6 +3060,7 @@ def modified_bfs(graph, source, status=None):
     # initialize status if it was not passed
     if status is None:
         status = {node: 'undiscovered' for node in graph.nodes}
+
     status[u] = 'pending'
     for v in graph.neighbors(u):
         print("Hello!")
@@ -3078,7 +3129,7 @@ def modified_bfs(graph, source, status=None):
         <p>Tags: <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a DFS is run on a <b>directed</b> graph. Let <span class="math">\(u\)</span> and <span class="math">\(v\)</span> be two nodes in the graph, and assume that the edge <span class="math">\((u, v)\)</span> exists. True or False: it is possible that, at some moment in time, <span class="math">\(u\)</span> is marked as ``visited'' while <span class="math">\(v\)</span> is marked as ``undiscovered''.</p>
+<p>Suppose a DFS is run on a <b>directed</b> graph. Let <span class="math">\(u\)</span> and <span class="math">\(v\)</span> be two nodes in the graph, and assume that the edge <span class="math">\((u, v)\)</span> exists. True or False: it is possible that, at some moment in time, <span class="math">\(u\)</span> is marked as “visited” while <span class="math">\(v\)</span> is marked as “undiscovered”.</p>
 
 <div class="true-false">
     <input type="radio" name="true-false" value="true" /> True
@@ -3099,8 +3150,8 @@ def modified_bfs(graph, source, status=None):
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #287</h2>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #287 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
         <p>Tags: <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -3121,12 +3172,12 @@ def modified_bfs(graph, source, status=None):
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #288</h2>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #288 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
         <p>Tags: <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose that a depth first search is being performed on an <b>undirected</b> graph, and when <span class="inline-code"><code>dfs</code></span> is called on a node <span class="math">\(u\)</span>, the statuses of all of its neighbors are printed. True or False: it is possible that one of the neighbors is marked as ``visited''.</p>
+<p>Suppose that a depth first search is being performed on an <b>undirected</b> graph, and when <span class="inline-code"><code>dfs</code></span> is called on a node <span class="math">\(u\)</span>, the statuses of all of its neighbors are printed. True or False: it is possible that one of the neighbors is marked as “visited”.</p>
 
 <div class="true-false">
     <input type="radio" name="true-false" value="true" /> True
@@ -3244,21 +3295,25 @@ def modified_bfs(graph, source, status=None):
     <div class="problem-body">
 <p>Let <span class="math">\(G\)</span> be a graph, and suppose <span class="math">\(s\)</span>, <span class="math">\(u\)</span>, and <span class="math">\(v\)</span> are three nodes in the graph.</p>
 <p>Suppose a depth-first search (DFS) is run on <span class="math">\(G\)</span> using node <span class="math">\(s\)</span> as the source and adopting the convention that a node's neighbors are produced in ascending order by label. During this DFS, start and finish times are computed. Suppose it is found that:</p>
-<div class="math">\[\text{start}[u]
+<div class="math">\[
+        \text{start}[u]
         <
         \text{start}[v]
         <
         \text{finish}[v]
         <
-        \text{finish}[u]\]</div>
+        \text{finish}[u]
+    \]</div>
 <p>Now suppose another DFS is run using node <span class="math">\(s\)</span> as the source, but adopting a different convention about the order in which neighbors are produced. Suppose <span class="inline-code"><code>new_start</code></span> and <span class="inline-code"><code>new_finish</code></span> are the start and finish times found by this second DFS. True or False: it must be that</p>
-<div class="math">\[\text{new_start}[u]
+<div class="math">\[
+        \text{new_start}[u]
         <
         \text{new_start}[v]
         <
         \text{new_finish}[v]
         <
-        \text{new_finish}[u]\]</div>
+        \text{new_finish}[u]
+    \]</div>
 
 <div class="true-false">
     <input type="radio" name="true-false" value="true" /> True
@@ -3279,8 +3334,8 @@ def modified_bfs(graph, source, status=None):
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #294</h2>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #294 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
         <p>Tags: <a href='./tags/lecture-13.html'>lecture-13</a>, <a href='./tags/start and finish times.html'>start and finish times</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -3327,12 +3382,13 @@ def modified_bfs(graph, source, status=None):
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #296</h2>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #296 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
         <p>Tags: <a href='./tags/depth first search.html'>depth first search</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>True or False: a depth first search with source node <span class="math">\(s\)</span> is guaranteed to find the <i>longest</i> simple path starting from <span class="math">\(s\)</span> in a connected, undirected graph <span class="math">\(G\)</span> That is, suppose that there is a unique longest simple path in <span class="math">\(G\)</span>, and call this path <span class="math">\(p\)</span>. True or False: the longest simple path in the DFS forest must be also be <span class="math">\(p\)</span>.</p>
+<p>True or False: a depth first search with source node <span class="math">\(s\)</span> is guaranteed to find the <i>longest</i> simple path starting from <span class="math">\(s\)</span> in a connected, undirected graph <span class="math">\(G\)</span></p>
+<p>That is, suppose that there is a unique longest simple path in <span class="math">\(G\)</span>, and call this path <span class="math">\(p\)</span>. True or False: the longest simple path in the DFS forest must be also be <span class="math">\(p\)</span>.</p>
 
 <div class="true-false">
     <input type="radio" name="true-false" value="true" /> True
@@ -3342,7 +3398,7 @@ def modified_bfs(graph, source, status=None):
 <details>
     <summary>Solution</summary>
 <p>False.</p>
-<p>Take edges <span class="math">\((s, a)\)</span>, <span class="math">\((s, b)\)</span>, <span class="math">\((s, c)\)</span>, <span class="math">\((a, b)\)</span>, <span class="math">\((a, d)\)</span>. The unique longest simple path is <span class="math">\(c, s, b, a, d\)</span>(4 edges). If the DFS from <span class="math">\(s\)</span> visits <span class="math">\(a\)</span> first, then <span class="math">\(b\)</span> and <span class="math">\(d\)</span> are both discovered from <span class="math">\(a\)</span>, the edge <span class="math">\((s, b)\)</span> is not in the DFS tree, and the longest path in the tree has only 3 edges.</p>
+<p>Take edges <span class="math">\((s, a)\)</span>, <span class="math">\((s, b)\)</span>, <span class="math">\((s, c)\)</span>, <span class="math">\((a, b)\)</span>, <span class="math">\((a, d)\)</span>. The unique longest simple path is <span class="math">\(c, s, b, a, d\)</span> (4 edges). If the DFS from <span class="math">\(s\)</span> visits <span class="math">\(a\)</span> first, then <span class="math">\(b\)</span> and <span class="math">\(d\)</span> are both discovered from <span class="math">\(a\)</span>, the edge <span class="math">\((s, b)\)</span> is not in the DFS tree, and the longest path in the tree has only 3 edges.</p>
 </details>
 
     </div>
@@ -3355,7 +3411,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #297</h2>
-        <p>Tags: <a href='./tags/topological sorting.html'>topological sorting</a>, <a href='./tags/lecture-13.html'>lecture-13</a></p>
+        <p>Tags: <a href='./tags/lecture-13.html'>lecture-13</a>, <a href='./tags/topological sorting.html'>topological sorting</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose <span class="math">\(G\)</span> is an acyclic directed graph. Let <span class="math">\(a\)</span> and <span class="math">\(b\)</span> be two nodes of <span class="math">\(G\)</span> such that <span class="math">\(a\)</span> appears before <span class="math">\(b\)</span> in <i>every possible</i> topological sort of <span class="math">\(G\)</span>.</p>
@@ -3517,8 +3573,8 @@ def modified_bfs(graph, source, status=None):
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #304</h2>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #304 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
         <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -3542,7 +3598,7 @@ def modified_bfs(graph, source, status=None):
         <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Consider a ``2-chain'' graph: a graph with <span class="math">\(n\)</span> nodes that is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math">\(\ldots\)</span>, <span class="math">\(n\)</span>, and, for each node <span class="math">\(u\)</span>, making an edge to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span>(if they are in the graph).</p>
+<p>Consider a “2-chain” graph: a graph with <span class="math">\(n\)</span> nodes that is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math">\(\ldots\)</span>, <span class="math">\(n\)</span>, and, for each node <span class="math">\(u\)</span>, making an edge to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span> (if they are in the graph).</p>
 <p>Suppose the Bellman-Ford algorithm without early stopping is run on a 2-chain graph with <span class="math">\(n\)</span> nodes, using node 1 as the source. What is the time taken as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
@@ -3565,7 +3621,8 @@ def modified_bfs(graph, source, status=None):
 <p>Suppose the Bellman-Ford algorithm is run on the following graph using node <span class="math">\(a\)</span> as the source node:</p>
 <center><div class="image"><img src="images/306/graph.png" /></div></center>
 <p>Suppose when <span class="inline-code"><code>graph.edges</code></span> is called, the edges are returned in the order:</p>
-<p><span class="math">\((a, b),
+<p><span class="math">\(
+    (a, b),
     (c, e),
     (d, f),
     (c, d),
@@ -3588,8 +3645,8 @@ def modified_bfs(graph, source, status=None):
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #307</h2>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #307 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
         <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -3617,8 +3674,8 @@ def modified_bfs(graph, source, status=None):
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #308</h2>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #308 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
         <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
@@ -3643,9 +3700,9 @@ def modified_bfs(graph, source, status=None):
 
 
 
-        <div class="problem-outer">
-        <h2>Problem #309</h2>
-        <p>Tags: <a href='./tags/lecture-14.html'>lecture-14</a>, <a href='./tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem-outer" data-badges="hard">
+        <h2>Problem #309 <span class="practicebank-badge" data-badge="hard" role="img" title="One of the hardest problems on past exams and quizzes" aria-label="One of the hardest problems on past exams and quizzes">🌶️</span></h2>
+        <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Suppose that every edge in the weighted graph <span class="math">\(G\)</span> has weight -5. True or False: breadth first search on this graph will compute a <i>longest</i> path from the source to every node in the graph (that is, a path with greatest possible total edge weight).</p>
@@ -3676,13 +3733,14 @@ def modified_bfs(graph, source, status=None):
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
 <p>Suppose that <span class="inline-code"><code>graph.edges</code></span> produces edges in the following order:</p>
-<div class="math">\[(u,c), (a, b), (a, d), (u, a), (b, e), (c, d), (e, b), (d, e)
+<div class="math">\[
+                (u,c), (a, b), (a, d), (u, a), (b, e), (c, d), (e, b), (d, e)
             \]</div>
 <p>After two iterations of the outer for-loop, what is the estimated shortest path distance for node <span class="math">\(b\)</span>?</p>
 <details>
     <summary>Solution</summary>
 <p>7.</p>
-<p>After iteration 1, the estimates are <span class="math">\(a = 2\)</span>, <span class="math">\(c = 7\)</span>, <span class="math">\(d = 9\)</span>, <span class="math">\(e = 13\)</span>(<span class="math">\(b\)</span> is still <span class="math">\(\infty\)</span>). In iteration 2, <span class="math">\(b\)</span> becomes <span class="math">\(16\)</span> via <span class="math">\((a, b)\)</span>, <span class="math">\(d\)</span> becomes <span class="math">\(5\)</span>, then <span class="math">\(b\)</span> becomes <span class="math">\(13 - 6 = 7\)</span> via <span class="math">\((e, b)\)</span>, and <span class="math">\(e\)</span> becomes <span class="math">\(9\)</span>. So after two iterations, the estimate for <span class="math">\(b\)</span> is 7.</p>
+<p>After iteration 1, the estimates are <span class="math">\(a = 2\)</span>, <span class="math">\(c = 7\)</span>, <span class="math">\(d = 9\)</span>, <span class="math">\(e = 13\)</span> (<span class="math">\(b\)</span> is still <span class="math">\(\infty\)</span>). In iteration 2, <span class="math">\(b\)</span> becomes <span class="math">\(16\)</span> via <span class="math">\((a, b)\)</span>, <span class="math">\(d\)</span> becomes <span class="math">\(5\)</span>, then <span class="math">\(b\)</span> becomes <span class="math">\(13 - 6 = 7\)</span> via <span class="math">\((e, b)\)</span>, and <span class="math">\(e\)</span> becomes <span class="math">\(9\)</span>. So after two iterations, the estimate for <span class="math">\(b\)</span> is 7.</p>
 </details>
 
 </div>
@@ -3701,7 +3759,8 @@ def modified_bfs(graph, source, status=None):
 <div class="subproblem">
     <h3 class="subproblem-id">Part 3)</h3>
 <p>Now suppose that <span class="inline-code"><code>graph.edges</code></span> produces edges in a different order:</p>
-<div class="math">\[(a, b), (a, d), (b, e), (c, d), (d, e), (e, b), (u, a), (u, c)
+<div class="math">\[
+                (a, b), (a, d), (b, e), (c, d), (d, e), (e, b), (u, a), (u, c)
             \]</div>
 <p>How many iterations does the outer for-loop take? The algorithm includes early stopping.</p>
 <details>
@@ -3842,7 +3901,7 @@ def modified_bfs(graph, source, status=None):
     <div class="problem-body">
 <p>Suppose Dijkstra's algorithm is run on the graph shown below using node <span class="math">\(a\)</span> as the source.</p>
 <center><div class="image"><img src="images/316/graph.png" /></div></center>
-<p>Suppose <span class="math">\(C\)</span> is the set of ``correct'' nodes: that is, <span class="math">\(C\)</span> is the set of nodes whose estimated distances are known to be correct.</p>
+<p>Suppose <span class="math">\(C\)</span> is the set of “correct” nodes: that is, <span class="math">\(C\)</span> is the set of nodes whose estimated distances are known to be correct.</p>
 <p>What will be the fifth node added to <span class="math">\(C\)</span> by Dijkstra's algorithm? (The first node added to <span class="math">\(C\)</span> is the source, <span class="math">\(a\)</span>.)</p>
 <details>
     <summary>Solution</summary>
@@ -3859,7 +3918,7 @@ def modified_bfs(graph, source, status=None):
 
         <div class="problem-outer">
         <h2>Problem #318</h2>
-        <p>Tags: <a href='./tags/lecture-16.html'>lecture-16</a>, <a href='./tags/graph theory.html'>graph theory</a></p>
+        <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-16.html'>lecture-16</a></p>
         <div class="problem">
     <div class="problem-body">
 <p>Let <span class="math">\(G = (V,E)\)</span> be a connected, undirected graph with <span class="math">\(|E| = |V| - 1\)</span>. Suppose <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are both nodes in <span class="math">\(G\)</span>. True or False: there can be more than one simple path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span>.</p>
@@ -3898,6 +3957,139 @@ def modified_bfs(graph, source, status=None):
         </div>
 
 
+<p class="practicebank-empty" data-only="hard" hidden>No 🌶️ problems in this set.</p>
+</div>
+<script>
+(function () {
+    var KEY = "practicebank-only";
+    var filters = document.querySelectorAll(".practicebank-filter");
+    var lists = document.querySelectorAll(".practicebank-problems");
+    var known = {};
+    filters.forEach(function (f) {
+        f.querySelectorAll("button[data-only]").forEach(function (b) {
+            if (b.dataset.only) { known[b.dataset.only] = true; }
+        });
+    });
+
+    function valid(tag) { return tag && known[tag] ? tag : ""; }
+    function load() { try { return valid(localStorage.getItem(KEY)); } catch (e) { return ""; } }
+    function save(tag) {
+        try {
+            if (tag) { localStorage.setItem(KEY, tag); } else { localStorage.removeItem(KEY); }
+        } catch (e) {}
+    }
+
+    function setSwitches(tag) {
+        filters.forEach(function (f) {
+            f.hidden = false;
+            f.querySelectorAll("button[data-only]").forEach(function (b) {
+                b.setAttribute("aria-checked", String(b.dataset.only === tag));
+            });
+        });
+    }
+
+    function filterProblems(tag) {
+        lists.forEach(function (list) {
+            var shown = 0;
+            list.querySelectorAll(".problem-outer").forEach(function (p) {
+                var badges = (p.dataset.badges || "").split(" ");
+                var keep = !tag || badges.indexOf(tag) !== -1;
+                p.classList.toggle("practicebank-filtered-out", !keep);
+                if (keep) { shown++; }
+            });
+            list.querySelectorAll(".practicebank-empty").forEach(function (e) {
+                e.hidden = !(tag && shown === 0 && e.dataset.only === tag);
+            });
+        });
+        try {
+            var url = new URL(location.href);
+            if (tag) { url.searchParams.set("only", tag); } else { url.searchParams.delete("only"); }
+            if (url.href !== location.href) { history.replaceState(history.state, "", url.href); }
+        } catch (e) {}
+    }
+
+    // apply a choice at once: on page load, and when another page changes it
+    var pending = null;
+    function apply(tag) {
+        clearTimeout(pending);
+        pending = null;
+        latest++;
+        setSwitches(tag);
+        filterProblems(tag);
+    }
+
+    // on a toggle, move the switch first and filter after its slide: showing or
+    // hiding many problems is a long relayout (a quarter second on a page with a
+    // couple hundred problems and their math), which would freeze the slide if it
+    // ran in the same frame. Toggling again before then replaces the pending
+    // filter, so only the last choice is applied.
+    // With reduced motion the switch doesn't slide, so it only has to be painted
+    // first: the filter runs in a task after the next frame.
+    var SLIDE_MS = 220;  // just over the switch's 0.2s transition
+    var latest = 0;
+    function toggle(tag) {
+        setSwitches(tag);
+        clearTimeout(pending);
+        var id = ++latest;
+        function run() {
+            if (id !== latest) { return; }
+            pending = null;
+            filterProblems(tag);
+        }
+        var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce) {
+            requestAnimationFrame(function () {
+                if (id === latest) { pending = setTimeout(run, 0); }
+            });
+        } else {
+            pending = setTimeout(run, SLIDE_MS);
+        }
+    }
+
+    // show the focus ring only for keyboard focus: some browsers count a click on a
+    // button as focus-visible, so a switch clicked with the pointer is marked
+    // until it is next used from the keyboard or loses focus
+    filters.forEach(function (f) {
+        f.addEventListener("pointerdown", function (event) {
+            var b = event.target.closest("button[data-only]");
+            if (b) { b.setAttribute("data-pointer", ""); }
+        });
+        f.addEventListener("keydown", function (event) {
+            var b = event.target.closest("button[data-only]");
+            if (b) { b.removeAttribute("data-pointer"); }
+        });
+        f.addEventListener("focusout", function (event) {
+            var b = event.target.closest("button[data-only]");
+            if (b) { b.removeAttribute("data-pointer"); }
+        });
+    });
+
+    filters.forEach(function (f) {
+        f.addEventListener("click", function (event) {
+            var b = event.target.closest("button[data-only]");
+            if (!b) { return; }
+            // a switch that is on turns the filter off; one that is off turns it on
+            var on = b.getAttribute("aria-checked") === "true";
+            var tag = on ? "" : valid(b.dataset.only);
+            save(tag);
+            toggle(tag);
+        });
+    });
+
+    // ?only=<tag> wins over the stored choice, and becomes the stored choice
+    var param = null;
+    try { param = new URLSearchParams(location.search).get("only"); } catch (e) {}
+    if (param !== null) { save(valid(param)); }
+    apply(param !== null ? valid(param) : load());
+
+    // pages that were prerendered or kept in the back/forward cache catch up
+    // with a choice made on another page since
+    function resync() { apply(load()); }
+    window.addEventListener("storage", function (event) { if (event.key === KEY) { resync(); } });
+    window.addEventListener("pageshow", function (event) { if (event.persisted) { resync(); } });
+    document.addEventListener("prerenderingchange", resync);
+})();
+</script>
     </div>
 </div>
 
