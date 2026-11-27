@@ -950,6 +950,8 @@ Course Staff
 /* level the box with the first line of the choice, not the middle of a wrapped one */
 .multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+/* inline math and the punctuation right after it; see _keep_math_with_punctuation */
+.math-with-punctuation { white-space: nowrap; }
 </style>
 <h1>Problems tagged with "sorted structure"</h1>
 <style>
@@ -1004,7 +1006,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose you are given a <b>sorted</b> array containing <span class="math">\(n\)</span> elements. Each element is either zero or one. You are tasked with determining if the majority (at least half) of the array's elements are one. What is the <b>tight</b> theoretical lower bound for the worst case time complexity of any algorithm which solves this problem?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(1)\)</span>. Since the array is sorted, the zeros come first and the ones are at the end. At least half the elements are ones exactly when the element at index <span class="math">\(\lfloor n/2 \rfloor\)</span> is a one, so we only need to check that one element.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(1)\)</span>.</span></p>
+<p>Since the array is sorted, the zeros come first and the ones are at the end. At least half the elements are ones exactly when the element at index <span class="math">\(\lfloor n/2 \rfloor\)</span> is a one, so we only need to check that one element.</p>
 </details>
 
     </div>
@@ -1020,14 +1023,14 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/sorted structure.html'>sorted structure</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are two numbers, with <span class="math">\(a \leq b\)</span>. Consider the problem of counting the number of elements in an array which are between <span class="math">\(a\)</span> and <span class="math">\(b\)</span>; that is, the number of elements <span class="math">\(x\)</span> such that <span class="math">\(a
-    \leq x \leq b\)</span>. You may assume for simplicity that both <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are in the array, and there are no duplicates.</p>
+<p>Suppose <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are two numbers, with <span class="math-with-punctuation"><span class="math">\(a \leq b\)</span>.</span> Consider the problem of counting the number of elements in an array which are between <span class="math">\(a\)</span> and <span class="math-with-punctuation"><span class="math">\(b\)</span>;</span> that is, the number of elements <span class="math">\(x\)</span> such that <span class="math-with-punctuation"><span class="math">\(a
+    \leq x \leq b\)</span>.</span> You may assume for simplicity that both <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are in the array, and there are no duplicates.</p>
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
-<p>What is a <b>tight</b> theoretical lower bound for this problem, assuming that the array is <b>unsorted</b>? State your answer in asymptotic notation as a function of the number of elements in the array, <span class="math">\(n\)</span>.</p>
+<p>What is a <b>tight</b> theoretical lower bound for this problem, assuming that the array is <b>unsorted</b>? State your answer in asymptotic notation as a function of the number of elements in the array, <span class="math-with-punctuation"><span class="math">\(n\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
 <p>Since the array is in arbitrary order, we have to at least read all of the elements, taking <span class="math">\(\Omega(n)\)</span> time. This is a tight lower bound, because we can count the number of elements between <span class="math">\(a\)</span> and <span class="math">\(b\)</span> by looping through and checking whether each element is in <span class="math">\([a, b]\)</span> in linear time.</p>
 </details>
 
@@ -1035,12 +1038,12 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 
 <div class="subproblem">
     <h3 class="subproblem-id">Part 2)</h3>
-<p>What is a <b>tight</b> theoretical lower bound for this problem, assuming that the array is <b>sorted</b>? State your answer in asymptotic notation as a function of the number of elements in the array, <span class="math">\(n\)</span>.</p>
+<p>What is a <b>tight</b> theoretical lower bound for this problem, assuming that the array is <b>sorted</b>? State your answer in asymptotic notation as a function of the number of elements in the array, <span class="math-with-punctuation"><span class="math">\(n\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(\log n)\)</span>.</p>
-<p>We can do this in worst-case <span class="math">\(\Theta(\log n)\)</span> time with binary search: find the index of <span class="math">\(a\)</span> in worst-case <span class="math">\(\Theta(\log n)\)</span> time; find the index of <span class="math">\(b\)</span> in worst-case <span class="math">\(\Theta(\log n)\)</span> time; and subtract the two indices (and add one) to get the total number of elements between <span class="math">\(a\)</span> and <span class="math">\(b\)</span>, inclusive.</p>
-<p>There cannot be an algorithm that is better than <span class="math">\(\Theta(\log n)\)</span> in the worst case, so this is a tight lower bound. To see why, recognize that we can solve the query problem (determine True/False if a target <span class="math">\(t\)</span> is in a sorted array) with any algorithm that solves this problem by setting <span class="math">\(a = b = t\)</span>. If an algorithm solves this problem in faster than <span class="math">\(\Theta(\log n)\)</span>, it will also solve the query problem in faster than <span class="math">\(\Theta(\log n)\)</span>, but we saw in class that the query problem has a theoretical lower bound of <span class="math">\(\Theta(\log n)\)</span>, so such an algorithm cannot exist.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(\log n)\)</span>.</span></p>
+<p>We can do this in worst-case <span class="math">\(\Theta(\log n)\)</span> time with binary search: find the index of <span class="math">\(a\)</span> in worst-case <span class="math">\(\Theta(\log n)\)</span> time; find the index of <span class="math">\(b\)</span> in worst-case <span class="math">\(\Theta(\log n)\)</span> time; and subtract the two indices (and add one) to get the total number of elements between <span class="math">\(a\)</span> and <span class="math-with-punctuation"><span class="math">\(b\)</span>,</span> inclusive.</p>
+<p>There cannot be an algorithm that is better than <span class="math">\(\Theta(\log n)\)</span> in the worst case, so this is a tight lower bound. To see why, recognize that we can solve the query problem (determine True/False if a target <span class="math">\(t\)</span> is in a sorted array) with any algorithm that solves this problem by setting <span class="math-with-punctuation"><span class="math">\(a = b = t\)</span>.</span> If an algorithm solves this problem in faster than <span class="math-with-punctuation"><span class="math">\(\Theta(\log n)\)</span>,</span> it will also solve the query problem in faster than <span class="math-with-punctuation"><span class="math">\(\Theta(\log n)\)</span>,</span> but we saw in class that the query problem has a theoretical lower bound of <span class="math-with-punctuation"><span class="math">\(\Theta(\log n)\)</span>,</span> so such an algorithm cannot exist.</p>
 </details>
 
 </div>

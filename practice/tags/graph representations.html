@@ -950,6 +950,8 @@ Course Staff
 /* level the box with the first line of the choice, not the middle of a wrapped one */
 .multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+/* inline math and the punctuation right after it; see _keep_math_with_punctuation */
+.math-with-punctuation { white-space: nowrap; }
 </style>
 <h1>Problems tagged with "graph representations"</h1>
 <style>
@@ -1001,7 +1003,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/graph representations.html'>graph representations</a>, <a href='../tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(A\)</span> be the adjacency matrix representing a directed graph with <span class="math">\(n\)</span> nodes. What is the greatest possible sum of any <i>row</i> of <span class="math">\(A\)</span>?</p>
+<p>Let <span class="math">\(A\)</span> be the adjacency matrix representing a directed graph with <span class="math">\(n\)</span> nodes. What is the greatest possible sum of any <i>row</i> of <span class="math-with-punctuation"><span class="math">\(A\)</span>?</span></p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(1\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n - 1\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n\)</span></p></label></div>
@@ -1009,7 +1011,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n^2\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(n\)</span>. Row <span class="math">\(u\)</span> of <span class="math">\(A\)</span> has a one for each edge leaving <span class="math">\(u\)</span>, so its sum is <span class="math">\(u\)</span>'s out-degree. A directed graph may have self-loops, so <span class="math">\(u\)</span> can have an edge to all <span class="math">\(n\)</span> nodes, including itself, and the row can be all ones.</p>
+<p><span class="math-with-punctuation"><span class="math">\(n\)</span>.</span></p>
+<p>Row <span class="math">\(u\)</span> of <span class="math">\(A\)</span> has a one for each edge leaving <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> so its sum is <span class="math-with-punctuation"><span class="math">\(u\)</span>'</span>s out-degree. A directed graph may have self-loops, so <span class="math">\(u\)</span> can have an edge to all <span class="math">\(n\)</span> nodes, including itself, and the row can be all ones.</p>
 </details>
 
     </div>
@@ -1025,7 +1028,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/graph representations.html'>graph representations</a>, <a href='../tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(A\)</span> be the adjacency matrix representing an undirected graph with <span class="math">\(n\)</span> nodes. What is the greatest possible sum of any <i>row</i> of <span class="math">\(A\)</span>?</p>
+<p>Let <span class="math">\(A\)</span> be the adjacency matrix representing an undirected graph with <span class="math">\(n\)</span> nodes. What is the greatest possible sum of any <i>row</i> of <span class="math-with-punctuation"><span class="math">\(A\)</span>?</span></p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(1\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n - 1\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n\)</span></p></label></div>
@@ -1033,7 +1036,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n^2\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(n - 1\)</span>. The sum of row <span class="math">\(i\)</span> is the degree of node <span class="math">\(i\)</span>. Since an undirected graph has no self-loops, a node can be adjacent to at most the other <span class="math">\(n - 1\)</span> nodes.</p>
+<p><span class="math-with-punctuation"><span class="math">\(n - 1\)</span>.</span></p>
+<p>The sum of row <span class="math">\(i\)</span> is the degree of node <span class="math-with-punctuation"><span class="math">\(i\)</span>.</span> Since an undirected graph has no self-loops, a node can be adjacent to at most the other <span class="math">\(n - 1\)</span> nodes.</p>
 </details>
 
     </div>
@@ -1053,9 +1057,9 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose a graph <span class="math">\(G = (V, E)\)</span> is represented using an adjacency matrix. What is the best possible worst-case time complexity of an efficient algorithm for computing the number of isolated nodes in the graph? State your answer as a function of <span class="math">\(|V|\)</span> and <span class="math">\(|E|\)</span> using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(V^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(V^2)\)</span>.</span></p>
 <p>A node <span class="math">\(u\)</span> is isolated exactly when row <span class="math">\(u\)</span> of the adjacency matrix is all zeros. To check that, we have to look at the entries of that row until we find a one; if the node is isolated, there is no one to find, so we look at all <span class="math">\(|V|\)</span> entries. Doing this for every node takes <span class="math">\(|V| \times \Theta(V) = \Theta(V^2)\)</span> time in the worst case.</p>
-<p>We can't do better. In the worst case, e.g., a graph with no edges at all, every node is isolated, and to be sure of that, an algorithm has to read every entry of the matrix (or, by symmetry, every entry on one side of the diagonal, which is still <span class="math">\(\Theta(V^2)\)</span> entries): any entry it skips could be a one, which would make two nodes not isolated. Notice that the answer doesn't depend on <span class="math">\(|E|\)</span>: with an adjacency matrix, scanning a row takes <span class="math">\(\Theta(V)\)</span> time no matter how many edges there are.</p>
+<p>We can't do better. In the worst case, e.g., a graph with no edges at all, every node is isolated, and to be sure of that, an algorithm has to read every entry of the matrix (or, by symmetry, every entry on one side of the diagonal, which is still <span class="math">\(\Theta(V^2)\)</span> entries): any entry it skips could be a one, which would make two nodes not isolated. Notice that the answer doesn't depend on <span class="math-with-punctuation"><span class="math">\(|E|\)</span>:</span> with an adjacency matrix, scanning a row takes <span class="math">\(\Theta(V)\)</span> time no matter how many edges there are.</p>
 </details>
 
     </div>
@@ -1075,7 +1079,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>What is the worst case time complexity of an efficient algorithm that checks to see if a graph <span class="math">\(G = (V, E)\)</span> has an isolated node? You should assume that the graph is represented as an adjacency list.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(V)\)</span>. A node is isolated exactly when its adjacency list is empty, which we can check in <span class="math">\(\Theta(1)\)</span> time per node, so checking every node takes <span class="math">\(\Theta(V)\)</span> time. In the worst case (no node is isolated), we have to check them all.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(V)\)</span>.</span></p>
+<p>A node is isolated exactly when its adjacency list is empty, which we can check in <span class="math">\(\Theta(1)\)</span> time per node, so checking every node takes <span class="math">\(\Theta(V)\)</span> time. In the worst case (no node is isolated), we have to check them all.</p>
 </details>
 
     </div>
@@ -1093,12 +1098,13 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Let <span class="math">\(A\)</span> be the adjacency matrix of the graph shown below:</p>
 <center><div class="image"><img src="../images/225/graph.png" /></div></center>
-<p>Let <span class="math">\(\vec{a}^{(1)}\)</span> be the first row of <span class="math">\(A\)</span> and <span class="math">\(\vec{a}^{(2)}\)</span> be the second row of <span class="math">\(A\)</span>. What is <span class="math">\(\vec{a}^{(1)} \cdot \vec{a}^{(2)}\)</span>? That is, what is the dot product between the first row of <span class="math">\(A\)</span> and the second row of <span class="math">\(A\)</span>? Your answer should be in the form of a number.</p>
+<p>Let <span class="math">\(\vec{a}^{(1)}\)</span> be the first row of <span class="math">\(A\)</span> and <span class="math">\(\vec{a}^{(2)}\)</span> be the second row of <span class="math-with-punctuation"><span class="math">\(A\)</span>.</span> What is <span class="math-with-punctuation"><span class="math">\(\vec{a}^{(1)} \cdot \vec{a}^{(2)}\)</span>?</span> That is, what is the dot product between the first row of <span class="math">\(A\)</span> and the second row of <span class="math-with-punctuation"><span class="math">\(A\)</span>?</span> Your answer should be in the form of a number.</p>
 <p>It may help to recall that the dot product between vectors <span class="math">\(\vec x = (x_1,
-    \ldots, x_d)^T\)</span> and <span class="math">\(\vec y = (y_1, \ldots, y_d)^T\)</span> is equal to <span class="math">\(x_1 y_1 + x_2 y_2 + \ldots + x_d y_d\)</span>.</p>
+    \ldots, x_d)^T\)</span> and <span class="math">\(\vec y = (y_1, \ldots, y_d)^T\)</span> is equal to <span class="math-with-punctuation"><span class="math">\(x_1 y_1 + x_2 y_2 + \ldots + x_d y_d\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
-<p>4. Each entry of the dot product is 1 exactly when a node is a neighbor of both node 1 and node 2, so the dot product counts their common neighbors. Node 1's neighbors are the top node, the two nodes on the upper left and upper right, the node on the right, and the node on the lower left; node 2 is adjacent to all of these except the upper-left node, so there are 4 common neighbors.</p>
+<p>4.</p>
+<p>Each entry of the dot product is 1 exactly when a node is a neighbor of both node 1 and node 2, so the dot product counts their common neighbors. Node 1's neighbors are the top node, the two nodes on the upper left and upper right, the node on the right, and the node on the lower left; node 2 is adjacent to all of these except the upper-left node, so there are 4 common neighbors.</p>
 </details>
 
     </div>

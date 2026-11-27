@@ -950,6 +950,8 @@ Course Staff
 /* level the box with the first line of the choice, not the middle of a wrapped one */
 .multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+/* inline math and the punctuation right after it; see _keep_math_with_punctuation */
+.math-with-punctuation { white-space: nowrap; }
 </style>
 <h1>Problems tagged with "mergesort"</h1>
 <style>
@@ -1001,11 +1003,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/lecture-06.html'>lecture-06</a>, <a href='../tags/mergesort.html'>mergesort</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>True or False: the <b>best case</b> time complexity of mergesort is <span class="math">\(\Theta(n)\)</span>.</p>
+<p>True or False: the <b>best case</b> time complexity of mergesort is <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
 <p>False.</p>
-<p>Mergesort doesn't stop early: it always splits the array in half all the way down and merges everything back together, no matter what the input is (even if it is already sorted). Each of the <span class="math">\(\Theta(\log n)\)</span> levels of recursion does <span class="math">\(\Theta(n)\)</span> merging work, so the best case is <span class="math">\(\Theta(n \log n)\)</span>, the same as the worst case.</p>
+<p>Mergesort doesn't stop early: it always splits the array in half all the way down and merges everything back together, no matter what the input is (even if it is already sorted). Each of the <span class="math">\(\Theta(\log n)\)</span> levels of recursion does <span class="math">\(\Theta(n)\)</span> merging work, so the best case is <span class="math-with-punctuation"><span class="math">\(\Theta(n \log n)\)</span>,</span> the same as the worst case.</p>
 </details>
 
     </div>
@@ -1021,12 +1023,12 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/lecture-06.html'>lecture-06</a>, <a href='../tags/mergesort.html'>mergesort</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose <span class="inline-code"><code>mergesort</code></span> is called on an array of size <span class="math">\(n\)</span>. In total, how many calls to <span class="inline-code"><code>merge</code></span> are made over all calls to <span class="inline-code"><code>mergesort</code></span>?</p>
+<p>Suppose <span class="inline-code"><code>mergesort</code></span> is called on an array of size <span class="math-with-punctuation"><span class="math">\(n\)</span>.</span> In total, how many calls to <span class="inline-code"><code>merge</code></span> are made over all calls to <span class="inline-code"><code>mergesort</code></span>?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
 <p>Each call to <span class="inline-code"><code>mergesort</code></span> on an array of size 2 or more splits it in two, makes two recursive calls, and then calls <span class="inline-code"><code>merge</code></span> exactly once. Calls on arrays of size 1 (or 0) are base cases: they don't recurse and don't merge. So the number of calls to <span class="inline-code"><code>merge</code></span> is the number of non-base-case calls, i.e., the number of internal nodes of the recursion tree.</p>
-<p>The recursion tree has one leaf for each element of the array, so it has <span class="math">\(n\)</span> leaves. Every internal node has exactly two children, and a tree like that with <span class="math">\(n\)</span> leaves has <span class="math">\(n - 1\)</span> internal nodes. (Each merge combines two sorted pieces into one, starting from <span class="math">\(n\)</span> pieces of size 1 and ending with one piece, so it takes <span class="math">\(n - 1\)</span> merges.) For example, when <span class="math">\(n = 8\)</span> there are <span class="math">\(4 + 2 + 1 = 7\)</span> merges. So the total is <span class="math">\(n - 1 = \Theta(n)\)</span>.</p>
+<p>The recursion tree has one leaf for each element of the array, so it has <span class="math">\(n\)</span> leaves. Every internal node has exactly two children, and a tree like that with <span class="math">\(n\)</span> leaves has <span class="math">\(n - 1\)</span> internal nodes. (Each merge combines two sorted pieces into one, starting from <span class="math">\(n\)</span> pieces of size 1 and ending with one piece, so it takes <span class="math">\(n - 1\)</span> merges.) For example, when <span class="math">\(n = 8\)</span> there are <span class="math">\(4 + 2 + 1 = 7\)</span> merges. So the total is <span class="math-with-punctuation"><span class="math">\(n - 1 = \Theta(n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1068,12 +1070,12 @@ def merge(left, right, out):
         else:
             out[ix] = right[right_ix]
             right_ix += 1</code></pre>
-<p>Suppose <span class="inline-code"><code>mergesort</code></span> is called on an array of size <span class="math">\(n\)</span>. In total, how many times will <span class="inline-code"><code>"Here!"</code></span> be printed?</p>
+<p>Suppose <span class="inline-code"><code>mergesort</code></span> is called on an array of size <span class="math-with-punctuation"><span class="math">\(n\)</span>.</span> In total, how many times will <span class="inline-code"><code>"Here!"</code></span> be printed?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n \log n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n \log n)\)</span>.</span></p>
 <p>The <span class="inline-code"><code>print</code></span> is inside <span class="inline-code"><code>merge</code></span>'s loop, which runs once for each element of <span class="inline-code"><code>out</code></span>. So a call to <span class="inline-code"><code>merge</code></span> that produces an array of size <span class="math">\(m\)</span> prints “Here!” <span class="math">\(m\)</span> times, i.e., the number of prints is exactly the number of elements merged.</p>
-<p>Now look at the recursion tree of <span class="inline-code"><code>mergesort</code></span>. At each level, the subarrays being sorted together make up the whole array (each element is in exactly one of them), so the merges at that level produce at most <span class="math">\(n\)</span> elements in total, and exactly <span class="math">\(n\)</span> at every level above the leaves. There are <span class="math">\(\Theta(\log n)\)</span> levels, since the size halves at each one. So the total number of prints is <span class="math">\(\Theta(n)\)</span> per level times <span class="math">\(\Theta(\log n)\)</span> levels, which is <span class="math">\(\Theta(n \log n)\)</span>. This is the same argument that shows <span class="inline-code"><code>mergesort</code></span> takes <span class="math">\(\Theta(n \log n)\)</span> time.</p>
+<p>Now look at the recursion tree of <span class="inline-code"><code>mergesort</code></span>. At each level, the subarrays being sorted together make up the whole array (each element is in exactly one of them), so the merges at that level produce at most <span class="math">\(n\)</span> elements in total, and exactly <span class="math">\(n\)</span> at every level above the leaves. There are <span class="math">\(\Theta(\log n)\)</span> levels, since the size halves at each one. So the total number of prints is <span class="math">\(\Theta(n)\)</span> per level times <span class="math">\(\Theta(\log n)\)</span> levels, which is <span class="math-with-punctuation"><span class="math">\(\Theta(n \log n)\)</span>.</span> This is the same argument that shows <span class="inline-code"><code>mergesort</code></span> takes <span class="math">\(\Theta(n \log n)\)</span> time.</p>
 </details>
 
     </div>
@@ -1102,7 +1104,8 @@ def merge(left, right, out):
 <p>What is the time complexity of <span class="inline-code"><code>kinda_mergesort</code></span>?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. The function isn't actually recursive: it calls the regular <span class="inline-code"><code>mergesort</code></span> on the left half, taking <span class="math">\(\Theta(n \log n)\)</span> time, <span class="inline-code"><code>selection_sort</code></span> on the right half, taking <span class="math">\(\Theta((n/2)^2) = \Theta(n^2)\)</span> time, and <span class="inline-code"><code>merge</code></span>, taking <span class="math">\(\Theta(n)\)</span> time. The selection sort dominates, so the total is <span class="math">\(\Theta(n^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>The function isn't actually recursive: it calls the regular <span class="inline-code"><code>mergesort</code></span> on the left half, taking <span class="math">\(\Theta(n \log n)\)</span> time, <span class="inline-code"><code>selection_sort</code></span> on the right half, taking <span class="math">\(\Theta((n/2)^2) = \Theta(n^2)\)</span> time, and <span class="inline-code"><code>merge</code></span>, taking <span class="math">\(\Theta(n)\)</span> time. The selection sort dominates, so the total is <span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1130,7 +1133,8 @@ def average_median(arr):
     return msum / len(arr)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2 \log n)\)</span>. Mergesort takes <span class="math">\(\Theta(k \log k)\)</span> time on an array of size <span class="math">\(k\)</span> in every case, including the best case. The loop sorts <span class="math">\(n\)</span> rows of size <span class="math">\(n\)</span>, taking <span class="math">\(\Theta(n \log n)\)</span> time for each, and the rest of the loop body takes constant time. So the best case is <span class="math">\(\Theta(n^2 \log n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2 \log n)\)</span>.</span></p>
+<p>Mergesort takes <span class="math">\(\Theta(k \log k)\)</span> time on an array of size <span class="math">\(k\)</span> in every case, including the best case. The loop sorts <span class="math">\(n\)</span> rows of size <span class="math-with-punctuation"><span class="math">\(n\)</span>,</span> taking <span class="math">\(\Theta(n \log n)\)</span> time for each, and the rest of the loop body takes constant time. So the best case is <span class="math-with-punctuation"><span class="math">\(\Theta(n^2 \log n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1155,7 +1159,8 @@ def average_median(arr):
 <p>Here, <span class="inline-code"><code>is_already_sorted</code></span> is a function that takes in an array and returns <span class="inline-code"><code>True</code></span> if and only if the array is in sorted order. Assume that <span class="inline-code"><code>is_already_sorted</code></span> is implemented efficiently (meaning, it has the best possible time complexity). What is the best case time complexity of <span class="inline-code"><code>better_mergesort</code></span>?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. The best case is when <span class="inline-code"><code>arr</code></span> is already sorted, so that only <span class="inline-code"><code>is_already_sorted</code></span> runs. Checking whether an array is sorted requires looking at every element, and can be done in <span class="math">\(\Theta(n)\)</span> time by comparing each pair of adjacent elements. So the best case time complexity is <span class="math">\(\Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>The best case is when <span class="inline-code"><code>arr</code></span> is already sorted, so that only <span class="inline-code"><code>is_already_sorted</code></span> runs. Checking whether an array is sorted requires looking at every element, and can be done in <span class="math">\(\Theta(n)\)</span> time by comparing each pair of adjacent elements. So the best case time complexity is <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1202,7 +1207,7 @@ def average_median(arr):
                 \text{merging size-2 arrays (4 of them):}&\quad 4 \cdot (1 + 1) = 8
             \end{aligned}
         \]</div>
-<p>Arrays of size 1 are base cases and aren't merged. Each level's printed sizes add up to 8, the size of the whole list, and there are <span class="math">\(\log_2 8 = 3\)</span> levels of merges, so the sum is <span class="math">\(3 \cdot 8 = 24\)</span>. Notice that the values in the list don't matter, only its length.</p>
+<p>Arrays of size 1 are base cases and aren't merged. Each level's printed sizes add up to 8, the size of the whole list, and there are <span class="math">\(\log_2 8 = 3\)</span> levels of merges, so the sum is <span class="math-with-punctuation"><span class="math">\(3 \cdot 8 = 24\)</span>.</span> Notice that the values in the list don't matter, only its length.</p>
 </details>
 
     </div>

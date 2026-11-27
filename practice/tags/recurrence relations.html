@@ -950,6 +950,8 @@ Course Staff
 /* level the box with the first line of the choice, not the middle of a wrapped one */
 .multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+/* inline math and the punctuation right after it; see _keep_math_with_punctuation */
+.math-with-punctuation { white-space: nowrap; }
 </style>
 <h1>Problems tagged with "recurrence relations"</h1>
 <style>
@@ -1001,7 +1003,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>State (but do not solve) the recurrence describing the run time of the following code, assuming that the input, <span class="inline-code"><code>arr</code></span>, is a list of size <span class="math">\(n\)</span>.</p>
+<p>State (but do not solve) the recurrence describing the run time of the following code, assuming that the input, <span class="inline-code"><code>arr</code></span>, is a list of size <span class="math-with-punctuation"><span class="math">\(n\)</span>.</span></p>
 <pre class="code"><code class="language-python">def foo(arr, stop=None):
     if stop is None:
         stop = len(arr) - 1
@@ -1013,7 +1015,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     return last * foo(arr, stop - 1)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(T(n) = T(n-1) + \Theta(1)\)</span>. Each call does a constant amount of work (a comparison, an index and a multiplication) and makes one recursive call with <span class="inline-code"><code>stop</code></span> one smaller, so on a problem one element smaller.</p>
+<p><span class="math-with-punctuation"><span class="math">\(T(n) = T(n-1) + \Theta(1)\)</span>.</span></p>
+<p>Each call does a constant amount of work (a comparison, an index and a multiplication) and makes one recursive call with <span class="inline-code"><code>stop</code></span> one smaller, so on a problem one element smaller.</p>
 </details>
 
     </div>
@@ -1062,7 +1065,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/lecture-06.html'>lecture-06</a>, <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>What is the solution of the below recurrence? State your answer using asymptotic notation as a function of <span class="math">\(n\)</span>.</p>
+<p>What is the solution of the below recurrence? State your answer using asymptotic notation as a function of <span class="math-with-punctuation"><span class="math">\(n\)</span>.</span></p>
 <div class="math">\[
         T(n) = 
         \begin{cases}
@@ -1072,7 +1075,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     \]</div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n \log n)\)</span>. At depth <span class="math">\(k\)</span> of the recursion tree there are <span class="math">\(5^k\)</span> subproblems of size <span class="math">\(n/5^k\)</span>, so each level does <span class="math">\(5^k \cdot \Theta(n / 5^k) = \Theta(n)\)</span> work. There are <span class="math">\(\log_5 n\)</span> levels, so the total is <span class="math">\(\Theta(n \log n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n \log n)\)</span>.</span></p>
+<p>At depth <span class="math">\(k\)</span> of the recursion tree there are <span class="math">\(5^k\)</span> subproblems of size <span class="math-with-punctuation"><span class="math">\(n/5^k\)</span>,</span> so each level does <span class="math">\(5^k \cdot \Theta(n / 5^k) = \Theta(n)\)</span> work. There are <span class="math">\(\log_5 n\)</span> levels, so the total is <span class="math-with-punctuation"><span class="math">\(\Theta(n \log n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1107,7 +1111,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
             2 T(n/2) + \Theta(n), & n > 1
         \end{cases}
     \)</span></p>
-<p>There are two recursive calls, each on an input of size <span class="math">\(n/2\)</span>, and the loop between them does <span class="math">\(\Theta(n)\)</span> work.</p>
+<p>There are two recursive calls, each on an input of size <span class="math-with-punctuation"><span class="math">\(n/2\)</span>,</span> and the loop between them does <span class="math">\(\Theta(n)\)</span> work.</p>
 </details>
 
     </div>
@@ -1136,7 +1140,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         foo(n//3)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(T(n) = 6 T(n/3) + \Theta(n)\)</span>. The first loop does <span class="math">\(\Theta(n)\)</span> work, and the second loop makes 6 recursive calls, each on an input of size <span class="math">\(n // 3 \approx n/3\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(T(n) = 6 T(n/3) + \Theta(n)\)</span>.</span></p>
+<p>The first loop does <span class="math">\(\Theta(n)\)</span> work, and the second loop makes 6 recursive calls, each on an input of size <span class="math-with-punctuation"><span class="math">\(n // 3 \approx n/3\)</span>.</span></p>
 </details>
 
     </div>
@@ -1164,7 +1169,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         print(j)</code></pre>
 <details>
     <summary>Solution</summary>
-<p>Even though the recursive calls are made in a <span class="inline-code"><code>for</code></span>-loop, the basic idea is the same: there will be three recursive calls, each on an input of size <span class="math">\(n/4\)</span>, and thus the recurrence will involve <span class="math">\(3 T(n/4)\)</span>. There is <span class="math">\(\Theta(n)\)</span> work done outside the recursive calls, for a full recurrence of <span class="math">\(T(n) = 3 T(n/4) + \Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(T(n) = 3 T(n/4) + \Theta(n)\)</span>.</span></p>
+<p>Even though the recursive calls are made in a <span class="inline-code"><code>for</code></span>-loop, the basic idea is the same: there will be three recursive calls, each on an input of size <span class="math-with-punctuation"><span class="math">\(n/4\)</span>,</span> and thus the recurrence will involve <span class="math-with-punctuation"><span class="math">\(3 T(n/4)\)</span>.</span> There is <span class="math">\(\Theta(n)\)</span> work done outside the recursive calls, for a full recurrence of <span class="math-with-punctuation"><span class="math">\(T(n) = 3 T(n/4) + \Theta(n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1198,7 +1204,8 @@ def foo(n):
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(T(n) = 2 T(n/2) + \Theta(n^2)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(T(n) = 2 T(n/2) + \Theta(n^2)\)</span>. The nested loops are dependent: the inner loop runs <span class="math">\(n - i\)</span> times, for a total of <span class="math">\(n + (n-1) + \ldots + 1 = \Theta(n^2)\)</span>. Then there are two recursive calls, each on a problem of size <span class="math">\(n/2\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(T(n) = 2 T(n/2) + \Theta(n^2)\)</span>.</span></p>
+<p>The nested loops are dependent: the inner loop runs <span class="math">\(n - i\)</span> times, for a total of <span class="math-with-punctuation"><span class="math">\(n + (n-1) + \ldots + 1 = \Theta(n^2)\)</span>.</span> Then there are two recursive calls, each on a problem of size <span class="math-with-punctuation"><span class="math">\(n/2\)</span>.</span></p>
 </details>
 
     </div>
@@ -1227,7 +1234,8 @@ def foo(n):
 <p>What is the time complexity of <span class="inline-code"><code>kinda_mergesort</code></span>?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. The function isn't actually recursive: it calls the regular <span class="inline-code"><code>mergesort</code></span> on the left half, taking <span class="math">\(\Theta(n \log n)\)</span> time, <span class="inline-code"><code>selection_sort</code></span> on the right half, taking <span class="math">\(\Theta((n/2)^2) = \Theta(n^2)\)</span> time, and <span class="inline-code"><code>merge</code></span>, taking <span class="math">\(\Theta(n)\)</span> time. The selection sort dominates, so the total is <span class="math">\(\Theta(n^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>The function isn't actually recursive: it calls the regular <span class="inline-code"><code>mergesort</code></span> on the left half, taking <span class="math">\(\Theta(n \log n)\)</span> time, <span class="inline-code"><code>selection_sort</code></span> on the right half, taking <span class="math">\(\Theta((n/2)^2) = \Theta(n^2)\)</span> time, and <span class="inline-code"><code>merge</code></span>, taking <span class="math">\(\Theta(n)\)</span> time. The selection sort dominates, so the total is <span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1253,7 +1261,7 @@ def foo(n):
     \]</div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
 <p>Unrolling several times, we find:</p>
 <div class="math">\[
             \begin{aligned}
@@ -1266,7 +1274,7 @@ def foo(n):
 <div class="math">\[
             T(n) = T(n/2^k) + \left[                n + \frac{n}{2} + \frac{n}{4} + \ldots + \frac{n}{2^{k-1}}
             \right]        \]</div>
-<p>It will take <span class="math">\(\log_2 n\)</span> unrolls to reach the base case. Substituting this for <span class="math">\(k\)</span>, we get:</p>
+<p>It will take <span class="math">\(\log_2 n\)</span> unrolls to reach the base case. Substituting this for <span class="math-with-punctuation"><span class="math">\(k\)</span>,</span> we get:</p>
 <div class="math">\[
         \begin{aligned}
             T(n)
@@ -1279,7 +1287,7 @@ def foo(n):
             &= \Theta(n)
         \end{aligned}
         \]</div>
-<p>The sum in brackets is a geometric series, which is at most <span class="math">\(1 + \frac{1}{2} + \frac{1}{4} + \ldots = 2\)</span>, so it is a constant <span class="math">\(c\)</span>.</p>
+<p>The sum in brackets is a geometric series, which is at most <span class="math-with-punctuation"><span class="math">\(1 + \frac{1}{2} + \frac{1}{4} + \ldots = 2\)</span>,</span> so it is a constant <span class="math-with-punctuation"><span class="math">\(c\)</span>.</span></p>
 </details>
 
     </div>
@@ -1305,7 +1313,7 @@ def foo(n):
     \]</div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
 <p>Unrolling several times, we find:</p>
 <div class="math">\[
             \begin{aligned}
@@ -1318,14 +1326,14 @@ def foo(n):
 <div class="math">\[
             T(n) = T(n/3^k) + \left[                n + \frac{n}{3} + \frac{n}{9} + \ldots + \frac{n}{3^{k-1}}
             \right]        \]</div>
-<p>It will take <span class="math">\(\log_3 n\)</span> unrolls to reach the base case. Substituting this for <span class="math">\(k\)</span>, we get:</p>
+<p>It will take <span class="math">\(\log_3 n\)</span> unrolls to reach the base case. Substituting this for <span class="math-with-punctuation"><span class="math">\(k\)</span>,</span> we get:</p>
 <div class="math">\[
             \begin{aligned}
                 T(n) &= T(n/3^{\log_3 n}) + \Biggl[ n + \frac{n}{3} + \frac{n}{9} + \ldots + \frac{n}{3^{(\log_3 n) - 1}}\Biggr]\\
                      &= T(1) + n \underbrace{\Biggl[ 1 + \frac{1}{3} + \frac{1}{9} + \ldots + \frac{1}{3^{(\log_3 n) - 1}}\Biggr]}_{\leq 3/2}
             \end{aligned}
         \]</div>
-<p>Here we've recognized the summation in square brackets as a geometric sum of powers of <span class="math">\(1/3\)</span>, which converges to <span class="math">\(3/2\)</span> when there are infinitely many terms. We've seen this sum in solving a couple of homework problems.</p>
+<p>Here we've recognized the summation in square brackets as a geometric sum of powers of <span class="math-with-punctuation"><span class="math">\(1/3\)</span>,</span> which converges to <span class="math">\(3/2\)</span> when there are infinitely many terms. We've seen this sum in solving a couple of homework problems.</p>
 <div class="math">\[
             \begin{aligned}
                 T(n) &= T(1) + cn\\
@@ -1358,7 +1366,7 @@ def foo(n):
     \]</div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
 <p>We'll unroll several times:</p>
 <div class="math">\[
         \begin{aligned}
@@ -1379,15 +1387,15 @@ def foo(n):
             T(n) = 2^k T\left(\frac{n}{4^k} \right)+
                 n \left(                    1 + \frac12 + \frac14 + \ldots + \frac{1}{2^{k-1}}
                 \right)        \]</div>
-<p>The base case is reached when <span class="math">\(k = \log_4 n\)</span>. Plugging this back in, we find:</p>
+<p>The base case is reached when <span class="math-with-punctuation"><span class="math">\(k = \log_4 n\)</span>.</span> Plugging this back in, we find:</p>
 <div class="math">\[
             T(n) = 2^{\log_4 n} T(1) + n \left(1 + \frac12 + \frac 14 + \ldots + \frac{1}{2^{\log_4 n - 1}}\right)        \]</div>
-<p>If you're unsure of what to do with <span class="math">\(2^{\log_4 n}\)</span>, there are a couple of ways forward.</p>
-<p>The first (and easiest) way is to realize that <span class="math">\(2^{\log_4 n}\)</span> is smaller than <span class="math">\(2^{\log_2 n} = n\)</span>, so <span class="math">\(2^{\log_4 n} = O(n)\)</span>. Similarly, we've seen the summation of <span class="math">\(1 + 1/2 + 1/4 + \ldots\)</span> several times—this is a <i>geometric</i> sum, and converges to 2 when there are infinitely many terms. There are a finite number of terms here, so the sum is <span class="math">\(< 2\)</span>. Altogether, we have:</p>
+<p>If you're unsure of what to do with <span class="math-with-punctuation"><span class="math">\(2^{\log_4 n}\)</span>,</span> there are a couple of ways forward.</p>
+<p>The first (and easiest) way is to realize that <span class="math">\(2^{\log_4 n}\)</span> is smaller than <span class="math-with-punctuation"><span class="math">\(2^{\log_2 n} = n\)</span>,</span> so <span class="math-with-punctuation"><span class="math">\(2^{\log_4 n} = O(n)\)</span>.</span> Similarly, we've seen the summation of <span class="math">\(1 + 1/2 + 1/4 + \ldots\)</span> several times—this is a <i>geometric</i> sum, and converges to 2 when there are infinitely many terms. There are a finite number of terms here, so the sum is <span class="math-with-punctuation"><span class="math">\(< 2\)</span>.</span> Altogether, we have:</p>
 <div class="math">\[
             T(n) = O(n) T(1) + n \Theta(1) = \Theta(n)
         \]</div>
-<p>The second approach is to remember log properties to simplify <span class="math">\(2^{\log_4 n}\)</span> to <span class="math">\(\sqrt{n}\)</span>. This can be seen by using the “change of base” formula:</p>
+<p>The second approach is to remember log properties to simplify <span class="math">\(2^{\log_4 n}\)</span> to <span class="math-with-punctuation"><span class="math">\(\sqrt{n}\)</span>.</span> This can be seen by using the “change of base” formula:</p>
 <div class="math">\[
             \log_b x = \frac{\log_a x}{\log_a b}.
         \]</div>
@@ -1395,8 +1403,8 @@ def foo(n):
 <div class="math">\[
             \log_4 n = \frac{\log_2 n}{\log_2 4} = \frac{\log_2 n}{2}
         \]</div>
-<p>And therefore <span class="math">\(2^{\log_4 n} = 2^{(\log_2 n) / 2} = \left(2^{\log_2
-        n}\right)^{1/2} = n^{1/2} = \sqrt n\)</span>. This shows that the first term in the recurrence is <span class="math">\(\Theta(\sqrt n)\)</span>. The second term is still <span class="math">\(\Theta(n)\)</span>, so the solution is <span class="math">\(\Theta(n)\)</span>.</p>
+<p>And therefore <span class="math-with-punctuation"><span class="math">\(2^{\log_4 n} = 2^{(\log_2 n) / 2} = \left(2^{\log_2
+        n}\right)^{1/2} = n^{1/2} = \sqrt n\)</span>.</span> This shows that the first term in the recurrence is <span class="math-with-punctuation"><span class="math">\(\Theta(\sqrt n)\)</span>.</span> The second term is still <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>,</span> so the solution is <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1442,8 +1450,9 @@ def foo(arr):
     return foo(left) + foo(middle) + foo(right) + total</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. This does <span class="math">\(\Theta(n^2)\)</span> work outside of the recursive calls. The recurrence relation is <span class="math">\(T(n) = 3T(n/3) + \Theta(n^2)\)</span>, whose solution is <span class="math">\(\Theta(n^2)\)</span>.</p>
-<p>Solving this recurrence involves a little bit more than usual, because you have to recognize a <i>geometric sum</i>. When unrolling, you should find that on step <span class="math">\(k\)</span> you get a term of the form <span class="math">\(n^2 + n^2/3 + n^2/3^2 + n^2/3^3 + ... + n^2/3^{k-1}\)</span>. This is a geometric sum, which we saw in an earlier homework. If you factor out the <span class="math">\(n^2\)</span>, you get something of the form <span class="math">\(1 + 1/3 + 1/3^2 + ...\)</span>. There is an exact formula for this, but for our purposes all that matters is that the sum converges to some number (a constant), and so the recurrence is <span class="math">\(\Theta(n^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>This does <span class="math">\(\Theta(n^2)\)</span> work outside of the recursive calls. The recurrence relation is <span class="math-with-punctuation"><span class="math">\(T(n) = 3T(n/3) + \Theta(n^2)\)</span>,</span> whose solution is <span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>Solving this recurrence involves a little bit more than usual, because you have to recognize a <i>geometric sum</i>. When unrolling, you should find that on step <span class="math">\(k\)</span> you get a term of the form <span class="math-with-punctuation"><span class="math">\(n^2 + n^2/3 + n^2/3^2 + n^2/3^3 + ... + n^2/3^{k-1}\)</span>.</span> This is a geometric sum, which we saw in an earlier homework. If you factor out the <span class="math-with-punctuation"><span class="math">\(n^2\)</span>,</span> you get something of the form <span class="math-with-punctuation"><span class="math">\(1 + 1/3 + 1/3^2 + ...\)</span>.</span> There is an exact formula for this, but for our purposes all that matters is that the sum converges to some number (a constant), and so the recurrence is <span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
 </details>
 
     </div>

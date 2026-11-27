@@ -950,6 +950,8 @@ Course Staff
 /* level the box with the first line of the choice, not the middle of a wrapped one */
 .multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+/* inline math and the punctuation right after it; see _keep_math_with_punctuation */
+.math-with-punctuation { white-space: nowrap; }
 </style>
 <h1>Quiz 06</h1>
 <p>Practice problems for topics on Quiz 06.</p>
@@ -1015,7 +1017,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Directed graph</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>An undirected graph. Since friendship is symmetric, an edge between A and B has no direction.</p>
+<p>An undirected graph.</p>
+<p>Since friendship is symmetric, an edge between A and B has no direction.</p>
 </details>
 
     </div>
@@ -1033,10 +1036,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Consider the graph below</p>
 <center><div class="image"><img src="images/190/graph_theory_1.png" /></div></center>
-<p>What is the <b>out degree</b> of node <span class="math">\(0\)</span>?</p>
+<p>What is the <b>out degree</b> of node <span class="math-with-punctuation"><span class="math">\(0\)</span>?</span></p>
 <details>
     <summary>Solution</summary>
-<p>Answer: 3. Node 0 has edges to 2, 4, and 5.</p>
+<p>Answer: 3.</p>
+<p>Node 0 has edges to 2, 4, and 5.</p>
 </details>
 
     </div>
@@ -1056,7 +1060,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <center><div class="image"><img src="images/191/g1.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p>4. Node <span class="math">\(u\)</span> has edges going out to three other nodes (the top, middle, and bottom nodes), plus the self-loop, which also counts as an edge out of <span class="math">\(u\)</span>.</p>
+<p>4.</p>
+<p>Node <span class="math">\(u\)</span> has edges going out to three other nodes (the top, middle, and bottom nodes), plus the self-loop, which also counts as an edge out of <span class="math-with-punctuation"><span class="math">\(u\)</span>.</span></p>
 </details>
 
     </div>
@@ -1075,7 +1080,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Let <span class="math">\(V = \{a, b, c, d\}\)</span> and <span class="math">\(E = \{(a,b), (a,a), (a,c), (d,b), (c,a)\}\)</span> be the nodes and edges of a directed graph. How many predecessors does node <span class="math">\(b\)</span> have?</p>
 <details>
     <summary>Solution</summary>
-<p>2, namely <span class="math">\(a\)</span> (from the edge <span class="math">\((a, b)\)</span>) and <span class="math">\(d\)</span> (from <span class="math">\((d, b)\)</span>), the nodes with an edge into <span class="math">\(b\)</span>.</p>
+<p>Answer: 2.</p>
+<p>They are <span class="math">\(a\)</span> (from the edge <span class="math-with-punctuation"><span class="math">\((a, b)\)</span>)</span> and <span class="math">\(d\)</span> (from <span class="math-with-punctuation"><span class="math">\((d, b)\)</span>),</span> the nodes with an edge into <span class="math-with-punctuation"><span class="math">\(b\)</span>.</span></p>
 </details>
 
     </div>
@@ -1091,7 +1097,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose <span class="math">\(u\)</span> is a node in a complete, undirected graph <span class="math">\(G = (V,E)\)</span>. What is the degree of <span class="math">\(u\)</span>? Remember, an undirected graph is <i>complete</i> if it contains every possible edge.</p>
+<p>Suppose <span class="math">\(u\)</span> is a node in a complete, undirected graph <span class="math-with-punctuation"><span class="math">\(G = (V,E)\)</span>.</span> What is the degree of <span class="math-with-punctuation"><span class="math">\(u\)</span>?</span> Remember, an undirected graph is <i>complete</i> if it contains every possible edge.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(|V|\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(|E|\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(|V| - 1\)</span></p></label></div>
@@ -1099,7 +1105,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(|V|^2\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(|V| - 1\)</span>. In a complete graph, <span class="math">\(u\)</span> has an edge to every other node, and there are <span class="math">\(|V| - 1\)</span> of them. (In an undirected graph there are no self-loops, so <span class="math">\(u\)</span> isn't a neighbor of itself.)</p>
+<p><span class="math-with-punctuation"><span class="math">\(|V| - 1\)</span>.</span></p>
+<p>In a complete graph, <span class="math">\(u\)</span> has an edge to every other node, and there are <span class="math">\(|V| - 1\)</span> of them. (In an undirected graph there are no self-loops, so <span class="math">\(u\)</span> isn't a neighbor of itself.)</p>
 </details>
 
     </div>
@@ -1115,11 +1122,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(G = (V, E)\)</span> be a <i>directed</i> graph, and suppose <span class="math">\(u, v, w \in V\)</span> are all nodes. True or False: if <span class="math">\(w\)</span> is reachable from <span class="math">\(v\)</span>, and <span class="math">\(v\)</span> is reachable from <span class="math">\(u\)</span>, then <span class="math">\(w\)</span> is reachable from <span class="math">\(u\)</span>.</p>
+<p>Let <span class="math">\(G = (V, E)\)</span> be a <i>directed</i> graph, and suppose <span class="math">\(u, v, w \in V\)</span> are all nodes. True or False: if <span class="math">\(w\)</span> is reachable from <span class="math-with-punctuation"><span class="math">\(v\)</span>,</span> and <span class="math">\(v\)</span> is reachable from <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> then <span class="math">\(w\)</span> is reachable from <span class="math-with-punctuation"><span class="math">\(u\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
 <p>True.</p>
-<p>There is a path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> and a path from <span class="math">\(v\)</span> to <span class="math">\(w\)</span>. Following the first path and then the second gives a path from <span class="math">\(u\)</span> to <span class="math">\(w\)</span> (all of the edges point in the right direction, since each path follows its edges forward).</p>
+<p>There is a path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> and a path from <span class="math">\(v\)</span> to <span class="math-with-punctuation"><span class="math">\(w\)</span>.</span> Following the first path and then the second gives a path from <span class="math">\(u\)</span> to <span class="math">\(w\)</span> (all of the edges point in the right direction, since each path follows its edges forward).</p>
 </details>
 
     </div>
@@ -1135,11 +1142,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(C\)</span> be a connected component in an undirected graph <span class="math">\(G\)</span>. Suppose <span class="math">\(u_1\)</span> is a node in <span class="math">\(C\)</span> and let <span class="math">\(u_2\)</span> be a node that is reachable from <span class="math">\(u_1\)</span>. True or False: <span class="math">\(u_2\)</span> must also be in the same connected component, <span class="math">\(C\)</span>.</p>
+<p>Let <span class="math">\(C\)</span> be a connected component in an undirected graph <span class="math-with-punctuation"><span class="math">\(G\)</span>.</span> Suppose <span class="math">\(u_1\)</span> is a node in <span class="math">\(C\)</span> and let <span class="math">\(u_2\)</span> be a node that is reachable from <span class="math-with-punctuation"><span class="math">\(u_1\)</span>.</span> True or False: <span class="math">\(u_2\)</span> must also be in the same connected component, <span class="math-with-punctuation"><span class="math">\(C\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
 <p>True.</p>
-<p>A connected component contains every node that is reachable from any of its nodes; it is a maximal set of nodes that can all reach one another. Since <span class="math">\(u_2\)</span> is reachable from <span class="math">\(u_1\)</span>, it is in the same component as <span class="math">\(u_1\)</span>, which is <span class="math">\(C\)</span>.</p>
+<p>A connected component contains every node that is reachable from any of its nodes; it is a maximal set of nodes that can all reach one another. Since <span class="math">\(u_2\)</span> is reachable from <span class="math-with-punctuation"><span class="math">\(u_1\)</span>,</span> it is in the same component as <span class="math-with-punctuation"><span class="math">\(u_1\)</span>,</span> which is <span class="math-with-punctuation"><span class="math">\(C\)</span>.</span></p>
 </details>
 
     </div>
@@ -1155,10 +1162,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(V = \{a, b, c, d, e, f, g\}\)</span> and <span class="math">\(E = \{(a,g), (b,d), (d, e), (f, d)\}\)</span>. How many connected components does the undirected graph <span class="math">\(G =(V, E)\)</span> have?</p>
+<p>Let <span class="math">\(V = \{a, b, c, d, e, f, g\}\)</span> and <span class="math-with-punctuation"><span class="math">\(E = \{(a,g), (b,d), (d, e), (f, d)\}\)</span>.</span> How many connected components does the undirected graph <span class="math">\(G =(V, E)\)</span> have?</p>
 <details>
     <summary>Solution</summary>
-<p>3. The connected components are <span class="math">\(\{a, g\}\)</span>, <span class="math">\(\{b, d, e, f\}\)</span> (since <span class="math">\(d\)</span> is connected to <span class="math">\(b\)</span>, <span class="math">\(e\)</span> and <span class="math">\(f\)</span>), and <span class="math">\(\{c\}\)</span>, which has no edges.</p>
+<p>3.</p>
+<p>The connected components are <span class="math-with-punctuation"><span class="math">\(\{a, g\}\)</span>,</span> <span class="math">\(\{b, d, e, f\}\)</span> (since <span class="math">\(d\)</span> is connected to <span class="math-with-punctuation"><span class="math">\(b\)</span>,</span> <span class="math">\(e\)</span> and <span class="math-with-punctuation"><span class="math">\(f\)</span>),</span> and <span class="math-with-punctuation"><span class="math">\(\{c\}\)</span>,</span> which has no edges.</p>
 </details>
 
     </div>
@@ -1177,7 +1185,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Consider the undirected graph <span class="math">\(G = (V, E)\)</span> with</p>
 <p><span class="math">\(V = \{0, 1, 2, 3, 4, 5, 6, 7\}\)</span></p>
 <p><span class="math">\(E = \{(0, 1), (3, 6), (1, 5), (2, 4), (3, 4)\}\)</span></p>
-<p>What are the connected components of <span class="math">\(G\)</span>?</p>
+<p>What are the connected components of <span class="math-with-punctuation"><span class="math">\(G\)</span>?</span></p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{\{0, 1, 5, 7\}, \{2, 3, 4, 6\}\}\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{\{0, 1, 5, 2, 4\}, \{3, 6, 7\}\}\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{\{0, 1, 5\}, \{2, 3, 4, 6, 7\}\}\)</span></p></label></div>
@@ -1185,7 +1193,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{\{0, 1, 5\}, \{2, 3, 4, 6\}\}\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\{\{0, 1, 5\}, \{2, 3, 4, 6\}, \{7\}\}\)</span>. The edges <span class="math">\((0,1)\)</span> and <span class="math">\((1,5)\)</span> connect 0, 1, and 5. The edges <span class="math">\((2,4)\)</span>, <span class="math">\((3,4)\)</span>, and <span class="math">\((3,6)\)</span> connect 2, 3, 4, and 6. Node 7 has no edges, so it is a connected component by itself.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\{\{0, 1, 5\}, \{2, 3, 4, 6\}, \{7\}\}\)</span>.</span></p>
+<p>The edges <span class="math">\((0,1)\)</span> and <span class="math">\((1,5)\)</span> connect 0, 1, and 5. The edges <span class="math-with-punctuation"><span class="math">\((2,4)\)</span>,</span> <span class="math-with-punctuation"><span class="math">\((3,4)\)</span>,</span> and <span class="math">\((3,6)\)</span> connect 2, 3, 4, and 6. Node 7 has no edges, so it is a connected component by itself.</p>
 </details>
 
     </div>
@@ -1211,8 +1220,9 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>True or False: <span class="math">\(\{b, d, g\}\)</span> is a connected component of this graph.</p>
 <details>
     <summary>Solution</summary>
-<p>False. The connected components of this graph are <span class="math">\(\{a, e, f\}\)</span> and <span class="math">\(\{b, c, d, g, h\}\)</span>.</p>
-<p>Remember: a connected component has to contain <i>all</i> nodes reachable from any node in the component. While <span class="math">\(b\)</span>, <span class="math">\(d\)</span>, and <span class="math">\(g\)</span> are all reachable from one another (and are “connected”), they do not form a connected component because there are more nodes reachable from this group: namely, <span class="math">\(h\)</span> and <span class="math">\(c\)</span>.</p>
+<p>False.</p>
+<p>The connected components of this graph are <span class="math">\(\{a, e, f\}\)</span> and <span class="math-with-punctuation"><span class="math">\(\{b, c, d, g, h\}\)</span>.</span></p>
+<p>Remember: a connected component has to contain <i>all</i> nodes reachable from any node in the component. While <span class="math-with-punctuation"><span class="math">\(b\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(d\)</span>,</span> and <span class="math">\(g\)</span> are all reachable from one another (and are “connected”), they do not form a connected component because there are more nodes reachable from this group: namely, <span class="math">\(h\)</span> and <span class="math-with-punctuation"><span class="math">\(c\)</span>.</span></p>
 </details>
 
     </div>
@@ -1239,7 +1249,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <details>
     <summary>Solution</summary>
 <p>False.</p>
-<p>Node <span class="math">\(c\)</span> is also reachable from <span class="math">\(a\)</span> via the edge <span class="math">\((a, c)\)</span>, so <span class="math">\(\{a, d, e\}\)</span> isn't a maximal set of connected nodes. The connected component containing <span class="math">\(a\)</span> is <span class="math">\(\{a, c, d, e\}\)</span>.</p>
+<p>Node <span class="math">\(c\)</span> is also reachable from <span class="math">\(a\)</span> via the edge <span class="math-with-punctuation"><span class="math">\((a, c)\)</span>,</span> so <span class="math">\(\{a, d, e\}\)</span> isn't a maximal set of connected nodes. The connected component containing <span class="math">\(a\)</span> is <span class="math-with-punctuation"><span class="math">\(\{a, c, d, e\}\)</span>.</span></p>
 </details>
 
     </div>
@@ -1255,11 +1265,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(G = (V, E)\)</span> be an undirected graph, and suppose that <span class="math">\(u, v, \)</span> and <span class="math">\(w\)</span> are three nodes in <span class="math">\(V\)</span>. Suppose that <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the same connected component, but <span class="math">\(u\)</span> and <span class="math">\(w\)</span> are not in the same connected component. True or False: it is possible that <span class="math">\(v\)</span> and <span class="math">\(w\)</span> are in the same connected component.</p>
+<p>Let <span class="math">\(G = (V, E)\)</span> be an undirected graph, and suppose that <span class="math">\(u, v, \)</span> and <span class="math">\(w\)</span> are three nodes in <span class="math-with-punctuation"><span class="math">\(V\)</span>.</span> Suppose that <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the same connected component, but <span class="math">\(u\)</span> and <span class="math">\(w\)</span> are not in the same connected component. True or False: it is possible that <span class="math">\(v\)</span> and <span class="math">\(w\)</span> are in the same connected component.</p>
 <details>
     <summary>Solution</summary>
 <p>False.</p>
-<p>If <span class="math">\(v\)</span> and <span class="math">\(w\)</span> were in the same connected component, then there would be a path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> and a path from <span class="math">\(v\)</span> to <span class="math">\(w\)</span>, and putting them together gives a path from <span class="math">\(u\)</span> to <span class="math">\(w\)</span>. That would put <span class="math">\(u\)</span> and <span class="math">\(w\)</span> in the same component, which contradicts what we were told. (In other words, the connected components split the nodes into non-overlapping groups.)</p>
+<p>If <span class="math">\(v\)</span> and <span class="math">\(w\)</span> were in the same connected component, then there would be a path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> and a path from <span class="math">\(v\)</span> to <span class="math-with-punctuation"><span class="math">\(w\)</span>,</span> and putting them together gives a path from <span class="math">\(u\)</span> to <span class="math-with-punctuation"><span class="math">\(w\)</span>.</span> That would put <span class="math">\(u\)</span> and <span class="math">\(w\)</span> in the same component, which contradicts what we were told. (In other words, the connected components split the nodes into non-overlapping groups.)</p>
 </details>
 
     </div>
@@ -1278,7 +1288,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>An <i>undirected</i> graph has 5 nodes. What is the greatest number of edges it can have?</p>
 <details>
     <summary>Solution</summary>
-<p>10. The most edges is when every pair of nodes is connected, and there are <span class="math">\(\binom{5}{2} = \frac{5 \cdot 4}{2} = 10\)</span> pairs.</p>
+<p>10.</p>
+<p>The most edges is when every pair of nodes is connected, and there are <span class="math">\(\binom{5}{2} = \frac{5 \cdot 4}{2} = 10\)</span> pairs.</p>
 </details>
 
     </div>
@@ -1303,7 +1314,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>110</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>Answer: 90. Each of the 10 nodes has an edge to each of the other 9 nodes, giving <span class="math">\(10 \times 9 = 90\)</span> edges. (Equivalently, <span class="math">\(10^2 = 100\)</span> possible ordered pairs, minus the 10 self loops.)</p>
+<p>Answer: 90.</p>
+<p>Each of the 10 nodes has an edge to each of the other 9 nodes, giving <span class="math">\(10 \times 9 = 90\)</span> edges. (Equivalently, <span class="math">\(10^2 = 100\)</span> possible ordered pairs, minus the 10 self loops.)</p>
 </details>
 
     </div>
@@ -1323,7 +1335,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <details>
     <summary>Solution</summary>
 <p>False.</p>
-<p>Take four nodes <span class="math">\(a, b, c, d\)</span> with edges <span class="math">\((a, b)\)</span> and <span class="math">\((c, d)\)</span>. Every node has degree 1, but the graph has two connected components, <span class="math">\(\{a, b\}\)</span> and <span class="math">\(\{c, d\}\)</span>.</p>
+<p>Take four nodes <span class="math">\(a, b, c, d\)</span> with edges <span class="math">\((a, b)\)</span> and <span class="math-with-punctuation"><span class="math">\((c, d)\)</span>.</span> Every node has degree 1, but the graph has two connected components, <span class="math">\(\{a, b\}\)</span> and <span class="math-with-punctuation"><span class="math">\(\{c, d\}\)</span>.</span></p>
 </details>
 
     </div>
@@ -1339,11 +1351,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose <span class="math">\(G = (V, E)\)</span> is an undirected graph. Let <span class="math">\(k\)</span> be the number of connected components in <span class="math">\(G\)</span>. True or False: it is possible that <span class="math">\(k > |E|\)</span>.</p>
+<p>Suppose <span class="math">\(G = (V, E)\)</span> is an undirected graph. Let <span class="math">\(k\)</span> be the number of connected components in <span class="math-with-punctuation"><span class="math">\(G\)</span>.</span> True or False: it is possible that <span class="math-with-punctuation"><span class="math">\(k > |E|\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
 <p>True.</p>
-<p>For example, a graph with 3 nodes and no edges has <span class="math">\(k = 3\)</span> connected components (each node is its own component) but <span class="math">\(|E| = 0\)</span>.</p>
+<p>For example, a graph with 3 nodes and no edges has <span class="math">\(k = 3\)</span> connected components (each node is its own component) but <span class="math-with-punctuation"><span class="math">\(|E| = 0\)</span>.</span></p>
 </details>
 
     </div>
@@ -1359,11 +1371,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(G = (V, E)\)</span> be a directed graph with <span class="math">\(|V| > 1\)</span>. Suppose that every node in <span class="math">\(G\)</span> is reachable from every other node. True or False: each node in the graph must have an out-degree of at least one and an in-degree of at least one.</p>
+<p>Let <span class="math">\(G = (V, E)\)</span> be a directed graph with <span class="math-with-punctuation"><span class="math">\(|V| > 1\)</span>.</span> Suppose that every node in <span class="math">\(G\)</span> is reachable from every other node. True or False: each node in the graph must have an out-degree of at least one and an in-degree of at least one.</p>
 <details>
     <summary>Solution</summary>
 <p>True.</p>
-<p>Pick any node <span class="math">\(u\)</span>, and let <span class="math">\(v\)</span> be some other node (one exists because <span class="math">\(|V| > 1\)</span>). Since <span class="math">\(v\)</span> is reachable from <span class="math">\(u\)</span>, there is a path out of <span class="math">\(u\)</span>, and the first edge of that path leaves <span class="math">\(u\)</span>, so <span class="math">\(u\)</span> has out-degree at least one. Similarly, since <span class="math">\(u\)</span> is reachable from <span class="math">\(v\)</span>, the last edge of that path enters <span class="math">\(u\)</span>, so <span class="math">\(u\)</span> has in-degree at least one.</p>
+<p>Pick any node <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> and let <span class="math">\(v\)</span> be some other node (one exists because <span class="math-with-punctuation"><span class="math">\(|V| > 1\)</span>).</span> Since <span class="math">\(v\)</span> is reachable from <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> there is a path out of <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> and the first edge of that path leaves <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> so <span class="math">\(u\)</span> has out-degree at least one. Similarly, since <span class="math">\(u\)</span> is reachable from <span class="math-with-punctuation"><span class="math">\(v\)</span>,</span> the last edge of that path enters <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> so <span class="math">\(u\)</span> has in-degree at least one.</p>
 </details>
 
     </div>
@@ -1379,10 +1391,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(G = (V, E)\)</span> be a connected, undirected graph with 16 nodes and 35 edges. What is the greatest possible number of edges that can be in a simple path within <span class="math">\(G\)</span>?</p>
+<p>Let <span class="math">\(G = (V, E)\)</span> be a connected, undirected graph with 16 nodes and 35 edges. What is the greatest possible number of edges that can be in a simple path within <span class="math-with-punctuation"><span class="math">\(G\)</span>?</span></p>
 <details>
     <summary>Solution</summary>
-<p>15, since a simple path can't repeat a node, so it visits at most all 16 nodes, and a path through 16 nodes has 15 edges.</p>
+<p>Answer: 15.</p>
+<p>A simple path can't repeat a node, so it visits at most all 16 nodes, and a path through 16 nodes has 15 edges.</p>
 </details>
 
     </div>
@@ -1398,10 +1411,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose an undirected graph <span class="math">\(G = (V,E)\)</span> has two connected components, <span class="math">\(C_1\)</span> and <span class="math">\(C_2\)</span>. Suppose that <span class="math">\(|C_1| = 4\)</span> and <span class="math">\(|C_2| = 3\)</span>. What is the largest that <span class="math">\(|E|\)</span> can possibly be?</p>
+<p>Suppose an undirected graph <span class="math">\(G = (V,E)\)</span> has two connected components, <span class="math">\(C_1\)</span> and <span class="math-with-punctuation"><span class="math">\(C_2\)</span>.</span> Suppose that <span class="math">\(|C_1| = 4\)</span> and <span class="math-with-punctuation"><span class="math">\(|C_2| = 3\)</span>.</span> What is the largest that <span class="math">\(|E|\)</span> can possibly be?</p>
 <details>
     <summary>Solution</summary>
-<p>Answer: 9. To get a graph with the most edges, make each connected component "fully connected". The most edges we can put in a component with 4 nodes is <span class="math">\(4 \cdot 3 / 2 = 6\)</span>, and the most we can put into a component with 3 nodes is <span class="math">\(3 \cdot 2 / 2 = 3\)</span>. Therefore, we can put at most 9 edges in this graph.</p>
+<p>Answer: 9.</p>
+<p>To get a graph with the most edges, make each connected component "fully connected". The most edges we can put in a component with 4 nodes is <span class="math-with-punctuation"><span class="math">\(4 \cdot 3 / 2 = 6\)</span>,</span> and the most we can put into a component with 3 nodes is <span class="math-with-punctuation"><span class="math">\(3 \cdot 2 / 2 = 3\)</span>.</span> Therefore, we can put at most 9 edges in this graph.</p>
 </details>
 
     </div>
@@ -1420,7 +1434,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose an <b>undirected</b> graph has 3 connected components and 7 nodes. What is the <i>maximum</i> number of edges it can have?</p>
 <details>
     <summary>Solution</summary>
-<p>10. To have as many edges as possible, put 5 nodes in one component with every possible edge between them, and leave the other two nodes isolated as their own components. That's <span class="math">\(\binom{5}{2} = 10\)</span> edges. Spreading the nodes out gives fewer, e.g., components of sizes 4, 2 and 1 have <span class="math">\(6 + 1 = 7\)</span> edges.</p>
+<p>10.</p>
+<p>To have as many edges as possible, put 5 nodes in one component with every possible edge between them, and leave the other two nodes isolated as their own components. That's <span class="math">\(\binom{5}{2} = 10\)</span> edges. Spreading the nodes out gives fewer, e.g., components of sizes 4, 2 and 1 have <span class="math">\(6 + 1 = 7\)</span> edges.</p>
 </details>
 
     </div>
@@ -1439,7 +1454,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose an <b>undirected</b> graph has 16 edges. What is the <i>smallest</i> number of nodes it can have?</p>
 <details>
     <summary>Solution</summary>
-<p>7. An undirected graph with <span class="math">\(n\)</span> nodes has at most <span class="math">\(\binom{n}{2} = \frac{n(n-1)}{2}\)</span> edges. With 6 nodes that's 15, which is less than 16, but with 7 nodes it's 21, so 7 nodes is enough.</p>
+<p>7.</p>
+<p>An undirected graph with <span class="math">\(n\)</span> nodes has at most <span class="math">\(\binom{n}{2} = \frac{n(n-1)}{2}\)</span> edges. With 6 nodes that's 15, which is less than 16, but with 7 nodes it's 21, so 7 nodes is enough.</p>
 </details>
 
     </div>
@@ -1458,7 +1474,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>A <i>directed</i> graph has 10 <i>edges</i>. What is the <i>smallest</i> number of <i>nodes</i> it can have?</p>
 <details>
     <summary>Solution</summary>
-<p>4. A directed graph with <span class="math">\(n\)</span> nodes can have an edge from every node to every node, including self-loops, so at most <span class="math">\(n^2\)</span> edges. With 3 nodes that's 9, which is less than 10, but with 4 nodes it's 16.</p>
+<p>4.</p>
+<p>A directed graph with <span class="math">\(n\)</span> nodes can have an edge from every node to every node, including self-loops, so at most <span class="math">\(n^2\)</span> edges. With 3 nodes that's 9, which is less than 10, but with 4 nodes it's 16.</p>
 </details>
 
     </div>
@@ -1477,6 +1494,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose a <b>directed</b> graph has 5 nodes and 3 edges. What is the greatest possible degree of any node in the graph?</p>
 <details>
     <summary>Solution</summary>
+<p>4.</p>
 <p>Remember that nodes can have self loops, and that the degree of a node with only a self-loop is 2. So a node that has a self loop and two other edges leaving it has a degree of 4.</p>
 </details>
 
@@ -1495,10 +1513,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Consider the graph below</p>
 <center><div class="image"><img src="images/212/graph_theory_1.png" /></div></center>
-<p>How many <b>simple paths</b> are there from <span class="math">\(0\)</span> to <span class="math">\(5\)</span>?</p>
+<p>How many <b>simple paths</b> are there from <span class="math">\(0\)</span> to <span class="math-with-punctuation"><span class="math">\(5\)</span>?</span></p>
 <details>
     <summary>Solution</summary>
-<p>Answer: 3. They are <span class="math">\(0 \to 5\)</span>, <span class="math">\(0 \to 4 \to 5\)</span>, and <span class="math">\(0 \to 2 \to 4 \to 5\)</span>.</p>
+<p>Answer: 3.</p>
+<p>They are <span class="math-with-punctuation"><span class="math">\(0 \to 5\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(0 \to 4 \to 5\)</span>,</span> and <span class="math-with-punctuation"><span class="math">\(0 \to 2 \to 4 \to 5\)</span>.</span></p>
 </details>
 
     </div>
@@ -1516,10 +1535,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Consider the graph below</p>
 <center><div class="image"><img src="images/213/graph_theory_1.png" /></div></center>
-<p>True or False: there are <i>infinitely many</i> paths from <span class="math">\(0\)</span> to <span class="math">\(5\)</span>. (Here, "path" means any path, not necessarily a simple path.)</p>
+<p>True or False: there are <i>infinitely many</i> paths from <span class="math">\(0\)</span> to <span class="math-with-punctuation"><span class="math">\(5\)</span>.</span> (Here, "path" means any path, not necessarily a simple path.)</p>
 <details>
     <summary>Solution</summary>
-<p>False. Paths may repeat nodes, so there would be infinitely many paths from 0 to 5 if some path from 0 to 5 could go around a cycle. But this graph has no cycles (every edge goes "forward"), so no path can repeat a node, and the only paths from 0 to 5 are the three simple paths <span class="math">\(0 \to 5\)</span>, <span class="math">\(0 \to 4 \to 5\)</span>, and <span class="math">\(0 \to 2 \to 4 \to 5\)</span>.</p>
+<p>False.</p>
+<p>Paths may repeat nodes, so there would be infinitely many paths from 0 to 5 if some path from 0 to 5 could go around a cycle. But this graph has no cycles (every edge goes "forward"), so no path can repeat a node, and the only paths from 0 to 5 are the three simple paths <span class="math-with-punctuation"><span class="math">\(0 \to 5\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(0 \to 4 \to 5\)</span>,</span> and <span class="math-with-punctuation"><span class="math">\(0 \to 2 \to 4 \to 5\)</span>.</span></p>
 </details>
 
     </div>
@@ -1535,12 +1555,12 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(G\)</span> be an undirected graph, and suppose <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are two nodes belonging to the same connected component of <span class="math">\(G\)</span>, with <span class="math">\(v\)</span> being a neighbor of <span class="math">\(u\)</span>. That is, the edge <span class="math">\((u, v)\)</span> is in <span class="math">\(G\)</span>.</p>
-<p>Let <span class="math">\(G'\)</span> be the graph obtained from <span class="math">\(G\)</span> by deleting the edge <span class="math">\((u, v)\)</span>. True or False: <span class="math">\(u\)</span> and <span class="math">\(v\)</span> must still be in the same connected component of the new graph, <span class="math">\(G'\)</span>.</p>
+<p>Let <span class="math">\(G\)</span> be an undirected graph, and suppose <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are two nodes belonging to the same connected component of <span class="math-with-punctuation"><span class="math">\(G\)</span>,</span> with <span class="math">\(v\)</span> being a neighbor of <span class="math-with-punctuation"><span class="math">\(u\)</span>.</span> That is, the edge <span class="math">\((u, v)\)</span> is in <span class="math-with-punctuation"><span class="math">\(G\)</span>.</span></p>
+<p>Let <span class="math">\(G'\)</span> be the graph obtained from <span class="math">\(G\)</span> by deleting the edge <span class="math-with-punctuation"><span class="math">\((u, v)\)</span>.</span> True or False: <span class="math">\(u\)</span> and <span class="math">\(v\)</span> must still be in the same connected component of the new graph, <span class="math-with-punctuation"><span class="math">\(G'\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
 <p>False.</p>
-<p>If the edge <span class="math">\((u, v)\)</span> is the only path between them, deleting it disconnects them. For example, if <span class="math">\(G\)</span> has just the two nodes <span class="math">\(u\)</span> and <span class="math">\(v\)</span> and the single edge <span class="math">\((u, v)\)</span>, then after deleting it, <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are each in their own connected component. (They do stay connected if some other path between them exists, but that isn't guaranteed.)</p>
+<p>If the edge <span class="math">\((u, v)\)</span> is the only path between them, deleting it disconnects them. For example, if <span class="math">\(G\)</span> has just the two nodes <span class="math">\(u\)</span> and <span class="math">\(v\)</span> and the single edge <span class="math-with-punctuation"><span class="math">\((u, v)\)</span>,</span> then after deleting it, <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are each in their own connected component. (They do stay connected if some other path between them exists, but that isn't guaranteed.)</p>
 </details>
 
     </div>
@@ -1577,12 +1597,12 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(G=(V,E)\)</span> be an undirected graph with <span class="math">\(V=\{a,b,c,d,e\}\)</span> and <span class="math">\(E=\{(a,b),(c,d),(e,a),(b,c),(e,d),(d,a)\}\)</span>.</p>
+<p>Let <span class="math">\(G=(V,E)\)</span> be an undirected graph with <span class="math">\(V=\{a,b,c,d,e\}\)</span> and <span class="math-with-punctuation"><span class="math">\(E=\{(a,b),(c,d),(e,a),(b,c),(e,d),(d,a)\}\)</span>.</span></p>
 <p>True or False: it is possible to color the nodes of <span class="math">\(G\)</span> with red and blue such that there are no edges between nodes of the same color.</p>
 <details>
     <summary>Solution</summary>
 <p>False.</p>
-<p>The edges <span class="math">\((a, d)\)</span>, <span class="math">\((d, e)\)</span>, and <span class="math">\((e, a)\)</span> form a triangle. Whichever colors we give <span class="math">\(a\)</span>, <span class="math">\(d\)</span>, and <span class="math">\(e\)</span>, two of these three nodes must share a color, and they are joined by an edge.</p>
+<p>The edges <span class="math-with-punctuation"><span class="math">\((a, d)\)</span>,</span> <span class="math-with-punctuation"><span class="math">\((d, e)\)</span>,</span> and <span class="math">\((e, a)\)</span> form a triangle. Whichever colors we give <span class="math-with-punctuation"><span class="math">\(a\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(d\)</span>,</span> and <span class="math-with-punctuation"><span class="math">\(e\)</span>,</span> two of these three nodes must share a color, and they are joined by an edge.</p>
 </details>
 
     </div>
@@ -1598,11 +1618,12 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(G = (V, E)\)</span> be a directed graph with the property that there is a node <span class="math">\(u\)</span> in <span class="math">\(G\)</span> such that every other node in <span class="math">\(G\)</span> is reachable from <span class="math">\(u\)</span>.</p>
-<p>Let <span class="math">\(H \)</span> be the directed graph obtained from <span class="math">\(G\)</span> by reversing the direction of every edge. True or False: there must be a node <span class="math">\(v\)</span> in <span class="math">\(H\)</span> such that every other node in <span class="math">\(H\)</span> is reachable from <span class="math">\(v\)</span>.</p>
+<p>Let <span class="math">\(G = (V, E)\)</span> be a directed graph with the property that there is a node <span class="math">\(u\)</span> in <span class="math">\(G\)</span> such that every other node in <span class="math">\(G\)</span> is reachable from <span class="math-with-punctuation"><span class="math">\(u\)</span>.</span></p>
+<p>Let <span class="math">\(H \)</span> be the directed graph obtained from <span class="math">\(G\)</span> by reversing the direction of every edge. True or False: there must be a node <span class="math">\(v\)</span> in <span class="math">\(H\)</span> such that every other node in <span class="math">\(H\)</span> is reachable from <span class="math-with-punctuation"><span class="math">\(v\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
-<p>False. Consider the graph <span class="math">\(a \leftarrow b \rightarrow c\)</span>. Every node is reachable from <span class="math">\(b\)</span>. Now flip the edges to get the graph: <span class="math">\(a \rightarrow b \leftarrow c\)</span>. There's no node from which every other node is reachable.</p>
+<p>False.</p>
+<p>Consider the graph <span class="math-with-punctuation"><span class="math">\(a \leftarrow b \rightarrow c\)</span>.</span> Every node is reachable from <span class="math-with-punctuation"><span class="math">\(b\)</span>.</span> Now flip the edges to get the graph: <span class="math-with-punctuation"><span class="math">\(a \rightarrow b \leftarrow c\)</span>.</span> There's no node from which every other node is reachable.</p>
 </details>
 
     </div>
@@ -1618,7 +1639,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/graph representations.html'>graph representations</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(A\)</span> be the adjacency matrix representing a directed graph with <span class="math">\(n\)</span> nodes. What is the greatest possible sum of any <i>row</i> of <span class="math">\(A\)</span>?</p>
+<p>Let <span class="math">\(A\)</span> be the adjacency matrix representing a directed graph with <span class="math">\(n\)</span> nodes. What is the greatest possible sum of any <i>row</i> of <span class="math-with-punctuation"><span class="math">\(A\)</span>?</span></p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(1\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n - 1\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n\)</span></p></label></div>
@@ -1626,7 +1647,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n^2\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(n\)</span>. Row <span class="math">\(u\)</span> of <span class="math">\(A\)</span> has a one for each edge leaving <span class="math">\(u\)</span>, so its sum is <span class="math">\(u\)</span>'s out-degree. A directed graph may have self-loops, so <span class="math">\(u\)</span> can have an edge to all <span class="math">\(n\)</span> nodes, including itself, and the row can be all ones.</p>
+<p><span class="math-with-punctuation"><span class="math">\(n\)</span>.</span></p>
+<p>Row <span class="math">\(u\)</span> of <span class="math">\(A\)</span> has a one for each edge leaving <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> so its sum is <span class="math-with-punctuation"><span class="math">\(u\)</span>'</span>s out-degree. A directed graph may have self-loops, so <span class="math">\(u\)</span> can have an edge to all <span class="math">\(n\)</span> nodes, including itself, and the row can be all ones.</p>
 </details>
 
     </div>
@@ -1642,7 +1664,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/graph representations.html'>graph representations</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(A\)</span> be the adjacency matrix representing an undirected graph with <span class="math">\(n\)</span> nodes. What is the greatest possible sum of any <i>row</i> of <span class="math">\(A\)</span>?</p>
+<p>Let <span class="math">\(A\)</span> be the adjacency matrix representing an undirected graph with <span class="math">\(n\)</span> nodes. What is the greatest possible sum of any <i>row</i> of <span class="math-with-punctuation"><span class="math">\(A\)</span>?</span></p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(1\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n - 1\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n\)</span></p></label></div>
@@ -1650,7 +1672,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(n^2\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(n - 1\)</span>. The sum of row <span class="math">\(i\)</span> is the degree of node <span class="math">\(i\)</span>. Since an undirected graph has no self-loops, a node can be adjacent to at most the other <span class="math">\(n - 1\)</span> nodes.</p>
+<p><span class="math-with-punctuation"><span class="math">\(n - 1\)</span>.</span></p>
+<p>The sum of row <span class="math">\(i\)</span> is the degree of node <span class="math-with-punctuation"><span class="math">\(i\)</span>.</span> Since an undirected graph has no self-loops, a node can be adjacent to at most the other <span class="math">\(n - 1\)</span> nodes.</p>
 </details>
 
     </div>
@@ -1672,12 +1695,12 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         print(u, v, "is an edge")</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(V + E)\)</span>.</p>
-<p>It's tempting to multiply the two loops, but the inner loop runs a different number of times for each node: for node <span class="math">\(u\)</span>, it runs once for each neighbor of <span class="math">\(u\)</span>, i.e., <span class="inline-code"><code>len(adj_list[u])</code></span> times. So instead we add up the work node by node. For each node <span class="math">\(u\)</span>, the outer loop does <span class="math">\(\Theta(1)\)</span> work, and the inner loop does <span class="math">\(\Theta(\text{degree}(u))\)</span> work. The total is</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(V + E)\)</span>.</span></p>
+<p>It's tempting to multiply the two loops, but the inner loop runs a different number of times for each node: for node <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> it runs once for each neighbor of <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> i.e., <span class="inline-code"><code>len(adj_list[u])</code></span> times. So instead we add up the work node by node. For each node <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> the outer loop does <span class="math">\(\Theta(1)\)</span> work, and the inner loop does <span class="math">\(\Theta(\text{degree}(u))\)</span> work. The total is</p>
 <div class="math">\[
             \sum_{u \in V} \bigl(\Theta(1) + \Theta(\text{degree}(u))\bigr) = \Theta(V) + \Theta\Biggl(\sum_{u \in V} \text{degree}(u)\Biggr) = \Theta(V) + \Theta(E),
         \]</div>
-<p>since the lengths of all the adjacency lists add up to <span class="math">\(|E|\)</span> in a directed graph and <span class="math">\(2|E|\)</span> in an undirected one. The <span class="math">\(\Theta(V)\)</span> term matters too: a node with no neighbors still costs <span class="math">\(\Theta(1)\)</span> for the outer loop, so if there are few edges, the outer loop dominates. So the time is <span class="math">\(\Theta(V + E)\)</span>.</p>
+<p>since the lengths of all the adjacency lists add up to <span class="math">\(|E|\)</span> in a directed graph and <span class="math">\(2|E|\)</span> in an undirected one. The <span class="math">\(\Theta(V)\)</span> term matters too: a node with no neighbors still costs <span class="math">\(\Theta(1)\)</span> for the outer loop, so if there are few edges, the outer loop dominates. So the time is <span class="math-with-punctuation"><span class="math">\(\Theta(V + E)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1693,13 +1716,14 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/aggregate analysis.html'>aggregate analysis</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose the code below is run on a graph <span class="math">\(G = (V, E)\)</span>. What is its time complexity? You may assume that <span class="math">\(|E| \geq 1\)</span>.</p>
+<p>Suppose the code below is run on a graph <span class="math-with-punctuation"><span class="math">\(G = (V, E)\)</span>.</span> What is its time complexity? You may assume that <span class="math-with-punctuation"><span class="math">\(|E| \geq 1\)</span>.</span></p>
 <pre class="code"><code class="language-python">for u in graph.nodes:
     for v in graph.neighbors(u):
         print(u, v)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(V + E)\)</span>. The inner loop doesn't run the same number of times for every node, so we can't just multiply: for node <span class="math">\(u\)</span>, it runs <span class="math">\(\text{degree}(u)\)</span> times. Adding up over all nodes, the outer loop does <span class="math">\(\Theta(1)\)</span> work for each of the <span class="math">\(|V|\)</span> nodes, which is <span class="math">\(\Theta(V)\)</span>, and the inner loop runs <span class="math">\(\sum_{u \in V} \text{degree}(u)\)</span> times in total, which is <span class="math">\(2|E|\)</span> for an undirected graph (each edge is seen from both ends) or <span class="math">\(|E|\)</span> for a directed one (counting out-degrees). Either way, that's <span class="math">\(\Theta(E)\)</span>, so the total is <span class="math">\(\Theta(V + E)\)</span>. Neither term can be dropped in general: if there are few edges, looping over the nodes dominates, and if there are many, printing the edges dominates.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(V + E)\)</span>.</span></p>
+<p>The inner loop doesn't run the same number of times for every node, so we can't just multiply: for node <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> it runs <span class="math">\(\text{degree}(u)\)</span> times. Adding up over all nodes, the outer loop does <span class="math">\(\Theta(1)\)</span> work for each of the <span class="math">\(|V|\)</span> nodes, which is <span class="math-with-punctuation"><span class="math">\(\Theta(V)\)</span>,</span> and the inner loop runs <span class="math">\(\sum_{u \in V} \text{degree}(u)\)</span> times in total, which is <span class="math">\(2|E|\)</span> for an undirected graph (each edge is seen from both ends) or <span class="math">\(|E|\)</span> for a directed one (counting out-degrees). Either way, that's <span class="math-with-punctuation"><span class="math">\(\Theta(E)\)</span>,</span> so the total is <span class="math-with-punctuation"><span class="math">\(\Theta(V + E)\)</span>.</span> Neither term can be dropped in general: if there are few edges, looping over the nodes dominates, and if there are many, printing the edges dominates.</p>
 </details>
 
     </div>
@@ -1719,9 +1743,9 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose a graph <span class="math">\(G = (V, E)\)</span> is represented using an adjacency matrix. What is the best possible worst-case time complexity of an efficient algorithm for computing the number of isolated nodes in the graph? State your answer as a function of <span class="math">\(|V|\)</span> and <span class="math">\(|E|\)</span> using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(V^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(V^2)\)</span>.</span></p>
 <p>A node <span class="math">\(u\)</span> is isolated exactly when row <span class="math">\(u\)</span> of the adjacency matrix is all zeros. To check that, we have to look at the entries of that row until we find a one; if the node is isolated, there is no one to find, so we look at all <span class="math">\(|V|\)</span> entries. Doing this for every node takes <span class="math">\(|V| \times \Theta(V) = \Theta(V^2)\)</span> time in the worst case.</p>
-<p>We can't do better. In the worst case, e.g., a graph with no edges at all, every node is isolated, and to be sure of that, an algorithm has to read every entry of the matrix (or, by symmetry, every entry on one side of the diagonal, which is still <span class="math">\(\Theta(V^2)\)</span> entries): any entry it skips could be a one, which would make two nodes not isolated. Notice that the answer doesn't depend on <span class="math">\(|E|\)</span>: with an adjacency matrix, scanning a row takes <span class="math">\(\Theta(V)\)</span> time no matter how many edges there are.</p>
+<p>We can't do better. In the worst case, e.g., a graph with no edges at all, every node is isolated, and to be sure of that, an algorithm has to read every entry of the matrix (or, by symmetry, every entry on one side of the diagonal, which is still <span class="math">\(\Theta(V^2)\)</span> entries): any entry it skips could be a one, which would make two nodes not isolated. Notice that the answer doesn't depend on <span class="math-with-punctuation"><span class="math">\(|E|\)</span>:</span> with an adjacency matrix, scanning a row takes <span class="math">\(\Theta(V)\)</span> time no matter how many edges there are.</p>
 </details>
 
     </div>
@@ -1741,7 +1765,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>What is the worst case time complexity of an efficient algorithm that checks to see if a graph <span class="math">\(G = (V, E)\)</span> has an isolated node? You should assume that the graph is represented as an adjacency list.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(V)\)</span>. A node is isolated exactly when its adjacency list is empty, which we can check in <span class="math">\(\Theta(1)\)</span> time per node, so checking every node takes <span class="math">\(\Theta(V)\)</span> time. In the worst case (no node is isolated), we have to check them all.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(V)\)</span>.</span></p>
+<p>A node is isolated exactly when its adjacency list is empty, which we can check in <span class="math">\(\Theta(1)\)</span> time per node, so checking every node takes <span class="math">\(\Theta(V)\)</span> time. In the worst case (no node is isolated), we have to check them all.</p>
 </details>
 
     </div>
@@ -1759,12 +1784,13 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Let <span class="math">\(A\)</span> be the adjacency matrix of the graph shown below:</p>
 <center><div class="image"><img src="images/225/graph.png" /></div></center>
-<p>Let <span class="math">\(\vec{a}^{(1)}\)</span> be the first row of <span class="math">\(A\)</span> and <span class="math">\(\vec{a}^{(2)}\)</span> be the second row of <span class="math">\(A\)</span>. What is <span class="math">\(\vec{a}^{(1)} \cdot \vec{a}^{(2)}\)</span>? That is, what is the dot product between the first row of <span class="math">\(A\)</span> and the second row of <span class="math">\(A\)</span>? Your answer should be in the form of a number.</p>
+<p>Let <span class="math">\(\vec{a}^{(1)}\)</span> be the first row of <span class="math">\(A\)</span> and <span class="math">\(\vec{a}^{(2)}\)</span> be the second row of <span class="math-with-punctuation"><span class="math">\(A\)</span>.</span> What is <span class="math-with-punctuation"><span class="math">\(\vec{a}^{(1)} \cdot \vec{a}^{(2)}\)</span>?</span> That is, what is the dot product between the first row of <span class="math">\(A\)</span> and the second row of <span class="math-with-punctuation"><span class="math">\(A\)</span>?</span> Your answer should be in the form of a number.</p>
 <p>It may help to recall that the dot product between vectors <span class="math">\(\vec x = (x_1,
-    \ldots, x_d)^T\)</span> and <span class="math">\(\vec y = (y_1, \ldots, y_d)^T\)</span> is equal to <span class="math">\(x_1 y_1 + x_2 y_2 + \ldots + x_d y_d\)</span>.</p>
+    \ldots, x_d)^T\)</span> and <span class="math">\(\vec y = (y_1, \ldots, y_d)^T\)</span> is equal to <span class="math-with-punctuation"><span class="math">\(x_1 y_1 + x_2 y_2 + \ldots + x_d y_d\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
-<p>4. Each entry of the dot product is 1 exactly when a node is a neighbor of both node 1 and node 2, so the dot product counts their common neighbors. Node 1's neighbors are the top node, the two nodes on the upper left and upper right, the node on the right, and the node on the lower left; node 2 is adjacent to all of these except the upper-left node, so there are 4 common neighbors.</p>
+<p>4.</p>
+<p>Each entry of the dot product is 1 exactly when a node is a neighbor of both node 1 and node 2, so the dot product counts their common neighbors. Node 1's neighbors are the top node, the two nodes on the upper left and upper right, the node on the right, and the node on the lower left; node 2 is adjacent to all of these except the upper-left node, so there are 4 common neighbors.</p>
 </details>
 
     </div>
@@ -1793,11 +1819,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
             \textbf{1} & 0 & 0 & \textbf{1} & 0 & 0 & 0 & 0 \\
         \end{pmatrix}
     \]</div>
-<p>True or False: there is a path from node <span class="math">\(u_1\)</span> to node <span class="math">\(u_8\)</span>.</p>
+<p>True or False: there is a path from node <span class="math">\(u_1\)</span> to node <span class="math-with-punctuation"><span class="math">\(u_8\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
 <p>True.</p>
-<p>Reading each row as the edges leaving that node, we can follow the path <span class="math">\(u_1 \to u_2 \to u_3 \to u_4 \to u_5 \to u_6 \to u_7 \to u_8\)</span>.</p>
+<p>Reading each row as the edges leaving that node, we can follow the path <span class="math-with-punctuation"><span class="math">\(u_1 \to u_2 \to u_3 \to u_4 \to u_5 \to u_6 \to u_7 \to u_8\)</span>.</span></p>
 </details>
 
     </div>
@@ -1818,7 +1844,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>How many times is the message printed?</p>
 <details>
     <summary>Solution</summary>
-<p>Answer: 6. Every node reachable from the source is added to the queue exactly once and popped exactly once. This graph is connected, so all 6 nodes are popped, no matter which node the BFS starts at.</p>
+<p>Answer: 6.</p>
+<p>Every node reachable from the source is added to the queue exactly once and popped exactly once. This graph is connected, so all 6 nodes are popped, no matter which node the BFS starts at.</p>
 </details>
 
     </div>
@@ -1842,7 +1869,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>0, 3, 1, 4, 5, 2</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>0, 1, 3, 5, 4, 2. Visiting 0 adds 1 and 3 to the queue. Visiting 1 adds 5. Visiting 3 adds 4. Visiting 5 adds nothing new (4 is already pending). Visiting 4 adds 2. Finally 2 is visited.</p>
+<p>0, 1, 3, 5, 4, 2.</p>
+<p>Visiting 0 adds 1 and 3 to the queue. Visiting 1 adds 5. Visiting 3 adds 4. Visiting 5 adds nothing new (4 is already pending). Visiting 4 adds 2. Finally 2 is visited.</p>
 </details>
 
     </div>
@@ -1860,10 +1888,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Suppose a <i>breadth</i> first search is run on the graph below using node <span class="math">\(d\)</span> as the source. Adopt the convention that a node's neighbors are produced in alphabetical order.</p>
 <center><div class="image"><img src="images/229/searchme.png" /></div></center>
-<p>What is the node popped from the queue after node <span class="math">\(g\)</span>?</p>
+<p>What is the node popped from the queue after node <span class="math-with-punctuation"><span class="math">\(g\)</span>?</span></p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(e\)</span>. The nodes are popped in the order <span class="math">\(d, f, q, r, g, e, v\)</span>. Popping <span class="math">\(d\)</span> adds <span class="math">\(f, q, r\)</span>; popping <span class="math">\(f\)</span> adds <span class="math">\(g\)</span>; popping <span class="math">\(q\)</span> adds <span class="math">\(e\)</span>; popping <span class="math">\(r\)</span> adds <span class="math">\(v\)</span>. So the queue is then <span class="math">\(g, e, v\)</span>, and <span class="math">\(e\)</span> comes right after <span class="math">\(g\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(e\)</span>.</span></p>
+<p>The nodes are popped in the order <span class="math-with-punctuation"><span class="math">\(d, f, q, r, g, e, v\)</span>.</span> Popping <span class="math">\(d\)</span> adds <span class="math-with-punctuation"><span class="math">\(f, q, r\)</span>;</span> popping <span class="math">\(f\)</span> adds <span class="math-with-punctuation"><span class="math">\(g\)</span>;</span> popping <span class="math">\(q\)</span> adds <span class="math-with-punctuation"><span class="math">\(e\)</span>;</span> popping <span class="math">\(r\)</span> adds <span class="math-with-punctuation"><span class="math">\(v\)</span>.</span> So the queue is then <span class="math-with-punctuation"><span class="math">\(g, e, v\)</span>,</span> and <span class="math">\(e\)</span> comes right after <span class="math-with-punctuation"><span class="math">\(g\)</span>.</span></p>
 </details>
 
     </div>
@@ -1884,7 +1913,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>How many nodes will be popped from the queue before node <span class="math">\(u_8\)</span> is popped?</p>
 <details>
     <summary>Solution</summary>
-<p>9. BFS pops <span class="math">\(s, u_1, u_2, u_3, u_5, u_4, u_6, u_7\)</span> and <span class="math">\(u_9\)</span>, and then <span class="math">\(u_8\)</span>. (<span class="math">\(u_5\)</span> is discovered from <span class="math">\(u_2\)</span> before <span class="math">\(u_4\)</span> is discovered from <span class="math">\(u_3\)</span>, and <span class="math">\(u_8\)</span> is discovered from <span class="math">\(u_6\)</span> after <span class="math">\(u_9\)</span> is discovered from <span class="math">\(u_4\)</span>.)</p>
+<p>9.</p>
+<p>BFS pops <span class="math">\(s, u_1, u_2, u_3, u_5, u_4, u_6, u_7\)</span> and <span class="math-with-punctuation"><span class="math">\(u_9\)</span>,</span> and then <span class="math-with-punctuation"><span class="math">\(u_8\)</span>.</span> (<span class="math">\(u_5\)</span> is discovered from <span class="math">\(u_2\)</span> before <span class="math">\(u_4\)</span> is discovered from <span class="math-with-punctuation"><span class="math">\(u_3\)</span>,</span> and <span class="math">\(u_8\)</span> is discovered from <span class="math">\(u_6\)</span> after <span class="math">\(u_9\)</span> is discovered from <span class="math-with-punctuation"><span class="math">\(u_4\)</span>.)</span></p>
 </details>
 
     </div>
@@ -1901,13 +1931,14 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Define a <i>circle graph</i> with <span class="math">\(n\)</span> nodes to be an undirected graph <span class="math">\(G =
-    (V, E)\)</span> with nodes <span class="math">\(u_1, u_2, \ldots, u_n\)</span> and edges <span class="math">\((u_1, u_2), (u_2,
-    u_3), \ldots, (u_{n-1}, u_n)\)</span>, along with one additional edge <span class="math">\((u_n, u_1)\)</span> completing the cycle. An example of a circle graph with 6 nodes is shown below:</p>
+    (V, E)\)</span> with nodes <span class="math">\(u_1, u_2, \ldots, u_n\)</span> and edges <span class="math-with-punctuation"><span class="math">\((u_1, u_2), (u_2,
+    u_3), \ldots, (u_{n-1}, u_n)\)</span>,</span> along with one additional edge <span class="math">\((u_n, u_1)\)</span> completing the cycle. An example of a circle graph with 6 nodes is shown below:</p>
 <center><div class="image"><img src="images/231/graph.png" /></div></center>
 <p>What is the time complexity of breadth-first search when run on a circle graph with <span class="math">\(n\)</span> nodes? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. BFS takes <span class="math">\(\Theta(V + E)\)</span> time. A circle graph has <span class="math">\(|V| = n\)</span> nodes and <span class="math">\(|E| = n\)</span> edges, so this is <span class="math">\(\Theta(n + n) = \Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>BFS takes <span class="math">\(\Theta(V + E)\)</span> time. A circle graph has <span class="math">\(|V| = n\)</span> nodes and <span class="math">\(|E| = n\)</span> edges, so this is <span class="math-with-punctuation"><span class="math">\(\Theta(n + n) = \Theta(n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1923,13 +1954,14 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a “2-chain” graph with <span class="math">\(n\)</span> nodes is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math">\(\ldots\)</span>, <span class="math">\(n\)</span>, and, for each node <span class="math">\(u\)</span>, making a directed edge from <span class="math">\(u\)</span> to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span> (if they are in the graph).</p>
+<p>Suppose a “2-chain” graph with <span class="math">\(n\)</span> nodes is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math-with-punctuation"><span class="math">\(\ldots\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(n\)</span>,</span> and, for each node <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> making a directed edge from <span class="math">\(u\)</span> to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span> (if they are in the graph).</p>
 <p>For example, such a graph with <span class="math">\(n = 7\)</span> looks like:</p>
 <center><div class="image"><img src="images/232/g3.png" /></div></center>
-<p>Suppose BFS is run on a 2-chain graph with <span class="math">\(n\)</span> nodes, using node 1 as the source. What is the time taken as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
+<p>Suppose BFS is run on a 2-chain graph with <span class="math">\(n\)</span> nodes, using node 1 as the source. What is the time taken as a function of <span class="math-with-punctuation"><span class="math">\(n\)</span>?</span> State your answer using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. BFS takes <span class="math">\(\Theta(V + E)\)</span> time. Each node has at most two outgoing edges, so there are fewer than <span class="math">\(2n\)</span> edges, and <span class="math">\(\Theta(V + E) = \Theta(n + 2n) = \Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>BFS takes <span class="math">\(\Theta(V + E)\)</span> time. Each node has at most two outgoing edges, so there are fewer than <span class="math">\(2n\)</span> edges, and <span class="math-with-punctuation"><span class="math">\(\Theta(V + E) = \Theta(n + 2n) = \Theta(n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1960,12 +1992,13 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
                 status[v] = 'pending'
                 pending.append(v)
         status[u] = 'visited'</code></pre>
-<p>Suppose this modified BFS is run on the following graph, starting at node <span class="math">\(a\)</span>.</p>
+<p>Suppose this modified BFS is run on the following graph, starting at node <span class="math-with-punctuation"><span class="math">\(a\)</span>.</span></p>
 <center><div class="image"><img src="images/233/graph.png" /></div></center>
 <p>How many times will <span class="inline-code"><code>"here!"</code></span> be printed? Your answer should be an exact number.</p>
 <details>
     <summary>Solution</summary>
-<p>10. BFS only reaches <span class="math">\(a\)</span>'s connected component: <span class="math">\(a, b, c, d, e, f\)</span>. It has 5 edges, <span class="math">\((a, b)\)</span>, <span class="math">\((b, c)\)</span>, <span class="math">\((c, d)\)</span>, <span class="math">\((a, e)\)</span> and <span class="math">\((b, f)\)</span>, and in an undirected graph each edge is explored twice (once from each endpoint), so <span class="inline-code"><code>"here!"</code></span> is printed <span class="math">\(2 \times 5 = 10\)</span> times.</p>
+<p>10.</p>
+<p>BFS only reaches <span class="math-with-punctuation"><span class="math">\(a\)</span>'</span>s connected component: <span class="math-with-punctuation"><span class="math">\(a, b, c, d, e, f\)</span>.</span> It has 5 edges, <span class="math-with-punctuation"><span class="math">\((a, b)\)</span>,</span> <span class="math-with-punctuation"><span class="math">\((b, c)\)</span>,</span> <span class="math-with-punctuation"><span class="math">\((c, d)\)</span>,</span> <span class="math">\((a, e)\)</span> and <span class="math-with-punctuation"><span class="math">\((b, f)\)</span>,</span> and in an undirected graph each edge is explored twice (once from each endpoint), so <span class="inline-code"><code>"here!"</code></span> is printed <span class="math">\(2 \times 5 = 10\)</span> times.</p>
 </details>
 
     </div>
@@ -2000,12 +2033,13 @@ def modified_bfs(graph, source):
                 pending.append(v)
 
         status[u] = 'visited'</code></pre>
-<p>Consider running this algorithm on the following graph, starting at node <span class="math">\(1\)</span>:</p>
+<p>Consider running this algorithm on the following graph, starting at node <span class="math-with-punctuation"><span class="math">\(1\)</span>:</span></p>
 <center><div class="image"><img src="images/234/graph.png" /></div></center>
 <p>How many times will <span class="inline-code"><code>"Here!"</code></span> be printed?</p>
 <details>
     <summary>Solution</summary>
-<p>2. The print runs each time <span class="math">\(9\)</span> comes up as a neighbor of a popped node. In this directed graph, the only edges into <span class="math">\(9\)</span> are <span class="math">\((7, 9)\)</span> and <span class="math">\((8, 9)\)</span>, and <span class="math">\(7\)</span> and <span class="math">\(8\)</span> are each popped once, so <span class="inline-code"><code>"Here!"</code></span> is printed twice.</p>
+<p>2.</p>
+<p>The print runs each time <span class="math">\(9\)</span> comes up as a neighbor of a popped node. In this directed graph, the only edges into <span class="math">\(9\)</span> are <span class="math">\((7, 9)\)</span> and <span class="math-with-punctuation"><span class="math">\((8, 9)\)</span>,</span> and <span class="math">\(7\)</span> and <span class="math">\(8\)</span> are each popped once, so <span class="inline-code"><code>"Here!"</code></span> is printed twice.</p>
 </details>
 
     </div>
@@ -2026,7 +2060,7 @@ def modified_bfs(graph, source):
 <details>
     <summary>Solution</summary>
 <p>True.</p>
-<p>Consider the graph with the single edge <span class="math">\((a, b)\)</span>. If <span class="math">\(a\)</span> is produced first, <span class="inline-code"><code>bfs(a)</code></span> discovers <span class="math">\(b\)</span> and only one call is needed. If <span class="math">\(b\)</span> is produced first, <span class="inline-code"><code>bfs(b)</code></span> cannot reach <span class="math">\(a\)</span>, so a second call is needed.</p>
+<p>Consider the graph with the single edge <span class="math-with-punctuation"><span class="math">\((a, b)\)</span>.</span> If <span class="math">\(a\)</span> is produced first, <span class="inline-code"><code>bfs(a)</code></span> discovers <span class="math">\(b\)</span> and only one call is needed. If <span class="math">\(b\)</span> is produced first, <span class="inline-code"><code>bfs(b)</code></span> cannot reach <span class="math-with-punctuation"><span class="math">\(a\)</span>,</span> so a second call is needed.</p>
 </details>
 
     </div>
@@ -2042,10 +2076,11 @@ def modified_bfs(graph, source):
         <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-11.html'>lecture-11</a>, <a href='./tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose an undirected graph with <span class="math">\(n\)</span> nodes satisfies the property that every node has degree <span class="math">\(n/2\)</span>. What is the time complexity of running full BFS on this graph?</p>
+<p>Suppose an undirected graph with <span class="math">\(n\)</span> nodes satisfies the property that every node has degree <span class="math-with-punctuation"><span class="math">\(n/2\)</span>.</span> What is the time complexity of running full BFS on this graph?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. Full BFS takes <span class="math">\(\Theta(V + E)\)</span> time. The sum of the degrees is <span class="math">\(n \cdot n/2\)</span>, and each edge is counted twice in this sum, so there are <span class="math">\(n^2/4\)</span> edges. So the time is <span class="math">\(\Theta(n + n^2/4) = \Theta(n^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>Full BFS takes <span class="math">\(\Theta(V + E)\)</span> time. The sum of the degrees is <span class="math-with-punctuation"><span class="math">\(n \cdot n/2\)</span>,</span> and each edge is counted twice in this sum, so there are <span class="math">\(n^2/4\)</span> edges. So the time is <span class="math-with-punctuation"><span class="math">\(\Theta(n + n^2/4) = \Theta(n^2)\)</span>.</span></p>
 </details>
 
     </div>
@@ -2062,10 +2097,11 @@ def modified_bfs(graph, source):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a connected, undirected graph <span class="math">\(G\)</span> has <span class="math">\(n\)</span> nodes, half of which are “red” and half of which are “blue”. Each red node shares an edge with <span class="math">\(\log_2 n\)</span> blue nodes, and the only edges in the graph are between red and blue nodes.</p>
-<p>What is the time complexity of BFS when run on <span class="math">\(G\)</span>? Your answer should be in asymptotic notation and in terms of <span class="math">\(n\)</span>, in the simplest terms possible.</p>
+<p>What is the time complexity of BFS when run on <span class="math-with-punctuation"><span class="math">\(G\)</span>?</span> Your answer should be in asymptotic notation and in terms of <span class="math-with-punctuation"><span class="math">\(n\)</span>,</span> in the simplest terms possible.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n \log n)\)</span>. BFS takes <span class="math">\(\Theta(V + E)\)</span> time. Every edge joins a red node to a blue node, and each of the <span class="math">\(n/2\)</span> red nodes has <span class="math">\(\log_2 n\)</span> of them, so there are <span class="math">\(E = \frac{n}{2} \log_2 n\)</span> edges. So the time is <span class="math">\(\Theta(n + \frac{n}{2}\log_2 n) = \Theta(n \log n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n \log n)\)</span>.</span></p>
+<p>BFS takes <span class="math">\(\Theta(V + E)\)</span> time. Every edge joins a red node to a blue node, and each of the <span class="math">\(n/2\)</span> red nodes has <span class="math">\(\log_2 n\)</span> of them, so there are <span class="math">\(E = \frac{n}{2} \log_2 n\)</span> edges. So the time is <span class="math-with-punctuation"><span class="math">\(\Theta(n + \frac{n}{2}\log_2 n) = \Theta(n \log n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -2082,13 +2118,13 @@ def modified_bfs(graph, source):
         <div class="problem">
     <div class="problem-body">
 <p>A “hub node” in a graph is a node that has an edge to all the other nodes in the graph.</p>
-<p>What is the worst case time complexity of an efficient algorithm that checks to see if a graph <span class="math">\(G = (V,E)\)</span> has a hub node? You should assume that the graph is represented as an adjacency list. State your answer in asymptotic notation and in terms of <span class="math">\(V\)</span> and <span class="math">\(E\)</span>.</p>
+<p>What is the worst case time complexity of an efficient algorithm that checks to see if a graph <span class="math">\(G = (V,E)\)</span> has a hub node? You should assume that the graph is represented as an adjacency list. State your answer in asymptotic notation and in terms of <span class="math">\(V\)</span> and <span class="math-with-punctuation"><span class="math">\(E\)</span>.</span></p>
 <p>Note: in studying, you might have come across a problem in the practice bank about “hub and spoke” graphs. This question is related, but not the same!</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(V)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(V)\)</span>.</span></p>
 <p>A node <span class="math">\(u\)</span> is a hub exactly when it has an edge to each of the <span class="math">\(V - 1\)</span> other nodes, that is, when its adjacency list has <span class="math">\(V - 1\)</span> entries. We don't need to look at what's in the list to check this: we can get its length in <span class="math">\(\Theta(1)\)</span> time (e.g., with <span class="inline-code"><code>len(adj[u])</code></span>). So the algorithm loops over the nodes and checks whether <span class="inline-code"><code>len(adj[u]) == V - 1</code></span> for each one. That's <span class="math">\(\Theta(1)\)</span> time per node, and in the worst case (when there is no hub) it checks all of them, for <span class="math">\(\Theta(V)\)</span> time in total.</p>
-<p>Notice that the time doesn't depend on <span class="math">\(E\)</span>, because we never look at the edges themselves. An algorithm that scanned every adjacency list would take <span class="math">\(\Theta(V + E)\)</span> time, which can be as large as <span class="math">\(\Theta(V^2)\)</span>.</p>
+<p>Notice that the time doesn't depend on <span class="math-with-punctuation"><span class="math">\(E\)</span>,</span> because we never look at the edges themselves. An algorithm that scanned every adjacency list would take <span class="math">\(\Theta(V + E)\)</span> time, which can be as large as <span class="math-with-punctuation"><span class="math">\(\Theta(V^2)\)</span>.</span></p>
 </details>
 
     </div>
@@ -2142,7 +2178,8 @@ def full_bfs(graph):
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>There are 5 connected components, and it is directed</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>There are 5 connected components, and it is undirected. "bar" is printed once each time <span class="inline-code"><code>full_bfs</code></span> starts a new BFS, and in an undirected graph each new BFS starts in a new connected component, so there are 5 connected components. "foo" is printed once each time an edge is explored. In an undirected graph, each edge is explored twice (once from each endpoint), while in a directed graph it is explored only once. Since there is 1 edge and "foo" was printed 2 times, the graph is undirected.</p>
+<p>There are 5 connected components, and it is undirected.</p>
+<p>"bar" is printed once each time <span class="inline-code"><code>full_bfs</code></span> starts a new BFS, and in an undirected graph each new BFS starts in a new connected component, so there are 5 connected components. "foo" is printed once each time an edge is explored. In an undirected graph, each edge is explored twice (once from each endpoint), while in a directed graph it is explored only once. Since there is 1 edge and "foo" was printed 2 times, the graph is undirected.</p>
 </details>
 
     </div>
@@ -2158,7 +2195,7 @@ def full_bfs(graph):
         <p>Tags: <a href='./tags/aggregate analysis.html'>aggregate analysis</a>, <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-11.html'>lecture-11</a>, <a href='./tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Consider the following modification of BFS, where there are two new lines of code. What is the time complexity in terms of <span class="math">\(|V|\)</span> and <span class="math">\(|E|\)</span>?</p>
+<p>Consider the following modification of BFS, where there are two new lines of code. What is the time complexity in terms of <span class="math">\(|V|\)</span> and <span class="math-with-punctuation"><span class="math">\(|E|\)</span>?</span></p>
 <pre class="code"><code class="language-python">from collections import deque
 
 def foo(graph):
@@ -2184,7 +2221,8 @@ def bar(graph, source, status):
         status[u] = 'visited'</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(V + VE)\)</span>. Without the two new lines, this is a full BFS, which takes <span class="math">\(\Theta(V + E)\)</span> time. The new inner loop runs once each time an edge is explored, and each time it takes <span class="math">\(\Theta(V)\)</span> time. By an aggregate analysis, edges are explored <span class="math">\(\Theta(E)\)</span> times in total, so the new lines add <span class="math">\(\Theta(VE)\)</span> time. The total is <span class="math">\(\Theta(V + E + VE) = \Theta(V + VE)\)</span>. (We can't drop the <span class="math">\(V\)</span> term: when there are no edges, the code still takes <span class="math">\(\Theta(V)\)</span> time.)</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(V + VE)\)</span>.</span></p>
+<p>Without the two new lines, this is a full BFS, which takes <span class="math">\(\Theta(V + E)\)</span> time. The new inner loop runs once each time an edge is explored, and each time it takes <span class="math">\(\Theta(V)\)</span> time. By an aggregate analysis, edges are explored <span class="math">\(\Theta(E)\)</span> times in total, so the new lines add <span class="math">\(\Theta(VE)\)</span> time. The total is <span class="math-with-punctuation"><span class="math">\(\Theta(V + E + VE) = \Theta(V + VE)\)</span>.</span> (We can't drop the <span class="math">\(V\)</span> term: when there are no edges, the code still takes <span class="math">\(\Theta(V)\)</span> time.)</p>
 </details>
 
     </div>
@@ -2231,14 +2269,14 @@ def modified_bfs(graph, source, status=None):
 
         status[u] = 'visited'</code></pre>
 <p>Notice the two new lines; these lines print all node statuses any time that an undiscovered node has been found.</p>
-<p>What is the time complexity of <span class="inline-code"><code>modified_full_bfs</code></span>? State your answer in asymptotic notation in terms of the number of nodes, <span class="math">\(|V|\)</span>, and the number of edges, <span class="math">\(|E|\)</span>. You may assume that the graph is represented using an adjacency list, and that it is connected.</p>
+<p>What is the time complexity of <span class="inline-code"><code>modified_full_bfs</code></span>? State your answer in asymptotic notation in terms of the number of nodes, <span class="math-with-punctuation"><span class="math">\(|V|\)</span>,</span> and the number of edges, <span class="math-with-punctuation"><span class="math">\(|E|\)</span>.</span> You may assume that the graph is represented using an adjacency list, and that it is connected.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(V^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(V^2)\)</span>.</span></p>
 <p>First, the newly-added code (the <span class="inline-code"><code>for z in graph.nodes</code></span> loop), takes <span class="math">\(\Theta(V)\)</span> time each time the loop is encountered. The crux is: how many times is that loop encountered?</p>
 <p>This loop is encountered every time we add a node to the queue (except for the root node, which we add to the queue right at the beginning of BFS). Since this is a connected graph, each node will get added to the pending queue exactly once, meaning that this new code is encountered <i>exactly</i> <span class="math">\(V-1\)</span> times (the <span class="math">\(-1\)</span> is subtracting the root node; the loop isn't encountered when we change it to pending).</p>
-<p>Since the new code takes <span class="math">\(\Theta(V)\)</span> time each time it's encountered, and since it's encountered <span class="math">\(\Theta(V)\)</span> times, the total time complexity of the loop is <span class="math">\(\Theta(V^2)\)</span>.</p>
-<p>You might wonder why the time complexity isn't <span class="math">\(\Theta(VE)\)</span>, since the new code is within the loop that “explores” each edge in the graph, and we know that it makes a total of <span class="math">\(2|E|\)</span> iterations when the graph is undirected. This is true, but recognize that the new code only executes when the <span class="inline-code"><code>if</code></span>-statement before it is <span class="inline-code"><code>True</code></span>, and this will happen on only a <i>subset</i> of the <span class="math">\(2|E|\)</span> iterations. In fact, it will happen exactly <span class="math">\(|V|-1\)</span> times, as we argued above.</p>
+<p>Since the new code takes <span class="math">\(\Theta(V)\)</span> time each time it's encountered, and since it's encountered <span class="math">\(\Theta(V)\)</span> times, the total time complexity of the loop is <span class="math-with-punctuation"><span class="math">\(\Theta(V^2)\)</span>.</span></p>
+<p>You might wonder why the time complexity isn't <span class="math-with-punctuation"><span class="math">\(\Theta(VE)\)</span>,</span> since the new code is within the loop that “explores” each edge in the graph, and we know that it makes a total of <span class="math">\(2|E|\)</span> iterations when the graph is undirected. This is true, but recognize that the new code only executes when the <span class="inline-code"><code>if</code></span>-statement before it is <span class="inline-code"><code>True</code></span>, and this will happen on only a <i>subset</i> of the <span class="math">\(2|E|\)</span> iterations. In fact, it will happen exactly <span class="math">\(|V|-1\)</span> times, as we argued above.</p>
 </details>
 
     </div>
@@ -2260,10 +2298,10 @@ def modified_bfs(graph, source, status=None):
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(1)\)</span></p>
-<p>Here's the algorithm. First, check that the number of edges is <span class="math">\(n - 1\)</span>, where <span class="math">\(n = |V|\)</span>. If not, it's not a “hub and spoke” graph. This takes constant time, by the assumption that the total number of edges can be retrieved in constant time.</p>
-<p>Next, take an arbitrary node and compute its degree (in <span class="math">\(\Theta(1)\)</span> time, since the graph is represented as an adjacency list). If the degree is <span class="math">\(n - 1\)</span>, then the graph is a “hub and spoke” graph, and this is the hub.</p>
-<p>If the degree is not <span class="math">\(n - 1\)</span>, but instead 1, this node might be a spoke. Check the degree of its neighbor as described above to see if it's a hub.</p>
-<p>If you see a degree that's neither 1 nor <span class="math">\(n - 1\)</span>, then the graph is not a “hub and spoke” graph.</p>
+<p>Here's the algorithm. First, check that the number of edges is <span class="math-with-punctuation"><span class="math">\(n - 1\)</span>,</span> where <span class="math-with-punctuation"><span class="math">\(n = |V|\)</span>.</span> If not, it's not a “hub and spoke” graph. This takes constant time, by the assumption that the total number of edges can be retrieved in constant time.</p>
+<p>Next, take an arbitrary node and compute its degree (in <span class="math">\(\Theta(1)\)</span> time, since the graph is represented as an adjacency list). If the degree is <span class="math-with-punctuation"><span class="math">\(n - 1\)</span>,</span> then the graph is a “hub and spoke” graph, and this is the hub.</p>
+<p>If the degree is not <span class="math-with-punctuation"><span class="math">\(n - 1\)</span>,</span> but instead 1, this node might be a spoke. Check the degree of its neighbor as described above to see if it's a hub.</p>
+<p>If you see a degree that's neither 1 nor <span class="math-with-punctuation"><span class="math">\(n - 1\)</span>,</span> then the graph is not a “hub and spoke” graph.</p>
 </details>
 
     </div>
@@ -2282,7 +2320,8 @@ def modified_bfs(graph, source, status=None):
 <p>An undirected graph <span class="math">\(G = (V, E)\)</span> has 23 nodes and 2 connected components. What is the <i>smallest</i> number of edges it can have?</p>
 <details>
     <summary>Solution</summary>
-<p>21. A connected component with <span class="math">\(k\)</span> nodes needs at least <span class="math">\(k - 1\)</span> edges (as many as a tree has). So if the components have <span class="math">\(k_1\)</span> and <span class="math">\(k_2\)</span> nodes, where <span class="math">\(k_1 + k_2 = 23\)</span>, the graph has at least <span class="math">\((k_1 - 1) + (k_2 - 1) = 23 - 2 = 21\)</span> edges, and making each component a tree gives exactly 21.</p>
+<p>21.</p>
+<p>A connected component with <span class="math">\(k\)</span> nodes needs at least <span class="math">\(k - 1\)</span> edges (as many as a tree has). So if the components have <span class="math">\(k_1\)</span> and <span class="math">\(k_2\)</span> nodes, where <span class="math-with-punctuation"><span class="math">\(k_1 + k_2 = 23\)</span>,</span> the graph has at least <span class="math">\((k_1 - 1) + (k_2 - 1) = 23 - 2 = 21\)</span> edges, and making each component a tree gives exactly 21.</p>
 </details>
 
     </div>
@@ -2298,10 +2337,11 @@ def modified_bfs(graph, source, status=None):
         <p>Tags: <a href='./tags/connected components.html'>connected components</a>, <a href='./tags/graph theory.html'>graph theory</a>, <a href='./tags/lecture-10.html'>lecture-10</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>An undirected graph with 20 nodes and 30 edges has three connected components: <span class="math">\(A\)</span>, <span class="math">\(B\)</span>, and <span class="math">\(C\)</span>. Connected component <span class="math">\(A\)</span> has 7 nodes. What is the smallest number of edges that <span class="math">\(A\)</span> can have?</p>
+<p>An undirected graph with 20 nodes and 30 edges has three connected components: <span class="math-with-punctuation"><span class="math">\(A\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(B\)</span>,</span> and <span class="math-with-punctuation"><span class="math">\(C\)</span>.</span> Connected component <span class="math">\(A\)</span> has 7 nodes. What is the smallest number of edges that <span class="math">\(A\)</span> can have?</p>
 <details>
     <summary>Solution</summary>
-<p>6. <span class="math">\(A\)</span> is connected and has 7 nodes, so it needs at least <span class="math">\(7 - 1 = 6\)</span> edges, and a tree on its 7 nodes has exactly 6. The other 24 edges can go in <span class="math">\(B\)</span> and <span class="math">\(C\)</span>, which have 13 nodes between them (e.g., a <span class="math">\(B\)</span> with 12 nodes has room for up to 66 edges).</p>
+<p>6.</p>
+<p><span class="math">\(A\)</span> is connected and has 7 nodes, so it needs at least <span class="math">\(7 - 1 = 6\)</span> edges, and a tree on its 7 nodes has exactly 6. The other 24 edges can go in <span class="math">\(B\)</span> and <span class="math-with-punctuation"><span class="math">\(C\)</span>,</span> which have 13 nodes between them (e.g., a <span class="math">\(B\)</span> with 12 nodes has room for up to 66 edges).</p>
 </details>
 
     </div>

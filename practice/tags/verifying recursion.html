@@ -950,6 +950,8 @@ Course Staff
 /* level the box with the first line of the choice, not the middle of a wrapped one */
 .multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+/* inline math and the punctuation right after it; see _keep_math_with_punctuation */
+.math-with-punctuation { white-space: nowrap; }
 </style>
 <h1>Problems tagged with "verifying recursion"</h1>
 <style>
@@ -1013,7 +1015,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No—it does not infinitely recurse, but the result may be incorrect</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>Yes. The base case is correct, since the product of zero numbers is 1. The recursive call is on a list that is one element shorter, so the recursion always reaches the base case. And if <span class="inline-code"><code>product(numbers[1:])</code></span> correctly returns the product of all but the first number, then multiplying it by <span class="inline-code"><code>numbers[0]</code></span> gives the product of all of the numbers.</p>
+<p>Yes.</p>
+<p>The base case is correct, since the product of zero numbers is 1. The recursive call is on a list that is one element shorter, so the recursion always reaches the base case. And if <span class="inline-code"><code>product(numbers[1:])</code></span> correctly returns the product of all but the first number, then multiplying it by <span class="inline-code"><code>numbers[0]</code></span> gives the product of all of the numbers.</p>
 </details>
 
     </div>
@@ -1044,7 +1047,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No—it does not infinitely recurse, but the result may be incorrect</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>No—it does not infinitely recurse, but the result may be incorrect. Each recursive call is on a list that is one element shorter, so the recursion always reaches the base case. But the base case returns an empty list, and each recursive call simply returns what the next call returns, so <span class="inline-code"><code>reverse</code></span> always returns <span class="inline-code"><code>[]</code></span>. This is wrong for any nonempty list.</p>
+<p>No—it does not infinitely recurse, but the result may be incorrect.</p>
+<p>Each recursive call is on a list that is one element shorter, so the recursion always reaches the base case. But the base case returns an empty list, and each recursive call simply returns what the next call returns, so <span class="inline-code"><code>reverse</code></span> always returns <span class="inline-code"><code>[]</code></span>. This is wrong for any nonempty list.</p>
 </details>
 
     </div>
@@ -1073,14 +1077,15 @@ def maximum(numbers):
         maximum(numbers[middle:])
     )</code></pre>
 <p>Is this code guaranteed to work for all non-empty lists?</p>
-<p>You should adopt the convention that the maximum of an empty list is <span class="math">\(-\infty\)</span>.</p>
+<p>You should adopt the convention that the maximum of an empty list is <span class="math-with-punctuation"><span class="math">\(-\infty\)</span>.</span></p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Yes: it will return the maximum number in the list.</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may recurse infinitely.</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may raise an exception.</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it will run without error, but it might return the wrong answer.</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>No: it may recurse infinitely. On a list with one element, <span class="math">\(n = 1\)</span>, so <span class="inline-code"><code>middle = math.floor(1/2) = 0</code></span>. Then <span class="inline-code"><code>numbers[middle:]</code></span> is the whole list again, so <span class="inline-code"><code>maximum</code></span> calls itself on the same one-element list forever. The base case only stops lists of size 0, and every non-empty list eventually recurses down to a one-element list.</p>
+<p>No: it may recurse infinitely.</p>
+<p>On a list with one element, <span class="math-with-punctuation"><span class="math">\(n = 1\)</span>,</span> so <span class="inline-code"><code>middle = math.floor(1/2) = 0</code></span>. Then <span class="inline-code"><code>numbers[middle:]</code></span> is the whole list again, so <span class="inline-code"><code>maximum</code></span> calls itself on the same one-element list forever. The base case only stops lists of size 0, and every non-empty list eventually recurses down to a one-element list.</p>
 </details>
 
     </div>
@@ -1096,7 +1101,7 @@ def maximum(numbers):
         <p>Tags: <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Consider the code below which claims to compute the maximum of the input array. Adopt the convention that the maximum of an empty array is <span class="math">\(-\infty\)</span>.</p>
+<p>Consider the code below which claims to compute the maximum of the input array. Adopt the convention that the maximum of an empty array is <span class="math-with-punctuation"><span class="math">\(-\infty\)</span>.</span></p>
 <pre class="code"><code class="language-python">import math
 def maximum(arr, start=0, stop=None):
     """Find the maximum of arr[start:stop]."""
@@ -1174,7 +1179,7 @@ def most_common(arr, start, stop):
         <p>Tags: <a href='../tags/binary search.html'>binary search</a>, <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math">\(\geq x\)</span>). The full code is shown below for convenience:</p>
+<p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math-with-punctuation"><span class="math">\(\geq x\)</span>).</span> The full code is shown below for convenience:</p>
 <pre class="code"><code class="language-python">import math
 
 def new_binary_search(arr, start, stop, target):
@@ -1212,7 +1217,7 @@ def new_binary_search(arr, start, stop, target):
         <p>Tags: <a href='../tags/binary search.html'>binary search</a>, <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math">\(\geq x\)</span>). The full code is shown below for convenience:</p>
+<p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math-with-punctuation"><span class="math">\(\geq x\)</span>).</span> The full code is shown below for convenience:</p>
 <pre class="code"><code class="language-python">import math
 
 def new_binary_search(arr, start, stop, target):
@@ -1245,7 +1250,7 @@ def new_binary_search(arr, start, stop, target):
 <details>
     <summary>Solution</summary>
 <p>True.</p>
-<p>If <span class="inline-code"><code>arr</code></span> has one element, the first call has <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = 1</code></span>, so <span class="inline-code"><code>middle</code></span> is <span class="math">\(\lceil 1/2 \rceil = 1\)</span>, and <span class="inline-code"><code>arr[1]</code></span> doesn't exist. In general, whenever <span class="inline-code"><code>stop = start + 1</code></span>, the ceiling makes <span class="inline-code"><code>middle = stop</code></span>, which is outside the range being searched.</p>
+<p>If <span class="inline-code"><code>arr</code></span> has one element, the first call has <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = 1</code></span>, so <span class="inline-code"><code>middle</code></span> is <span class="math-with-punctuation"><span class="math">\(\lceil 1/2 \rceil = 1\)</span>,</span> and <span class="inline-code"><code>arr[1]</code></span> doesn't exist. In general, whenever <span class="inline-code"><code>stop = start + 1</code></span>, the ceiling makes <span class="inline-code"><code>middle = stop</code></span>, which is outside the range being searched.</p>
 </details>
 
 </div>

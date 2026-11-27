@@ -950,6 +950,8 @@ Course Staff
 /* level the box with the first line of the choice, not the middle of a wrapped one */
 .multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+/* inline math and the punctuation right after it; see _keep_math_with_punctuation */
+.math-with-punctuation { white-space: nowrap; }
 </style>
 <h1>Problems tagged with "topological sorting"</h1>
 <style>
@@ -1001,13 +1003,13 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/lecture-13.html'>lecture-13</a>, <a href='../tags/topological sorting.html'>topological sorting</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Consider the directed graph <span class="math">\(G = (V, E)\)</span> with <span class="math">\(V = \{a, b, c\}\)</span> and <span class="math">\(E = \{(a, b)\}\)</span>.</p>
+<p>Consider the directed graph <span class="math">\(G = (V, E)\)</span> with <span class="math">\(V = \{a, b, c\}\)</span> and <span class="math-with-punctuation"><span class="math">\(E = \{(a, b)\}\)</span>.</span></p>
 <p>How many valid topological sorts of this graph are there?</p>
 <details>
     <summary>Solution</summary>
 <p>3.</p>
-<p>A topological sort is an ordering of the nodes in which every edge goes from an earlier node to a later one. The only edge is <span class="math">\((a, b)\)</span>, so the only rule is that <span class="math">\(a\)</span> comes before <span class="math">\(b\)</span>. Node <span class="math">\(c\)</span> has no edges at all, so it can go anywhere.</p>
-<p>So we can start from the ordering <span class="math">\(a, b\)</span> and put <span class="math">\(c\)</span> in any of the three places: before <span class="math">\(a\)</span>, between <span class="math">\(a\)</span> and <span class="math">\(b\)</span>, or after <span class="math">\(b\)</span>. That gives the three topological sorts</p>
+<p>A topological sort is an ordering of the nodes in which every edge goes from an earlier node to a later one. The only edge is <span class="math-with-punctuation"><span class="math">\((a, b)\)</span>,</span> so the only rule is that <span class="math">\(a\)</span> comes before <span class="math-with-punctuation"><span class="math">\(b\)</span>.</span> Node <span class="math">\(c\)</span> has no edges at all, so it can go anywhere.</p>
+<p>So we can start from the ordering <span class="math">\(a, b\)</span> and put <span class="math">\(c\)</span> in any of the three places: before <span class="math-with-punctuation"><span class="math">\(a\)</span>,</span> between <span class="math">\(a\)</span> and <span class="math-with-punctuation"><span class="math">\(b\)</span>,</span> or after <span class="math-with-punctuation"><span class="math">\(b\)</span>.</span> That gives the three topological sorts</p>
 <div class="math">\[
             c, a, b \qquad a, c, b \qquad a, b, c.
         \]</div>
@@ -1027,10 +1029,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/lecture-13.html'>lecture-13</a>, <a href='../tags/topological sorting.html'>topological sorting</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Consider the directed acyclic graph <span class="math">\(G = (V, E)\)</span> with <span class="math">\(V = \{a, b, c, d\}\)</span> and <span class="math">\(E = \{(a, b), (a,c), (a,d)\}\)</span>. How many topological sorts of this graph are there?</p>
+<p>Consider the directed acyclic graph <span class="math">\(G = (V, E)\)</span> with <span class="math">\(V = \{a, b, c, d\}\)</span> and <span class="math-with-punctuation"><span class="math">\(E = \{(a, b), (a,c), (a,d)\}\)</span>.</span> How many topological sorts of this graph are there?</p>
 <details>
     <summary>Solution</summary>
-<p>6. The edges say that <span class="math">\(a\)</span> comes before <span class="math">\(b\)</span>, <span class="math">\(c\)</span> and <span class="math">\(d\)</span>, so <span class="math">\(a\)</span> must be first. There are no edges among <span class="math">\(b\)</span>, <span class="math">\(c\)</span> and <span class="math">\(d\)</span>, so they can follow in any order: <span class="math">\(3! = 6\)</span>.</p>
+<p>6.</p>
+<p>The edges say that <span class="math">\(a\)</span> comes before <span class="math-with-punctuation"><span class="math">\(b\)</span>,</span> <span class="math">\(c\)</span> and <span class="math-with-punctuation"><span class="math">\(d\)</span>,</span> so <span class="math">\(a\)</span> must be first. There are no edges among <span class="math-with-punctuation"><span class="math">\(b\)</span>,</span> <span class="math">\(c\)</span> and <span class="math-with-punctuation"><span class="math">\(d\)</span>,</span> so they can follow in any order: <span class="math-with-punctuation"><span class="math">\(3! = 6\)</span>.</span></p>
 </details>
 
     </div>
@@ -1046,10 +1049,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/lecture-13.html'>lecture-13</a>, <a href='../tags/topological sorting.html'>topological sorting</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(G = (V,E)\)</span> be the directed graph with <span class="math">\(V = \{a, b, c, d, e\}\)</span> and <span class="math">\(E = \{(a, b), (a, c), (a, d), (b, e), (c, e), (d, e)\}\)</span>. How many valid topological sorts of <span class="math">\(V\)</span> are there?</p>
+<p>Let <span class="math">\(G = (V,E)\)</span> be the directed graph with <span class="math">\(V = \{a, b, c, d, e\}\)</span> and <span class="math-with-punctuation"><span class="math">\(E = \{(a, b), (a, c), (a, d), (b, e), (c, e), (d, e)\}\)</span>.</span> How many valid topological sorts of <span class="math">\(V\)</span> are there?</p>
 <details>
     <summary>Solution</summary>
-<p>6, since node <span class="math">\(a\)</span> has an edge to each of <span class="math">\(b, c, d\)</span>, and each of them has an edge to <span class="math">\(e\)</span>. So <span class="math">\(a\)</span> must be first and <span class="math">\(e\)</span> last. There are no edges among <span class="math">\(b, c, d\)</span>, so they can go in the middle in any order: <span class="math">\(3! = 6\)</span>.</p>
+<p>Answer: 6.</p>
+<p>Node <span class="math">\(a\)</span> has an edge to each of <span class="math-with-punctuation"><span class="math">\(b, c, d\)</span>,</span> and each of them has an edge to <span class="math-with-punctuation"><span class="math">\(e\)</span>.</span> So <span class="math">\(a\)</span> must be first and <span class="math">\(e\)</span> last. There are no edges among <span class="math-with-punctuation"><span class="math">\(b, c, d\)</span>,</span> so they can go in the middle in any order: <span class="math-with-punctuation"><span class="math">\(3! = 6\)</span>.</span></p>
 </details>
 
     </div>
@@ -1069,7 +1073,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <center><div class="image"><img src="../images/270/graph.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(d, a, b, c, e\)</span>. This is the only topological sort of this graph.</p>
+<p><span class="math-with-punctuation"><span class="math">\(d, a, b, c, e\)</span>.</span></p>
+<p>This is the only topological sort of this graph.</p>
 </details>
 
     </div>
@@ -1085,12 +1090,12 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/lecture-13.html'>lecture-13</a>, <a href='../tags/topological sorting.html'>topological sorting</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose <span class="math">\(G\)</span> is an acyclic directed graph. Let <span class="math">\(a\)</span> and <span class="math">\(b\)</span> be two nodes of <span class="math">\(G\)</span> such that <span class="math">\(a\)</span> appears before <span class="math">\(b\)</span> in <i>every possible</i> topological sort of <span class="math">\(G\)</span>.</p>
-<p>True or False: there must be a path from <span class="math">\(a\)</span> to <span class="math">\(b\)</span>.</p>
+<p>Suppose <span class="math">\(G\)</span> is an acyclic directed graph. Let <span class="math">\(a\)</span> and <span class="math">\(b\)</span> be two nodes of <span class="math">\(G\)</span> such that <span class="math">\(a\)</span> appears before <span class="math">\(b\)</span> in <i>every possible</i> topological sort of <span class="math-with-punctuation"><span class="math">\(G\)</span>.</span></p>
+<p>True or False: there must be a path from <span class="math">\(a\)</span> to <span class="math-with-punctuation"><span class="math">\(b\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
 <p>True.</p>
-<p>Suppose there were no path from <span class="math">\(a\)</span> to <span class="math">\(b\)</span>. Then <span class="math">\(a\)</span> is not among the nodes that have a path to <span class="math">\(b\)</span>. We could list <span class="math">\(b\)</span> and all the nodes with a path to <span class="math">\(b\)</span> first (in topological order), followed by the rest. This is a valid topological sort with <span class="math">\(b\)</span> before <span class="math">\(a\)</span>.</p>
+<p>Suppose there were no path from <span class="math">\(a\)</span> to <span class="math-with-punctuation"><span class="math">\(b\)</span>.</span> Then <span class="math">\(a\)</span> is not among the nodes that have a path to <span class="math-with-punctuation"><span class="math">\(b\)</span>.</span> We could list <span class="math">\(b\)</span> and all the nodes with a path to <span class="math">\(b\)</span> first (in topological order), followed by the rest. This is a valid topological sort with <span class="math">\(b\)</span> before <span class="math-with-punctuation"><span class="math">\(a\)</span>.</span></p>
 </details>
 
     </div>

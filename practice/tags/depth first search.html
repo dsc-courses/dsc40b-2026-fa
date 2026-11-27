@@ -950,6 +950,8 @@ Course Staff
 /* level the box with the first line of the choice, not the middle of a wrapped one */
 .multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+/* inline math and the punctuation right after it; see _keep_math_with_punctuation */
+.math-with-punctuation { white-space: nowrap; }
 </style>
 <h1>Problems tagged with "depth first search"</h1>
 <style>
@@ -1004,7 +1006,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>What is the time complexity of depth first search (DFS) when run on a tree with <span class="math">\(n\)</span> nodes?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. DFS takes <span class="math">\(\Theta(V + E)\)</span> time, and a tree with <span class="math">\(n\)</span> nodes has <span class="math">\(n - 1\)</span> edges, so it takes <span class="math">\(\Theta(n + (n - 1)) = \Theta(n)\)</span> time.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>DFS takes <span class="math">\(\Theta(V + E)\)</span> time, and a tree with <span class="math">\(n\)</span> nodes has <span class="math">\(n - 1\)</span> edges, so it takes <span class="math">\(\Theta(n + (n - 1)) = \Theta(n)\)</span> time.</p>
 </details>
 
     </div>
@@ -1021,10 +1024,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Suppose an undirected graph <span class="math">\(G = (V, E)\)</span> is a tree with 33 edges. Suppose a node <span class="math">\(s\)</span> is used as the source of a depth-first search.</p>
-<p>Including the root call of <span class="inline-code"><code>dfs</code></span> on node <span class="math">\(s\)</span>, how many calls to <span class="inline-code"><code>dfs</code></span> will be made?</p>
+<p>Including the root call of <span class="inline-code"><code>dfs</code></span> on node <span class="math-with-punctuation"><span class="math">\(s\)</span>,</span> how many calls to <span class="inline-code"><code>dfs</code></span> will be made?</p>
 <details>
     <summary>Solution</summary>
-<p>34. A tree with 33 edges has <span class="math">\(33 + 1 = 34\)</span> nodes, and it's connected, so every node is reachable from <span class="math">\(s\)</span>. DFS calls <span class="inline-code"><code>dfs</code></span> exactly once on each reachable node, so it makes 34 calls.</p>
+<p>34.</p>
+<p>A tree with 33 edges has <span class="math">\(33 + 1 = 34\)</span> nodes, and it's connected, so every node is reachable from <span class="math-with-punctuation"><span class="math">\(s\)</span>.</span> DFS calls <span class="inline-code"><code>dfs</code></span> exactly once on each reachable node, so it makes 34 calls.</p>
 </details>
 
     </div>
@@ -1045,7 +1049,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <details>
     <summary>Solution</summary>
 <p>True.</p>
-<p>In a tree there is exactly one simple path from the source to <span class="math">\(u\)</span>. BFS and DFS both find a path from the source to <span class="math">\(u\)</span>, and it has to be this one, so both predecessors are the node right before <span class="math">\(u\)</span> on it.</p>
+<p>In a tree there is exactly one simple path from the source to <span class="math-with-punctuation"><span class="math">\(u\)</span>.</span> BFS and DFS both find a path from the source to <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> and it has to be this one, so both predecessors are the node right before <span class="math">\(u\)</span> on it.</p>
 </details>
 
     </div>
@@ -1064,7 +1068,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>We saw in lecture that both full BFS and DFS produce trees when run on connected graphs, and <i>forests</i> when run on disconnected graphs. Suppose a full BFS and a full DFS are run on an undirected graph with three connected components. True or False: the number of trees in the BFS forest will equal the number of trees in the DFS forest.</p>
 <details>
     <summary>Solution</summary>
-<p>True. Both full BFS and full DFS start a new search once for each connected component (each search discovers exactly the nodes in the source's component), so each produces one tree per connected component: three trees in both forests.</p>
+<p>True.</p>
+<p>Both full BFS and full DFS start a new search once for each connected component (each search discovers exactly the nodes in the source's component), so each produces one tree per connected component: three trees in both forests.</p>
 </details>
 
     </div>
@@ -1084,7 +1089,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <center><div class="image"><img src="../images/271/f1.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(u_5\)</span>. DFS starts at <span class="math">\(u_4\)</span>, looks at the neighbors, and sees <span class="math">\(u_2\)</span> is undiscovered, so it makes a recursive call <span class="inline-code"><code>dfs(u_2)</code></span>. At <span class="math">\(u_2\)</span>, it sees that <span class="math">\(u_1\)</span> is undiscovered, and calls <span class="inline-code"><code>dfs(u_1)</code></span>. At <span class="math">\(u_1\)</span>, there's nothing to do, so it's marked as visited and the recursion unrolls back to the call on <span class="inline-code"><code>dfs(u_2)</code></span>. We then look at the next neighbor of <span class="math">\(u_2\)</span>, which is <span class="math">\(u_3\)</span>. We make a call to <span class="inline-code"><code>dfs(u_3)</code></span>, which looks at its neighbors and sees <span class="math">\(u_5\)</span>. We make a call to <span class="inline-code"><code>dfs(u_5)</code></span>, and during this call we discover <span class="math">\(u_6\)</span>, meaning that <span class="math">\(u_5\)</span> is the DFS predecessor of <span class="math">\(u_6\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(u_5\)</span>.</span></p>
+<p>DFS starts at <span class="math-with-punctuation"><span class="math">\(u_4\)</span>,</span> looks at the neighbors, and sees <span class="math">\(u_2\)</span> is undiscovered, so it makes a recursive call <span class="inline-code"><code>dfs(u_2)</code></span>. At <span class="math-with-punctuation"><span class="math">\(u_2\)</span>,</span> it sees that <span class="math">\(u_1\)</span> is undiscovered, and calls <span class="inline-code"><code>dfs(u_1)</code></span>. At <span class="math-with-punctuation"><span class="math">\(u_1\)</span>,</span> there's nothing to do, so it's marked as visited and the recursion unrolls back to the call on <span class="inline-code"><code>dfs(u_2)</code></span>. We then look at the next neighbor of <span class="math-with-punctuation"><span class="math">\(u_2\)</span>,</span> which is <span class="math-with-punctuation"><span class="math">\(u_3\)</span>.</span> We make a call to <span class="inline-code"><code>dfs(u_3)</code></span>, which looks at its neighbors and sees <span class="math-with-punctuation"><span class="math">\(u_5\)</span>.</span> We make a call to <span class="inline-code"><code>dfs(u_5)</code></span>, and during this call we discover <span class="math-with-punctuation"><span class="math">\(u_6\)</span>,</span> meaning that <span class="math">\(u_5\)</span> is the DFS predecessor of <span class="math-with-punctuation"><span class="math">\(u_6\)</span>.</span></p>
 </details>
 
     </div>
@@ -1104,7 +1110,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <center><div class="image"><img src="../images/272/f1.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(u_1\)</span>. DFS from <span class="math">\(u_4\)</span> first visits <span class="math">\(u_2\)</span>, its smaller neighbor, and <span class="math">\(u_2\)</span> first visits <span class="math">\(u_1\)</span>. The only neighbor of <span class="math">\(u_1\)</span> is <span class="math">\(u_2\)</span>, which is pending, so <span class="math">\(u_1\)</span> finishes right away (at time 4), before any other node.</p>
+<p><span class="math-with-punctuation"><span class="math">\(u_1\)</span>.</span></p>
+<p>DFS from <span class="math">\(u_4\)</span> first visits <span class="math-with-punctuation"><span class="math">\(u_2\)</span>,</span> its smaller neighbor, and <span class="math">\(u_2\)</span> first visits <span class="math-with-punctuation"><span class="math">\(u_1\)</span>.</span> The only neighbor of <span class="math">\(u_1\)</span> is <span class="math-with-punctuation"><span class="math">\(u_2\)</span>,</span> which is pending, so <span class="math">\(u_1\)</span> finishes right away (at time 4), before any other node.</p>
 </details>
 
     </div>
@@ -1120,11 +1127,12 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/lecture-13.html'>lecture-13</a>, <a href='../tags/start and finish times.html'>start and finish times</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a depth first search is run on the graph shown below using node <span class="math">\(u_4\)</span> as the source, and adopt the convention that <span class="inline-code"><code>graph.neighbors</code></span> produces nodes in ascending order of label. Use the convention that the start time of the source is 1. What will be the start time of node <span class="math">\(u_7\)</span>?</p>
+<p>Suppose a depth first search is run on the graph shown below using node <span class="math">\(u_4\)</span> as the source, and adopt the convention that <span class="inline-code"><code>graph.neighbors</code></span> produces nodes in ascending order of label. Use the convention that the start time of the source is 1. What will be the start time of node <span class="math-with-punctuation"><span class="math">\(u_7\)</span>?</span></p>
 <center><div class="image"><img src="../images/273/f1.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p>12, since the search starts <span class="math">\(u_4\)</span> (1), <span class="math">\(u_2\)</span> (2), <span class="math">\(u_1\)</span> (3, finishing at 4), <span class="math">\(u_3\)</span> (5), <span class="math">\(u_5\)</span> (6), <span class="math">\(u_6\)</span> (7, finishing at 8), <span class="math">\(u_8\)</span> (9, finishing at 10) and <span class="math">\(u_9\)</span> (11), always taking the smallest undiscovered neighbor. Then <span class="math">\(u_9\)</span> visits its only undiscovered neighbor, <span class="math">\(u_7\)</span>, which starts at time 12.</p>
+<p>Answer: 12.</p>
+<p>The search starts <span class="math">\(u_4\)</span> (1), <span class="math">\(u_2\)</span> (2), <span class="math">\(u_1\)</span> (3, finishing at 4), <span class="math">\(u_3\)</span> (5), <span class="math">\(u_5\)</span> (6), <span class="math">\(u_6\)</span> (7, finishing at 8), <span class="math">\(u_8\)</span> (9, finishing at 10) and <span class="math">\(u_9\)</span> (11), always taking the smallest undiscovered neighbor. Then <span class="math">\(u_9\)</span> visits its only undiscovered neighbor, <span class="math-with-punctuation"><span class="math">\(u_7\)</span>,</span> which starts at time 12.</p>
 </details>
 
     </div>
@@ -1145,7 +1153,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>What is the predecessor of node <span class="math">\(v\)</span> in the DFS search tree?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(r\)</span>. From <span class="math">\(d\)</span>, DFS first visits <span class="math">\(f\)</span>, then (from <span class="math">\(f\)</span>) <span class="math">\(g\)</span>, then (from <span class="math">\(g\)</span>) <span class="math">\(r\)</span>, and then (from <span class="math">\(r\)</span>) <span class="math">\(v\)</span>. So <span class="math">\(v\)</span> is discovered from <span class="math">\(r\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(r\)</span>.</span></p>
+<p>From <span class="math-with-punctuation"><span class="math">\(d\)</span>,</span> DFS first visits <span class="math-with-punctuation"><span class="math">\(f\)</span>,</span> then (from <span class="math-with-punctuation"><span class="math">\(f\)</span>)</span> <span class="math-with-punctuation"><span class="math">\(g\)</span>,</span> then (from <span class="math-with-punctuation"><span class="math">\(g\)</span>)</span> <span class="math-with-punctuation"><span class="math">\(r\)</span>,</span> and then (from <span class="math-with-punctuation"><span class="math">\(r\)</span>)</span> <span class="math-with-punctuation"><span class="math">\(v\)</span>.</span> So <span class="math">\(v\)</span> is discovered from <span class="math-with-punctuation"><span class="math">\(r\)</span>.</span></p>
 </details>
 
     </div>
@@ -1163,10 +1172,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Suppose a <i>depth</i> first search is run on the graph below in order to find start and finish times using node <span class="math">\(d\)</span> as the source.</p>
 <center><div class="image"><img src="../images/275/searchme.png" /></div></center>
-<p>Adopt the convention that the first start time is 1, and, as always, that neighbors are produced in ascending order by label. What will be the start and finish times of node <span class="math">\(r\)</span>?</p>
+<p>Adopt the convention that the first start time is 1, and, as always, that neighbors are produced in ascending order by label. What will be the start and finish times of node <span class="math-with-punctuation"><span class="math">\(r\)</span>?</span></p>
 <details>
     <summary>Solution</summary>
-<p>Start time 4, finish time 7. DFS starts <span class="math">\(d\)</span> at 1, <span class="math">\(f\)</span> at 2, <span class="math">\(g\)</span> at 3, and <span class="math">\(r\)</span> at 4. From <span class="math">\(r\)</span> it starts <span class="math">\(v\)</span> at 5, which finishes at 6, and then <span class="math">\(r\)</span> finishes at 7.</p>
+<p>Start time 4, finish time 7.</p>
+<p>DFS starts <span class="math">\(d\)</span> at 1, <span class="math">\(f\)</span> at 2, <span class="math">\(g\)</span> at 3, and <span class="math">\(r\)</span> at 4. From <span class="math">\(r\)</span> it starts <span class="math">\(v\)</span> at 5, which finishes at 6, and then <span class="math">\(r\)</span> finishes at 7.</p>
 </details>
 
     </div>
@@ -1187,7 +1197,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>What will be the DFS predecessor of node 3 in the search? Use the convention that a node's neighbors are produced in ascending order by label.</p>
 <details>
     <summary>Solution</summary>
-<p>1. Starting at 11, DFS visits 8 (the smaller neighbor), then 5, then 2, then 1, taking the smallest undiscovered neighbor each time. Node 1's neighbors are 2, which is pending, and 3, which is still undiscovered, so <span class="inline-code"><code>dfs</code></span> is called on 3 from 1.</p>
+<p>1.</p>
+<p>Starting at 11, DFS visits 8 (the smaller neighbor), then 5, then 2, then 1, taking the smallest undiscovered neighbor each time. Node 1's neighbors are 2, which is pending, and 3, which is still undiscovered, so <span class="inline-code"><code>dfs</code></span> is called on 3 from 1.</p>
 </details>
 
     </div>
@@ -1210,7 +1221,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>What will be the start time of node 2? Use the convention that the start time of the source is 1.</p>
 <details>
     <summary>Solution</summary>
-<p>4. DFS starts 11 at time 1, then visits its smaller neighbor 8 (time 2), then 8's smallest undiscovered neighbor 5 (time 3), and then 5's smallest neighbor 2 (time 4).</p>
+<p>4.</p>
+<p>DFS starts 11 at time 1, then visits its smaller neighbor 8 (time 2), then 8's smallest undiscovered neighbor 5 (time 3), and then 5's smallest neighbor 2 (time 4).</p>
 </details>
 
 </div>
@@ -1220,7 +1232,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>What will be the finish time of node 10?</p>
 <details>
     <summary>Solution</summary>
-<p>11. Continuing the search: 2 visits 1 (time 5), 1 visits 3 (6), 3 visits 4 (7), and 4 visits 9 (8). Node 9's neighbors (4, 5 and 11) are all pending, so 9 finishes at 9. Then 4 visits 10 (10), whose only neighbor is 4, so 10 finishes at 11.</p>
+<p>11.</p>
+<p>Continuing the search: 2 visits 1 (time 5), 1 visits 3 (6), 3 visits 4 (7), and 4 visits 9 (8). Node 9's neighbors (4, 5 and 11) are all pending, so 9 finishes at 9. Then 4 visits 10 (10), whose only neighbor is 4, so 10 finishes at 11.</p>
 </details>
 
 </div>
@@ -1238,12 +1251,13 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/lecture-13.html'>lecture-13</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a depth first search (DFS) is run on the graph below, starting at node <span class="math">\(a\)</span>. Start and finish times are calculated using the convention that the start time of node <span class="math">\(a\)</span> is 1.</p>
+<p>Suppose a depth first search (DFS) is run on the graph below, starting at node <span class="math-with-punctuation"><span class="math">\(a\)</span>.</span> Start and finish times are calculated using the convention that the start time of node <span class="math">\(a\)</span> is 1.</p>
 <center><div class="image"><img src="../images/278/graph.png" /></div></center>
-<p>What will be the <b>finish</b> time of node <span class="math">\(c\)</span>? Assume the convention that a node's neighbors are produced in alphabetical order.</p>
+<p>What will be the <b>finish</b> time of node <span class="math-with-punctuation"><span class="math">\(c\)</span>?</span> Assume the convention that a node's neighbors are produced in alphabetical order.</p>
 <details>
     <summary>Solution</summary>
-<p>11. DFS from <span class="math">\(a\)</span> visits <span class="math">\(b\)</span> first (time 2), then <span class="math">\(b\)</span>'s descendants <span class="math">\(f\)</span>, <span class="math">\(g\)</span> and <span class="math">\(e\)</span>, and <span class="math">\(b\)</span> finishes at time 9. Next <span class="math">\(a\)</span> visits <span class="math">\(c\)</span>, which starts at time 10. Both of <span class="math">\(c\)</span>'s neighbors, <span class="math">\(b\)</span> and <span class="math">\(e\)</span>, are already visited, so <span class="math">\(c\)</span> finishes right away, at time 11.</p>
+<p>11.</p>
+<p>DFS from <span class="math">\(a\)</span> visits <span class="math">\(b\)</span> first (time 2), then <span class="math-with-punctuation"><span class="math">\(b\)</span>'</span>s descendants <span class="math-with-punctuation"><span class="math">\(f\)</span>,</span> <span class="math">\(g\)</span> and <span class="math-with-punctuation"><span class="math">\(e\)</span>,</span> and <span class="math">\(b\)</span> finishes at time 9. Next <span class="math">\(a\)</span> visits <span class="math-with-punctuation"><span class="math">\(c\)</span>,</span> which starts at time 10. Both of <span class="math-with-punctuation"><span class="math">\(c\)</span>'</span>s neighbors, <span class="math">\(b\)</span> and <span class="math-with-punctuation"><span class="math">\(e\)</span>,</span> are already visited, so <span class="math">\(c\)</span> finishes right away, at time 11.</p>
 </details>
 
     </div>
@@ -1259,12 +1273,13 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/lecture-13.html'>lecture-13</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a depth first search (DFS) is run on the graph below, starting at node <span class="math">\(a\)</span>. Start and finish times are calculated using the convention that the start time of node <span class="math">\(a\)</span> is 1.</p>
+<p>Suppose a depth first search (DFS) is run on the graph below, starting at node <span class="math-with-punctuation"><span class="math">\(a\)</span>.</span> Start and finish times are calculated using the convention that the start time of node <span class="math">\(a\)</span> is 1.</p>
 <center><div class="image"><img src="../images/279/graph.png" /></div></center>
-<p>What will be the finish time of node <span class="math">\(e\)</span>? Assume the convention that a node's neighbors are produced in alphabetical order.</p>
+<p>What will be the finish time of node <span class="math-with-punctuation"><span class="math">\(e\)</span>?</span> Assume the convention that a node's neighbors are produced in alphabetical order.</p>
 <details>
     <summary>Solution</summary>
-<p>13. Taking the first undiscovered neighbor in alphabetical order each time, DFS starts <span class="math">\(a\)</span> (1), <span class="math">\(b\)</span> (2), <span class="math">\(d\)</span> (3), <span class="math">\(e\)</span> (4), <span class="math">\(f\)</span> (5) and <span class="math">\(c\)</span> (6). Then <span class="math">\(c\)</span> finishes (7), <span class="math">\(f\)</span> visits <span class="math">\(h\)</span> (8), <span class="math">\(h\)</span> finishes (9), and <span class="math">\(f\)</span> finishes (10). Back at <span class="math">\(e\)</span>, the only undiscovered neighbor left is <span class="math">\(g\)</span> (start 11, finish 12), so <span class="math">\(e\)</span> finishes at 13.</p>
+<p>13.</p>
+<p>Taking the first undiscovered neighbor in alphabetical order each time, DFS starts <span class="math">\(a\)</span> (1), <span class="math">\(b\)</span> (2), <span class="math">\(d\)</span> (3), <span class="math">\(e\)</span> (4), <span class="math">\(f\)</span> (5) and <span class="math">\(c\)</span> (6). Then <span class="math">\(c\)</span> finishes (7), <span class="math">\(f\)</span> visits <span class="math">\(h\)</span> (8), <span class="math">\(h\)</span> finishes (9), and <span class="math">\(f\)</span> finishes (10). Back at <span class="math-with-punctuation"><span class="math">\(e\)</span>,</span> the only undiscovered neighbor left is <span class="math">\(g\)</span> (start 11, finish 12), so <span class="math">\(e\)</span> finishes at 13.</p>
 </details>
 
     </div>
@@ -1284,30 +1299,33 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <center><div class="image"><img src="../images/280/graph.png" /></div></center>
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
-<p>What will be the start time of node <span class="math">\(u_7\)</span>?</p>
+<p>What will be the start time of node <span class="math-with-punctuation"><span class="math">\(u_7\)</span>?</span></p>
 <details>
     <summary>Solution</summary>
-<p>8. Taking the smallest undiscovered neighbor each time, the search starts <span class="math">\(s\)</span> (1), <span class="math">\(u_1\)</span> (2), <span class="math">\(u_2\)</span> (3), <span class="math">\(u_3\)</span> (4), <span class="math">\(u_4\)</span> (5), <span class="math">\(u_5\)</span> (6) and <span class="math">\(u_6\)</span> (7). Then <span class="math">\(u_6\)</span>'s smallest undiscovered neighbor is <span class="math">\(u_7\)</span>, which starts at time 8.</p>
+<p>8.</p>
+<p>Taking the smallest undiscovered neighbor each time, the search starts <span class="math">\(s\)</span> (1), <span class="math">\(u_1\)</span> (2), <span class="math">\(u_2\)</span> (3), <span class="math">\(u_3\)</span> (4), <span class="math">\(u_4\)</span> (5), <span class="math">\(u_5\)</span> (6) and <span class="math">\(u_6\)</span> (7). Then <span class="math-with-punctuation"><span class="math">\(u_6\)</span>'</span>s smallest undiscovered neighbor is <span class="math-with-punctuation"><span class="math">\(u_7\)</span>,</span> which starts at time 8.</p>
 </details>
 
 </div>
 
 <div class="subproblem">
     <h3 class="subproblem-id">Part 2)</h3>
-<p>What will be the finish time of node <span class="math">\(u_7\)</span>?</p>
+<p>What will be the finish time of node <span class="math-with-punctuation"><span class="math">\(u_7\)</span>?</span></p>
 <details>
     <summary>Solution</summary>
-<p>9. The neighbors of <span class="math">\(u_7\)</span>, <span class="math">\(u_5\)</span> and <span class="math">\(u_6\)</span>, are both pending, so <span class="math">\(u_7\)</span> finishes right after it starts, at time 9.</p>
+<p>9.</p>
+<p>The neighbors of <span class="math-with-punctuation"><span class="math">\(u_7\)</span>,</span> <span class="math">\(u_5\)</span> and <span class="math-with-punctuation"><span class="math">\(u_6\)</span>,</span> are both pending, so <span class="math">\(u_7\)</span> finishes right after it starts, at time 9.</p>
 </details>
 
 </div>
 
 <div class="subproblem">
     <h3 class="subproblem-id">Part 3)</h3>
-<p>Which node will be the DFS predecessor of node <span class="math">\(u_7\)</span>?</p>
+<p>Which node will be the DFS predecessor of node <span class="math-with-punctuation"><span class="math">\(u_7\)</span>?</span></p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(u_6\)</span>. As in the first part, <span class="math">\(u_5\)</span> visits <span class="math">\(u_6\)</span> before it gets to <span class="math">\(u_7\)</span>, and <span class="math">\(u_6\)</span> then visits <span class="math">\(u_7\)</span>, so <span class="inline-code"><code>dfs</code></span> is called on <span class="math">\(u_7\)</span> from <span class="math">\(u_6\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(u_6\)</span>.</span></p>
+<p>As in the first part, <span class="math">\(u_5\)</span> visits <span class="math">\(u_6\)</span> before it gets to <span class="math-with-punctuation"><span class="math">\(u_7\)</span>,</span> and <span class="math">\(u_6\)</span> then visits <span class="math-with-punctuation"><span class="math">\(u_7\)</span>,</span> so <span class="inline-code"><code>dfs</code></span> is called on <span class="math">\(u_7\)</span> from <span class="math-with-punctuation"><span class="math">\(u_6\)</span>.</span></p>
 </details>
 
 </div>
@@ -1338,12 +1356,13 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
             print("Hello!")
             dfs(graph, v, status)
     status[u] = 'visited'</code></pre>
-<p>Consider running this algorithm on the following graph, starting at node <span class="math">\(a\)</span>:</p>
+<p>Consider running this algorithm on the following graph, starting at node <span class="math-with-punctuation"><span class="math">\(a\)</span>:</span></p>
 <center><div class="image"><img src="../images/281/graph.png" /></div></center>
-<p>How many times will <span class="inline-code"><code>"Hello!"</code></span> be printed? Note that this is not a full DFS, and that not all nodes are reachable from <span class="math">\(a\)</span>.</p>
+<p>How many times will <span class="inline-code"><code>"Hello!"</code></span> be printed? Note that this is not a full DFS, and that not all nodes are reachable from <span class="math-with-punctuation"><span class="math">\(a\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
-<p>6. The print runs once for each recursive call, that is, once for every node discovered other than <span class="math">\(a\)</span>. Following the edges' directions, the nodes reachable from <span class="math">\(a\)</span> are <span class="math">\(a, b, c, d, e, f, g\)</span>. Each of the six besides <span class="math">\(a\)</span> is discovered once, so <span class="inline-code"><code>"Hello!"</code></span> is printed 6 times.</p>
+<p>6.</p>
+<p>The print runs once for each recursive call, that is, once for every node discovered other than <span class="math-with-punctuation"><span class="math">\(a\)</span>.</span> Following the edges' directions, the nodes reachable from <span class="math">\(a\)</span> are <span class="math-with-punctuation"><span class="math">\(a, b, c, d, e, f, g\)</span>.</span> Each of the six besides <span class="math">\(a\)</span> is discovered once, so <span class="inline-code"><code>"Hello!"</code></span> is printed 6 times.</p>
 </details>
 
     </div>
@@ -1372,18 +1391,18 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         if status[v] == 'undiscovered':
             dfs(graph, v, status)
     status[u] = 'visited'</code></pre>
-<p>Consider running this algorithm on the following graph, starting at node <span class="math">\(a\)</span>:</p>
+<p>Consider running this algorithm on the following graph, starting at node <span class="math-with-punctuation"><span class="math">\(a\)</span>:</span></p>
 <center><div class="image"><img src="../images/282/graph.png" /></div></center>
-<p>How many times will <span class="inline-code"><code>"Hello!"</code></span> be printed? Note that this is not a full DFS, and that not all nodes are reachable from <span class="math">\(a\)</span>.</p>
+<p>How many times will <span class="inline-code"><code>"Hello!"</code></span> be printed? Note that this is not a full DFS, and that not all nodes are reachable from <span class="math-with-punctuation"><span class="math">\(a\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
 <p>10.</p>
-<p>The print statement is inside the loop over <span class="math">\(u\)</span>'s neighbors, but before the check of <span class="math">\(v\)</span>'s status. So it runs once for every neighbor of every node that <span class="inline-code"><code>dfs</code></span> is called on, whether or not that neighbor has been discovered. Since <span class="inline-code"><code>dfs</code></span> is called exactly once on each node reachable from <span class="math">\(a\)</span>, the number of prints is the sum of the out-degrees of the nodes reachable from <span class="math">\(a\)</span>.</p>
-<p>Following the edges' directions, <span class="math">\(a\)</span> reaches <span class="math">\(b\)</span>, <span class="math">\(c\)</span>, <span class="math">\(d\)</span>, <span class="math">\(e\)</span>, <span class="math">\(f\)</span> and <span class="math">\(g\)</span>, but not <span class="math">\(h\)</span>, since all of <span class="math">\(h\)</span>'s edges point away from it. Adding up the out-degrees:</p>
+<p>The print statement is inside the loop over <span class="math-with-punctuation"><span class="math">\(u\)</span>'</span>s neighbors, but before the check of <span class="math-with-punctuation"><span class="math">\(v\)</span>'</span>s status. So it runs once for every neighbor of every node that <span class="inline-code"><code>dfs</code></span> is called on, whether or not that neighbor has been discovered. Since <span class="inline-code"><code>dfs</code></span> is called exactly once on each node reachable from <span class="math-with-punctuation"><span class="math">\(a\)</span>,</span> the number of prints is the sum of the out-degrees of the nodes reachable from <span class="math-with-punctuation"><span class="math">\(a\)</span>.</span></p>
+<p>Following the edges' directions, <span class="math">\(a\)</span> reaches <span class="math-with-punctuation"><span class="math">\(b\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(c\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(d\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(e\)</span>,</span> <span class="math">\(f\)</span> and <span class="math-with-punctuation"><span class="math">\(g\)</span>,</span> but not <span class="math-with-punctuation"><span class="math">\(h\)</span>,</span> since all of <span class="math-with-punctuation"><span class="math">\(h\)</span>'</span>s edges point away from it. Adding up the out-degrees:</p>
 <div class="math">\[
             \underbrace{3}_{a} + \underbrace{2}_{b} + \underbrace{1}_{c} + \underbrace{1}_{d} + \underbrace{1}_{e} + \underbrace{1}_{f} + \underbrace{1}_{g} = 10.
         \]</div>
-<p>Notice that <span class="math">\((e, g)\)</span> and <span class="math">\((g, e)\)</span> both count, since they are two different edges, and that <span class="math">\(h\)</span>'s three edges don't count, since <span class="math">\(h\)</span> is never visited.</p>
+<p>Notice that <span class="math">\((e, g)\)</span> and <span class="math">\((g, e)\)</span> both count, since they are two different edges, and that <span class="math-with-punctuation"><span class="math">\(h\)</span>'</span>s three edges don't count, since <span class="math">\(h\)</span> is never visited.</p>
 </details>
 
     </div>
@@ -1416,7 +1435,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <center><div class="image"><img src="../images/283/g4.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p>12. The print runs once for every neighbor of every node visited. The DFS visits only <span class="math">\(u\)</span>'s connected component, which has 5 nodes and 6 edges. In an undirected graph each edge appears in two adjacency lists, so the total is <span class="math">\(2 \times 6 = 12\)</span>.</p>
+<p>12.</p>
+<p>The print runs once for every neighbor of every node visited. The DFS visits only <span class="math-with-punctuation"><span class="math">\(u\)</span>'</span>s connected component, which has 5 nodes and 6 edges. In an undirected graph each edge appears in two adjacency lists, so the total is <span class="math-with-punctuation"><span class="math">\(2 \times 6 = 12\)</span>.</span></p>
 </details>
 
     </div>
@@ -1432,12 +1452,13 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/lecture-13.html'>lecture-13</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose we define a <i>forward-looking</i> graph with <span class="math">\(n\)</span> nodes to be the directed graph <span class="math">\(G = (V, E)\)</span> with nodes <span class="math">\(u_1, \ldots, u_n\)</span> and the edge <span class="math">\((u_i, u_j)\)</span> if and only if <span class="math">\(i < j\)</span>. An example of such a graph with 4 nodes is shown below.</p>
+<p>Suppose we define a <i>forward-looking</i> graph with <span class="math">\(n\)</span> nodes to be the directed graph <span class="math">\(G = (V, E)\)</span> with nodes <span class="math">\(u_1, \ldots, u_n\)</span> and the edge <span class="math">\((u_i, u_j)\)</span> if and only if <span class="math-with-punctuation"><span class="math">\(i < j\)</span>.</span> An example of such a graph with 4 nodes is shown below.</p>
 <center><div class="image"><img src="../images/284/graph.png" /></div></center>
 <p>What is the time complexity of depth-first search when run on a forward-looking graph with <span class="math">\(n\)</span> nodes, using node <span class="math">\(u_1\)</span> as the source? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. DFS takes <span class="math">\(\Theta(V + E)\)</span> time, and every node is reachable from <span class="math">\(u_1\)</span>. There is an edge for each pair <span class="math">\(i < j\)</span>, so <span class="math">\(E = n(n-1)/2\)</span>, and the time is <span class="math">\(\Theta(n + n^2) = \Theta(n^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>DFS takes <span class="math">\(\Theta(V + E)\)</span> time, and every node is reachable from <span class="math-with-punctuation"><span class="math">\(u_1\)</span>.</span> There is an edge for each pair <span class="math-with-punctuation"><span class="math">\(i < j\)</span>,</span> so <span class="math-with-punctuation"><span class="math">\(E = n(n-1)/2\)</span>,</span> and the time is <span class="math-with-punctuation"><span class="math">\(\Theta(n + n^2) = \Theta(n^2)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1456,7 +1477,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose you run DFS on a graph in which all nodes are reachable from the source node. True or false: the source node will be marked as visited last, <b>only</b> if the graph is undirected.</p>
 <details>
     <summary>Solution</summary>
-<p>False. The source is marked as visited last in both directed and undirected graphs. Every other node is reachable from the source, so each is discovered and finished during the recursive calls made by the call on the source, which finishes only after all of them have.</p>
+<p>False.</p>
+<p>The source is marked as visited last in both directed and undirected graphs. Every other node is reachable from the source, so each is discovered and finished during the recursive calls made by the call on the source, which finishes only after all of them have.</p>
 </details>
 
     </div>
@@ -1476,7 +1498,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <details>
     <summary>Solution</summary>
 <p>False.</p>
-<p>Before <span class="inline-code"><code>dfs(u)</code></span> marks <span class="math">\(u\)</span> as visited, it loops over all of <span class="math">\(u\)</span>'s successors and calls <span class="inline-code"><code>dfs</code></span> on any that are undiscovered. So by the time <span class="math">\(u\)</span> is visited, <span class="math">\(v\)</span> has been discovered (it is pending or visited).</p>
+<p>Before <span class="inline-code"><code>dfs(u)</code></span> marks <span class="math">\(u\)</span> as visited, it loops over all of <span class="math-with-punctuation"><span class="math">\(u\)</span>'</span>s successors and calls <span class="inline-code"><code>dfs</code></span> on any that are undiscovered. So by the time <span class="math">\(u\)</span> is visited, <span class="math">\(v\)</span> has been discovered (it is pending or visited).</p>
 </details>
 
     </div>
@@ -1496,7 +1518,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <details>
     <summary>Solution</summary>
 <p>True.</p>
-<p>Take the graph with edges <span class="math">\((a, b)\)</span> and <span class="math">\((b, a)\)</span> and start the DFS at <span class="math">\(a\)</span>. While <span class="math">\(a\)</span> is pending, <span class="inline-code"><code>dfs(b)</code></span> is called. It sees that <span class="math">\(a\)</span> is already pending and then finishes, so <span class="math">\(b\)</span> is visited while its successor <span class="math">\(a\)</span> is still pending.</p>
+<p>Take the graph with edges <span class="math">\((a, b)\)</span> and <span class="math">\((b, a)\)</span> and start the DFS at <span class="math-with-punctuation"><span class="math">\(a\)</span>.</span> While <span class="math">\(a\)</span> is pending, <span class="inline-code"><code>dfs(b)</code></span> is called. It sees that <span class="math">\(a\)</span> is already pending and then finishes, so <span class="math">\(b\)</span> is visited while its successor <span class="math">\(a\)</span> is still pending.</p>
 </details>
 
     </div>
@@ -1512,11 +1534,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/lecture-13.html'>lecture-13</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose that a depth first search is being performed on an <b>undirected</b> graph, and when <span class="inline-code"><code>dfs</code></span> is called on a node <span class="math">\(u\)</span>, the statuses of all of its neighbors are printed. True or False: it is possible that one of the neighbors is marked as “visited”.</p>
+<p>Suppose that a depth first search is being performed on an <b>undirected</b> graph, and when <span class="inline-code"><code>dfs</code></span> is called on a node <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> the statuses of all of its neighbors are printed. True or False: it is possible that one of the neighbors is marked as “visited”.</p>
 <details>
     <summary>Solution</summary>
 <p>False.</p>
-<p><span class="inline-code"><code>dfs(u)</code></span> is only called when <span class="math">\(u\)</span> is undiscovered. If a neighbor <span class="math">\(w\)</span> were already visited, then <span class="inline-code"><code>dfs(w)</code></span> would have looped over its neighbors, including <span class="math">\(u\)</span>, before finishing, so <span class="math">\(u\)</span> would already have been discovered.</p>
+<p><span class="inline-code"><code>dfs(u)</code></span> is only called when <span class="math">\(u\)</span> is undiscovered. If a neighbor <span class="math">\(w\)</span> were already visited, then <span class="inline-code"><code>dfs(w)</code></span> would have looped over its neighbors, including <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> before finishing, so <span class="math">\(u\)</span> would already have been discovered.</p>
 </details>
 
     </div>
@@ -1535,7 +1557,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose a depth first search (DFS) is run on a connected undirected graph, and there is a node <span class="math">\(u\)</span> which has only one neighbor. True or False: the finish time of node <span class="math">\(u\)</span> will be equal to its start time plus 3.</p>
 <details>
     <summary>Solution</summary>
-<p>False. If <span class="math">\(u\)</span> is not the source, its only neighbor is the node it was discovered from, which is already pending. So DFS finds nothing new to visit from <span class="math">\(u\)</span>, and <span class="math">\(u\)</span>'s finish time is its start time plus 1. (If <span class="math">\(u\)</span> is the source, its finish time is its start time plus <span class="math">\(2(|V| - 1) + 1\)</span>, which equals its start time plus 3 only when the graph has exactly two nodes.)</p>
+<p>False.</p>
+<p>If <span class="math">\(u\)</span> is not the source, its only neighbor is the node it was discovered from, which is already pending. So DFS finds nothing new to visit from <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> and <span class="math-with-punctuation"><span class="math">\(u\)</span>'</span>s finish time is its start time plus 1. (If <span class="math">\(u\)</span> is the source, its finish time is its start time plus <span class="math-with-punctuation"><span class="math">\(2(|V| - 1) + 1\)</span>,</span> which equals its start time plus 3 only when the graph has exactly two nodes.)</p>
 </details>
 
     </div>
@@ -1551,10 +1574,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/lecture-13.html'>lecture-13</a>, <a href='../tags/start and finish times.html'>start and finish times</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>In a DFS on an undirected graph <span class="math">\(G\)</span>, the start time of node <span class="math">\(u\)</span> is 12, while the finish time of node <span class="math">\(u\)</span> is 37. How many nodes were marked pending between the moment that node <span class="math">\(u\)</span> was marked pending and the moment that it was marked visited? Node <span class="math">\(u\)</span> itself should be <i>excluded</i> from your count.</p>
+<p>In a DFS on an undirected graph <span class="math-with-punctuation"><span class="math">\(G\)</span>,</span> the start time of node <span class="math">\(u\)</span> is 12, while the finish time of node <span class="math">\(u\)</span> is 37. How many nodes were marked pending between the moment that node <span class="math">\(u\)</span> was marked pending and the moment that it was marked visited? Node <span class="math">\(u\)</span> itself should be <i>excluded</i> from your count.</p>
 <details>
     <summary>Solution</summary>
-<p>12. Every node that is marked pending during this time is also marked visited during it, and each one uses two time steps: one for its start and one for its finish. The times strictly between 12 and 37 are <span class="math">\(13, \ldots, 36\)</span>, which is 24 time steps, so <span class="math">\(24 / 2 = 12\)</span> nodes.</p>
+<p>12.</p>
+<p>Every node that is marked pending during this time is also marked visited during it, and each one uses two time steps: one for its start and one for its finish. The times strictly between 12 and 37 are <span class="math-with-punctuation"><span class="math">\(13, \ldots, 36\)</span>,</span> which is 24 time steps, so <span class="math">\(24 / 2 = 12\)</span> nodes.</p>
 </details>
 
     </div>
@@ -1570,7 +1594,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/lecture-13.html'>lecture-13</a>, <a href='../tags/start and finish times.html'>start and finish times</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose <span class="math">\(T = (V, E)\)</span> is a connected, undirected graph with no cycles (that is, <span class="math">\(T\)</span> is a tree). Suppose a depth first search is run on <span class="math">\(T\)</span> using node <span class="math">\(s\)</span> as the source. Assume that node <span class="math">\(s\)</span> has two neighbors: <span class="math">\(u\)</span> and <span class="math">\(v\)</span>. If <span class="math">\(|V| = 15\)</span>, which one of the below represents possible start and finish times of <span class="math">\(u\)</span> and <span class="math">\(v\)</span>? You may assume that <span class="inline-code"><code>graph.neighbors</code></span> produces neighbors in ascending order of label.</p>
+<p>Suppose <span class="math">\(T = (V, E)\)</span> is a connected, undirected graph with no cycles (that is, <span class="math">\(T\)</span> is a tree). Suppose a depth first search is run on <span class="math">\(T\)</span> using node <span class="math">\(s\)</span> as the source. Assume that node <span class="math">\(s\)</span> has two neighbors: <span class="math">\(u\)</span> and <span class="math-with-punctuation"><span class="math">\(v\)</span>.</span> If <span class="math-with-punctuation"><span class="math">\(|V| = 15\)</span>,</span> which one of the below represents possible start and finish times of <span class="math">\(u\)</span> and <span class="math-with-punctuation"><span class="math">\(v\)</span>?</span> You may assume that <span class="inline-code"><code>graph.neighbors</code></span> produces neighbors in ascending order of label.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>start[u] = 2</code></span>, <span class="inline-code"><code>finish[u] = 10</code></span>, <span class="inline-code"><code>start[v] = 8</code></span>, <span class="inline-code"><code>finish[v] = 29</code></span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>start[u] = 2</code></span>, <span class="inline-code"><code>finish[u] = 21</code></span>, <span class="inline-code"><code>start[v] = 22</code></span>, <span class="inline-code"><code>finish[v] = 29</code></span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>start[u] = 1</code></span>, <span class="inline-code"><code>finish[u] = 16</code></span>, <span class="inline-code"><code>start[v] = 17</code></span>, <span class="inline-code"><code>finish[v] = 30</code></span></p></label></div>
@@ -1598,7 +1622,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <details>
     <summary>Solution</summary>
 <p>False.</p>
-<p>If the graph were connected, the first call to <span class="inline-code"><code>dfs</code></span> would reach all 50 nodes, so the other 49 nodes would all start and finish between the source's start and finish times. The source's finish minus start would then be at least <span class="math">\(2 \cdot 49 + 1 = 99\)</span>, which is much more than 15.</p>
+<p>If the graph were connected, the first call to <span class="inline-code"><code>dfs</code></span> would reach all 50 nodes, so the other 49 nodes would all start and finish between the source's start and finish times. The source's finish minus start would then be at least <span class="math-with-punctuation"><span class="math">\(2 \cdot 49 + 1 = 99\)</span>,</span> which is much more than 15.</p>
 </details>
 
     </div>
@@ -1614,7 +1638,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/lecture-13.html'>lecture-13</a>, <a href='../tags/start and finish times.html'>start and finish times</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(G\)</span> be a graph, and suppose <span class="math">\(s\)</span>, <span class="math">\(u\)</span>, and <span class="math">\(v\)</span> are three nodes in the graph.</p>
+<p>Let <span class="math">\(G\)</span> be a graph, and suppose <span class="math-with-punctuation"><span class="math">\(s\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> and <span class="math">\(v\)</span> are three nodes in the graph.</p>
 <p>Suppose a depth-first search (DFS) is run on <span class="math">\(G\)</span> using node <span class="math">\(s\)</span> as the source and adopting the convention that a node's neighbors are produced in ascending order by label. During this DFS, start and finish times are computed. Suppose it is found that:</p>
 <div class="math">\[
         \text{start}[u]
@@ -1638,7 +1662,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <details>
     <summary>Solution</summary>
 <p>False.</p>
-<p>Take the triangle with edges <span class="math">\((s, u)\)</span>, <span class="math">\((s, v)\)</span>, <span class="math">\((u, v)\)</span>. If <span class="math">\(s\)</span>'s neighbors are produced with <span class="math">\(u\)</span> first, then <span class="math">\(v\)</span> is discovered from <span class="math">\(u\)</span> and its interval is nested inside <span class="math">\(u\)</span>'s. If <span class="math">\(v\)</span> comes first, <span class="math">\(u\)</span> is discovered from <span class="math">\(v\)</span> and the nesting is reversed.</p>
+<p>Take the triangle with edges <span class="math-with-punctuation"><span class="math">\((s, u)\)</span>,</span> <span class="math-with-punctuation"><span class="math">\((s, v)\)</span>,</span> <span class="math-with-punctuation"><span class="math">\((u, v)\)</span>.</span> If <span class="math-with-punctuation"><span class="math">\(s\)</span>'</span>s neighbors are produced with <span class="math">\(u\)</span> first, then <span class="math">\(v\)</span> is discovered from <span class="math">\(u\)</span> and its interval is nested inside <span class="math-with-punctuation"><span class="math">\(u\)</span>'</span>s. If <span class="math">\(v\)</span> comes first, <span class="math">\(u\)</span> is discovered from <span class="math">\(v\)</span> and the nesting is reversed.</p>
 </details>
 
     </div>
@@ -1654,12 +1678,12 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/lecture-13.html'>lecture-13</a>, <a href='../tags/start and finish times.html'>start and finish times</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(G\)</span> be an undirected graph, and let <span class="math">\(u\)</span> and <span class="math">\(v\)</span> be two nodes in the graph, with <span class="math">\(v\)</span> reachable from <span class="math">\(u\)</span>.</p>
-<p>Suppose that at the moment <span class="inline-code"><code>dfs(u)</code></span> is called, <span class="math">\(v\)</span> is still undiscovered. True or False: the eventual start time of <span class="math">\(v\)</span> must be less than the finish time of <span class="math">\(u\)</span>.</p>
+<p>Let <span class="math">\(G\)</span> be an undirected graph, and let <span class="math">\(u\)</span> and <span class="math">\(v\)</span> be two nodes in the graph, with <span class="math">\(v\)</span> reachable from <span class="math-with-punctuation"><span class="math">\(u\)</span>.</span></p>
+<p>Suppose that at the moment <span class="inline-code"><code>dfs(u)</code></span> is called, <span class="math">\(v\)</span> is still undiscovered. True or False: the eventual start time of <span class="math">\(v\)</span> must be less than the finish time of <span class="math-with-punctuation"><span class="math">\(u\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
 <p>False.</p>
-<p>The only path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> might go through a node that is already pending. For example, take edges <span class="math">\((s, u)\)</span> and <span class="math">\((s, v)\)</span> and start at <span class="math">\(s\)</span>. If <span class="inline-code"><code>dfs(u)</code></span> is called first, <span class="math">\(u\)</span> has no undiscovered neighbors and finishes right away, and <span class="math">\(v\)</span> is only started afterward from <span class="math">\(s\)</span>.</p>
+<p>The only path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> might go through a node that is already pending. For example, take edges <span class="math">\((s, u)\)</span> and <span class="math">\((s, v)\)</span> and start at <span class="math-with-punctuation"><span class="math">\(s\)</span>.</span> If <span class="inline-code"><code>dfs(u)</code></span> is called first, <span class="math">\(u\)</span> has no undiscovered neighbors and finishes right away, and <span class="math">\(v\)</span> is only started afterward from <span class="math-with-punctuation"><span class="math">\(s\)</span>.</span></p>
 </details>
 
     </div>
@@ -1675,10 +1699,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/lecture-13.html'>lecture-13</a>, <a href='../tags/start and finish times.html'>start and finish times</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose <span class="math">\(v\)</span> is reachable from node <span class="math">\(u\)</span> in a directed graph. A DFS is run on the graph, and node <span class="math">\(u\)</span> is discovered before node <span class="math">\(v\)</span> (its start time is less than <span class="math">\(v\)</span>'s start time). True or false: the finish time of node <span class="math">\(v\)</span> must be less than the finish time of node <span class="math">\(u\)</span>.</p>
+<p>Suppose <span class="math">\(v\)</span> is reachable from node <span class="math">\(u\)</span> in a directed graph. A DFS is run on the graph, and node <span class="math">\(u\)</span> is discovered before node <span class="math">\(v\)</span> (its start time is less than <span class="math-with-punctuation"><span class="math">\(v\)</span>'</span>s start time). True or false: the finish time of node <span class="math">\(v\)</span> must be less than the finish time of node <span class="math-with-punctuation"><span class="math">\(u\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
-<p>False. Consider the graph with nodes <span class="math">\(s\)</span>, <span class="math">\(u\)</span>, and <span class="math">\(v\)</span>, and edges <span class="math">\((s,u)\)</span>, <span class="math">\((u,s)\)</span>, and <span class="math">\((s,v)\)</span>, where a DFS is run with node <span class="math">\(s\)</span> as source, going to node <span class="math">\(u\)</span> first. Then <span class="math">\(u\)</span> will be finished before <span class="math">\(v\)</span> is started (and thus before it is finished, too).</p>
+<p>False.</p>
+<p>Consider the graph with nodes <span class="math-with-punctuation"><span class="math">\(s\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> and <span class="math-with-punctuation"><span class="math">\(v\)</span>,</span> and edges <span class="math-with-punctuation"><span class="math">\((s,u)\)</span>,</span> <span class="math-with-punctuation"><span class="math">\((u,s)\)</span>,</span> and <span class="math-with-punctuation"><span class="math">\((s,v)\)</span>,</span> where a DFS is run with node <span class="math">\(s\)</span> as source, going to node <span class="math">\(u\)</span> first. Then <span class="math">\(u\)</span> will be finished before <span class="math">\(v\)</span> is started (and thus before it is finished, too).</p>
 </details>
 
     </div>
@@ -1694,12 +1719,12 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/lecture-13.html'>lecture-13</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose <span class="math">\(G\)</span> is a connected, undirected graph with a unique longest simple path; call this path <span class="math">\(p\)</span>. A depth first search is run on <span class="math">\(G\)</span> from some source node <span class="math">\(s\)</span>.</p>
-<p>True or False: the longest simple path in the DFS tree must be <span class="math">\(p\)</span>.</p>
+<p>Suppose <span class="math">\(G\)</span> is a connected, undirected graph with a unique longest simple path; call this path <span class="math-with-punctuation"><span class="math">\(p\)</span>.</span> A depth first search is run on <span class="math">\(G\)</span> from some source node <span class="math-with-punctuation"><span class="math">\(s\)</span>.</span></p>
+<p>True or False: the longest simple path in the DFS tree must be <span class="math-with-punctuation"><span class="math">\(p\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
 <p>False.</p>
-<p>Take edges <span class="math">\((s, a)\)</span>, <span class="math">\((s, b)\)</span>, <span class="math">\((s, c)\)</span>, <span class="math">\((a, b)\)</span>, <span class="math">\((a, d)\)</span>. The unique longest simple path is <span class="math">\(c, s, b, a, d\)</span> (4 edges). If the DFS from <span class="math">\(s\)</span> visits <span class="math">\(a\)</span> first, then <span class="math">\(b\)</span> and <span class="math">\(d\)</span> are both discovered from <span class="math">\(a\)</span>, the edge <span class="math">\((s, b)\)</span> is not in the DFS tree, and the longest path in the tree has only 3 edges.</p>
+<p>Take edges <span class="math-with-punctuation"><span class="math">\((s, a)\)</span>,</span> <span class="math-with-punctuation"><span class="math">\((s, b)\)</span>,</span> <span class="math-with-punctuation"><span class="math">\((s, c)\)</span>,</span> <span class="math-with-punctuation"><span class="math">\((a, b)\)</span>,</span> <span class="math-with-punctuation"><span class="math">\((a, d)\)</span>.</span> The unique longest simple path is <span class="math">\(c, s, b, a, d\)</span> (4 edges). If the DFS from <span class="math">\(s\)</span> visits <span class="math">\(a\)</span> first, then <span class="math">\(b\)</span> and <span class="math">\(d\)</span> are both discovered from <span class="math-with-punctuation"><span class="math">\(a\)</span>,</span> the edge <span class="math">\((s, b)\)</span> is not in the DFS tree, and the longest path in the tree has only 3 edges.</p>
 </details>
 
     </div>

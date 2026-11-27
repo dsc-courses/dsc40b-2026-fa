@@ -950,6 +950,8 @@ Course Staff
 /* level the box with the first line of the choice, not the middle of a wrapped one */
 .multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+/* inline math and the punctuation right after it; see _keep_math_with_punctuation */
+.math-with-punctuation { white-space: nowrap; }
 </style>
 <h1>Problems tagged with "lecture-15"</h1>
 <style>
@@ -1009,7 +1011,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Dijkstra's Algorithm</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>Dijkstra's Algorithm. The graph is weighted, so BFS and DFS won't find shortest paths. Travel times are never negative, so both Bellman-Ford and Dijkstra's algorithm work, but Dijkstra's algorithm has the better time complexity.</p>
+<p>Dijkstra's Algorithm.</p>
+<p>The graph is weighted, so BFS and DFS won't find shortest paths. Travel times are never negative, so both Bellman-Ford and Dijkstra's algorithm work, but Dijkstra's algorithm has the better time complexity.</p>
 </details>
 
     </div>
@@ -1032,7 +1035,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Dijkstra's Algorithm</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>Bellman-Ford. Some edge weights are negative, and Dijkstra's algorithm is not guaranteed to find shortest paths when there are negative edge weights. Bellman-Ford works with negative weights (as long as there are no negative cycles), and BFS and DFS don't find shortest paths in weighted graphs.</p>
+<p>Bellman-Ford.</p>
+<p>Some edge weights are negative, and Dijkstra's algorithm is not guaranteed to find shortest paths when there are negative edge weights. Bellman-Ford works with negative weights (as long as there are no negative cycles), and BFS and DFS don't find shortest paths in weighted graphs.</p>
 </details>
 
     </div>
@@ -1055,7 +1059,9 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>(b) After six iterations of the while loop, what is the value of <span class="inline-code"><code>est[b]</code></span>?</p>
 <details>
     <summary>Solution</summary>
-<p>(a) 1. On the first iteration, <span class="math">\(a\)</span> is popped from the priority queue and the edge <span class="math">\((a, b)\)</span> is updated, setting <span class="inline-code"><code>est[b]</code></span> to 3. (b) 3. The only edge into <span class="math">\(b\)</span> is <span class="math">\((a, b)\)</span>, so <span class="inline-code"><code>est[b]</code></span> never changes again and is still 3 after six iterations.</p>
+<p>(a) 1. (b) 3.</p>
+<p>(a) On the first iteration, <span class="math">\(a\)</span> is popped from the priority queue and the edge <span class="math">\((a, b)\)</span> is updated, setting <span class="inline-code"><code>est[b]</code></span> to 3.</p>
+<p>(b) The only edge into <span class="math">\(b\)</span> is <span class="math-with-punctuation"><span class="math">\((a, b)\)</span>,</span> so <span class="inline-code"><code>est[b]</code></span> never changes again and is still 3 after six iterations.</p>
 </details>
 
     </div>
@@ -1071,7 +1077,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/dijkstra.html'>dijkstra</a>, <a href='../tags/lecture-15.html'>lecture-15</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Consider the following graph. If the set <span class="math">\(C\)</span> of correct nodes (shown in green) contains nodes <span class="math">\(s\)</span>, <span class="math">\(u_1\)</span>, and <span class="math">\(u_2\)</span>, how many exit paths from <span class="math">\(s\)</span> through <span class="math">\(C\)</span> exist?</p>
+<p>Consider the following graph. If the set <span class="math">\(C\)</span> of correct nodes (shown in green) contains nodes <span class="math-with-punctuation"><span class="math">\(s\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(u_1\)</span>,</span> and <span class="math-with-punctuation"><span class="math">\(u_2\)</span>,</span> how many exit paths from <span class="math">\(s\)</span> through <span class="math">\(C\)</span> exist?</p>
 <center><div class="image"><img src="../images/314/f1.jpg" /></div></center>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>2</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>3</p></label></div>
@@ -1079,7 +1085,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Infinite</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>Answer: 4. We defined an exit path to be any path starting at the source where all but the last node is in the correct set, and the last node is outside of the correct set. More informally: it's a path where the last node is gray and all of the other nodes are green. The four exit paths are <span class="math">\((s, u_1, u_6)\)</span>, <span class="math">\((s, u_1, u_3)\)</span>, <span class="math">\((s, u_1, u_2, u_4)\)</span>, and <span class="math">\((s, u_2, u_4)\)</span>.</p>
+<p>Answer: 4.</p>
+<p>We defined an exit path to be any path starting at the source where all but the last node is in the correct set, and the last node is outside of the correct set. More informally: it's a path where the last node is gray and all of the other nodes are green. The four exit paths are <span class="math-with-punctuation"><span class="math">\((s, u_1, u_6)\)</span>,</span> <span class="math-with-punctuation"><span class="math">\((s, u_1, u_3)\)</span>,</span> <span class="math-with-punctuation"><span class="math">\((s, u_1, u_2, u_4)\)</span>,</span> and <span class="math-with-punctuation"><span class="math">\((s, u_2, u_4)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1097,10 +1104,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Suppose Dijkstra's algorithm is run on the graph shown below using node <span class="math">\(a\)</span> as the source.</p>
 <center><div class="image"><img src="../images/315/graph.png" /></div></center>
-<p>What will be the fourth node popped from the priority queue? (The first node popped is the source, <span class="math">\(a\)</span>.)</p>
+<p>What will be the fourth node popped from the priority queue? (The first node popped is the source, <span class="math-with-punctuation"><span class="math">\(a\)</span>.)</span></p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(f\)</span>. After popping <span class="math">\(a\)</span>, the estimates are <span class="math">\(b = 1\)</span> and <span class="math">\(c = 4\)</span>, so <span class="math">\(b\)</span> is popped second. Its edges lower <span class="math">\(e\)</span> to 2 (and set <span class="math">\(d\)</span> to 9), so <span class="math">\(e\)</span> is popped third. Then <span class="math">\((e, f)\)</span> lowers <span class="math">\(f\)</span> to 3, which is less than <span class="math">\(c\)</span>'s 4, so <span class="math">\(f\)</span> is popped fourth.</p>
+<p><span class="math-with-punctuation"><span class="math">\(f\)</span>.</span></p>
+<p>After popping <span class="math-with-punctuation"><span class="math">\(a\)</span>,</span> the estimates are <span class="math">\(b = 1\)</span> and <span class="math-with-punctuation"><span class="math">\(c = 4\)</span>,</span> so <span class="math">\(b\)</span> is popped second. Its edges lower <span class="math">\(e\)</span> to 2 (and set <span class="math">\(d\)</span> to 9), so <span class="math">\(e\)</span> is popped third. Then <span class="math">\((e, f)\)</span> lowers <span class="math">\(f\)</span> to 3, which is less than <span class="math-with-punctuation"><span class="math">\(c\)</span>'</span>s 4, so <span class="math">\(f\)</span> is popped fourth.</p>
 </details>
 
     </div>
@@ -1119,10 +1127,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose Dijkstra's algorithm is run on the graph shown below using node <span class="math">\(a\)</span> as the source.</p>
 <center><div class="image"><img src="../images/316/graph.png" /></div></center>
 <p>Suppose <span class="math">\(C\)</span> is the set of “correct” nodes: that is, <span class="math">\(C\)</span> is the set of nodes whose estimated distances are known to be correct.</p>
-<p>What will be the fifth node added to <span class="math">\(C\)</span> by Dijkstra's algorithm? (The first node added to <span class="math">\(C\)</span> is the source, <span class="math">\(a\)</span>.)</p>
+<p>What will be the fifth node added to <span class="math">\(C\)</span> by Dijkstra's algorithm? (The first node added to <span class="math">\(C\)</span> is the source, <span class="math-with-punctuation"><span class="math">\(a\)</span>.)</span></p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(b\)</span>. Popping <span class="math">\(a\)</span> sets <span class="math">\(g = 1\)</span>, <span class="math">\(b = 4\)</span> and <span class="math">\(c = 5\)</span>. Then <span class="math">\(g\)</span> is added (1), and it sets <span class="math">\(d = 9\)</span> and <span class="math">\(e = 2\)</span>. Then <span class="math">\(e\)</span> is added (2), and it sets <span class="math">\(f = 3\)</span>. Then <span class="math">\(f\)</span> is added (3). The smallest remaining estimate is now <span class="math">\(b\)</span>'s 4, so <span class="math">\(b\)</span> is fifth.</p>
+<p><span class="math-with-punctuation"><span class="math">\(b\)</span>.</span></p>
+<p>Popping <span class="math">\(a\)</span> sets <span class="math-with-punctuation"><span class="math">\(g = 1\)</span>,</span> <span class="math">\(b = 4\)</span> and <span class="math-with-punctuation"><span class="math">\(c = 5\)</span>.</span> Then <span class="math">\(g\)</span> is added (1), and it sets <span class="math">\(d = 9\)</span> and <span class="math-with-punctuation"><span class="math">\(e = 2\)</span>.</span> Then <span class="math">\(e\)</span> is added (2), and it sets <span class="math-with-punctuation"><span class="math">\(f = 3\)</span>.</span> Then <span class="math">\(f\)</span> is added (3). The smallest remaining estimate is now <span class="math-with-punctuation"><span class="math">\(b\)</span>'</span>s 4, so <span class="math">\(b\)</span> is fifth.</p>
 </details>
 
     </div>

@@ -950,6 +950,8 @@ Course Staff
 /* level the box with the first line of the choice, not the middle of a wrapped one */
 .multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+/* inline math and the punctuation right after it; see _keep_math_with_punctuation */
+.math-with-punctuation { white-space: nowrap; }
 </style>
 <h1>Problems tagged with "minimum spanning trees"</h1>
 <style>
@@ -1008,7 +1010,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>The number of edges can vary between different minimum spanning trees.</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>Answer: 8. Every spanning tree of a graph with <span class="math">\(|V|\)</span> nodes is a tree on those <span class="math">\(|V|\)</span> nodes, so it has exactly <span class="math">\(|V| - 1 = 8\)</span> edges.</p>
+<p>Answer: 8.</p>
+<p>Every spanning tree of a graph with <span class="math">\(|V|\)</span> nodes is a tree on those <span class="math">\(|V|\)</span> nodes, so it has exactly <span class="math">\(|V| - 1 = 8\)</span> edges.</p>
 </details>
 
     </div>
@@ -1029,7 +1032,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>True or false: the edge <span class="math">\((a, b)\)</span> is in every minimum spanning tree of the graph.</p>
 <details>
     <summary>Solution</summary>
-<p>True. Node <span class="math">\(b\)</span> has only two edges: <span class="math">\((a, b)\)</span> with weight 5 and <span class="math">\((b, d)\)</span> with weight 7. A spanning tree must include at least one of them. If a spanning tree used <span class="math">\((b, d)\)</span> but not <span class="math">\((a, b)\)</span>, adding <span class="math">\((a, b)\)</span> would create a cycle containing <span class="math">\((b, d)\)</span>; removing <span class="math">\((b, d)\)</span> gives another spanning tree with smaller total weight. So every minimum spanning tree contains <span class="math">\((a, b)\)</span>.</p>
+<p>True.</p>
+<p>Node <span class="math">\(b\)</span> has only two edges: <span class="math">\((a, b)\)</span> with weight 5 and <span class="math">\((b, d)\)</span> with weight 7. A spanning tree must include at least one of them. If a spanning tree used <span class="math">\((b, d)\)</span> but not <span class="math-with-punctuation"><span class="math">\((a, b)\)</span>,</span> adding <span class="math">\((a, b)\)</span> would create a cycle containing <span class="math-with-punctuation"><span class="math">\((b, d)\)</span>;</span> removing <span class="math">\((b, d)\)</span> gives another spanning tree with smaller total weight. So every minimum spanning tree contains <span class="math-with-punctuation"><span class="math">\((a, b)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1045,10 +1049,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/lecture-16.html'>lecture-16</a>, <a href='../tags/minimum spanning trees.html'>minimum spanning trees</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose there is a unique shortest path <span class="math">\(p\)</span> between nodes <span class="math">\(u\)</span> and <span class="math">\(v\)</span> in a graph <span class="math">\(G\)</span> and that there is a unique minimum spanning tree <span class="math">\(T\)</span> of <span class="math">\(G\)</span>. True or false: the path between <span class="math">\(u\)</span> and <span class="math">\(v\)</span> in the MST <span class="math">\(T\)</span> must be the same as the path <span class="math">\(p\)</span>.</p>
+<p>Suppose there is a unique shortest path <span class="math">\(p\)</span> between nodes <span class="math">\(u\)</span> and <span class="math">\(v\)</span> in a graph <span class="math">\(G\)</span> and that there is a unique minimum spanning tree <span class="math">\(T\)</span> of <span class="math-with-punctuation"><span class="math">\(G\)</span>.</span> True or false: the path between <span class="math">\(u\)</span> and <span class="math">\(v\)</span> in the MST <span class="math">\(T\)</span> must be the same as the path <span class="math-with-punctuation"><span class="math">\(p\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
-<p>False. Consider a triangle on nodes <span class="math">\(u\)</span>, <span class="math">\(v\)</span>, and <span class="math">\(x\)</span> with edge weights <span class="math">\(w(u, v) = 3\)</span>, <span class="math">\(w(u, x) = 2\)</span>, and <span class="math">\(w(x, v) = 2\)</span>. The unique MST uses edges <span class="math">\((u, x)\)</span> and <span class="math">\((x, v)\)</span>, so the path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> in the MST has length 4. But the unique shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> is the single edge <span class="math">\((u, v)\)</span>, with length 3.</p>
+<p>False.</p>
+<p>Consider a triangle on nodes <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(v\)</span>,</span> and <span class="math">\(x\)</span> with edge weights <span class="math-with-punctuation"><span class="math">\(w(u, v) = 3\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(w(u, x) = 2\)</span>,</span> and <span class="math-with-punctuation"><span class="math">\(w(x, v) = 2\)</span>.</span> The unique MST uses edges <span class="math">\((u, x)\)</span> and <span class="math-with-punctuation"><span class="math">\((x, v)\)</span>,</span> so the path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> in the MST has length 4. But the unique shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> is the single edge <span class="math-with-punctuation"><span class="math">\((u, v)\)</span>,</span> with length 3.</p>
 </details>
 
     </div>
@@ -1073,7 +1078,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>(A, D), (D, B), (A, C), (C, E), (B, D), (A, E)</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>(A, D), (A, C), (A, B), (C, E). Kruskal's algorithm considers edges in increasing order of weight: (A, D) with weight 2, (A, C) with weight 5, (A, B) with weight 7, and (C, E) with weight 9 are each added since none creates a cycle. The remaining edges, (B, D) with weight 20 and (A, E) with weight 21, would create cycles.</p>
+<p>(A, D), (A, C), (A, B), (C, E).</p>
+<p>Kruskal's algorithm considers edges in increasing order of weight: (A, D) with weight 2, (A, C) with weight 5, (A, B) with weight 7, and (C, E) with weight 9 are each added since none creates a cycle. The remaining edges, (B, D) with weight 20 and (A, E) with weight 21, would create cycles.</p>
 </details>
 
     </div>
@@ -1092,7 +1098,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>True or false: given a graph <span class="math">\(G\)</span> with multiple minimum spanning trees (MSTs), Prim's and Kruskal's algorithms are guaranteed to return the same MST.</p>
 <details>
     <summary>Solution</summary>
-<p>False. When there are ties in the edge weights, the MST each algorithm returns depends on how the ties are broken, and the two algorithms consider edges in different orders. For example, in a triangle whose three edges all have the same weight, each algorithm could return any of the three MSTs, depending on the order in which it considers the edges.</p>
+<p>False.</p>
+<p>When there are ties in the edge weights, the MST each algorithm returns depends on how the ties are broken, and the two algorithms consider edges in different orders. For example, in a triangle whose three edges all have the same weight, each algorithm could return any of the three MSTs, depending on the order in which it considers the edges.</p>
 </details>
 
     </div>
@@ -1111,7 +1118,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>A <i>maximum spanning tree</i> of a graph is a spanning tree that has the greatest possible total edge weight. Suppose Kruskal's algorithm is modified so that instead of looping through edges in <i>ascending</i> order of weight, it processes them in <i>descending</i> order of weight. True or false: the output of this modified algorithm is guaranteed to be a maximum spanning tree.</p>
 <details>
     <summary>Solution</summary>
-<p>True. Processing edges in descending order of weight is the same as running ordinary Kruskal's algorithm on the graph with every weight negated. That finds a minimum spanning tree of the negated graph, which is a maximum spanning tree of the original graph.</p>
+<p>True.</p>
+<p>Processing edges in descending order of weight is the same as running ordinary Kruskal's algorithm on the graph with every weight negated. That finds a minimum spanning tree of the negated graph, which is a maximum spanning tree of the original graph.</p>
 </details>
 
     </div>
@@ -1131,7 +1139,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <center><div class="image"><img src="../images/324/mst1.jpg" /></div></center>
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
-<p>Suppose you are running Prim's algorithm starting with node <span class="math">\(a\)</span>. What is the weight of the 2nd edge added to the minimum spanning tree?</p>
+<p>Suppose you are running Prim's algorithm starting with node <span class="math-with-punctuation"><span class="math">\(a\)</span>.</span> What is the weight of the 2nd edge added to the minimum spanning tree?</p>
 <details>
     <summary>Solution</summary>
 <p>7.</p>
@@ -1142,7 +1150,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 
 <div class="subproblem">
     <h3 class="subproblem-id">Part 2)</h3>
-<p>Again running Prim's algorithm starting with node <span class="math">\(a\)</span>, what is the weight of the 3rd edge added to the minimum spanning tree?</p>
+<p>Again running Prim's algorithm starting with node <span class="math-with-punctuation"><span class="math">\(a\)</span>,</span> what is the weight of the 3rd edge added to the minimum spanning tree?</p>
 <details>
     <summary>Solution</summary>
 <p>3.</p>
@@ -1168,7 +1176,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <details>
     <summary>Solution</summary>
 <p>38.</p>
-<p>The minimum spanning tree's edges have weights 3, 4, 6, 7, 8, and 10, and <span class="math">\(3 + 4 + 6 + 7 + 8 + 10 = 38\)</span>.</p>
+<p>The minimum spanning tree's edges have weights 3, 4, 6, 7, 8, and 10, and <span class="math-with-punctuation"><span class="math">\(3 + 4 + 6 + 7 + 8 + 10 = 38\)</span>.</span></p>
 </details>
 
 </div>

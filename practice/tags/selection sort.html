@@ -950,6 +950,8 @@ Course Staff
 /* level the box with the first line of the choice, not the middle of a wrapped one */
 .multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+/* inline math and the punctuation right after it; see _keep_math_with_punctuation */
+.math-with-punctuation { white-space: nowrap; }
 </style>
 <h1>Problems tagged with "selection sort"</h1>
 <style>
@@ -1012,9 +1014,10 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>6</p></label></div></div>
 <details>
     <summary>Solution</summary>
-<p>1, 2, 3, and 4. Remember the selection sort loop invariants: after the <span class="math">\(\alpha\)</span>th iteration, the first <span class="math">\(\alpha\)</span> numbers are <span class="math">\(\leq\)</span> the remaining numbers, and the first <span class="math">\(\alpha\)</span> numbers are in sorted order.</p>
-<p>To answer this question, we can ask, for each <span class="math">\(\alpha\)</span>, are the loop invariants true? If yes, then it is <i>possible</i> that <span class="math">\(\alpha\)</span> iterations have been made; if not, then it is not possible.</p>
-<p>It is true for <span class="math">\(\alpha=1\)</span>, since the first number is <span class="math">\(\leq\)</span> the remaining numbers, and the first 1 numbers are in sorted order. Same for <span class="math">\(\alpha = 2, 3, \)</span> and <span class="math">\(4\)</span>. However, it is <i>not</i> true at <span class="math">\(\alpha = 5\)</span>. One of the loop invariants is true (the first five numbers are in sorted order), but the other is not: the first 5 numbers are not all <span class="math">\(\leq\)</span> the remaining numbers. In particular, the fifth number (3) is not <span class="math">\(\leq\)</span> the 7th number (2). Therefore, this could not possibly be the result after 5 iterations.</p>
+<p>1, 2, 3, and 4.</p>
+<p>Remember the selection sort loop invariants: after the <span class="math">\(\alpha\)</span>th iteration, the first <span class="math">\(\alpha\)</span> numbers are <span class="math">\(\leq\)</span> the remaining numbers, and the first <span class="math">\(\alpha\)</span> numbers are in sorted order.</p>
+<p>To answer this question, we can ask, for each <span class="math-with-punctuation"><span class="math">\(\alpha\)</span>,</span> are the loop invariants true? If yes, then it is <i>possible</i> that <span class="math">\(\alpha\)</span> iterations have been made; if not, then it is not possible.</p>
+<p>It is true for <span class="math-with-punctuation"><span class="math">\(\alpha=1\)</span>,</span> since the first number is <span class="math">\(\leq\)</span> the remaining numbers, and the first 1 numbers are in sorted order. Same for <span class="math">\(\alpha = 2, 3, \)</span> and <span class="math-with-punctuation"><span class="math">\(4\)</span>.</span> However, it is <i>not</i> true at <span class="math-with-punctuation"><span class="math">\(\alpha = 5\)</span>.</span> One of the loop invariants is true (the first five numbers are in sorted order), but the other is not: the first 5 numbers are not all <span class="math">\(\leq\)</span> the remaining numbers. In particular, the fifth number (3) is not <span class="math">\(\leq\)</span> the 7th number (2). Therefore, this could not possibly be the result after 5 iterations.</p>
 </details>
 
     </div>

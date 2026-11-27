@@ -950,6 +950,8 @@ Course Staff
 /* level the box with the first line of the choice, not the middle of a wrapped one */
 .multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+/* inline math and the punctuation right after it; see _keep_math_with_punctuation */
+.math-with-punctuation { white-space: nowrap; }
 </style>
 <h1>Problems tagged with "time complexity"</h1>
 <style>
@@ -1011,7 +1013,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         return 0</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. Each of <span class="inline-code"><code>max(arr)</code></span>, <span class="inline-code"><code>min(arr)</code></span> and <span class="inline-code"><code>sum(arr)</code></span> loops over the array once, taking <span class="math">\(\Theta(n)\)</span> time. There are no loops in <span class="inline-code"><code>foo</code></span> itself, so the total is <span class="math">\(\Theta(n) + \Theta(n) + \Theta(n) = \Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>Each of <span class="inline-code"><code>max(arr)</code></span>, <span class="inline-code"><code>min(arr)</code></span> and <span class="inline-code"><code>sum(arr)</code></span> loops over the array once, taking <span class="math">\(\Theta(n)\)</span> time. There are no loops in <span class="inline-code"><code>foo</code></span> itself, so the total is <span class="math-with-punctuation"><span class="math">\(\Theta(n) + \Theta(n) + \Theta(n) = \Theta(n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1040,7 +1043,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     return total / len(data)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. <span class="inline-code"><code>sum(data)</code></span> takes <span class="math">\(\Theta(n)\)</span> time but is computed only once, before the loop. The loop runs <span class="math">\(n\)</span> times and does constant work on each iteration.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p><span class="inline-code"><code>sum(data)</code></span> takes <span class="math">\(\Theta(n)\)</span> time but is computed only once, before the loop. The loop runs <span class="math">\(n\)</span> times and does constant work on each iteration.</p>
 </details>
 
     </div>
@@ -1070,7 +1074,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     return total / len(data)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. <span class="inline-code"><code>sum(data)</code></span> takes <span class="math">\(\Theta(n)\)</span> time and is recomputed on each of the <span class="math">\(n\)</span> iterations of the loop.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p><span class="inline-code"><code>sum(data)</code></span> takes <span class="math">\(\Theta(n)\)</span> time and is recomputed on each of the <span class="math">\(n\)</span> iterations of the loop.</p>
 </details>
 
     </div>
@@ -1095,7 +1100,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         print(r)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. Each iteration of the loop calls <span class="inline-code"><code>sum(arr)</code></span> twice, and each call takes <span class="math">\(\Theta(n)\)</span> time. The loop runs <span class="math">\(n\)</span> times, so the total is <span class="math">\(\Theta(n^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>Each iteration of the loop calls <span class="inline-code"><code>sum(arr)</code></span> twice, and each call takes <span class="math">\(\Theta(n)\)</span> time. The loop runs <span class="math">\(n\)</span> times, so the total is <span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1111,14 +1117,15 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/lecture-01.html'>lecture-01</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose <span class="inline-code"><code>numbers</code></span> is a list of integers of length <span class="math">\(n\)</span>. What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>) in the simplest terms possible.</p>
+<p>Suppose <span class="inline-code"><code>numbers</code></span> is a list of integers of length <span class="math-with-punctuation"><span class="math">\(n\)</span>.</span> What is the time complexity of the following function in terms of <span class="math-with-punctuation"><span class="math">\(n\)</span>?</span> State your answer using asymptotic notation (e.g., <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>)</span> in the simplest terms possible.</p>
 <pre class="code"><code class="language-python">def foo(numbers):
     for x in numbers:
         r = max(numbers) * min(numbers) * x
         print(r)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. The loop runs <span class="math">\(n\)</span> times, and on each iteration <span class="inline-code"><code>max(numbers)</code></span> and <span class="inline-code"><code>min(numbers)</code></span> each take <span class="math">\(\Theta(n)\)</span> time. So the total is <span class="math">\(n \times \Theta(n) = \Theta(n^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>The loop runs <span class="math">\(n\)</span> times, and on each iteration <span class="inline-code"><code>max(numbers)</code></span> and <span class="inline-code"><code>min(numbers)</code></span> each take <span class="math">\(\Theta(n)\)</span> time. So the total is <span class="math-with-punctuation"><span class="math">\(n \times \Theta(n) = \Theta(n^2)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1134,7 +1141,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/lecture-01.html'>lecture-01</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<p>What is the time complexity of the following function in terms of <span class="math-with-punctuation"><span class="math">\(n\)</span>?</span></p>
 <pre class="code"><code class="language-python">def foo(arr):
     """`arr` is a list containing n numbers."""
     for x in arr:
@@ -1146,7 +1153,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
             print('neither!')</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. The loop runs <span class="math">\(n\)</span> times, and every iteration calls <span class="inline-code"><code>max(arr)</code></span>, which takes <span class="math">\(\Theta(n)\)</span> time (and sometimes <span class="inline-code"><code>min(arr)</code></span> too, which is also <span class="math">\(\Theta(n)\)</span>). So each iteration takes <span class="math">\(\Theta(n)\)</span> time, and the total is <span class="math">\(\Theta(n^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>The loop runs <span class="math">\(n\)</span> times, and every iteration calls <span class="inline-code"><code>max(arr)</code></span>, which takes <span class="math">\(\Theta(n)\)</span> time (and sometimes <span class="inline-code"><code>min(arr)</code></span> too, which is also <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>).</span> So each iteration takes <span class="math">\(\Theta(n)\)</span> time, and the total is <span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1162,7 +1170,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/lecture-01.html'>lecture-01</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<p>What is the time complexity of the following function in terms of <span class="math-with-punctuation"><span class="math">\(n\)</span>?</span></p>
 <pre class="code"><code class="language-python">def foo(arr):
     """`arr` is a list containing n numbers."""
     for x in arr:
@@ -1175,7 +1183,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
             print('neither!')</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. The loop runs <span class="math">\(n\)</span> times, and every iteration computes <span class="inline-code"><code>sum(arr)</code></span> at least once, which takes <span class="math">\(\Theta(n)\)</span> time. (<span class="inline-code"><code>len(arr)</code></span> is <span class="math">\(\Theta(1)\)</span>.) So the total is <span class="math">\(n \times \Theta(n) = \Theta(n^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>The loop runs <span class="math">\(n\)</span> times, and every iteration computes <span class="inline-code"><code>sum(arr)</code></span> at least once, which takes <span class="math">\(\Theta(n)\)</span> time. (<span class="inline-code"><code>len(arr)</code></span> is <span class="math-with-punctuation"><span class="math">\(\Theta(1)\)</span>.)</span> So the total is <span class="math-with-punctuation"><span class="math">\(n \times \Theta(n) = \Theta(n^2)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1191,7 +1200,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/lecture-02.html'>lecture-02</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>What is the time complexity of the following function? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
+<p>What is the time complexity of the following function? State your answer using asymptotic notation (e.g., <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>).</span></p>
 <pre class="code"><code class="language-python">def foo(n):
     for i in range(n):
         for j in range(n):
@@ -1199,7 +1208,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
                 print(i + j + k)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^4)\)</span>. The loops are independent, so the <span class="inline-code"><code>print</code></span> runs <span class="math">\(n \times n \times n^2 = n^4\)</span> times.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^4)\)</span>.</span></p>
+<p>The loops are independent, so the <span class="inline-code"><code>print</code></span> runs <span class="math">\(n \times n \times n^2 = n^4\)</span> times.</p>
 </details>
 
     </div>
@@ -1215,7 +1225,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/lecture-02.html'>lecture-02</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>What is the time complexity of the following function? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
+<p>What is the time complexity of the following function? State your answer using asymptotic notation (e.g., <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>).</span></p>
 <pre class="code"><code class="language-python">def foo(n):
     for i in range(n):
         for j in range(n**2):
@@ -1223,7 +1233,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
                 print(i + j + k)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^4)\)</span>. The loops are independent, so the <span class="inline-code"><code>print</code></span> runs <span class="math">\(n \times n^2 \times n = n^4\)</span> times.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^4)\)</span>.</span></p>
+<p>The loops are independent, so the <span class="inline-code"><code>print</code></span> runs <span class="math">\(n \times n^2 \times n = n^4\)</span> times.</p>
 </details>
 
     </div>
@@ -1247,7 +1258,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
             j += 1</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^3)\)</span>. The outer loop runs <span class="math">\(n^2 - 2n + 100 = \Theta(n^2)\)</span> times, and on each of its iterations the inner <span class="inline-code"><code>while</code></span> loop runs <span class="math">\(n\)</span> times, for a total of <span class="math">\(\Theta(n^2) \cdot \Theta(n) = \Theta(n^3)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^3)\)</span>.</span></p>
+<p>The outer loop runs <span class="math">\(n^2 - 2n + 100 = \Theta(n^2)\)</span> times, and on each of its iterations the inner <span class="inline-code"><code>while</code></span> loop runs <span class="math">\(n\)</span> times, for a total of <span class="math-with-punctuation"><span class="math">\(\Theta(n^2) \cdot \Theta(n) = \Theta(n^3)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1273,7 +1285,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     return total</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^5)\)</span>. The three loops run <span class="math">\(n^2\)</span>, <span class="math">\(n^2 + 5n - 100 = \Theta(n^2)\)</span>, and <span class="math">\(\lfloor n / 1{,}000{,}000 \rfloor = \Theta(n)\)</span> times, and the loop body takes constant time, so the total is <span class="math">\(\Theta(n^2 \cdot n^2 \cdot n) = \Theta(n^5)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^5)\)</span>.</span></p>
+<p>The three loops run <span class="math-with-punctuation"><span class="math">\(n^2\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(n^2 + 5n - 100 = \Theta(n^2)\)</span>,</span> and <span class="math">\(\lfloor n / 1{,}000{,}000 \rfloor = \Theta(n)\)</span> times, and the loop body takes constant time, so the total is <span class="math-with-punctuation"><span class="math">\(\Theta(n^2 \cdot n^2 \cdot n) = \Theta(n^5)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1298,7 +1311,8 @@ def foo(n):
             print(n * n)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2 \sqrt n)\)</span>. The outer loop runs <span class="math">\(\lfloor \sqrt n \rfloor = \Theta(\sqrt n)\)</span> times. The inner loop's range doesn't depend on <span class="math">\(i\)</span>, and <span class="math">\(5n^2 - \sqrt{n}/1{,}000{,}000 + 100 = \Theta(n^2)\)</span>, since the <span class="math">\(n^2\)</span> term dominates. So the total is <span class="math">\(\Theta(\sqrt n) \times \Theta(n^2) = \Theta(n^2 \sqrt n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2 \sqrt n)\)</span>.</span></p>
+<p>The outer loop runs <span class="math">\(\lfloor \sqrt n \rfloor = \Theta(\sqrt n)\)</span> times. The inner loop's range doesn't depend on <span class="math-with-punctuation"><span class="math">\(i\)</span>,</span> and <span class="math-with-punctuation"><span class="math">\(5n^2 - \sqrt{n}/1{,}000{,}000 + 100 = \Theta(n^2)\)</span>,</span> since the <span class="math">\(n^2\)</span> term dominates. So the total is <span class="math-with-punctuation"><span class="math">\(\Theta(\sqrt n) \times \Theta(n^2) = \Theta(n^2 \sqrt n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1323,7 +1337,8 @@ def foo(n):
             print(i + j)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^5)\)</span>. The outer loop runs <span class="math">\(n^3\)</span> times, and each iteration runs the two inner loops, which take <span class="math">\(n + n^2 = \Theta(n^2)\)</span> time together. So the total is <span class="math">\(n^3 \times \Theta(n^2) = \Theta(n^5)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^5)\)</span>.</span></p>
+<p>The outer loop runs <span class="math">\(n^3\)</span> times, and each iteration runs the two inner loops, which take <span class="math">\(n + n^2 = \Theta(n^2)\)</span> time together. So the total is <span class="math-with-punctuation"><span class="math">\(n^3 \times \Theta(n^2) = \Theta(n^5)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1339,7 +1354,7 @@ def foo(n):
         <p>Tags: <a href='../tags/lecture-02.html'>lecture-02</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
+<p>What is the time complexity of the following function in terms of <span class="math-with-punctuation"><span class="math">\(n\)</span>?</span> State your answer using asymptotic notation (e.g., <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>).</span></p>
 <pre class="code"><code class="language-python">def foo(n):
     for i in range(n**3):
         for j in range(n):
@@ -1349,7 +1364,8 @@ def foo(n):
             print(k * l)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^4)\)</span>. The two nested loops run one after the other, so we add their times. The first does <span class="math">\(n^3 \times n = n^4\)</span> iterations and the second <span class="math">\(n \times n^2 = n^3\)</span>, so the total is <span class="math">\(n^4 + n^3 = \Theta(n^4)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^4)\)</span>.</span></p>
+<p>The two nested loops run one after the other, so we add their times. The first does <span class="math">\(n^3 \times n = n^4\)</span> iterations and the second <span class="math-with-punctuation"><span class="math">\(n \times n^2 = n^3\)</span>,</span> so the total is <span class="math-with-punctuation"><span class="math">\(n^4 + n^3 = \Theta(n^4)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1365,7 +1381,7 @@ def foo(n):
         <p>Tags: <a href='../tags/lecture-02.html'>lecture-02</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>) in the simplest terms possible.</p>
+<p>What is the time complexity of the following function in terms of <span class="math-with-punctuation"><span class="math">\(n\)</span>?</span> State your answer using asymptotic notation (e.g., <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>)</span> in the simplest terms possible.</p>
 <pre class="code"><code class="language-python">import math
 def foo(n):
     for i in range(3 * n**3 + 5 * n * math.ceil(math.log(n))):
@@ -1375,7 +1391,8 @@ def foo(n):
             print(k * i)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^5)\)</span>. The outer loop runs <span class="math">\(3n^3 + 5n\lceil \log n \rceil = \Theta(n^3)\)</span> times. Each iteration runs the two inner loops, which take <span class="math">\(\lfloor \sqrt n \rfloor + n^2 = \Theta(n^2)\)</span> time together. So the total is <span class="math">\(\Theta(n^3) \times \Theta(n^2) = \Theta(n^5)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^5)\)</span>.</span></p>
+<p>The outer loop runs <span class="math">\(3n^3 + 5n\lceil \log n \rceil = \Theta(n^3)\)</span> times. Each iteration runs the two inner loops, which take <span class="math">\(\lfloor \sqrt n \rfloor + n^2 = \Theta(n^2)\)</span> time together. So the total is <span class="math-with-punctuation"><span class="math">\(\Theta(n^3) \times \Theta(n^2) = \Theta(n^5)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1398,7 +1415,8 @@ def foo(n):
         print(n)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(\log n)\)</span>. After <span class="math">\(k\)</span> iterations, the value of <span class="inline-code"><code>n</code></span> is <span class="math">\(n / 10^k\)</span>. The loop stops once this is at most 1, which happens after about <span class="math">\(\log_{10} n = \Theta(\log n)\)</span> iterations.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(\log n)\)</span>.</span></p>
+<p>After <span class="math">\(k\)</span> iterations, the value of <span class="inline-code"><code>n</code></span> is <span class="math-with-punctuation"><span class="math">\(n / 10^k\)</span>.</span> The loop stops once this is at most 1, which happens after about <span class="math">\(\log_{10} n = \Theta(\log n)\)</span> iterations.</p>
 </details>
 
     </div>
@@ -1414,7 +1432,7 @@ def foo(n):
         <p>Tags: <a href='../tags/lecture-02.html'>lecture-02</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>What is the time complexity of the following function? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation in the simplest form possible. (e.g., <span class="math">\(\Theta(n)\)</span>)</p>
+<p>What is the time complexity of the following function? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation in the simplest form possible. (e.g., <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>)</span></p>
 <pre class="code"><code class="language-python">import math
 
 def boo(n):
@@ -1425,7 +1443,8 @@ def boo(n):
             print(i + j)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(\log n)\)</span>. Each iteration of the <span class="inline-code"><code>while</code></span> loop halves <span class="math">\(i\)</span>, so it runs <span class="math">\(\Theta(\log n)\)</span> times before <span class="math">\(i\)</span> drops to 1 or below. The inner loop runs <span class="math">\(1{,}000{,}000\)</span> times no matter what <span class="math">\(n\)</span> is, so it's <span class="math">\(\Theta(1)\)</span>, and the total is <span class="math">\(\Theta(\log n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(\log n)\)</span>.</span></p>
+<p>Each iteration of the <span class="inline-code"><code>while</code></span> loop halves <span class="math-with-punctuation"><span class="math">\(i\)</span>,</span> so it runs <span class="math">\(\Theta(\log n)\)</span> times before <span class="math">\(i\)</span> drops to 1 or below. The inner loop runs <span class="math">\(1{,}000{,}000\)</span> times no matter what <span class="math">\(n\)</span> is, so it's <span class="math-with-punctuation"><span class="math">\(\Theta(1)\)</span>,</span> and the total is <span class="math-with-punctuation"><span class="math">\(\Theta(\log n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1457,7 +1476,8 @@ def foo(arr):
     return s</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(\log n)\)</span>. The index <span class="inline-code"><code>ix</code></span> is multiplied by 5 (plus 2) on each iteration, so after <span class="math">\(k\)</span> iterations it is at least <span class="math">\(5^k\)</span>. The loop stops once <span class="inline-code"><code>ix</code></span> reaches <span class="math">\(n\)</span>, which takes <span class="math">\(\Theta(\log_5 n) = \Theta(\log n)\)</span> iterations, each doing constant work.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(\log n)\)</span>.</span></p>
+<p>The index <span class="inline-code"><code>ix</code></span> is multiplied by 5 (plus 2) on each iteration, so after <span class="math">\(k\)</span> iterations it is at least <span class="math-with-punctuation"><span class="math">\(5^k\)</span>.</span> The loop stops once <span class="inline-code"><code>ix</code></span> reaches <span class="math-with-punctuation"><span class="math">\(n\)</span>,</span> which takes <span class="math">\(\Theta(\log_5 n) = \Theta(\log n)\)</span> iterations, each doing constant work.</p>
 </details>
 
     </div>
@@ -1483,7 +1503,8 @@ def foo(arr):
         i *= 2</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n \log n)\)</span>. Since <span class="inline-code"><code>i</code></span> doubles on each iteration, the outer loop runs <span class="math">\(\Theta(\log n)\)</span> times. The inner loop runs <span class="math">\(n\)</span> times on each of these, for a total of <span class="math">\(\Theta(n \log n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n \log n)\)</span>.</span></p>
+<p>Since <span class="inline-code"><code>i</code></span> doubles on each iteration, the outer loop runs <span class="math">\(\Theta(\log n)\)</span> times. The inner loop runs <span class="math">\(n\)</span> times on each of these, for a total of <span class="math-with-punctuation"><span class="math">\(\Theta(n \log n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1499,7 +1520,7 @@ def foo(arr):
         <p>Tags: <a href='../tags/lecture-02.html'>lecture-02</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>) in the simplest terms possible.</p>
+<p>What is the time complexity of the following function in terms of <span class="math-with-punctuation"><span class="math">\(n\)</span>?</span> State your answer using asymptotic notation (e.g., <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>)</span> in the simplest terms possible.</p>
 <pre class="code"><code class="language-python">def foo(n):
     i = 1
     while i &lt; n**3:
@@ -1508,7 +1529,8 @@ def foo(arr):
             print(i + j)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n\log n)\)</span>. The <span class="inline-code"><code>while</code></span> loop doubles <span class="math">\(i\)</span> until it reaches <span class="math">\(n^3\)</span>, so it runs <span class="math">\(\Theta(\log n^3) = \Theta(3 \log n) = \Theta(\log n)\)</span> times. Each iteration runs the inner loop <span class="math">\(n\)</span> times, so the total is <span class="math">\(\Theta(n \log n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n\log n)\)</span>.</span></p>
+<p>The <span class="inline-code"><code>while</code></span> loop doubles <span class="math">\(i\)</span> until it reaches <span class="math-with-punctuation"><span class="math">\(n^3\)</span>,</span> so it runs <span class="math">\(\Theta(\log n^3) = \Theta(3 \log n) = \Theta(\log n)\)</span> times. Each iteration runs the inner loop <span class="math">\(n\)</span> times, so the total is <span class="math-with-punctuation"><span class="math">\(\Theta(n \log n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1524,7 +1546,7 @@ def foo(arr):
         <p>Tags: <a href='../tags/lecture-02.html'>lecture-02</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<p>What is the time complexity of the following function in terms of <span class="math-with-punctuation"><span class="math">\(n\)</span>?</span></p>
 <pre class="code"><code class="language-python">from math import sqrt, log, ceil
 
 def foo(n):
@@ -1533,7 +1555,8 @@ def foo(n):
             print(i, j)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^3 \log n)\)</span>. The outer loop runs <span class="math">\(\lceil n^3 - 10n + \sqrt n \rceil = \Theta(n^3)\)</span> times. The inner loop runs <span class="math">\(\lceil \log(n^2) \rceil = \lceil 2 \log n \rceil = \Theta(\log n)\)</span> times, so the total is <span class="math">\(\Theta(n^3 \log n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^3 \log n)\)</span>.</span></p>
+<p>The outer loop runs <span class="math">\(\lceil n^3 - 10n + \sqrt n \rceil = \Theta(n^3)\)</span> times. The inner loop runs <span class="math">\(\lceil \log(n^2) \rceil = \lceil 2 \log n \rceil = \Theta(\log n)\)</span> times, so the total is <span class="math-with-punctuation"><span class="math">\(\Theta(n^3 \log n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1549,7 +1572,7 @@ def foo(n):
         <p>Tags: <a href='../tags/lecture-02.html'>lecture-02</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
+<p>What is the time complexity of the following function in terms of <span class="math-with-punctuation"><span class="math">\(n\)</span>?</span> State your answer using asymptotic notation (e.g., <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>).</span></p>
 <pre class="code"><code class="language-python">def foo(n):
     i = 0
     while i &lt; n**2:
@@ -1561,7 +1584,8 @@ def foo(n):
             j = j + 10</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^4)\)</span>. The outer loop increases <span class="math">\(i\)</span> by 2 until it reaches <span class="math">\(n^2\)</span>, so it runs <span class="math">\(n^2/2\)</span> times. The middle loop increases <span class="math">\(j\)</span> by 10 until it reaches <span class="math">\(n\)</span>, so it runs about <span class="math">\(n/10\)</span> times, and the innermost loop runs <span class="math">\(n\)</span> times. The total is about <span class="math">\(\frac{n^2}{2} \cdot \frac{n}{10} \cdot n = \Theta(n^4)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^4)\)</span>.</span></p>
+<p>The outer loop increases <span class="math">\(i\)</span> by 2 until it reaches <span class="math-with-punctuation"><span class="math">\(n^2\)</span>,</span> so it runs <span class="math">\(n^2/2\)</span> times. The middle loop increases <span class="math">\(j\)</span> by 10 until it reaches <span class="math-with-punctuation"><span class="math">\(n\)</span>,</span> so it runs about <span class="math">\(n/10\)</span> times, and the innermost loop runs <span class="math">\(n\)</span> times. The total is about <span class="math-with-punctuation"><span class="math">\(\frac{n^2}{2} \cdot \frac{n}{10} \cdot n = \Theta(n^4)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1577,7 +1601,7 @@ def foo(n):
         <p>Tags: <a href='../tags/lecture-02.html'>lecture-02</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>) in the simplest terms possible.</p>
+<p>What is the time complexity of the following function in terms of <span class="math-with-punctuation"><span class="math">\(n\)</span>?</span> State your answer using asymptotic notation (e.g., <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>)</span> in the simplest terms possible.</p>
 <pre class="code"><code class="language-python">def foo(n):
     for i in range(n):
         for j in range(2023):
@@ -1585,7 +1609,8 @@ def foo(n):
                 print("DSC40B")</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. For a fixed <span class="math">\(i\)</span>, the middle loop runs 2023 times (a constant) and the innermost loop runs <span class="math">\(n - i\)</span> times. Summing over <span class="math">\(i\)</span>, the <span class="inline-code"><code>print</code></span> runs <span class="math">\(2023 \sum_{i=0}^{n-1} (n - i) = 2023 \cdot \frac{n(n+1)}{2} = \Theta(n^2)\)</span> times.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>For a fixed <span class="math-with-punctuation"><span class="math">\(i\)</span>,</span> the middle loop runs 2023 times (a constant) and the innermost loop runs <span class="math">\(n - i\)</span> times. Summing over <span class="math-with-punctuation"><span class="math">\(i\)</span>,</span> the <span class="inline-code"><code>print</code></span> runs <span class="math">\(2023 \sum_{i=0}^{n-1} (n - i) = 2023 \cdot \frac{n(n+1)}{2} = \Theta(n^2)\)</span> times.</p>
 </details>
 
     </div>
@@ -1609,7 +1634,8 @@ def foo(n):
                 print(i + j + k)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^3)\)</span>. For a fixed <span class="math">\(i\)</span>, the middle loop runs <span class="math">\(i\)</span> times and the innermost loop runs <span class="math">\(n\)</span> times for each, so the <span class="inline-code"><code>print</code></span> runs <span class="math">\(i \cdot n\)</span> times. Summing over <span class="math">\(i\)</span> gives <span class="math">\(n \sum_{i=0}^{n-1} i = n \cdot \frac{n(n-1)}{2} = \Theta(n^3)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^3)\)</span>.</span></p>
+<p>For a fixed <span class="math-with-punctuation"><span class="math">\(i\)</span>,</span> the middle loop runs <span class="math">\(i\)</span> times and the innermost loop runs <span class="math">\(n\)</span> times for each, so the <span class="inline-code"><code>print</code></span> runs <span class="math">\(i \cdot n\)</span> times. Summing over <span class="math">\(i\)</span> gives <span class="math-with-punctuation"><span class="math">\(n \sum_{i=0}^{n-1} i = n \cdot \frac{n(n-1)}{2} = \Theta(n^3)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1633,7 +1659,8 @@ def foo(n):
                 print(j)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^3)\)</span>. For a fixed <span class="inline-code"><code>i</code></span>, the two inner loops run <span class="math">\(0 + 1 + 2 + \ldots + (n-1) = n(n-1)/2 = \Theta(n^2)\)</span> times in total. The outer loop runs <span class="math">\(n\)</span> times, so the total is <span class="math">\(\Theta(n^3)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^3)\)</span>.</span></p>
+<p>For a fixed <span class="inline-code"><code>i</code></span>, the two inner loops run <span class="math">\(0 + 1 + 2 + \ldots + (n-1) = n(n-1)/2 = \Theta(n^2)\)</span> times in total. The outer loop runs <span class="math">\(n\)</span> times, so the total is <span class="math-with-punctuation"><span class="math">\(\Theta(n^3)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1660,7 +1687,8 @@ def foo(n):
         i += 5</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. The outer loop takes <span class="math">\(i = 0, 5, 10, \ldots\)</span>, about <span class="math">\(n/5\)</span> values, and for each the inner loop runs <span class="math">\(i\)</span> times. Writing <span class="math">\(i = 5k\)</span>, the total is <span class="math">\(\sum_{k=0}^{n/5} 5k = 5 \cdot \Theta\bigl((n/5)^2\bigr) = \Theta(n^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>The outer loop takes <span class="math-with-punctuation"><span class="math">\(i = 0, 5, 10, \ldots\)</span>,</span> about <span class="math">\(n/5\)</span> values, and for each the inner loop runs <span class="math">\(i\)</span> times. Writing <span class="math-with-punctuation"><span class="math">\(i = 5k\)</span>,</span> the total is <span class="math-with-punctuation"><span class="math">\(\sum_{k=0}^{n/5} 5k = 5 \cdot \Theta\bigl((n/5)^2\bigr) = \Theta(n^2)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1683,7 +1711,8 @@ def foo(n):
             print(i + j)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^3)\)</span>. For a fixed <span class="math">\(i\)</span>, the inner loop runs <span class="math">\((2i + n^2) - i = i + n^2\)</span> times. Since <span class="math">\(i < n\)</span>, this is <span class="math">\(\Theta(n^2)\)</span>, and the outer loop runs <span class="math">\(n - 200 = \Theta(n)\)</span> times, so the total is <span class="math">\(\Theta(n) \times \Theta(n^2) = \Theta(n^3)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^3)\)</span>.</span></p>
+<p>For a fixed <span class="math-with-punctuation"><span class="math">\(i\)</span>,</span> the inner loop runs <span class="math">\((2i + n^2) - i = i + n^2\)</span> times. Since <span class="math-with-punctuation"><span class="math">\(i < n\)</span>,</span> this is <span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>,</span> and the outer loop runs <span class="math">\(n - 200 = \Theta(n)\)</span> times, so the total is <span class="math-with-punctuation"><span class="math">\(\Theta(n) \times \Theta(n^2) = \Theta(n^3)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1699,14 +1728,15 @@ def foo(n):
         <p>Tags: <a href='../tags/lecture-02.html'>lecture-02</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>What is the time complexity of the following function? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation in the simplest form possible. (e.g., <span class="math">\(\Theta(n)\)</span>)</p>
+<p>What is the time complexity of the following function? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation in the simplest form possible. (e.g., <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>)</span></p>
 <pre class="code"><code class="language-python">def boo(n):
     for i in range(200, n):
         for j in range(i, i * n):
             print(i + j)</code></pre>
 <details>
     <summary>Solution</summary>
-<p>If you count the number of times the inner loop body executes, you'll get something like <span class="math">\(n + 2n + 3n + \ldots + n\times n\)</span>. Factoring out the <span class="math">\(n\)</span> and using the formula for the sum of the first <span class="math">\(n\)</span> integers, we get <span class="math">\(n (1 + 2 + 3 + \ldots + n) = n \Theta(n^2) = \Theta(n^3)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^3)\)</span>.</span></p>
+<p>If you count the number of times the inner loop body executes, you'll get something like <span class="math-with-punctuation"><span class="math">\(n + 2n + 3n + \ldots + n\times n\)</span>.</span> Factoring out the <span class="math">\(n\)</span> and using the formula for the sum of the first <span class="math">\(n\)</span> integers, we get <span class="math-with-punctuation"><span class="math">\(n (1 + 2 + 3 + \ldots + n) = n \Theta(n^2) = \Theta(n^3)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1722,7 +1752,7 @@ def foo(n):
         <p>Tags: <a href='../tags/lecture-02.html'>lecture-02</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<p>What is the time complexity of the following function in terms of <span class="math-with-punctuation"><span class="math">\(n\)</span>?</span></p>
 <pre class="code"><code class="language-python">import math
 
 def foo(n):
@@ -1731,7 +1761,8 @@ def foo(n):
             print(i + j)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. The outer loop runs <span class="math">\(\lfloor \sqrt n \rfloor\)</span> times, and the inner loop runs <span class="math">\(i\)</span> times. So the total is <span class="math">\(\sum_{i=0}^{\lfloor\sqrt n\rfloor - 1} i \approx \frac{(\sqrt n)^2}{2} = \frac{n}{2} = \Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>The outer loop runs <span class="math">\(\lfloor \sqrt n \rfloor\)</span> times, and the inner loop runs <span class="math">\(i\)</span> times. So the total is <span class="math-with-punctuation"><span class="math">\(\sum_{i=0}^{\lfloor\sqrt n\rfloor - 1} i \approx \frac{(\sqrt n)^2}{2} = \frac{n}{2} = \Theta(n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1747,7 +1778,7 @@ def foo(n):
         <p>Tags: <a href='../tags/lecture-02.html'>lecture-02</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<p>What is the time complexity of the following function in terms of <span class="math-with-punctuation"><span class="math">\(n\)</span>?</span></p>
 <pre class="code"><code class="language-python">def foo(n):
     for i in range(n**2):
 
@@ -1761,10 +1792,10 @@ def foo(n):
             print(x)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^4)\)</span>.</p>
-<p>Each iteration of the outer loop runs three inner loops one after the other, so we can count each inner loop's total work separately and add them up. The outer loop runs for <span class="math">\(i = 0, 1, \ldots, n^2 - 1\)</span>.</p>
-<p>The first inner loop runs <span class="math">\(i\)</span> times, so over all iterations of the outer loop it runs <span class="math">\(\sum_{i=0}^{n^2-1} i = \frac{n^2(n^2-1)}{2} = \Theta(n^4)\)</span> times. The second inner loop runs <span class="math">\(n\)</span> times for each of the <span class="math">\(n^2\)</span> values of <span class="math">\(i\)</span>, for <span class="math">\(\Theta(n^3)\)</span> in total. The third is the tricky one: <span class="inline-code"><code>range(n - i)</code></span> is empty once <span class="math">\(i \geq n\)</span>, so it only runs for the first <span class="math">\(n\)</span> values of <span class="math">\(i\)</span>, at most <span class="math">\(n\)</span> times each, for <span class="math">\(O(n^2)\)</span> in total. (The outer loop itself also does <span class="math">\(\Theta(n^2)\)</span> work.)</p>
-<p>Adding these up, the total is <span class="math">\(\Theta(n^4) + \Theta(n^3) + O(n^2) = \Theta(n^4)\)</span>; the first inner loop dominates.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^4)\)</span>.</span></p>
+<p>Each iteration of the outer loop runs three inner loops one after the other, so we can count each inner loop's total work separately and add them up. The outer loop runs for <span class="math-with-punctuation"><span class="math">\(i = 0, 1, \ldots, n^2 - 1\)</span>.</span></p>
+<p>The first inner loop runs <span class="math">\(i\)</span> times, so over all iterations of the outer loop it runs <span class="math">\(\sum_{i=0}^{n^2-1} i = \frac{n^2(n^2-1)}{2} = \Theta(n^4)\)</span> times. The second inner loop runs <span class="math">\(n\)</span> times for each of the <span class="math">\(n^2\)</span> values of <span class="math-with-punctuation"><span class="math">\(i\)</span>,</span> for <span class="math">\(\Theta(n^3)\)</span> in total. The third is the tricky one: <span class="inline-code"><code>range(n - i)</code></span> is empty once <span class="math-with-punctuation"><span class="math">\(i \geq n\)</span>,</span> so it only runs for the first <span class="math">\(n\)</span> values of <span class="math-with-punctuation"><span class="math">\(i\)</span>,</span> at most <span class="math">\(n\)</span> times each, for <span class="math">\(O(n^2)\)</span> in total. (The outer loop itself also does <span class="math">\(\Theta(n^2)\)</span> work.)</p>
+<p>Adding these up, the total is <span class="math-with-punctuation"><span class="math">\(\Theta(n^4) + \Theta(n^3) + O(n^2) = \Theta(n^4)\)</span>;</span> the first inner loop dominates.</p>
 </details>
 
     </div>
@@ -1780,7 +1811,7 @@ def foo(n):
         <p>Tags: <a href='../tags/lecture-03.html'>lecture-03</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>What is the time complexity of the following function? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation in the simplest form possible. (e.g., <span class="math">\(\Theta(n)\)</span>)</p>
+<p>What is the time complexity of the following function? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation in the simplest form possible. (e.g., <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>)</span></p>
 <pre class="code"><code class="language-python">import math
 def boo(n):
     for i in range(n):
@@ -1789,7 +1820,8 @@ def boo(n):
                 print(i + j + k)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^4 \log n)\)</span>. The outer loop runs <span class="math">\(n\)</span> times, and the middle loop runs <span class="math">\(500n^3 - n^2 - 100 = \Theta(n^3)\)</span> times. The innermost loop runs <span class="math">\(\lfloor \log n \rfloor - 1{,}000\)</span> times, which is zero for small <span class="math">\(n\)</span> but is <span class="math">\(\Theta(\log n)\)</span> for large <span class="math">\(n\)</span>, and asymptotic notation only cares about large <span class="math">\(n\)</span>. So the total is <span class="math">\(n \times \Theta(n^3) \times \Theta(\log n) = \Theta(n^4 \log n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^4 \log n)\)</span>.</span></p>
+<p>The outer loop runs <span class="math">\(n\)</span> times, and the middle loop runs <span class="math">\(500n^3 - n^2 - 100 = \Theta(n^3)\)</span> times. The innermost loop runs <span class="math">\(\lfloor \log n \rfloor - 1{,}000\)</span> times, which is zero for small <span class="math">\(n\)</span> but is <span class="math">\(\Theta(\log n)\)</span> for large <span class="math-with-punctuation"><span class="math">\(n\)</span>,</span> and asymptotic notation only cares about large <span class="math-with-punctuation"><span class="math">\(n\)</span>.</span> So the total is <span class="math-with-punctuation"><span class="math">\(n \times \Theta(n^3) \times \Theta(\log n) = \Theta(n^4 \log n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1805,7 +1837,7 @@ def boo(n):
         <p>Tags: <a href='../tags/lecture-03.html'>lecture-03</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s time complexity is <span class="math">\(\Theta(n^3)\)</span>, while <span class="inline-code"><code>baz</code></span>'s time complexity is <span class="math">\(\Theta(n^2)\)</span>.</p>
+<p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s time complexity is <span class="math-with-punctuation"><span class="math">\(\Theta(n^3)\)</span>,</span> while <span class="inline-code"><code>baz</code></span>'s time complexity is <span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
 <p>Suppose <span class="inline-code"><code>boo</code></span> is defined as below:</p>
 <pre class="code"><code class="language-python">def boo(n):
     if n &lt; 1000:
@@ -1815,7 +1847,8 @@ def boo(n):
 <p>What is the asymptotic time complexity of <span class="inline-code"><code>boo</code></span>?</p>
 <details>
     <summary>Solution</summary>
-<p>Asymptotic time complexity concerns the time taken when <span class="math">\(n\)</span> is large. Therefore, it doesn't matter what happens when <span class="math">\(n < 1000\)</span>. When <span class="math">\(n \geq 1000\)</span>, the time taken is <span class="math">\(\Theta(n^2)\)</span>, since that is the time taken by <span class="inline-code"><code>baz</code></span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>Asymptotic time complexity concerns the time taken when <span class="math">\(n\)</span> is large. Therefore, it doesn't matter what happens when <span class="math-with-punctuation"><span class="math">\(n < 1000\)</span>.</span> When <span class="math-with-punctuation"><span class="math">\(n \geq 1000\)</span>,</span> the time taken is <span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>,</span> since that is the time taken by <span class="inline-code"><code>baz</code></span>.</p>
 </details>
 
     </div>
@@ -1831,7 +1864,7 @@ def boo(n):
         <p>Tags: <a href='../tags/lecture-03.html'>lecture-03</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s asymptotic time complexity is <span class="math">\(\Theta(n^4)\)</span>, while <span class="inline-code"><code>baz</code></span>'s is <span class="math">\(\Theta(n)\)</span>.</p>
+<p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s asymptotic time complexity is <span class="math-with-punctuation"><span class="math">\(\Theta(n^4)\)</span>,</span> while <span class="inline-code"><code>baz</code></span>'s is <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
 <p>Suppose <span class="inline-code"><code>foo</code></span> is defined as below:</p>
 <pre class="code"><code class="language-python">def foo(n):
     if n &lt; 1_000_000:
@@ -1842,10 +1875,10 @@ def boo(n):
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n)\)</span></p>
-<p>If you were to plot the function <span class="math">\(T(n)\)</span> that gives the time taken by <span class="inline-code"><code>foo</code></span> as a function of <span class="math">\(n\)</span>, you'd see something like the below:</p>
+<p>If you were to plot the function <span class="math">\(T(n)\)</span> that gives the time taken by <span class="inline-code"><code>foo</code></span> as a function of <span class="math-with-punctuation"><span class="math">\(n\)</span>,</span> you'd see something like the below:</p>
 <center><div class="image"><img src="../images/042/plot.png" /></div></center>
-<p>This function starts off looking like <span class="math">\(n^4\)</span>, but at <span class="math">\(n = 1{,}000{,}000\)</span>, it "switches" to looking like <span class="math">\(n\)</span>.</p>
-<p>Since asymptotic time complexity is concerned with the behavior of the function as <span class="math">\(n\)</span> gets large, we can ignore the part where <span class="math">\(n\)</span> is "small" (in this case, less than <span class="math">\(1{,}000{,}000\)</span>). So, asymptotically, this function is <span class="math">\(\Theta(n)\)</span>.</p>
+<p>This function starts off looking like <span class="math-with-punctuation"><span class="math">\(n^4\)</span>,</span> but at <span class="math-with-punctuation"><span class="math">\(n = 1{,}000{,}000\)</span>,</span> it "switches" to looking like <span class="math-with-punctuation"><span class="math">\(n\)</span>.</span></p>
+<p>Since asymptotic time complexity is concerned with the behavior of the function as <span class="math">\(n\)</span> gets large, we can ignore the part where <span class="math">\(n\)</span> is "small" (in this case, less than <span class="math-with-punctuation"><span class="math">\(1{,}000{,}000\)</span>).</span> So, asymptotically, this function is <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1861,7 +1894,7 @@ def boo(n):
         <p>Tags: <a href='../tags/lecture-03.html'>lecture-03</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose <span class="inline-code"><code>bar_1</code></span>, <span class="inline-code"><code>bar_2</code></span> and <span class="inline-code"><code>bar_3</code></span> are three functions. Suppose <span class="inline-code"><code>bar_1</code></span>'s time complexity is <span class="math">\(\Theta(n)\)</span>, <span class="inline-code"><code>bar_2</code></span>'s time complexity is <span class="math">\(\Theta(n^2)\)</span>, and <span class="inline-code"><code>bar_3</code></span>'s time complexity is <span class="math">\(\Theta(n^3)\)</span>.</p>
+<p>Suppose <span class="inline-code"><code>bar_1</code></span>, <span class="inline-code"><code>bar_2</code></span> and <span class="inline-code"><code>bar_3</code></span> are three functions. Suppose <span class="inline-code"><code>bar_1</code></span>'s time complexity is <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>,</span> <span class="inline-code"><code>bar_2</code></span>'s time complexity is <span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>,</span> and <span class="inline-code"><code>bar_3</code></span>'s time complexity is <span class="math-with-punctuation"><span class="math">\(\Theta(n^3)\)</span>.</span></p>
 <p>Suppose <span class="inline-code"><code>foo</code></span> is defined as below:</p>
 <pre class="code"><code class="language-python">def foo(n):
     if n &lt; 2023:
@@ -1873,7 +1906,8 @@ def boo(n):
 <p>What is the asymptotic time complexity of <span class="inline-code"><code>foo</code></span>?</p>
 <details>
     <summary>Solution</summary>
-<p>Asymptotic time complexity concerns the time taken when <span class="math">\(n\)</span> is large. Therefore, it doesn't matter what happens when <span class="math">\(n \leq 2023\)</span>. When <span class="math">\(n > 2023\)</span>, the time taken is <span class="math">\(\Theta(n^2)\)</span>, since that is the time taken by <span class="inline-code"><code>bar_2</code></span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>Asymptotic time complexity concerns the time taken when <span class="math">\(n\)</span> is large. Therefore, it doesn't matter what happens when <span class="math-with-punctuation"><span class="math">\(n \leq 2023\)</span>.</span> When <span class="math-with-punctuation"><span class="math">\(n > 2023\)</span>,</span> the time taken is <span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>,</span> since that is the time taken by <span class="inline-code"><code>bar_2</code></span>.</p>
 </details>
 
     </div>
@@ -1889,7 +1923,7 @@ def boo(n):
         <p>Tags: <a href='../tags/lecture-03.html'>lecture-03</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s time complexity is <span class="math">\(\Theta(n^2)\)</span>, while <span class="inline-code"><code>baz</code></span>'s time complexity is <span class="math">\(\Theta(n)\)</span>.</p>
+<p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s time complexity is <span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>,</span> while <span class="inline-code"><code>baz</code></span>'s time complexity is <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
 <p>Suppose <span class="inline-code"><code>foo</code></span> is defined as below:</p>
 <pre class="code"><code class="language-python">def foo(n):
     # will be True if n is even, False otherwise
@@ -1898,12 +1932,12 @@ def boo(n):
         bar(n)
     else:
         baz(n)</code></pre>
-<p>Let <span class="math">\(T(n)\)</span> be the time taken by <span class="inline-code"><code>foo</code></span> on an input of size <span class="math">\(n\)</span>. True or False: <span class="math">\(T(n) = \Theta(n^2)\)</span>.</p>
+<p>Let <span class="math">\(T(n)\)</span> be the time taken by <span class="inline-code"><code>foo</code></span> on an input of size <span class="math-with-punctuation"><span class="math">\(n\)</span>.</span> True or False: <span class="math-with-punctuation"><span class="math">\(T(n) = \Theta(n^2)\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
 <p>False.</p>
-<p>This function is not <span class="math">\(\Theta(n^2)\)</span>. For that matter, it is also not <span class="math">\(\Theta(n)\)</span>. It <i>is</i> <span class="math">\(O(n^2)\)</span> and <span class="math">\(\Omega(n)\)</span>, though.</p>
-<p>This function cannot be <span class="math">\(\Theta(n^2)\)</span> because there are no positive constants <span class="math">\(c, n_0\)</span> such that <span class="math">\(T(n) > c n^2\)</span> for all <span class="math">\(n > n_0\)</span>. You can see this by imagining the plot of the time taken by <span class="inline-code"><code>foo</code></span> as a function of <span class="math">\(n\)</span>. It "oscillates" between something that grows like <span class="math">\(n\)</span> and something that grows like <span class="math">\(n^2\)</span>. If you tried to lower bound it with <span class="math">\(cn^2\)</span>, <span class="math">\(T(n)\)</span> would eventually dip below <span class="math">\(cn^2\)</span>, since <span class="math">\(cn^2\)</span> grows faster than <span class="math">\(n\)</span>.</p>
+<p>This function is not <span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span> For that matter, it is also not <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span> It <i>is</i> <span class="math">\(O(n^2)\)</span> and <span class="math-with-punctuation"><span class="math">\(\Omega(n)\)</span>,</span> though.</p>
+<p>This function cannot be <span class="math">\(\Theta(n^2)\)</span> because there are no positive constants <span class="math">\(c, n_0\)</span> such that <span class="math">\(T(n) > c n^2\)</span> for all <span class="math-with-punctuation"><span class="math">\(n > n_0\)</span>.</span> You can see this by imagining the plot of the time taken by <span class="inline-code"><code>foo</code></span> as a function of <span class="math-with-punctuation"><span class="math">\(n\)</span>.</span> It "oscillates" between something that grows like <span class="math">\(n\)</span> and something that grows like <span class="math-with-punctuation"><span class="math">\(n^2\)</span>.</span> If you tried to lower bound it with <span class="math-with-punctuation"><span class="math">\(cn^2\)</span>,</span> <span class="math">\(T(n)\)</span> would eventually dip below <span class="math-with-punctuation"><span class="math">\(cn^2\)</span>,</span> since <span class="math">\(cn^2\)</span> grows faster than <span class="math-with-punctuation"><span class="math">\(n\)</span>.</span></p>
 </details>
 
     </div>
@@ -1926,7 +1960,8 @@ def boo(n):
             print(i + j)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^3)\)</span>. The inner loop runs <span class="math">\(i^2\)</span> times, so the total number of iterations is <span class="math">\(0^2 + 1^2 + \ldots + (n-1)^2 = \frac{(n-1)n(2n-1)}{6} = \Theta(n^3)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^3)\)</span>.</span></p>
+<p>The inner loop runs <span class="math">\(i^2\)</span> times, so the total number of iterations is <span class="math-with-punctuation"><span class="math">\(0^2 + 1^2 + \ldots + (n-1)^2 = \frac{(n-1)n(2n-1)}{6} = \Theta(n^3)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1942,7 +1977,7 @@ def boo(n):
         <p>Tags: <a href='../tags/lecture-03.html'>lecture-03</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>What is the time complexity of the following function? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation in the simplest form possible. (e.g., <span class="math">\(\Theta(n)\)</span>)</p>
+<p>What is the time complexity of the following function? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation in the simplest form possible. (e.g., <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>)</span></p>
 <pre class="code"><code class="language-python">import math
 
 def boo(n):
@@ -1955,9 +1990,9 @@ def boo(n):
             print(i + j)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>.</p>
-<p>The second loop looks complicated to analyze, but we can effectively ignore it. This is because the most <span class="inline-code"><code>i</code></span> can ever be is <span class="math">\(\sqrt
-        n\)</span>, so each iteration of the outer loop makes <span class="math">\(O(\sqrt n \log n)\)</span> iterations of the inner loop. There are <span class="math">\(O(\sqrt n)\)</span> iterations of the outer loop, so the second loop takes <span class="math">\(O(n \log n)\)</span> time in total. Since the first loop takes <span class="math">\(\Theta(n^2)\)</span>, it will dominate the time complexity, and we do not need to worry about the time taken by the second loop.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>The second loop looks complicated to analyze, but we can effectively ignore it. This is because the most <span class="inline-code"><code>i</code></span> can ever be is <span class="math-with-punctuation"><span class="math">\(\sqrt
+        n\)</span>,</span> so each iteration of the outer loop makes <span class="math">\(O(\sqrt n \log n)\)</span> iterations of the inner loop. There are <span class="math">\(O(\sqrt n)\)</span> iterations of the outer loop, so the second loop takes <span class="math">\(O(n \log n)\)</span> time in total. Since the first loop takes <span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>,</span> it will dominate the time complexity, and we do not need to worry about the time taken by the second loop.</p>
 </details>
 
     </div>
@@ -1984,7 +2019,8 @@ def boo(n):
         print(i)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. The loop runs <span class="math">\(x\)</span> times, and <span class="math">\(x\)</span> is equally likely to be any of <span class="math">\(0, 1, \ldots, n-1\)</span>. So the expected number of iterations is <span class="math">\(\frac{1}{n}\sum_{x=0}^{n-1} x = \frac{1}{n} \cdot \frac{n(n-1)}{2} = \frac{n-1}{2} = \Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>The loop runs <span class="math">\(x\)</span> times, and <span class="math">\(x\)</span> is equally likely to be any of <span class="math-with-punctuation"><span class="math">\(0, 1, \ldots, n-1\)</span>.</span> So the expected number of iterations is <span class="math-with-punctuation"><span class="math">\(\frac{1}{n}\sum_{x=0}^{n-1} x = \frac{1}{n} \cdot \frac{n(n-1)}{2} = \frac{n-1}{2} = \Theta(n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -2015,7 +2051,8 @@ def foo(n):
         print("Lucky!")</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. The first branch happens with probability <span class="math">\(20/n\)</span> and takes <span class="math">\(\Theta(n^3)\)</span> time; the second happens with probability about <span class="math">\(1/2\)</span> and takes <span class="math">\(\Theta(n)\)</span> time; the third takes <span class="math">\(\Theta(1)\)</span> time. So the expected time is about <span class="math">\(\frac{20}{n} \cdot n^3 + \frac12 \cdot n + \frac12 \cdot 1 = 20n^2 + \frac{n}{2} + \frac12 = \Theta(n^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>The first branch happens with probability <span class="math">\(20/n\)</span> and takes <span class="math">\(\Theta(n^3)\)</span> time; the second happens with probability about <span class="math">\(1/2\)</span> and takes <span class="math">\(\Theta(n)\)</span> time; the third takes <span class="math">\(\Theta(1)\)</span> time. So the expected time is about <span class="math-with-punctuation"><span class="math">\(\frac{20}{n} \cdot n^3 + \frac12 \cdot n + \frac12 \cdot 1 = 20n^2 + \frac{n}{2} + \frac12 = \Theta(n^2)\)</span>.</span></p>
 </details>
 
     </div>
@@ -2052,7 +2089,8 @@ def mediansort(arr, start, stop):
 <p>Consider the <span class="inline-code"><code>mediansort</code></span> function from above. Suppose that <span class="inline-code"><code>find_median</code></span> takes <span class="math">\(\Theta(n)\)</span> time. What is the time complexity of <span class="inline-code"><code>mediansort</code></span>?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n \log n)\)</span>. Each call does <span class="math">\(\Theta(n)\)</span> work (<span class="inline-code"><code>find_median</code></span> plus a constant-time swap) and recurses on two halves of size about <span class="math">\(n/2\)</span>, so <span class="math">\(T(n) = 2T(n/2) + \Theta(n)\)</span>, the same recurrence as mergesort, whose solution is <span class="math">\(\Theta(n \log n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n \log n)\)</span>.</span></p>
+<p>Each call does <span class="math">\(\Theta(n)\)</span> work (<span class="inline-code"><code>find_median</code></span> plus a constant-time swap) and recurses on two halves of size about <span class="math-with-punctuation"><span class="math">\(n/2\)</span>,</span> so <span class="math-with-punctuation"><span class="math">\(T(n) = 2T(n/2) + \Theta(n)\)</span>,</span> the same recurrence as mergesort, whose solution is <span class="math-with-punctuation"><span class="math">\(\Theta(n \log n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -2068,10 +2106,11 @@ def mediansort(arr, start, stop):
         <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a>, <a href='../tags/lecture-08.html'>lecture-08</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a collection of <span class="math">\(n\)</span> unique numbers is stored in a <b>balanced</b> binary search tree, and that each node in the tree has been given a <span class="inline-code"><code>.size</code></span> attribute which contains the number of nodes in the subtree rooted at that node. What is the time complexity required of an efficient algorithm for computing the number of elements in the collection which are larger than some threshold, <span class="math">\(t\)</span>?</p>
+<p>Suppose a collection of <span class="math">\(n\)</span> unique numbers is stored in a <b>balanced</b> binary search tree, and that each node in the tree has been given a <span class="inline-code"><code>.size</code></span> attribute which contains the number of nodes in the subtree rooted at that node. What is the time complexity required of an efficient algorithm for computing the number of elements in the collection which are larger than some threshold, <span class="math-with-punctuation"><span class="math">\(t\)</span>?</span></p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(\log{n})\)</span>. We can consider the following algorithm: Query for <span class="math">\(t\)</span> in the BST, and define a new variable total for tracking the result. For each step of the recursion, if we go to the left, add the size of the right branch + 1 to the running total. We repeat the above until the query() function finishes running, which will give us exactly the number of elements in the collection which are larger than <span class="math">\(t\)</span>. Since we are querying (and adding some constant time updating steps) in a balanced BST, the time complexity for this question will be <span class="math">\(\Theta(\log{n})\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(\log{n})\)</span>.</span></p>
+<p>We can consider the following algorithm: Query for <span class="math">\(t\)</span> in the BST, and define a new variable total for tracking the result. For each step of the recursion, if we go to the left, add the size of the right branch + 1 to the running total. We repeat the above until the query() function finishes running, which will give us exactly the number of elements in the collection which are larger than <span class="math-with-punctuation"><span class="math">\(t\)</span>.</span> Since we are querying (and adding some constant time updating steps) in a balanced BST, the time complexity for this question will be <span class="math-with-punctuation"><span class="math">\(\Theta(\log{n})\)</span>.</span></p>
 </details>
 
     </div>
@@ -2087,10 +2126,11 @@ def mediansort(arr, start, stop):
         <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose an undirected graph with <span class="math">\(n\)</span> nodes satisfies the property that every node has degree <span class="math">\(n/2\)</span>. What is the time complexity of running full BFS on this graph?</p>
+<p>Suppose an undirected graph with <span class="math">\(n\)</span> nodes satisfies the property that every node has degree <span class="math-with-punctuation"><span class="math">\(n/2\)</span>.</span> What is the time complexity of running full BFS on this graph?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. Full BFS takes <span class="math">\(\Theta(V + E)\)</span> time. The sum of the degrees is <span class="math">\(n \cdot n/2\)</span>, and each edge is counted twice in this sum, so there are <span class="math">\(n^2/4\)</span> edges. So the time is <span class="math">\(\Theta(n + n^2/4) = \Theta(n^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>Full BFS takes <span class="math">\(\Theta(V + E)\)</span> time. The sum of the degrees is <span class="math-with-punctuation"><span class="math">\(n \cdot n/2\)</span>,</span> and each edge is counted twice in this sum, so there are <span class="math">\(n^2/4\)</span> edges. So the time is <span class="math-with-punctuation"><span class="math">\(\Theta(n + n^2/4) = \Theta(n^2)\)</span>.</span></p>
 </details>
 
     </div>
@@ -2106,7 +2146,7 @@ def mediansort(arr, start, stop):
         <p>Tags: <a href='../tags/aggregate analysis.html'>aggregate analysis</a>, <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Consider the following modification of BFS, where there are two new lines of code. What is the time complexity in terms of <span class="math">\(|V|\)</span> and <span class="math">\(|E|\)</span>?</p>
+<p>Consider the following modification of BFS, where there are two new lines of code. What is the time complexity in terms of <span class="math">\(|V|\)</span> and <span class="math-with-punctuation"><span class="math">\(|E|\)</span>?</span></p>
 <pre class="code"><code class="language-python">from collections import deque
 
 def foo(graph):
@@ -2132,7 +2172,8 @@ def bar(graph, source, status):
         status[u] = 'visited'</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(V + VE)\)</span>. Without the two new lines, this is a full BFS, which takes <span class="math">\(\Theta(V + E)\)</span> time. The new inner loop runs once each time an edge is explored, and each time it takes <span class="math">\(\Theta(V)\)</span> time. By an aggregate analysis, edges are explored <span class="math">\(\Theta(E)\)</span> times in total, so the new lines add <span class="math">\(\Theta(VE)\)</span> time. The total is <span class="math">\(\Theta(V + E + VE) = \Theta(V + VE)\)</span>. (We can't drop the <span class="math">\(V\)</span> term: when there are no edges, the code still takes <span class="math">\(\Theta(V)\)</span> time.)</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(V + VE)\)</span>.</span></p>
+<p>Without the two new lines, this is a full BFS, which takes <span class="math">\(\Theta(V + E)\)</span> time. The new inner loop runs once each time an edge is explored, and each time it takes <span class="math">\(\Theta(V)\)</span> time. By an aggregate analysis, edges are explored <span class="math">\(\Theta(E)\)</span> times in total, so the new lines add <span class="math">\(\Theta(VE)\)</span> time. The total is <span class="math-with-punctuation"><span class="math">\(\Theta(V + E + VE) = \Theta(V + VE)\)</span>.</span> (We can't drop the <span class="math">\(V\)</span> term: when there are no edges, the code still takes <span class="math">\(\Theta(V)\)</span> time.)</p>
 </details>
 
     </div>

@@ -950,6 +950,8 @@ Course Staff
 /* level the box with the first line of the choice, not the middle of a wrapped one */
 .multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+/* inline math and the punctuation right after it; see _keep_math_with_punctuation */
+.math-with-punctuation { white-space: nowrap; }
 </style>
 <h1>Quiz 08</h1>
 <p>Practice problems for topics on Quiz 08.</p>
@@ -1013,7 +1015,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>True or False: It is possible for two arbitrary nodes to have a negative shortest path distance between them without the presence of a negative cycle in the graph.</p>
 <details>
     <summary>Solution</summary>
-<p>True. For example, if there is a single edge <span class="math">\((u, v)\)</span> with weight <span class="math">\(-1\)</span> and no other edges, the shortest path distance from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> is <span class="math">\(-1\)</span>, and there is no cycle at all.</p>
+<p>True.</p>
+<p>For example, if there is a single edge <span class="math">\((u, v)\)</span> with weight <span class="math">\(-1\)</span> and no other edges, the shortest path distance from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> is <span class="math-with-punctuation"><span class="math">\(-1\)</span>,</span> and there is no cycle at all.</p>
 </details>
 
     </div>
@@ -1030,11 +1033,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Suppose the Bellman-Ford algorithm is run on a graph <span class="math">\(G\)</span> that does not contain negative cycles. Let <span class="math">\(u\)</span> be an arbitrary node in the graph, and assume that <span class="math">\(u\)</span> is reachable from the source.</p>
-<p>True or False: <span class="math">\(u\)</span>'s estimated distance can change multiple times during the algorithm's execution.</p>
+<p>True or False: <span class="math-with-punctuation"><span class="math">\(u\)</span>'</span>s estimated distance can change multiple times during the algorithm's execution.</p>
 <details>
     <summary>Solution</summary>
 <p>True.</p>
-<p>Suppose there are edges <span class="math">\((s, u)\)</span> with weight 10, <span class="math">\((s, a)\)</span> with weight 1, and <span class="math">\((a, u)\)</span> with weight 1. If <span class="math">\((s, u)\)</span> is updated first, <span class="math">\(u\)</span>'s estimate drops from <span class="math">\(\infty\)</span> to 10. It drops again to 2 once <span class="math">\((s, a)\)</span> and then <span class="math">\((a, u)\)</span> are updated.</p>
+<p>Suppose there are edges <span class="math">\((s, u)\)</span> with weight 10, <span class="math">\((s, a)\)</span> with weight 1, and <span class="math">\((a, u)\)</span> with weight 1. If <span class="math">\((s, u)\)</span> is updated first, <span class="math-with-punctuation"><span class="math">\(u\)</span>'</span>s estimate drops from <span class="math">\(\infty\)</span> to 10. It drops again to 2 once <span class="math">\((s, a)\)</span> and then <span class="math">\((a, u)\)</span> are updated.</p>
 </details>
 
     </div>
@@ -1054,7 +1057,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <details>
     <summary>Solution</summary>
 <p>True.</p>
-<p>Consider the path graph <span class="math">\(s \to a \to b \to c\)</span>. If the edges are updated in order along the path, every distance is correct after one iteration, and the second iteration changes nothing. If they are updated in reverse order, each iteration only fixes one more node, so it takes all three iterations. (With <span class="math">\(|V| = 4\)</span>, the outer loop runs at most <span class="math">\(|V| - 1 = 3\)</span> times.)</p>
+<p>Consider the path graph <span class="math-with-punctuation"><span class="math">\(s \to a \to b \to c\)</span>.</span> If the edges are updated in order along the path, every distance is correct after one iteration, and the second iteration changes nothing. If they are updated in reverse order, each iteration only fixes one more node, so it takes all three iterations. (With <span class="math-with-punctuation"><span class="math">\(|V| = 4\)</span>,</span> the outer loop runs at most <span class="math">\(|V| - 1 = 3\)</span> times.)</p>
 </details>
 
     </div>
@@ -1078,7 +1081,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>8</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>Answer: 2. In the best situation, the edges would be updated in just the right order so that all of the correct shortest paths are found on the first iteration. On the second iteration, B-F will detect that nothing changed, and it will terminate.</p>
+<p>Answer: 2.</p>
+<p>In the best situation, the edges would be updated in just the right order so that all of the correct shortest paths are found on the first iteration. On the second iteration, B-F will detect that nothing changed, and it will terminate.</p>
 </details>
 
     </div>
@@ -1100,7 +1104,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>What is the fewest number of iterations of the outer loop that can possibly be performed?</p>
 <details>
     <summary>Solution</summary>
-<p>2. If the edges happen to come in the order of the shortest paths (e.g., <span class="math">\((s, u_3)\)</span>, <span class="math">\((u_3, u_4)\)</span>, <span class="math">\((u_4, u_1)\)</span>, <span class="math">\((u_3, u_5)\)</span>, <span class="math">\((u_5, u_2)\)</span> and <span class="math">\((u_5, u_6)\)</span> first), one iteration gets every estimate right. But the algorithm only stops after an iteration that changes nothing, so it needs a second iteration to see that. It can't stop after one, since the first iteration always changes the estimates of <span class="math">\(s\)</span>'s neighbors.</p>
+<p>2.</p>
+<p>If the edges happen to come in the order of the shortest paths (e.g., <span class="math-with-punctuation"><span class="math">\((s, u_3)\)</span>,</span> <span class="math-with-punctuation"><span class="math">\((u_3, u_4)\)</span>,</span> <span class="math-with-punctuation"><span class="math">\((u_4, u_1)\)</span>,</span> <span class="math-with-punctuation"><span class="math">\((u_3, u_5)\)</span>,</span> <span class="math">\((u_5, u_2)\)</span> and <span class="math">\((u_5, u_6)\)</span> first), one iteration gets every estimate right. But the algorithm only stops after an iteration that changes nothing, so it needs a second iteration to see that. It can't stop after one, since the first iteration always changes the estimates of <span class="math-with-punctuation"><span class="math">\(s\)</span>'</span>s neighbors.</p>
 </details>
 
     </div>
@@ -1121,7 +1126,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>How many iterations of the outer loop will be run in the worst case? Your answer should be a number.</p>
 <details>
     <summary>Solution</summary>
-<p>4. No path in this graph has more than 3 edges, so after 3 iterations every estimate is correct, whatever the weights are. In the worst case, a shortest path has 3 edges (e.g., <span class="math">\(a \to b \to d \to f\)</span>) and the edges come in an unlucky order, so that all 3 iterations are needed, and then a 4th iteration is needed to see that nothing changes.</p>
+<p>4.</p>
+<p>No path in this graph has more than 3 edges, so after 3 iterations every estimate is correct, whatever the weights are. In the worst case, a shortest path has 3 edges (e.g., <span class="math-with-punctuation"><span class="math">\(a \to b \to d \to f\)</span>)</span> and the edges come in an unlucky order, so that all 3 iterations are needed, and then a 4th iteration is needed to see that nothing changes.</p>
 </details>
 
     </div>
@@ -1159,11 +1165,12 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/bellman-ford.html'>bellman-ford</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Consider a “2-chain” graph: a graph with <span class="math">\(n\)</span> nodes that is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math">\(\ldots\)</span>, <span class="math">\(n\)</span>, and, for each node <span class="math">\(u\)</span>, making an edge to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span> (if they are in the graph).</p>
-<p>Suppose the Bellman-Ford algorithm without early stopping is run on a 2-chain graph with <span class="math">\(n\)</span> nodes, using node 1 as the source. What is the time taken as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
+<p>Consider a “2-chain” graph: a graph with <span class="math">\(n\)</span> nodes that is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math-with-punctuation"><span class="math">\(\ldots\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(n\)</span>,</span> and, for each node <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> making an edge to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span> (if they are in the graph).</p>
+<p>Suppose the Bellman-Ford algorithm without early stopping is run on a 2-chain graph with <span class="math">\(n\)</span> nodes, using node 1 as the source. What is the time taken as a function of <span class="math-with-punctuation"><span class="math">\(n\)</span>?</span> State your answer using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. Each node has edges to at most two others, so there are about <span class="math">\(2n\)</span> edges (exactly <span class="math">\(2n - 3\)</span>). Bellman-Ford without early stopping runs <span class="math">\(|V| - 1 = n - 1\)</span> iterations, each looping over every edge, for <span class="math">\(\Theta(VE) = \Theta(n \cdot n) = \Theta(n^2)\)</span> time.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>Each node has edges to at most two others, so there are about <span class="math">\(2n\)</span> edges (exactly <span class="math-with-punctuation"><span class="math">\(2n - 3\)</span>).</span> Bellman-Ford without early stopping runs <span class="math">\(|V| - 1 = n - 1\)</span> iterations, each looping over every edge, for <span class="math">\(\Theta(VE) = \Theta(n \cdot n) = \Theta(n^2)\)</span> time.</p>
 </details>
 
     </div>
@@ -1182,7 +1189,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose the Bellman-Ford algorithm is run on the following graph using node <span class="math">\(a\)</span> as the source node:</p>
 <center><div class="image"><img src="images/306/graph.png" /></div></center>
 <p>Suppose when <span class="inline-code"><code>graph.edges</code></span> is called, the edges are returned in the order:</p>
-<p><span class="math">\(
+<p><span class="math-with-punctuation"><span class="math">\(
     (a, b),
     (c, e),
     (d, f),
@@ -1191,11 +1198,12 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     (b, e),
     (a, c),
     (e, f)
-    \)</span>.</p>
-<p>After one iteration of the outer loop of Bellman-Ford, what is the estimated distance to node <span class="math">\(d\)</span>?</p>
+    \)</span>.</span></p>
+<p>After one iteration of the outer loop of Bellman-Ford, what is the estimated distance to node <span class="math-with-punctuation"><span class="math">\(d\)</span>?</span></p>
 <details>
     <summary>Solution</summary>
-<p>9. Going through the edges in the given order: <span class="math">\((a, b)\)</span> sets <span class="math">\(b\)</span>'s estimate to 1; <span class="math">\((c, e)\)</span>, <span class="math">\((d, f)\)</span> and <span class="math">\((c, d)\)</span> change nothing, since <span class="math">\(c\)</span> and <span class="math">\(d\)</span> are still at <span class="math">\(\infty\)</span>; then <span class="math">\((b, d)\)</span> sets <span class="math">\(d\)</span>'s estimate to <span class="math">\(1 + 8 = 9\)</span>. The shorter path through <span class="math">\(c\)</span> isn't found yet, because <span class="math">\((a, c)\)</span> comes after <span class="math">\((c, d)\)</span> in the order.</p>
+<p>9.</p>
+<p>Going through the edges in the given order: <span class="math">\((a, b)\)</span> sets <span class="math-with-punctuation"><span class="math">\(b\)</span>'</span>s estimate to 1; <span class="math-with-punctuation"><span class="math">\((c, e)\)</span>,</span> <span class="math">\((d, f)\)</span> and <span class="math">\((c, d)\)</span> change nothing, since <span class="math">\(c\)</span> and <span class="math">\(d\)</span> are still at <span class="math-with-punctuation"><span class="math">\(\infty\)</span>;</span> then <span class="math">\((b, d)\)</span> sets <span class="math-with-punctuation"><span class="math">\(d\)</span>'</span>s estimate to <span class="math-with-punctuation"><span class="math">\(1 + 8 = 9\)</span>.</span> The shorter path through <span class="math">\(c\)</span> isn't found yet, because <span class="math">\((a, c)\)</span> comes after <span class="math">\((c, d)\)</span> in the order.</p>
 </details>
 
     </div>
@@ -1224,7 +1232,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(u_6\)</span></p></label></div></div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(u_3\)</span>, <span class="math">\(u_4\)</span>, and <span class="math">\(u_5\)</span> are guaranteed to have correct estimated shortest path distances after 2 iterations of the outer loop. <span class="math">\(s\)</span>'s estimated distance is correct from the start, since it is initialized to <span class="math">\(0\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(s\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(u_3\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(u_4\)</span>,</span> and <span class="math-with-punctuation"><span class="math">\(u_5\)</span>.</span></p>
+<p><span class="math-with-punctuation"><span class="math">\(u_3\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(u_4\)</span>,</span> and <span class="math">\(u_5\)</span> are guaranteed to have correct estimated shortest path distances after 2 iterations of the outer loop. <span class="math-with-punctuation"><span class="math">\(s\)</span>'</span>s estimated distance is correct from the start, since it is initialized to <span class="math-with-punctuation"><span class="math">\(0\)</span>.</span></p>
 </details>
 
     </div>
@@ -1250,7 +1259,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\{a,b,c,d\}\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\{a,b,c,e,f\}\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\{a,b,c,e,f\}\)</span>.</span></p>
 <p>After <span class="math">\(k\)</span> iterations of the outer loop, Bellman-Ford is guaranteed to have the correct distance to every node whose shortest path from the source uses at most <span class="math">\(k\)</span> edges. Other estimates might happen to be correct too, depending on the order of the edges, but they aren't guaranteed to be. So we need each node's shortest path, and how many edges it uses:</p>
 <div class="math">\[
             \begin{aligned}
@@ -1263,7 +1272,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
             \end{aligned}
         \]</div>
 <p>These beat the other paths: <span class="math">\(a \to b \to e\)</span> has distance 2, <span class="math">\(a \to c \to e \to g\)</span> has distance 2, and <span class="math">\(a \to b \to d\)</span> has distance 4.</p>
-<p>The source <span class="math">\(a\)</span> is correct (distance 0) from the start. So after the third iteration, <span class="math">\(a\)</span>, <span class="math">\(b\)</span>, <span class="math">\(c\)</span>, <span class="math">\(e\)</span> and <span class="math">\(f\)</span> are guaranteed to be correct, but <span class="math">\(g\)</span> (4 edges) and <span class="math">\(d\)</span> (5 edges) aren't.</p>
+<p>The source <span class="math">\(a\)</span> is correct (distance 0) from the start. So after the third iteration, <span class="math-with-punctuation"><span class="math">\(a\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(b\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(c\)</span>,</span> <span class="math">\(e\)</span> and <span class="math">\(f\)</span> are guaranteed to be correct, but <span class="math">\(g\)</span> (4 edges) and <span class="math">\(d\)</span> (5 edges) aren't.</p>
 </details>
 
     </div>
@@ -1279,12 +1288,12 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/breadth first search.html'>breadth first search</a>, <a href='./tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose that every edge in the weighted graph <span class="math">\(G\)</span> has weight <span class="math">\(-5\)</span>. True or False: breadth first search on this graph will compute a <i>longest</i> path from the source to every node in the graph (that is, a path with greatest possible total edge weight).</p>
+<p>Suppose that every edge in the weighted graph <span class="math">\(G\)</span> has weight <span class="math-with-punctuation"><span class="math">\(-5\)</span>.</span> True or False: breadth first search on this graph will compute a <i>longest</i> path from the source to every node in the graph (that is, a path with greatest possible total edge weight).</p>
 <p>You may assume that every node in the graph is reachable from the source.</p>
 <details>
     <summary>Solution</summary>
 <p>True.</p>
-<p>A path with <span class="math">\(k\)</span> edges has total weight <span class="math">\(-5k\)</span>, so the path with the greatest total weight is the one with the fewest edges. BFS finds exactly this path: the path with the fewest edges from the source to each node.</p>
+<p>A path with <span class="math">\(k\)</span> edges has total weight <span class="math-with-punctuation"><span class="math">\(-5k\)</span>,</span> so the path with the greatest total weight is the one with the fewest edges. BFS finds exactly this path: the path with the fewest edges from the source to each node.</p>
 </details>
 
     </div>
@@ -1308,11 +1317,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="math">\[
                 (u,c), (a, b), (a, d), (u, a), (b, e), (c, d), (e, b), (d, e)
             \]</div>
-<p>After two iterations of the outer for-loop, what is the estimated shortest path distance for node <span class="math">\(b\)</span>?</p>
+<p>After two iterations of the outer for-loop, what is the estimated shortest path distance for node <span class="math-with-punctuation"><span class="math">\(b\)</span>?</span></p>
 <details>
     <summary>Solution</summary>
 <p>7.</p>
-<p>After iteration 1, the estimates are <span class="math">\(a = 2\)</span>, <span class="math">\(c = 7\)</span>, <span class="math">\(d = 9\)</span>, <span class="math">\(e = 13\)</span> (<span class="math">\(b\)</span> is still <span class="math">\(\infty\)</span>). In iteration 2, <span class="math">\(b\)</span> becomes <span class="math">\(16\)</span> via <span class="math">\((a, b)\)</span>, <span class="math">\(d\)</span> becomes <span class="math">\(5\)</span>, then <span class="math">\(b\)</span> becomes <span class="math">\(13 - 6 = 7\)</span> via <span class="math">\((e, b)\)</span>, and <span class="math">\(e\)</span> becomes <span class="math">\(9\)</span>. So after two iterations, the estimate for <span class="math">\(b\)</span> is 7.</p>
+<p>After iteration 1, the estimates are <span class="math-with-punctuation"><span class="math">\(a = 2\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(c = 7\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(d = 9\)</span>,</span> <span class="math">\(e = 13\)</span> (<span class="math">\(b\)</span> is still <span class="math-with-punctuation"><span class="math">\(\infty\)</span>).</span> In iteration 2, <span class="math">\(b\)</span> becomes <span class="math">\(16\)</span> via <span class="math-with-punctuation"><span class="math">\((a, b)\)</span>,</span> <span class="math">\(d\)</span> becomes <span class="math-with-punctuation"><span class="math">\(5\)</span>,</span> then <span class="math">\(b\)</span> becomes <span class="math">\(13 - 6 = 7\)</span> via <span class="math-with-punctuation"><span class="math">\((e, b)\)</span>,</span> and <span class="math">\(e\)</span> becomes <span class="math-with-punctuation"><span class="math">\(9\)</span>.</span> So after two iterations, the estimate for <span class="math">\(b\)</span> is 7.</p>
 </details>
 
 </div>
@@ -1323,7 +1332,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <details>
     <summary>Solution</summary>
 <p>4.</p>
-<p>Continuing from the previous part: in iteration 3, <span class="math">\(b\)</span> becomes <span class="math">\(9 - 6 = 3\)</span>. Iteration 4 changes nothing, so the algorithm stops after 4 iterations.</p>
+<p>Continuing from the previous part: in iteration 3, <span class="math">\(b\)</span> becomes <span class="math-with-punctuation"><span class="math">\(9 - 6 = 3\)</span>.</span> Iteration 4 changes nothing, so the algorithm stops after 4 iterations.</p>
 </details>
 
 </div>
@@ -1338,7 +1347,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <details>
     <summary>Solution</summary>
 <p>3.</p>
-<p>Iteration 1 only sets <span class="math">\(a = 2\)</span> and <span class="math">\(c = 7\)</span>, since the edges out of <span class="math">\(u\)</span> come last. In iteration 2, <span class="math">\(b = 16\)</span>, <span class="math">\(d = 5\)</span>, <span class="math">\(e = 24\)</span> then <span class="math">\(9\)</span>, and <span class="math">\(b = 3\)</span>. Iteration 3 changes nothing, so the algorithm stops after 3 iterations.</p>
+<p>Iteration 1 only sets <span class="math">\(a = 2\)</span> and <span class="math-with-punctuation"><span class="math">\(c = 7\)</span>,</span> since the edges out of <span class="math">\(u\)</span> come last. In iteration 2, <span class="math-with-punctuation"><span class="math">\(b = 16\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(d = 5\)</span>,</span> <span class="math">\(e = 24\)</span> then <span class="math-with-punctuation"><span class="math">\(9\)</span>,</span> and <span class="math-with-punctuation"><span class="math">\(b = 3\)</span>.</span> Iteration 3 changes nothing, so the algorithm stops after 3 iterations.</p>
 </details>
 
 </div>
@@ -1364,7 +1373,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Dijkstra's Algorithm</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>Dijkstra's Algorithm. The graph is weighted, so BFS and DFS won't find shortest paths. Travel times are never negative, so both Bellman-Ford and Dijkstra's algorithm work, but Dijkstra's algorithm has the better time complexity.</p>
+<p>Dijkstra's Algorithm.</p>
+<p>The graph is weighted, so BFS and DFS won't find shortest paths. Travel times are never negative, so both Bellman-Ford and Dijkstra's algorithm work, but Dijkstra's algorithm has the better time complexity.</p>
 </details>
 
     </div>
@@ -1387,7 +1397,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Dijkstra's Algorithm</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>Bellman-Ford. Some edge weights are negative, and Dijkstra's algorithm is not guaranteed to find shortest paths when there are negative edge weights. Bellman-Ford works with negative weights (as long as there are no negative cycles), and BFS and DFS don't find shortest paths in weighted graphs.</p>
+<p>Bellman-Ford.</p>
+<p>Some edge weights are negative, and Dijkstra's algorithm is not guaranteed to find shortest paths when there are negative edge weights. Bellman-Ford works with negative weights (as long as there are no negative cycles), and BFS and DFS don't find shortest paths in weighted graphs.</p>
 </details>
 
     </div>
@@ -1410,7 +1421,9 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>(b) After six iterations of the while loop, what is the value of <span class="inline-code"><code>est[b]</code></span>?</p>
 <details>
     <summary>Solution</summary>
-<p>(a) 1. On the first iteration, <span class="math">\(a\)</span> is popped from the priority queue and the edge <span class="math">\((a, b)\)</span> is updated, setting <span class="inline-code"><code>est[b]</code></span> to 3. (b) 3. The only edge into <span class="math">\(b\)</span> is <span class="math">\((a, b)\)</span>, so <span class="inline-code"><code>est[b]</code></span> never changes again and is still 3 after six iterations.</p>
+<p>(a) 1. (b) 3.</p>
+<p>(a) On the first iteration, <span class="math">\(a\)</span> is popped from the priority queue and the edge <span class="math">\((a, b)\)</span> is updated, setting <span class="inline-code"><code>est[b]</code></span> to 3.</p>
+<p>(b) The only edge into <span class="math">\(b\)</span> is <span class="math-with-punctuation"><span class="math">\((a, b)\)</span>,</span> so <span class="inline-code"><code>est[b]</code></span> never changes again and is still 3 after six iterations.</p>
 </details>
 
     </div>
@@ -1426,7 +1439,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='./tags/dijkstra.html'>dijkstra</a>, <a href='./tags/lecture-15.html'>lecture-15</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Consider the following graph. If the set <span class="math">\(C\)</span> of correct nodes (shown in green) contains nodes <span class="math">\(s\)</span>, <span class="math">\(u_1\)</span>, and <span class="math">\(u_2\)</span>, how many exit paths from <span class="math">\(s\)</span> through <span class="math">\(C\)</span> exist?</p>
+<p>Consider the following graph. If the set <span class="math">\(C\)</span> of correct nodes (shown in green) contains nodes <span class="math-with-punctuation"><span class="math">\(s\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(u_1\)</span>,</span> and <span class="math-with-punctuation"><span class="math">\(u_2\)</span>,</span> how many exit paths from <span class="math">\(s\)</span> through <span class="math">\(C\)</span> exist?</p>
 <center><div class="image"><img src="images/314/f1.jpg" /></div></center>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>2</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>3</p></label></div>
@@ -1434,7 +1447,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Infinite</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>Answer: 4. We defined an exit path to be any path starting at the source where all but the last node is in the correct set, and the last node is outside of the correct set. More informally: it's a path where the last node is gray and all of the other nodes are green. The four exit paths are <span class="math">\((s, u_1, u_6)\)</span>, <span class="math">\((s, u_1, u_3)\)</span>, <span class="math">\((s, u_1, u_2, u_4)\)</span>, and <span class="math">\((s, u_2, u_4)\)</span>.</p>
+<p>Answer: 4.</p>
+<p>We defined an exit path to be any path starting at the source where all but the last node is in the correct set, and the last node is outside of the correct set. More informally: it's a path where the last node is gray and all of the other nodes are green. The four exit paths are <span class="math-with-punctuation"><span class="math">\((s, u_1, u_6)\)</span>,</span> <span class="math-with-punctuation"><span class="math">\((s, u_1, u_3)\)</span>,</span> <span class="math-with-punctuation"><span class="math">\((s, u_1, u_2, u_4)\)</span>,</span> and <span class="math-with-punctuation"><span class="math">\((s, u_2, u_4)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1452,10 +1466,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Suppose Dijkstra's algorithm is run on the graph shown below using node <span class="math">\(a\)</span> as the source.</p>
 <center><div class="image"><img src="images/315/graph.png" /></div></center>
-<p>What will be the fourth node popped from the priority queue? (The first node popped is the source, <span class="math">\(a\)</span>.)</p>
+<p>What will be the fourth node popped from the priority queue? (The first node popped is the source, <span class="math-with-punctuation"><span class="math">\(a\)</span>.)</span></p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(f\)</span>. After popping <span class="math">\(a\)</span>, the estimates are <span class="math">\(b = 1\)</span> and <span class="math">\(c = 4\)</span>, so <span class="math">\(b\)</span> is popped second. Its edges lower <span class="math">\(e\)</span> to 2 (and set <span class="math">\(d\)</span> to 9), so <span class="math">\(e\)</span> is popped third. Then <span class="math">\((e, f)\)</span> lowers <span class="math">\(f\)</span> to 3, which is less than <span class="math">\(c\)</span>'s 4, so <span class="math">\(f\)</span> is popped fourth.</p>
+<p><span class="math-with-punctuation"><span class="math">\(f\)</span>.</span></p>
+<p>After popping <span class="math-with-punctuation"><span class="math">\(a\)</span>,</span> the estimates are <span class="math">\(b = 1\)</span> and <span class="math-with-punctuation"><span class="math">\(c = 4\)</span>,</span> so <span class="math">\(b\)</span> is popped second. Its edges lower <span class="math">\(e\)</span> to 2 (and set <span class="math">\(d\)</span> to 9), so <span class="math">\(e\)</span> is popped third. Then <span class="math">\((e, f)\)</span> lowers <span class="math">\(f\)</span> to 3, which is less than <span class="math-with-punctuation"><span class="math">\(c\)</span>'</span>s 4, so <span class="math">\(f\)</span> is popped fourth.</p>
 </details>
 
     </div>
@@ -1474,10 +1489,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose Dijkstra's algorithm is run on the graph shown below using node <span class="math">\(a\)</span> as the source.</p>
 <center><div class="image"><img src="images/316/graph.png" /></div></center>
 <p>Suppose <span class="math">\(C\)</span> is the set of “correct” nodes: that is, <span class="math">\(C\)</span> is the set of nodes whose estimated distances are known to be correct.</p>
-<p>What will be the fifth node added to <span class="math">\(C\)</span> by Dijkstra's algorithm? (The first node added to <span class="math">\(C\)</span> is the source, <span class="math">\(a\)</span>.)</p>
+<p>What will be the fifth node added to <span class="math">\(C\)</span> by Dijkstra's algorithm? (The first node added to <span class="math">\(C\)</span> is the source, <span class="math-with-punctuation"><span class="math">\(a\)</span>.)</span></p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(b\)</span>. Popping <span class="math">\(a\)</span> sets <span class="math">\(g = 1\)</span>, <span class="math">\(b = 4\)</span> and <span class="math">\(c = 5\)</span>. Then <span class="math">\(g\)</span> is added (1), and it sets <span class="math">\(d = 9\)</span> and <span class="math">\(e = 2\)</span>. Then <span class="math">\(e\)</span> is added (2), and it sets <span class="math">\(f = 3\)</span>. Then <span class="math">\(f\)</span> is added (3). The smallest remaining estimate is now <span class="math">\(b\)</span>'s 4, so <span class="math">\(b\)</span> is fifth.</p>
+<p><span class="math-with-punctuation"><span class="math">\(b\)</span>.</span></p>
+<p>Popping <span class="math">\(a\)</span> sets <span class="math-with-punctuation"><span class="math">\(g = 1\)</span>,</span> <span class="math">\(b = 4\)</span> and <span class="math-with-punctuation"><span class="math">\(c = 5\)</span>.</span> Then <span class="math">\(g\)</span> is added (1), and it sets <span class="math">\(d = 9\)</span> and <span class="math-with-punctuation"><span class="math">\(e = 2\)</span>.</span> Then <span class="math">\(e\)</span> is added (2), and it sets <span class="math-with-punctuation"><span class="math">\(f = 3\)</span>.</span> Then <span class="math">\(f\)</span> is added (3). The smallest remaining estimate is now <span class="math-with-punctuation"><span class="math">\(b\)</span>'</span>s 4, so <span class="math">\(b\)</span> is fifth.</p>
 </details>
 
     </div>

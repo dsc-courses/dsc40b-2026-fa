@@ -950,6 +950,8 @@ Course Staff
 /* level the box with the first line of the choice, not the middle of a wrapped one */
 .multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+/* inline math and the punctuation right after it; see _keep_math_with_punctuation */
+.math-with-punctuation { white-space: nowrap; }
 </style>
 <h1>Problems tagged with "trees"</h1>
 <style>
@@ -1004,7 +1006,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>What is the time complexity of depth first search (DFS) when run on a tree with <span class="math">\(n\)</span> nodes?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. DFS takes <span class="math">\(\Theta(V + E)\)</span> time, and a tree with <span class="math">\(n\)</span> nodes has <span class="math">\(n - 1\)</span> edges, so it takes <span class="math">\(\Theta(n + (n - 1)) = \Theta(n)\)</span> time.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>DFS takes <span class="math">\(\Theta(V + E)\)</span> time, and a tree with <span class="math">\(n\)</span> nodes has <span class="math">\(n - 1\)</span> edges, so it takes <span class="math">\(\Theta(n + (n - 1)) = \Theta(n)\)</span> time.</p>
 </details>
 
     </div>

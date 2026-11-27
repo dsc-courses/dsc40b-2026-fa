@@ -950,6 +950,8 @@ Course Staff
 /* level the box with the first line of the choice, not the middle of a wrapped one */
 .multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+/* inline math and the punctuation right after it; see _keep_math_with_punctuation */
+.math-with-punctuation { white-space: nowrap; }
 </style>
 <h1>Problems tagged with "expected time"</h1>
 <style>
@@ -1017,7 +1019,8 @@ def foo(n):
         print(i)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. The last loop always runs <span class="math">\(n\)</span> times. With probability <span class="math">\(1/n\)</span> we have <span class="inline-code"><code>x == 1</code></span>, and the first loop also runs, taking <span class="math">\(\Theta(n)\)</span> time; otherwise we do constant work before the last loop. So the expected time is <span class="math">\(\frac{1}{n} \cdot \Theta(n) + \Theta(1) + \Theta(n) = \Theta(n)\)</span>. (In fact, every case takes <span class="math">\(\Theta(n)\)</span> time.)</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>The last loop always runs <span class="math">\(n\)</span> times. With probability <span class="math">\(1/n\)</span> we have <span class="inline-code"><code>x == 1</code></span>, and the first loop also runs, taking <span class="math">\(\Theta(n)\)</span> time; otherwise we do constant work before the last loop. So the expected time is <span class="math-with-punctuation"><span class="math">\(\frac{1}{n} \cdot \Theta(n) + \Theta(1) + \Theta(n) = \Theta(n)\)</span>.</span> (In fact, every case takes <span class="math">\(\Theta(n)\)</span> time.)</p>
 </details>
 
     </div>
@@ -1044,7 +1047,8 @@ def boo(n):
         print(i)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. The loop runs <span class="math">\(x\)</span> times, and <span class="math">\(x\)</span> is equally likely to be any of <span class="math">\(0, 1, \ldots, n-1\)</span>. So the expected number of iterations is <span class="math">\(\frac{1}{n}\sum_{x=0}^{n-1} x = \frac{1}{n} \cdot \frac{n(n-1)}{2} = \frac{n-1}{2} = \Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>The loop runs <span class="math">\(x\)</span> times, and <span class="math">\(x\)</span> is equally likely to be any of <span class="math-with-punctuation"><span class="math">\(0, 1, \ldots, n-1\)</span>.</span> So the expected number of iterations is <span class="math-with-punctuation"><span class="math">\(\frac{1}{n}\sum_{x=0}^{n-1} x = \frac{1}{n} \cdot \frac{n(n-1)}{2} = \frac{n-1}{2} = \Theta(n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1072,7 +1076,8 @@ def foo(n):
             print("Here!")</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. Note that in this question, the range of <span class="math">\(x\)</span> is between 0 and 99. Therefore the outer loop will run a constant number of times no matter what <span class="math">\(x\)</span> is. Then we can focus on the inner loop, which calls <span class="inline-code"><code>print</code></span> <span class="math">\(n\)</span> times, taking <span class="math">\(\Theta(n)\)</span> time. Therefore, the expected time complexity for this piece of code is <span class="math">\(\Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>Note that in this question, the range of <span class="math">\(x\)</span> is between 0 and 99. Therefore the outer loop will run a constant number of times no matter what <span class="math">\(x\)</span> is. Then we can focus on the inner loop, which calls <span class="inline-code"><code>print</code></span> <span class="math">\(n\)</span> times, taking <span class="math">\(\Theta(n)\)</span> time. Therefore, the expected time complexity for this piece of code is <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1100,7 +1105,8 @@ def foo(n):
             print("Here!")</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. The inner loop is not random, and the time complexity of it is always <span class="math">\(\Theta(n)\)</span>. Therefore the expected time complexity of this function will be (using the arithmetic sequence sum formula)</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>The inner loop is not random, and the time complexity of it is always <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span> Therefore the expected time complexity of this function will be (using the arithmetic sequence sum formula)</p>
 <div class="math">\[ \frac{1}{n} \sum_{i = 0}^{n - 1} i \times \Theta(n) = \Theta(n^2). \]</div>
 </details>
 
@@ -1128,7 +1134,8 @@ def foo(n):
             print(j)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. For this function, the outer loop will execute <span class="math">\(n\)</span> times no matter what, hence we only have to find what the expected time complexity for the inner loop is, then combine that together with the outer loop. For the inner loop, the expected time complexity is</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>For this function, the outer loop will execute <span class="math">\(n\)</span> times no matter what, hence we only have to find what the expected time complexity for the inner loop is, then combine that together with the outer loop. For the inner loop, the expected time complexity is</p>
 <div class="math">\[ \frac{1}{n} \sum_{i = 1}^{n - 1} i = \frac{1}{n} \cdot \Theta(n^2) = \Theta(n). \]</div>
 <p>Then, the expected complexity for the whole function will be</p>
 <div class="math">\[ \Theta(n) \times \Theta(n) = \Theta(n^2). \]</div>
@@ -1159,7 +1166,8 @@ def foo(n):
             print(j)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. The for loop is only executed if <span class="math">\(x\)</span> is less than 100, therefore we can write the expected time as (ignoring constant factors):</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>The for loop is only executed if <span class="math">\(x\)</span> is less than 100, therefore we can write the expected time as (ignoring constant factors):</p>
 <div class="math">\[ f(n) = \frac{1}{n} \bigg(\sum_{i = 0}^{99} n^2 + \sum_{i = 100}^{n - 1} 1 \bigg)= \frac{1}{n} \cdot (\Theta(n^2) + \Theta(n)) = \Theta(n). \]</div>
 </details>
 
@@ -1190,7 +1198,8 @@ def foo(n):
             print(j)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. The expected time complexity for this function is</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>The expected time complexity for this function is</p>
 <div class="math">\[ \frac{1}{n} \bigg(\sum_{i = 0}^{7} n^3 + \sum_{i = 8}^{n - 1} n \bigg)= \frac{1}{n} (\Theta(n^3) + \Theta(n^2)) = \Theta(n^2). \]</div>
 </details>
 
@@ -1222,7 +1231,8 @@ def foo(n):
         print("Lucky!")</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. The first branch happens with probability <span class="math">\(20/n\)</span> and takes <span class="math">\(\Theta(n^3)\)</span> time; the second happens with probability about <span class="math">\(1/2\)</span> and takes <span class="math">\(\Theta(n)\)</span> time; the third takes <span class="math">\(\Theta(1)\)</span> time. So the expected time is about <span class="math">\(\frac{20}{n} \cdot n^3 + \frac12 \cdot n + \frac12 \cdot 1 = 20n^2 + \frac{n}{2} + \frac12 = \Theta(n^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>The first branch happens with probability <span class="math">\(20/n\)</span> and takes <span class="math">\(\Theta(n^3)\)</span> time; the second happens with probability about <span class="math">\(1/2\)</span> and takes <span class="math">\(\Theta(n)\)</span> time; the third takes <span class="math">\(\Theta(1)\)</span> time. So the expected time is about <span class="math-with-punctuation"><span class="math">\(\frac{20}{n} \cdot n^3 + \frac12 \cdot n + \frac12 \cdot 1 = 20n^2 + \frac{n}{2} + \frac12 = \Theta(n^2)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1250,7 +1260,8 @@ def foo(n):
             print(j)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(\sqrt n)\)</span>. Since the for loop only executes when <span class="math">\(x\)</span> is less than <span class="math">\(\sqrt{n}\)</span>, the expected time complexity is</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(\sqrt n)\)</span>.</span></p>
+<p>Since the for loop only executes when <span class="math">\(x\)</span> is less than <span class="math-with-punctuation"><span class="math">\(\sqrt{n}\)</span>,</span> the expected time complexity is</p>
 <div class="math">\[ \frac{1}{n} \bigg(\sum_{i = 1}^{\lfloor \sqrt{n} \rfloor} n + \sum_{i = \lceil \sqrt{n} \rceil}^{n - 1} 1 \bigg) 
         \approx \frac{1}{n} (n \sqrt{n} + (n - \sqrt{n})) = \Theta(\sqrt{n}). \]</div>
 </details>
@@ -1287,7 +1298,8 @@ def foo(n):
             print(i)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. The expected time complexity for this function is</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>The expected time complexity for this function is</p>
 <div class="math">\[ f(n) = \frac{1}{n} \bigg(\sum_{x = 0}^{\lceil \sqrt{n} \rceil - 1} n + \sum_{x = \lceil \sqrt{n} \rceil}^{\lfloor n/2 \rfloor - 1} 1 
         + \sum_{x = \lfloor n/2 \rfloor}^{n - 1} n^2 \bigg)        = \frac{1}{n} (\Theta(n \sqrt{n}) + \Theta(n) + \Theta(n^3))
         = \Theta(n^2).
@@ -1327,18 +1339,18 @@ def boo(n):
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n \log n)\)</span></p>
-<p>There are three cases: Case 1) <span class="math">\(x < \log_2 n\)</span>; Case 2) <span class="math">\(\log_2 n \leq x < \sqrt n\)</span>; and Case 3) <span class="math">\(x \geq \sqrt{n}\)</span>.</p>
-<p>The probability of Case 1 is <span class="math">\(\log n / n\)</span>. The time taken in case 1 is <span class="math">\(\Theta(n^2)\)</span>.</p>
+<p>There are three cases: Case 1) <span class="math-with-punctuation"><span class="math">\(x < \log_2 n\)</span>;</span> Case 2) <span class="math-with-punctuation"><span class="math">\(\log_2 n \leq x < \sqrt n\)</span>;</span> and Case 3) <span class="math-with-punctuation"><span class="math">\(x \geq \sqrt{n}\)</span>.</span></p>
+<p>The probability of Case 1 is <span class="math-with-punctuation"><span class="math">\(\log n / n\)</span>.</span> The time taken in case 1 is <span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
 <p>The probability of Case 2 is</p>
 <div class="math">\[
             \frac{\sqrt n}{n} - \frac{\log_2 n}{n} = \Theta(\sqrt n / n) = \Theta(1/\sqrt n).
         \]</div>
-<p>The time taken in this case is <span class="math">\(\Theta(n)\)</span>.</p>
-<p>The probability of Case 3 is 1 minus the probability of the sum of the other two cases, which will simply be <span class="math">\(\Theta(1)\)</span>:</p>
+<p>The time taken in this case is <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>The probability of Case 3 is 1 minus the probability of the sum of the other two cases, which will simply be <span class="math-with-punctuation"><span class="math">\(\Theta(1)\)</span>:</span></p>
 <div class="math">\[
             1 - \Theta((\log n) / n) - \Theta(1 / \sqrt{n}) = \Theta(1).
         \]</div>
-<p>The time taken is <span class="math">\(\Theta(1)\)</span>.</p>
+<p>The time taken is <span class="math-with-punctuation"><span class="math">\(\Theta(1)\)</span>.</span></p>
 <p>Therefore, the expected time is:</p>
 <div class="math">\[
             \begin{aligned}
@@ -1387,15 +1399,15 @@ def foo(n):
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n \log n)\)</span></p>
-<p>There are three cases: Case 1) <span class="math">\(x < \log n\)</span>; Case 2) <span class="math">\(\log n \leq x <
-        \sqrt n\)</span>; and Case 3) <span class="math">\(x \geq \sqrt{n}\)</span>.</p>
-<p>The probability of Case 1 is <span class="math">\(\log n / n\)</span>. The time taken in case 1 is <span class="math">\(\Theta(n^2)\)</span>.</p>
+<p>There are three cases: Case 1) <span class="math-with-punctuation"><span class="math">\(x < \log n\)</span>;</span> Case 2) <span class="math-with-punctuation"><span class="math">\(\log n \leq x <
+        \sqrt n\)</span>;</span> and Case 3) <span class="math-with-punctuation"><span class="math">\(x \geq \sqrt{n}\)</span>.</span></p>
+<p>The probability of Case 1 is <span class="math-with-punctuation"><span class="math">\(\log n / n\)</span>.</span> The time taken in case 1 is <span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
 <p>The probability of Case 2 is</p>
 <div class="math">\[
             \frac{\sqrt n}{n} - \frac{\log n}{n} = \Theta(\sqrt n / n) = \Theta(1/\sqrt n).
         \]</div>
-<p>The time taken in this case is <span class="math">\(\Theta(1)\)</span>.</p>
-<p>The probability of Case 3 is 1 minus the probability of the sum of the other two cases, which will simply be <span class="math">\(\Theta(1)\)</span>:</p>
+<p>The time taken in this case is <span class="math-with-punctuation"><span class="math">\(\Theta(1)\)</span>.</span></p>
+<p>The probability of Case 3 is 1 minus the probability of the sum of the other two cases, which will simply be <span class="math-with-punctuation"><span class="math">\(\Theta(1)\)</span>:</span></p>
 <div class="math">\[
             1 - \Theta((\log n) / n) - \Theta(1 / \sqrt{n}) = \Theta(1)
         \]</div>

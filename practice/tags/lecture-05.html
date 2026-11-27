@@ -950,6 +950,8 @@ Course Staff
 /* level the box with the first line of the choice, not the middle of a wrapped one */
 .multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+/* inline math and the punctuation right after it; see _keep_math_with_punctuation */
+.math-with-punctuation { white-space: nowrap; }
 </style>
 <h1>Problems tagged with "lecture-05"</h1>
 <style>
@@ -1017,10 +1019,11 @@ def binary_search(arr, t, start, stop):
         return binary_search(arr, t, start, middle)
     else:
         return binary_search(arr, t, middle+1, stop)</code></pre>
-<p>Suppose <span class="inline-code"><code>binary_search(arr, t, 0, len(arr))</code></span> is called on a sorted array of size <span class="math">\(n\)</span>. In total, how many recursive calls to <span class="inline-code"><code>binary_search</code></span> are made in the worst case?</p>
+<p>Suppose <span class="inline-code"><code>binary_search(arr, t, 0, len(arr))</code></span> is called on a sorted array of size <span class="math-with-punctuation"><span class="math">\(n\)</span>.</span> In total, how many recursive calls to <span class="inline-code"><code>binary_search</code></span> are made in the worst case?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(\log n)\)</span>. In the worst case, <span class="math">\(t\)</span> isn't in the array, so the search only stops when the range is empty. Each call recurses on at most half of the current range, so after <span class="math">\(k\)</span> calls the range has at most <span class="math">\(n/2^k\)</span> elements, and it becomes empty after <span class="math">\(\Theta(\log n)\)</span> calls.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(\log n)\)</span>.</span></p>
+<p>In the worst case, <span class="math">\(t\)</span> isn't in the array, so the search only stops when the range is empty. Each call recurses on at most half of the current range, so after <span class="math">\(k\)</span> calls the range has at most <span class="math">\(n/2^k\)</span> elements, and it becomes empty after <span class="math">\(\Theta(\log n)\)</span> calls.</p>
 </details>
 
     </div>
@@ -1085,7 +1088,8 @@ def binary_search(arr, t, start, stop):
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No—it does not infinitely recurse, but the result may be incorrect</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>Yes. The base case is correct, since the product of zero numbers is 1. The recursive call is on a list that is one element shorter, so the recursion always reaches the base case. And if <span class="inline-code"><code>product(numbers[1:])</code></span> correctly returns the product of all but the first number, then multiplying it by <span class="inline-code"><code>numbers[0]</code></span> gives the product of all of the numbers.</p>
+<p>Yes.</p>
+<p>The base case is correct, since the product of zero numbers is 1. The recursive call is on a list that is one element shorter, so the recursion always reaches the base case. And if <span class="inline-code"><code>product(numbers[1:])</code></span> correctly returns the product of all but the first number, then multiplying it by <span class="inline-code"><code>numbers[0]</code></span> gives the product of all of the numbers.</p>
 </details>
 
     </div>
@@ -1116,7 +1120,8 @@ def binary_search(arr, t, start, stop):
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No—it does not infinitely recurse, but the result may be incorrect</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>No—it does not infinitely recurse, but the result may be incorrect. Each recursive call is on a list that is one element shorter, so the recursion always reaches the base case. But the base case returns an empty list, and each recursive call simply returns what the next call returns, so <span class="inline-code"><code>reverse</code></span> always returns <span class="inline-code"><code>[]</code></span>. This is wrong for any nonempty list.</p>
+<p>No—it does not infinitely recurse, but the result may be incorrect.</p>
+<p>Each recursive call is on a list that is one element shorter, so the recursion always reaches the base case. But the base case returns an empty list, and each recursive call simply returns what the next call returns, so <span class="inline-code"><code>reverse</code></span> always returns <span class="inline-code"><code>[]</code></span>. This is wrong for any nonempty list.</p>
 </details>
 
     </div>
@@ -1132,7 +1137,7 @@ def binary_search(arr, t, start, stop):
         <p>Tags: <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>State (but do not solve) the recurrence describing the run time of the following code, assuming that the input, <span class="inline-code"><code>arr</code></span>, is a list of size <span class="math">\(n\)</span>.</p>
+<p>State (but do not solve) the recurrence describing the run time of the following code, assuming that the input, <span class="inline-code"><code>arr</code></span>, is a list of size <span class="math-with-punctuation"><span class="math">\(n\)</span>.</span></p>
 <pre class="code"><code class="language-python">def foo(arr, stop=None):
     if stop is None:
         stop = len(arr) - 1
@@ -1144,7 +1149,8 @@ def binary_search(arr, t, start, stop):
     return last * foo(arr, stop - 1)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(T(n) = T(n-1) + \Theta(1)\)</span>. Each call does a constant amount of work (a comparison, an index and a multiplication) and makes one recursive call with <span class="inline-code"><code>stop</code></span> one smaller, so on a problem one element smaller.</p>
+<p><span class="math-with-punctuation"><span class="math">\(T(n) = T(n-1) + \Theta(1)\)</span>.</span></p>
+<p>Each call does a constant amount of work (a comparison, an index and a multiplication) and makes one recursive call with <span class="inline-code"><code>stop</code></span> one smaller, so on a problem one element smaller.</p>
 </details>
 
     </div>
@@ -1245,7 +1251,7 @@ def binary_search(arr, t, start, stop):
         return binary_search(arr, t, start, middle)
     else:
         return binary_search(arr, t, middle+1, stop)</code></pre>
-<p>Suppose <span class="inline-code"><code>binary_search</code></span> is called on a <b>sorted</b> list with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>. True or False: the numbers printed must be a non-increasing sequence. That is, if <span class="math">\(x\)</span> is printed before <span class="math">\(y\)</span>, then it must be the case that <span class="math">\(x \geq y\)</span>.</p>
+<p>Suppose <span class="inline-code"><code>binary_search</code></span> is called on a <b>sorted</b> list with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>. True or False: the numbers printed must be a non-increasing sequence. That is, if <span class="math">\(x\)</span> is printed before <span class="math-with-punctuation"><span class="math">\(y\)</span>,</span> then it must be the case that <span class="math-with-punctuation"><span class="math">\(x \geq y\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
 <p>True.</p>
@@ -1286,7 +1292,8 @@ def binary_search(arr, t, start, stop):
 <p>How many total calls to binary search are made (including the first call)?</p>
 <details>
     <summary>Solution</summary>
-<p>Answer: 5. On the first call, we guess that index 6 contains the target. The value at index 6 is 15, which is too high, so we make a recursive call with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = 6</code></span>.</p>
+<p>Answer: 5.</p>
+<p>On the first call, we guess that index 6 contains the target. The value at index 6 is 15, which is too high, so we make a recursive call with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = 6</code></span>.</p>
 <p>On the second call, we guess that the item at index 3 is the target. The value at index 3 is 8. This is too large, so we make a recursive call with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = 3</code></span>.</p>
 <p>On the third call, we guess that the item at index 1 is the target. The value at index 1 is 4. This is too large, so we make a recursive call with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = 1</code></span>.</p>
 <p>On the fourth call, we are searching a subarray of size 1. We guess that the item at index 0 is equal to the target. This item has value 1, which is too low, therefore we make a recursive call with <span class="inline-code"><code>start = 1</code></span> and <span class="inline-code"><code>stop = 1</code></span>.</p>
@@ -1327,7 +1334,8 @@ def binary_search(arr, t, start, stop):
 <p>What is the greatest number of calls to binary search that can be made to find a target in this array, assuming the target is in the array?</p>
 <details>
     <summary>Solution</summary>
-<p>Answer: 4. There are 13 numbers in the array. On the first call, we guess that the target is at index <span class="math">\(\lfloor 13 / 2 \rfloor = 6\)</span>. This splits the array exactly in half, so no side is larger than the other and either possible recursive call is just as bad. Let's say we recurse on <span class="inline-code"><code>arr[0:6]</code></span>. On this second call, we guess that the target is at index 3.</p>
+<p>Answer: 4.</p>
+<p>There are 13 numbers in the array. On the first call, we guess that the target is at index <span class="math-with-punctuation"><span class="math">\(\lfloor 13 / 2 \rfloor = 6\)</span>.</span> This splits the array exactly in half, so no side is larger than the other and either possible recursive call is just as bad. Let's say we recurse on <span class="inline-code"><code>arr[0:6]</code></span>. On this second call, we guess that the target is at index 3.</p>
 <p>In the worst case, this guess was wrong, so we make another recursive call, either on <span class="inline-code"><code>arr[0:3]</code></span>, or <span class="inline-code"><code>arr[4:6]</code></span>. The first of these possibilities is worse, since it is larger. On the third recursive call, then, we look through <span class="inline-code"><code>arr[0:3]</code></span>, guessing that the target is at index 1.</p>
 <p>In the worst case, it is not, so we make one more additional recursive call (for a total of 4), either on <span class="inline-code"><code>arr[0]</code></span> or <span class="inline-code"><code>arr[2]</code></span>. Since we were told to assume that the element is in the array, this recursive call will find that <span class="inline-code"><code>arr[middle] == target</code></span> and will return <span class="inline-code"><code>middle</code></span>.</p>
 </details>
@@ -1370,7 +1378,8 @@ def iterative_binary_search(arr, target):
 <p>What will be the last value of <span class="inline-code"><code>arr[start]</code></span> printed?</p>
 <details>
     <summary>Solution</summary>
-<p>10. The printed values are <span class="math">\(-202\)</span>, <span class="math">\(3\)</span>, <span class="math">\(10\)</span>, <span class="math">\(10\)</span>, <span class="math">\(10\)</span>. <span class="inline-code"><code>start</code></span> goes <span class="math">\(0 \to 10 \to 15\)</span> (since <span class="inline-code"><code>arr[9] = 1</code></span> and <span class="inline-code"><code>arr[14] = 9</code></span> are less than 11), then <span class="inline-code"><code>stop</code></span> shrinks <span class="math">\(19 \to 17 \to 16\)</span> (since <span class="inline-code"><code>arr[17] = 15</code></span> and <span class="inline-code"><code>arr[16] = 12</code></span> are greater than 11) while <span class="inline-code"><code>arr[15] = 10</code></span> is printed each time. Finally, <span class="inline-code"><code>arr[15] = 10</code></span> is less than 11, so <span class="inline-code"><code>start</code></span> becomes 16, which equals <span class="inline-code"><code>stop</code></span>, and the loop ends.</p>
+<p>10.</p>
+<p>The printed values are <span class="math-with-punctuation"><span class="math">\(-202\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(3\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(10\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(10\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(10\)</span>.</span> <span class="inline-code"><code>start</code></span> goes <span class="math">\(0 \to 10 \to 15\)</span> (since <span class="inline-code"><code>arr[9] = 1</code></span> and <span class="inline-code"><code>arr[14] = 9</code></span> are less than 11), then <span class="inline-code"><code>stop</code></span> shrinks <span class="math">\(19 \to 17 \to 16\)</span> (since <span class="inline-code"><code>arr[17] = 15</code></span> and <span class="inline-code"><code>arr[16] = 12</code></span> are greater than 11) while <span class="inline-code"><code>arr[15] = 10</code></span> is printed each time. Finally, <span class="inline-code"><code>arr[15] = 10</code></span> is less than 11, so <span class="inline-code"><code>start</code></span> becomes 16, which equals <span class="inline-code"><code>stop</code></span>, and the loop ends.</p>
 </details>
 
     </div>
@@ -1386,7 +1395,7 @@ def iterative_binary_search(arr, target):
         <p>Tags: <a href='../tags/binary search.html'>binary search</a>, <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/recursion.html'>recursion</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose <span class="inline-code"><code>binary_search</code></span> has been called on a sorted array <span class="inline-code"><code>arr</code></span> with a target <span class="inline-code"><code>t</code></span> that is not necessarily in the array, and with start and stop indices <span class="inline-code"><code>start</code></span> and <span class="inline-code"><code>stop</code></span>, respectively (remember, our convention is that the start index is included, while the stop index is excluded from the search). Which of the following must be true? <b>Mark all which apply</b>. You may assume that <span class="inline-code"><code>stop - start</code></span> <span class="math">\(\geq 1\)</span>.</p>
+<p>Suppose <span class="inline-code"><code>binary_search</code></span> has been called on a sorted array <span class="inline-code"><code>arr</code></span> with a target <span class="inline-code"><code>t</code></span> that is not necessarily in the array, and with start and stop indices <span class="inline-code"><code>start</code></span> and <span class="inline-code"><code>stop</code></span>, respectively (remember, our convention is that the start index is included, while the stop index is excluded from the search). Which of the following must be true? <b>Mark all which apply</b>. You may assume that <span class="inline-code"><code>stop - start</code></span> <span class="math-with-punctuation"><span class="math">\(\geq 1\)</span>.</span></p>
 <p>Note: remember that any statement about an empty array is considered to be automatically true. Also, you cannot assume that this call to <span class="inline-code"><code>binary_search</code></span> is the <i>root</i> call (it could be a recursive call).</p>
 <div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>arr[start] < t < arr[stop]</code></span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>arr[start] < t < arr[stop - 1]</code></span></p></label></div>
@@ -1395,8 +1404,8 @@ def iterative_binary_search(arr, target):
 <details>
     <summary>Solution</summary>
 <p><span class="inline-code"><code>arr[:start] < t</code></span> and <span class="inline-code"><code>arr[stop:] > t</code></span> are both true.</p>
-<p>Both hold in the root call, where <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>, because <span class="inline-code"><code>arr[:0]</code></span> and <span class="inline-code"><code>arr[len(arr):]</code></span> are empty. Now suppose they hold in some call, and that call recurses. It recurses on the right half, setting <span class="inline-code"><code>start = middle + 1</code></span>, only after seeing <span class="inline-code"><code>arr[middle] < t</code></span>. Since the array is sorted, everything up to and including <span class="inline-code"><code>arr[middle]</code></span> is less than <span class="math">\(t\)</span>, so <span class="inline-code"><code>arr[:middle + 1] < t</code></span> holds in the new call (and <span class="inline-code"><code>stop</code></span> doesn't change). Similarly, it recurses on the left half, setting <span class="inline-code"><code>stop = middle</code></span>, only after seeing <span class="inline-code"><code>arr[middle] > t</code></span>, so everything from <span class="inline-code"><code>arr[middle]</code></span> on is greater than <span class="math">\(t\)</span>. So both statements hold in every call.</p>
-<p>The first two can fail. In the root call, if <span class="math">\(t\)</span> is smaller than every element, then <span class="inline-code"><code>arr[start] < t</code></span> is false (and in the first option, <span class="inline-code"><code>arr[stop]</code></span> is past the end of the array). Similarly, if <span class="math">\(t\)</span> is larger than every element, then <span class="inline-code"><code>t < arr[stop - 1]</code></span> is false. The search range only tells us that the elements <i>outside</i> it are on the correct side of <span class="math">\(t\)</span>; it says nothing about the elements at its ends.</p>
+<p>Both hold in the root call, where <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>, because <span class="inline-code"><code>arr[:0]</code></span> and <span class="inline-code"><code>arr[len(arr):]</code></span> are empty. Now suppose they hold in some call, and that call recurses. It recurses on the right half, setting <span class="inline-code"><code>start = middle + 1</code></span>, only after seeing <span class="inline-code"><code>arr[middle] < t</code></span>. Since the array is sorted, everything up to and including <span class="inline-code"><code>arr[middle]</code></span> is less than <span class="math-with-punctuation"><span class="math">\(t\)</span>,</span> so <span class="inline-code"><code>arr[:middle + 1] < t</code></span> holds in the new call (and <span class="inline-code"><code>stop</code></span> doesn't change). Similarly, it recurses on the left half, setting <span class="inline-code"><code>stop = middle</code></span>, only after seeing <span class="inline-code"><code>arr[middle] > t</code></span>, so everything from <span class="inline-code"><code>arr[middle]</code></span> on is greater than <span class="math-with-punctuation"><span class="math">\(t\)</span>.</span> So both statements hold in every call.</p>
+<p>The first two can fail. In the root call, if <span class="math">\(t\)</span> is smaller than every element, then <span class="inline-code"><code>arr[start] < t</code></span> is false (and in the first option, <span class="inline-code"><code>arr[stop]</code></span> is past the end of the array). Similarly, if <span class="math">\(t\)</span> is larger than every element, then <span class="inline-code"><code>t < arr[stop - 1]</code></span> is false. The search range only tells us that the elements <i>outside</i> it are on the correct side of <span class="math-with-punctuation"><span class="math">\(t\)</span>;</span> it says nothing about the elements at its ends.</p>
 </details>
 
     </div>
@@ -1425,14 +1434,15 @@ def maximum(numbers):
         maximum(numbers[middle:])
     )</code></pre>
 <p>Is this code guaranteed to work for all non-empty lists?</p>
-<p>You should adopt the convention that the maximum of an empty list is <span class="math">\(-\infty\)</span>.</p>
+<p>You should adopt the convention that the maximum of an empty list is <span class="math-with-punctuation"><span class="math">\(-\infty\)</span>.</span></p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Yes: it will return the maximum number in the list.</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may recurse infinitely.</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may raise an exception.</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it will run without error, but it might return the wrong answer.</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>No: it may recurse infinitely. On a list with one element, <span class="math">\(n = 1\)</span>, so <span class="inline-code"><code>middle = math.floor(1/2) = 0</code></span>. Then <span class="inline-code"><code>numbers[middle:]</code></span> is the whole list again, so <span class="inline-code"><code>maximum</code></span> calls itself on the same one-element list forever. The base case only stops lists of size 0, and every non-empty list eventually recurses down to a one-element list.</p>
+<p>No: it may recurse infinitely.</p>
+<p>On a list with one element, <span class="math-with-punctuation"><span class="math">\(n = 1\)</span>,</span> so <span class="inline-code"><code>middle = math.floor(1/2) = 0</code></span>. Then <span class="inline-code"><code>numbers[middle:]</code></span> is the whole list again, so <span class="inline-code"><code>maximum</code></span> calls itself on the same one-element list forever. The base case only stops lists of size 0, and every non-empty list eventually recurses down to a one-element list.</p>
 </details>
 
     </div>
@@ -1448,7 +1458,7 @@ def maximum(numbers):
         <p>Tags: <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Consider the code below which claims to compute the maximum of the input array. Adopt the convention that the maximum of an empty array is <span class="math">\(-\infty\)</span>.</p>
+<p>Consider the code below which claims to compute the maximum of the input array. Adopt the convention that the maximum of an empty array is <span class="math-with-punctuation"><span class="math">\(-\infty\)</span>.</span></p>
 <pre class="code"><code class="language-python">import math
 def maximum(arr, start=0, stop=None):
     """Find the maximum of arr[start:stop]."""
@@ -1572,14 +1582,14 @@ def mediansort(arr, start, stop):
         <p>Tags: <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/sorted structure.html'>sorted structure</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are two numbers, with <span class="math">\(a \leq b\)</span>. Consider the problem of counting the number of elements in an array which are between <span class="math">\(a\)</span> and <span class="math">\(b\)</span>; that is, the number of elements <span class="math">\(x\)</span> such that <span class="math">\(a
-    \leq x \leq b\)</span>. You may assume for simplicity that both <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are in the array, and there are no duplicates.</p>
+<p>Suppose <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are two numbers, with <span class="math-with-punctuation"><span class="math">\(a \leq b\)</span>.</span> Consider the problem of counting the number of elements in an array which are between <span class="math">\(a\)</span> and <span class="math-with-punctuation"><span class="math">\(b\)</span>;</span> that is, the number of elements <span class="math">\(x\)</span> such that <span class="math-with-punctuation"><span class="math">\(a
+    \leq x \leq b\)</span>.</span> You may assume for simplicity that both <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are in the array, and there are no duplicates.</p>
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
-<p>What is a <b>tight</b> theoretical lower bound for this problem, assuming that the array is <b>unsorted</b>? State your answer in asymptotic notation as a function of the number of elements in the array, <span class="math">\(n\)</span>.</p>
+<p>What is a <b>tight</b> theoretical lower bound for this problem, assuming that the array is <b>unsorted</b>? State your answer in asymptotic notation as a function of the number of elements in the array, <span class="math-with-punctuation"><span class="math">\(n\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
 <p>Since the array is in arbitrary order, we have to at least read all of the elements, taking <span class="math">\(\Omega(n)\)</span> time. This is a tight lower bound, because we can count the number of elements between <span class="math">\(a\)</span> and <span class="math">\(b\)</span> by looping through and checking whether each element is in <span class="math">\([a, b]\)</span> in linear time.</p>
 </details>
 
@@ -1587,12 +1597,12 @@ def mediansort(arr, start, stop):
 
 <div class="subproblem">
     <h3 class="subproblem-id">Part 2)</h3>
-<p>What is a <b>tight</b> theoretical lower bound for this problem, assuming that the array is <b>sorted</b>? State your answer in asymptotic notation as a function of the number of elements in the array, <span class="math">\(n\)</span>.</p>
+<p>What is a <b>tight</b> theoretical lower bound for this problem, assuming that the array is <b>sorted</b>? State your answer in asymptotic notation as a function of the number of elements in the array, <span class="math-with-punctuation"><span class="math">\(n\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(\log n)\)</span>.</p>
-<p>We can do this in worst-case <span class="math">\(\Theta(\log n)\)</span> time with binary search: find the index of <span class="math">\(a\)</span> in worst-case <span class="math">\(\Theta(\log n)\)</span> time; find the index of <span class="math">\(b\)</span> in worst-case <span class="math">\(\Theta(\log n)\)</span> time; and subtract the two indices (and add one) to get the total number of elements between <span class="math">\(a\)</span> and <span class="math">\(b\)</span>, inclusive.</p>
-<p>There cannot be an algorithm that is better than <span class="math">\(\Theta(\log n)\)</span> in the worst case, so this is a tight lower bound. To see why, recognize that we can solve the query problem (determine True/False if a target <span class="math">\(t\)</span> is in a sorted array) with any algorithm that solves this problem by setting <span class="math">\(a = b = t\)</span>. If an algorithm solves this problem in faster than <span class="math">\(\Theta(\log n)\)</span>, it will also solve the query problem in faster than <span class="math">\(\Theta(\log n)\)</span>, but we saw in class that the query problem has a theoretical lower bound of <span class="math">\(\Theta(\log n)\)</span>, so such an algorithm cannot exist.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(\log n)\)</span>.</span></p>
+<p>We can do this in worst-case <span class="math">\(\Theta(\log n)\)</span> time with binary search: find the index of <span class="math">\(a\)</span> in worst-case <span class="math">\(\Theta(\log n)\)</span> time; find the index of <span class="math">\(b\)</span> in worst-case <span class="math">\(\Theta(\log n)\)</span> time; and subtract the two indices (and add one) to get the total number of elements between <span class="math">\(a\)</span> and <span class="math-with-punctuation"><span class="math">\(b\)</span>,</span> inclusive.</p>
+<p>There cannot be an algorithm that is better than <span class="math">\(\Theta(\log n)\)</span> in the worst case, so this is a tight lower bound. To see why, recognize that we can solve the query problem (determine True/False if a target <span class="math">\(t\)</span> is in a sorted array) with any algorithm that solves this problem by setting <span class="math-with-punctuation"><span class="math">\(a = b = t\)</span>.</span> If an algorithm solves this problem in faster than <span class="math-with-punctuation"><span class="math">\(\Theta(\log n)\)</span>,</span> it will also solve the query problem in faster than <span class="math-with-punctuation"><span class="math">\(\Theta(\log n)\)</span>,</span> but we saw in class that the query problem has a theoretical lower bound of <span class="math-with-punctuation"><span class="math">\(\Theta(\log n)\)</span>,</span> so such an algorithm cannot exist.</p>
 </details>
 
 </div>
@@ -1610,13 +1620,14 @@ def mediansort(arr, start, stop):
         <p>Tags: <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose you are given a <b>sorted</b> array of <span class="math">\(n\)</span> floating point numbers and are tasked with counting the number of elements in the array which are within ten of the array's maximum (you are not told the maximum). That is, you must count the number of elements <span class="math">\(x\)</span> such that <span class="math">\(m - x \leq 10\)</span>, where <span class="math">\(m\)</span> is the array's maximum. You may assume that the array does not contain duplicate numbers.</p>
+<p>Suppose you are given a <b>sorted</b> array of <span class="math">\(n\)</span> floating point numbers and are tasked with counting the number of elements in the array which are within ten of the array's maximum (you are not told the maximum). That is, you must count the number of elements <span class="math">\(x\)</span> such that <span class="math-with-punctuation"><span class="math">\(m - x \leq 10\)</span>,</span> where <span class="math">\(m\)</span> is the array's maximum. You may assume that the array does not contain duplicate numbers.</p>
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
 <p>What is the tight theoretical lower bound for the worst case time complexity of any algorithm which solves this problem?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(\log n)\)</span>. The maximum is the last element, so we can find it in <span class="math">\(\Theta(1)\)</span> time, and binary search for where <span class="math">\(m - 10\)</span> would go solves the problem in <span class="math">\(\Theta(\log n)\)</span> time (see the next part). We can't do better: the answer depends on where <span class="math">\(m - 10\)</span> falls in the sorted array, and finding that is a search problem, which takes <span class="math">\(\Omega(\log n)\)</span> time in the worst case.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(\log n)\)</span>.</span></p>
+<p>The maximum is the last element, so we can find it in <span class="math">\(\Theta(1)\)</span> time, and binary search for where <span class="math">\(m - 10\)</span> would go solves the problem in <span class="math">\(\Theta(\log n)\)</span> time (see the next part). We can't do better: the answer depends on where <span class="math">\(m - 10\)</span> falls in the sorted array, and finding that is a search problem, which takes <span class="math">\(\Omega(\log n)\)</span> time in the worst case.</p>
 </details>
 
 </div>
@@ -1626,8 +1637,8 @@ def mediansort(arr, start, stop):
 <p>Give a short description of an optimal algorithm. Your description does not need to be exact or very long (3 to 4 sentences will do). You do not <i>need</i> to provide pseudocode, but you can if you wish.</p>
 <details>
     <summary>Solution</summary>
-<p>The maximum <span class="math">\(m\)</span> can be found in <span class="math">\(\Theta(1)\)</span> time—it is the last element of the array. Use binary search (<span class="math">\(\Theta(\log n)\)</span> time) to look for <span class="math">\(m - 10\)</span>, but modify it to return the index where <span class="math">\(m - 10\)</span> is, or where it would be inserted if it is not in the array: the index of the first element that is at least <span class="math">\(m - 10\)</span>. (When the search ends without finding <span class="math">\(m -
-                10\)</span>, this is <span class="inline-code"><code>start</code></span>.) Every element from that index on is within 10 of the maximum, so subtract the index from <span class="math">\(n\)</span> to find how many there are.</p>
+<p>The maximum <span class="math">\(m\)</span> can be found in <span class="math">\(\Theta(1)\)</span> time—it is the last element of the array. Use binary search (<span class="math">\(\Theta(\log n)\)</span> time) to look for <span class="math-with-punctuation"><span class="math">\(m - 10\)</span>,</span> but modify it to return the index where <span class="math">\(m - 10\)</span> is, or where it would be inserted if it is not in the array: the index of the first element that is at least <span class="math-with-punctuation"><span class="math">\(m - 10\)</span>.</span> (When the search ends without finding <span class="math-with-punctuation"><span class="math">\(m -
+                10\)</span>,</span> this is <span class="inline-code"><code>start</code></span>.) Every element from that index on is within 10 of the maximum, so subtract the index from <span class="math">\(n\)</span> to find how many there are.</p>
 </details>
 
 </div>
@@ -1645,7 +1656,7 @@ def mediansort(arr, start, stop):
         <p>Tags: <a href='../tags/binary search.html'>binary search</a>, <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math">\(\geq x\)</span>). The full code is shown below for convenience:</p>
+<p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math-with-punctuation"><span class="math">\(\geq x\)</span>).</span> The full code is shown below for convenience:</p>
 <pre class="code"><code class="language-python">import math
 
 def new_binary_search(arr, start, stop, target):
@@ -1683,7 +1694,7 @@ def new_binary_search(arr, start, stop, target):
         <p>Tags: <a href='../tags/binary search.html'>binary search</a>, <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math">\(\geq x\)</span>). The full code is shown below for convenience:</p>
+<p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math-with-punctuation"><span class="math">\(\geq x\)</span>).</span> The full code is shown below for convenience:</p>
 <pre class="code"><code class="language-python">import math
 
 def new_binary_search(arr, start, stop, target):
@@ -1716,7 +1727,7 @@ def new_binary_search(arr, start, stop, target):
 <details>
     <summary>Solution</summary>
 <p>True.</p>
-<p>If <span class="inline-code"><code>arr</code></span> has one element, the first call has <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = 1</code></span>, so <span class="inline-code"><code>middle</code></span> is <span class="math">\(\lceil 1/2 \rceil = 1\)</span>, and <span class="inline-code"><code>arr[1]</code></span> doesn't exist. In general, whenever <span class="inline-code"><code>stop = start + 1</code></span>, the ceiling makes <span class="inline-code"><code>middle = stop</code></span>, which is outside the range being searched.</p>
+<p>If <span class="inline-code"><code>arr</code></span> has one element, the first call has <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = 1</code></span>, so <span class="inline-code"><code>middle</code></span> is <span class="math-with-punctuation"><span class="math">\(\lceil 1/2 \rceil = 1\)</span>,</span> and <span class="inline-code"><code>arr[1]</code></span> doesn't exist. In general, whenever <span class="inline-code"><code>stop = start + 1</code></span>, the ceiling makes <span class="inline-code"><code>middle = stop</code></span>, which is outside the range being searched.</p>
 </details>
 
 </div>
@@ -1737,9 +1748,10 @@ def new_binary_search(arr, start, stop, target):
 <p>What is the <b>worst case</b> time complexity of binary search on an array of size <span class="math">\(n\)</span> under the assumption that the target is guaranteed to appear in the array more than <span class="math">\(n/6\)</span> times? You may assume that the input array is sorted.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(1)\)</span>. When there are more than <span class="math">\(n/6\)</span> instances of the target, binary search will not recurse more than twice. On the first recursive call, the array is halved in size. On the second, the array is down to <span class="math">\(n/4\)</span>. Note that <i>all</i> of the <span class="math">\(n/6\)</span> instances of the target must be in this chunk of size <span class="math">\(n/4\)</span>, and so the middle number must be an instance of the target, and binary search will terminate.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(1)\)</span>.</span></p>
+<p>When there are more than <span class="math">\(n/6\)</span> instances of the target, binary search will not recurse more than twice. On the first recursive call, the array is halved in size. On the second, the array is down to <span class="math-with-punctuation"><span class="math">\(n/4\)</span>.</span> Note that <i>all</i> of the <span class="math">\(n/6\)</span> instances of the target must be in this chunk of size <span class="math-with-punctuation"><span class="math">\(n/4\)</span>,</span> and so the middle number must be an instance of the target, and binary search will terminate.</p>
 <p>Since binary search cannot recurse more than twice, and since it does constant work on each recursion, the total time taken is bounded by a constant, no matter how large the input array is.</p>
-<p>If this seems odd, think about a simpler case: when the target appears <span class="math">\(n/2\)</span> times. In other words, a full <i>half</i> of the array is the target. In this case, we'll make only one call (or maybe two, depending on the value of the middle element). And so there, too, the number of calls is bounded by a constant, and the total time is <span class="math">\(\Theta(1)\)</span>.</p>
+<p>If this seems odd, think about a simpler case: when the target appears <span class="math">\(n/2\)</span> times. In other words, a full <i>half</i> of the array is the target. In this case, we'll make only one call (or maybe two, depending on the value of the middle element). And so there, too, the number of calls is bounded by a constant, and the total time is <span class="math-with-punctuation"><span class="math">\(\Theta(1)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1854,7 +1866,7 @@ def find_minimum_in_rotated_sorted(arr, start, stop):
     \]</div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
 <p>Unrolling several times, we find:</p>
 <div class="math">\[
             \begin{aligned}
@@ -1867,7 +1879,7 @@ def find_minimum_in_rotated_sorted(arr, start, stop):
 <div class="math">\[
             T(n) = T(n/2^k) + \left[                n + \frac{n}{2} + \frac{n}{4} + \ldots + \frac{n}{2^{k-1}}
             \right]        \]</div>
-<p>It will take <span class="math">\(\log_2 n\)</span> unrolls to reach the base case. Substituting this for <span class="math">\(k\)</span>, we get:</p>
+<p>It will take <span class="math">\(\log_2 n\)</span> unrolls to reach the base case. Substituting this for <span class="math-with-punctuation"><span class="math">\(k\)</span>,</span> we get:</p>
 <div class="math">\[
         \begin{aligned}
             T(n)
@@ -1880,7 +1892,7 @@ def find_minimum_in_rotated_sorted(arr, start, stop):
             &= \Theta(n)
         \end{aligned}
         \]</div>
-<p>The sum in brackets is a geometric series, which is at most <span class="math">\(1 + \frac{1}{2} + \frac{1}{4} + \ldots = 2\)</span>, so it is a constant <span class="math">\(c\)</span>.</p>
+<p>The sum in brackets is a geometric series, which is at most <span class="math-with-punctuation"><span class="math">\(1 + \frac{1}{2} + \frac{1}{4} + \ldots = 2\)</span>,</span> so it is a constant <span class="math-with-punctuation"><span class="math">\(c\)</span>.</span></p>
 </details>
 
     </div>
@@ -1906,7 +1918,7 @@ def find_minimum_in_rotated_sorted(arr, start, stop):
     \]</div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
 <p>Unrolling several times, we find:</p>
 <div class="math">\[
             \begin{aligned}
@@ -1919,14 +1931,14 @@ def find_minimum_in_rotated_sorted(arr, start, stop):
 <div class="math">\[
             T(n) = T(n/3^k) + \left[                n + \frac{n}{3} + \frac{n}{9} + \ldots + \frac{n}{3^{k-1}}
             \right]        \]</div>
-<p>It will take <span class="math">\(\log_3 n\)</span> unrolls to reach the base case. Substituting this for <span class="math">\(k\)</span>, we get:</p>
+<p>It will take <span class="math">\(\log_3 n\)</span> unrolls to reach the base case. Substituting this for <span class="math-with-punctuation"><span class="math">\(k\)</span>,</span> we get:</p>
 <div class="math">\[
             \begin{aligned}
                 T(n) &= T(n/3^{\log_3 n}) + \Biggl[ n + \frac{n}{3} + \frac{n}{9} + \ldots + \frac{n}{3^{(\log_3 n) - 1}}\Biggr]\\
                      &= T(1) + n \underbrace{\Biggl[ 1 + \frac{1}{3} + \frac{1}{9} + \ldots + \frac{1}{3^{(\log_3 n) - 1}}\Biggr]}_{\leq 3/2}
             \end{aligned}
         \]</div>
-<p>Here we've recognized the summation in square brackets as a geometric sum of powers of <span class="math">\(1/3\)</span>, which converges to <span class="math">\(3/2\)</span> when there are infinitely many terms. We've seen this sum in solving a couple of homework problems.</p>
+<p>Here we've recognized the summation in square brackets as a geometric sum of powers of <span class="math-with-punctuation"><span class="math">\(1/3\)</span>,</span> which converges to <span class="math">\(3/2\)</span> when there are infinitely many terms. We've seen this sum in solving a couple of homework problems.</p>
 <div class="math">\[
             \begin{aligned}
                 T(n) &= T(1) + cn\\

@@ -950,6 +950,8 @@ Course Staff
 /* level the box with the first line of the choice, not the middle of a wrapped one */
 .multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+/* inline math and the punctuation right after it; see _keep_math_with_punctuation */
+.math-with-punctuation { white-space: nowrap; }
 </style>
 <h1>Problems tagged with "binary search trees"</h1>
 <style>
@@ -1005,7 +1007,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <center><div class="image"><img src="../images/161/binary_tree_2.jpg" /></div></center>
 <details>
     <summary>Solution</summary>
-<p>False. 24 is in the left subtree of 23, but 24 > 23. (It is also in the left subtree of 34, which is fine, but every node in 23's left subtree must be less than 23.)</p>
+<p>False.</p>
+<p>24 is in the left subtree of 23, but 24 > 23. (It is also in the left subtree of 34, which is fine, but every node in 23's left subtree must be less than 23.)</p>
 </details>
 
     </div>
@@ -1031,7 +1034,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>5</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>Answer: 4. The query compares 3 to 54, then 50, then 16, then 5. Since 5 has no left child, the query ends there and reports that 3 is not in the tree.</p>
+<p>Answer: 4.</p>
+<p>The query compares 3 to 54, then 50, then 16, then 5. Since 5 has no left child, the query ends there and reports that 3 is not in the tree.</p>
 </details>
 
     </div>
@@ -1057,7 +1061,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>the left edge of 34</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>The right edge of 34. Starting at the root: 49 < 54, so go left to 50; 49 < 50, so go left to 16; 49 > 16, so go right to 34; 49 > 34, and 34 has no right child, so 49 becomes the right child of 34.</p>
+<p>The right edge of 34.</p>
+<p>Starting at the root: 49 < 54, so go left to 50; 49 < 50, so go left to 16; 49 > 16, so go right to 34; 49 > 34, and 34 has no right child, so 49 becomes the right child of 34.</p>
 </details>
 
     </div>
@@ -1140,7 +1145,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose a collection of <span class="math">\(n\)</span> numbers is stored in a <b>balanced</b> binary search tree. What is the time complexity required for an efficient algorithm to calculate the largest gap of the numbers in the BST? State your answer as a function of <span class="math">\(n\)</span> in asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(\log n)\)</span>. The largest gap is the difference between the largest and smallest numbers in the collection, so we only need to find the maximum and the minimum. In a balanced BST, each of these takes <span class="math">\(\Theta(\log n)\)</span> time: follow right children from the root to find the maximum, and left children to find the minimum. Subtracting them takes <span class="math">\(\Theta(1)\)</span> time, so the total is <span class="math">\(\Theta(\log n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(\log n)\)</span>.</span></p>
+<p>The largest gap is the difference between the largest and smallest numbers in the collection, so we only need to find the maximum and the minimum. In a balanced BST, each of these takes <span class="math">\(\Theta(\log n)\)</span> time: follow right children from the root to find the maximum, and left children to find the minimum. Subtracting them takes <span class="math">\(\Theta(1)\)</span> time, so the total is <span class="math-with-punctuation"><span class="math">\(\Theta(\log n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1159,7 +1165,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose a collection of <span class="math">\(n\)</span> numbers is stored in a balanced binary search tree. What is the time complexity required of an efficient algorithm to calculate the mean of the collection? State your answer as a function of <span class="math">\(n\)</span> in asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. Without knowing any information on the numbers, the best we can do to compute the mean is to add all numbers in the BST divided by the total number of nodes in the BST. To do this, we will have to traverse the entire BST no matter what (via some traversal algorithm), which takes <span class="math">\(\Theta(n)\)</span> time. (Note that the word <b>balanced</b> does not help in this question.)</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>Without knowing any information on the numbers, the best we can do to compute the mean is to add all numbers in the BST divided by the total number of nodes in the BST. To do this, we will have to traverse the entire BST no matter what (via some traversal algorithm), which takes <span class="math">\(\Theta(n)\)</span> time. (Note that the word <b>balanced</b> does not help in this question.)</p>
 </details>
 
     </div>
@@ -1179,7 +1186,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>Suppose a collection of <span class="math">\(n\)</span> numbers is stored in a <b>balanced</b> binary search tree. What is the time complexity required for an efficient algorithm to calculate the smallest gap of the numbers in the BST? State your answer as a function of <span class="math">\(n\)</span> in asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. The smallest gap in the BST can occur between any pair of consecutive numbers in the BST, meaning that no matter what we need to search through the whole tree to obtain this number, taking <span class="math">\(\Theta(n)\)</span> time.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>The smallest gap in the BST can occur between any pair of consecutive numbers in the BST, meaning that no matter what we need to search through the whole tree to obtain this number, taking <span class="math">\(\Theta(n)\)</span> time.</p>
 </details>
 
     </div>
@@ -1227,7 +1235,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>None of the above</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p><span class="inline-code"><code>height_left</code></span>. Each iteration of the while loop moves one level down the tree, visiting one node. In the worst case, <span class="math">\(x\)</span> is inserted below the deepest node, which is on the left side since <span class="inline-code"><code>height_left</code></span> is greater than <span class="inline-code"><code>height_right</code></span>. The loop visits every node on the path from the root to that node, which is <span class="inline-code"><code>height_left</code></span> nodes.</p>
+<p><span class="inline-code"><code>height_left</code></span>.</p>
+<p>Each iteration of the while loop moves one level down the tree, visiting one node. In the worst case, <span class="math">\(x\)</span> is inserted below the deepest node, which is on the left side since <span class="inline-code"><code>height_left</code></span> is greater than <span class="inline-code"><code>height_right</code></span>. The loop visits every node on the path from the root to that node, which is <span class="inline-code"><code>height_left</code></span> nodes.</p>
 </details>
 
     </div>
@@ -1253,7 +1262,8 @@ for i in range(n):
     bst.query(i)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. The keys <span class="math">\(0, 2, 4, \ldots\)</span> are inserted in increasing order, so each new node becomes the right child of the previous one and the tree is a "linked list" of height <span class="math">\(\Theta(n)\)</span>. Querying <span class="math">\(i\)</span> walks down this chain past about <span class="math">\(i/2\)</span> nodes, so the total time is <span class="math">\(\sum_{i=0}^{n-1} \Theta(i) = \Theta(n^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>The keys <span class="math">\(0, 2, 4, \ldots\)</span> are inserted in increasing order, so each new node becomes the right child of the previous one and the tree is a "linked list" of height <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span> Querying <span class="math">\(i\)</span> walks down this chain past about <span class="math">\(i/2\)</span> nodes, so the total time is <span class="math-with-punctuation"><span class="math">\(\sum_{i=0}^{n-1} \Theta(i) = \Theta(n^2)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1269,10 +1279,11 @@ for i in range(n):
         <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a>, <a href='../tags/lecture-08.html'>lecture-08</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a collection of <span class="math">\(n\)</span> unique numbers is stored in a <b>balanced</b> binary search tree, and that each node in the tree has been given a <span class="inline-code"><code>.size</code></span> attribute which contains the number of nodes in the subtree rooted at that node. What is the time complexity required of an efficient algorithm for computing the number of elements in the collection which are larger than some threshold, <span class="math">\(t\)</span>?</p>
+<p>Suppose a collection of <span class="math">\(n\)</span> unique numbers is stored in a <b>balanced</b> binary search tree, and that each node in the tree has been given a <span class="inline-code"><code>.size</code></span> attribute which contains the number of nodes in the subtree rooted at that node. What is the time complexity required of an efficient algorithm for computing the number of elements in the collection which are larger than some threshold, <span class="math-with-punctuation"><span class="math">\(t\)</span>?</span></p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(\log{n})\)</span>. We can consider the following algorithm: Query for <span class="math">\(t\)</span> in the BST, and define a new variable total for tracking the result. For each step of the recursion, if we go to the left, add the size of the right branch + 1 to the running total. We repeat the above until the query() function finishes running, which will give us exactly the number of elements in the collection which are larger than <span class="math">\(t\)</span>. Since we are querying (and adding some constant time updating steps) in a balanced BST, the time complexity for this question will be <span class="math">\(\Theta(\log{n})\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(\log{n})\)</span>.</span></p>
+<p>We can consider the following algorithm: Query for <span class="math">\(t\)</span> in the BST, and define a new variable total for tracking the result. For each step of the recursion, if we go to the left, add the size of the right branch + 1 to the running total. We repeat the above until the query() function finishes running, which will give us exactly the number of elements in the collection which are larger than <span class="math-with-punctuation"><span class="math">\(t\)</span>.</span> Since we are querying (and adding some constant time updating steps) in a balanced BST, the time complexity for this question will be <span class="math-with-punctuation"><span class="math">\(\Theta(\log{n})\)</span>.</span></p>
 </details>
 
     </div>
@@ -1296,7 +1307,8 @@ for i in range(n):
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Sorted array with binary search</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>A hash table. In a hash table, insertions and deletions take constant time (on average), while a query for the maximum element takes <span class="math">\(\Theta(n)\)</span>. Since we are running only a constant number of max queries, they take <span class="math">\(\Theta(n)\)</span> time in total, and the <span class="math">\(n\)</span> insertions and <span class="math">\(n\)</span> deletions also take <span class="math">\(\Theta(n)\)</span> time in total. In a balanced BST, all of these operations take <span class="math">\(\Theta(\log n)\)</span>, which means running <span class="math">\(n\)</span> insertions and deletions will be <span class="math">\(\Theta(n \log n)\)</span>—slower than a hash table.</p>
+<p>A hash table.</p>
+<p>In a hash table, insertions and deletions take constant time (on average), while a query for the maximum element takes <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span> Since we are running only a constant number of max queries, they take <span class="math">\(\Theta(n)\)</span> time in total, and the <span class="math">\(n\)</span> insertions and <span class="math">\(n\)</span> deletions also take <span class="math">\(\Theta(n)\)</span> time in total. In a balanced BST, all of these operations take <span class="math-with-punctuation"><span class="math">\(\Theta(\log n)\)</span>,</span> which means running <span class="math">\(n\)</span> insertions and deletions will be <span class="math">\(\Theta(n \log n)\)</span>—slower than a hash table.</p>
 </details>
 
     </div>
@@ -1320,7 +1332,8 @@ for i in range(n):
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Sorted array with binary search</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>A self-balancing binary search tree. The key is that we're allowing deletions and max queries. If we delete the maximum, we'll need to find the <i>next maximum</i> upon our next query. In a hash table and unsorted array, this will take linear time. In a sorted array, finding the next max takes constant time—but insertion and deletion potentially take linear time. In a balanced BST, all of these operations take <span class="math">\(\Theta(\log n)\)</span> in the worst case—this is because a BST essentially keeps nodes in sorted order.</p>
+<p>A self-balancing binary search tree.</p>
+<p>The key is that we're allowing deletions and max queries. If we delete the maximum, we'll need to find the <i>next maximum</i> upon our next query. In a hash table and unsorted array, this will take linear time. In a sorted array, finding the next max takes constant time—but insertion and deletion potentially take linear time. In a balanced BST, all of these operations take <span class="math">\(\Theta(\log n)\)</span> in the worst case—this is because a BST essentially keeps nodes in sorted order.</p>
 </details>
 
     </div>

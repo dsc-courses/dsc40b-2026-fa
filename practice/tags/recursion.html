@@ -950,6 +950,8 @@ Course Staff
 /* level the box with the first line of the choice, not the middle of a wrapped one */
 .multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+/* inline math and the punctuation right after it; see _keep_math_with_punctuation */
+.math-with-punctuation { white-space: nowrap; }
 </style>
 <h1>Problems tagged with "recursion"</h1>
 <style>
@@ -1017,10 +1019,11 @@ def binary_search(arr, t, start, stop):
         return binary_search(arr, t, start, middle)
     else:
         return binary_search(arr, t, middle+1, stop)</code></pre>
-<p>Suppose <span class="inline-code"><code>binary_search(arr, t, 0, len(arr))</code></span> is called on a sorted array of size <span class="math">\(n\)</span>. In total, how many recursive calls to <span class="inline-code"><code>binary_search</code></span> are made in the worst case?</p>
+<p>Suppose <span class="inline-code"><code>binary_search(arr, t, 0, len(arr))</code></span> is called on a sorted array of size <span class="math-with-punctuation"><span class="math">\(n\)</span>.</span> In total, how many recursive calls to <span class="inline-code"><code>binary_search</code></span> are made in the worst case?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(\log n)\)</span>. In the worst case, <span class="math">\(t\)</span> isn't in the array, so the search only stops when the range is empty. Each call recurses on at most half of the current range, so after <span class="math">\(k\)</span> calls the range has at most <span class="math">\(n/2^k\)</span> elements, and it becomes empty after <span class="math">\(\Theta(\log n)\)</span> calls.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(\log n)\)</span>.</span></p>
+<p>In the worst case, <span class="math">\(t\)</span> isn't in the array, so the search only stops when the range is empty. Each call recurses on at most half of the current range, so after <span class="math">\(k\)</span> calls the range has at most <span class="math">\(n/2^k\)</span> elements, and it becomes empty after <span class="math">\(\Theta(\log n)\)</span> calls.</p>
 </details>
 
     </div>
@@ -1036,7 +1039,7 @@ def binary_search(arr, t, start, stop):
         <p>Tags: <a href='../tags/binary search.html'>binary search</a>, <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/recursion.html'>recursion</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose <span class="inline-code"><code>binary_search</code></span> has been called on a sorted array <span class="inline-code"><code>arr</code></span> with a target <span class="inline-code"><code>t</code></span> that is not necessarily in the array, and with start and stop indices <span class="inline-code"><code>start</code></span> and <span class="inline-code"><code>stop</code></span>, respectively (remember, our convention is that the start index is included, while the stop index is excluded from the search). Which of the following must be true? <b>Mark all which apply</b>. You may assume that <span class="inline-code"><code>stop - start</code></span> <span class="math">\(\geq 1\)</span>.</p>
+<p>Suppose <span class="inline-code"><code>binary_search</code></span> has been called on a sorted array <span class="inline-code"><code>arr</code></span> with a target <span class="inline-code"><code>t</code></span> that is not necessarily in the array, and with start and stop indices <span class="inline-code"><code>start</code></span> and <span class="inline-code"><code>stop</code></span>, respectively (remember, our convention is that the start index is included, while the stop index is excluded from the search). Which of the following must be true? <b>Mark all which apply</b>. You may assume that <span class="inline-code"><code>stop - start</code></span> <span class="math-with-punctuation"><span class="math">\(\geq 1\)</span>.</span></p>
 <p>Note: remember that any statement about an empty array is considered to be automatically true. Also, you cannot assume that this call to <span class="inline-code"><code>binary_search</code></span> is the <i>root</i> call (it could be a recursive call).</p>
 <div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>arr[start] < t < arr[stop]</code></span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>arr[start] < t < arr[stop - 1]</code></span></p></label></div>
@@ -1045,8 +1048,8 @@ def binary_search(arr, t, start, stop):
 <details>
     <summary>Solution</summary>
 <p><span class="inline-code"><code>arr[:start] < t</code></span> and <span class="inline-code"><code>arr[stop:] > t</code></span> are both true.</p>
-<p>Both hold in the root call, where <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>, because <span class="inline-code"><code>arr[:0]</code></span> and <span class="inline-code"><code>arr[len(arr):]</code></span> are empty. Now suppose they hold in some call, and that call recurses. It recurses on the right half, setting <span class="inline-code"><code>start = middle + 1</code></span>, only after seeing <span class="inline-code"><code>arr[middle] < t</code></span>. Since the array is sorted, everything up to and including <span class="inline-code"><code>arr[middle]</code></span> is less than <span class="math">\(t\)</span>, so <span class="inline-code"><code>arr[:middle + 1] < t</code></span> holds in the new call (and <span class="inline-code"><code>stop</code></span> doesn't change). Similarly, it recurses on the left half, setting <span class="inline-code"><code>stop = middle</code></span>, only after seeing <span class="inline-code"><code>arr[middle] > t</code></span>, so everything from <span class="inline-code"><code>arr[middle]</code></span> on is greater than <span class="math">\(t\)</span>. So both statements hold in every call.</p>
-<p>The first two can fail. In the root call, if <span class="math">\(t\)</span> is smaller than every element, then <span class="inline-code"><code>arr[start] < t</code></span> is false (and in the first option, <span class="inline-code"><code>arr[stop]</code></span> is past the end of the array). Similarly, if <span class="math">\(t\)</span> is larger than every element, then <span class="inline-code"><code>t < arr[stop - 1]</code></span> is false. The search range only tells us that the elements <i>outside</i> it are on the correct side of <span class="math">\(t\)</span>; it says nothing about the elements at its ends.</p>
+<p>Both hold in the root call, where <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>, because <span class="inline-code"><code>arr[:0]</code></span> and <span class="inline-code"><code>arr[len(arr):]</code></span> are empty. Now suppose they hold in some call, and that call recurses. It recurses on the right half, setting <span class="inline-code"><code>start = middle + 1</code></span>, only after seeing <span class="inline-code"><code>arr[middle] < t</code></span>. Since the array is sorted, everything up to and including <span class="inline-code"><code>arr[middle]</code></span> is less than <span class="math-with-punctuation"><span class="math">\(t\)</span>,</span> so <span class="inline-code"><code>arr[:middle + 1] < t</code></span> holds in the new call (and <span class="inline-code"><code>stop</code></span> doesn't change). Similarly, it recurses on the left half, setting <span class="inline-code"><code>stop = middle</code></span>, only after seeing <span class="inline-code"><code>arr[middle] > t</code></span>, so everything from <span class="inline-code"><code>arr[middle]</code></span> on is greater than <span class="math-with-punctuation"><span class="math">\(t\)</span>.</span> So both statements hold in every call.</p>
+<p>The first two can fail. In the root call, if <span class="math">\(t\)</span> is smaller than every element, then <span class="inline-code"><code>arr[start] < t</code></span> is false (and in the first option, <span class="inline-code"><code>arr[stop]</code></span> is past the end of the array). Similarly, if <span class="math">\(t\)</span> is larger than every element, then <span class="inline-code"><code>t < arr[stop - 1]</code></span> is false. The search range only tells us that the elements <i>outside</i> it are on the correct side of <span class="math-with-punctuation"><span class="math">\(t\)</span>;</span> it says nothing about the elements at its ends.</p>
 </details>
 
     </div>
@@ -1151,7 +1154,7 @@ def mediansort(arr, start, stop):
         <p>Tags: <a href='../tags/binary search.html'>binary search</a>, <a href='../tags/lecture-05.html'>lecture-05</a>, <a href='../tags/recursion.html'>recursion</a>, <a href='../tags/verifying recursion.html'>verifying recursion</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math">\(\geq x\)</span>). The full code is shown below for convenience:</p>
+<p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math-with-punctuation"><span class="math">\(\geq x\)</span>).</span> The full code is shown below for convenience:</p>
 <pre class="code"><code class="language-python">import math
 
 def new_binary_search(arr, start, stop, target):
@@ -1184,7 +1187,7 @@ def new_binary_search(arr, start, stop, target):
 <details>
     <summary>Solution</summary>
 <p>True.</p>
-<p>If <span class="inline-code"><code>arr</code></span> has one element, the first call has <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = 1</code></span>, so <span class="inline-code"><code>middle</code></span> is <span class="math">\(\lceil 1/2 \rceil = 1\)</span>, and <span class="inline-code"><code>arr[1]</code></span> doesn't exist. In general, whenever <span class="inline-code"><code>stop = start + 1</code></span>, the ceiling makes <span class="inline-code"><code>middle = stop</code></span>, which is outside the range being searched.</p>
+<p>If <span class="inline-code"><code>arr</code></span> has one element, the first call has <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = 1</code></span>, so <span class="inline-code"><code>middle</code></span> is <span class="math-with-punctuation"><span class="math">\(\lceil 1/2 \rceil = 1\)</span>,</span> and <span class="inline-code"><code>arr[1]</code></span> doesn't exist. In general, whenever <span class="inline-code"><code>stop = start + 1</code></span>, the ceiling makes <span class="inline-code"><code>middle = stop</code></span>, which is outside the range being searched.</p>
 </details>
 
 </div>
@@ -1228,12 +1231,12 @@ def merge(left, right, out):
         else:
             out[ix] = right[right_ix]
             right_ix += 1</code></pre>
-<p>Suppose <span class="inline-code"><code>mergesort</code></span> is called on an array of size <span class="math">\(n\)</span>. In total, how many times will <span class="inline-code"><code>"Here!"</code></span> be printed?</p>
+<p>Suppose <span class="inline-code"><code>mergesort</code></span> is called on an array of size <span class="math-with-punctuation"><span class="math">\(n\)</span>.</span> In total, how many times will <span class="inline-code"><code>"Here!"</code></span> be printed?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n \log n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n \log n)\)</span>.</span></p>
 <p>The <span class="inline-code"><code>print</code></span> is inside <span class="inline-code"><code>merge</code></span>'s loop, which runs once for each element of <span class="inline-code"><code>out</code></span>. So a call to <span class="inline-code"><code>merge</code></span> that produces an array of size <span class="math">\(m\)</span> prints “Here!” <span class="math">\(m\)</span> times, i.e., the number of prints is exactly the number of elements merged.</p>
-<p>Now look at the recursion tree of <span class="inline-code"><code>mergesort</code></span>. At each level, the subarrays being sorted together make up the whole array (each element is in exactly one of them), so the merges at that level produce at most <span class="math">\(n\)</span> elements in total, and exactly <span class="math">\(n\)</span> at every level above the leaves. There are <span class="math">\(\Theta(\log n)\)</span> levels, since the size halves at each one. So the total number of prints is <span class="math">\(\Theta(n)\)</span> per level times <span class="math">\(\Theta(\log n)\)</span> levels, which is <span class="math">\(\Theta(n \log n)\)</span>. This is the same argument that shows <span class="inline-code"><code>mergesort</code></span> takes <span class="math">\(\Theta(n \log n)\)</span> time.</p>
+<p>Now look at the recursion tree of <span class="inline-code"><code>mergesort</code></span>. At each level, the subarrays being sorted together make up the whole array (each element is in exactly one of them), so the merges at that level produce at most <span class="math">\(n\)</span> elements in total, and exactly <span class="math">\(n\)</span> at every level above the leaves. There are <span class="math">\(\Theta(\log n)\)</span> levels, since the size halves at each one. So the total number of prints is <span class="math">\(\Theta(n)\)</span> per level times <span class="math">\(\Theta(\log n)\)</span> levels, which is <span class="math-with-punctuation"><span class="math">\(\Theta(n \log n)\)</span>.</span> This is the same argument that shows <span class="inline-code"><code>mergesort</code></span> takes <span class="math">\(\Theta(n \log n)\)</span> time.</p>
 </details>
 
     </div>

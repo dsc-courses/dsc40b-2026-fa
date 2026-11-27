@@ -950,6 +950,8 @@ Course Staff
 /* level the box with the first line of the choice, not the middle of a wrapped one */
 .multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+/* inline math and the punctuation right after it; see _keep_math_with_punctuation */
+.math-with-punctuation { white-space: nowrap; }
 </style>
 <h1>Problems tagged with "breadth first search"</h1>
 <style>
@@ -1006,7 +1008,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>How many times is the message printed?</p>
 <details>
     <summary>Solution</summary>
-<p>Answer: 6. Every node reachable from the source is added to the queue exactly once and popped exactly once. This graph is connected, so all 6 nodes are popped, no matter which node the BFS starts at.</p>
+<p>Answer: 6.</p>
+<p>Every node reachable from the source is added to the queue exactly once and popped exactly once. This graph is connected, so all 6 nodes are popped, no matter which node the BFS starts at.</p>
 </details>
 
     </div>
@@ -1030,7 +1033,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>0, 3, 1, 4, 5, 2</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>0, 1, 3, 5, 4, 2. Visiting 0 adds 1 and 3 to the queue. Visiting 1 adds 5. Visiting 3 adds 4. Visiting 5 adds nothing new (4 is already pending). Visiting 4 adds 2. Finally 2 is visited.</p>
+<p>0, 1, 3, 5, 4, 2.</p>
+<p>Visiting 0 adds 1 and 3 to the queue. Visiting 1 adds 5. Visiting 3 adds 4. Visiting 5 adds nothing new (4 is already pending). Visiting 4 adds 2. Finally 2 is visited.</p>
 </details>
 
     </div>
@@ -1048,10 +1052,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     <div class="problem-body">
 <p>Suppose a <i>breadth</i> first search is run on the graph below using node <span class="math">\(d\)</span> as the source. Adopt the convention that a node's neighbors are produced in alphabetical order.</p>
 <center><div class="image"><img src="../images/229/searchme.png" /></div></center>
-<p>What is the node popped from the queue after node <span class="math">\(g\)</span>?</p>
+<p>What is the node popped from the queue after node <span class="math-with-punctuation"><span class="math">\(g\)</span>?</span></p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(e\)</span>. The nodes are popped in the order <span class="math">\(d, f, q, r, g, e, v\)</span>. Popping <span class="math">\(d\)</span> adds <span class="math">\(f, q, r\)</span>; popping <span class="math">\(f\)</span> adds <span class="math">\(g\)</span>; popping <span class="math">\(q\)</span> adds <span class="math">\(e\)</span>; popping <span class="math">\(r\)</span> adds <span class="math">\(v\)</span>. So the queue is then <span class="math">\(g, e, v\)</span>, and <span class="math">\(e\)</span> comes right after <span class="math">\(g\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(e\)</span>.</span></p>
+<p>The nodes are popped in the order <span class="math-with-punctuation"><span class="math">\(d, f, q, r, g, e, v\)</span>.</span> Popping <span class="math">\(d\)</span> adds <span class="math-with-punctuation"><span class="math">\(f, q, r\)</span>;</span> popping <span class="math">\(f\)</span> adds <span class="math-with-punctuation"><span class="math">\(g\)</span>;</span> popping <span class="math">\(q\)</span> adds <span class="math-with-punctuation"><span class="math">\(e\)</span>;</span> popping <span class="math">\(r\)</span> adds <span class="math-with-punctuation"><span class="math">\(v\)</span>.</span> So the queue is then <span class="math-with-punctuation"><span class="math">\(g, e, v\)</span>,</span> and <span class="math">\(e\)</span> comes right after <span class="math-with-punctuation"><span class="math">\(g\)</span>.</span></p>
 </details>
 
     </div>
@@ -1072,7 +1077,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>How many nodes will be popped from the queue before node <span class="math">\(u_8\)</span> is popped?</p>
 <details>
     <summary>Solution</summary>
-<p>9. BFS pops <span class="math">\(s, u_1, u_2, u_3, u_5, u_4, u_6, u_7\)</span> and <span class="math">\(u_9\)</span>, and then <span class="math">\(u_8\)</span>. (<span class="math">\(u_5\)</span> is discovered from <span class="math">\(u_2\)</span> before <span class="math">\(u_4\)</span> is discovered from <span class="math">\(u_3\)</span>, and <span class="math">\(u_8\)</span> is discovered from <span class="math">\(u_6\)</span> after <span class="math">\(u_9\)</span> is discovered from <span class="math">\(u_4\)</span>.)</p>
+<p>9.</p>
+<p>BFS pops <span class="math">\(s, u_1, u_2, u_3, u_5, u_4, u_6, u_7\)</span> and <span class="math-with-punctuation"><span class="math">\(u_9\)</span>,</span> and then <span class="math-with-punctuation"><span class="math">\(u_8\)</span>.</span> (<span class="math">\(u_5\)</span> is discovered from <span class="math">\(u_2\)</span> before <span class="math">\(u_4\)</span> is discovered from <span class="math-with-punctuation"><span class="math">\(u_3\)</span>,</span> and <span class="math">\(u_8\)</span> is discovered from <span class="math">\(u_6\)</span> after <span class="math">\(u_9\)</span> is discovered from <span class="math-with-punctuation"><span class="math">\(u_4\)</span>.)</span></p>
 </details>
 
     </div>
@@ -1089,13 +1095,14 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>Define a <i>circle graph</i> with <span class="math">\(n\)</span> nodes to be an undirected graph <span class="math">\(G =
-    (V, E)\)</span> with nodes <span class="math">\(u_1, u_2, \ldots, u_n\)</span> and edges <span class="math">\((u_1, u_2), (u_2,
-    u_3), \ldots, (u_{n-1}, u_n)\)</span>, along with one additional edge <span class="math">\((u_n, u_1)\)</span> completing the cycle. An example of a circle graph with 6 nodes is shown below:</p>
+    (V, E)\)</span> with nodes <span class="math">\(u_1, u_2, \ldots, u_n\)</span> and edges <span class="math-with-punctuation"><span class="math">\((u_1, u_2), (u_2,
+    u_3), \ldots, (u_{n-1}, u_n)\)</span>,</span> along with one additional edge <span class="math">\((u_n, u_1)\)</span> completing the cycle. An example of a circle graph with 6 nodes is shown below:</p>
 <center><div class="image"><img src="../images/231/graph.png" /></div></center>
 <p>What is the time complexity of breadth-first search when run on a circle graph with <span class="math">\(n\)</span> nodes? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. BFS takes <span class="math">\(\Theta(V + E)\)</span> time. A circle graph has <span class="math">\(|V| = n\)</span> nodes and <span class="math">\(|E| = n\)</span> edges, so this is <span class="math">\(\Theta(n + n) = \Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>BFS takes <span class="math">\(\Theta(V + E)\)</span> time. A circle graph has <span class="math">\(|V| = n\)</span> nodes and <span class="math">\(|E| = n\)</span> edges, so this is <span class="math-with-punctuation"><span class="math">\(\Theta(n + n) = \Theta(n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1111,13 +1118,14 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-11.html'>lecture-11</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a “2-chain” graph with <span class="math">\(n\)</span> nodes is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math">\(\ldots\)</span>, <span class="math">\(n\)</span>, and, for each node <span class="math">\(u\)</span>, making a directed edge from <span class="math">\(u\)</span> to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span> (if they are in the graph).</p>
+<p>Suppose a “2-chain” graph with <span class="math">\(n\)</span> nodes is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math-with-punctuation"><span class="math">\(\ldots\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(n\)</span>,</span> and, for each node <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> making a directed edge from <span class="math">\(u\)</span> to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span> (if they are in the graph).</p>
 <p>For example, such a graph with <span class="math">\(n = 7\)</span> looks like:</p>
 <center><div class="image"><img src="../images/232/g3.png" /></div></center>
-<p>Suppose BFS is run on a 2-chain graph with <span class="math">\(n\)</span> nodes, using node 1 as the source. What is the time taken as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
+<p>Suppose BFS is run on a 2-chain graph with <span class="math">\(n\)</span> nodes, using node 1 as the source. What is the time taken as a function of <span class="math-with-punctuation"><span class="math">\(n\)</span>?</span> State your answer using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. BFS takes <span class="math">\(\Theta(V + E)\)</span> time. Each node has at most two outgoing edges, so there are fewer than <span class="math">\(2n\)</span> edges, and <span class="math">\(\Theta(V + E) = \Theta(n + 2n) = \Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>BFS takes <span class="math">\(\Theta(V + E)\)</span> time. Each node has at most two outgoing edges, so there are fewer than <span class="math">\(2n\)</span> edges, and <span class="math-with-punctuation"><span class="math">\(\Theta(V + E) = \Theta(n + 2n) = \Theta(n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1148,12 +1156,13 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
                 status[v] = 'pending'
                 pending.append(v)
         status[u] = 'visited'</code></pre>
-<p>Suppose this modified BFS is run on the following graph, starting at node <span class="math">\(a\)</span>.</p>
+<p>Suppose this modified BFS is run on the following graph, starting at node <span class="math-with-punctuation"><span class="math">\(a\)</span>.</span></p>
 <center><div class="image"><img src="../images/233/graph.png" /></div></center>
 <p>How many times will <span class="inline-code"><code>"here!"</code></span> be printed? Your answer should be an exact number.</p>
 <details>
     <summary>Solution</summary>
-<p>10. BFS only reaches <span class="math">\(a\)</span>'s connected component: <span class="math">\(a, b, c, d, e, f\)</span>. It has 5 edges, <span class="math">\((a, b)\)</span>, <span class="math">\((b, c)\)</span>, <span class="math">\((c, d)\)</span>, <span class="math">\((a, e)\)</span> and <span class="math">\((b, f)\)</span>, and in an undirected graph each edge is explored twice (once from each endpoint), so <span class="inline-code"><code>"here!"</code></span> is printed <span class="math">\(2 \times 5 = 10\)</span> times.</p>
+<p>10.</p>
+<p>BFS only reaches <span class="math-with-punctuation"><span class="math">\(a\)</span>'</span>s connected component: <span class="math-with-punctuation"><span class="math">\(a, b, c, d, e, f\)</span>.</span> It has 5 edges, <span class="math-with-punctuation"><span class="math">\((a, b)\)</span>,</span> <span class="math-with-punctuation"><span class="math">\((b, c)\)</span>,</span> <span class="math-with-punctuation"><span class="math">\((c, d)\)</span>,</span> <span class="math">\((a, e)\)</span> and <span class="math-with-punctuation"><span class="math">\((b, f)\)</span>,</span> and in an undirected graph each edge is explored twice (once from each endpoint), so <span class="inline-code"><code>"here!"</code></span> is printed <span class="math">\(2 \times 5 = 10\)</span> times.</p>
 </details>
 
     </div>
@@ -1188,12 +1197,13 @@ def modified_bfs(graph, source):
                 pending.append(v)
 
         status[u] = 'visited'</code></pre>
-<p>Consider running this algorithm on the following graph, starting at node <span class="math">\(1\)</span>:</p>
+<p>Consider running this algorithm on the following graph, starting at node <span class="math-with-punctuation"><span class="math">\(1\)</span>:</span></p>
 <center><div class="image"><img src="../images/234/graph.png" /></div></center>
 <p>How many times will <span class="inline-code"><code>"Here!"</code></span> be printed?</p>
 <details>
     <summary>Solution</summary>
-<p>2. The print runs each time <span class="math">\(9\)</span> comes up as a neighbor of a popped node. In this directed graph, the only edges into <span class="math">\(9\)</span> are <span class="math">\((7, 9)\)</span> and <span class="math">\((8, 9)\)</span>, and <span class="math">\(7\)</span> and <span class="math">\(8\)</span> are each popped once, so <span class="inline-code"><code>"Here!"</code></span> is printed twice.</p>
+<p>2.</p>
+<p>The print runs each time <span class="math">\(9\)</span> comes up as a neighbor of a popped node. In this directed graph, the only edges into <span class="math">\(9\)</span> are <span class="math">\((7, 9)\)</span> and <span class="math-with-punctuation"><span class="math">\((8, 9)\)</span>,</span> and <span class="math">\(7\)</span> and <span class="math">\(8\)</span> are each popped once, so <span class="inline-code"><code>"Here!"</code></span> is printed twice.</p>
 </details>
 
     </div>
@@ -1209,12 +1219,13 @@ def modified_bfs(graph, source):
         <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a breadth-first search is performed on the following tree, starting at the root node <span class="math">\(s\)</span>:</p>
+<p>Suppose a breadth-first search is performed on the following tree, starting at the root node <span class="math-with-punctuation"><span class="math">\(s\)</span>:</span></p>
 <center><div class="image"><img src="../images/235/tree.png" /></div></center>
 <p>What is the largest number of nodes that can be in the queue at any one time?</p>
 <details>
     <summary>Solution</summary>
-<p>8. The tree has 1, 2, 4 and 8 nodes at depths 0, 1, 2 and 3. Each time a node at depth 1 or 2 is popped, the queue grows by one (one node out, two children in). So it is largest right after the last depth-2 node is popped and its children are added, when it holds exactly the 8 leaves. After that, nodes are only removed.</p>
+<p>8.</p>
+<p>The tree has 1, 2, 4 and 8 nodes at depths 0, 1, 2 and 3. Each time a node at depth 1 or 2 is popped, the queue grows by one (one node out, two children in). So it is largest right after the last depth-2 node is popped and its children are added, when it holds exactly the 8 leaves. After that, nodes are only removed.</p>
 </details>
 
     </div>
@@ -1235,7 +1246,7 @@ def modified_bfs(graph, source):
 <details>
     <summary>Solution</summary>
 <p>True.</p>
-<p>Consider the graph with the single edge <span class="math">\((a, b)\)</span>. If <span class="math">\(a\)</span> is produced first, <span class="inline-code"><code>bfs(a)</code></span> discovers <span class="math">\(b\)</span> and only one call is needed. If <span class="math">\(b\)</span> is produced first, <span class="inline-code"><code>bfs(b)</code></span> cannot reach <span class="math">\(a\)</span>, so a second call is needed.</p>
+<p>Consider the graph with the single edge <span class="math-with-punctuation"><span class="math">\((a, b)\)</span>.</span> If <span class="math">\(a\)</span> is produced first, <span class="inline-code"><code>bfs(a)</code></span> discovers <span class="math">\(b\)</span> and only one call is needed. If <span class="math">\(b\)</span> is produced first, <span class="inline-code"><code>bfs(b)</code></span> cannot reach <span class="math-with-punctuation"><span class="math">\(a\)</span>,</span> so a second call is needed.</p>
 </details>
 
     </div>
@@ -1251,10 +1262,11 @@ def modified_bfs(graph, source):
         <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose an undirected graph with <span class="math">\(n\)</span> nodes satisfies the property that every node has degree <span class="math">\(n/2\)</span>. What is the time complexity of running full BFS on this graph?</p>
+<p>Suppose an undirected graph with <span class="math">\(n\)</span> nodes satisfies the property that every node has degree <span class="math-with-punctuation"><span class="math">\(n/2\)</span>.</span> What is the time complexity of running full BFS on this graph?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. Full BFS takes <span class="math">\(\Theta(V + E)\)</span> time. The sum of the degrees is <span class="math">\(n \cdot n/2\)</span>, and each edge is counted twice in this sum, so there are <span class="math">\(n^2/4\)</span> edges. So the time is <span class="math">\(\Theta(n + n^2/4) = \Theta(n^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>Full BFS takes <span class="math">\(\Theta(V + E)\)</span> time. The sum of the degrees is <span class="math-with-punctuation"><span class="math">\(n \cdot n/2\)</span>,</span> and each edge is counted twice in this sum, so there are <span class="math">\(n^2/4\)</span> edges. So the time is <span class="math-with-punctuation"><span class="math">\(\Theta(n + n^2/4) = \Theta(n^2)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1271,10 +1283,11 @@ def modified_bfs(graph, source):
         <div class="problem">
     <div class="problem-body">
 <p>Suppose a connected, undirected graph <span class="math">\(G\)</span> has <span class="math">\(n\)</span> nodes, half of which are “red” and half of which are “blue”. Each red node shares an edge with <span class="math">\(\log_2 n\)</span> blue nodes, and the only edges in the graph are between red and blue nodes.</p>
-<p>What is the time complexity of BFS when run on <span class="math">\(G\)</span>? Your answer should be in asymptotic notation and in terms of <span class="math">\(n\)</span>, in the simplest terms possible.</p>
+<p>What is the time complexity of BFS when run on <span class="math-with-punctuation"><span class="math">\(G\)</span>?</span> Your answer should be in asymptotic notation and in terms of <span class="math-with-punctuation"><span class="math">\(n\)</span>,</span> in the simplest terms possible.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n \log n)\)</span>. BFS takes <span class="math">\(\Theta(V + E)\)</span> time. Every edge joins a red node to a blue node, and each of the <span class="math">\(n/2\)</span> red nodes has <span class="math">\(\log_2 n\)</span> of them, so there are <span class="math">\(E = \frac{n}{2} \log_2 n\)</span> edges. So the time is <span class="math">\(\Theta(n + \frac{n}{2}\log_2 n) = \Theta(n \log n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n \log n)\)</span>.</span></p>
+<p>BFS takes <span class="math">\(\Theta(V + E)\)</span> time. Every edge joins a red node to a blue node, and each of the <span class="math">\(n/2\)</span> red nodes has <span class="math">\(\log_2 n\)</span> of them, so there are <span class="math">\(E = \frac{n}{2} \log_2 n\)</span> edges. So the time is <span class="math-with-punctuation"><span class="math">\(\Theta(n + \frac{n}{2}\log_2 n) = \Theta(n \log n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1328,7 +1341,8 @@ def full_bfs(graph):
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>There are 5 connected components, and it is directed</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>There are 5 connected components, and it is undirected. "bar" is printed once each time <span class="inline-code"><code>full_bfs</code></span> starts a new BFS, and in an undirected graph each new BFS starts in a new connected component, so there are 5 connected components. "foo" is printed once each time an edge is explored. In an undirected graph, each edge is explored twice (once from each endpoint), while in a directed graph it is explored only once. Since there is 1 edge and "foo" was printed 2 times, the graph is undirected.</p>
+<p>There are 5 connected components, and it is undirected.</p>
+<p>"bar" is printed once each time <span class="inline-code"><code>full_bfs</code></span> starts a new BFS, and in an undirected graph each new BFS starts in a new connected component, so there are 5 connected components. "foo" is printed once each time an edge is explored. In an undirected graph, each edge is explored twice (once from each endpoint), while in a directed graph it is explored only once. Since there is 1 edge and "foo" was printed 2 times, the graph is undirected.</p>
 </details>
 
     </div>
@@ -1365,7 +1379,7 @@ def modified_bfs(graph, source):
                 pending.append(v)
 
         status[u] = 'visited'</code></pre>
-<p>What is the time complexity of this algorithm, in terms of <span class="math">\(|V|\)</span> and <span class="math">\(|E|\)</span>? You may assume the graph is undirected and connected, so that all nodes are reachable from the source.</p>
+<p>What is the time complexity of this algorithm, in terms of <span class="math">\(|V|\)</span> and <span class="math-with-punctuation"><span class="math">\(|E|\)</span>?</span> You may assume the graph is undirected and connected, so that all nodes are reachable from the source.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E)\)</span></p></label></div>
@@ -1373,7 +1387,8 @@ def modified_bfs(graph, source):
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V E + V)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>Because the graph is connected, <span class="math">\(|E| \geq |V| - 1\)</span>, and so <span class="math">\(\Theta(VE)\)</span> and <span class="math">\(\Theta(VE + V)\)</span> are equivalent. Only <span class="math">\(\Theta(VE + V)\)</span> is an option so <span class="math">\(\Theta(VE + V)\)</span> is the correct answer.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(V E + V)\)</span>.</span></p>
+<p>Because the graph is connected, <span class="math-with-punctuation"><span class="math">\(|E| \geq |V| - 1\)</span>,</span> and so <span class="math">\(\Theta(VE)\)</span> and <span class="math">\(\Theta(VE + V)\)</span> are equivalent. Only <span class="math">\(\Theta(VE + V)\)</span> is an option so <span class="math">\(\Theta(VE + V)\)</span> is the correct answer.</p>
 </details>
 
     </div>
@@ -1389,7 +1404,7 @@ def modified_bfs(graph, source):
         <p>Tags: <a href='../tags/aggregate analysis.html'>aggregate analysis</a>, <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-11.html'>lecture-11</a>, <a href='../tags/time complexity.html'>time complexity</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Consider the following modification of BFS, where there are two new lines of code. What is the time complexity in terms of <span class="math">\(|V|\)</span> and <span class="math">\(|E|\)</span>?</p>
+<p>Consider the following modification of BFS, where there are two new lines of code. What is the time complexity in terms of <span class="math">\(|V|\)</span> and <span class="math-with-punctuation"><span class="math">\(|E|\)</span>?</span></p>
 <pre class="code"><code class="language-python">from collections import deque
 
 def foo(graph):
@@ -1415,7 +1430,8 @@ def bar(graph, source, status):
         status[u] = 'visited'</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(V + VE)\)</span>. Without the two new lines, this is a full BFS, which takes <span class="math">\(\Theta(V + E)\)</span> time. The new inner loop runs once each time an edge is explored, and each time it takes <span class="math">\(\Theta(V)\)</span> time. By an aggregate analysis, edges are explored <span class="math">\(\Theta(E)\)</span> times in total, so the new lines add <span class="math">\(\Theta(VE)\)</span> time. The total is <span class="math">\(\Theta(V + E + VE) = \Theta(V + VE)\)</span>. (We can't drop the <span class="math">\(V\)</span> term: when there are no edges, the code still takes <span class="math">\(\Theta(V)\)</span> time.)</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(V + VE)\)</span>.</span></p>
+<p>Without the two new lines, this is a full BFS, which takes <span class="math">\(\Theta(V + E)\)</span> time. The new inner loop runs once each time an edge is explored, and each time it takes <span class="math">\(\Theta(V)\)</span> time. By an aggregate analysis, edges are explored <span class="math">\(\Theta(E)\)</span> times in total, so the new lines add <span class="math">\(\Theta(VE)\)</span> time. The total is <span class="math-with-punctuation"><span class="math">\(\Theta(V + E + VE) = \Theta(V + VE)\)</span>.</span> (We can't drop the <span class="math">\(V\)</span> term: when there are no edges, the code still takes <span class="math">\(\Theta(V)\)</span> time.)</p>
 </details>
 
     </div>
@@ -1462,14 +1478,14 @@ def modified_bfs(graph, source, status=None):
 
         status[u] = 'visited'</code></pre>
 <p>Notice the two new lines; these lines print all node statuses any time that an undiscovered node has been found.</p>
-<p>What is the time complexity of <span class="inline-code"><code>modified_full_bfs</code></span>? State your answer in asymptotic notation in terms of the number of nodes, <span class="math">\(|V|\)</span>, and the number of edges, <span class="math">\(|E|\)</span>. You may assume that the graph is represented using an adjacency list, and that it is connected.</p>
+<p>What is the time complexity of <span class="inline-code"><code>modified_full_bfs</code></span>? State your answer in asymptotic notation in terms of the number of nodes, <span class="math-with-punctuation"><span class="math">\(|V|\)</span>,</span> and the number of edges, <span class="math-with-punctuation"><span class="math">\(|E|\)</span>.</span> You may assume that the graph is represented using an adjacency list, and that it is connected.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(V^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(V^2)\)</span>.</span></p>
 <p>First, the newly-added code (the <span class="inline-code"><code>for z in graph.nodes</code></span> loop), takes <span class="math">\(\Theta(V)\)</span> time each time the loop is encountered. The crux is: how many times is that loop encountered?</p>
 <p>This loop is encountered every time we add a node to the queue (except for the root node, which we add to the queue right at the beginning of BFS). Since this is a connected graph, each node will get added to the pending queue exactly once, meaning that this new code is encountered <i>exactly</i> <span class="math">\(V-1\)</span> times (the <span class="math">\(-1\)</span> is subtracting the root node; the loop isn't encountered when we change it to pending).</p>
-<p>Since the new code takes <span class="math">\(\Theta(V)\)</span> time each time it's encountered, and since it's encountered <span class="math">\(\Theta(V)\)</span> times, the total time complexity of the loop is <span class="math">\(\Theta(V^2)\)</span>.</p>
-<p>You might wonder why the time complexity isn't <span class="math">\(\Theta(VE)\)</span>, since the new code is within the loop that “explores” each edge in the graph, and we know that it makes a total of <span class="math">\(2|E|\)</span> iterations when the graph is undirected. This is true, but recognize that the new code only executes when the <span class="inline-code"><code>if</code></span>-statement before it is <span class="inline-code"><code>True</code></span>, and this will happen on only a <i>subset</i> of the <span class="math">\(2|E|\)</span> iterations. In fact, it will happen exactly <span class="math">\(|V|-1\)</span> times, as we argued above.</p>
+<p>Since the new code takes <span class="math">\(\Theta(V)\)</span> time each time it's encountered, and since it's encountered <span class="math">\(\Theta(V)\)</span> times, the total time complexity of the loop is <span class="math-with-punctuation"><span class="math">\(\Theta(V^2)\)</span>.</span></p>
+<p>You might wonder why the time complexity isn't <span class="math-with-punctuation"><span class="math">\(\Theta(VE)\)</span>,</span> since the new code is within the loop that “explores” each edge in the graph, and we know that it makes a total of <span class="math">\(2|E|\)</span> iterations when the graph is undirected. This is true, but recognize that the new code only executes when the <span class="inline-code"><code>if</code></span>-statement before it is <span class="inline-code"><code>True</code></span>, and this will happen on only a <i>subset</i> of the <span class="math">\(2|E|\)</span> iterations. In fact, it will happen exactly <span class="math">\(|V|-1\)</span> times, as we argued above.</p>
 </details>
 
     </div>
@@ -1489,7 +1505,8 @@ def modified_bfs(graph, source, status=None):
 <center><div class="image"><img src="../images/245/graph.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(d\)</span>. Node <span class="math">\(a\)</span> discovers <span class="math">\(b\)</span>, <span class="math">\(c\)</span> and <span class="math">\(d\)</span>, so the queue is <span class="math">\(b, c, d\)</span>. Popping <span class="math">\(b\)</span> discovers <span class="math">\(f\)</span>, and popping <span class="math">\(c\)</span> discovers nothing new. Then <span class="math">\(d\)</span> is popped before <span class="math">\(e\)</span> and <span class="math">\(f\)</span>, and <span class="math">\(h\)</span> is still undiscovered, so <span class="math">\(d\)</span> discovers it.</p>
+<p><span class="math-with-punctuation"><span class="math">\(d\)</span>.</span></p>
+<p>Node <span class="math">\(a\)</span> discovers <span class="math-with-punctuation"><span class="math">\(b\)</span>,</span> <span class="math">\(c\)</span> and <span class="math-with-punctuation"><span class="math">\(d\)</span>,</span> so the queue is <span class="math-with-punctuation"><span class="math">\(b, c, d\)</span>.</span> Popping <span class="math">\(b\)</span> discovers <span class="math-with-punctuation"><span class="math">\(f\)</span>,</span> and popping <span class="math">\(c\)</span> discovers nothing new. Then <span class="math">\(d\)</span> is popped before <span class="math">\(e\)</span> and <span class="math-with-punctuation"><span class="math">\(f\)</span>,</span> and <span class="math">\(h\)</span> is still undiscovered, so <span class="math">\(d\)</span> discovers it.</p>
 </details>
 
     </div>
@@ -1509,7 +1526,8 @@ def modified_bfs(graph, source, status=None):
 <center><div class="image"><img src="../images/246/fig/g2.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p>5. Node 1 discovers 2 and 3. Popping 2 discovers 5 and 6, in that order, and popping 3 discovers 4, so the queue is <span class="math">\(5, 6, 4\)</span>. Node 5 is popped next and is adjacent to 8, so it discovers 8 before 6 can.</p>
+<p>5.</p>
+<p>Node 1 discovers 2 and 3. Popping 2 discovers 5 and 6, in that order, and popping 3 discovers 4, so the queue is <span class="math-with-punctuation"><span class="math">\(5, 6, 4\)</span>.</span> Node 5 is popped next and is adjacent to 8, so it discovers 8 before 6 can.</p>
 </details>
 
     </div>
@@ -1529,7 +1547,8 @@ def modified_bfs(graph, source, status=None):
 <center><div class="image"><img src="../images/247/graph.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p>5. Node 1 discovers 2 and 3. Popping 2 discovers 5 and 6, in that order, and popping 3 discovers 4, so the queue is <span class="math">\(5, 6, 4\)</span>. Node 5 is popped next and is adjacent to 9, so it discovers 9 before 4 can.</p>
+<p>5.</p>
+<p>Node 1 discovers 2 and 3. Popping 2 discovers 5 and 6, in that order, and popping 3 discovers 4, so the queue is <span class="math-with-punctuation"><span class="math">\(5, 6, 4\)</span>.</span> Node 5 is popped next and is adjacent to 9, so it discovers 9 before 4 can.</p>
 </details>
 
     </div>
@@ -1558,7 +1577,8 @@ def modified_bfs(graph, source, status=None):
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_9\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(u_2\)</span>. From <span class="math">\(u_4\)</span>, BFS discovers <span class="math">\(u_2\)</span> and <span class="math">\(u_5\)</span>, in that order. Then <span class="math">\(u_2\)</span> is popped first and discovers its undiscovered neighbors <span class="math">\(u_1\)</span>, <span class="math">\(u_3\)</span> and <span class="math">\(u_6\)</span>, so <span class="math">\(u_6\)</span>'s predecessor is <span class="math">\(u_2\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(u_2\)</span>.</span></p>
+<p>From <span class="math-with-punctuation"><span class="math">\(u_4\)</span>,</span> BFS discovers <span class="math">\(u_2\)</span> and <span class="math-with-punctuation"><span class="math">\(u_5\)</span>,</span> in that order. Then <span class="math">\(u_2\)</span> is popped first and discovers its undiscovered neighbors <span class="math-with-punctuation"><span class="math">\(u_1\)</span>,</span> <span class="math">\(u_3\)</span> and <span class="math-with-punctuation"><span class="math">\(u_6\)</span>,</span> so <span class="math-with-punctuation"><span class="math">\(u_6\)</span>'</span>s predecessor is <span class="math-with-punctuation"><span class="math">\(u_2\)</span>.</span></p>
 </details>
 
     </div>
@@ -1578,7 +1598,8 @@ def modified_bfs(graph, source, status=None):
 <p>You have picked a node to start on and are about to run a BFS to find shortest path distances. What is the <b>greatest shortest path</b> distance between the starting node and any other node that could possibly be found in such a graph? <b>Hint:</b> consider how large a connected component could possibly be.</p>
 <details>
     <summary>Solution</summary>
-<p>Answer: 6. The largest a connected component can be is 7 nodes (the other component must have at least one node). If those 7 nodes form a path and we start at one end, the node at the other end is at distance 6.</p>
+<p>Answer: 6.</p>
+<p>The largest a connected component can be is 7 nodes (the other component must have at least one node). If those 7 nodes form a path and we start at one end, the node at the other end is at distance 6.</p>
 </details>
 
     </div>
@@ -1594,11 +1615,11 @@ def modified_bfs(graph, source, status=None):
         <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a <i>breadth</i> first search (BFS) is run on a graph <span class="math">\(G = (V, E)\)</span>, and that node <span class="math">\(u\)</span> is distance 5 from the source while node <span class="math">\(v\)</span> is distance 3 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
+<p>Suppose a <i>breadth</i> first search (BFS) is run on a graph <span class="math-with-punctuation"><span class="math">\(G = (V, E)\)</span>,</span> and that node <span class="math">\(u\)</span> is distance 5 from the source while node <span class="math">\(v\)</span> is distance 3 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
 <details>
     <summary>Solution</summary>
 <p>False.</p>
-<p>At any moment, the nodes in the BFS queue are all at distance <span class="math">\(d\)</span> or <span class="math">\(d + 1\)</span> from the source, for some <span class="math">\(d\)</span>. So two nodes whose distances differ by 2 can never be in the queue together.</p>
+<p>At any moment, the nodes in the BFS queue are all at distance <span class="math">\(d\)</span> or <span class="math">\(d + 1\)</span> from the source, for some <span class="math-with-punctuation"><span class="math">\(d\)</span>.</span> So two nodes whose distances differ by 2 can never be in the queue together.</p>
 </details>
 
     </div>
@@ -1614,10 +1635,11 @@ def modified_bfs(graph, source, status=None):
         <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a breadth first search (BFS) is run on a graph <span class="math">\(G = (V, E)\)</span>, and that node <span class="math">\(u\)</span> is distance 6 from the source while node <span class="math">\(v\)</span> is distance 7 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
+<p>Suppose a breadth first search (BFS) is run on a graph <span class="math-with-punctuation"><span class="math">\(G = (V, E)\)</span>,</span> and that node <span class="math">\(u\)</span> is distance 6 from the source while node <span class="math">\(v\)</span> is distance 7 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
 <details>
     <summary>Solution</summary>
-<p>True. Suppose another node <span class="math">\(w\)</span> is also at distance 6 and is a neighbor of <span class="math">\(v\)</span>. If <span class="math">\(w\)</span> is popped from the queue before <span class="math">\(u\)</span>, then <span class="math">\(v\)</span> is added to the queue while <span class="math">\(u\)</span> is still waiting in it.</p>
+<p>True.</p>
+<p>Suppose another node <span class="math">\(w\)</span> is also at distance 6 and is a neighbor of <span class="math-with-punctuation"><span class="math">\(v\)</span>.</span> If <span class="math">\(w\)</span> is popped from the queue before <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> then <span class="math">\(v\)</span> is added to the queue while <span class="math">\(u\)</span> is still waiting in it.</p>
 </details>
 
     </div>
@@ -1633,10 +1655,11 @@ def modified_bfs(graph, source, status=None):
         <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a breadth first search (BFS) is run on a graph <span class="math">\(G = (V, E)\)</span>, and that node <span class="math">\(u\)</span> is <b>the only node</b> which is distance 6 from the source while node <span class="math">\(v\)</span> is distance 7 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
+<p>Suppose a breadth first search (BFS) is run on a graph <span class="math-with-punctuation"><span class="math">\(G = (V, E)\)</span>,</span> and that node <span class="math">\(u\)</span> is <b>the only node</b> which is distance 6 from the source while node <span class="math">\(v\)</span> is distance 7 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
 <details>
     <summary>Solution</summary>
-<p>False. A node at distance 7 must be discovered while BFS is exploring the neighbors of a node at distance 6, and the only such node is <span class="math">\(u\)</span>. But <span class="math">\(u\)</span> is removed from the queue before its neighbors are explored, so by the time <span class="math">\(v\)</span> is added to the queue, <span class="math">\(u\)</span> is no longer in it.</p>
+<p>False.</p>
+<p>A node at distance 7 must be discovered while BFS is exploring the neighbors of a node at distance 6, and the only such node is <span class="math-with-punctuation"><span class="math">\(u\)</span>.</span> But <span class="math">\(u\)</span> is removed from the queue before its neighbors are explored, so by the time <span class="math">\(v\)</span> is added to the queue, <span class="math">\(u\)</span> is no longer in it.</p>
 </details>
 
     </div>
@@ -1694,14 +1717,15 @@ def modified_bfs(graph, source, status=None):
         <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a breadth-first search (BFS) is performed in order to calculate a dictionary of shortest path distances, <span class="inline-code"><code>dist</code></span>, from a source node <span class="math">\(s\)</span> to all nodes reachable from <span class="math">\(s\)</span> in an undirected graph <span class="math">\(G = (V, E)\)</span>.</p>
-<p>Suppose node <span class="math">\(u\)</span> is a node in <span class="math">\(G\)</span>, and <span class="math">\(v_1\)</span> and <span class="math">\(v_2\)</span> are two neighbors of node <span class="math">\(u\)</span>. Assume that <span class="math">\(u\)</span> is reachable from <span class="math">\(s\)</span>.</p>
+<p>Suppose a breadth-first search (BFS) is performed in order to calculate a dictionary of shortest path distances, <span class="inline-code"><code>dist</code></span>, from a source node <span class="math">\(s\)</span> to all nodes reachable from <span class="math">\(s\)</span> in an undirected graph <span class="math-with-punctuation"><span class="math">\(G = (V, E)\)</span>.</span></p>
+<p>Suppose node <span class="math">\(u\)</span> is a node in <span class="math-with-punctuation"><span class="math">\(G\)</span>,</span> and <span class="math">\(v_1\)</span> and <span class="math">\(v_2\)</span> are two neighbors of node <span class="math-with-punctuation"><span class="math">\(u\)</span>.</span> Assume that <span class="math">\(u\)</span> is reachable from <span class="math-with-punctuation"><span class="math">\(s\)</span>.</span></p>
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
 <p>What is the <i>largest</i> that <span class="inline-code"><code>abs(dist[v_2] - dist[v_1])</code></span> can be?</p>
 <details>
     <summary>Solution</summary>
-<p>2. Since <span class="math">\(v_1\)</span> and <span class="math">\(v_2\)</span> are neighbors of <span class="math">\(u\)</span>, the distance to each is within 1 of <span class="inline-code"><code>dist[u]</code></span>: it's <span class="inline-code"><code>dist[u] - 1</code></span>, <span class="inline-code"><code>dist[u]</code></span> or <span class="inline-code"><code>dist[u] + 1</code></span>. So the difference is at most 2, which happens when, e.g., <span class="math">\(v_1\)</span> is <span class="math">\(u\)</span>'s predecessor (at <span class="inline-code"><code>dist[u] - 1</code></span>) and <span class="math">\(v_2\)</span> is discovered from <span class="math">\(u\)</span> (at <span class="inline-code"><code>dist[u] + 1</code></span>).</p>
+<p>2.</p>
+<p>Since <span class="math">\(v_1\)</span> and <span class="math">\(v_2\)</span> are neighbors of <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> the distance to each is within 1 of <span class="inline-code"><code>dist[u]</code></span>: it's <span class="inline-code"><code>dist[u] - 1</code></span>, <span class="inline-code"><code>dist[u]</code></span> or <span class="inline-code"><code>dist[u] + 1</code></span>. So the difference is at most 2, which happens when, e.g., <span class="math">\(v_1\)</span> is <span class="math-with-punctuation"><span class="math">\(u\)</span>'</span>s predecessor (at <span class="inline-code"><code>dist[u] - 1</code></span>) and <span class="math">\(v_2\)</span> is discovered from <span class="math">\(u\)</span> (at <span class="inline-code"><code>dist[u] + 1</code></span>).</p>
 </details>
 
 </div>
@@ -1711,7 +1735,8 @@ def modified_bfs(graph, source, status=None):
 <p>What is the <i>smallest</i> that <span class="inline-code"><code>abs(dist[v_2] - dist[v_1])</code></span> can be?</p>
 <details>
     <summary>Solution</summary>
-<p>0. This happens when <span class="math">\(v_1\)</span> and <span class="math">\(v_2\)</span> are the same distance from <span class="math">\(s\)</span>, e.g., when both are discovered from <span class="math">\(u\)</span>, so that both are at <span class="inline-code"><code>dist[u] + 1</code></span>.</p>
+<p>0.</p>
+<p>This happens when <span class="math">\(v_1\)</span> and <span class="math">\(v_2\)</span> are the same distance from <span class="math-with-punctuation"><span class="math">\(s\)</span>,</span> e.g., when both are discovered from <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> so that both are at <span class="inline-code"><code>dist[u] + 1</code></span>.</p>
 </details>
 
 </div>
@@ -1733,7 +1758,7 @@ def modified_bfs(graph, source, status=None):
 <p>What is the time complexity of computing a shortest path from a given red node to all other red nodes using BFS?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
 <p>BFS takes <span class="math">\(\Theta(V + E)\)</span> time, so we need to count the edges. Every edge joins a red node to a blue node. There are <span class="math">\(n/2\)</span> red nodes, and each has <span class="math">\(n/4\)</span> blue neighbors, so there are</p>
 <div class="math">\[
             E = \frac{n}{2} \cdot \frac{n}{4} = \frac{n^2}{8}
@@ -1755,14 +1780,15 @@ def modified_bfs(graph, source, status=None):
         <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Consider the following problem: you're given an unweighted graph <span class="math">\(G\)</span>, a source node <span class="math">\(u\)</span>, a destination node <span class="math">\(v\)</span>, and an "intermediate" node <span class="math">\(x\)</span>. Your goal is to find a shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> that passes through <span class="math">\(x\)</span>.</p>
-<p>Your friend proposes the following algorithm: run a BFS starting at node <span class="math">\(u\)</span>, then terminate it when it reaches node <span class="math">\(x\)</span>. Then start a BFS at node <span class="math">\(x\)</span>, and terminate it when it reaches node <span class="math">\(v\)</span>.</p>
+<p>Consider the following problem: you're given an unweighted graph <span class="math-with-punctuation"><span class="math">\(G\)</span>,</span> a source node <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> a destination node <span class="math-with-punctuation"><span class="math">\(v\)</span>,</span> and an "intermediate" node <span class="math-with-punctuation"><span class="math">\(x\)</span>.</span> Your goal is to find a shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> that passes through <span class="math-with-punctuation"><span class="math">\(x\)</span>.</span></p>
+<p>Your friend proposes the following algorithm: run a BFS starting at node <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> then terminate it when it reaches node <span class="math-with-punctuation"><span class="math">\(x\)</span>.</span> Then start a BFS at node <span class="math-with-punctuation"><span class="math">\(x\)</span>,</span> and terminate it when it reaches node <span class="math-with-punctuation"><span class="math">\(v\)</span>.</span></p>
 <p>Does this algorithm work?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Yes</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>Yes. Any path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> through <span class="math">\(x\)</span> consists of a path from <span class="math">\(u\)</span> to <span class="math">\(x\)</span> followed by a path from <span class="math">\(x\)</span> to <span class="math">\(v\)</span>, so its length is at least the <span class="math">\(u\)</span>-to-<span class="math">\(x\)</span> distance plus the <span class="math">\(x\)</span>-to-<span class="math">\(v\)</span> distance. The first BFS finds a shortest path from <span class="math">\(u\)</span> to <span class="math">\(x\)</span> and the second finds a shortest path from <span class="math">\(x\)</span> to <span class="math">\(v\)</span>; joining them gives a path achieving this minimum.</p>
+<p>Yes.</p>
+<p>Any path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> through <span class="math">\(x\)</span> consists of a path from <span class="math">\(u\)</span> to <span class="math">\(x\)</span> followed by a path from <span class="math">\(x\)</span> to <span class="math-with-punctuation"><span class="math">\(v\)</span>,</span> so its length is at least the <span class="math">\(u\)</span>-to-<span class="math">\(x\)</span> distance plus the <span class="math">\(x\)</span>-to-<span class="math">\(v\)</span> distance. The first BFS finds a shortest path from <span class="math">\(u\)</span> to <span class="math">\(x\)</span> and the second finds a shortest path from <span class="math">\(x\)</span> to <span class="math-with-punctuation"><span class="math">\(v\)</span>;</span> joining them gives a path achieving this minimum.</p>
 </details>
 
     </div>
@@ -1778,7 +1804,7 @@ def modified_bfs(graph, source, status=None):
         <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>The table below shows the number of nodes in a graph <span class="math">\(G\)</span> which are distance 0 from node <span class="math">\(s\)</span>, distance 1 from node <span class="math">\(s\)</span>, distance 2, etc.:</p>
+<p>The table below shows the number of nodes in a graph <span class="math">\(G\)</span> which are distance 0 from node <span class="math-with-punctuation"><span class="math">\(s\)</span>,</span> distance 1 from node <span class="math-with-punctuation"><span class="math">\(s\)</span>,</span> distance 2, etc.:</p>
 <div class="math">\[
         \begin{array}{l|cccccc}
             \text{Distance from } s & 0 & 1 & 2 & 3 & 4 & 5\\
@@ -1789,6 +1815,7 @@ def modified_bfs(graph, source, status=None):
 <p>Suppose a BFS is performed on this graph with node <span class="math">\(s\)</span> as the starting node. What is the largest number of nodes that could possibly be in the queue at any one time?</p>
 <details>
     <summary>Solution</summary>
+<p>9.</p>
 <p>Remember that the queue can only simultaneously contain nodes at two different distances (it can't contain nodes at distance 1, distance 2, and distance 3 at the same time, but it can contain nodes at distance 1 and distance 2 at the same time).</p>
 <p>The largest number of nodes that could possibly be in the queue at any one time is when we have (almost) all of the nodes from the first distance, and all of the nodes from the second distance.</p>
 <p>In this graph, let <span class="math">\(u\)</span> be a neighbor of the source, and suppose it has an edge with all nodes that are distance 2 from the source. If <span class="math">\(u\)</span> is the first node popped from the queue (after the source), then once its neighbors are added to the queue, the queue will contain all of the nodes at distance 1 except for <span class="math">\(u\)</span> (for 6 nodes in total), and all of the nodes at distance 2 (for 3 nodes in total). This gives us a total of 9 nodes in the queue.</p>
@@ -1812,7 +1839,7 @@ def modified_bfs(graph, source, status=None):
 <details>
     <summary>Solution</summary>
 <p>True.</p>
-<p>In a tree there is exactly one simple path from the source to <span class="math">\(u\)</span>. BFS and DFS both find a path from the source to <span class="math">\(u\)</span>, and it has to be this one, so both predecessors are the node right before <span class="math">\(u\)</span> on it.</p>
+<p>In a tree there is exactly one simple path from the source to <span class="math-with-punctuation"><span class="math">\(u\)</span>.</span> BFS and DFS both find a path from the source to <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> and it has to be this one, so both predecessors are the node right before <span class="math">\(u\)</span> on it.</p>
 </details>
 
     </div>
@@ -1831,7 +1858,8 @@ def modified_bfs(graph, source, status=None):
 <p>We saw in lecture that both full BFS and DFS produce trees when run on connected graphs, and <i>forests</i> when run on disconnected graphs. Suppose a full BFS and a full DFS are run on an undirected graph with three connected components. True or False: the number of trees in the BFS forest will equal the number of trees in the DFS forest.</p>
 <details>
     <summary>Solution</summary>
-<p>True. Both full BFS and full DFS start a new search once for each connected component (each search discovers exactly the nodes in the source's component), so each produces one tree per connected component: three trees in both forests.</p>
+<p>True.</p>
+<p>Both full BFS and full DFS start a new search once for each connected component (each search discovers exactly the nodes in the source's component), so each produces one tree per connected component: three trees in both forests.</p>
 </details>
 
     </div>
@@ -1847,12 +1875,12 @@ def modified_bfs(graph, source, status=None):
         <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-14.html'>lecture-14</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose that every edge in the weighted graph <span class="math">\(G\)</span> has weight <span class="math">\(-5\)</span>. True or False: breadth first search on this graph will compute a <i>longest</i> path from the source to every node in the graph (that is, a path with greatest possible total edge weight).</p>
+<p>Suppose that every edge in the weighted graph <span class="math">\(G\)</span> has weight <span class="math-with-punctuation"><span class="math">\(-5\)</span>.</span> True or False: breadth first search on this graph will compute a <i>longest</i> path from the source to every node in the graph (that is, a path with greatest possible total edge weight).</p>
 <p>You may assume that every node in the graph is reachable from the source.</p>
 <details>
     <summary>Solution</summary>
 <p>True.</p>
-<p>A path with <span class="math">\(k\)</span> edges has total weight <span class="math">\(-5k\)</span>, so the path with the greatest total weight is the one with the fewest edges. BFS finds exactly this path: the path with the fewest edges from the source to each node.</p>
+<p>A path with <span class="math">\(k\)</span> edges has total weight <span class="math-with-punctuation"><span class="math">\(-5k\)</span>,</span> so the path with the greatest total weight is the one with the fewest edges. BFS finds exactly this path: the path with the fewest edges from the source to each node.</p>
 </details>
 
     </div>

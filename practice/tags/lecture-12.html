@@ -950,6 +950,8 @@ Course Staff
 /* level the box with the first line of the choice, not the middle of a wrapped one */
 .multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+/* inline math and the punctuation right after it; see _keep_math_with_punctuation */
+.math-with-punctuation { white-space: nowrap; }
 </style>
 <h1>Problems tagged with "lecture-12"</h1>
 <style>
@@ -1001,12 +1003,13 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a breadth-first search is performed on the following tree, starting at the root node <span class="math">\(s\)</span>:</p>
+<p>Suppose a breadth-first search is performed on the following tree, starting at the root node <span class="math-with-punctuation"><span class="math">\(s\)</span>:</span></p>
 <center><div class="image"><img src="../images/235/tree.png" /></div></center>
 <p>What is the largest number of nodes that can be in the queue at any one time?</p>
 <details>
     <summary>Solution</summary>
-<p>8. The tree has 1, 2, 4 and 8 nodes at depths 0, 1, 2 and 3. Each time a node at depth 1 or 2 is popped, the queue grows by one (one node out, two children in). So it is largest right after the last depth-2 node is popped and its children are added, when it holds exactly the 8 leaves. After that, nodes are only removed.</p>
+<p>8.</p>
+<p>The tree has 1, 2, 4 and 8 nodes at depths 0, 1, 2 and 3. Each time a node at depth 1 or 2 is popped, the queue grows by one (one node out, two children in). So it is largest right after the last depth-2 node is popped and its children are added, when it holds exactly the 8 leaves. After that, nodes are only removed.</p>
 </details>
 
     </div>
@@ -1043,7 +1046,7 @@ def modified_bfs(graph, source):
                 pending.append(v)
 
         status[u] = 'visited'</code></pre>
-<p>What is the time complexity of this algorithm, in terms of <span class="math">\(|V|\)</span> and <span class="math">\(|E|\)</span>? You may assume the graph is undirected and connected, so that all nodes are reachable from the source.</p>
+<p>What is the time complexity of this algorithm, in terms of <span class="math">\(|V|\)</span> and <span class="math-with-punctuation"><span class="math">\(|E|\)</span>?</span> You may assume the graph is undirected and connected, so that all nodes are reachable from the source.</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V)\)</span></p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(E)\)</span></p></label></div>
@@ -1051,7 +1054,8 @@ def modified_bfs(graph, source):
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(V E + V)\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>Because the graph is connected, <span class="math">\(|E| \geq |V| - 1\)</span>, and so <span class="math">\(\Theta(VE)\)</span> and <span class="math">\(\Theta(VE + V)\)</span> are equivalent. Only <span class="math">\(\Theta(VE + V)\)</span> is an option so <span class="math">\(\Theta(VE + V)\)</span> is the correct answer.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(V E + V)\)</span>.</span></p>
+<p>Because the graph is connected, <span class="math-with-punctuation"><span class="math">\(|E| \geq |V| - 1\)</span>,</span> and so <span class="math">\(\Theta(VE)\)</span> and <span class="math">\(\Theta(VE + V)\)</span> are equivalent. Only <span class="math">\(\Theta(VE + V)\)</span> is an option so <span class="math">\(\Theta(VE + V)\)</span> is the correct answer.</p>
 </details>
 
     </div>
@@ -1071,7 +1075,8 @@ def modified_bfs(graph, source):
 <center><div class="image"><img src="../images/245/graph.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(d\)</span>. Node <span class="math">\(a\)</span> discovers <span class="math">\(b\)</span>, <span class="math">\(c\)</span> and <span class="math">\(d\)</span>, so the queue is <span class="math">\(b, c, d\)</span>. Popping <span class="math">\(b\)</span> discovers <span class="math">\(f\)</span>, and popping <span class="math">\(c\)</span> discovers nothing new. Then <span class="math">\(d\)</span> is popped before <span class="math">\(e\)</span> and <span class="math">\(f\)</span>, and <span class="math">\(h\)</span> is still undiscovered, so <span class="math">\(d\)</span> discovers it.</p>
+<p><span class="math-with-punctuation"><span class="math">\(d\)</span>.</span></p>
+<p>Node <span class="math">\(a\)</span> discovers <span class="math-with-punctuation"><span class="math">\(b\)</span>,</span> <span class="math">\(c\)</span> and <span class="math-with-punctuation"><span class="math">\(d\)</span>,</span> so the queue is <span class="math-with-punctuation"><span class="math">\(b, c, d\)</span>.</span> Popping <span class="math">\(b\)</span> discovers <span class="math-with-punctuation"><span class="math">\(f\)</span>,</span> and popping <span class="math">\(c\)</span> discovers nothing new. Then <span class="math">\(d\)</span> is popped before <span class="math">\(e\)</span> and <span class="math-with-punctuation"><span class="math">\(f\)</span>,</span> and <span class="math">\(h\)</span> is still undiscovered, so <span class="math">\(d\)</span> discovers it.</p>
 </details>
 
     </div>
@@ -1091,7 +1096,8 @@ def modified_bfs(graph, source):
 <center><div class="image"><img src="../images/246/fig/g2.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p>5. Node 1 discovers 2 and 3. Popping 2 discovers 5 and 6, in that order, and popping 3 discovers 4, so the queue is <span class="math">\(5, 6, 4\)</span>. Node 5 is popped next and is adjacent to 8, so it discovers 8 before 6 can.</p>
+<p>5.</p>
+<p>Node 1 discovers 2 and 3. Popping 2 discovers 5 and 6, in that order, and popping 3 discovers 4, so the queue is <span class="math-with-punctuation"><span class="math">\(5, 6, 4\)</span>.</span> Node 5 is popped next and is adjacent to 8, so it discovers 8 before 6 can.</p>
 </details>
 
     </div>
@@ -1111,7 +1117,8 @@ def modified_bfs(graph, source):
 <center><div class="image"><img src="../images/247/graph.png" /></div></center>
 <details>
     <summary>Solution</summary>
-<p>5. Node 1 discovers 2 and 3. Popping 2 discovers 5 and 6, in that order, and popping 3 discovers 4, so the queue is <span class="math">\(5, 6, 4\)</span>. Node 5 is popped next and is adjacent to 9, so it discovers 9 before 4 can.</p>
+<p>5.</p>
+<p>Node 1 discovers 2 and 3. Popping 2 discovers 5 and 6, in that order, and popping 3 discovers 4, so the queue is <span class="math-with-punctuation"><span class="math">\(5, 6, 4\)</span>.</span> Node 5 is popped next and is adjacent to 9, so it discovers 9 before 4 can.</p>
 </details>
 
     </div>
@@ -1140,7 +1147,8 @@ def modified_bfs(graph, source):
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_9\)</span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(u_2\)</span>. From <span class="math">\(u_4\)</span>, BFS discovers <span class="math">\(u_2\)</span> and <span class="math">\(u_5\)</span>, in that order. Then <span class="math">\(u_2\)</span> is popped first and discovers its undiscovered neighbors <span class="math">\(u_1\)</span>, <span class="math">\(u_3\)</span> and <span class="math">\(u_6\)</span>, so <span class="math">\(u_6\)</span>'s predecessor is <span class="math">\(u_2\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(u_2\)</span>.</span></p>
+<p>From <span class="math-with-punctuation"><span class="math">\(u_4\)</span>,</span> BFS discovers <span class="math">\(u_2\)</span> and <span class="math-with-punctuation"><span class="math">\(u_5\)</span>,</span> in that order. Then <span class="math">\(u_2\)</span> is popped first and discovers its undiscovered neighbors <span class="math-with-punctuation"><span class="math">\(u_1\)</span>,</span> <span class="math">\(u_3\)</span> and <span class="math-with-punctuation"><span class="math">\(u_6\)</span>,</span> so <span class="math-with-punctuation"><span class="math">\(u_6\)</span>'</span>s predecessor is <span class="math-with-punctuation"><span class="math">\(u_2\)</span>.</span></p>
 </details>
 
     </div>
@@ -1160,7 +1168,8 @@ def modified_bfs(graph, source):
 <p>You have picked a node to start on and are about to run a BFS to find shortest path distances. What is the <b>greatest shortest path</b> distance between the starting node and any other node that could possibly be found in such a graph? <b>Hint:</b> consider how large a connected component could possibly be.</p>
 <details>
     <summary>Solution</summary>
-<p>Answer: 6. The largest a connected component can be is 7 nodes (the other component must have at least one node). If those 7 nodes form a path and we start at one end, the node at the other end is at distance 6.</p>
+<p>Answer: 6.</p>
+<p>The largest a connected component can be is 7 nodes (the other component must have at least one node). If those 7 nodes form a path and we start at one end, the node at the other end is at distance 6.</p>
 </details>
 
     </div>
@@ -1176,11 +1185,11 @@ def modified_bfs(graph, source):
         <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a <i>breadth</i> first search (BFS) is run on a graph <span class="math">\(G = (V, E)\)</span>, and that node <span class="math">\(u\)</span> is distance 5 from the source while node <span class="math">\(v\)</span> is distance 3 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
+<p>Suppose a <i>breadth</i> first search (BFS) is run on a graph <span class="math-with-punctuation"><span class="math">\(G = (V, E)\)</span>,</span> and that node <span class="math">\(u\)</span> is distance 5 from the source while node <span class="math">\(v\)</span> is distance 3 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
 <details>
     <summary>Solution</summary>
 <p>False.</p>
-<p>At any moment, the nodes in the BFS queue are all at distance <span class="math">\(d\)</span> or <span class="math">\(d + 1\)</span> from the source, for some <span class="math">\(d\)</span>. So two nodes whose distances differ by 2 can never be in the queue together.</p>
+<p>At any moment, the nodes in the BFS queue are all at distance <span class="math">\(d\)</span> or <span class="math">\(d + 1\)</span> from the source, for some <span class="math-with-punctuation"><span class="math">\(d\)</span>.</span> So two nodes whose distances differ by 2 can never be in the queue together.</p>
 </details>
 
     </div>
@@ -1196,10 +1205,11 @@ def modified_bfs(graph, source):
         <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a breadth first search (BFS) is run on a graph <span class="math">\(G = (V, E)\)</span>, and that node <span class="math">\(u\)</span> is distance 6 from the source while node <span class="math">\(v\)</span> is distance 7 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
+<p>Suppose a breadth first search (BFS) is run on a graph <span class="math-with-punctuation"><span class="math">\(G = (V, E)\)</span>,</span> and that node <span class="math">\(u\)</span> is distance 6 from the source while node <span class="math">\(v\)</span> is distance 7 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
 <details>
     <summary>Solution</summary>
-<p>True. Suppose another node <span class="math">\(w\)</span> is also at distance 6 and is a neighbor of <span class="math">\(v\)</span>. If <span class="math">\(w\)</span> is popped from the queue before <span class="math">\(u\)</span>, then <span class="math">\(v\)</span> is added to the queue while <span class="math">\(u\)</span> is still waiting in it.</p>
+<p>True.</p>
+<p>Suppose another node <span class="math">\(w\)</span> is also at distance 6 and is a neighbor of <span class="math-with-punctuation"><span class="math">\(v\)</span>.</span> If <span class="math">\(w\)</span> is popped from the queue before <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> then <span class="math">\(v\)</span> is added to the queue while <span class="math">\(u\)</span> is still waiting in it.</p>
 </details>
 
     </div>
@@ -1215,10 +1225,11 @@ def modified_bfs(graph, source):
         <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a breadth first search (BFS) is run on a graph <span class="math">\(G = (V, E)\)</span>, and that node <span class="math">\(u\)</span> is <b>the only node</b> which is distance 6 from the source while node <span class="math">\(v\)</span> is distance 7 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
+<p>Suppose a breadth first search (BFS) is run on a graph <span class="math-with-punctuation"><span class="math">\(G = (V, E)\)</span>,</span> and that node <span class="math">\(u\)</span> is <b>the only node</b> which is distance 6 from the source while node <span class="math">\(v\)</span> is distance 7 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
 <details>
     <summary>Solution</summary>
-<p>False. A node at distance 7 must be discovered while BFS is exploring the neighbors of a node at distance 6, and the only such node is <span class="math">\(u\)</span>. But <span class="math">\(u\)</span> is removed from the queue before its neighbors are explored, so by the time <span class="math">\(v\)</span> is added to the queue, <span class="math">\(u\)</span> is no longer in it.</p>
+<p>False.</p>
+<p>A node at distance 7 must be discovered while BFS is exploring the neighbors of a node at distance 6, and the only such node is <span class="math-with-punctuation"><span class="math">\(u\)</span>.</span> But <span class="math">\(u\)</span> is removed from the queue before its neighbors are explored, so by the time <span class="math">\(v\)</span> is added to the queue, <span class="math">\(u\)</span> is no longer in it.</p>
 </details>
 
     </div>
@@ -1276,14 +1287,15 @@ def modified_bfs(graph, source):
         <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose a breadth-first search (BFS) is performed in order to calculate a dictionary of shortest path distances, <span class="inline-code"><code>dist</code></span>, from a source node <span class="math">\(s\)</span> to all nodes reachable from <span class="math">\(s\)</span> in an undirected graph <span class="math">\(G = (V, E)\)</span>.</p>
-<p>Suppose node <span class="math">\(u\)</span> is a node in <span class="math">\(G\)</span>, and <span class="math">\(v_1\)</span> and <span class="math">\(v_2\)</span> are two neighbors of node <span class="math">\(u\)</span>. Assume that <span class="math">\(u\)</span> is reachable from <span class="math">\(s\)</span>.</p>
+<p>Suppose a breadth-first search (BFS) is performed in order to calculate a dictionary of shortest path distances, <span class="inline-code"><code>dist</code></span>, from a source node <span class="math">\(s\)</span> to all nodes reachable from <span class="math">\(s\)</span> in an undirected graph <span class="math-with-punctuation"><span class="math">\(G = (V, E)\)</span>.</span></p>
+<p>Suppose node <span class="math">\(u\)</span> is a node in <span class="math-with-punctuation"><span class="math">\(G\)</span>,</span> and <span class="math">\(v_1\)</span> and <span class="math">\(v_2\)</span> are two neighbors of node <span class="math-with-punctuation"><span class="math">\(u\)</span>.</span> Assume that <span class="math">\(u\)</span> is reachable from <span class="math-with-punctuation"><span class="math">\(s\)</span>.</span></p>
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
 <p>What is the <i>largest</i> that <span class="inline-code"><code>abs(dist[v_2] - dist[v_1])</code></span> can be?</p>
 <details>
     <summary>Solution</summary>
-<p>2. Since <span class="math">\(v_1\)</span> and <span class="math">\(v_2\)</span> are neighbors of <span class="math">\(u\)</span>, the distance to each is within 1 of <span class="inline-code"><code>dist[u]</code></span>: it's <span class="inline-code"><code>dist[u] - 1</code></span>, <span class="inline-code"><code>dist[u]</code></span> or <span class="inline-code"><code>dist[u] + 1</code></span>. So the difference is at most 2, which happens when, e.g., <span class="math">\(v_1\)</span> is <span class="math">\(u\)</span>'s predecessor (at <span class="inline-code"><code>dist[u] - 1</code></span>) and <span class="math">\(v_2\)</span> is discovered from <span class="math">\(u\)</span> (at <span class="inline-code"><code>dist[u] + 1</code></span>).</p>
+<p>2.</p>
+<p>Since <span class="math">\(v_1\)</span> and <span class="math">\(v_2\)</span> are neighbors of <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> the distance to each is within 1 of <span class="inline-code"><code>dist[u]</code></span>: it's <span class="inline-code"><code>dist[u] - 1</code></span>, <span class="inline-code"><code>dist[u]</code></span> or <span class="inline-code"><code>dist[u] + 1</code></span>. So the difference is at most 2, which happens when, e.g., <span class="math">\(v_1\)</span> is <span class="math-with-punctuation"><span class="math">\(u\)</span>'</span>s predecessor (at <span class="inline-code"><code>dist[u] - 1</code></span>) and <span class="math">\(v_2\)</span> is discovered from <span class="math">\(u\)</span> (at <span class="inline-code"><code>dist[u] + 1</code></span>).</p>
 </details>
 
 </div>
@@ -1293,7 +1305,8 @@ def modified_bfs(graph, source):
 <p>What is the <i>smallest</i> that <span class="inline-code"><code>abs(dist[v_2] - dist[v_1])</code></span> can be?</p>
 <details>
     <summary>Solution</summary>
-<p>0. This happens when <span class="math">\(v_1\)</span> and <span class="math">\(v_2\)</span> are the same distance from <span class="math">\(s\)</span>, e.g., when both are discovered from <span class="math">\(u\)</span>, so that both are at <span class="inline-code"><code>dist[u] + 1</code></span>.</p>
+<p>0.</p>
+<p>This happens when <span class="math">\(v_1\)</span> and <span class="math">\(v_2\)</span> are the same distance from <span class="math-with-punctuation"><span class="math">\(s\)</span>,</span> e.g., when both are discovered from <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> so that both are at <span class="inline-code"><code>dist[u] + 1</code></span>.</p>
 </details>
 
 </div>
@@ -1315,7 +1328,7 @@ def modified_bfs(graph, source):
 <p>What is the time complexity of computing a shortest path from a given red node to all other red nodes using BFS?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
 <p>BFS takes <span class="math">\(\Theta(V + E)\)</span> time, so we need to count the edges. Every edge joins a red node to a blue node. There are <span class="math">\(n/2\)</span> red nodes, and each has <span class="math">\(n/4\)</span> blue neighbors, so there are</p>
 <div class="math">\[
             E = \frac{n}{2} \cdot \frac{n}{4} = \frac{n^2}{8}
@@ -1337,14 +1350,15 @@ def modified_bfs(graph, source):
         <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Consider the following problem: you're given an unweighted graph <span class="math">\(G\)</span>, a source node <span class="math">\(u\)</span>, a destination node <span class="math">\(v\)</span>, and an "intermediate" node <span class="math">\(x\)</span>. Your goal is to find a shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> that passes through <span class="math">\(x\)</span>.</p>
-<p>Your friend proposes the following algorithm: run a BFS starting at node <span class="math">\(u\)</span>, then terminate it when it reaches node <span class="math">\(x\)</span>. Then start a BFS at node <span class="math">\(x\)</span>, and terminate it when it reaches node <span class="math">\(v\)</span>.</p>
+<p>Consider the following problem: you're given an unweighted graph <span class="math-with-punctuation"><span class="math">\(G\)</span>,</span> a source node <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> a destination node <span class="math-with-punctuation"><span class="math">\(v\)</span>,</span> and an "intermediate" node <span class="math-with-punctuation"><span class="math">\(x\)</span>.</span> Your goal is to find a shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> that passes through <span class="math-with-punctuation"><span class="math">\(x\)</span>.</span></p>
+<p>Your friend proposes the following algorithm: run a BFS starting at node <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> then terminate it when it reaches node <span class="math-with-punctuation"><span class="math">\(x\)</span>.</span> Then start a BFS at node <span class="math-with-punctuation"><span class="math">\(x\)</span>,</span> and terminate it when it reaches node <span class="math-with-punctuation"><span class="math">\(v\)</span>.</span></p>
 <p>Does this algorithm work?</p>
 <div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Yes</p></label></div>
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>Yes. Any path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> through <span class="math">\(x\)</span> consists of a path from <span class="math">\(u\)</span> to <span class="math">\(x\)</span> followed by a path from <span class="math">\(x\)</span> to <span class="math">\(v\)</span>, so its length is at least the <span class="math">\(u\)</span>-to-<span class="math">\(x\)</span> distance plus the <span class="math">\(x\)</span>-to-<span class="math">\(v\)</span> distance. The first BFS finds a shortest path from <span class="math">\(u\)</span> to <span class="math">\(x\)</span> and the second finds a shortest path from <span class="math">\(x\)</span> to <span class="math">\(v\)</span>; joining them gives a path achieving this minimum.</p>
+<p>Yes.</p>
+<p>Any path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> through <span class="math">\(x\)</span> consists of a path from <span class="math">\(u\)</span> to <span class="math">\(x\)</span> followed by a path from <span class="math">\(x\)</span> to <span class="math-with-punctuation"><span class="math">\(v\)</span>,</span> so its length is at least the <span class="math">\(u\)</span>-to-<span class="math">\(x\)</span> distance plus the <span class="math">\(x\)</span>-to-<span class="math">\(v\)</span> distance. The first BFS finds a shortest path from <span class="math">\(u\)</span> to <span class="math">\(x\)</span> and the second finds a shortest path from <span class="math">\(x\)</span> to <span class="math-with-punctuation"><span class="math">\(v\)</span>;</span> joining them gives a path achieving this minimum.</p>
 </details>
 
     </div>
@@ -1360,12 +1374,12 @@ def modified_bfs(graph, source):
         <p>Tags: <a href='../tags/lecture-12.html'>lecture-12</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(G\)</span> be an undirected graph, and let <span class="math">\(u, v,\)</span> and <span class="math">\(z\)</span> be three nodes in the graph. Consider the problem of finding a shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> which passes through node <span class="math">\(z\)</span>.</p>
+<p>Let <span class="math">\(G\)</span> be an undirected graph, and let <span class="math">\(u, v,\)</span> and <span class="math">\(z\)</span> be three nodes in the graph. Consider the problem of finding a shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> which passes through node <span class="math-with-punctuation"><span class="math">\(z\)</span>.</span></p>
 <p>True or False: a shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> passing through <span class="math">\(z\)</span> may include node <span class="math">\(u\)</span> twice.</p>
 <details>
     <summary>Solution</summary>
 <p>True.</p>
-<p>Consider the “chain” graph A - B - C - D - E, and take <span class="math">\(u = C\)</span>, <span class="math">\(z = B\)</span> and <span class="math">\(v = E\)</span>. The shortest path from C to E that passes through B is C - B - C - D - E. It passes through C twice.</p>
+<p>Consider the “chain” graph A - B - C - D - E, and take <span class="math-with-punctuation"><span class="math">\(u = C\)</span>,</span> <span class="math">\(z = B\)</span> and <span class="math-with-punctuation"><span class="math">\(v = E\)</span>.</span> The shortest path from C to E that passes through B is C - B - C - D - E. It passes through C twice.</p>
 </details>
 
     </div>
@@ -1381,7 +1395,7 @@ def modified_bfs(graph, source):
         <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/lecture-12.html'>lecture-12</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>The table below shows the number of nodes in a graph <span class="math">\(G\)</span> which are distance 0 from node <span class="math">\(s\)</span>, distance 1 from node <span class="math">\(s\)</span>, distance 2, etc.:</p>
+<p>The table below shows the number of nodes in a graph <span class="math">\(G\)</span> which are distance 0 from node <span class="math-with-punctuation"><span class="math">\(s\)</span>,</span> distance 1 from node <span class="math-with-punctuation"><span class="math">\(s\)</span>,</span> distance 2, etc.:</p>
 <div class="math">\[
         \begin{array}{l|cccccc}
             \text{Distance from } s & 0 & 1 & 2 & 3 & 4 & 5\\
@@ -1392,6 +1406,7 @@ def modified_bfs(graph, source):
 <p>Suppose a BFS is performed on this graph with node <span class="math">\(s\)</span> as the starting node. What is the largest number of nodes that could possibly be in the queue at any one time?</p>
 <details>
     <summary>Solution</summary>
+<p>9.</p>
 <p>Remember that the queue can only simultaneously contain nodes at two different distances (it can't contain nodes at distance 1, distance 2, and distance 3 at the same time, but it can contain nodes at distance 1 and distance 2 at the same time).</p>
 <p>The largest number of nodes that could possibly be in the queue at any one time is when we have (almost) all of the nodes from the first distance, and all of the nodes from the second distance.</p>
 <p>In this graph, let <span class="math">\(u\)</span> be a neighbor of the source, and suppose it has an edge with all nodes that are distance 2 from the source. If <span class="math">\(u\)</span> is the first node popped from the queue (after the source), then once its neighbors are added to the queue, the queue will contain all of the nodes at distance 1 except for <span class="math">\(u\)</span> (for 6 nodes in total), and all of the nodes at distance 2 (for 3 nodes in total). This gives us a total of 9 nodes in the queue.</p>

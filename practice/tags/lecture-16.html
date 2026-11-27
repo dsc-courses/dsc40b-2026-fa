@@ -950,6 +950,8 @@ Course Staff
 /* level the box with the first line of the choice, not the middle of a wrapped one */
 .multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+/* inline math and the punctuation right after it; see _keep_math_with_punctuation */
+.math-with-punctuation { white-space: nowrap; }
 </style>
 <h1>Problems tagged with "lecture-16"</h1>
 <style>
@@ -1008,7 +1010,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>The number of edges can vary between different minimum spanning trees.</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>Answer: 8. Every spanning tree of a graph with <span class="math">\(|V|\)</span> nodes is a tree on those <span class="math">\(|V|\)</span> nodes, so it has exactly <span class="math">\(|V| - 1 = 8\)</span> edges.</p>
+<p>Answer: 8.</p>
+<p>Every spanning tree of a graph with <span class="math">\(|V|\)</span> nodes is a tree on those <span class="math">\(|V|\)</span> nodes, so it has exactly <span class="math">\(|V| - 1 = 8\)</span> edges.</p>
 </details>
 
     </div>
@@ -1024,11 +1027,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/graph theory.html'>graph theory</a>, <a href='../tags/lecture-16.html'>lecture-16</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Let <span class="math">\(G = (V,E)\)</span> be a connected, undirected graph with <span class="math">\(|E| = |V| - 1\)</span>. Suppose <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are both nodes in <span class="math">\(G\)</span>. True or False: there can be more than one simple path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span>.</p>
+<p>Let <span class="math">\(G = (V,E)\)</span> be a connected, undirected graph with <span class="math-with-punctuation"><span class="math">\(|E| = |V| - 1\)</span>.</span> Suppose <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are both nodes in <span class="math-with-punctuation"><span class="math">\(G\)</span>.</span> True or False: there can be more than one simple path from <span class="math">\(u\)</span> to <span class="math-with-punctuation"><span class="math">\(v\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
 <p>False.</p>
-<p>A connected graph with <span class="math">\(|E| = |V| - 1\)</span> is a tree, so it has no cycles. If there were two different simple paths from <span class="math">\(u\)</span> to <span class="math">\(v\)</span>, we could put them together to get a cycle.</p>
+<p>A connected graph with <span class="math">\(|E| = |V| - 1\)</span> is a tree, so it has no cycles. If there were two different simple paths from <span class="math">\(u\)</span> to <span class="math-with-punctuation"><span class="math">\(v\)</span>,</span> we could put them together to get a cycle.</p>
 </details>
 
     </div>
@@ -1049,7 +1052,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>True or false: the edge <span class="math">\((a, b)\)</span> is in every minimum spanning tree of the graph.</p>
 <details>
     <summary>Solution</summary>
-<p>True. Node <span class="math">\(b\)</span> has only two edges: <span class="math">\((a, b)\)</span> with weight 5 and <span class="math">\((b, d)\)</span> with weight 7. A spanning tree must include at least one of them. If a spanning tree used <span class="math">\((b, d)\)</span> but not <span class="math">\((a, b)\)</span>, adding <span class="math">\((a, b)\)</span> would create a cycle containing <span class="math">\((b, d)\)</span>; removing <span class="math">\((b, d)\)</span> gives another spanning tree with smaller total weight. So every minimum spanning tree contains <span class="math">\((a, b)\)</span>.</p>
+<p>True.</p>
+<p>Node <span class="math">\(b\)</span> has only two edges: <span class="math">\((a, b)\)</span> with weight 5 and <span class="math">\((b, d)\)</span> with weight 7. A spanning tree must include at least one of them. If a spanning tree used <span class="math">\((b, d)\)</span> but not <span class="math-with-punctuation"><span class="math">\((a, b)\)</span>,</span> adding <span class="math">\((a, b)\)</span> would create a cycle containing <span class="math-with-punctuation"><span class="math">\((b, d)\)</span>;</span> removing <span class="math">\((b, d)\)</span> gives another spanning tree with smaller total weight. So every minimum spanning tree contains <span class="math-with-punctuation"><span class="math">\((a, b)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1065,10 +1069,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/lecture-16.html'>lecture-16</a>, <a href='../tags/minimum spanning trees.html'>minimum spanning trees</a>, <a href='../tags/shortest paths.html'>shortest paths</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose there is a unique shortest path <span class="math">\(p\)</span> between nodes <span class="math">\(u\)</span> and <span class="math">\(v\)</span> in a graph <span class="math">\(G\)</span> and that there is a unique minimum spanning tree <span class="math">\(T\)</span> of <span class="math">\(G\)</span>. True or false: the path between <span class="math">\(u\)</span> and <span class="math">\(v\)</span> in the MST <span class="math">\(T\)</span> must be the same as the path <span class="math">\(p\)</span>.</p>
+<p>Suppose there is a unique shortest path <span class="math">\(p\)</span> between nodes <span class="math">\(u\)</span> and <span class="math">\(v\)</span> in a graph <span class="math">\(G\)</span> and that there is a unique minimum spanning tree <span class="math">\(T\)</span> of <span class="math-with-punctuation"><span class="math">\(G\)</span>.</span> True or false: the path between <span class="math">\(u\)</span> and <span class="math">\(v\)</span> in the MST <span class="math">\(T\)</span> must be the same as the path <span class="math-with-punctuation"><span class="math">\(p\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
-<p>False. Consider a triangle on nodes <span class="math">\(u\)</span>, <span class="math">\(v\)</span>, and <span class="math">\(x\)</span> with edge weights <span class="math">\(w(u, v) = 3\)</span>, <span class="math">\(w(u, x) = 2\)</span>, and <span class="math">\(w(x, v) = 2\)</span>. The unique MST uses edges <span class="math">\((u, x)\)</span> and <span class="math">\((x, v)\)</span>, so the path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> in the MST has length 4. But the unique shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> is the single edge <span class="math">\((u, v)\)</span>, with length 3.</p>
+<p>False.</p>
+<p>Consider a triangle on nodes <span class="math-with-punctuation"><span class="math">\(u\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(v\)</span>,</span> and <span class="math">\(x\)</span> with edge weights <span class="math-with-punctuation"><span class="math">\(w(u, v) = 3\)</span>,</span> <span class="math-with-punctuation"><span class="math">\(w(u, x) = 2\)</span>,</span> and <span class="math-with-punctuation"><span class="math">\(w(x, v) = 2\)</span>.</span> The unique MST uses edges <span class="math">\((u, x)\)</span> and <span class="math-with-punctuation"><span class="math">\((x, v)\)</span>,</span> so the path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> in the MST has length 4. But the unique shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> is the single edge <span class="math-with-punctuation"><span class="math">\((u, v)\)</span>,</span> with length 3.</p>
 </details>
 
     </div>

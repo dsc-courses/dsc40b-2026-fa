@@ -950,6 +950,8 @@ Course Staff
 /* level the box with the first line of the choice, not the middle of a wrapped one */
 .multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+/* inline math and the punctuation right after it; see _keep_math_with_punctuation */
+.math-with-punctuation { white-space: nowrap; }
 </style>
 <h1>Problems tagged with "quickselect"</h1>
 <style>
@@ -1055,7 +1057,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[0, 10, 15, 18, 20, 30, 29, 19]</code></span></p></label></div></div>
 <details>
     <summary>Solution</summary>
-<p><span class="inline-code"><code>[15, 25, 35, 45, 55]</code></span>, <span class="inline-code"><code>[6, 5, 1, 8, 3, 15]</code></span>, and <span class="inline-code"><code>[0, 10, 15, 18, 20, 30, 29, 19]</code></span>. After a partition, the pivot is in its final sorted position: everything to its left is smaller and everything to its right is at least as large. So an array could have been partitioned only if some element has this property. In <span class="inline-code"><code>[15, 25, 35, 45, 55]</code></span> every element does; in <span class="inline-code"><code>[6, 5, 1, 8, 3, 15]</code></span> the 15 does; and in <span class="inline-code"><code>[0, 10, 15, 18, 20, 30, 29, 19]</code></span> the 0 (and the 10, 15, and 18) does. None of the other arrays has such an element.</p>
+<p><span class="inline-code"><code>[15, 25, 35, 45, 55]</code></span>, <span class="inline-code"><code>[6, 5, 1, 8, 3, 15]</code></span>, and <span class="inline-code"><code>[0, 10, 15, 18, 20, 30, 29, 19]</code></span>.</p>
+<p>After a partition, the pivot is in its final sorted position: everything to its left is smaller and everything to its right is at least as large. So an array could have been partitioned only if some element has this property. In <span class="inline-code"><code>[15, 25, 35, 45, 55]</code></span> every element does; in <span class="inline-code"><code>[6, 5, 1, 8, 3, 15]</code></span> the 15 does; and in <span class="inline-code"><code>[0, 10, 15, 18, 20, 30, 29, 19]</code></span> the 0 (and the 10, 15, and 18) does. None of the other arrays has such an element.</p>
 </details>
 
     </div>
@@ -1088,20 +1091,22 @@ def quickselect(arr, k, start, stop):
 <p>Suppose <span class="inline-code"><code>quickselect(arr, 3, 0, 10)</code></span> is called with <span class="inline-code"><code>arr = [5, 2, 8, 3, 1, 6, 9, 7, 4, 0]</code></span>.</p>
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
-<p>What is the <b>fewest</b> number of times that “hello world!” can possibly be printed? Your answer should be a number, and not in terms of <span class="math">\(n\)</span>.</p>
+<p>What is the <b>fewest</b> number of times that “hello world!” can possibly be printed? Your answer should be a number, and not in terms of <span class="math-with-punctuation"><span class="math">\(n\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
-<p>1. If the first pivot chosen is the 3rd smallest element (the 2), then after partitioning <span class="inline-code"><code>pivot_order</code></span> equals 3, and the function returns without recursing.</p>
+<p>1.</p>
+<p>If the first pivot chosen is the 3rd smallest element (the 2), then after partitioning <span class="inline-code"><code>pivot_order</code></span> equals 3, and the function returns without recursing.</p>
 </details>
 
 </div>
 
 <div class="subproblem">
     <h3 class="subproblem-id">Part 2)</h3>
-<p>What is the <b>greatest</b> number of times that “hello world!” can possibly be printed? Your answer should be a number, and not in terms of <span class="math">\(n\)</span>.</p>
+<p>What is the <b>greatest</b> number of times that “hello world!” can possibly be printed? Your answer should be a number, and not in terms of <span class="math-with-punctuation"><span class="math">\(n\)</span>.</span></p>
 <details>
     <summary>Solution</summary>
-<p>10. Each call removes at least the pivot from the range it recurses on, so the range shrinks by at least one per call, and a call on a range of size 1 must pick the target. The most calls happen when every pivot is the smallest or largest element of its range but isn't the target (e.g., the pivots are 9, 8, 7, 6, 5, 4, 3, 0, 1 and finally 2), so the range shrinks by exactly one each time, giving one call for each of the sizes <span class="math">\(10, 9, \ldots, 1\)</span>.</p>
+<p>10.</p>
+<p>Each call removes at least the pivot from the range it recurses on, so the range shrinks by at least one per call, and a call on a range of size 1 must pick the target. The most calls happen when every pivot is the smallest or largest element of its range but isn't the target (e.g., the pivots are 9, 8, 7, 6, 5, 4, 3, 0, 1 and finally 2), so the range shrinks by exactly one each time, giving one call for each of the sizes <span class="math-with-punctuation"><span class="math">\(10, 9, \ldots, 1\)</span>.</span></p>
 </details>
 
 </div>
@@ -1126,7 +1131,8 @@ def quickselect(arr, k, start, stop):
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>[5, 2, 13, 45, 14, 14, 34, 33]</code></span></p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p><span class="inline-code"><code>[10, 5, 20, 45, 21, 52, 67, 54]</code></span>. The two pivots must be the 3rd and 6th smallest elements, so they must sit at indices 2 and 5 with everything to their left smaller and everything to their right larger. In this array, 20 (index 2) and 52 (index 5) both satisfy this. In the first array, 4 has 6 to its left; in the third, 2 has 3 to its left; and in the fourth, 14 at index 5 has 45 to its left.</p>
+<p><span class="inline-code"><code>[10, 5, 20, 45, 21, 52, 67, 54]</code></span>.</p>
+<p>The two pivots must be the 3rd and 6th smallest elements, so they must sit at indices 2 and 5 with everything to their left smaller and everything to their right larger. In this array, 20 (index 2) and 52 (index 5) both satisfy this. In the first array, 4 has 6 to its left; in the third, 2 has 3 to its left; and in the fourth, 14 at index 5 has 45 to its left.</p>
 </details>
 
     </div>
@@ -1151,7 +1157,8 @@ def quickselect(arr, k, start, stop):
 <div class="choice"><label><input name="choice" class="choice" type="radio" /><p>10</p></label></div></form></div>
 <details>
     <summary>Solution</summary>
-<p>Answer: 3. For example, take <span class="inline-code"><code>arr = [10, 5, 9, 8, 7, 6, 4, 3, 2, 1, 0]</code></span>, whose median is 5. The first call uses 10 (the maximum) as the pivot; <span class="inline-code"><code>in_place_partition</code></span> moves it to the end, giving <span class="inline-code"><code>[0, 5, 9, 8, 7, 6, 4, 3, 2, 1, 10]</code></span>, so we recurse on indices 0 through 9. The second call uses 0 (the minimum) as the pivot, which stays at index 0, so we recurse on indices 1 through 9. The third call uses the median, 5, as the pivot, and after partitioning it lands at index 5, so it is returned.</p>
+<p>Answer: 3.</p>
+<p>For example, take <span class="inline-code"><code>arr = [10, 5, 9, 8, 7, 6, 4, 3, 2, 1, 0]</code></span>, whose median is 5. The first call uses 10 (the maximum) as the pivot; <span class="inline-code"><code>in_place_partition</code></span> moves it to the end, giving <span class="inline-code"><code>[0, 5, 9, 8, 7, 6, 4, 3, 2, 1, 10]</code></span>, so we recurse on indices 0 through 9. The second call uses 0 (the minimum) as the pivot, which stays at index 0, so we recurse on indices 1 through 9. The third call uses the median, 5, as the pivot, and after partitioning it lands at index 5, so it is returned.</p>
 </details>
 
     </div>

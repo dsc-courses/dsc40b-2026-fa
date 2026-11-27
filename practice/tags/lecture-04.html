@@ -950,6 +950,8 @@ Course Staff
 /* level the box with the first line of the choice, not the middle of a wrapped one */
 .multiple-choices .choice input, .multiple-select .choice input { flex: none; margin: 0; }
 .multiple-choices .choice p, .multiple-select .choice p { margin: 0; }
+/* inline math and the punctuation right after it; see _keep_math_with_punctuation */
+.math-with-punctuation { white-space: nowrap; }
 </style>
 <h1>Problems tagged with "lecture-04"</h1>
 <style>
@@ -1025,7 +1027,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>True or False: there must exist an input of size 100 on which Algorithm A takes less time than Algorithm B.</p>
 <details>
     <summary>Solution</summary>
-<p>False. Algorithm A could have really large constants. For example, it could take <span class="math">\(1{,}000{,}000\, n^2\)</span> seconds to run, while algorithm B takes <span class="math">\(0.0001\, n^3\)</span> seconds to run. Algorithm B will still be better for <span class="math">\(n = 100\)</span>.</p>
+<p>False.</p>
+<p>Algorithm A could have really large constants. For example, it could take <span class="math">\(1{,}000{,}000\, n^2\)</span> seconds to run, while algorithm B takes <span class="math">\(0.0001\, n^3\)</span> seconds to run. Algorithm B will still be better for <span class="math-with-punctuation"><span class="math">\(n = 100\)</span>.</span></p>
 </details>
 
     </div>
@@ -1044,7 +1047,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>What is a tight theoretical lower bound for the problem of finding a mode of a collection of <span class="math">\(n\)</span> numbers?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. In the worst case, all numbers are distinct and we must loop through all of them to discover this, taking linear time.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>In the worst case, all numbers are distinct and we must loop through all of them to discover this, taking linear time.</p>
 </details>
 
     </div>
@@ -1064,7 +1068,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>What is the <b>tight</b> theoretical lower bound for the worst case time complexity of this problem?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. Any algorithm must read every element in the worst case: if it skips one, that element could be the one that tips the count of ones over half (or keeps it under), so the algorithm can't know the answer. So the lower bound is <span class="math">\(\Omega(n)\)</span>, and it's tight because counting the ones in a single pass takes <span class="math">\(\Theta(n)\)</span> time.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>Any algorithm must read every element in the worst case: if it skips one, that element could be the one that tips the count of ones over half (or keeps it under), so the algorithm can't know the answer. So the lower bound is <span class="math-with-punctuation"><span class="math">\(\Omega(n)\)</span>,</span> and it's tight because counting the ones in a single pass takes <span class="math">\(\Theta(n)\)</span> time.</p>
 </details>
 
     </div>
@@ -1094,7 +1099,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         arr[j+1] = x</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. The best case occurs when the array is already sorted. Notice that in this case, the <span class="inline-code"><code>while</code></span> loop will never actually execute.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>The best case occurs when the array is already sorted. Notice that in this case, the <span class="inline-code"><code>while</code></span> loop will never actually execute.</p>
 </details>
 
     </div>
@@ -1124,7 +1130,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         arr[j+1] = x</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. The worst case occurs when the array is sorted in reverse order. In this case, the while-loop executes on every iteration of the for-loop, and must move <span class="inline-code"><code>x</code></span> from its current position all the way to the beginning of the array.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>The worst case occurs when the array is sorted in reverse order. In this case, the while-loop executes on every iteration of the for-loop, and must move <span class="inline-code"><code>x</code></span> from its current position all the way to the beginning of the array.</p>
 </details>
 
     </div>
@@ -1150,7 +1157,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     return False</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. In the best case, we <span class="inline-code"><code>return sum(arr)</code></span> on the very first iteration.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>In the best case, we <span class="inline-code"><code>return sum(arr)</code></span> on the very first iteration.</p>
 </details>
 
     </div>
@@ -1176,7 +1184,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     return False</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. In the worst case, we never find <span class="inline-code"><code>x + y == 5</code></span>, and go through all <span class="math">\(\Theta(n^2)\)</span> iterations just to return <span class="inline-code"><code>False</code></span> at the end.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>In the worst case, we never find <span class="inline-code"><code>x + y == 5</code></span>, and go through all <span class="math">\(\Theta(n^2)\)</span> iterations just to return <span class="inline-code"><code>False</code></span> at the end.</p>
 </details>
 
     </div>
@@ -1192,7 +1201,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>What is the <b>best case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<p>What is the <b>best case</b> time complexity of the following function in terms of <span class="math-with-punctuation"><span class="math">\(n\)</span>?</span></p>
 <pre class="code"><code class="language-python">def foo(arr):
     """`arr` is a list containing n numbers."""
     previous = None
@@ -1205,7 +1214,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         previous = x</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. In the best case, no two adjacent elements are equal (e.g., all elements are distinct), so the <span class="math">\(n^2\)</span> loop never runs and the function does constant work for each of the <span class="math">\(n\)</span> elements. Any input with two equal adjacent elements runs the <span class="math">\(n^2\)</span> loop, so it's slower.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>In the best case, no two adjacent elements are equal (e.g., all elements are distinct), so the <span class="math">\(n^2\)</span> loop never runs and the function does constant work for each of the <span class="math">\(n\)</span> elements. Any input with two equal adjacent elements runs the <span class="math">\(n^2\)</span> loop, so it's slower.</p>
 </details>
 
     </div>
@@ -1221,7 +1231,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a>, <a href='../tags/lecture-04.html'>lecture-04</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>What is the <b>worst case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<p>What is the <b>worst case</b> time complexity of the following function in terms of <span class="math-with-punctuation"><span class="math">\(n\)</span>?</span></p>
 <pre class="code"><code class="language-python">def foo(arr):
     """`arr` is a list containing n numbers."""
     previous = None
@@ -1234,9 +1244,9 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         previous = x</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>.</p>
-<p>There are two kinds of inputs. If no two adjacent elements are equal, the loop goes through all <span class="math">\(n\)</span> elements doing constant work on each, and the function takes <span class="math">\(\Theta(n)\)</span> time. Otherwise, suppose the first pair of equal adjacent elements ends at index <span class="math">\(k\)</span>. The loop runs <span class="math">\(k + 1 \leq n\)</span> times, then the inner loop prints <span class="math">\(n^2\)</span> times and the function returns, for a total of <span class="math">\(\Theta(k + n^2) = \Theta(n^2)\)</span>, since <span class="math">\(k < n\)</span>.</p>
-<p>So the worst case is any input with two equal adjacent elements, e.g., an array whose elements are all equal, and it takes <span class="math">\(\Theta(n^2)\)</span> time. Note that the function returns right after the <span class="math">\(n^2\)</span> loop, so it can only run once; that's why the worst case isn't <span class="math">\(\Theta(n^3)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>There are two kinds of inputs. If no two adjacent elements are equal, the loop goes through all <span class="math">\(n\)</span> elements doing constant work on each, and the function takes <span class="math">\(\Theta(n)\)</span> time. Otherwise, suppose the first pair of equal adjacent elements ends at index <span class="math-with-punctuation"><span class="math">\(k\)</span>.</span> The loop runs <span class="math">\(k + 1 \leq n\)</span> times, then the inner loop prints <span class="math">\(n^2\)</span> times and the function returns, for a total of <span class="math-with-punctuation"><span class="math">\(\Theta(k + n^2) = \Theta(n^2)\)</span>,</span> since <span class="math-with-punctuation"><span class="math">\(k < n\)</span>.</span></p>
+<p>So the worst case is any input with two equal adjacent elements, e.g., an array whose elements are all equal, and it takes <span class="math">\(\Theta(n^2)\)</span> time. Note that the function returns right after the <span class="math">\(n^2\)</span> loop, so it can only run once; that's why the worst case isn't <span class="math-with-punctuation"><span class="math">\(\Theta(n^3)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1252,11 +1262,11 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <p>Tags: <a href='../tags/lecture-04.html'>lecture-04</a>, <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
         <div class="problem">
     <div class="problem-body">
-<p>Suppose you are given a (possibly unsorted) array of <span class="math">\(n\)</span> floating point numbers and are tasked with counting the number of elements in the array which are within ten of the array's maximum (you are not told the maximum). That is, you must count the number of elements <span class="math">\(x\)</span> such that <span class="math">\(m - x \leq 10\)</span>, where <span class="math">\(m\)</span> is the array's maximum. You may assume that the array does not contain duplicate numbers.</p>
+<p>Suppose you are given a (possibly unsorted) array of <span class="math">\(n\)</span> floating point numbers and are tasked with counting the number of elements in the array which are within ten of the array's maximum (you are not told the maximum). That is, you must count the number of elements <span class="math">\(x\)</span> such that <span class="math-with-punctuation"><span class="math">\(m - x \leq 10\)</span>,</span> where <span class="math">\(m\)</span> is the array's maximum. You may assume that the array does not contain duplicate numbers.</p>
 <p>What is the <b>tight</b> theoretical lower bound for the worst case time complexity of this problem?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
 <p>It takes <span class="math">\(\Theta(n)\)</span> time to find the maximum. After this, we loop through and keep track of how many elements are within ten of the maximum—this also takes <span class="math">\(\Theta(n)\)</span> time.</p>
 </details>
 
@@ -1281,7 +1291,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
             return i</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. In the best case, the maximum is the first element. Then the loop returns on its first iteration, after calling <span class="inline-code"><code>max(arr)</code></span> once, which takes <span class="math">\(\Theta(n)\)</span> time.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>In the best case, the maximum is the first element. Then the loop returns on its first iteration, after calling <span class="inline-code"><code>max(arr)</code></span> once, which takes <span class="math">\(\Theta(n)\)</span> time.</p>
 </details>
 
     </div>
@@ -1306,7 +1317,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
 <p>What is the <b>worst case</b> time complexity of the function?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. In the worst case, the maximum is the last element (and appears only once), so the loop runs <span class="math">\(n\)</span> times. Each iteration calls <span class="inline-code"><code>max(arr)</code></span>, which takes <span class="math">\(\Theta(n)\)</span> time, so the total is <span class="math">\(n \times \Theta(n) = \Theta(n^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>In the worst case, the maximum is the last element (and appears only once), so the loop runs <span class="math">\(n\)</span> times. Each iteration calls <span class="inline-code"><code>max(arr)</code></span>, which takes <span class="math">\(\Theta(n)\)</span> time, so the total is <span class="math-with-punctuation"><span class="math">\(n \times \Theta(n) = \Theta(n^2)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1323,7 +1335,7 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
         <div class="problem">
     <div class="problem-body">
 <p>The code below takes in an array of <span class="math">\(n\)</span> numbers and checks whether there is a pair of numbers in the array which, when added together, equal the maximum element of the array.</p>
-<p>What is the <b>best case</b> time complexity of this code as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
+<p>What is the <b>best case</b> time complexity of this code as a function of <span class="math-with-punctuation"><span class="math">\(n\)</span>?</span> State your answer using asymptotic notation.</p>
 <pre class="code"><code class="language-python">def exists_pair_summing_to_max(arr):
     n = len(arr)
     maximum = max(arr)
@@ -1334,7 +1346,8 @@ button[aria-checked="true"] > .practicebank-switch::after { transform: translate
     return False</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. Computing <span class="inline-code"><code>max(arr)</code></span> always takes <span class="math">\(\Theta(n)\)</span> time. In the best case, the first pair checked works, i.e., <span class="inline-code"><code>arr[0] + arr[1]</code></span> equals the maximum (e.g., <span class="inline-code"><code>[1, 1, 2, 0, 0]</code></span>), so the nested loops return after <span class="math">\(\Theta(1)\)</span> time and the total is <span class="math">\(\Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>Computing <span class="inline-code"><code>max(arr)</code></span> always takes <span class="math">\(\Theta(n)\)</span> time. In the best case, the first pair checked works, i.e., <span class="inline-code"><code>arr[0] + arr[1]</code></span> equals the maximum (e.g., <span class="inline-code"><code>[1, 1, 2, 0, 0]</code></span>), so the nested loops return after <span class="math">\(\Theta(1)\)</span> time and the total is <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1366,7 +1379,8 @@ def foo(n):
         print(i)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. The last loop always runs <span class="math">\(n\)</span> times. With probability <span class="math">\(1/n\)</span> we have <span class="inline-code"><code>x == 1</code></span>, and the first loop also runs, taking <span class="math">\(\Theta(n)\)</span> time; otherwise we do constant work before the last loop. So the expected time is <span class="math">\(\frac{1}{n} \cdot \Theta(n) + \Theta(1) + \Theta(n) = \Theta(n)\)</span>. (In fact, every case takes <span class="math">\(\Theta(n)\)</span> time.)</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>The last loop always runs <span class="math">\(n\)</span> times. With probability <span class="math">\(1/n\)</span> we have <span class="inline-code"><code>x == 1</code></span>, and the first loop also runs, taking <span class="math">\(\Theta(n)\)</span> time; otherwise we do constant work before the last loop. So the expected time is <span class="math-with-punctuation"><span class="math">\(\frac{1}{n} \cdot \Theta(n) + \Theta(1) + \Theta(n) = \Theta(n)\)</span>.</span> (In fact, every case takes <span class="math">\(\Theta(n)\)</span> time.)</p>
 </details>
 
     </div>
@@ -1393,7 +1407,8 @@ def boo(n):
         print(i)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. The loop runs <span class="math">\(x\)</span> times, and <span class="math">\(x\)</span> is equally likely to be any of <span class="math">\(0, 1, \ldots, n-1\)</span>. So the expected number of iterations is <span class="math">\(\frac{1}{n}\sum_{x=0}^{n-1} x = \frac{1}{n} \cdot \frac{n(n-1)}{2} = \frac{n-1}{2} = \Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>The loop runs <span class="math">\(x\)</span> times, and <span class="math">\(x\)</span> is equally likely to be any of <span class="math-with-punctuation"><span class="math">\(0, 1, \ldots, n-1\)</span>.</span> So the expected number of iterations is <span class="math-with-punctuation"><span class="math">\(\frac{1}{n}\sum_{x=0}^{n-1} x = \frac{1}{n} \cdot \frac{n(n-1)}{2} = \frac{n-1}{2} = \Theta(n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1421,7 +1436,8 @@ def foo(n):
             print("Here!")</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. Note that in this question, the range of <span class="math">\(x\)</span> is between 0 and 99. Therefore the outer loop will run a constant number of times no matter what <span class="math">\(x\)</span> is. Then we can focus on the inner loop, which calls <span class="inline-code"><code>print</code></span> <span class="math">\(n\)</span> times, taking <span class="math">\(\Theta(n)\)</span> time. Therefore, the expected time complexity for this piece of code is <span class="math">\(\Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>Note that in this question, the range of <span class="math">\(x\)</span> is between 0 and 99. Therefore the outer loop will run a constant number of times no matter what <span class="math">\(x\)</span> is. Then we can focus on the inner loop, which calls <span class="inline-code"><code>print</code></span> <span class="math">\(n\)</span> times, taking <span class="math">\(\Theta(n)\)</span> time. Therefore, the expected time complexity for this piece of code is <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1440,7 +1456,8 @@ def foo(n):
 <p>Suppose you are given a <b>sorted</b> array containing <span class="math">\(n\)</span> elements. Each element is either zero or one. You are tasked with determining if the majority (at least half) of the array's elements are one. What is the <b>tight</b> theoretical lower bound for the worst case time complexity of any algorithm which solves this problem?</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(1)\)</span>. Since the array is sorted, the zeros come first and the ones are at the end. At least half the elements are ones exactly when the element at index <span class="math">\(\lfloor n/2 \rfloor\)</span> is a one, so we only need to check that one element.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(1)\)</span>.</span></p>
+<p>Since the array is sorted, the zeros come first and the ones are at the end. At least half the elements are ones exactly when the element at index <span class="math">\(\lfloor n/2 \rfloor\)</span> is a one, so we only need to check that one element.</p>
 </details>
 
     </div>
@@ -1470,10 +1487,10 @@ def foo(n):
     return False</code></pre>
 <div class="subproblem">
     <h3 class="subproblem-id">Part 1)</h3>
-<p>What is the <b>best case</b> time complexity of this code as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
+<p>What is the <b>best case</b> time complexity of this code as a function of <span class="math-with-punctuation"><span class="math">\(n\)</span>?</span> State your answer using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
 <p>The best case is when the first element of the second list appears at least <span class="math">\(n/2\)</span> times in the first list. In this case, the code will return <span class="inline-code"><code>True</code></span> after iterating <span class="math">\(n/2\)</span> times through the inner loop, taking <span class="math">\(\Theta(n)\)</span> time total.</p>
 </details>
 
@@ -1481,10 +1498,10 @@ def foo(n):
 
 <div class="subproblem">
     <h3 class="subproblem-id">Part 2)</h3>
-<p>What is the <b>worst case</b> time complexity of this code as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
+<p>What is the <b>worst case</b> time complexity of this code as a function of <span class="math-with-punctuation"><span class="math">\(n\)</span>?</span> State your answer using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
 <p>In the worst case, there is no element in the second list that appears <span class="math">\(n/2\)</span> times in the first. We make all <span class="math">\(n\)</span> iterations of the outer loop, and during each of the outer iterations, make <span class="math">\(n\)</span> iterations of the inner loop, for a total of <span class="math">\(\Theta(n^2)\)</span> time.</p>
 </details>
 
@@ -1522,10 +1539,11 @@ def foo(list1, list2):
             for j in list2:
                 for k in range(len(list1)):
                     print(i, j, k)</code></pre>
-<p>What is the best case time complexity of <span class="inline-code"><code>foo</code></span> as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
+<p>What is the best case time complexity of <span class="inline-code"><code>foo</code></span> as a function of <span class="math-with-punctuation"><span class="math">\(n\)</span>?</span> State your answer using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<p>The best case is where the lists are equal. In this case the time complexity is <span class="math">\(\Theta(n)\)</span>. The worst case is when the lists are not equal in which case the time complexity is <span class="math">\(\Theta(n^3)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>The best case is where the lists are equal. In this case the time complexity is <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span> The worst case is when the lists are not equal in which case the time complexity is <span class="math-with-punctuation"><span class="math">\(\Theta(n^3)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1553,7 +1571,8 @@ def foo(n):
             print("Here!")</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. The inner loop is not random, and the time complexity of it is always <span class="math">\(\Theta(n)\)</span>. Therefore the expected time complexity of this function will be (using the arithmetic sequence sum formula)</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>The inner loop is not random, and the time complexity of it is always <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span> Therefore the expected time complexity of this function will be (using the arithmetic sequence sum formula)</p>
 <div class="math">\[ \frac{1}{n} \sum_{i = 0}^{n - 1} i \times \Theta(n) = \Theta(n^2). \]</div>
 </details>
 
@@ -1581,7 +1600,8 @@ def foo(n):
             print(j)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. For this function, the outer loop will execute <span class="math">\(n\)</span> times no matter what, hence we only have to find what the expected time complexity for the inner loop is, then combine that together with the outer loop. For the inner loop, the expected time complexity is</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>For this function, the outer loop will execute <span class="math">\(n\)</span> times no matter what, hence we only have to find what the expected time complexity for the inner loop is, then combine that together with the outer loop. For the inner loop, the expected time complexity is</p>
 <div class="math">\[ \frac{1}{n} \sum_{i = 1}^{n - 1} i = \frac{1}{n} \cdot \Theta(n^2) = \Theta(n). \]</div>
 <p>Then, the expected complexity for the whole function will be</p>
 <div class="math">\[ \Theta(n) \times \Theta(n) = \Theta(n^2). \]</div>
@@ -1612,7 +1632,8 @@ def foo(n):
             print(j)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>. The for loop is only executed if <span class="math">\(x\)</span> is less than 100, therefore we can write the expected time as (ignoring constant factors):</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>The for loop is only executed if <span class="math">\(x\)</span> is less than 100, therefore we can write the expected time as (ignoring constant factors):</p>
 <div class="math">\[ f(n) = \frac{1}{n} \bigg(\sum_{i = 0}^{99} n^2 + \sum_{i = 100}^{n - 1} 1 \bigg)= \frac{1}{n} \cdot (\Theta(n^2) + \Theta(n)) = \Theta(n). \]</div>
 </details>
 
@@ -1643,7 +1664,8 @@ def foo(n):
             print(j)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. The expected time complexity for this function is</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>The expected time complexity for this function is</p>
 <div class="math">\[ \frac{1}{n} \bigg(\sum_{i = 0}^{7} n^3 + \sum_{i = 8}^{n - 1} n \bigg)= \frac{1}{n} (\Theta(n^3) + \Theta(n^2)) = \Theta(n^2). \]</div>
 </details>
 
@@ -1675,7 +1697,8 @@ def foo(n):
         print("Lucky!")</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. The first branch happens with probability <span class="math">\(20/n\)</span> and takes <span class="math">\(\Theta(n^3)\)</span> time; the second happens with probability about <span class="math">\(1/2\)</span> and takes <span class="math">\(\Theta(n)\)</span> time; the third takes <span class="math">\(\Theta(1)\)</span> time. So the expected time is about <span class="math">\(\frac{20}{n} \cdot n^3 + \frac12 \cdot n + \frac12 \cdot 1 = 20n^2 + \frac{n}{2} + \frac12 = \Theta(n^2)\)</span>.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>The first branch happens with probability <span class="math">\(20/n\)</span> and takes <span class="math">\(\Theta(n^3)\)</span> time; the second happens with probability about <span class="math">\(1/2\)</span> and takes <span class="math">\(\Theta(n)\)</span> time; the third takes <span class="math">\(\Theta(1)\)</span> time. So the expected time is about <span class="math-with-punctuation"><span class="math">\(\frac{20}{n} \cdot n^3 + \frac12 \cdot n + \frac12 \cdot 1 = 20n^2 + \frac{n}{2} + \frac12 = \Theta(n^2)\)</span>.</span></p>
 </details>
 
     </div>
@@ -1703,7 +1726,8 @@ def foo(n):
             print(j)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(\sqrt n)\)</span>. Since the for loop only executes when <span class="math">\(x\)</span> is less than <span class="math">\(\sqrt{n}\)</span>, the expected time complexity is</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(\sqrt n)\)</span>.</span></p>
+<p>Since the for loop only executes when <span class="math">\(x\)</span> is less than <span class="math-with-punctuation"><span class="math">\(\sqrt{n}\)</span>,</span> the expected time complexity is</p>
 <div class="math">\[ \frac{1}{n} \bigg(\sum_{i = 1}^{\lfloor \sqrt{n} \rfloor} n + \sum_{i = \lceil \sqrt{n} \rceil}^{n - 1} 1 \bigg) 
         \approx \frac{1}{n} (n \sqrt{n} + (n - \sqrt{n})) = \Theta(\sqrt{n}). \]</div>
 </details>
@@ -1740,7 +1764,8 @@ def foo(n):
             print(i)</code></pre>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n^2)\)</span>. The expected time complexity for this function is</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
+<p>The expected time complexity for this function is</p>
 <div class="math">\[ f(n) = \frac{1}{n} \bigg(\sum_{x = 0}^{\lceil \sqrt{n} \rceil - 1} n + \sum_{x = \lceil \sqrt{n} \rceil}^{\lfloor n/2 \rfloor - 1} 1 
         + \sum_{x = \lfloor n/2 \rfloor}^{n - 1} n^2 \bigg)        = \frac{1}{n} (\Theta(n \sqrt{n}) + \Theta(n) + \Theta(n^3))
         = \Theta(n^2).
@@ -1780,18 +1805,18 @@ def boo(n):
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n \log n)\)</span></p>
-<p>There are three cases: Case 1) <span class="math">\(x < \log_2 n\)</span>; Case 2) <span class="math">\(\log_2 n \leq x < \sqrt n\)</span>; and Case 3) <span class="math">\(x \geq \sqrt{n}\)</span>.</p>
-<p>The probability of Case 1 is <span class="math">\(\log n / n\)</span>. The time taken in case 1 is <span class="math">\(\Theta(n^2)\)</span>.</p>
+<p>There are three cases: Case 1) <span class="math-with-punctuation"><span class="math">\(x < \log_2 n\)</span>;</span> Case 2) <span class="math-with-punctuation"><span class="math">\(\log_2 n \leq x < \sqrt n\)</span>;</span> and Case 3) <span class="math-with-punctuation"><span class="math">\(x \geq \sqrt{n}\)</span>.</span></p>
+<p>The probability of Case 1 is <span class="math-with-punctuation"><span class="math">\(\log n / n\)</span>.</span> The time taken in case 1 is <span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
 <p>The probability of Case 2 is</p>
 <div class="math">\[
             \frac{\sqrt n}{n} - \frac{\log_2 n}{n} = \Theta(\sqrt n / n) = \Theta(1/\sqrt n).
         \]</div>
-<p>The time taken in this case is <span class="math">\(\Theta(n)\)</span>.</p>
-<p>The probability of Case 3 is 1 minus the probability of the sum of the other two cases, which will simply be <span class="math">\(\Theta(1)\)</span>:</p>
+<p>The time taken in this case is <span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>The probability of Case 3 is 1 minus the probability of the sum of the other two cases, which will simply be <span class="math-with-punctuation"><span class="math">\(\Theta(1)\)</span>:</span></p>
 <div class="math">\[
             1 - \Theta((\log n) / n) - \Theta(1 / \sqrt{n}) = \Theta(1).
         \]</div>
-<p>The time taken is <span class="math">\(\Theta(1)\)</span>.</p>
+<p>The time taken is <span class="math-with-punctuation"><span class="math">\(\Theta(1)\)</span>.</span></p>
 <p>Therefore, the expected time is:</p>
 <div class="math">\[
             \begin{aligned}
@@ -1840,15 +1865,15 @@ def foo(n):
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(n \log n)\)</span></p>
-<p>There are three cases: Case 1) <span class="math">\(x < \log n\)</span>; Case 2) <span class="math">\(\log n \leq x <
-        \sqrt n\)</span>; and Case 3) <span class="math">\(x \geq \sqrt{n}\)</span>.</p>
-<p>The probability of Case 1 is <span class="math">\(\log n / n\)</span>. The time taken in case 1 is <span class="math">\(\Theta(n^2)\)</span>.</p>
+<p>There are three cases: Case 1) <span class="math-with-punctuation"><span class="math">\(x < \log n\)</span>;</span> Case 2) <span class="math-with-punctuation"><span class="math">\(\log n \leq x <
+        \sqrt n\)</span>;</span> and Case 3) <span class="math-with-punctuation"><span class="math">\(x \geq \sqrt{n}\)</span>.</span></p>
+<p>The probability of Case 1 is <span class="math-with-punctuation"><span class="math">\(\log n / n\)</span>.</span> The time taken in case 1 is <span class="math-with-punctuation"><span class="math">\(\Theta(n^2)\)</span>.</span></p>
 <p>The probability of Case 2 is</p>
 <div class="math">\[
             \frac{\sqrt n}{n} - \frac{\log n}{n} = \Theta(\sqrt n / n) = \Theta(1/\sqrt n).
         \]</div>
-<p>The time taken in this case is <span class="math">\(\Theta(1)\)</span>.</p>
-<p>The probability of Case 3 is 1 minus the probability of the sum of the other two cases, which will simply be <span class="math">\(\Theta(1)\)</span>:</p>
+<p>The time taken in this case is <span class="math-with-punctuation"><span class="math">\(\Theta(1)\)</span>.</span></p>
+<p>The probability of Case 3 is 1 minus the probability of the sum of the other two cases, which will simply be <span class="math-with-punctuation"><span class="math">\(\Theta(1)\)</span>:</span></p>
 <div class="math">\[
             1 - \Theta((\log n) / n) - \Theta(1 / \sqrt{n}) = \Theta(1)
         \]</div>
@@ -1886,31 +1911,31 @@ def foo(n):
 <p>What is a <b>tight</b> theoretical lower bound for this problem? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation.</p>
 <details>
     <summary>Solution</summary>
-<p><span class="math">\(\Theta(n)\)</span>.</p>
-<p>First, we argue that any algorithm must look at every element in the worst case. Suppose an algorithm claims that an array has an equal number of ones and zeros without reading some element. If we flipped that element (from a one to a zero, or vice versa), the algorithm would see exactly the same thing and give the same answer, but now the number of ones differs from the number of zeros by two. So the algorithm would be wrong on one of the two arrays. Therefore any correct algorithm needs to read all <span class="math">\(n\)</span> elements, and the lower bound is <span class="math">\(\Omega(n)\)</span>.</p>
-<p>This bound is tight because there is an algorithm that achieves it: loop through the array once, counting the ones, and check whether the count equals <span class="math">\(n/2\)</span>. This takes <span class="math">\(\Theta(n)\)</span> time.</p>
+<p><span class="math-with-punctuation"><span class="math">\(\Theta(n)\)</span>.</span></p>
+<p>First, we argue that any algorithm must look at every element in the worst case. Suppose an algorithm claims that an array has an equal number of ones and zeros without reading some element. If we flipped that element (from a one to a zero, or vice versa), the algorithm would see exactly the same thing and give the same answer, but now the number of ones differs from the number of zeros by two. So the algorithm would be wrong on one of the two arrays. Therefore any correct algorithm needs to read all <span class="math">\(n\)</span> elements, and the lower bound is <span class="math-with-punctuation"><span class="math">\(\Omega(n)\)</span>.</span></p>
+<p>This bound is tight because there is an algorithm that achieves it: loop through the array once, counting the ones, and check whether the count equals <span class="math-with-punctuation"><span class="math">\(n/2\)</span>.</span> This takes <span class="math">\(\Theta(n)\)</span> time.</p>
 </details>
 
 </div>
 
 <div class="subproblem">
     <h3 class="subproblem-id">Part 2)</h3>
-<p>Now assume that the input array is guaranteed to have the following structure: there will be <span class="math">\(a\)</span> ones, followed by <span class="math">\(b\)</span> zeros, followed again by <span class="math">\(a\)</span> ones. An example of such an array is: <span class="inline-code"><code>[1, 1, 0, 0, 0, 1, 1]</code></span>. In this example, <span class="math">\(a = 2\)</span> and <span class="math">\(b = 3\)</span>.</p>
+<p>Now assume that the input array is guaranteed to have the following structure: there will be <span class="math">\(a\)</span> ones, followed by <span class="math">\(b\)</span> zeros, followed again by <span class="math">\(a\)</span> ones. An example of such an array is: <span class="inline-code"><code>[1, 1, 0, 0, 0, 1, 1]</code></span>. In this example, <span class="math">\(a = 2\)</span> and <span class="math-with-punctuation"><span class="math">\(b = 3\)</span>.</span></p>
 <p>Consider the same problem as before: that is, given an array satisfying the above assumption, determine if the number of ones in the array is equal to the number of zeros. Of course, <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are not known ahead of time.</p>
 <p>What is a <b>tight</b> theoretical lower bound for this problem?</p>
 <details>
     <summary>Solution</summary>
 <p><span class="math">\(\Theta(1)\)</span></p>
-<p>Let <span class="math">\(n\)</span> be the length of the array. Assume that <span class="math">\(n\)</span> is even (if it is odd, we can immediately say that there are not an equal number of ones and zeros). In fact, we can assume that <span class="math">\(n\)</span> is divisible by four, since <span class="math">\(n = a + b + a = 2a + b\)</span>, which must equal <span class="math">\(4a\)</span> if there are an equal number of ones and zeros.</p>
-<p>For there to be an equal number of ones as zeros, the middle <span class="math">\(n/2\)</span> elements must be zero, while the first <span class="math">\(n/4\)</span> and last <span class="math">\(n/4\)</span> must be ones. If that is the case, then the last one in the first group of ones will occur at index <span class="math">\(n / 4 - 1\)</span>, and the first zero will occur at <span class="math">\(n / 4\)</span>.</p>
+<p>Let <span class="math">\(n\)</span> be the length of the array. Assume that <span class="math">\(n\)</span> is even (if it is odd, we can immediately say that there are not an equal number of ones and zeros). In fact, we can assume that <span class="math">\(n\)</span> is divisible by four, since <span class="math-with-punctuation"><span class="math">\(n = a + b + a = 2a + b\)</span>,</span> which must equal <span class="math">\(4a\)</span> if there are an equal number of ones and zeros.</p>
+<p>For there to be an equal number of ones as zeros, the middle <span class="math">\(n/2\)</span> elements must be zero, while the first <span class="math">\(n/4\)</span> and last <span class="math">\(n/4\)</span> must be ones. If that is the case, then the last one in the first group of ones will occur at index <span class="math-with-punctuation"><span class="math">\(n / 4 - 1\)</span>,</span> and the first zero will occur at <span class="math-with-punctuation"><span class="math">\(n / 4\)</span>.</span></p>
 <p>A constant-time algorithm is to check the element at index <span class="math">\(n/4
                 - 1\)</span> and verify that it is a one. Then we check the element at index <span class="math">\(n/4 \)</span> and check that it is a zero.</p>
-<p>Consider, for example, this array with <span class="math">\(n = 12\)</span>:</p>
+<p>Consider, for example, this array with <span class="math-with-punctuation"><span class="math">\(n = 12\)</span>:</span></p>
 <pre class="code"><code class="language-python">[1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1]</code></pre>
-<p>Then <span class="math">\(n / 4 = 3\)</span>. Therefore, we check the elements at index 2 and 3 in constant time and find them to both be one, which tells us that this array does not have an equal number of zeros and ones.</p>
+<p>Then <span class="math-with-punctuation"><span class="math">\(n / 4 = 3\)</span>.</span> Therefore, we check the elements at index 2 and 3 in constant time and find them to both be one, which tells us that this array does not have an equal number of zeros and ones.</p>
 <p>Now consider the array below:</p>
 <pre class="code"><code class="language-python">[1, 1, 0, 0, 0, 0, 1, 1]</code></pre>
-<p>Since <span class="math">\(n = 8\)</span>, we check the elements at index 1 and 2. We find 1 and 0, which tells us that the array <i>does</i> have an equal number of zeros and ones, as expected.</p>
+<p>Since <span class="math-with-punctuation"><span class="math">\(n = 8\)</span>,</span> we check the elements at index 1 and 2. We find 1 and 0, which tells us that the array <i>does</i> have an equal number of zeros and ones, as expected.</p>
 </details>
 
 </div>
